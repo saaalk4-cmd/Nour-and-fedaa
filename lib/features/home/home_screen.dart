@@ -36,7 +36,7 @@ class HomeScreen extends ConsumerWidget {
             return ListView(
               padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
               children: [
-                Text('أهلًا يا ' + c.name + '! 🌟', style: Theme.of(context).textTheme.headlineMedium),
+                Text('أهلًا يا ${c.name}! 🌟', style: Theme.of(context).textTheme.headlineMedium),
                 const SizedBox(height: 6),
                 const Text('مغامرة صغيرة اليوم... وخطوة جديدة في التعلم.', style: TextStyle(fontSize: 17)),
                 const SizedBox(height: 14),
@@ -58,7 +58,7 @@ class HomeScreen extends ConsumerWidget {
                         borderRadius: BorderRadius.circular(28),
                         child: InkWell(
                           borderRadius: BorderRadius.circular(28),
-                          onTap: () => context.push('/section/' + s.id),
+                          onTap: () => context.push('/section/${s.id}'),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
