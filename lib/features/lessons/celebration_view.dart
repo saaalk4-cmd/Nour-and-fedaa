@@ -89,7 +89,12 @@ class _CelebrationViewState extends State<CelebrationView>
               padding: const EdgeInsets.all(24),
               child: Column(
                 children: [
-                  const Spacer(),
+                  Expanded(
+                    child: Center(
+                      child: SingleChildScrollView(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
                   ScaleTransition(
                     scale: CurvedAnimation(
                       parent: _controller,
@@ -177,7 +182,20 @@ class _CelebrationViewState extends State<CelebrationView>
                       style: TextStyle(fontSize: 18),
                     ),
                   ],
-                  const Spacer(),
+                  for (final b in c.newBadges) ...[
+                    const SizedBox(height: 12),
+                    Text(
+                      '🏅 شارة جديدة: ${b.emoji} ${b.title}',
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
+                    ),
+                  ],
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 12),
                   SizedBox(
                     width: double.infinity,
                     height: 66,

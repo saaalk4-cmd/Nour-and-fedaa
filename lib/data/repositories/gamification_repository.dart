@@ -1,5 +1,6 @@
 import 'package:sqflite/sqflite.dart';
 
+import '../../domain/gamification/achievements.dart';
 import '../../domain/gamification/level_system.dart';
 import '../../domain/gamification/quests.dart';
 import '../../domain/gamification/streak.dart';
@@ -86,6 +87,13 @@ class GamificationRepository {
       whereArgs: [childId],
     );
     return rows.map((r) => r['lesson_id']! as String).toSet();
+  }
+
+  /// الشارات المفتوحة: badge_id ← وقت الحصول عليها.
+  Future<Map<String, String>> earnedBadges(int childId) async {
+    final db = await AppDatabase.instance.database;
+    final rows = await db.query('badges', where: 'child_id = ?', whereArgs: [childId]);
+    return {for (final r in rows) r['badge_id']! as String: r['earned_at']! as String};
   }
 
   /// يسجّل إكمال درس في معاملة واحدة (كلها أو لا شيء):
@@ -206,7 +214,43 @@ class GamificationRepository {
         [reward.stars + bonusStars, reward.xp + bonusXp, childId],
       );
 
+      // الشارات: نقيّم الشروط على التقدم بعد هذا الدرس، ونحفظ الجديد فقط.
+      final scoreRows = await txn.rawQuery(
+        'SELECT COALESCE(SUM(score), 0) AS s FROM progress WHERE child_id = ?',
+        [childId],
+      );
+      final bonusRows = await txn.rawQuery(
+        "SELECT COUNT(*) AS c FROM daily_quests WHERE child_id = ? AND quest_id = ? AND progress > 0",
+        [childId, DailyQuests.bonusId],
+      );
+      final stats = AchievementStats(
+        lessons: ((g['total_lessons'] as int?) ?? 0) + (isFirst ? 1 : 0),
+        xp: newXp,
+        level: LevelSystem.levelForXp(newXp),
+        stars: ((g['stars'] as int?) ?? 0) + reward.stars + bonusStars,
+        bestStreak: streak.best,
+        correctAnswers: (scoreRows.first['s'] as int?) ?? 0,
+        bonusDays: (bonusRows.first['c'] as int?) ?? 0,
+        perfectNow: reward.isFirstCompletion && reward.perfect,
+      );
+      final earnedRows = await txn.query(
+        'badges',
+        columns: ['badge_id'],
+        where: 'child_id = ?',
+        whereArgs: [childId],
+      );
+      final already = {for (final r in earnedRows) r['badge_id']! as String};
+      final newBadges = Achievements.newlyEarned(stats, already);
+      for (final b in newBadges) {
+        await txn.insert(
+          'badges',
+          {'child_id': childId, 'badge_id': b.id, 'earned_at': time.toIso8601String()},
+          conflictAlgorithm: ConflictAlgorithm.ignore,
+        );
+      }
+
       return LessonCompletion(
+        newBadges: newBadges,
         reward: reward,
         oldLevel: LevelSystem.levelForXp(oldXp),
         newLevel: LevelSystem.levelForXp(newXp),

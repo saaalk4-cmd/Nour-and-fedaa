@@ -37,6 +37,11 @@ final completedLessonIdsProvider =
   return ref.watch(gamificationRepositoryProvider).completedLessonIds(childId);
 });
 
+final earnedBadgesProvider =
+    FutureProvider.family<Map<String, String>, int>((ref, childId) {
+  return ref.watch(gamificationRepositoryProvider).earnedBadges(childId);
+});
+
 final dailyQuestsProvider =
     FutureProvider.family<DailyQuestsState, int>((ref, childId) {
   return ref.watch(gamificationRepositoryProvider).dailyQuests(childId);

@@ -1,3 +1,4 @@
+import '../../domain/gamification/achievements.dart';
 import '../../domain/gamification/streak.dart';
 import '../../domain/gamification/xp_rules.dart';
 
@@ -11,6 +12,7 @@ class LessonCompletion {
     required this.streak,
     this.bonusXp = 0,
     this.bonusStars = 0,
+    this.newBadges = const [],
   });
 
   final LessonReward reward;
@@ -22,6 +24,9 @@ class LessonCompletion {
   /// مكافأة إكمال كل مهام اليوم (تُعطى مرة واحدة في اليوم).
   final int bonusXp;
   final int bonusStars;
+
+  /// الشارات التي فُتحت بهذا الدرس.
+  final List<AchievementDef> newBadges;
 
   bool get dailyBonusEarned => bonusXp > 0 || bonusStars > 0;
   int get gainedXp => reward.xp + bonusXp;
