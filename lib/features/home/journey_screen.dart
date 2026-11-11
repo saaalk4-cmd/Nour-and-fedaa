@@ -121,7 +121,7 @@ class _Node extends StatelessWidget {
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(22)),
     child: ListTile(
       leading: CircleAvatar(child: Text(number)),
-      title: Text(icon + '  ' + title, style: const TextStyle(fontWeight: FontWeight.w800)),
+      title: Text('$icon  $title', style: const TextStyle(fontWeight: FontWeight.w800)),
       subtitle: Text(subtitle),
       trailing: Icon(unlocked ? Icons.arrow_forward_ios : Icons.lock_outline, size: 20),
     ),
