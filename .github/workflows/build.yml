@@ -20,6 +20,9 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           channel: stable
+          # مثبّت عمدًا: 3.50.0 اعتبر material.dart deprecated فكسر analyze.
+          # الترقية تتم لاحقًا بقرار مستقل (ترحيل الـ imports إلى material_ui).
+          flutter-version: "3.47.9"
           cache: true
 
       # مجلد android يُولَّد تلقائيًا إن لم يكن موجودًا في المستودع
