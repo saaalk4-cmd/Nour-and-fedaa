@@ -7,6 +7,7 @@ class GamificationProfile {
     required this.dailyQuestsCompleted,
     required this.totalLessons,
     this.bestStreak = 0,
+    this.lastActiveDay,
   });
 
   final int xp;
@@ -16,6 +17,7 @@ class GamificationProfile {
   final int dailyQuestsCompleted;
   final int totalLessons;
   final int bestStreak;
+  final String? lastActiveDay;
 
   int get xpIntoLevel => xp % 100;
   int get xpToNextLevel => 100 - xpIntoLevel;

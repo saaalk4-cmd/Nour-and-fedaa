@@ -1,6 +1,7 @@
 import 'package:sqflite/sqflite.dart';
 
 import '../../domain/gamification/level_system.dart';
+import '../../domain/gamification/quests.dart';
 import '../../domain/gamification/streak.dart';
 import '../../domain/gamification/xp_rules.dart';
 import '../db/app_database.dart';
@@ -25,6 +26,54 @@ class GamificationRepository {
       dailyQuestsCompleted: (r['daily_quests_completed'] as int?) ?? 0,
       totalLessons: (r['total_lessons'] as int?) ?? 0,
       bestStreak: (r['best_streak'] as int?) ?? 0,
+      lastActiveDay: r['last_active_day'] as String?,
+    );
+  }
+
+  Future<void> _ensureQuestRows(
+    DatabaseExecutor db,
+    int childId,
+    String day,
+    List<QuestDef> defs,
+  ) async {
+    for (final d in defs) {
+      await db.insert(
+        'daily_quests',
+        {'child_id': childId, 'day': day, 'quest_id': d.id, 'progress': 0, 'target': d.target},
+        conflictAlgorithm: ConflictAlgorithm.ignore,
+      );
+    }
+    await db.insert(
+      'daily_quests',
+      {'child_id': childId, 'day': day, 'quest_id': DailyQuests.bonusId, 'progress': 0, 'target': 1},
+      conflictAlgorithm: ConflictAlgorithm.ignore,
+    );
+  }
+
+  Future<int> _ageOf(DatabaseExecutor db, int childId) async {
+    final rows = await db.query('children', columns: ['age'], where: 'id = ?', whereArgs: [childId]);
+    return rows.isEmpty ? 5 : (rows.first['age'] as int);
+  }
+
+  /// مهام اليوم للطفلة (تُنشأ تلقائيًا عند أول طلب في اليوم).
+  Future<DailyQuestsState> dailyQuests(int childId, {DateTime? now}) async {
+    final db = await AppDatabase.instance.database;
+    final today = dayKey(now ?? DateTime.now());
+    final defs = DailyQuests.forAge(await _ageOf(db, childId));
+    await _ensureQuestRows(db, childId, today, defs);
+    final rows = await db.query(
+      'daily_quests',
+      where: 'child_id = ? AND day = ?',
+      whereArgs: [childId, today],
+    );
+    final progressById = {
+      for (final r in rows) r['quest_id']! as String: (r['progress'] as int?) ?? 0,
+    };
+    return DailyQuestsState(
+      quests: [
+        for (final d in defs) QuestProgress(def: d, progress: progressById[d.id] ?? 0),
+      ],
+      bonusGiven: (progressById[DailyQuests.bonusId] ?? 0) > 0,
     );
   }
 
@@ -72,8 +121,53 @@ class GamificationRepository {
         isFirstCompletion: isFirst,
       );
 
+      // مهام اليوم: نحدّث التقدم، وإذا اكتملت كلها نعطي مكافأة يومية مرة واحدة.
+      final defs = DailyQuests.forAge(await _ageOf(txn, childId));
+      await _ensureQuestRows(txn, childId, today, defs);
+      final questRows = await txn.query(
+        'daily_quests',
+        where: 'child_id = ? AND day = ?',
+        whereArgs: [childId, today],
+      );
+      final current = {
+        for (final r in questRows) r['quest_id']! as String: (r['progress'] as int?) ?? 0,
+      };
+      var allDone = true;
+      for (final d in defs) {
+        final before = current[d.id] ?? 0;
+        final after = DailyQuests.applyEvent(
+          d.id,
+          before,
+          d.target,
+          lessons: 1,
+          correct: firstTryCorrect,
+          xp: reward.xp,
+        );
+        if (after != before) {
+          await txn.update(
+            'daily_quests',
+            {'progress': after},
+            where: 'child_id = ? AND day = ? AND quest_id = ?',
+            whereArgs: [childId, today, d.id],
+          );
+        }
+        if (after < d.target) allDone = false;
+      }
+      final bonusAlreadyGiven = (current[DailyQuests.bonusId] ?? 0) > 0;
+      final grantBonus = allDone && !bonusAlreadyGiven;
+      if (grantBonus) {
+        await txn.update(
+          'daily_quests',
+          {'progress': 1},
+          where: 'child_id = ? AND day = ? AND quest_id = ?',
+          whereArgs: [childId, today, DailyQuests.bonusId],
+        );
+      }
+      final bonusXp = grantBonus ? DailyQuests.bonusXp : 0;
+      final bonusStars = grantBonus ? DailyQuests.bonusStars : 0;
+
       final oldXp = (g['xp'] as int?) ?? 0;
-      final newXp = oldXp + reward.xp;
+      final newXp = oldXp + reward.xp + bonusXp;
       final streak = StreakCalculator.update(
         lastDay: g['last_active_day'] as String?,
         today: today,
@@ -97,7 +191,7 @@ class GamificationRepository {
         'gamification',
         {
           'xp': newXp,
-          'stars': ((g['stars'] as int?) ?? 0) + reward.stars,
+          'stars': ((g['stars'] as int?) ?? 0) + reward.stars + bonusStars,
           'streak_days': streak.current,
           'best_streak': streak.best,
           'last_active_day': today,
@@ -109,7 +203,7 @@ class GamificationRepository {
       // نُبقي جدول children متسقًا (لوحة ولي الأمر تقرأ منه حاليًا).
       await txn.rawUpdate(
         'UPDATE children SET stars = stars + ?, points = points + ? WHERE id = ?',
-        [reward.stars, reward.xp, childId],
+        [reward.stars + bonusStars, reward.xp + bonusXp, childId],
       );
 
       return LessonCompletion(
@@ -118,6 +212,8 @@ class GamificationRepository {
         newLevel: LevelSystem.levelForXp(newXp),
         totalXp: newXp,
         streak: streak,
+        bonusXp: bonusXp,
+        bonusStars: bonusStars,
       );
     });
   }

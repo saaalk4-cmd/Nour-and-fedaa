@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../domain/gamification/quests.dart';
 import 'content/content_repository.dart';
 import 'content/lesson.dart';
 import 'models/child.dart';
@@ -34,6 +35,11 @@ final gamificationProfileProvider =
 final completedLessonIdsProvider =
     FutureProvider.family<Set<String>, int>((ref, childId) {
   return ref.watch(gamificationRepositoryProvider).completedLessonIds(childId);
+});
+
+final dailyQuestsProvider =
+    FutureProvider.family<DailyQuestsState, int>((ref, childId) {
+  return ref.watch(gamificationRepositoryProvider).dailyQuests(childId);
 });
 
 final contentRepositoryProvider = Provider((_) => ContentRepository());

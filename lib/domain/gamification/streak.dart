@@ -36,6 +36,18 @@ class StreakCalculator {
     );
   }
 
+  /// السلسلة التي تُعرض على الشاشة: تبقى إذا كان آخر نشاط اليوم أو أمس،
+  /// وإلا نعرض 0 (دعوة لبداية جديدة) بدون أي رسالة خسارة.
+  static int activeStreak({
+    required String? lastDay,
+    required String today,
+    required int current,
+  }) {
+    if (lastDay == null) return 0;
+    final gap = _utcDay(today).difference(_utcDay(lastDay)).inDays;
+    return gap <= 1 ? current : 0;
+  }
+
   static StreakUpdate update({
     required String? lastDay,
     required String today,

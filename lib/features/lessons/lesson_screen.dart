@@ -93,6 +93,7 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
       if (!mounted) return;
       ref.invalidate(gamificationProfileProvider(widget.child.id));
       ref.invalidate(completedLessonIdsProvider(widget.child.id));
+      ref.invalidate(dailyQuestsProvider(widget.child.id));
       ref.invalidate(childrenProvider);
       HapticFeedback.mediumImpact();
       setState(() {

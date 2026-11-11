@@ -66,7 +66,7 @@ class _CelebrationViewState extends State<CelebrationView>
     final streakMessage = _streakMessage;
     final level = LevelSystem.info(c.newLevel);
 
-    final oldXp = c.totalXp - reward.xp;
+    final oldXp = c.totalXp - c.gainedXp;
     final oldFraction = (oldXp % LevelSystem.xpPerLevel) / LevelSystem.xpPerLevel;
     final newFraction =
         (c.totalXp % LevelSystem.xpPerLevel) / LevelSystem.xpPerLevel;
@@ -118,8 +118,20 @@ class _CelebrationViewState extends State<CelebrationView>
                           text: '⭐ +${reward.stars} ${reward.stars == 1 ? 'نجمة' : 'نجوم'}',
                           color: AppColors.rose,
                         ),
+                      if (c.dailyBonusEarned)
+                        _RewardChip(
+                          text: '🎯 مهام اليوم +${c.bonusXp} XP',
+                          color: AppColors.leaf,
+                        ),
                     ],
                   ),
+                  if (c.dailyBonusEarned) ...[
+                    const SizedBox(height: 12),
+                    const Text(
+                      '🎉 أكملتِ كل مهام اليوم!',
+                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
+                    ),
+                  ],
                   const SizedBox(height: 24),
                   TweenAnimationBuilder<double>(
                     tween: Tween<double>(
