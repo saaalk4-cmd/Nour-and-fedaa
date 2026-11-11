@@ -2,12 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../data/providers.dart';
-import '../../data/repositories/gamification_repository.dart';
-
-final gamificationRepositoryProvider = Provider((_) => GamificationRepository());
-final gamificationProfileProvider = FutureProvider.family((ref, int childId) {
-  return ref.watch(gamificationRepositoryProvider).profile(childId);
-});
+import '../../domain/gamification/level_system.dart';
 
 class JourneyScreen extends ConsumerWidget {
   const JourneyScreen({super.key});
@@ -38,7 +33,7 @@ class JourneyScreen extends ConsumerWidget {
                   child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                     Text('أهلًا يا ${c.name}! 🌟', style: const TextStyle(color: Colors.white, fontSize: 27, fontWeight: FontWeight.w900)),
                     const SizedBox(height: 6),
-                    Text('رحلتك مستمرة — المستوى ${p.level}', style: const TextStyle(color: Colors.white, fontSize: 17)),
+                    Text('${LevelSystem.info(p.level).icon} ${LevelSystem.info(p.level).name} — المستوى ${p.level}', style: const TextStyle(color: Colors.white, fontSize: 17)),
                     const SizedBox(height: 16),
                     ClipRRect(
                       borderRadius: BorderRadius.circular(20),

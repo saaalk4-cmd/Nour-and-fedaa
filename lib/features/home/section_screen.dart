@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../data/repositories/settings_repository.dart';
+import '../lessons/lesson_list_screen.dart';
 import 'sections.dart';
 
 /// شاشة مؤقتة لكل قسم إلى أن يُبنى محتواه في المراحل التالية.
@@ -10,6 +12,7 @@ class SectionScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (sectionId == SectionIds.learn) return const LessonListScreen();
     final s = sectionById(sectionId);
     return Scaffold(
       appBar: AppBar(title: Text(s.title)),

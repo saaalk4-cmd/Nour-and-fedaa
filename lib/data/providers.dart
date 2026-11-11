@@ -1,7 +1,11 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'content/content_repository.dart';
+import 'content/lesson.dart';
 import 'models/child.dart';
+import 'models/gamification.dart';
 import 'repositories/child_repository.dart';
+import 'repositories/gamification_repository.dart';
 import 'repositories/settings_repository.dart';
 
 final childRepositoryProvider = Provider((_) => ChildRepository());
@@ -19,6 +23,24 @@ final selectedChildProvider = FutureProvider<Child?>((ref) async {
   if (id == null) return null;
   return ref.watch(childRepositoryProvider).byId(id);
 });
+
+final gamificationRepositoryProvider = Provider((_) => GamificationRepository());
+
+final gamificationProfileProvider =
+    FutureProvider.family<GamificationProfile, int>((ref, childId) {
+  return ref.watch(gamificationRepositoryProvider).profile(childId);
+});
+
+final completedLessonIdsProvider =
+    FutureProvider.family<Set<String>, int>((ref, childId) {
+  return ref.watch(gamificationRepositoryProvider).completedLessonIds(childId);
+});
+
+final contentRepositoryProvider = Provider((_) => ContentRepository());
+
+final lessonsProvider = FutureProvider<List<Lesson>>(
+  (ref) => ref.watch(contentRepositoryProvider).loadLessons(),
+);
 
 final sectionStatesProvider = FutureProvider<Map<String, bool>>(
   (ref) => ref.watch(settingsRepositoryProvider).sectionStates(),

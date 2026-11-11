@@ -6,6 +6,7 @@ class GamificationProfile {
     required this.streakDays,
     required this.dailyQuestsCompleted,
     required this.totalLessons,
+    this.bestStreak = 0,
   });
 
   final int xp;
@@ -14,6 +15,7 @@ class GamificationProfile {
   final int streakDays;
   final int dailyQuestsCompleted;
   final int totalLessons;
+  final int bestStreak;
 
   int get xpIntoLevel => xp % 100;
   int get xpToNextLevel => 100 - xpIntoLevel;
