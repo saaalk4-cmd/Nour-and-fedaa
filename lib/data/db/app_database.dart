@@ -4,14 +4,23 @@ import 'package:sqflite/sqflite.dart';
 class AppDatabase {
   AppDatabase._();
   static final AppDatabase instance = AppDatabase._();
-  Database? _db;
+  // نخزّن عملية الفتح نفسها (وليس القاعدة بعد الفتح) حتى لا تفتحها شاشتان
+  // تطلبانها في اللحظة نفسها مرتين.
+  Future<Database>? _opening;
 
-  Future<Database> get database async => _db ??= await _open();
+  Future<Database> get database => _opening ??= _open();
 
   /// للاختبارات فقط: يغلق القاعدة ويحذفها لبدء حالة نظيفة.
   Future<void> resetForTest() async {
-    await _db?.close();
-    _db = null;
+    final opening = _opening;
+    _opening = null;
+    if (opening != null) {
+      try {
+        await (await opening).close();
+      } catch (_) {
+        // القاعدة مغلقة بالفعل.
+      }
+    }
     final dir = await getDatabasesPath();
     await deleteDatabase(p.join(dir, 'nourfadaa.db'));
   }
