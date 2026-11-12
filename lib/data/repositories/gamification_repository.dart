@@ -6,6 +6,7 @@ import '../../domain/gamification/quests.dart';
 import '../../domain/gamification/streak.dart';
 import '../../domain/gamification/xp_rules.dart';
 import '../db/app_database.dart';
+import '../models/child_report.dart';
 import '../models/gamification.dart';
 import '../models/lesson_completion.dart';
 
@@ -87,6 +88,24 @@ class GamificationRepository {
       whereArgs: [childId],
     );
     return rows.map((r) => r['lesson_id']! as String).toSet();
+  }
+
+  /// كل الدروس المكتملة مع نتيجتها ووقتها (لتقرير ولي الأمر).
+  Future<List<ProgressEntry>> progressEntries(int childId) async {
+    final db = await AppDatabase.instance.database;
+    final rows = await db.query(
+      'progress',
+      where: "child_id = ? AND status = 'done'",
+      whereArgs: [childId],
+    );
+    return [
+      for (final r in rows)
+        ProgressEntry(
+          lessonId: r['lesson_id']! as String,
+          score: (r['score'] as int?) ?? 0,
+          completedAt: DateTime.tryParse((r['completed_at'] as String?) ?? ''),
+        ),
+    ];
   }
 
   /// الشارات المفتوحة: badge_id ← وقت الحصول عليها.
