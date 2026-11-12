@@ -1,5 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../core/audio/audioplayers_sound_player.dart';
+import '../core/audio/sound_service.dart';
 import '../domain/gamification/quests.dart';
 import 'content/content_repository.dart';
 import 'content/lesson.dart';
@@ -46,6 +48,19 @@ final dailyQuestsProvider =
     FutureProvider.family<DailyQuestsState, int>((ref, childId) {
   return ref.watch(gamificationRepositoryProvider).dailyQuests(childId);
 });
+
+final soundServiceProvider = Provider<SoundService>((ref) {
+  final settings = ref.watch(settingsRepositoryProvider);
+  return SoundService(
+    player: AudioplayersSoundPlayer(),
+    readEnabled: settings.soundEnabled,
+    writeEnabled: settings.setSoundEnabled,
+  );
+});
+
+final soundEnabledProvider = FutureProvider<bool>(
+  (ref) => ref.watch(settingsRepositoryProvider).soundEnabled(),
+);
 
 final contentRepositoryProvider = Provider((_) => ContentRepository());
 

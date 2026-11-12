@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/theme/app_theme.dart';
+import '../../core/widgets/mascot.dart';
 import '../../data/models/child.dart';
 import '../../data/providers.dart';
 import '../../domain/gamification/level_system.dart';
@@ -47,9 +48,22 @@ class HomeScreen extends ConsumerWidget {
             return ListView(
               padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
               children: [
-                Text('أهلًا يا ${c.name}! 🌟', style: Theme.of(context).textTheme.headlineMedium),
-                const SizedBox(height: 4),
-                const Text('مغامرتك اليوم جاهزة!', style: TextStyle(fontSize: 17)),
+                Row(
+                  children: [
+                    const Mascot(size: 84),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('أهلًا يا ${c.name}! 🌟', style: Theme.of(context).textTheme.headlineMedium),
+                          const SizedBox(height: 2),
+                          const Text('أنا لَمعة، ومغامرتك اليوم جاهزة!', style: TextStyle(fontSize: 16)),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
                 const SizedBox(height: 14),
                 _StatusCard(child: c),
                 const SizedBox(height: 14),

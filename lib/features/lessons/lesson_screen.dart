@@ -3,7 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../core/audio/sound_service.dart';
 import '../../core/theme/app_theme.dart';
+import '../../core/widgets/mascot.dart';
 import '../../data/content/lesson.dart';
 import '../../data/models/child.dart';
 import '../../data/models/lesson_completion.dart';
@@ -97,6 +99,9 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
       ref.invalidate(earnedBadgesProvider(widget.child.id));
       ref.invalidate(childrenProvider);
       HapticFeedback.mediumImpact();
+      ref.read(soundServiceProvider).play(
+            result.leveledUp ? SoundEffect.levelUp : SoundEffect.success,
+          );
       setState(() {
         _done = result;
         _saving = false;
@@ -114,12 +119,14 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
     if (_picked != null) return;
     if (index == q.answerIndex) {
       HapticFeedback.lightImpact();
+      ref.read(soundServiceProvider).play(SoundEffect.correct);
       setState(() {
         _picked = index;
         // نحسب الإجابة الصحيحة من أول محاولة فقط (للمكافأة الإضافية).
         if (_tried.isEmpty) _firstTryCorrect++;
       });
     } else {
+      ref.read(soundServiceProvider).play(SoundEffect.tap);
       setState(() => _tried.add(index));
     }
   }
@@ -239,11 +246,16 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
             ),
           if (_tried.isNotEmpty && !answered)
             _FeedbackBubble(
+              mood: MascotMood.encourage,
               title: 'قريب جدًا ❤️ جرّبي مرة ثانية',
               body: 'تلميح: ${q.hint}',
             ),
           if (answered)
-            const _FeedbackBubble(title: 'أحسنتِ! ✨', body: 'إجابة صحيحة'),
+            const _FeedbackBubble(
+              mood: MascotMood.cheer,
+              title: 'أحسنتِ! ✨',
+              body: 'إجابة صحيحة',
+            ),
         ],
       ),
     );
@@ -324,8 +336,13 @@ class _OptionButton extends StatelessWidget {
 }
 
 class _FeedbackBubble extends StatelessWidget {
-  const _FeedbackBubble({required this.title, required this.body});
+  const _FeedbackBubble({
+    required this.mood,
+    required this.title,
+    required this.body,
+  });
 
+  final MascotMood mood;
   final String title;
   final String body;
 
@@ -333,23 +350,27 @@ class _FeedbackBubble extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(22),
       ),
-      child: Column(
+      child: Row(
         children: [
-          Text(
-            title,
-            textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w800),
-          ),
-          const SizedBox(height: 4),
-          Text(
-            body,
-            textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 17),
+          Mascot(size: 64, mood: mood),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
+                ),
+                const SizedBox(height: 2),
+                Text(body, style: const TextStyle(fontSize: 16)),
+              ],
+            ),
           ),
         ],
       ),

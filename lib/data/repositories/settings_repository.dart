@@ -69,6 +69,14 @@ class SettingsRepository {
   String _hash(String pin, String salt) =>
       sha256.convert(utf8.encode('$salt:$pin')).toString();
 
+  // ---------- الصوت ----------
+
+  /// الصوت مفعّل افتراضيًا، ويتحكم به ولي الأمر.
+  Future<bool> soundEnabled() async => (await _get('sound_enabled')) != '0';
+
+  Future<void> setSoundEnabled(bool enabled) =>
+      _set('sound_enabled', enabled ? '1' : '0');
+
   // ---------- الأقسام ----------
 
   Future<bool> isSectionEnabled(String id) async =>

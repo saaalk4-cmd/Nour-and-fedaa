@@ -3,6 +3,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
 import '../../core/theme/app_theme.dart';
+import '../../core/widgets/mascot.dart';
 import '../../data/models/lesson_completion.dart';
 import '../../domain/gamification/level_system.dart';
 
@@ -100,10 +101,7 @@ class _CelebrationViewState extends State<CelebrationView>
                       parent: _controller,
                       curve: const Interval(0, 0.5, curve: Curves.elasticOut),
                     ),
-                    child: Text(
-                      reward.stars >= 2 ? '🌟' : '⭐',
-                      style: const TextStyle(fontSize: 120),
-                    ),
+                    child: const Mascot(size: 150, mood: MascotMood.cheer),
                   ),
                   const SizedBox(height: 12),
                   Text(
