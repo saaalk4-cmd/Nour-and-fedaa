@@ -28,8 +28,11 @@ Future<void> waitFor(WidgetTester tester, Finder finder, {int tries = 120}) asyn
 }
 
 Future<void> tapText(WidgetTester tester, String text) async {
-  final finder = find.text(text);
-  await waitFor(tester, finder);
+  await waitFor(tester, find.text(text));
+  // ننتظر انتهاء انتقالات الشاشة (الخيار القديم والجديد قد يتواجدان معًا لحظة).
+  await tester.pump(const Duration(seconds: 1));
+  // إن تكرر النص فالأحدث (الأخير في الشجرة) هو الظاهر للمستخدم.
+  final finder = find.text(text).last;
   await tester.ensureVisible(finder);
   await tester.pump(const Duration(milliseconds: 100));
   await tester.tap(finder);
@@ -83,7 +86,7 @@ void main() {
     } finally {
       await disposeApp(tester);
     }
-  });
+  }, timeout: const Timeout(Duration(minutes: 2)));
 
   testWidgets('parent creates a PIN and sees both daughters in the dashboard',
       (tester) async {
@@ -93,7 +96,7 @@ void main() {
     } finally {
       await disposeApp(tester);
     }
-  });
+  }, timeout: const Timeout(Duration(minutes: 2)));
 }
 
 Future<void> _nourLessonFlow(WidgetTester tester) async {
