@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:nourfadaa/data/db/app_database.dart';
 import 'package:nourfadaa/data/models/child.dart';
@@ -16,6 +18,10 @@ void main() {
 
   setUpAll(() {
     sqfliteFfiInit();
+    // مجلد قاعدة بيانات خاص بهذا الملف: ملفات الاختبار تعمل بالتوازي
+    // ولا يجوز أن تتشارك ملف SQLite واحدًا (database is locked).
+    final dir = Directory.systemTemp.createTempSync('nourfadaa_test_');
+    databaseFactoryFfi.setDatabasesPath(dir.path);
     databaseFactory = databaseFactoryFfi;
   });
 

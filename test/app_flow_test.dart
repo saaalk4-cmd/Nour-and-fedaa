@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -75,6 +77,10 @@ Future<void> disposeApp(WidgetTester tester) async {
 void main() {
   setUpAll(() {
     sqfliteFfiInit();
+    // مجلد قاعدة بيانات خاص بهذا الملف: ملفات الاختبار تعمل بالتوازي
+    // ولا يجوز أن تتشارك ملف SQLite واحدًا (database is locked).
+    final dir = Directory.systemTemp.createTempSync('nourfadaa_test_');
+    databaseFactoryFfi.setDatabasesPath(dir.path);
     databaseFactory = databaseFactoryFfi;
   });
 
