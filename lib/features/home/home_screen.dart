@@ -6,6 +6,7 @@ import '../../core/theme/app_theme.dart';
 import '../../core/widgets/mascot.dart';
 import '../../data/models/child.dart';
 import '../../data/providers.dart';
+import '../../domain/gamification/achievements.dart';
 import '../../domain/gamification/level_system.dart';
 import '../../domain/gamification/quests.dart';
 import '../../domain/gamification/streak.dart';
@@ -68,6 +69,7 @@ class HomeScreen extends ConsumerWidget {
                 _StatusCard(child: c),
                 const SizedBox(height: 14),
                 _QuestsCard(child: c),
+                _LatestBadge(childId: c.id),
                 const SizedBox(height: 14),
                 SizedBox(
                   height: 64,
@@ -314,6 +316,34 @@ class _QuestRow extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+/// «آخر إنجاز»: أحدث شارة حصلت عليها الطفلة (لا تظهر إن لم تحصل على شيء بعد).
+class _LatestBadge extends ConsumerWidget {
+  const _LatestBadge({required this.childId});
+  final int childId;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final earned = ref.watch(earnedBadgesProvider(childId)).valueOrNull;
+    if (earned == null || earned.isEmpty) return const SizedBox.shrink();
+    final ids = earned.keys.toList()
+      ..sort((a, b) => earned[b]!.compareTo(earned[a]!));
+    final def = Achievements.byId(ids.first);
+    if (def == null) return const SizedBox.shrink();
+    return Padding(
+      padding: const EdgeInsets.only(top: 14),
+      child: Card(
+        elevation: 0,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+        child: ListTile(
+          leading: Text(def.emoji, style: const TextStyle(fontSize: 34)),
+          title: const Text('آخر إنجاز', style: TextStyle(fontWeight: FontWeight.w800)),
+          subtitle: Text(def.title),
+        ),
       ),
     );
   }
