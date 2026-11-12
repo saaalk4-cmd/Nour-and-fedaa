@@ -24,7 +24,9 @@ void main() {
   });
 
   test('al-Ikhlas matches the verified text (letters only)', () {
-    String bare(String t) => t.replaceAll(RegExp(r'[ً-ٰٟۖ-ۭـ\s]'), '');
+    String bare(String t) => t
+        .replaceAll('\u0671', '\u0627') // ألف الوصل ← ألف
+        .replaceAll(RegExp('[\u064B-\u065F\u0670\u06D6-\u06ED\u0640\\s]'), '');
     final s = content.surahs.firstWhere((s) => s.surahNumber == 112);
     expect(bare(s.ayahs[0].text), bare('قُلْ هُوَ اللَّهُ أَحَدٌ'));
     expect(bare(s.ayahs[1].text), bare('اللَّهُ الصَّمَدُ'));
