@@ -137,6 +137,7 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
     if (done != null) {
       return CelebrationView(
         childName: widget.child.name,
+        little: widget.child.ageGroup == AgeGroup.early,
         completion: done,
         onContinue: () => context.pop(),
       );
@@ -215,11 +216,14 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
   Widget _questionView(LessonQuestion q) {
     final answered = _picked != null;
     final emoji = q.emoji;
+    final little = widget.child.ageGroup == AgeGroup.early;
+    // للصغيرات: بعد محاولتين نُظهر الإجابة الصحيحة بنبض لطيف (مساعدة بصرية).
+    final showHelp = little && !answered && _tried.length >= 2;
     return SingleChildScrollView(
       child: Column(
         children: [
           if (emoji != null)
-            Text(emoji, style: const TextStyle(fontSize: 64)),
+            Text(emoji, style: TextStyle(fontSize: little ? 88 : 64)),
           const SizedBox(height: 10),
           Text(
             q.prompt,
@@ -236,6 +240,8 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
               padding: const EdgeInsets.only(bottom: 14),
               child: _OptionButton(
                 label: q.options[i],
+                little: little,
+                highlight: showHelp && i == q.answerIndex,
                 state: _picked == i
                     ? _OptionState.correct
                     : (_tried.contains(i)
@@ -247,8 +253,10 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
           if (_tried.isNotEmpty && !answered)
             _FeedbackBubble(
               mood: MascotMood.encourage,
-              title: 'قريب جدًا ❤️ جرّبي مرة ثانية',
-              body: 'تلميح: ${q.hint}',
+              title: 'قريب جدًا ❤️',
+              body: little
+                  ? (showHelp ? 'اضغطي على الإجابة التي تتحرك 👆' : 'جرّبي مرة ثانية')
+                  : 'جرّبي مرة ثانية. تلميح: ${q.hint}',
             ),
           if (answered)
             const _FeedbackBubble(
@@ -292,11 +300,19 @@ class _OptionButton extends StatelessWidget {
     required this.label,
     required this.state,
     required this.onTap,
+    required this.little,
+    required this.highlight,
   });
 
   final String label;
   final _OptionState state;
   final VoidCallback onTap;
+
+  /// للصغيرات (3-4 سنوات): أزرار وخط أكبر.
+  final bool little;
+
+  /// نبض لطيف يشير إلى الإجابة الصحيحة (مساعدة بصرية).
+  final bool highlight;
 
   @override
   Widget build(BuildContext context) {
@@ -309,9 +325,9 @@ class _OptionButton extends StatelessWidget {
       case _OptionState.correct:
         bg = const Color(0xFFCDEFC6);
     }
-    return SizedBox(
+    final button = SizedBox(
       width: double.infinity,
-      height: 72,
+      height: little ? 96 : 72,
       child: Material(
         color: bg,
         elevation: state == _OptionState.neutral ? 2 : 0,
@@ -322,8 +338,8 @@ class _OptionButton extends StatelessWidget {
           child: Center(
             child: Text(
               label,
-              style: const TextStyle(
-                fontSize: 24,
+              style: TextStyle(
+                fontSize: little ? 32 : 24,
                 fontWeight: FontWeight.w800,
                 color: AppColors.ink,
               ),
@@ -331,6 +347,40 @@ class _OptionButton extends StatelessWidget {
           ),
         ),
       ),
+    );
+    return highlight ? _Pulse(child: button) : button;
+  }
+}
+
+/// نبض لطيف (تكبير وتصغير بسيط) لجذب الانتباه للإجابة الصحيحة.
+class _Pulse extends StatefulWidget {
+  const _Pulse({required this.child});
+
+  final Widget child;
+
+  @override
+  State<_Pulse> createState() => _PulseState();
+}
+
+class _PulseState extends State<_Pulse> with SingleTickerProviderStateMixin {
+  late final AnimationController _controller = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 700),
+  )..repeat(reverse: true);
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return ScaleTransition(
+      scale: Tween<double>(begin: 1.0, end: 1.06).animate(
+        CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
+      ),
+      child: widget.child,
     );
   }
 }

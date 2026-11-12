@@ -15,9 +15,13 @@ class CelebrationView extends StatefulWidget {
     required this.childName,
     required this.completion,
     required this.onContinue,
+    this.little = false,
   });
 
   final String childName;
+
+  /// للصغيرات (3-4 سنوات): شخصية أكبر ونص أقل.
+  final bool little;
   final LessonCompletion completion;
   final VoidCallback onContinue;
 
@@ -101,7 +105,10 @@ class _CelebrationViewState extends State<CelebrationView>
                       parent: _controller,
                       curve: const Interval(0, 0.5, curve: Curves.elasticOut),
                     ),
-                    child: const Mascot(size: 150, mood: MascotMood.cheer),
+                    child: Mascot(
+                      size: widget.little ? 200 : 150,
+                      mood: MascotMood.cheer,
+                    ),
                   ),
                   const SizedBox(height: 12),
                   Text(
@@ -173,7 +180,7 @@ class _CelebrationViewState extends State<CelebrationView>
                       style: const TextStyle(fontSize: 19, fontWeight: FontWeight.w700),
                     ),
                   ],
-                  if (reward.isFirstCompletion && reward.perfect) ...[
+                  if (!widget.little && reward.isFirstCompletion && reward.perfect) ...[
                     const SizedBox(height: 12),
                     const Text(
                       '✨ أجبتِ عن كل الأسئلة من أول مرة!',
