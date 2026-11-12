@@ -118,7 +118,7 @@ class _Node extends StatelessWidget {
       leading: CircleAvatar(child: Text(number)),
       title: Text('$icon  $title', style: const TextStyle(fontWeight: FontWeight.w800)),
       subtitle: Text(subtitle),
-      trailing: Icon(unlocked ? Icons.arrow_forward_ios : Icons.lock_outline, size: 20),
+      trailing: Icon(unlocked ? Icons.arrow_back_ios_new : Icons.lock_outline, size: 20),
     ),
   );
 }

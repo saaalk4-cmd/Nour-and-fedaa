@@ -8,6 +8,14 @@ class AppDatabase {
 
   Future<Database> get database async => _db ??= await _open();
 
+  /// للاختبارات فقط: يغلق القاعدة ويحذفها لبدء حالة نظيفة.
+  Future<void> resetForTest() async {
+    await _db?.close();
+    _db = null;
+    final dir = await getDatabasesPath();
+    await deleteDatabase(p.join(dir, 'nourfadaa.db'));
+  }
+
   Future<Database> _open() async {
     final dir = await getDatabasesPath();
     return openDatabase(p.join(dir, 'nourfadaa.db'), version: 4, onCreate: _onCreate, onUpgrade: _onUpgrade);
