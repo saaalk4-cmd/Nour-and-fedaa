@@ -22,6 +22,7 @@ class SectionScreen extends StatelessWidget {
       SectionIds.adhkar: 'assets/content/adhkar_hadith.json',
       SectionIds.prayer: 'assets/content/prayer_hadith.json',
       SectionIds.seerah: 'assets/content/seerah_hadith.json',
+      SectionIds.figures: 'assets/content/figures_hadith.json',
     };
     final hadithAsset = hadithAssets[sectionId];
     if (hadithAsset != null) {

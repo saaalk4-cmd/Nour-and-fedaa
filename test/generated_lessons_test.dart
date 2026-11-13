@@ -29,7 +29,7 @@ void main() {
 
   test('hadith lessons only use text from the sourced hadith files', () {
     final texts = <String>{};
-    for (final f in ['akhlaq', 'adhkar', 'prayer', 'seerah']) {
+    for (final f in ['akhlaq', 'adhkar', 'prayer', 'seerah', 'figures']) {
       final c = HadithRepository.parse(
         File('assets/content/${f}_hadith.json').readAsStringSync(),
       );

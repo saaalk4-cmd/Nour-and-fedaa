@@ -9,6 +9,7 @@ void main() {
     'adhkar_hadith',
     'prayer_hadith',
     'seerah_hadith',
+    'figures_hadith',
   ];
 
   for (final name in assets) {

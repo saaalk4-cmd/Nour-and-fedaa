@@ -70,7 +70,8 @@ save('quran_lessons.json', q_lessons)
 
 # ---------------- الأحاديث والأذكار ----------------
 SECTIONS = [('akhlaq', 'akhlaq_hadith.json'), ('adhkar', 'adhkar_hadith.json'),
-            ('prayer', 'prayer_hadith.json'), ('seerah', 'seerah_hadith.json')]
+            ('prayer', 'prayer_hadith.json'), ('seerah', 'seerah_hadith.json'),
+            ('figures', 'figures_hadith.json')]
 all_items = []
 seen_texts = set()
 for cat, f in SECTIONS:
