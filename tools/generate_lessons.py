@@ -109,3 +109,31 @@ for i, (cat, h) in enumerate(all_items):
     })
 save('hadith_lessons.json', h_lessons)
 print(len(q_lessons), 'quran lessons;', len(h_lessons), 'hadith lessons')
+
+# ---------------- قصص الأنبياء (آيات) ----------------
+pv = load('prophets_ayat.json')
+verses = pv['verses']
+who = [v['prophet'] for v in verses]
+means = [v['kidMeaning'] for v in verses]
+p_lessons = []
+for i, v in enumerate(verses):
+    ow = [w for w in who if w != v['prophet']]
+    om = [m for m in means if m != v['kidMeaning']]
+    ow = ow[i % len(ow):] + ow[:i % len(ow)]
+    om = om[i % len(om):] + om[:i % len(om)]
+    ref = 'سورة %s، آية %d' % (v['surahName'], v['ayahFrom']) if v['ayahFrom'] == v['ayahTo'] \
+        else 'سورة %s، الآيات %d-%d' % (v['surahName'], v['ayahFrom'], v['ayahTo'])
+    p_lessons.append({
+        'id': v['id'] + '_lesson', 'title': v['prophet'], 'emoji': v['emoji'],
+        'category': 'prophets', 'minAge': 3, 'maxAge': 6, 'difficulty': 1,
+        'source': {'type': 'quran', 'reference': '%s — %s' % (pv['source']['name'], ref)},
+        'steps': [{'emoji': '📖', 'text': v['text']}, {'emoji': '💡', 'text': v['kidMeaning']}],
+        'questions': [
+            question('عن أي نبي تتحدث هذه الآية؟\n' + v['text'], v['prophet'], ow, i,
+                     'استمعي لاسم النبي في الآية', v['emoji']),
+            question('ماذا تقول الآية؟', v['kidMeaning'], om, i + 1,
+                     'تذكّري الخطوة الثانية', '💡'),
+        ],
+    })
+save('prophets_lessons.json', p_lessons)
+print(len(p_lessons), 'prophet lessons')

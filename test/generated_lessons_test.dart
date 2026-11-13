@@ -6,6 +6,7 @@ import 'package:nourfadaa/data/content/hadith.dart';
 import 'package:nourfadaa/data/content/quran.dart';
 
 void main() {
+  prophetsTests();
   final quran = QuranRepository.parse(
     File('assets/content/quran_surahs.json').readAsStringSync(),
   );
@@ -48,6 +49,35 @@ void main() {
         expect(q.options.toSet().length, q.options.length, reason: l.id);
         expect(q.options.length, 3, reason: l.id);
       }
+    }
+  });
+}
+
+void prophetsTests() {
+  final prophets = ProphetsContent.parse(
+    File('assets/content/prophets_ayat.json').readAsStringSync(),
+  );
+  final lessons = ContentRepository.parseLessons(
+    File('assets/content/prophets_lessons.json').readAsStringSync(),
+  );
+
+  test('prophet verses carry a reference and a Quran source', () {
+    expect(prophets.sourceName, contains('Tanzil'));
+    expect(prophets.verses.length, 5);
+    for (final v in prophets.verses) {
+      expect(v.reference, contains('سورة'), reason: v.id);
+      expect(v.ayahTo, greaterThanOrEqualTo(v.ayahFrom), reason: v.id);
+      expect(v.text, isNotEmpty, reason: v.id);
+    }
+  });
+
+  test('prophet lessons reuse the verse text verbatim and cite the Quran', () {
+    expect(lessons.length, prophets.verses.length);
+    for (final v in prophets.verses) {
+      final l = lessons.firstWhere((l) => l.id == '${v.id}_lesson');
+      expect(l.source.type, 'quran');
+      expect(l.category, 'prophets');
+      expect(l.steps.first.text, v.text);
     }
   });
 }

@@ -14,6 +14,7 @@ class ContentRepository {
     learnAsset,
     'assets/content/quran_lessons.json',
     'assets/content/hadith_lessons.json',
+    'assets/content/prophets_lessons.json',
   ];
 
   Future<List<Lesson>> loadLessons() async {
