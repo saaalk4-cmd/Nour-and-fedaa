@@ -15,6 +15,7 @@ class Hadith {
     required this.grade,
     required this.url,
     required this.kidMeaning,
+    this.excerpt = false,
   });
 
   final String id;
@@ -29,6 +30,9 @@ class Hadith {
 
   /// معنى مبسّط تعليمي (ليس من نص الحديث).
   final String kidMeaning;
+
+  /// true إن كان النص جزءًا من الحديث لا كله (يُعرض بوضوح للوالدين).
+  final bool excerpt;
 
   factory Hadith.fromJson(Map<String, dynamic> j) {
     String req(String k) {
@@ -50,6 +54,7 @@ class Hadith {
       grade: req('grade'),
       url: req('url'),
       kidMeaning: req('kidMeaning'),
+      excerpt: j['excerpt'] == true,
     );
   }
 }

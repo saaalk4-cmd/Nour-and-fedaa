@@ -3,22 +3,27 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../data/content/hadith.dart';
 
-final akhlaqHadithProvider = FutureProvider<HadithContent>((ref) {
-  return HadithRepository().load('assets/content/akhlaq_hadith.json');
+final hadithContentProvider =
+    FutureProvider.family<HadithContent, String>((ref, asset) {
+  return HadithRepository().load(asset);
 });
 
-/// أخلاقي الجميلة: أحاديث صحيحة قصيرة بمصدرها ودرجتها، مع معنى مبسّط للطفلة.
-class AkhlaqScreen extends ConsumerWidget {
-  const AkhlaqScreen({super.key});
+/// قسم أحاديث/أذكار: يعرض النص بمصدره ودرجته، مع معنى مبسّط للطفلة.
+/// يُستخدم لأخلاقي، أذكاري، صلاتي، وسيرة نبينا ﷺ (ملف JSON لكل قسم).
+class HadithSectionScreen extends ConsumerWidget {
+  const HadithSectionScreen({super.key, required this.title, required this.asset});
+
+  final String title;
+  final String asset;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final content = ref.watch(akhlaqHadithProvider);
+    final content = ref.watch(hadithContentProvider(asset));
     return Scaffold(
-      appBar: AppBar(title: const Text('أخلاقي الجميلة ❤️')),
+      appBar: AppBar(title: Text(title)),
       body: content.when(
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (_, __) => const Center(child: Text('تعذر تحميل الأحاديث')),
+        error: (_, __) => const Center(child: Text('تعذر تحميل المحتوى')),
         data: (c) => ListView(
           padding: const EdgeInsets.all(16),
           children: [
@@ -61,6 +66,7 @@ class _HadithCard extends StatelessWidget {
             const SizedBox(height: 10),
             // تفاصيل المصدر لولي الأمر (صغيرة وهادئة).
             Text(
+              '${hadith.excerpt ? '(جزء من الحديث) ' : ''}'
               '${hadith.narrator} — ${hadith.book} (${hadith.number}) — ${hadith.grade}',
               style: Theme.of(context).textTheme.bodySmall,
             ),

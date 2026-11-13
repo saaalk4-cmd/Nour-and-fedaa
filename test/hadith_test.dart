@@ -4,20 +4,28 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:nourfadaa/data/content/hadith.dart';
 
 void main() {
-  final content = HadithRepository.parse(
-    File('assets/content/akhlaq_hadith.json').readAsStringSync(),
-  );
+  const assets = [
+    'akhlaq_hadith',
+    'adhkar_hadith',
+    'prayer_hadith',
+    'seerah_hadith',
+  ];
 
-  test('every hadith has narrator, book, number, grade and source url', () {
-    expect(content.hadiths, isNotEmpty);
-    for (final h in content.hadiths) {
-      expect(h.narrator, isNotEmpty, reason: h.id);
-      expect(h.book, isNotEmpty, reason: h.id);
-      expect(int.tryParse(h.number), isNotNull, reason: h.id);
-      expect(h.grade, contains('صحيح'), reason: h.id);
-      expect(h.url, startsWith('https://hadeethenc.com/'), reason: h.id);
-    }
-  });
+  for (final name in assets) {
+    test('$name: every hadith has narrator, book, number, grade and source url', () {
+      final content = HadithRepository.parse(
+        File('assets/content/$name.json').readAsStringSync(),
+      );
+      expect(content.hadiths, isNotEmpty);
+      for (final h in content.hadiths) {
+        expect(h.narrator, isNotEmpty, reason: h.id);
+        expect(h.book, isNotEmpty, reason: h.id);
+        expect(int.tryParse(h.number), isNotNull, reason: h.id);
+        expect(h.grade, contains('صحيح'), reason: h.id);
+        expect(h.url, startsWith('https://hadeethenc.com/'), reason: h.id);
+      }
+    });
+  }
 
   test('a hadith missing its grade is rejected', () {
     expect(
