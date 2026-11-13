@@ -17,6 +17,7 @@ class ParentDashboardScreen extends ConsumerWidget {
     final states = ref.watch(sectionStatesProvider).valueOrNull ??
         const <String, bool>{};
     final soundOn = ref.watch(soundEnabledProvider).valueOrNull ?? true;
+    final voiceOn = ref.watch(voiceEnabledProvider).valueOrNull ?? true;
 
     return Scaffold(
       appBar: AppBar(title: const Text('لوحة ولي الأمر')),
@@ -46,6 +47,16 @@ class ParentDashboardScreen extends ConsumerWidget {
             onChanged: (v) async {
               await ref.read(soundServiceProvider).setEnabled(v);
               ref.invalidate(soundEnabledProvider);
+            },
+          ),
+          SwitchListTile(
+            title: const Text('🗣️  قراءة الكلام بصوت عالٍ'),
+            subtitle: const Text(
+                'تقرأ التطبيق التعليمات والأسئلة للطفلة التي لا تقرأ بعد، وتشغّل تلاوة الآيات'),
+            value: voiceOn,
+            onChanged: (v) async {
+              await ref.read(voiceServiceProvider).setEnabled(v);
+              ref.invalidate(voiceEnabledProvider);
             },
           ),
           const SizedBox(height: 16),

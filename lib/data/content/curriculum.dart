@@ -6,11 +6,19 @@ import 'lesson.dart';
 
 /// يوم واحد في المنهج: عنوان + قائمة معرّفات مغامرات (دروس).
 class CurriculumDay {
-  const CurriculumDay({required this.day, required this.title, required this.lessonIds});
+  const CurriculumDay({
+    required this.day,
+    required this.title,
+    required this.lessonIds,
+    this.earlyLessonIds = const [],
+  });
 
   final int day;
   final String title;
   final List<String> lessonIds;
+
+  /// مسار الصغيرات (3–4 سنوات): صور وصوت بلا قراءة. إن كان فارغًا تُستخدم lessonIds.
+  final List<String> earlyLessonIds;
 }
 
 class CurriculumWeek {
@@ -58,6 +66,8 @@ class Curriculum {
             day: dm['day'] as int,
             title: dm['title'] as String,
             lessonIds: (dm['lessons'] as List<dynamic>).cast<String>(),
+            earlyLessonIds:
+                ((dm['earlyLessons'] as List<dynamic>?) ?? const []).cast<String>(),
           );
         }).toList(),
       );
@@ -73,8 +83,10 @@ class Curriculum {
     final byId = {for (final l in allLessons) l.id: l};
     for (final w in weeks) {
       for (final d in w.days) {
+        final early = childAge <= 4 && d.earlyLessonIds.isNotEmpty;
+        final ids = early ? d.earlyLessonIds : d.lessonIds;
         final mine = [
-          for (final id in d.lessonIds)
+          for (final id in ids)
             if (byId[id] != null && byId[id]!.fitsAge(childAge)) byId[id]!,
         ];
         if (mine.isEmpty) continue; // لا شيء مناسب لعمرها في هذا اليوم

@@ -38,6 +38,7 @@ class TodayScreen extends ConsumerStatefulWidget {
 class _TodayScreenState extends ConsumerState<TodayScreen> {
   /// اليوم الذي فُتحت عليه الشاشة؛ إن تغيّر بعد الإكمال نحتفل بإنهاء اليوم.
   String? _openedDayKey;
+  String? _spokenKey;
 
   @override
   Widget build(BuildContext context) {
@@ -82,6 +83,19 @@ class _TodayScreenState extends ConsumerState<TodayScreen> {
     _openedDayKey ??= key;
     final justFinishedDay = _openedDayKey != key;
     final little = c.ageGroup == AgeGroup.early;
+
+    // الطفلة قد تكون وحدها: نرحّب بها صوتيًا مرة لكل يوم.
+    if (_spokenKey != key) {
+      _spokenKey = key;
+      final text = justFinishedDay
+          ? 'أحسنتِ يا ${c.name}! أكملتِ رحلة اليوم'
+          : (plan.finishedAll
+              ? 'أحسنتِ يا ${c.name}! أكملتِ كل المغامرات'
+              : 'أهلًا يا ${c.name}! هيا نبدأ مغامرات اليوم');
+      WidgetsBinding.instance.addPostFrameCallback(
+        (_) => ref.read(voiceServiceProvider).speak(text),
+      );
+    }
 
     return ListView(
       padding: const EdgeInsets.all(20),

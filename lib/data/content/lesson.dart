@@ -30,14 +30,18 @@ class ContentSource {
 }
 
 class LessonStep {
-  const LessonStep({required this.emoji, required this.text});
+  const LessonStep({required this.emoji, required this.text, this.say});
 
   final String emoji;
   final String text;
 
+  /// نص يُقرأ بصوت عالٍ بدل النص المكتوب (اختياري).
+  final String? say;
+
   factory LessonStep.fromJson(Map<String, dynamic> json) => LessonStep(
         emoji: json['emoji'] as String,
         text: json['text'] as String,
+        say: json['say'] as String?,
       );
 }
 
@@ -49,6 +53,7 @@ class LessonQuestion {
     required this.hint,
     this.emoji,
     this.praise,
+    this.say,
   });
 
   final String prompt;
@@ -59,6 +64,9 @@ class LessonQuestion {
 
   /// جملة تشجيع خاصة تظهر بعد الإجابة الصحيحة (اختيارية).
   final String? praise;
+
+  /// ما يُقرأ بصوت عالٍ للسؤال (يشمل الخيارات إن لزم). الافتراضي: نص السؤال.
+  final String? say;
 
   factory LessonQuestion.fromJson(Map<String, dynamic> json) {
     final options = (json['options'] as List<dynamic>).cast<String>();
@@ -73,6 +81,7 @@ class LessonQuestion {
       answerIndex: answer,
       hint: json['hint'] as String,
       praise: json['praise'] as String?,
+      say: json['say'] as String?,
     );
   }
 }
@@ -91,6 +100,7 @@ class Lesson {
     required this.source,
     this.objective,
     this.learned,
+    this.allowSpeech = false,
   });
 
   final String id;
@@ -107,6 +117,12 @@ class Lesson {
   /// هدف الدرس (للوالدين) و«ماذا تعلمت؟» (تظهر للطفلة بعد الإكمال). اختياريان.
   final String? objective;
   final String? learned;
+
+  /// يسمح بالنطق الآلي لدرس مصدره ديني (عبارة قصيرة معتمدة فقط). الافتراضي: ممنوع.
+  final bool allowSpeech;
+
+  /// هل يجوز النطق الآلي لهذا الدرس؟ المحتوى التعليمي فقط (أو المسموح صراحة).
+  bool get canSpeak => source.type == 'educational' || allowSpeech;
 
   bool fitsAge(int age) => age >= minAge && age <= maxAge;
 
@@ -133,6 +149,7 @@ class Lesson {
       source: ContentSource.fromJson(json['source']),
       objective: json['objective'] as String?,
       learned: json['learned'] as String?,
+      allowSpeech: json['allowSpeech'] == true,
     );
   }
 }

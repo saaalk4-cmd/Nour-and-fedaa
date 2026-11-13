@@ -13,6 +13,11 @@
             "w1_honesty_pen",
             "w1_letter_alef",
             "w1_count_1_2"
+          ],
+          "earlyLessons": [
+            "quran_surah_112",
+            "w1e_welcome",
+            "w1e_count_1_2"
           ]
         },
         {
@@ -23,6 +28,11 @@
             "w1_honesty_cup",
             "w1_letter_ba",
             "w1_count_3"
+          ],
+          "earlyLessons": [
+            "w1e_bismillah",
+            "w1e_help",
+            "w1e_colors_red"
           ]
         },
         {
@@ -33,6 +43,11 @@
             "w1_count_4",
             "w1_colors_shapes",
             "w1_english_hello"
+          ],
+          "earlyLessons": [
+            "w1e_honesty",
+            "w1e_colors_yellow_blue",
+            "w1e_count_3"
           ]
         },
         {
@@ -42,6 +57,10 @@
             "w1_count_5",
             "learn_letters_alef_ba_ta",
             "learn_shapes_basic"
+          ],
+          "earlyLessons": [
+            "w1e_shapes_circle",
+            "w1e_animals"
           ]
         },
         {
@@ -50,6 +69,9 @@
           "lessons": [
             "w1_review_game",
             "learn_patterns_logic"
+          ],
+          "earlyLessons": [
+            "w1e_review_game"
           ]
         }
       ]

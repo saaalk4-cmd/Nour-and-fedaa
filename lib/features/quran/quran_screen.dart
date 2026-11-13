@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../data/content/quran.dart';
+import '../../data/providers.dart';
 import '../lessons/lesson_list_screen.dart';
 
 final quranContentProvider = FutureProvider<QuranContent>((ref) {
@@ -67,14 +68,14 @@ class QuranScreen extends ConsumerWidget {
   }
 }
 
-class SurahReaderScreen extends StatelessWidget {
+class SurahReaderScreen extends ConsumerWidget {
   const SurahReaderScreen({super.key, required this.surah, required this.content});
 
   final Surah surah;
   final QuranContent content;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(title: Text('سورة ${surah.name}')),
       body: ListView(
@@ -98,7 +99,28 @@ class SurahReaderScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(18),
                 child: Row(
                   children: [
-                    CircleAvatar(radius: 16, child: Text('${a.number}')),
+                    Column(
+                      children: [
+                        CircleAvatar(radius: 16, child: Text('${a.number}')),
+                        IconButton(
+                          tooltip: 'استمعي للتلاوة',
+                          iconSize: 38,
+                          icon: const Icon(Icons.play_circle_fill),
+                          onPressed: () async {
+                            final ok = await ref
+                                .read(ayahPlayerProvider)
+                                .play(surah.surahNumber, a.number);
+                            if (!ok && context.mounted) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text('التلاوة غير متاحة في هذه النسخة'),
+                                ),
+                              );
+                            }
+                          },
+                        ),
+                      ],
+                    ),
                     const SizedBox(width: 14),
                     Expanded(
                       child: Text(

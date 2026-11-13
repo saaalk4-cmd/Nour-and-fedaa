@@ -34,6 +34,18 @@ jobs:
             sed -i 's/android:label="[^"]*"/android:label="نُور وفداء"/' android/app/src/main/AndroidManifest.xml
           fi
 
+      # Android 11+: يجب إعلان خدمة النطق ليراها التطبيق (flutter_tts)
+      - name: Declare TTS service query in manifest
+        run: |
+          f=android/app/src/main/AndroidManifest.xml
+          if ! grep -q "android.intent.action.TTS_SERVICE" "$f"; then
+            sed -i 's#<application#<queries><intent><action android:name="android.intent.action.TTS_SERVICE"/></intent></queries>\n    <application#' "$f"
+          fi
+
+      # تلاوة الآيات للأطفال بلا ولي أمر (لا تُرفع إلى git)
+      - name: Fetch Quran recitation audio
+        run: python3 tools/fetch_quran_audio.py
+
       - run: flutter pub get
       - run: flutter analyze
       # مكتبة SQLite لاختبارات قاعدة البيانات الحقيقية (sqflite_common_ffi)

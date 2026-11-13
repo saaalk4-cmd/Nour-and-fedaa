@@ -77,6 +77,14 @@ class SettingsRepository {
   Future<void> setSoundEnabled(bool enabled) =>
       _set('sound_enabled', enabled ? '1' : '0');
 
+  // ---------- النطق (قراءة الكلام بصوت عالٍ) ----------
+
+  /// مفعّل افتراضيًا: الطفلة قد لا تقرأ ولا يوجد والد بجانبها.
+  Future<bool> voiceEnabled() async => (await _get('voice_enabled')) != '0';
+
+  Future<void> setVoiceEnabled(bool enabled) =>
+      _set('voice_enabled', enabled ? '1' : '0');
+
   // ---------- الأقسام ----------
 
   Future<bool> isSectionEnabled(String id) async =>

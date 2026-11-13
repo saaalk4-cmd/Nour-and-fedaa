@@ -1,6 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../core/audio/audioplayers_sound_player.dart';
+import '../core/audio/ayah_player.dart';
+import '../core/audio/flutter_tts_engine.dart';
+import '../core/audio/voice_service.dart';
 import '../core/audio/sound_service.dart';
 import '../domain/gamification/quests.dart';
 import '../domain/gamification/streak.dart';
@@ -78,6 +81,25 @@ final soundServiceProvider = Provider<SoundService>((ref) {
     readEnabled: settings.soundEnabled,
     writeEnabled: settings.setSoundEnabled,
   );
+});
+
+final voiceServiceProvider = Provider<VoiceService>((ref) {
+  final settings = ref.watch(settingsRepositoryProvider);
+  return VoiceService(
+    engine: FlutterTtsEngine(),
+    readEnabled: settings.voiceEnabled,
+    writeEnabled: settings.setVoiceEnabled,
+  );
+});
+
+final voiceEnabledProvider = FutureProvider<bool>(
+  (ref) => ref.watch(settingsRepositoryProvider).voiceEnabled(),
+);
+
+final ayahPlayerProvider = Provider<AyahPlayer>((ref) {
+  final player = AyahPlayer();
+  ref.onDispose(player.dispose);
+  return player;
 });
 
 final soundEnabledProvider = FutureProvider<bool>(

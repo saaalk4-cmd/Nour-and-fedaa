@@ -3,7 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../core/audio/ayah_player.dart';
 import '../../core/audio/sound_service.dart';
+import '../../core/audio/voice_service.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/mascot.dart';
 import '../../data/content/lesson.dart';
@@ -64,7 +66,57 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
   bool _saving = false;
   LessonCompletion? _done;
 
+  late final VoiceService _voice;
+  late final AyahPlayer _ayahPlayer;
+
   Lesson get _lesson => widget.lesson;
+
+  /// سور القرآن: رقم السورة من المعرّف quran_surah_N (الخطوة i = الآية i+1).
+  int? get _surah {
+    final m = RegExp(r'^quran_surah_(\d+)$').firstMatch(_lesson.id);
+    return m == null ? null : int.parse(m.group(1)!);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _voice = ref.read(voiceServiceProvider);
+    _ayahPlayer = ref.read(ayahPlayerProvider);
+    // الطفلة قد تكون وحدها: نقرأ لها أول شاشة تلقائيًا.
+    WidgetsBinding.instance.addPostFrameCallback((_) => _narrate());
+  }
+
+  @override
+  void dispose() {
+    _voice.stop();
+    _ayahPlayer.stop();
+    super.dispose();
+  }
+
+  /// يقرأ الشاشة الحالية بصوت عالٍ: النطق الآلي للمحتوى التعليمي فقط،
+  /// وللقرآن تلاوة مسجّلة (لا نطق آلي للآيات أو الأحاديث أبدًا).
+  Future<void> _narrate({bool manual = false}) async {
+    if (!mounted || _done != null) return;
+    if (!await _voice.isEnabled()) return;
+    final surah = _surah;
+    if (_isStep && surah != null) {
+      final played = await _ayahPlayer.play(surah, _page + 1);
+      if (!played && manual && mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('التلاوة غير متاحة في هذه النسخة')),
+        );
+      }
+      return;
+    }
+    if (!_lesson.canSpeak) return;
+    if (_isStep) {
+      final st = _lesson.steps[_page];
+      await _voice.speak(st.say ?? st.text);
+    } else {
+      final q = _lesson.questions[_page - _lesson.steps.length];
+      await _voice.speak(q.say ?? q.prompt);
+    }
+  }
   int get _total => _lesson.steps.length + _lesson.questions.length;
   bool get _isStep => _page < _lesson.steps.length;
   bool get _isLast => _page + 1 >= _total;
@@ -76,6 +128,7 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
         _tried.clear();
         _picked = null;
       });
+      _narrate();
       return;
     }
     await _finish();
@@ -125,9 +178,11 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
         // نحسب الإجابة الصحيحة من أول محاولة فقط (للمكافأة الإضافية).
         if (_tried.isEmpty) _firstTryCorrect++;
       });
+      if (_lesson.canSpeak) _voice.speak(q.praise ?? 'أحسنتِ!');
     } else {
       ref.read(soundServiceProvider).play(SoundEffect.tap);
       setState(() => _tried.add(index));
+      if (_lesson.canSpeak) _voice.speak('قريب جدًا! جرّبي مرة ثانية');
     }
   }
 
@@ -155,6 +210,14 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
           icon: const Icon(Icons.close),
           onPressed: () => context.pop(),
         ),
+        actions: [
+          IconButton(
+            tooltip: 'اسمعي',
+            iconSize: little ? 40 : 30,
+            icon: const Icon(Icons.volume_up),
+            onPressed: () => _narrate(manual: true),
+          ),
+        ],
       ),
       body: SafeArea(
         child: Padding(
