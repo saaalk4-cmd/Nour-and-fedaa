@@ -16,6 +16,7 @@ class CelebrationView extends StatefulWidget {
     required this.completion,
     required this.onContinue,
     this.little = false,
+    this.learned,
   });
 
   final String childName;
@@ -24,6 +25,9 @@ class CelebrationView extends StatefulWidget {
   final bool little;
   final LessonCompletion completion;
   final VoidCallback onContinue;
+
+  /// «ماذا تعلمتِ؟» (اختيارية).
+  final String? learned;
 
   @override
   State<CelebrationView> createState() => _CelebrationViewState();
@@ -140,6 +144,14 @@ class _CelebrationViewState extends State<CelebrationView>
                     const Text(
                       '🎉 أكملتِ كل مهام اليوم!',
                       style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
+                    ),
+                  ],
+                  if (widget.learned != null) ...[
+                    const SizedBox(height: 16),
+                    Text(
+                      '💡 ماذا تعلمتِ؟\n${widget.learned}',
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(fontSize: 19, fontWeight: FontWeight.w700),
                     ),
                   ],
                   const SizedBox(height: 24),

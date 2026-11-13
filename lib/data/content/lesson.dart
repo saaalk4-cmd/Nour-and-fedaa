@@ -48,6 +48,7 @@ class LessonQuestion {
     required this.answerIndex,
     required this.hint,
     this.emoji,
+    this.praise,
   });
 
   final String prompt;
@@ -55,6 +56,9 @@ class LessonQuestion {
   final List<String> options;
   final int answerIndex;
   final String hint;
+
+  /// جملة تشجيع خاصة تظهر بعد الإجابة الصحيحة (اختيارية).
+  final String? praise;
 
   factory LessonQuestion.fromJson(Map<String, dynamic> json) {
     final options = (json['options'] as List<dynamic>).cast<String>();
@@ -68,6 +72,7 @@ class LessonQuestion {
       options: options,
       answerIndex: answer,
       hint: json['hint'] as String,
+      praise: json['praise'] as String?,
     );
   }
 }
@@ -84,6 +89,8 @@ class Lesson {
     required this.steps,
     required this.questions,
     required this.source,
+    this.objective,
+    this.learned,
   });
 
   final String id;
@@ -96,6 +103,10 @@ class Lesson {
   final List<LessonStep> steps;
   final List<LessonQuestion> questions;
   final ContentSource source;
+
+  /// هدف الدرس (للوالدين) و«ماذا تعلمت؟» (تظهر للطفلة بعد الإكمال). اختياريان.
+  final String? objective;
+  final String? learned;
 
   bool fitsAge(int age) => age >= minAge && age <= maxAge;
 
@@ -120,6 +131,8 @@ class Lesson {
       steps: steps,
       questions: questions,
       source: ContentSource.fromJson(json['source']),
+      objective: json['objective'] as String?,
+      learned: json['learned'] as String?,
     );
   }
 }

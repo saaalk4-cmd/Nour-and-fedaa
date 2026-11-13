@@ -74,9 +74,9 @@ class HomeScreen extends ConsumerWidget {
                 SizedBox(
                   height: 64,
                   child: FilledButton.icon(
-                    onPressed: () => context.push('/journey'),
+                    onPressed: () => context.push('/today'),
                     icon: const Icon(Icons.explore),
-                    label: const Text('ابدئي رحلتي', style: TextStyle(fontSize: 20)),
+                    label: const Text('رحلتي اليوم', style: TextStyle(fontSize: 20)),
                   ),
                 ),
                 const SizedBox(height: 22),

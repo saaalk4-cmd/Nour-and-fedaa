@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "weeks": [
+    {
+      "week": 1,
+      "title": "أعرف الله وأقول «بسم الله»",
+      "days": [
+        {
+          "day": 1,
+          "title": "بداية الرحلة",
+          "lessons": [
+            "quran_surah_112",
+            "w1_honesty_pen",
+            "w1_letter_alef",
+            "w1_count_1_2"
+          ]
+        },
+        {
+          "day": 2,
+          "title": "بسم الله",
+          "lessons": [
+            "hadith_eating_manners_lesson",
+            "w1_honesty_cup",
+            "w1_letter_ba",
+            "w1_count_3"
+          ]
+        },
+        {
+          "day": 3,
+          "title": "ألوان وكلمات",
+          "lessons": [
+            "w1_letter_ta",
+            "w1_count_4",
+            "w1_colors_shapes",
+            "w1_english_hello"
+          ]
+        },
+        {
+          "day": 4,
+          "title": "أراجع وأتقدم",
+          "lessons": [
+            "w1_count_5",
+            "learn_letters_alef_ba_ta",
+            "learn_shapes_basic"
+          ]
+        },
+        {
+          "day": 5,
+          "title": "يوم المرح",
+          "lessons": [
+            "w1_review_game",
+            "learn_patterns_logic"
+          ]
+        }
+      ]
+    }
+  ]
+}

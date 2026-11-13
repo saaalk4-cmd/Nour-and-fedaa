@@ -1,0 +1,609 @@
+{
+  "schema": 1,
+  "lessons": [
+    {
+      "id": "w1_honesty_pen",
+      "title": "أنا أحب الصدق ❤️",
+      "emoji": "🖍️",
+      "category": "akhlaq",
+      "minAge": 4,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أن أعيد الشيء لصاحبه",
+      "learned": "أعيد ما ليس لي لصاحبه.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — منهج الأسبوع الأول (غير ديني)"
+      },
+      "steps": [
+        {
+          "emoji": "🖍️",
+          "text": "وجدت سلمى قلمًا جميلًا ليس لها."
+        },
+        {
+          "emoji": "😢",
+          "text": "صاحبة القلم تبحث عنه وهي حزينة."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تفعل سلمى؟",
+          "options": [
+            "تُخبّئ القلم 🙈",
+            "تعطيه لصاحبته 💛"
+          ],
+          "answerIndex": 1,
+          "hint": "صاحبة القلم تبحث عنه 🌸",
+          "emoji": "🖍️",
+          "praise": "أحسنتِ! الصدق والأمانة جميلان."
+        }
+      ]
+    },
+    {
+      "id": "w1_honesty_cup",
+      "title": "الحقيقة جميلة 🌟",
+      "emoji": "🥛",
+      "category": "akhlaq",
+      "minAge": 4,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أن أقول الحقيقة بلطف",
+      "learned": "أقول الحقيقة حتى لو أخطأت.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — منهج الأسبوع الأول (غير ديني)"
+      },
+      "steps": [
+        {
+          "emoji": "🥛",
+          "text": "وقع كوب في المطبخ وانكسر."
+        },
+        {
+          "emoji": "👩",
+          "text": "سألت ماما: من كسر الكوب؟"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تقول سلمى؟",
+          "options": [
+            "لا أعرف 🙈",
+            "أنا كسرته، آسفة 💛"
+          ],
+          "answerIndex": 1,
+          "hint": "الصراحة تُسعد ماما 🌸",
+          "emoji": "🥛",
+          "praise": "أحسنتِ! قول الحقيقة جميل."
+        }
+      ]
+    },
+    {
+      "id": "w1_letter_alef",
+      "title": "حرف الألف 🐰",
+      "emoji": "🐰",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف حرف الألف وصوته",
+      "learned": "حرف الألف في أول: أرنب، أسد، أناناس.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — منهج الأسبوع الأول (غير ديني)"
+      },
+      "steps": [
+        {
+          "emoji": "🐰",
+          "text": "أَرْنَب — تبدأ بحرف الألف (أ)."
+        },
+        {
+          "emoji": "🦁",
+          "text": "أَسَد — تبدأ بحرف الألف (أ)."
+        },
+        {
+          "emoji": "🍍",
+          "text": "أَنَاناس — تبدأ بحرف الألف (أ)."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أي كلمة تبدأ بحرف الألف؟",
+          "options": [
+            "بَطَّة",
+            "أَرْنَب",
+            "تُفَّاحَة"
+          ],
+          "answerIndex": 1,
+          "hint": "نقول: أَ أَ أَرْنَب",
+          "emoji": "🐰"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف الألف؟",
+          "options": [
+            "بَقَرَة",
+            "تِمْسَاح",
+            "أَسَد"
+          ],
+          "answerIndex": 2,
+          "hint": "نقول: أَ أَ أَسَد",
+          "emoji": "🦁"
+        }
+      ]
+    },
+    {
+      "id": "w1_letter_ba",
+      "title": "حرف الباء 🦆",
+      "emoji": "🦆",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف حرف الباء وصوته",
+      "learned": "حرف الباء في أول: بطة، بقرة، بطيخ.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — منهج الأسبوع الأول (غير ديني)"
+      },
+      "steps": [
+        {
+          "emoji": "🦆",
+          "text": "بَطَّة — تبدأ بحرف الباء (ب)."
+        },
+        {
+          "emoji": "🐄",
+          "text": "بَقَرَة — تبدأ بحرف الباء (ب)."
+        },
+        {
+          "emoji": "🍉",
+          "text": "بِطِّيخ — تبدأ بحرف الباء (ب)."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أي كلمة تبدأ بحرف الباء؟",
+          "options": [
+            "أَرْنَب",
+            "بَطَّة",
+            "تُفَّاحَة"
+          ],
+          "answerIndex": 1,
+          "hint": "نقول: بَ بَ بَطَّة",
+          "emoji": "🦆"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف الباء؟",
+          "options": [
+            "بِطِّيخ",
+            "أَسَد",
+            "تِمْسَاح"
+          ],
+          "answerIndex": 0,
+          "hint": "نقول: بَ بَ بِطِّيخ",
+          "emoji": "🍉"
+        }
+      ]
+    },
+    {
+      "id": "w1_letter_ta",
+      "title": "حرف التاء 🍎",
+      "emoji": "🍎",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف حرف التاء وصوته",
+      "learned": "حرف التاء في أول: تفاحة، تمساح، توت.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — منهج الأسبوع الأول (غير ديني)"
+      },
+      "steps": [
+        {
+          "emoji": "🍎",
+          "text": "تُفَّاحَة — تبدأ بحرف التاء (ت)."
+        },
+        {
+          "emoji": "🐊",
+          "text": "تِمْسَاح — تبدأ بحرف التاء (ت)."
+        },
+        {
+          "emoji": "🍓",
+          "text": "تُوت — يبدأ بحرف التاء (ت)."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أي كلمة تبدأ بحرف التاء؟",
+          "options": [
+            "بَطَّة",
+            "أَسَد",
+            "تُفَّاحَة"
+          ],
+          "answerIndex": 2,
+          "hint": "نقول: تَ تَ تُفَّاحَة",
+          "emoji": "🍎"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف التاء؟",
+          "options": [
+            "تِمْسَاح",
+            "بَقَرَة",
+            "أَرْنَب"
+          ],
+          "answerIndex": 0,
+          "hint": "نقول: تَ تَ تِمْسَاح",
+          "emoji": "🐊"
+        }
+      ]
+    },
+    {
+      "id": "w1_count_1_2",
+      "title": "الرقم 1 و 2 ⭐",
+      "emoji": "⭐",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعدّ حتى 2",
+      "learned": "أعدّ: واحد، اثنان.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — منهج الأسبوع الأول (غير ديني)"
+      },
+      "steps": [
+        {
+          "emoji": "1️⃣",
+          "text": "نجمة واحدة ⭐"
+        },
+        {
+          "emoji": "2️⃣",
+          "text": "نجمتان ⭐⭐"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "كم نجمة؟ ⭐⭐",
+          "options": [
+            "1",
+            "2",
+            "3"
+          ],
+          "answerIndex": 1,
+          "hint": "عدّي معي: واحدة، اثنتان",
+          "emoji": "⭐"
+        },
+        {
+          "prompt": "كم قلبًا؟ ❤️",
+          "options": [
+            "1",
+            "2",
+            "3"
+          ],
+          "answerIndex": 0,
+          "hint": "قلب واحد فقط",
+          "emoji": "❤️"
+        }
+      ]
+    },
+    {
+      "id": "w1_count_3",
+      "title": "الرقم 3 🍎",
+      "emoji": "🍎",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعدّ حتى 3",
+      "learned": "أعدّ: واحد، اثنان، ثلاثة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — منهج الأسبوع الأول (غير ديني)"
+      },
+      "steps": [
+        {
+          "emoji": "3️⃣",
+          "text": "ثلاث تفاحات 🍎🍎🍎"
+        },
+        {
+          "emoji": "👆",
+          "text": "نعدّ بإصبعنا: واحد، اثنان، ثلاثة."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "كم تفاحة؟ 🍎🍎🍎",
+          "options": [
+            "2",
+            "3",
+            "4"
+          ],
+          "answerIndex": 1,
+          "hint": "عدّي بإصبعك",
+          "emoji": "🍎"
+        },
+        {
+          "prompt": "كم وردة؟ 🌸🌸",
+          "options": [
+            "1",
+            "2",
+            "3"
+          ],
+          "answerIndex": 1,
+          "hint": "وردتان اثنتان",
+          "emoji": "🌸"
+        }
+      ]
+    },
+    {
+      "id": "w1_count_4",
+      "title": "الرقم 4 🐟",
+      "emoji": "🐟",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعدّ حتى 4",
+      "learned": "أعدّ حتى أربعة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — منهج الأسبوع الأول (غير ديني)"
+      },
+      "steps": [
+        {
+          "emoji": "4️⃣",
+          "text": "أربع سمكات 🐟🐟🐟🐟"
+        },
+        {
+          "emoji": "👆",
+          "text": "واحدة، اثنتان، ثلاث، أربع."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "كم سمكة؟ 🐟🐟🐟🐟",
+          "options": [
+            "3",
+            "4",
+            "5"
+          ],
+          "answerIndex": 1,
+          "hint": "عدّي ببطء",
+          "emoji": "🐟"
+        },
+        {
+          "prompt": "كم نجمة؟ ⭐⭐⭐",
+          "options": [
+            "2",
+            "3",
+            "4"
+          ],
+          "answerIndex": 1,
+          "hint": "ثلاث نجمات",
+          "emoji": "⭐"
+        }
+      ]
+    },
+    {
+      "id": "w1_count_5",
+      "title": "الرقم 5 🖐️",
+      "emoji": "🖐️",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعدّ حتى 5",
+      "learned": "أعدّ حتى خمسة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — منهج الأسبوع الأول (غير ديني)"
+      },
+      "steps": [
+        {
+          "emoji": "5️⃣",
+          "text": "في يدي خمسة أصابع 🖐️"
+        },
+        {
+          "emoji": "🎈",
+          "text": "خمس بالونات 🎈🎈🎈🎈🎈"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "كم بالونة؟ 🎈🎈🎈🎈🎈",
+          "options": [
+            "4",
+            "5",
+            "6"
+          ],
+          "answerIndex": 1,
+          "hint": "عدّي بأصابع يدك",
+          "emoji": "🎈"
+        },
+        {
+          "prompt": "كم عصفورًا؟ 🐦🐦🐦🐦",
+          "options": [
+            "3",
+            "4",
+            "5"
+          ],
+          "answerIndex": 1,
+          "hint": "أربعة عصافير",
+          "emoji": "🐦"
+        }
+      ]
+    },
+    {
+      "id": "w1_colors_shapes",
+      "title": "ألوان وأشكال 🎨",
+      "emoji": "🎨",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف الدائرة والمربع وألوانًا",
+      "learned": "الدائرة مدوّرة، والمربع له أربعة أضلاع.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — منهج الأسبوع الأول (غير ديني)"
+      },
+      "steps": [
+        {
+          "emoji": "⭕",
+          "text": "الدائرة مثل الشمس والكرة."
+        },
+        {
+          "emoji": "🟦",
+          "text": "المربع له أربعة أضلاع."
+        },
+        {
+          "emoji": "🍌",
+          "text": "الموزة صفراء."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أي شكل هو الدائرة؟",
+          "options": [
+            "🟦",
+            "⭕",
+            "🔺"
+          ],
+          "answerIndex": 1,
+          "hint": "الدائرة مدوّرة مثل الكرة ⚽",
+          "emoji": "⭕"
+        },
+        {
+          "prompt": "ما لون الموزة؟",
+          "options": [
+            "أحمر 🔴",
+            "أصفر 🟡",
+            "أزرق 🔵"
+          ],
+          "answerIndex": 1,
+          "hint": "مثل الشمس ☀️",
+          "emoji": "🍌"
+        }
+      ]
+    },
+    {
+      "id": "w1_english_hello",
+      "title": "Hello! 👋",
+      "emoji": "👋",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أقول مرحبًا وشكرًا بالإنجليزية",
+      "learned": "Hello = مرحبًا، Thank you = شكرًا.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — منهج الأسبوع الأول (غير ديني)"
+      },
+      "steps": [
+        {
+          "emoji": "👋",
+          "text": "Hello = مرحبًا"
+        },
+        {
+          "emoji": "🙏",
+          "text": "Thank you = شكرًا"
+        },
+        {
+          "emoji": "🌙",
+          "text": "Goodbye = مع السلامة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تعني Hello؟",
+          "options": [
+            "شكرًا",
+            "مرحبًا",
+            "مع السلامة"
+          ],
+          "answerIndex": 1,
+          "hint": "نقولها عندما نلتقي 👋",
+          "emoji": "👋"
+        },
+        {
+          "prompt": "ماذا نقول عندما نشكر؟",
+          "options": [
+            "Hello",
+            "Goodbye",
+            "Thank you"
+          ],
+          "answerIndex": 2,
+          "hint": "نقولها عندما نقول شكرًا 🙏",
+          "emoji": "🙏"
+        }
+      ]
+    },
+    {
+      "id": "w1_review_game",
+      "title": "لعبة الأسبوع 🎮",
+      "emoji": "🎮",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أراجع ما تعلمته في الأسبوع",
+      "learned": "أنا أتعلم وألعب كل يوم!",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — منهج الأسبوع الأول (غير ديني)"
+      },
+      "steps": [
+        {
+          "emoji": "🎮",
+          "text": "هيا نلعب بما تعلّمنا هذا الأسبوع!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "كم نجمة؟ ⭐⭐⭐⭐",
+          "options": [
+            "3",
+            "4",
+            "5"
+          ],
+          "answerIndex": 1,
+          "hint": "عدّي النجوم",
+          "emoji": "⭐"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف الباء؟",
+          "options": [
+            "بَطَّة",
+            "أَسَد",
+            "تُفَّاحَة"
+          ],
+          "answerIndex": 0,
+          "hint": "بَ بَ بَطَّة",
+          "emoji": "🦆"
+        },
+        {
+          "prompt": "وجدنا قلمًا ليس لنا، ماذا نفعل؟",
+          "options": [
+            "نُخبّئه 🙈",
+            "نعطيه لصاحبه 💛"
+          ],
+          "answerIndex": 1,
+          "hint": "الصدق والأمانة",
+          "emoji": "🖍️",
+          "praise": "أحسنتِ! الصدق والأمانة جميلان."
+        },
+        {
+          "prompt": "ماذا تعني Hello؟",
+          "options": [
+            "مرحبًا",
+            "شكرًا",
+            "مع السلامة"
+          ],
+          "answerIndex": 0,
+          "hint": "نقولها عندما نلتقي 👋",
+          "emoji": "👋"
+        }
+      ]
+    }
+  ]
+}

@@ -139,6 +139,7 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
         childName: widget.child.name,
         little: widget.child.ageGroup == AgeGroup.early,
         completion: done,
+        learned: _lesson.learned,
         onContinue: () => context.pop(),
       );
     }
@@ -259,10 +260,10 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
                   : 'جرّبي مرة ثانية. تلميح: ${q.hint}',
             ),
           if (answered)
-            const _FeedbackBubble(
+            _FeedbackBubble(
               mood: MascotMood.cheer,
               title: 'أحسنتِ! ✨',
-              body: 'إجابة صحيحة',
+              body: q.praise ?? 'إجابة صحيحة',
             ),
         ],
       ),
