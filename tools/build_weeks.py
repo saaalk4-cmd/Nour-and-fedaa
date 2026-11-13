@@ -452,7 +452,7 @@ def build():
         ]},
         {'week': 4, 'title': 'الكلمة الطيبة', 'days': [
             day(1, 'العصر وكلمة طيبة', ['quran_surah_103', 'w4_kind_word', 'w4_letter_7', 'w4_add_1'],
-                ['quran_surah_103', 'w4e_count_up_to_6', 'w4e_colors_pink_black']),
+                ['w4e_count_up_to_6', 'w4e_colors_pink_black']),
             day(2, 'فليقل خيرًا', ['hadith_good_word_lesson', 'w4_no_mocking', 'w4_letter_8', 'w4_add_2'],
                 ['w4e_good_word', 'w4e_no_mocking', 'w4e_plants']),
             day(3, 'نوح والنبات', ['prophet_nuh_lesson', 'w4_letter_9', 'w4_plants', 'w4_english_animals'],
