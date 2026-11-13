@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "source": {
+    "type": "sahih_sunnah",
+    "name": "موسوعة الأحاديث النبوية (HadeethEnc)",
+    "url": "https://hadeethenc.com/ar/home",
+    "note": "نص الحديث والتخريج والدرجة كما هي مطبوعة في الموسوعة. لا يُضاف حديث بلا كتاب ورقم ودرجة."
+  },
+  "hadiths": [
+    {
+      "id": "hadith_eating_manners",
+      "title": "آداب الطعام",
+      "emoji": "🍽️",
+      "text": "يَا غُلَامُ، سَمِّ اللهَ، وَكُلْ بِيَمِينِكَ، وَكُلْ مِمَّا يَلِيكَ",
+      "narrator": "عُمر بن أبي سلمة رضي الله عنه",
+      "book": "صحيح البخاري",
+      "number": "5376",
+      "grade": "صحيح (متفق عليه)",
+      "url": "https://hadeethenc.com/en/browse/hadith/58120",
+      "kidMeaning": "نقول «بسم الله» قبل الأكل، ونأكل بيميننا، ومن الطعام الذي أمامنا."
+    },
+    {
+      "id": "hadith_good_word",
+      "title": "الكلمة الطيبة",
+      "emoji": "💬",
+      "text": "مَنْ كَانَ يُؤْمِنُ بِاللهِ وَالْيَوْمِ الْآخِرِ فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ",
+      "narrator": "أبو هريرة رضي الله عنه",
+      "book": "صحيح مسلم",
+      "number": "47",
+      "grade": "صحيح (متفق عليه)",
+      "url": "https://hadeethenc.com/en/browse/hadith/5437",
+      "kidMeaning": "نقول كلامًا طيبًا، وإذا لم يكن عندنا كلام طيب نسكت."
+    },
+    {
+      "id": "hadith_every_good_is_charity",
+      "title": "كل معروف صدقة",
+      "emoji": "🤝",
+      "text": "كُلُّ مَعْرُوفٍ صَدَقَةٌ",
+      "narrator": "جابر رضي الله عنه",
+      "book": "صحيح البخاري",
+      "number": "6021",
+      "grade": "صحيح",
+      "url": "https://hadeethenc.com/en/browse/hadith/5346",
+      "kidMeaning": "كل عمل طيب نفعله مع الناس له أجر عند الله."
+    }
+  ]
+}
