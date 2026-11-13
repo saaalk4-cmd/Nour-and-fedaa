@@ -75,6 +75,218 @@
           ]
         }
       ]
+    },
+    {
+      "week": 2,
+      "title": "الصلاة وأساعد الآخرين",
+      "days": [
+        {
+          "day": 1,
+          "title": "الفاتحة ومساعدة ماما",
+          "lessons": [
+            "quran_surah_1",
+            "w2_help_mom",
+            "w2_letter_1",
+            "w2_count_6_7"
+          ],
+          "earlyLessons": [
+            "quran_surah_108",
+            "w2e_count_4_5",
+            "w2e_colors_green"
+          ]
+        },
+        {
+          "day": 2,
+          "title": "الصلاة في وقتها",
+          "lessons": [
+            "hadith_prayer_on_time_lesson",
+            "w2_letter_2",
+            "w2_count_8",
+            "w2_water"
+          ],
+          "earlyLessons": [
+            "w2e_prayer",
+            "w2e_help_mom",
+            "w2e_water"
+          ]
+        },
+        {
+          "day": 3,
+          "title": "كل معروف صدقة",
+          "lessons": [
+            "hadith_every_good_is_charity_lesson",
+            "w2_letter_3",
+            "w2_count_9_10",
+            "w2_english_numbers"
+          ],
+          "earlyLessons": [
+            "w2e_shapes_square",
+            "w2e_fruits"
+          ]
+        },
+        {
+          "day": 4,
+          "title": "إبراهيم وأصدقائي",
+          "lessons": [
+            "prophet_ibrahim_lesson",
+            "w2_help_friend",
+            "w2_review_letters"
+          ],
+          "earlyLessons": [
+            "w2e_farm"
+          ]
+        },
+        {
+          "day": 5,
+          "title": "يوم المرح",
+          "lessons": [
+            "w2_review_game",
+            "w2_pattern"
+          ],
+          "earlyLessons": [
+            "w2e_review_game"
+          ]
+        }
+      ]
+    },
+    {
+      "week": 3,
+      "title": "الرحمة والمشاركة",
+      "days": [
+        {
+          "day": 1,
+          "title": "الكوثر والرحمة",
+          "lessons": [
+            "quran_surah_108",
+            "w3_mercy",
+            "w3_letter_4",
+            "w3_compare"
+          ],
+          "earlyLessons": [
+            "quran_surah_114",
+            "w3e_more",
+            "w3e_colors_orange_purple"
+          ]
+        },
+        {
+          "day": 2,
+          "title": "قبل النوم والمشاركة",
+          "lessons": [
+            "hadith_sleep_dhikr_lesson",
+            "w3_share",
+            "w3_letter_5",
+            "w3_compare_big"
+          ],
+          "earlyLessons": [
+            "w3e_mercy",
+            "w3e_share",
+            "w3e_water_animals"
+          ]
+        },
+        {
+          "day": 3,
+          "title": "أحب الصالحين",
+          "lessons": [
+            "hadith_hasan_husayn_lesson",
+            "w3_letter_6",
+            "w3_animals_live",
+            "w3_english_colors"
+          ],
+          "earlyLessons": [
+            "w3e_triangle",
+            "w3e_day_night"
+          ]
+        },
+        {
+          "day": 4,
+          "title": "مراجعة وتقدّم",
+          "lessons": [
+            "w3_review_letters",
+            "w3_pattern"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 5,
+          "title": "يوم المرح",
+          "lessons": [
+            "w3_review_game"
+          ],
+          "earlyLessons": [
+            "w3e_review_game"
+          ]
+        }
+      ]
+    },
+    {
+      "week": 4,
+      "title": "الكلمة الطيبة",
+      "days": [
+        {
+          "day": 1,
+          "title": "العصر وكلمة طيبة",
+          "lessons": [
+            "quran_surah_103",
+            "w4_kind_word",
+            "w4_letter_7",
+            "w4_add_1"
+          ],
+          "earlyLessons": [
+            "quran_surah_103",
+            "w4e_count_up_to_6",
+            "w4e_colors_pink_black"
+          ]
+        },
+        {
+          "day": 2,
+          "title": "فليقل خيرًا",
+          "lessons": [
+            "hadith_good_word_lesson",
+            "w4_no_mocking",
+            "w4_letter_8",
+            "w4_add_2"
+          ],
+          "earlyLessons": [
+            "w4e_good_word",
+            "w4e_no_mocking",
+            "w4e_plants"
+          ]
+        },
+        {
+          "day": 3,
+          "title": "نوح والنبات",
+          "lessons": [
+            "prophet_nuh_lesson",
+            "w4_letter_9",
+            "w4_plants",
+            "w4_english_animals"
+          ],
+          "earlyLessons": [
+            "w4e_birds",
+            "w4e_body"
+          ]
+        },
+        {
+          "day": 4,
+          "title": "أراجع وأجمع",
+          "lessons": [
+            "w4_review_letters",
+            "w4_add_3"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 5,
+          "title": "يوم المرح",
+          "lessons": [
+            "w4_review_game",
+            "w4_pattern"
+          ],
+          "earlyLessons": [
+            "w4e_review_game"
+          ]
+        }
+      ]
     }
   ]
 }

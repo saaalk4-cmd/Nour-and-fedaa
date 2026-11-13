@@ -1,0 +1,369 @@
+{
+  "schema": 1,
+  "lessons": [
+    {
+      "id": "w4e_count_up_to_6",
+      "title": "نعدّ حتى 6 🎈",
+      "emoji": "🎈",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعدّ حتى 6",
+      "learned": "أعدّ حتى ستة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 4 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🎈🎈🎈🎈🎈🎈",
+          "text": "ست بالونات",
+          "say": "واحدة، اثنتان، ثلاث، أربع، خمس، ست بالونات"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🎈🎈🎈🎈🎈🎈",
+          "say": "اضغطي على ست بالونات",
+          "options": [
+            "🎈🎈🎈",
+            "🎈🎈🎈🎈🎈🎈",
+            "🎈🎈"
+          ],
+          "answerIndex": 1,
+          "hint": "ست",
+          "emoji": "🎈"
+        }
+      ]
+    },
+    {
+      "id": "w4e_colors_pink_black",
+      "title": "الوردي والأسود 🩷⚫",
+      "emoji": "🩷",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف ألوانًا جديدة",
+      "learned": "الوردي والأسود.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 4 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🩷",
+          "text": "وردي",
+          "say": "هذا اللون وردي مثل الزهرة"
+        },
+        {
+          "emoji": "⚫",
+          "text": "أسود",
+          "say": "وهذا أسود مثل الليل"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🩷",
+          "say": "أين الوردي؟",
+          "options": [
+            "⚫",
+            "🩷",
+            "🔴"
+          ],
+          "answerIndex": 1,
+          "hint": "زهرة",
+          "emoji": "🌸"
+        },
+        {
+          "prompt": "⚫",
+          "say": "أين الأسود؟",
+          "options": [
+            "⚫",
+            "🩷",
+            "🟡"
+          ],
+          "answerIndex": 0,
+          "hint": "ليل",
+          "emoji": "🌙"
+        }
+      ]
+    },
+    {
+      "id": "w4e_good_word",
+      "title": "كلمة طيبة 💬",
+      "emoji": "💬",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أقول كلامًا طيبًا",
+      "learned": "أقول كلامًا طيبًا.",
+      "source": {
+        "type": "sahih_sunnah",
+        "reference": "صحيح مسلم (47) — صحيح (متفق عليه): «فليقل خيرًا أو ليصمت»"
+      },
+      "steps": [
+        {
+          "emoji": "💬",
+          "text": "كلمة طيبة",
+          "say": "نقول كلامًا طيبًا"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "😢 ؟",
+          "say": "صديقتك حزينة. ماذا نقول لها؟",
+          "options": [
+            "🙊",
+            "💬"
+          ],
+          "answerIndex": 1,
+          "hint": "كلمة طيبة",
+          "emoji": "💬",
+          "praise": "أحسنتِ! الكلمة الطيبة جميلة."
+        }
+      ],
+      "allowSpeech": true
+    },
+    {
+      "id": "w4e_no_mocking",
+      "title": "لا نضحك على أحد 💛",
+      "emoji": "💛",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "لا أسخر من أحد",
+      "learned": "أحترم صديقاتي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 4 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🙂",
+          "text": "صديقتي",
+          "say": "صديقتك قالت كلمة بشكل مختلف"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🙂 ؟",
+          "say": "ماذا نفعل؟ هل نضحك عليها، أم نساعدها بلطف؟",
+          "options": [
+            "😝",
+            "💛"
+          ],
+          "answerIndex": 1,
+          "hint": "بلطف",
+          "emoji": "💛",
+          "praise": "أحسنتِ! نحترم الجميع."
+        }
+      ]
+    },
+    {
+      "id": "w4e_plants",
+      "title": "النبات 🌱",
+      "emoji": "🌱",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف أن النبات يحتاج الشمس",
+      "learned": "النبات يحب الماء والشمس.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 4 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🌱",
+          "text": "نبات",
+          "say": "هذا نبات صغير"
+        },
+        {
+          "emoji": "☀️",
+          "text": "شمس",
+          "say": "يحتاج الماء والشمس ليكبر"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🌱 ؟",
+          "say": "ماذا يحتاج النبات؟ اضغطي على الشمس",
+          "options": [
+            "🍬",
+            "☀️",
+            "🧸"
+          ],
+          "answerIndex": 1,
+          "hint": "شمس",
+          "emoji": "☀️"
+        }
+      ]
+    },
+    {
+      "id": "w4e_birds",
+      "title": "أين العصفور؟ 🐦",
+      "emoji": "🐦",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف العصفور والقطة",
+      "learned": "العصفور يطير.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 4 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🐦",
+          "text": "عصفور",
+          "say": "هذا عصفور، له جناحان"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🐦 ؟",
+          "say": "أين العصفور؟",
+          "options": [
+            "🐟",
+            "🐦",
+            "🐄"
+          ],
+          "answerIndex": 1,
+          "hint": "عصفور",
+          "emoji": "🐦"
+        },
+        {
+          "prompt": "🐱 ؟",
+          "say": "أين القطة؟",
+          "options": [
+            "🐱",
+            "🐦",
+            "🐟"
+          ],
+          "answerIndex": 0,
+          "hint": "قطة",
+          "emoji": "🐱"
+        }
+      ]
+    },
+    {
+      "id": "w4e_body",
+      "title": "جسمي 👀",
+      "emoji": "👀",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف عينيّ وأذنيّ",
+      "learned": "أرى بعينيّ وأسمع بأذنيّ.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 4 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "👀",
+          "text": "عينان",
+          "say": "نرى بعينينا"
+        },
+        {
+          "emoji": "👂",
+          "text": "أذنان",
+          "say": "ونسمع بأذنينا"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "👀 ؟",
+          "say": "بماذا نرى؟",
+          "options": [
+            "👂",
+            "👀",
+            "👃"
+          ],
+          "answerIndex": 1,
+          "hint": "عينان",
+          "emoji": "👀"
+        },
+        {
+          "prompt": "👂 ؟",
+          "say": "بماذا نسمع؟",
+          "options": [
+            "👂",
+            "👀",
+            "👃"
+          ],
+          "answerIndex": 0,
+          "hint": "أذنان",
+          "emoji": "👂"
+        }
+      ]
+    },
+    {
+      "id": "w4e_review_game",
+      "title": "لعبة الأسبوع 🎮",
+      "emoji": "🎮",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أراجع ما تعلمته",
+      "learned": "أنا أتعلم وألعب!",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 4 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🎮",
+          "text": "هيا نلعب",
+          "say": "هيا نلعب بما تعلمنا!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🩷",
+          "say": "أين الوردي؟",
+          "options": [
+            "🩷",
+            "⚫",
+            "🔴"
+          ],
+          "answerIndex": 0,
+          "hint": "زهرة",
+          "emoji": "🌸"
+        },
+        {
+          "prompt": "👂 ؟",
+          "say": "بماذا نسمع؟",
+          "options": [
+            "👀",
+            "👂",
+            "👃"
+          ],
+          "answerIndex": 1,
+          "hint": "أذنان",
+          "emoji": "👂"
+        },
+        {
+          "prompt": "🐦 ؟",
+          "say": "أين العصفور؟",
+          "options": [
+            "🐟",
+            "🐄",
+            "🐦"
+          ],
+          "answerIndex": 2,
+          "hint": "عصفور",
+          "emoji": "🐦"
+        }
+      ]
+    }
+  ]
+}

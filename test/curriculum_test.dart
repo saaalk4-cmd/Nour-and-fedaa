@@ -31,14 +31,16 @@ void main() {
     expect(used.toSet().length, used.length, reason: 'a lesson appears twice');
   });
 
-  test('week 1 days hold 2-5 adventures and every one has goal, learned and a hint', () {
+  test('weeks 1-4 days hold 2-5 adventures and every one has goal, learned and a hint', () {
     final byId = {for (final l in all) l.id: l};
-    final week1 = curriculum.weeks.first;
-    expect(week1.days.length, 5);
-    for (final d in week1.days) {
-      expect(d.lessonIds.length, inInclusiveRange(2, 5), reason: 'day ${d.day}');
+    expect(curriculum.weeks.length, 4);
+    for (final w in curriculum.weeks) {
+      expect(w.days.length, 5);
+      for (final d in w.days) {
+        expect(d.lessonIds.length, inInclusiveRange(1, 5), reason: 'w${w.week} day ${d.day}');
+      }
     }
-    for (final l in all.where((l) => l.id.startsWith('w1_'))) {
+    for (final l in all.where((l) => RegExp(r'^w\d+_').hasMatch(l.id))) {
       expect(l.objective, isNotEmpty, reason: l.id);
       expect(l.learned, isNotEmpty, reason: l.id);
       expect(l.source.type, 'educational', reason: l.id);
@@ -49,9 +51,9 @@ void main() {
     }
   });
 
-  test('week 1 never uses failure wording', () {
+  test('weeks 1-4 never use failure wording', () {
     const banned = ['فشل', 'خطأ', 'خسر', 'سيئة'];
-    for (final l in all.where((l) => l.id.startsWith('w1_'))) {
+    for (final l in all.where((l) => RegExp(r'^w\d+_').hasMatch(l.id))) {
       final texts = [
         l.title,
         ...l.steps.map((s) => s.text),
@@ -63,14 +65,14 @@ void main() {
     }
   });
 
-  test('plan follows progress: day 1 → day 2 → ... → finished', () {
+  test('plan follows progress through all 20 days, then finishes', () {
     final done = <String>{};
     var plan = curriculum.planFor(childAge: 5, allLessons: all, completed: done);
     expect(plan.day!.day, 1);
-    expect(plan.adventures.length, 4);
-    for (var day = 1; day <= 5; day++) {
+    for (var i = 0; i < 20; i++) {
       plan = curriculum.planFor(childAge: 5, allLessons: all, completed: done);
-      expect(plan.day!.day, day);
+      expect(plan.finishedAll, isFalse, reason: 'step $i');
+      expect(plan.adventures, isNotEmpty);
       done.addAll(plan.adventures.map((l) => l.id));
     }
     plan = curriculum.planFor(childAge: 5, allLessons: all, completed: done);
@@ -80,12 +82,11 @@ void main() {
   test('non-reader track: spoken prompts, picture options, and only age 3-4 lessons', () {
     final byId = {for (final l in all) l.id: l};
     final arabic = RegExp(r'[\u0600-\u06FF]');
-    for (final d in curriculum.weeks.first.days) {
-      expect(d.earlyLessonIds, isNotEmpty, reason: 'day ${d.day}');
+    for (final d in curriculum.weeks.expand((w) => w.days)) {
       for (final id in d.earlyLessonIds) {
         final l = byId[id]!;
         expect(l.fitsAge(3), isTrue, reason: id);
-        if (!id.startsWith('w1e_')) continue; // السور تُسمع بالتلاوة
+        if (!RegExp(r'^w\d+e_').hasMatch(id)) continue; // السور تُسمع بالتلاوة
         for (final st in l.steps) {
           expect(st.say, isNotEmpty, reason: '$id step has nothing to speak');
         }
@@ -113,12 +114,15 @@ void main() {
     expect(bism.source.reference, contains('5376'));
   });
 
-  test('younger child follows the early track through all 5 days', () {
+  test('younger child follows the early track and always has something to do', () {
     final done = <String>{};
-    for (var day = 1; day <= 5; day++) {
+    for (var i = 0; i < 20; i++) {
       final plan = curriculum.planFor(childAge: 3, allLessons: all, completed: done);
-      expect(plan.day!.day, day);
-      expect(plan.adventures.map((l) => l.id), plan.day!.earlyLessonIds);
+      if (plan.finishedAll) break;
+      expect(plan.adventures, isNotEmpty);
+      for (final l in plan.adventures) {
+        expect(l.fitsAge(3), isTrue, reason: l.id);
+      }
       done.addAll(plan.adventures.map((l) => l.id));
     }
     expect(curriculum.planFor(childAge: 3, allLessons: all, completed: done).finishedAll, isTrue);
