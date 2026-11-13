@@ -28,6 +28,7 @@ class SectionScreen extends StatelessWidget {
       return HadithSectionScreen(
         title: '${section.title} ${section.emoji}',
         asset: hadithAsset,
+        category: sectionId,
       );
     }
     if (sectionId == SectionIds.quran) return const QuranScreen();

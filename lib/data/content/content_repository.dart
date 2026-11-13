@@ -9,9 +9,19 @@ import 'lesson.dart';
 class ContentRepository {
   static const String learnAsset = 'assets/content/learn_lessons.json';
 
+  /// كل ملفات الدروس (أتعلم + تدريب القرآن والأحاديث المولَّد من محتوى موثّق).
+  static const List<String> lessonAssets = [
+    learnAsset,
+    'assets/content/quran_lessons.json',
+    'assets/content/hadith_lessons.json',
+  ];
+
   Future<List<Lesson>> loadLessons() async {
-    final raw = await rootBundle.loadString(learnAsset);
-    return parseLessons(raw);
+    final all = <Lesson>[];
+    for (final asset in lessonAssets) {
+      all.addAll(parseLessons(await rootBundle.loadString(asset)));
+    }
+    return all;
   }
 
   static List<Lesson> parseLessons(String raw) {

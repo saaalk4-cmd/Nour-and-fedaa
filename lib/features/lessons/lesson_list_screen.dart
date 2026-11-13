@@ -10,7 +10,15 @@ import '../../data/providers.dart';
 
 /// قائمة دروس «أتعلم»: تُعرض للطفلة المختارة حسب عمرها فقط، بتدرّج مناسب لها.
 class LessonListScreen extends ConsumerWidget {
-  const LessonListScreen({super.key});
+  const LessonListScreen({
+    super.key,
+    this.category = 'learn',
+    this.title = 'أتعلم 🧠',
+  });
+
+  /// فئة الدروس المعروضة (learn، quran، akhlaq...).
+  final String category;
+  final String title;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -18,7 +26,7 @@ class LessonListScreen extends ConsumerWidget {
     final lessons = ref.watch(lessonsProvider);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('أتعلم 🧠')),
+      appBar: AppBar(title: Text(title)),
       body: child.when(
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (_, __) => const Center(child: Text('حدث خطأ')),
@@ -32,7 +40,9 @@ class LessonListScreen extends ConsumerWidget {
             loading: () => const Center(child: CircularProgressIndicator()),
             error: (_, __) => const Center(child: Text('تعذر تحميل الدروس')),
             data: (all) {
-              final mine = all.where((l) => l.fitsAge(c.age)).toList();
+              final mine = all
+                  .where((l) => l.category == category && l.fitsAge(c.age))
+                  .toList();
               if (mine.isEmpty) {
                 return const Center(child: Text('دروس جديدة قريبًا 🌟'));
               }

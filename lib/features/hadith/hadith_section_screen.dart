@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../data/content/hadith.dart';
+import '../lessons/lesson_list_screen.dart';
 
 final hadithContentProvider =
     FutureProvider.family<HadithContent, String>((ref, asset) {
@@ -11,9 +12,15 @@ final hadithContentProvider =
 /// قسم أحاديث/أذكار: يعرض النص بمصدره ودرجته، مع معنى مبسّط للطفلة.
 /// يُستخدم لأخلاقي، أذكاري، صلاتي، وسيرة نبينا ﷺ (ملف JSON لكل قسم).
 class HadithSectionScreen extends ConsumerWidget {
-  const HadithSectionScreen({super.key, required this.title, required this.asset});
+  const HadithSectionScreen({
+    super.key,
+    required this.title,
+    required this.asset,
+    required this.category,
+  });
 
   final String title;
+  final String category;
   final String asset;
 
   @override
@@ -27,6 +34,19 @@ class HadithSectionScreen extends ConsumerWidget {
         data: (c) => ListView(
           padding: const EdgeInsets.all(16),
           children: [
+            SizedBox(
+              height: 60,
+              child: FilledButton.icon(
+                onPressed: () => Navigator.of(context).push(
+                  MaterialPageRoute<void>(
+                    builder: (_) => LessonListScreen(category: category, title: 'تدريب 🎯'),
+                  ),
+                ),
+                icon: const Icon(Icons.sports_esports),
+                label: const Text('تدريب ممتع 🎯', style: TextStyle(fontSize: 20)),
+              ),
+            ),
+            const SizedBox(height: 12),
             for (final h in c.hadiths) _HadithCard(hadith: h),
             const SizedBox(height: 8),
             Text(

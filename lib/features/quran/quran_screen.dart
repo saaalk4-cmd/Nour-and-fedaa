@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../data/content/quran.dart';
+import '../lessons/lesson_list_screen.dart';
 
 final quranContentProvider = FutureProvider<QuranContent>((ref) {
   return QuranRepository().load();
@@ -22,6 +23,19 @@ class QuranScreen extends ConsumerWidget {
         data: (c) => ListView(
           padding: const EdgeInsets.all(16),
           children: [
+            SizedBox(
+              height: 60,
+              child: FilledButton.icon(
+                onPressed: () => Navigator.of(context).push(
+                  MaterialPageRoute<void>(
+                    builder: (_) => const LessonListScreen(category: 'quran', title: 'تدريب 🎯'),
+                  ),
+                ),
+                icon: const Icon(Icons.sports_esports),
+                label: const Text('تدريب ممتع 🎯', style: TextStyle(fontSize: 20)),
+              ),
+            ),
+            const SizedBox(height: 12),
             for (final s in c.surahs)
               Card(
                 elevation: 0,
