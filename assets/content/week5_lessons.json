@@ -1,0 +1,728 @@
+{
+  "schema": 1,
+  "lessons": [
+    {
+      "id": "w5_thanks",
+      "title": "أقول شكرًا 🌷",
+      "emoji": "🌷",
+      "category": "akhlaq",
+      "minAge": 4,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أشكر من يساعدني.",
+      "learned": "أشكر من يساعدني.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 5"
+      },
+      "steps": [
+        {
+          "emoji": "🌷",
+          "text": "صديقة سلمى أعطتها قلمًا.",
+          "say": "صديقة سلمى أعطتها قلمًا."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تقول سلمى؟",
+          "options": [
+            "شكرًا 🌷",
+            "لا تقول شيئًا"
+          ],
+          "answerIndex": 0,
+          "hint": "نشكر من يعطينا 🌸",
+          "praise": "أحسنتِ! الشكر جميل.",
+          "emoji": "🌷"
+        }
+      ]
+    },
+    {
+      "id": "w5_turn",
+      "title": "أنتظر دوري ⏳",
+      "emoji": "⏳",
+      "category": "akhlaq",
+      "minAge": 4,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أنتظر دوري.",
+      "learned": "أنتظر دوري.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 5"
+      },
+      "steps": [
+        {
+          "emoji": "⏳",
+          "text": "الأطفال ينتظرون دورهم في الأرجوحة.",
+          "say": "الأطفال ينتظرون دورهم في الأرجوحة."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تفعل سلمى؟",
+          "options": [
+            "تدفع الجميع",
+            "تنتظر دورها ⏳"
+          ],
+          "answerIndex": 1,
+          "hint": "كل واحدة تأخذ دورها 🌸",
+          "praise": "أحسنتِ! الانتظار جميل.",
+          "emoji": "⏳"
+        }
+      ]
+    },
+    {
+      "id": "w5_letter_1",
+      "title": "حرف الشين ☀️",
+      "emoji": "☀️",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف حرف الشين وصوته",
+      "learned": "حرف الشين في أول: شَمْس، شَجَرَة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 5"
+      },
+      "steps": [
+        {
+          "emoji": "☀️",
+          "text": "شَمْس — تبدأ بحرف الشين.",
+          "say": "شَمْس — تبدأ بحرف الشين."
+        },
+        {
+          "emoji": "🌳",
+          "text": "شَجَرَة — تبدأ بحرف الشين.",
+          "say": "شَجَرَة — تبدأ بحرف الشين."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أي كلمة تبدأ بحرف الشين؟",
+          "options": [
+            "بَقَرَة",
+            "شَمْس",
+            "تُفَّاحَة"
+          ],
+          "answerIndex": 1,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "☀️"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف الشين؟",
+          "options": [
+            "ثَلْج",
+            "جَمَل",
+            "شَجَرَة"
+          ],
+          "answerIndex": 2,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "🌳"
+        }
+      ]
+    },
+    {
+      "id": "w5_letter_2",
+      "title": "حرف الصاد 🦅",
+      "emoji": "🦅",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف حرف الصاد وصوته",
+      "learned": "حرف الصاد في أول: صَقْر، صُنْدُوق.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 5"
+      },
+      "steps": [
+        {
+          "emoji": "🦅",
+          "text": "صَقْر — تبدأ بحرف الصاد.",
+          "say": "صَقْر — تبدأ بحرف الصاد."
+        },
+        {
+          "emoji": "📦",
+          "text": "صُنْدُوق — تبدأ بحرف الصاد.",
+          "say": "صُنْدُوق — تبدأ بحرف الصاد."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أي كلمة تبدأ بحرف الصاد؟",
+          "options": [
+            "ثَعْلَب",
+            "ثَوْر",
+            "صَقْر"
+          ],
+          "answerIndex": 2,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "🦅"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف الصاد؟",
+          "options": [
+            "صُنْدُوق",
+            "جَبَل",
+            "حِصَان"
+          ],
+          "answerIndex": 0,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "📦"
+        }
+      ]
+    },
+    {
+      "id": "w5_letter_3",
+      "title": "حرف الضاد 🐸",
+      "emoji": "🐸",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف حرف الضاد وصوته",
+      "learned": "حرف الضاد في أول: ضِفْدَع، ضَوْء.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 5"
+      },
+      "steps": [
+        {
+          "emoji": "🐸",
+          "text": "ضِفْدَع — تبدأ بحرف الضاد.",
+          "say": "ضِفْدَع — تبدأ بحرف الضاد."
+        },
+        {
+          "emoji": "💡",
+          "text": "ضَوْء — تبدأ بحرف الضاد.",
+          "say": "ضَوْء — تبدأ بحرف الضاد."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أي كلمة تبدأ بحرف الضاد؟",
+          "options": [
+            "ضِفْدَع",
+            "جَمَل",
+            "جَزَر"
+          ],
+          "answerIndex": 0,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "🐸"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف الضاد؟",
+          "options": [
+            "حُوت",
+            "ضَوْء",
+            "خَرُوف"
+          ],
+          "answerIndex": 1,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "💡"
+        }
+      ]
+    },
+    {
+      "id": "w5_review_letters",
+      "title": "أراجع الحروف 🔤",
+      "emoji": "🔤",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أراجع حروف الأسبوع",
+      "learned": "أتذكّر حروفي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 5"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "هيا نراجع حروفنا!",
+          "say": "هيا نراجع حروفنا!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أي كلمة تبدأ بحرف الشين؟",
+          "options": [
+            "تِمْسَاح",
+            "ثَعْلَب",
+            "شَجَرَة"
+          ],
+          "answerIndex": 2,
+          "hint": "تذكّري الكلمات التي تعلمناها",
+          "emoji": "🌳"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف الصاد؟",
+          "options": [
+            "صُنْدُوق",
+            "جَمَل",
+            "جَزَر"
+          ],
+          "answerIndex": 0,
+          "hint": "تذكّري الكلمات التي تعلمناها",
+          "emoji": "📦"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف الضاد؟",
+          "options": [
+            "حَلِيب",
+            "ضَوْء",
+            "حُوت"
+          ],
+          "answerIndex": 1,
+          "hint": "تذكّري الكلمات التي تعلمناها",
+          "emoji": "💡"
+        }
+      ]
+    },
+    {
+      "id": "w5_add_1",
+      "title": "نجمع حتى 6 ➕",
+      "emoji": "➕",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أجمع حتى 5",
+      "learned": "أجمع عددين صغيرين.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 5"
+      },
+      "steps": [
+        {
+          "emoji": "➕",
+          "text": "3 + 3 = 6",
+          "say": "3 + 3 = 6"
+        },
+        {
+          "emoji": "➕",
+          "text": "4 + 2 = 6",
+          "say": "4 + 2 = 6"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "3 + 3 = ؟",
+          "options": [
+            "6",
+            "7",
+            "5"
+          ],
+          "answerIndex": 0,
+          "hint": "عدّي على أصابعك",
+          "emoji": "➕"
+        },
+        {
+          "prompt": "4 + 2 = ؟",
+          "options": [
+            "7",
+            "6",
+            "5"
+          ],
+          "answerIndex": 1,
+          "hint": "عدّي على أصابعك",
+          "emoji": "➕"
+        },
+        {
+          "prompt": "1 + 5 = ؟",
+          "options": [
+            "7",
+            "5",
+            "6"
+          ],
+          "answerIndex": 2,
+          "hint": "عدّي على أصابعك",
+          "emoji": "➕"
+        }
+      ]
+    },
+    {
+      "id": "w5_sub",
+      "title": "نطرح حتى 5 ➖",
+      "emoji": "➖",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أطرح حتى 5",
+      "learned": "أطرح عددًا صغيرًا من عدد.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 5"
+      },
+      "steps": [
+        {
+          "emoji": "➖",
+          "text": "3 - 1 = 2",
+          "say": "3 - 1 = 2"
+        },
+        {
+          "emoji": "➖",
+          "text": "4 - 2 = 2",
+          "say": "4 - 2 = 2"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "3 - 1 = ؟",
+          "options": [
+            "2",
+            "3",
+            "4"
+          ],
+          "answerIndex": 0,
+          "hint": "عدّي للخلف على أصابعك",
+          "emoji": "➖"
+        },
+        {
+          "prompt": "4 - 2 = ؟",
+          "options": [
+            "3",
+            "2",
+            "4"
+          ],
+          "answerIndex": 1,
+          "hint": "عدّي للخلف على أصابعك",
+          "emoji": "➖"
+        },
+        {
+          "prompt": "5 - 3 = ؟",
+          "options": [
+            "3",
+            "4",
+            "2"
+          ],
+          "answerIndex": 2,
+          "hint": "عدّي للخلف على أصابعك",
+          "emoji": "➖"
+        }
+      ]
+    },
+    {
+      "id": "w5_senses",
+      "title": "حواسي الخمس 👀",
+      "emoji": "👀",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف حواسي",
+      "learned": "أرى وأسمع وأشمّ وأتذوّق وألمس.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 5"
+      },
+      "steps": [
+        {
+          "emoji": "👀",
+          "text": "نرى بالعينين.",
+          "say": "نرى بالعينين."
+        },
+        {
+          "emoji": "👂",
+          "text": "ونسمع بالأذنين.",
+          "say": "ونسمع بالأذنين."
+        },
+        {
+          "emoji": "👃",
+          "text": "ونشمّ بالأنف.",
+          "say": "ونشمّ بالأنف."
+        },
+        {
+          "emoji": "👅",
+          "text": "ونتذوّق باللسان.",
+          "say": "ونتذوّق باللسان."
+        },
+        {
+          "emoji": "✋",
+          "text": "ونلمس باليد.",
+          "say": "ونلمس باليد."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "بماذا نشمّ الورد؟",
+          "options": [
+            "بالأنف 👃",
+            "بالأذن 👂",
+            "بالعين 👀"
+          ],
+          "answerIndex": 0,
+          "hint": "الورد له رائحة",
+          "emoji": "🌸"
+        },
+        {
+          "prompt": "بماذا نسمع الموسيقى؟",
+          "options": [
+            "باليد ✋",
+            "بالأذنين 👂",
+            "بالأنف 👃"
+          ],
+          "answerIndex": 1,
+          "hint": "الصوت يدخل الأذن",
+          "emoji": "🎵"
+        },
+        {
+          "prompt": "بماذا نتذوّق العسل؟",
+          "options": [
+            "بالعين 👀",
+            "بالأذن 👂",
+            "باللسان 👅"
+          ],
+          "answerIndex": 2,
+          "hint": "العسل حلو",
+          "emoji": "🍯"
+        }
+      ]
+    },
+    {
+      "id": "w5_weather",
+      "title": "الطقس ☔",
+      "emoji": "☔",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف الطقس",
+      "learned": "ألبس حسب الطقس.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 5"
+      },
+      "steps": [
+        {
+          "emoji": "☀️",
+          "text": "في الطقس المشمس نلبس قبعة.",
+          "say": "في الطقس المشمس نلبس قبعة."
+        },
+        {
+          "emoji": "🌧️",
+          "text": "وفي المطر نأخذ المظلة.",
+          "say": "وفي المطر نأخذ المظلة."
+        },
+        {
+          "emoji": "❄️",
+          "text": "وفي البرد نلبس معطفًا.",
+          "say": "وفي البرد نلبس معطفًا."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا نأخذ في المطر؟",
+          "options": [
+            "مظلة ☂️",
+            "نظارة شمس 🕶️",
+            "مروحة"
+          ],
+          "answerIndex": 0,
+          "hint": "لنحمي أنفسنا من الماء",
+          "emoji": "🌧️"
+        },
+        {
+          "prompt": "ماذا نلبس في البرد؟",
+          "options": [
+            "قبعة صيفية 👒",
+            "معطفًا 🧥",
+            "مايوه"
+          ],
+          "answerIndex": 1,
+          "hint": "يحمينا من البرد",
+          "emoji": "❄️"
+        }
+      ]
+    },
+    {
+      "id": "w5_english_fruits",
+      "title": "Apple Banana 🍎",
+      "emoji": "🍎",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أتعلم كلمات إنجليزية جديدة",
+      "learned": "مثل: Apple = تفاحة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 5"
+      },
+      "steps": [
+        {
+          "emoji": "🍎",
+          "text": "Apple = تفاحة",
+          "say": "Apple = تفاحة"
+        },
+        {
+          "emoji": "🍌",
+          "text": "Banana = موزة",
+          "say": "Banana = موزة"
+        },
+        {
+          "emoji": "🍊",
+          "text": "Orange = برتقالة",
+          "say": "Orange = برتقالة"
+        },
+        {
+          "emoji": "🍇",
+          "text": "Grape = عنب",
+          "say": "Grape = عنب"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تعني Apple؟",
+          "options": [
+            "تفاحة",
+            "موزة",
+            "برتقالة"
+          ],
+          "answerIndex": 0,
+          "hint": "تذكّري الصورة",
+          "emoji": "🍎"
+        },
+        {
+          "prompt": "ماذا تعني Banana؟",
+          "options": [
+            "تفاحة",
+            "موزة",
+            "برتقالة"
+          ],
+          "answerIndex": 1,
+          "hint": "تذكّري الصورة",
+          "emoji": "🍌"
+        },
+        {
+          "prompt": "ماذا تعني Orange؟",
+          "options": [
+            "تفاحة",
+            "موزة",
+            "برتقالة"
+          ],
+          "answerIndex": 2,
+          "hint": "تذكّري الصورة",
+          "emoji": "🍊"
+        }
+      ]
+    },
+    {
+      "id": "w5_pattern",
+      "title": "ما التالي؟ 🔴🔵",
+      "emoji": "🧩",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أكمل النمط",
+      "learned": "الأنماط تتكرر.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 5"
+      },
+      "steps": [
+        {
+          "emoji": "🧩",
+          "text": "الأنماط تتكرر: 🔴🔵🔴🔵",
+          "say": "الأنماط تتكرر: 🔴🔵🔴🔵"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🔴🔵🔴🔵🔴 ؟",
+          "options": [
+            "🔵",
+            "🔴",
+            "🟢"
+          ],
+          "answerIndex": 0,
+          "hint": "الأحمر ثم الأزرق ثم الأحمر…",
+          "emoji": "🧩"
+        },
+        {
+          "prompt": "⭐🌙⭐🌙⭐ ؟",
+          "options": [
+            "⭐",
+            "🌙",
+            "☀️"
+          ],
+          "answerIndex": 1,
+          "hint": "نجمة ثم قمر ثم نجمة…",
+          "emoji": "🧩"
+        }
+      ]
+    },
+    {
+      "id": "w5_review_game",
+      "title": "لعبة الأسبوع 🎮",
+      "emoji": "🎮",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أراجع ما تعلمته",
+      "learned": "أنا أتعلم وألعب!",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 5"
+      },
+      "steps": [
+        {
+          "emoji": "🎮",
+          "text": "هيا نلعب بما تعلمناه!",
+          "say": "هيا نلعب بما تعلمناه!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "4 - 2 = ؟",
+          "options": [
+            "2",
+            "3",
+            "4"
+          ],
+          "answerIndex": 0,
+          "hint": "عدّي للخلف",
+          "emoji": "➖"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف الشين؟",
+          "options": [
+            "صَقْر",
+            "شَمْس",
+            "ضَوْء"
+          ],
+          "answerIndex": 1,
+          "hint": "شَ شَ شَمْس",
+          "emoji": "☀️"
+        },
+        {
+          "prompt": "ماذا تعني Apple؟",
+          "options": [
+            "موزة",
+            "عنب",
+            "تفاحة"
+          ],
+          "answerIndex": 2,
+          "hint": "🍎",
+          "emoji": "🍎"
+        },
+        {
+          "prompt": "أحدهم أعطاك هدية، ماذا نقول؟",
+          "options": [
+            "شكرًا 🌷",
+            "لا شيء"
+          ],
+          "answerIndex": 0,
+          "hint": "نشكر من يعطينا",
+          "emoji": "🌷",
+          "praise": "أحسنتِ! الشكر جميل."
+        }
+      ]
+    }
+  ]
+}

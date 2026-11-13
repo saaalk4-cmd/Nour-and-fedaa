@@ -286,6 +286,152 @@
           ]
         }
       ]
+    },
+    {
+      "week": 5,
+      "title": "الشكر والأدب",
+      "days": [
+        {
+          "day": 1,
+          "title": "الفلق وأقول شكرًا",
+          "lessons": [
+            "quran_surah_113",
+            "w5_thanks",
+            "w5_letter_1",
+            "w5_add_1"
+          ],
+          "earlyLessons": [
+            "w5e_count_7",
+            "w5e_colors_brown_white",
+            "w5e_thanks"
+          ]
+        },
+        {
+          "day": 2,
+          "title": "أحسن الناس خلقًا",
+          "lessons": [
+            "hadith_best_manners_lesson",
+            "w5_turn",
+            "w5_letter_2",
+            "w5_senses"
+          ],
+          "earlyLessons": [
+            "hadith_best_manners_lesson",
+            "w5e_turn",
+            "w5e_senses"
+          ]
+        },
+        {
+          "day": 3,
+          "title": "أنس يخدم",
+          "lessons": [
+            "hadith_anas_service_lesson",
+            "w5_letter_3",
+            "w5_sub",
+            "w5_english_fruits"
+          ],
+          "earlyLessons": [
+            "hadith_anas_service_lesson",
+            "w5e_fruits"
+          ]
+        },
+        {
+          "day": 4,
+          "title": "موسى والطقس",
+          "lessons": [
+            "prophet_musa_lesson",
+            "w5_review_letters",
+            "w5_weather"
+          ],
+          "earlyLessons": [
+            "prophet_musa_lesson",
+            "w5e_weather"
+          ]
+        },
+        {
+          "day": 5,
+          "title": "يوم المرح",
+          "lessons": [
+            "w5_review_game",
+            "w5_pattern"
+          ],
+          "earlyLessons": [
+            "w5e_review_game"
+          ]
+        }
+      ]
+    },
+    {
+      "week": 6,
+      "title": "الصدق والنظافة والاحترام",
+      "days": [
+        {
+          "day": 1,
+          "title": "النصر والصدق",
+          "lessons": [
+            "quran_surah_110",
+            "w6_truth",
+            "w6_letter_4",
+            "w6_shapes"
+          ],
+          "earlyLessons": [
+            "w6e_count_8",
+            "w6e_hot_cold"
+          ]
+        },
+        {
+          "day": 2,
+          "title": "قريش والنظافة",
+          "lessons": [
+            "quran_surah_106",
+            "w6_clean",
+            "w6_letter_5",
+            "w6_days"
+          ],
+          "earlyLessons": [
+            "w6e_clean",
+            "w6e_big_small"
+          ]
+        },
+        {
+          "day": 3,
+          "title": "الصدّيق والفاروق",
+          "lessons": [
+            "hadith_abubakr_umar_lesson",
+            "w6_respect",
+            "w6_letter_6",
+            "w6_seasons"
+          ],
+          "earlyLessons": [
+            "hadith_abubakr_umar_lesson",
+            "w6e_truth"
+          ]
+        },
+        {
+          "day": 4,
+          "title": "يوسف وأراجع",
+          "lessons": [
+            "prophet_yusuf_lesson",
+            "w6_review_letters",
+            "w6_english_family"
+          ],
+          "earlyLessons": [
+            "prophet_yusuf_lesson",
+            "w6e_shapes"
+          ]
+        },
+        {
+          "day": 5,
+          "title": "يوم المرح",
+          "lessons": [
+            "w6_review_game",
+            "w6_pattern"
+          ],
+          "earlyLessons": [
+            "w6e_review_game"
+          ]
+        }
+      ]
     }
   ]
 }

@@ -31,3 +31,4 @@ secrets.*
 
 # تلاوة القرآن تُنزَّل في CI (tools/fetch_quran_audio.py)
 assets/audio/quran/*.mp3
+__pycache__/
