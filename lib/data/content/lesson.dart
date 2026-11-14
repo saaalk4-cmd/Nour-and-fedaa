@@ -86,6 +86,63 @@ class LessonQuestion {
   }
 }
 
+/// بطاقة واحدة في واجهة الصغيرات: صورة كبيرة + كلمة قصيرة جدًا + صوت.
+/// تُكتب يدويًا (أو تُشتق من خطوات قصيرة) ولا تحتوي نص حديث أو مرجعًا أبدًا.
+class ToddlerCard {
+  const ToddlerCard({required this.emoji, required this.word, this.say});
+
+  final String emoji;
+
+  /// كلمة أو جملة قصيرة تظهر بخط كبير (قد تكون فارغة).
+  final String word;
+
+  /// ما يُنطق عند الضغط على 🔊 (الافتراضي: الكلمة).
+  final String? say;
+
+  factory ToddlerCard.fromJson(Map<String, dynamic> json) => ToddlerCard(
+        emoji: json['emoji'] as String,
+        word: json['word'] as String,
+        say: json['say'] as String?,
+      );
+}
+
+/// واجهة الأطفال بعمر 3–4: بطاقات + نشاط لمس واحد (اختياري). المصدر والنص الكامل للوالدين فقط.
+class ToddlerView {
+  const ToddlerView({required this.cards, this.question});
+
+  final List<ToddlerCard> cards;
+  final LessonQuestion? question;
+
+  factory ToddlerView.fromJson(Map<String, dynamic> json) {
+    final cards = (json['cards'] as List<dynamic>)
+        .map((e) => ToddlerCard.fromJson(e as Map<String, dynamic>))
+        .toList();
+    if (cards.isEmpty) throw const FormatException('toddler بلا بطاقات');
+    final q = json['question'];
+    return ToddlerView(
+      cards: cards,
+      question: q == null ? null : LessonQuestion.fromJson(q as Map<String, dynamic>),
+    );
+  }
+}
+
+/// مستوى المحتوى حسب العمر (ageGroup 3 / 4 / 5): يحدد شكل الدرس تلقائيًا.
+class ContentLevel {
+  const ContentLevel._(this.ageGroup);
+
+  /// 3 = نور (صور وصوت ولمس)، 4 = مثلها مع كلمات أكثر، 5 فأكثر = فداء (كلمات وجمل وأسئلة).
+  final int ageGroup;
+
+  factory ContentLevel.forAge(int age) =>
+      ContentLevel._(age <= 3 ? 3 : (age == 4 ? 4 : 5));
+
+  /// واجهة بلا قراءة: صورة + صوت + كلمة قصيرة + لمس.
+  bool get pictureOnly => ageGroup <= 4;
+
+  /// أقصى عدد كلمات للبطاقة الواحدة.
+  int get maxWords => ageGroup == 3 ? 3 : 5;
+}
+
 class Lesson {
   const Lesson({
     required this.id,
@@ -101,6 +158,7 @@ class Lesson {
     this.objective,
     this.learned,
     this.allowSpeech = false,
+    this.toddler,
   });
 
   final String id;
@@ -120,6 +178,47 @@ class Lesson {
 
   /// يسمح بالنطق الآلي لدرس مصدره ديني (عبارة قصيرة معتمدة فقط). الافتراضي: ممنوع.
   final bool allowSpeech;
+
+  /// واجهة الصغيرات المكتوبة يدويًا (إلزامية للدروس الدينية غير القرآنية).
+  final ToddlerView? toddler;
+
+  /// سور القرآن: رقم السورة من المعرّف quran_surah_N.
+  int? get surahNumber {
+    final m = RegExp(r'^quran_surah_(\d+)$').firstMatch(id);
+    return m == null ? null : int.parse(m.group(1)!);
+  }
+
+  /// بطاقات الصغيرات: المكتوبة، أو (للقرآن) بطاقة لكل آية بلا نص، أو (للتعليمي) من الخطوات القصيرة.
+  /// الدرس الديني بلا toddler لا يُظهر نصه أبدًا: بطاقة واحدة بعنوانه فقط.
+  List<ToddlerCard> toddlerCards() {
+    final t = toddler;
+    if (t != null) return t.cards;
+    if (surahNumber != null) {
+      return [
+        for (var i = 0; i < steps.length; i++)
+          ToddlerCard(emoji: i == 0 ? emoji : '🎧', word: i == 0 ? title : ''),
+      ];
+    }
+    if (source.type == 'educational') {
+      return [
+        for (final s in steps)
+          ToddlerCard(
+            emoji: s.emoji,
+            word: s.text.length <= 24 ? s.text : '',
+            say: s.say ?? s.text,
+          ),
+      ];
+    }
+    return [ToddlerCard(emoji: emoji, word: title)];
+  }
+
+  /// أسئلة الصغيرات: السؤال المكتوب يدويًا، أو أسئلة الدرس التعليمي نفسها، ولا شيء غير ذلك.
+  List<LessonQuestion> toddlerQuestions() {
+    final t = toddler;
+    if (t != null) return t.question == null ? const [] : [t.question!];
+    if (source.type == 'educational') return questions;
+    return const [];
+  }
 
   /// هل يجوز النطق الآلي لهذا الدرس؟ المحتوى التعليمي فقط (أو المسموح صراحة).
   bool get canSpeak => source.type == 'educational' || allowSpeech;
@@ -150,6 +249,9 @@ class Lesson {
       objective: json['objective'] as String?,
       learned: json['learned'] as String?,
       allowSpeech: json['allowSpeech'] == true,
+      toddler: json['toddler'] == null
+          ? null
+          : ToddlerView.fromJson(json['toddler'] as Map<String, dynamic>),
     );
   }
 }

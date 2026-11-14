@@ -13,6 +13,7 @@ import '../../data/models/child.dart';
 import '../../data/models/lesson_completion.dart';
 import '../../data/providers.dart';
 import 'celebration_view.dart';
+import 'toddler_lesson_screen.dart';
 
 class LessonScreen extends ConsumerWidget {
   const LessonScreen({super.key, required this.lessonId});
@@ -41,6 +42,10 @@ class LessonScreen extends ConsumerWidget {
             appBar: AppBar(),
             body: const Center(child: Text('لم نجد هذا الدرس')),
           );
+        }
+        // محرك المحتوى حسب العمر: 3 و4 → صورة + صوت + لمس، 5 فأكثر → الدرس الكامل.
+        if (ContentLevel.forAge(c.age).pictureOnly) {
+          return ToddlerLessonPlayer(lesson: matches.first, child: c);
         }
         return _LessonPlayer(lesson: matches.first, child: c);
       },

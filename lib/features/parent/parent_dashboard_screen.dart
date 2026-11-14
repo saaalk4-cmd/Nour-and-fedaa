@@ -212,6 +212,7 @@ class _ReportBody extends ConsumerWidget {
                 title: Text(c.lesson.title),
                 subtitle: Text('${c.score}/${c.totalQuestions} صحيحة من أول مرة'),
                 trailing: Text(c.mastered ? '✅ متقن' : '🔁 مراجعة'),
+                onTap: () => _showLessonDetails(context, c),
               ),
           ],
         ),
@@ -355,4 +356,40 @@ class _EditChildDialogState extends State<_EditChildDialog> {
       ],
     );
   }
+}
+
+
+/// تفاصيل الدرس للوالدين فقط: الهدف، ماذا تعلمت، المصدر، والنص الكامل. لا تظهر لواجهة الطفلة.
+void _showLessonDetails(BuildContext context, CompletedLessonInfo c) {
+  final l = c.lesson;
+  final fullText = l.steps.map((s) => s.text).join('\n');
+  showDialog<void>(
+    context: context,
+    builder: (_) => AlertDialog(
+      title: Text('${l.emoji} ${l.title}'),
+      content: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            if (l.objective != null) Text('الهدف: ${l.objective}'),
+            if (l.learned != null) Text('ماذا تعلمت: ${l.learned}'),
+            const SizedBox(height: 8),
+            Text('المصدر: ${l.source.reference}',
+                style: const TextStyle(fontWeight: FontWeight.w800)),
+            const SizedBox(height: 8),
+            Text('${c.score}/${c.totalQuestions} صحيحة من أول مرة'),
+            if (l.source.type != 'educational') ...[
+              const SizedBox(height: 8),
+              const Text('النص الكامل:', style: TextStyle(fontWeight: FontWeight.w800)),
+              Text(fullText),
+            ],
+          ],
+        ),
+      ),
+      actions: [
+        TextButton(onPressed: () => Navigator.of(context).pop(), child: const Text('إغلاق')),
+      ],
+    ),
+  );
 }

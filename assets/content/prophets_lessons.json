@@ -46,7 +46,16 @@
           "hint": "تذكّري الخطوة الثانية",
           "emoji": "💡"
         }
-      ]
+      ],
+      "toddler": {
+        "cards": [
+          {
+            "emoji": "🌿",
+            "word": "إبراهيم",
+            "say": "إبراهيم"
+          }
+        ]
+      }
     },
     {
       "id": "prophet_nuh_lesson",
@@ -93,7 +102,16 @@
           "hint": "تذكّري الخطوة الثانية",
           "emoji": "💡"
         }
-      ]
+      ],
+      "toddler": {
+        "cards": [
+          {
+            "emoji": "🌿",
+            "word": "نوح",
+            "say": "نوح"
+          }
+        ]
+      }
     },
     {
       "id": "prophet_musa_lesson",
@@ -140,7 +158,16 @@
           "hint": "تذكّري الخطوة الثانية",
           "emoji": "💡"
         }
-      ]
+      ],
+      "toddler": {
+        "cards": [
+          {
+            "emoji": "🌿",
+            "word": "موسى",
+            "say": "موسى"
+          }
+        ]
+      }
     },
     {
       "id": "prophet_yusuf_lesson",
@@ -187,7 +214,16 @@
           "hint": "تذكّري الخطوة الثانية",
           "emoji": "💡"
         }
-      ]
+      ],
+      "toddler": {
+        "cards": [
+          {
+            "emoji": "🌿",
+            "word": "يوسف",
+            "say": "يوسف"
+          }
+        ]
+      }
     },
     {
       "id": "prophet_isa_lesson",
@@ -234,7 +270,16 @@
           "hint": "تذكّري الخطوة الثانية",
           "emoji": "💡"
         }
-      ]
+      ],
+      "toddler": {
+        "cards": [
+          {
+            "emoji": "🌿",
+            "word": "عيسى",
+            "say": "عيسى"
+          }
+        ]
+      }
     }
   ]
 }
