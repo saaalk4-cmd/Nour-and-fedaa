@@ -68,6 +68,19 @@
       "url": "https://hadeethenc.com/en/browse/hadith/5808",
       "excerpt": false,
       "kidMeaning": "نطعم من يحتاج، ونسلّم على الناس ونقول لهم السلام عليكم."
+    },
+    {
+      "id": "hadith_parents",
+      "title": "بر الوالدين",
+      "emoji": "👩‍👧",
+      "text": "أمك، ثم أمك، ثم أمك، ثم أباك، ثم أدناك أدناك",
+      "narrator": "أبو هريرة رضي الله عنه",
+      "book": "صحيح مسلم",
+      "number": "2548",
+      "grade": "صحيح (متفق عليه؛ أخرجه البخاري برقم 5971)",
+      "url": "https://hadeethenc.com/en/browse/hadith/4182",
+      "excerpt": true,
+      "kidMeaning": "نحب أمنا وأبانا ونحسن إليهما، وأمي لها حق كبير علينا."
     }
   ]
 }
