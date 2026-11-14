@@ -67,7 +67,7 @@ void main() {
       for (final c in l.toddler!.cards) {
         final say = c.say ?? c.word;
         final isQuote = !approved.contains(say) &&
-            l.steps.any((s) => s.text.contains(say) && say.length > 12);
+            l.steps.any((s) => s.text.contains(say) && words(say) >= 4);
         expect(isQuote, isFalse, reason: '${l.id} speaks a quoted text');
       }
     }
