@@ -31,9 +31,9 @@ void main() {
     expect(used.toSet().length, used.length, reason: 'a lesson appears twice');
   });
 
-  test('weeks 1-6 days hold 2-5 adventures and every one has goal, learned and a hint', () {
+  test('weeks 1-8 days hold 2-5 adventures and every one has goal, learned and a hint', () {
     final byId = {for (final l in all) l.id: l};
-    expect(curriculum.weeks.length, 6);
+    expect(curriculum.weeks.length, 8);
     for (final w in curriculum.weeks) {
       expect(w.days.length, 5);
       for (final d in w.days) {
@@ -51,7 +51,7 @@ void main() {
     }
   });
 
-  test('weeks 1-6 never use failure wording', () {
+  test('weeks 1-8 never use failure wording', () {
     const banned = ['فشل', 'خطأ', 'خسر', 'سيئة'];
     for (final l in all.where((l) => RegExp(r'^w\d+_').hasMatch(l.id))) {
       final texts = [
@@ -65,11 +65,11 @@ void main() {
     }
   });
 
-  test('plan follows progress through all 30 days, then finishes', () {
+  test('plan follows progress through all 40 days, then finishes', () {
     final done = <String>{};
     var plan = curriculum.planFor(childAge: 5, allLessons: all, completed: done);
     expect(plan.day!.day, 1);
-    for (var i = 0; i < 30; i++) {
+    for (var i = 0; i < 40; i++) {
       plan = curriculum.planFor(childAge: 5, allLessons: all, completed: done);
       expect(plan.finishedAll, isFalse, reason: 'step $i');
       expect(plan.adventures, isNotEmpty);
@@ -116,7 +116,7 @@ void main() {
 
   test('younger child follows the early track and always has something to do', () {
     final done = <String>{};
-    for (var i = 0; i < 30; i++) {
+    for (var i = 0; i < 40; i++) {
       final plan = curriculum.planFor(childAge: 3, allLessons: all, completed: done);
       if (plan.finishedAll) break;
       expect(plan.adventures, isNotEmpty);
