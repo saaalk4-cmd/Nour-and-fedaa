@@ -199,24 +199,32 @@ class Lesson {
           ToddlerCard(emoji: i == 0 ? emoji : '🎧', word: i == 0 ? title : ''),
       ];
     }
-    if (source.type == 'educational') {
+    // دروس تعليمية، أو دروس مسار الصغيرات (maxAge ≤ 4) المكتوبة أصلًا بجمل قصيرة للمستمعات.
+    if (source.type == 'educational' || maxAge <= 4) {
       return [
         for (final s in steps)
           ToddlerCard(
             emoji: s.emoji,
-            word: s.text.length <= 24 ? s.text : '',
-            say: s.say ?? s.text,
+            word: _shortWord(s.text),
+            say: s.say ?? (source.type == 'educational' ? s.text : null),
           ),
       ];
     }
     return [ToddlerCard(emoji: emoji, word: title)];
   }
 
+  /// أول جزء قصير من النص (قبل الفاصلة أو النقطة)، وإلا فارغ: الطول يُسمع ولا يُعرض.
+  static String _shortWord(String text) {
+    final first = text.split(RegExp(r'[،.,:!؟?\n]')).first.trim();
+    final n = first.isEmpty ? 0 : first.split(RegExp(r'\s+')).length;
+    return (n > 0 && n <= 3) ? first : '';
+  }
+
   /// أسئلة الصغيرات: السؤال المكتوب يدويًا، أو أسئلة الدرس التعليمي نفسها، ولا شيء غير ذلك.
   List<LessonQuestion> toddlerQuestions() {
     final t = toddler;
     if (t != null) return t.question == null ? const [] : [t.question!];
-    if (source.type == 'educational') return questions;
+    if (source.type == 'educational' || maxAge <= 4) return questions;
     return const [];
   }
 

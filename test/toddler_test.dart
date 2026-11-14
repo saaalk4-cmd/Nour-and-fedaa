@@ -24,7 +24,7 @@ void main() {
 
   test('every religious lesson for age 3 has a hand-written toddler view (no hadith text)', () {
     for (final l in forNour) {
-      if (l.source.type == 'educational' || l.surahNumber != null) continue;
+      if (l.source.type == 'educational' || l.surahNumber != null || l.maxAge <= 4) continue;
       expect(l.toddler, isNotNull, reason: '${l.id} needs a toddler block');
     }
   });
@@ -38,7 +38,7 @@ void main() {
         expect(words(c.word), lessThanOrEqualTo(level.maxWords), reason: '${l.id}: "${c.word}"');
         expect(c.word.length, lessThanOrEqualTo(24), reason: l.id);
       }
-      if (l.source.type != 'educational') {
+      if (l.source.type != 'educational' && l.maxAge > 4) {
         final joined = cards.map((c) => c.word).join(' ');
         for (final s in l.steps) {
           expect(joined.contains(s.text), isFalse, reason: '${l.id} shows its full text');
@@ -55,7 +55,7 @@ void main() {
         for (final o in q.options) {
           expect(words(o), lessThanOrEqualTo(4), reason: '${l.id}: "$o"');
         }
-        expect(q.say, isNotEmpty, reason: '${l.id} question must be spoken');
+        expect(q.say ?? q.prompt, isNotEmpty, reason: '${l.id} question must be spoken');
       }
     }
   });
@@ -66,9 +66,9 @@ void main() {
       if (l.source.type == 'educational' || l.toddler == null) continue;
       for (final c in l.toddler!.cards) {
         final say = c.say ?? c.word;
-        final isQuote = l.steps.any((s) => s.text.contains(say) && say.length > 12);
+        final isQuote = !approved.contains(say) &&
+            l.steps.any((s) => s.text.contains(say) && say.length > 12);
         expect(isQuote, isFalse, reason: '${l.id} speaks a quoted text');
-        if (approved.contains(say)) continue;
       }
     }
   });
