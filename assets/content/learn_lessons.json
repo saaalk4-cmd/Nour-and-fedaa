@@ -1,0 +1,159 @@
+{
+  "lessons": [
+    {
+      "id": "learn_colors_basic",
+      "title": "ألوان جميلة",
+      "emoji": "🎨",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "source": { "type": "educational", "reference": "محتوى تعليمي أصلي للمرحلة المبكرة (غير ديني)" },
+      "steps": [
+        { "emoji": "🍓", "text": "الفراولة حمراء" },
+        { "emoji": "🌞", "text": "الشمس صفراء" },
+        { "emoji": "🌊", "text": "البحر أزرق" }
+      ],
+      "questions": [
+        { "prompt": "ما لون الشمس؟", "emoji": "🌞", "options": ["أحمر 🔴", "أصفر 🟡", "أزرق 🔵"], "answerIndex": 1, "hint": "الشمس تشبه الليمونة 🍋" },
+        { "prompt": "ما لون الفراولة؟", "emoji": "🍓", "options": ["أزرق 🔵", "أصفر 🟡", "أحمر 🔴"], "answerIndex": 2, "hint": "الفراولة حمراء مثل القلب ❤️" }
+      ]
+    },
+    {
+      "id": "learn_shapes_basic",
+      "title": "أشكال حولنا",
+      "emoji": "🔺",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "source": { "type": "educational", "reference": "محتوى تعليمي أصلي للمرحلة المبكرة (غير ديني)" },
+      "steps": [
+        { "emoji": "⚪", "text": "هذه دائرة، مثل الكرة" },
+        { "emoji": "🟦", "text": "هذا مربع" },
+        { "emoji": "🔺", "text": "هذا مثلث" }
+      ],
+      "questions": [
+        { "prompt": "أي شكل يشبه الكرة؟", "emoji": "⚽", "options": ["دائرة ⚪", "مربع 🟦", "مثلث 🔺"], "answerIndex": 0, "hint": "الكرة مستديرة" },
+        { "prompt": "أين المثلث؟", "options": ["🟦", "🔺", "⚪"], "answerIndex": 1, "hint": "المثلث له ثلاث زوايا" }
+      ]
+    },
+    {
+      "id": "learn_count_to_three",
+      "title": "نعدّ معًا",
+      "emoji": "🔢",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "source": { "type": "educational", "reference": "محتوى تعليمي أصلي للمرحلة المبكرة (غير ديني)" },
+      "steps": [
+        { "emoji": "⭐", "text": "نجمة واحدة" },
+        { "emoji": "⭐⭐", "text": "نجمتان" },
+        { "emoji": "⭐⭐⭐", "text": "ثلاث نجمات" }
+      ],
+      "questions": [
+        { "prompt": "كم نجمة هنا؟", "emoji": "⭐⭐", "options": ["1", "2", "3"], "answerIndex": 1, "hint": "عدّي بإصبعك: واحدة، اثنتان" },
+        { "prompt": "كم نجمة هنا؟", "emoji": "⭐⭐⭐", "options": ["2", "1", "3"], "answerIndex": 2, "hint": "عدّي بإصبعك: واحدة، اثنتان، ثلاث" }
+      ]
+    },
+    {
+      "id": "learn_animal_sounds",
+      "title": "أصوات الحيوانات",
+      "emoji": "🐱",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "source": { "type": "educational", "reference": "محتوى تعليمي أصلي للمرحلة المبكرة (غير ديني)" },
+      "steps": [
+        { "emoji": "🐱", "text": "القطة تقول: مياو" },
+        { "emoji": "🐑", "text": "الخروف يقول: ماع" },
+        { "emoji": "🐄", "text": "البقرة تقول: موو" }
+      ],
+      "questions": [
+        { "prompt": "من يقول: مياو؟", "options": ["🐱", "🐄", "🐑"], "answerIndex": 0, "hint": "هي تحب اللبن 🥛" },
+        { "prompt": "من يقول: موو؟", "options": ["🐱", "🐄", "🐑"], "answerIndex": 1, "hint": "هي كبيرة وتعطينا اللبن" }
+      ]
+    },
+    {
+      "id": "learn_letters_alef_ba_ta",
+      "title": "حروفي الأولى: أ ب ت",
+      "emoji": "🔤",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "source": { "type": "educational", "reference": "محتوى تعليمي أصلي للمرحلة المبكرة (غير ديني)" },
+      "steps": [
+        { "emoji": "🐰", "text": "أرنب: تبدأ بحرف الألف (أ)" },
+        { "emoji": "🦆", "text": "بطة: تبدأ بحرف الباء (ب)" },
+        { "emoji": "🍎", "text": "تفاحة: تبدأ بحرف التاء (ت)" }
+      ],
+      "questions": [
+        { "prompt": "أي كلمة تبدأ بحرف الباء (ب)؟", "options": ["أرنب 🐰", "بطة 🦆", "تفاحة 🍎"], "answerIndex": 1, "hint": "انطقي الكلمة ببطء: ب… ب… بطة" },
+        { "prompt": "أي كلمة تبدأ بحرف الألف (أ)؟", "options": ["أرنب 🐰", "تفاحة 🍎", "بطة 🦆"], "answerIndex": 0, "hint": "هو حيوان يقفز وله أذنان طويلتان" },
+        { "prompt": "أي كلمة تبدأ بحرف التاء (ت)؟", "options": ["بطة 🦆", "أرنب 🐰", "تفاحة 🍎"], "answerIndex": 2, "hint": "هي فاكهة حمراء لذيذة" }
+      ]
+    },
+    {
+      "id": "learn_add_simple",
+      "title": "نجمع معًا",
+      "emoji": "➕",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 2,
+      "source": { "type": "educational", "reference": "محتوى تعليمي أصلي للمرحلة المبكرة (غير ديني)" },
+      "steps": [
+        { "emoji": "🍎 + 🍎", "text": "1 + 1 = 2" },
+        { "emoji": "🍎🍎 + 🍎", "text": "2 + 1 = 3" },
+        { "emoji": "🍎🍎 + 🍎🍎", "text": "2 + 2 = 4" }
+      ],
+      "questions": [
+        { "prompt": "كم يساوي 1 + 1؟", "options": ["2", "3", "1"], "answerIndex": 0, "hint": "عدّي: واحد ثم واحد آخر" },
+        { "prompt": "كم يساوي 2 + 1؟", "options": ["2", "3", "4"], "answerIndex": 1, "hint": "ابدئي من 2 ثم عدّي واحدًا زيادة" },
+        { "prompt": "كم يساوي 2 + 2؟", "options": ["3", "5", "4"], "answerIndex": 2, "hint": "استخدمي أصابعك: 2 ثم 2 أخرى" }
+      ]
+    },
+    {
+      "id": "learn_patterns_logic",
+      "title": "ما التالي؟",
+      "emoji": "🧩",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 2,
+      "source": { "type": "educational", "reference": "محتوى تعليمي أصلي للمرحلة المبكرة (غير ديني)" },
+      "steps": [
+        { "emoji": "🔴🔵🔴🔵", "text": "الأنماط تتكرر بالترتيب نفسه" },
+        { "emoji": "🧩", "text": "انظري جيدًا ثم اعرفي ما سيأتي بعد ذلك" }
+      ],
+      "questions": [
+        { "prompt": "ما التالي؟", "emoji": "🔴🔵🔴", "options": ["🔴", "🔵", "🟢"], "answerIndex": 1, "hint": "الأحمر ثم الأزرق ثم الأحمر… وبعده؟" },
+        { "prompt": "ما التالي؟", "emoji": "🟡🟡🟢🟡🟡", "options": ["🟡", "🟢", "🔴"], "answerIndex": 1, "hint": "بعد كل لونين أصفرين يأتي الأخضر" },
+        { "prompt": "ما التالي؟", "emoji": "⭐🌙⭐🌙", "options": ["🌙", "⭐", "☀️"], "answerIndex": 1, "hint": "نجمة ثم هلال، ثم نبدأ من جديد" }
+      ]
+    },
+    {
+      "id": "learn_science_sun_water",
+      "title": "النبات والشمس",
+      "emoji": "🌱",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 2,
+      "source": { "type": "educational", "reference": "معلومة علمية مبسطة للأطفال (غير دينية)" },
+      "steps": [
+        { "emoji": "☀️", "text": "الشمس تعطينا الضوء والدفء" },
+        { "emoji": "💧", "text": "النبات يحتاج إلى الماء ليكبر" },
+        { "emoji": "🌱", "text": "النبات يحتاج أيضًا إلى الشمس" }
+      ],
+      "questions": [
+        { "prompt": "ماذا يحتاج النبات ليكبر؟", "options": ["ماء 💧", "لعبة 🧸", "حجر 🪨"], "answerIndex": 0, "hint": "نسقي النبات بها كل يوم" },
+        { "prompt": "ماذا تعطينا الشمس؟", "options": ["صوتًا 🔊", "ضوءًا ودفئًا ☀️", "مطرًا 🌧️"], "answerIndex": 1, "hint": "نشعر بها على وجوهنا في النهار" },
+        { "prompt": "هل يحتاج النبات إلى الشمس؟", "options": ["نعم ✅", "لا ❌"], "answerIndex": 0, "hint": "النباتات تحب الأماكن المشمسة" }
+      ]
+    }
+  ]
+}

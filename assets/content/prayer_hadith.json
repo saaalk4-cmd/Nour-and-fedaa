@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "source": {
+    "type": "sahih_sunnah",
+    "name": "موسوعة الأحاديث النبوية (HadeethEnc)",
+    "url": "https://hadeethenc.com/ar/home",
+    "note": "نص الحديث والتخريج والدرجة كما هي مطبوعة في الموسوعة. لا يُضاف حديث بلا راوٍ وكتاب ورقم ودرجة."
+  },
+  "hadiths": [
+    {
+      "id": "hadith_prayer_on_time",
+      "title": "الصلاة في وقتها",
+      "emoji": "🕌",
+      "text": "الصَّلاَةُ عَلَى وَقْتِهَا",
+      "narrator": "عبد الله بن مسعود رضي الله عنه",
+      "book": "صحيح البخاري",
+      "number": "527",
+      "grade": "صحيح (متفق عليه)",
+      "url": "https://hadeethenc.com/en/browse/hadith/3365",
+      "kidMeaning": "من أحب الأعمال إلى الله أن نصلي الصلاة في وقتها.",
+      "excerpt": true
+    },
+    {
+      "id": "hadith_purity",
+      "title": "الطهارة",
+      "emoji": "🧼",
+      "text": "الطُّهُورُ شَطْرُ الْإِيمَانِ",
+      "narrator": "أبو مالك الأشعري رضي الله عنه",
+      "book": "صحيح مسلم",
+      "number": "223",
+      "grade": "صحيح",
+      "url": "https://hadeethenc.com/en/browse/hadith/65004",
+      "excerpt": true,
+      "kidMeaning": "النظافة والوضوء شيء عظيم نحبه."
+    }
+  ]
+}

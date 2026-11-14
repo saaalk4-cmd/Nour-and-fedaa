@@ -2,7 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../core/theme/app_theme.dart';
+import '../../core/widgets/mascot.dart';
+import '../../data/models/child.dart';
 import '../../data/providers.dart';
+import '../../domain/gamification/achievements.dart';
+import '../../domain/gamification/level_system.dart';
+import '../../domain/gamification/quests.dart';
+import '../../domain/gamification/streak.dart';
 import 'sections.dart';
 
 class HomeScreen extends ConsumerWidget {
@@ -12,7 +19,6 @@ class HomeScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final child = ref.watch(selectedChildProvider);
     final states = ref.watch(sectionStatesProvider);
-
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -39,35 +45,79 @@ class HomeScreen extends ConsumerWidget {
               );
             }
             final enabled = states.valueOrNull ?? const <String, bool>{};
-            final visible =
-                appSections.where((s) => enabled[s.id] ?? true).toList();
-            return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Column(
-                children: [
-                  const SizedBox(height: 8),
-                  Text('ماذا سنتعلم اليوم يا ${c.name}؟',
-                      style: Theme.of(context).textTheme.titleLarge),
-                  const SizedBox(height: 4),
-                  Text('⭐ ${c.stars}   •   المستوى ${c.level}',
-                      style: Theme.of(context).textTheme.bodyLarge),
-                  const SizedBox(height: 16),
-                  Expanded(
-                    child: GridView.count(
-                      crossAxisCount: 2,
-                      mainAxisSpacing: 16,
-                      crossAxisSpacing: 16,
-                      children: [
-                        for (final s in visible)
-                          _SectionTile(
-                            section: s,
-                            onTap: () => context.push('/section/${s.id}'),
-                          ),
-                      ],
+            final visible = appSections.where((s) => enabled[s.id] ?? true).toList();
+            return ListView(
+              padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
+              children: [
+                Row(
+                  children: [
+                    const Mascot(size: 84),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('أهلًا يا ${c.name}! 🌟', style: Theme.of(context).textTheme.headlineMedium),
+                          const SizedBox(height: 2),
+                          const Text('أنا لَمعة، ومغامرتك اليوم جاهزة!', style: TextStyle(fontSize: 16)),
+                        ],
+                      ),
                     ),
+                  ],
+                ),
+                const SizedBox(height: 14),
+                _StatusCard(child: c),
+                const SizedBox(height: 14),
+                _QuestsCard(child: c),
+                _LatestBadge(childId: c.id),
+                const SizedBox(height: 14),
+                SizedBox(
+                  height: 64,
+                  child: FilledButton.icon(
+                    onPressed: () => context.push('/today'),
+                    icon: const Icon(Icons.explore),
+                    label: const Text('رحلتي اليوم', style: TextStyle(fontSize: 20)),
                   ),
-                ],
-              ),
+                ),
+                const SizedBox(height: 22),
+                Text('ماذا سنتعلم اليوم؟', style: Theme.of(context).textTheme.titleLarge),
+                const SizedBox(height: 10),
+                GridView.count(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 16,
+                  crossAxisSpacing: 16,
+                  childAspectRatio: 1.05,
+                  children: [
+                    for (final s in visible)
+                      Material(
+                        color: s.color,
+                        borderRadius: BorderRadius.circular(28),
+                        child: InkWell(
+                          borderRadius: BorderRadius.circular(28),
+                          onTap: () => context.push('/section/${s.id}'),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(s.emoji, style: const TextStyle(fontSize: 44)),
+                              const SizedBox(height: 8),
+                              Text(
+                                s.title,
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 19,
+                                  fontWeight: FontWeight.w800,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                  ],
+                ),
+              ],
             );
           },
         ),
@@ -76,35 +126,223 @@ class HomeScreen extends ConsumerWidget {
   }
 }
 
-class _SectionTile extends StatelessWidget {
-  const _SectionTile({required this.section, required this.onTap});
+/// المستوى + شريط XP + النجوم + السلسلة + عدد الدروس.
+class _StatusCard extends ConsumerWidget {
+  const _StatusCard({required this.child});
 
-  final AppSection section;
-  final VoidCallback onTap;
+  final Child child;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final profile = ref.watch(gamificationProfileProvider(child.id));
+    return Container(
+      padding: const EdgeInsets.all(18),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(28),
+        gradient: const LinearGradient(colors: [Color(0xFF4FB3BF), AppColors.teal]),
+      ),
+      child: profile.when(
+        loading: () => const SizedBox(
+          height: 110,
+          child: Center(child: CircularProgressIndicator(color: Colors.white)),
+        ),
+        error: (_, __) => const SizedBox(
+          height: 110,
+          child: Center(child: Text('تعذر تحميل تقدمك', style: TextStyle(color: Colors.white))),
+        ),
+        data: (p) {
+          final level = LevelSystem.info(p.level);
+          final streak = StreakCalculator.activeStreak(
+            lastDay: p.lastActiveDay,
+            today: dayKey(DateTime.now()),
+            current: p.streakDays,
+          );
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                '${level.icon} ${level.name} — المستوى ${p.level}',
+                style: const TextStyle(color: Colors.white, fontSize: 19, fontWeight: FontWeight.w800),
+              ),
+              const SizedBox(height: 10),
+              TweenAnimationBuilder<double>(
+                tween: Tween<double>(begin: 0, end: p.levelProgress),
+                duration: const Duration(milliseconds: 700),
+                curve: Curves.easeOutCubic,
+                builder: (context, v, _) => ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: LinearProgressIndicator(
+                    value: v,
+                    minHeight: 14,
+                    backgroundColor: Colors.white24,
+                    color: AppColors.sun,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 6),
+              Text(
+                'باقي ${p.xpToNextLevel} XP للمستوى التالي',
+                style: const TextStyle(color: Colors.white, fontSize: 14),
+              ),
+              const SizedBox(height: 12),
+              Row(
+                children: [
+                  _Pill(text: '⭐ ${p.stars}'),
+                  const SizedBox(width: 8),
+                  _Pill(text: streak > 0 ? '🔥 $streak ${streak == 1 ? 'يوم' : 'أيام'}' : '🔥 ابدئي اليوم'),
+                  const SizedBox(width: 8),
+                  _Pill(text: '📚 ${p.totalLessons}'),
+                ],
+              ),
+            ],
+          );
+        },
+      ),
+    );
+  }
+}
+
+class _Pill extends StatelessWidget {
+  const _Pill({required this.text});
+
+  final String text;
 
   @override
   Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      decoration: BoxDecoration(
+        color: Colors.white24,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Text(
+        text,
+        style: const TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w800),
+      ),
+    );
+  }
+}
+
+/// مهام اليوم: 2-3 مهام صغيرة، ومكافأة عند إكمالها كلها.
+class _QuestsCard extends ConsumerWidget {
+  const _QuestsCard({required this.child});
+
+  final Child child;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final quests = ref.watch(dailyQuestsProvider(child.id));
     return Material(
-      color: section.color,
-      borderRadius: BorderRadius.circular(28),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(28),
-        onTap: onTap,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(section.emoji, style: const TextStyle(fontSize: 48)),
-            const SizedBox(height: 8),
-            Text(
-              section.title,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-                fontWeight: FontWeight.w800,
+      color: Colors.white,
+      elevation: 1,
+      borderRadius: BorderRadius.circular(26),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: quests.when(
+          loading: () => const SizedBox(height: 80, child: Center(child: CircularProgressIndicator())),
+          error: (_, __) => const SizedBox(height: 80, child: Center(child: Text('تعذر تحميل المهام'))),
+          data: (state) => Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  const Text('🎯', style: TextStyle(fontSize: 26)),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: Text(
+                      state.allDone ? 'أكملتِ مهام اليوم! 🎉' : 'مهام اليوم',
+                      style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w800, color: AppColors.ink),
+                    ),
+                  ),
+                  Text('${state.doneCount}/${state.quests.length}',
+                      style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w800)),
+                ],
               ),
+              const SizedBox(height: 10),
+              for (final q in state.quests) _QuestRow(quest: q),
+              if (!state.allDone)
+                const Padding(
+                  padding: EdgeInsets.only(top: 6),
+                  child: Text(
+                    'أكملي المهام لتحصلي على مكافأة اليوم 🎁',
+                    style: TextStyle(fontSize: 14),
+                  ),
+                ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _QuestRow extends StatelessWidget {
+  const _QuestRow({required this.quest});
+
+  final QuestProgress quest;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 5),
+      child: Row(
+        children: [
+          Text(quest.done ? '✅' : quest.def.emoji, style: const TextStyle(fontSize: 22)),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  quest.def.title,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.ink,
+                    decoration: quest.done ? TextDecoration.lineThrough : null,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: LinearProgressIndicator(
+                    value: quest.fraction,
+                    minHeight: 8,
+                    backgroundColor: const Color(0xFFE7EBEF),
+                    color: AppColors.leaf,
+                  ),
+                ),
+              ],
             ),
-          ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// «آخر إنجاز»: أحدث شارة حصلت عليها الطفلة (لا تظهر إن لم تحصل على شيء بعد).
+class _LatestBadge extends ConsumerWidget {
+  const _LatestBadge({required this.childId});
+  final int childId;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final earned = ref.watch(earnedBadgesProvider(childId)).valueOrNull;
+    if (earned == null || earned.isEmpty) return const SizedBox.shrink();
+    final ids = earned.keys.toList()
+      ..sort((a, b) => earned[b]!.compareTo(earned[a]!));
+    final def = Achievements.byId(ids.first);
+    if (def == null) return const SizedBox.shrink();
+    return Padding(
+      padding: const EdgeInsets.only(top: 14),
+      child: Card(
+        elevation: 0,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+        child: ListTile(
+          leading: Text(def.emoji, style: const TextStyle(fontSize: 34)),
+          title: const Text('آخر إنجاز', style: TextStyle(fontWeight: FontWeight.w800)),
+          subtitle: Text(def.title),
         ),
       ),
     );

@@ -2,7 +2,7 @@ name: Build APK
 
 on:
   push:
-    branches: [main, master]
+    branches: [main, master, 'feature/**']
   pull_request:
   workflow_dispatch:
 
@@ -20,6 +20,9 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           channel: stable
+          # مثبّت عمدًا: 3.50.0 اعتبر material.dart deprecated فكسر analyze.
+          # الترقية تتم لاحقًا بقرار مستقل (ترحيل الـ imports إلى material_ui).
+          flutter-version: "3.47.9"
           cache: true
 
       # مجلد android يُولَّد تلقائيًا إن لم يكن موجودًا في المستودع
@@ -31,8 +34,22 @@ jobs:
             sed -i 's/android:label="[^"]*"/android:label="نُور وفداء"/' android/app/src/main/AndroidManifest.xml
           fi
 
+      # Android 11+: يجب إعلان خدمة النطق ليراها التطبيق (flutter_tts)
+      - name: Declare TTS service query in manifest
+        run: |
+          f=android/app/src/main/AndroidManifest.xml
+          if ! grep -q "android.intent.action.TTS_SERVICE" "$f"; then
+            sed -i 's#<application#<queries><intent><action android:name="android.intent.action.TTS_SERVICE"/></intent></queries>\n    <application#' "$f"
+          fi
+
+      # تلاوة الآيات للأطفال بلا ولي أمر (لا تُرفع إلى git)
+      - name: Fetch Quran recitation audio
+        run: python3 tools/fetch_quran_audio.py
+
       - run: flutter pub get
       - run: flutter analyze
+      # مكتبة SQLite لاختبارات قاعدة البيانات الحقيقية (sqflite_common_ffi)
+      - run: sudo apt-get install -y --no-install-recommends libsqlite3-dev
       - run: flutter test
       - run: flutter build apk --release
 

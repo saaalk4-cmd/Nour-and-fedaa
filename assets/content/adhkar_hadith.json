@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "source": {
+    "type": "sahih_sunnah",
+    "name": "موسوعة الأحاديث النبوية (HadeethEnc)",
+    "url": "https://hadeethenc.com/ar/home",
+    "note": "نص الحديث والتخريج والدرجة كما هي مطبوعة في الموسوعة. لا يُضاف حديث بلا راوٍ وكتاب ورقم ودرجة."
+  },
+  "hadiths": [
+    {
+      "id": "hadith_sleep_dhikr",
+      "title": "قبل النوم",
+      "emoji": "🌙",
+      "text": "بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا",
+      "narrator": "حذيفة رضي الله عنه",
+      "book": "صحيح البخاري",
+      "number": "6324",
+      "grade": "صحيح",
+      "url": "https://hadeethenc.com/ar/browse/hadith/65913",
+      "kidMeaning": "نقول هذا الذكر قبل أن ننام، وننام باسم الله.",
+      "excerpt": false
+    },
+    {
+      "id": "hadith_eating_adhkar",
+      "title": "قبل الأكل",
+      "emoji": "🍽️",
+      "text": "يَا غُلَامُ، سَمِّ اللهَ، وَكُلْ بِيَمِينِكَ، وَكُلْ مِمَّا يَلِيكَ",
+      "narrator": "عُمر بن أبي سلمة رضي الله عنه",
+      "book": "صحيح البخاري",
+      "number": "5376",
+      "grade": "صحيح (متفق عليه)",
+      "url": "https://hadeethenc.com/en/browse/hadith/58120",
+      "kidMeaning": "نبدأ الأكل بقول «بسم الله»."
+    }
+  ]
+}

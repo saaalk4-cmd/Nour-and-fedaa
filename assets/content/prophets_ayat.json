@@ -1,0 +1,71 @@
+{
+  "schema": 1,
+  "source": {
+    "type": "quran",
+    "name": "Tanzil Quran Text (Uthmani)",
+    "url": "https://tanzil.net/docs/text_license",
+    "license": "CC BY 3.0 — verbatim copying only"
+  },
+  "verses": [
+    {
+      "id": "prophet_ibrahim",
+      "prophet": "إبراهيم عليه السلام",
+      "title": "النار بردًا وسلامًا",
+      "emoji": "🌿",
+      "surahNumber": 21,
+      "surahName": "الأنبياء",
+      "ayahFrom": 69,
+      "ayahTo": 69,
+      "text": "قُلْنَا يَٰنَارُ كُونِى بَرْدًا وَسَلَٰمًا عَلَىٰٓ إِبْرَٰهِيمَ",
+      "kidMeaning": "قال الله للنار: كوني بردًا وسلامًا على إبراهيم."
+    },
+    {
+      "id": "prophet_nuh",
+      "prophet": "نوح عليه السلام",
+      "title": "الاستغفار",
+      "emoji": "🌿",
+      "surahNumber": 71,
+      "surahName": "نوح",
+      "ayahFrom": 10,
+      "ayahTo": 10,
+      "text": "فَقُلْتُ ٱسْتَغْفِرُوا۟ رَبَّكُمْ إِنَّهُۥ كَانَ غَفَّارًا",
+      "kidMeaning": "قال نوح لقومه: اطلبوا المغفرة من ربكم، إنه كان غفّارًا."
+    },
+    {
+      "id": "prophet_musa",
+      "prophet": "موسى عليه السلام",
+      "title": "دعاء موسى",
+      "emoji": "🌿",
+      "surahNumber": 20,
+      "surahName": "طه",
+      "ayahFrom": 25,
+      "ayahTo": 26,
+      "text": "قَالَ رَبِّ ٱشْرَحْ لِى صَدْرِى وَيَسِّرْ لِىٓ أَمْرِى",
+      "kidMeaning": "دعا موسى ربه أن يشرح له صدره وأن ييسّر له أمره."
+    },
+    {
+      "id": "prophet_yusuf",
+      "prophet": "يوسف عليه السلام",
+      "title": "رؤيا يوسف",
+      "emoji": "🌿",
+      "surahNumber": 12,
+      "surahName": "يوسف",
+      "ayahFrom": 4,
+      "ayahTo": 4,
+      "text": "إِذْ قَالَ يُوسُفُ لِأَبِيهِ يَٰٓأَبَتِ إِنِّى رَأَيْتُ أَحَدَ عَشَرَ كَوْكَبًا وَٱلشَّمْسَ وَٱلْقَمَرَ رَأَيْتُهُمْ لِى سَٰجِدِينَ",
+      "kidMeaning": "قال يوسف لأبيه إنه رأى أحد عشر كوكبًا والشمس والقمر ساجدين له."
+    },
+    {
+      "id": "prophet_isa",
+      "prophet": "عيسى عليه السلام",
+      "title": "عبد الله ونبيّه",
+      "emoji": "🌿",
+      "surahNumber": 19,
+      "surahName": "مريم",
+      "ayahFrom": 30,
+      "ayahTo": 30,
+      "text": "قَالَ إِنِّى عَبْدُ ٱللَّهِ ءَاتَىٰنِىَ ٱلْكِتَٰبَ وَجَعَلَنِى نَبِيًّا",
+      "kidMeaning": "قال عيسى: إني عبد الله، أعطاني الكتاب وجعلني نبيًا."
+    }
+  ]
+}

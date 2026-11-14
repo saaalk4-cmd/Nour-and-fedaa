@@ -1,0 +1,788 @@
+{
+  "schema": 1,
+  "lessons": [
+    {
+      "id": "w8_promise",
+      "title": "أفي بوعدي 🤝",
+      "emoji": "🤝",
+      "category": "akhlaq",
+      "minAge": 4,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أفي بوعدي.",
+      "learned": "أفي بوعدي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 8"
+      },
+      "steps": [
+        {
+          "emoji": "🤝",
+          "text": "سلمى وعدت صديقتها أن تلعب معها اليوم.",
+          "say": "سلمى وعدت صديقتها أن تلعب معها اليوم."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تفعل سلمى؟",
+          "options": [
+            "تفي بوعدها 🤝",
+            "تنسى وعدها"
+          ],
+          "answerIndex": 0,
+          "hint": "الوعد أمانة 🌸",
+          "praise": "أحسنتِ! الوفاء بالوعد جميل.",
+          "emoji": "🤝"
+        }
+      ]
+    },
+    {
+      "id": "w8_ask",
+      "title": "أستأذن أولًا 🌷",
+      "emoji": "🌷",
+      "category": "akhlaq",
+      "minAge": 4,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أستأذن قبل أن آخذ.",
+      "learned": "أستأذن قبل أن آخذ.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 8"
+      },
+      "steps": [
+        {
+          "emoji": "🌷",
+          "text": "سلمى تريد أن تلعب بلعبة أختها.",
+          "say": "سلمى تريد أن تلعب بلعبة أختها."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تفعل سلمى؟",
+          "options": [
+            "تأخذها بدون سؤال",
+            "تستأذن أولًا 🌷"
+          ],
+          "answerIndex": 1,
+          "hint": "نسأل قبل أن نأخذ 🌸",
+          "praise": "أحسنتِ! الاستئذان جميل.",
+          "emoji": "🌷"
+        }
+      ]
+    },
+    {
+      "id": "w8_forgive",
+      "title": "أسامح صديقتي 💛",
+      "emoji": "💛",
+      "category": "akhlaq",
+      "minAge": 4,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أسامح من يعتذر.",
+      "learned": "أسامح من يعتذر.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 8"
+      },
+      "steps": [
+        {
+          "emoji": "💛",
+          "text": "صديقة سلمى اعتذرت لها بلطف.",
+          "say": "صديقة سلمى اعتذرت لها بلطف."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تفعل سلمى؟",
+          "options": [
+            "تسامحها 💛",
+            "تغضب منها وتبتعد"
+          ],
+          "answerIndex": 0,
+          "hint": "المسامحة تفرّح القلب 🌸",
+          "praise": "أحسنتِ! المسامحة جميلة.",
+          "emoji": "💛"
+        }
+      ]
+    },
+    {
+      "id": "w8_letter_1",
+      "title": "حرف الكاف 🐶",
+      "emoji": "🐶",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف حرف الكاف وصوته",
+      "learned": "حرف الكاف في أول: كَلْب، كُرَة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 8"
+      },
+      "steps": [
+        {
+          "emoji": "🐶",
+          "text": "كَلْب — تبدأ بحرف الكاف.",
+          "say": "كَلْب — تبدأ بحرف الكاف."
+        },
+        {
+          "emoji": "⚽",
+          "text": "كُرَة — تبدأ بحرف الكاف.",
+          "say": "كُرَة — تبدأ بحرف الكاف."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أي كلمة تبدأ بحرف الكاف؟",
+          "options": [
+            "بَقَرَة",
+            "كَلْب",
+            "تُفَّاحَة"
+          ],
+          "answerIndex": 1,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "🐶"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف الكاف؟",
+          "options": [
+            "ثَلْج",
+            "جَمَل",
+            "كُرَة"
+          ],
+          "answerIndex": 2,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "⚽"
+        }
+      ]
+    },
+    {
+      "id": "w8_letter_2",
+      "title": "حرف اللام 🍋",
+      "emoji": "🍋",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف حرف اللام وصوته",
+      "learned": "حرف اللام في أول: لَيْمُون، لُعْبَة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 8"
+      },
+      "steps": [
+        {
+          "emoji": "🍋",
+          "text": "لَيْمُون — تبدأ بحرف اللام.",
+          "say": "لَيْمُون — تبدأ بحرف اللام."
+        },
+        {
+          "emoji": "🧸",
+          "text": "لُعْبَة — تبدأ بحرف اللام.",
+          "say": "لُعْبَة — تبدأ بحرف اللام."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أي كلمة تبدأ بحرف اللام؟",
+          "options": [
+            "ثَعْلَب",
+            "ثَوْر",
+            "لَيْمُون"
+          ],
+          "answerIndex": 2,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "🍋"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف اللام؟",
+          "options": [
+            "لُعْبَة",
+            "جَبَل",
+            "حِصَان"
+          ],
+          "answerIndex": 0,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "🧸"
+        }
+      ]
+    },
+    {
+      "id": "w8_letter_3",
+      "title": "حرف الميم 🍌",
+      "emoji": "🍌",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف حرف الميم وصوته",
+      "learned": "حرف الميم في أول: مَوْزَة، مِظَلَّة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 8"
+      },
+      "steps": [
+        {
+          "emoji": "🍌",
+          "text": "مَوْزَة — تبدأ بحرف الميم.",
+          "say": "مَوْزَة — تبدأ بحرف الميم."
+        },
+        {
+          "emoji": "☂️",
+          "text": "مِظَلَّة — تبدأ بحرف الميم.",
+          "say": "مِظَلَّة — تبدأ بحرف الميم."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أي كلمة تبدأ بحرف الميم؟",
+          "options": [
+            "مَوْزَة",
+            "جَمَل",
+            "جَزَر"
+          ],
+          "answerIndex": 0,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "🍌"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف الميم؟",
+          "options": [
+            "حُوت",
+            "مِظَلَّة",
+            "خَرُوف"
+          ],
+          "answerIndex": 1,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "☂️"
+        }
+      ]
+    },
+    {
+      "id": "w8_review_letters",
+      "title": "أراجع الحروف 🔤",
+      "emoji": "🔤",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أراجع حروف الأسبوع",
+      "learned": "أتذكّر حروفي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 8"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "هيا نراجع حروفنا!",
+          "say": "هيا نراجع حروفنا!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أي كلمة تبدأ بحرف الكاف؟",
+          "options": [
+            "ثَلْج",
+            "جَمَل",
+            "كُرَة"
+          ],
+          "answerIndex": 2,
+          "hint": "تذكّري الكلمات التي تعلمناها",
+          "emoji": "⚽"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف اللام؟",
+          "options": [
+            "لُعْبَة",
+            "حِصَان",
+            "حَلِيب"
+          ],
+          "answerIndex": 0,
+          "hint": "تذكّري الكلمات التي تعلمناها",
+          "emoji": "🧸"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف الميم؟",
+          "options": [
+            "خُبْز",
+            "مِظَلَّة",
+            "خَوْخ"
+          ],
+          "answerIndex": 1,
+          "hint": "تذكّري الكلمات التي تعلمناها",
+          "emoji": "☂️"
+        }
+      ]
+    },
+    {
+      "id": "w8_sub",
+      "title": "نطرح حتى 8 ➖",
+      "emoji": "➖",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أطرح حتى 5",
+      "learned": "أطرح عددًا صغيرًا من عدد.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 8"
+      },
+      "steps": [
+        {
+          "emoji": "➖",
+          "text": "6 - 2 = 4",
+          "say": "6 - 2 = 4"
+        },
+        {
+          "emoji": "➖",
+          "text": "8 - 3 = 5",
+          "say": "8 - 3 = 5"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "6 - 2 = ؟",
+          "options": [
+            "4",
+            "5",
+            "6"
+          ],
+          "answerIndex": 0,
+          "hint": "عدّي للخلف على أصابعك",
+          "emoji": "➖"
+        },
+        {
+          "prompt": "8 - 3 = ؟",
+          "options": [
+            "6",
+            "5",
+            "7"
+          ],
+          "answerIndex": 1,
+          "hint": "عدّي للخلف على أصابعك",
+          "emoji": "➖"
+        },
+        {
+          "prompt": "7 - 5 = ؟",
+          "options": [
+            "3",
+            "4",
+            "2"
+          ],
+          "answerIndex": 2,
+          "hint": "عدّي للخلف على أصابعك",
+          "emoji": "➖"
+        }
+      ]
+    },
+    {
+      "id": "w8_add_2",
+      "title": "أجمع بنفسي ➕",
+      "emoji": "➕",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أجمع حتى 5",
+      "learned": "أجمع عددين صغيرين.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 8"
+      },
+      "steps": [
+        {
+          "emoji": "➕",
+          "text": "3 + 4 = 7",
+          "say": "3 + 4 = 7"
+        },
+        {
+          "emoji": "➕",
+          "text": "5 + 3 = 8",
+          "say": "5 + 3 = 8"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "3 + 4 = ؟",
+          "options": [
+            "7",
+            "8",
+            "6"
+          ],
+          "answerIndex": 0,
+          "hint": "عدّي على أصابعك",
+          "emoji": "➕"
+        },
+        {
+          "prompt": "5 + 3 = ؟",
+          "options": [
+            "9",
+            "8",
+            "7"
+          ],
+          "answerIndex": 1,
+          "hint": "عدّي على أصابعك",
+          "emoji": "➕"
+        },
+        {
+          "prompt": "2 + 6 = ؟",
+          "options": [
+            "9",
+            "7",
+            "8"
+          ],
+          "answerIndex": 2,
+          "hint": "عدّي على أصابعك",
+          "emoji": "➕"
+        }
+      ]
+    },
+    {
+      "id": "w8_compare_num",
+      "title": "الأكبر والأصغر 🔢",
+      "emoji": "🔢",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أقارن بين رقمين",
+      "learned": "أعرف الأكبر والأصغر.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 8"
+      },
+      "steps": [
+        {
+          "emoji": "🔢",
+          "text": "8 أكبر من 5، و3 أصغر من 6.",
+          "say": "8 أكبر من 5، و3 أصغر من 6."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أيهما أكبر؟",
+          "options": [
+            "9",
+            "4",
+            "6"
+          ],
+          "answerIndex": 0,
+          "hint": "الأكبر عددًا",
+          "emoji": "🔢"
+        },
+        {
+          "prompt": "أيهما أصغر؟",
+          "options": [
+            "2",
+            "7",
+            "5"
+          ],
+          "answerIndex": 0,
+          "hint": "الأصغر عددًا",
+          "emoji": "🔢"
+        }
+      ]
+    },
+    {
+      "id": "w8_vehicles",
+      "title": "أين تسير؟ 🚗✈️🚢",
+      "emoji": "🚗",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف وسائل المواصلات",
+      "learned": "السيارة في الطريق والطائرة في السماء والسفينة في البحر.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 8"
+      },
+      "steps": [
+        {
+          "emoji": "🚗",
+          "text": "السيارة تسير على الطريق.",
+          "say": "السيارة تسير على الطريق."
+        },
+        {
+          "emoji": "✈️",
+          "text": "والطائرة تطير في السماء.",
+          "say": "والطائرة تطير في السماء."
+        },
+        {
+          "emoji": "🚢",
+          "text": "والسفينة تسير في البحر.",
+          "say": "والسفينة تسير في البحر."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "من يطير في السماء؟",
+          "options": [
+            "الطائرة ✈️",
+            "السيارة 🚗",
+            "السفينة 🚢"
+          ],
+          "answerIndex": 0,
+          "hint": "لها جناحان",
+          "emoji": "✈️"
+        },
+        {
+          "prompt": "من يسير في البحر؟",
+          "options": [
+            "الطائرة ✈️",
+            "السفينة 🚢",
+            "السيارة 🚗"
+          ],
+          "answerIndex": 1,
+          "hint": "في الماء",
+          "emoji": "🚢"
+        }
+      ]
+    },
+    {
+      "id": "w8_rain",
+      "title": "من أين يأتي المطر؟ 🌧️",
+      "emoji": "🌧️",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف من أين يأتي المطر",
+      "learned": "المطر ينزل من السحاب.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 8"
+      },
+      "steps": [
+        {
+          "emoji": "☀️",
+          "text": "الشمس تُسخّن الماء فيصعد في السماء.",
+          "say": "الشمس تُسخّن الماء فيصعد في السماء."
+        },
+        {
+          "emoji": "☁️",
+          "text": "ويصير سحابًا.",
+          "say": "ويصير سحابًا."
+        },
+        {
+          "emoji": "🌧️",
+          "text": "ثم ينزل مطرًا.",
+          "say": "ثم ينزل مطرًا."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "من أين ينزل المطر؟",
+          "options": [
+            "من السحاب ☁️",
+            "من الأرض",
+            "من القمر 🌙"
+          ],
+          "answerIndex": 0,
+          "hint": "في السماء",
+          "emoji": "🌧️"
+        },
+        {
+          "prompt": "ماذا يصير الماء في السماء؟",
+          "options": [
+            "حجرًا",
+            "سحابًا ☁️",
+            "ورقة"
+          ],
+          "answerIndex": 1,
+          "hint": "أبيض وكبير",
+          "emoji": "☁️"
+        }
+      ]
+    },
+    {
+      "id": "w8_english_body",
+      "title": "Eye Ear Nose 👀",
+      "emoji": "👀",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أتعلم كلمات إنجليزية جديدة",
+      "learned": "مثل: Eye = عين.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 8"
+      },
+      "steps": [
+        {
+          "emoji": "👀",
+          "text": "Eye = عين",
+          "say": "Eye = عين"
+        },
+        {
+          "emoji": "👂",
+          "text": "Ear = أذن",
+          "say": "Ear = أذن"
+        },
+        {
+          "emoji": "👃",
+          "text": "Nose = أنف",
+          "say": "Nose = أنف"
+        },
+        {
+          "emoji": "✋",
+          "text": "Hand = يد",
+          "say": "Hand = يد"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تعني Eye؟",
+          "options": [
+            "عين",
+            "أذن",
+            "أنف"
+          ],
+          "answerIndex": 0,
+          "hint": "تذكّري الصورة",
+          "emoji": "👀"
+        },
+        {
+          "prompt": "ماذا تعني Ear؟",
+          "options": [
+            "عين",
+            "أذن",
+            "أنف"
+          ],
+          "answerIndex": 1,
+          "hint": "تذكّري الصورة",
+          "emoji": "👂"
+        },
+        {
+          "prompt": "ماذا تعني Nose؟",
+          "options": [
+            "عين",
+            "أذن",
+            "أنف"
+          ],
+          "answerIndex": 2,
+          "hint": "تذكّري الصورة",
+          "emoji": "👃"
+        }
+      ]
+    },
+    {
+      "id": "w8_pattern",
+      "title": "ما التالي؟ 🔴🔵",
+      "emoji": "🧩",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أكمل النمط",
+      "learned": "الأنماط تتكرر.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 8"
+      },
+      "steps": [
+        {
+          "emoji": "🧩",
+          "text": "الأنماط تتكرر: 🔴🔵🔴🔵",
+          "say": "الأنماط تتكرر: 🔴🔵🔴🔵"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🔴🔵🔴🔵🔴 ؟",
+          "options": [
+            "🔵",
+            "🔴",
+            "🟢"
+          ],
+          "answerIndex": 0,
+          "hint": "الأحمر ثم الأزرق ثم الأحمر…",
+          "emoji": "🧩"
+        },
+        {
+          "prompt": "⭐🌙⭐🌙⭐ ؟",
+          "options": [
+            "⭐",
+            "🌙",
+            "☀️"
+          ],
+          "answerIndex": 1,
+          "hint": "نجمة ثم قمر ثم نجمة…",
+          "emoji": "🧩"
+        }
+      ]
+    },
+    {
+      "id": "w8_review_game",
+      "title": "لعبة الأسبوع 🎮",
+      "emoji": "🎮",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أراجع ما تعلمته",
+      "learned": "أنا أتعلم وألعب!",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 8"
+      },
+      "steps": [
+        {
+          "emoji": "🎮",
+          "text": "هيا نلعب بما تعلمناه!",
+          "say": "هيا نلعب بما تعلمناه!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "8 - 3 = ؟",
+          "options": [
+            "5",
+            "6",
+            "4"
+          ],
+          "answerIndex": 0,
+          "hint": "عدّي للخلف",
+          "emoji": "➖"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف الميم؟",
+          "options": [
+            "كَلْب",
+            "مَوْزَة",
+            "لُعْبَة"
+          ],
+          "answerIndex": 1,
+          "hint": "مَ مَ مَوْزَة",
+          "emoji": "🍌"
+        },
+        {
+          "prompt": "ماذا تعني Ear؟",
+          "options": [
+            "عين",
+            "أنف",
+            "أذن"
+          ],
+          "answerIndex": 2,
+          "hint": "👂",
+          "emoji": "👂"
+        },
+        {
+          "prompt": "وعدنا صديقتنا باللعب، ماذا نفعل؟",
+          "options": [
+            "نفي بوعدنا 🤝",
+            "ننسى"
+          ],
+          "answerIndex": 0,
+          "hint": "الوعد أمانة",
+          "emoji": "🤝",
+          "praise": "أحسنتِ! الوفاء بالوعد جميل."
+        }
+      ]
+    }
+  ]
+}

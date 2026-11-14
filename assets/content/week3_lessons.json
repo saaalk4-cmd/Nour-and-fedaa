@@ -1,0 +1,618 @@
+{
+  "schema": 1,
+  "lessons": [
+    {
+      "id": "w3_mercy",
+      "title": "الرحمة 💛",
+      "emoji": "🧸",
+      "category": "akhlaq",
+      "minAge": 4,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أساعد من يحزن.",
+      "learned": "أساعد من يحزن.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 3"
+      },
+      "steps": [
+        {
+          "emoji": "🧸",
+          "text": "وقعت لعبة أخت سلمى وهي تبكي."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تفعل سلمى؟",
+          "options": [
+            "تساعدها 🤗",
+            "تضحك عليها 😝"
+          ],
+          "answerIndex": 0,
+          "hint": "أختها حزينة 🌸",
+          "praise": "أحسنتِ! الرحمة شيء جميل.",
+          "emoji": "🧸"
+        }
+      ]
+    },
+    {
+      "id": "w3_share",
+      "title": "نتشارك الألعاب 🧸",
+      "emoji": "🧸",
+      "category": "akhlaq",
+      "minAge": 4,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أتشارك لعبتي مع صديقتي.",
+      "learned": "أتشارك لعبتي مع صديقتي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 3"
+      },
+      "steps": [
+        {
+          "emoji": "🧸",
+          "text": "مع سلمى لعبة واحدة."
+        },
+        {
+          "emoji": "🧸",
+          "text": "وصديقتها ليس معها لعبة."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تفعل سلمى؟",
+          "options": [
+            "تأخذ اللعبة لنفسها",
+            "تلعبان معًا 💛"
+          ],
+          "answerIndex": 1,
+          "hint": "اللعب معًا أجمل 🌸",
+          "praise": "أحسنتِ! المشاركة جميلة.",
+          "emoji": "🧸"
+        }
+      ]
+    },
+    {
+      "id": "w3_letter_4",
+      "title": "حرف الخاء 🐑",
+      "emoji": "🐑",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف حرف الخاء وصوته",
+      "learned": "حرف الخاء في أول: خَرُوف، خُبْز، خَوْخ.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 3"
+      },
+      "steps": [
+        {
+          "emoji": "🐑",
+          "text": "خَرُوف — تبدأ بحرف الخاء."
+        },
+        {
+          "emoji": "🍞",
+          "text": "خُبْز — تبدأ بحرف الخاء."
+        },
+        {
+          "emoji": "🍑",
+          "text": "خَوْخ — تبدأ بحرف الخاء."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أي كلمة تبدأ بحرف الخاء؟",
+          "options": [
+            "حِصَان",
+            "خَرُوف",
+            "حَلِيب"
+          ],
+          "answerIndex": 1,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "🐑"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف الخاء؟",
+          "options": [
+            "دَرَّاجَة",
+            "ذُرَة",
+            "خُبْز"
+          ],
+          "answerIndex": 2,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "🍞"
+        }
+      ]
+    },
+    {
+      "id": "w3_letter_5",
+      "title": "حرف الدال 🐻",
+      "emoji": "🐻",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف حرف الدال وصوته",
+      "learned": "حرف الدال في أول: دُبّ، دَجَاجَة، دَرَّاجَة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 3"
+      },
+      "steps": [
+        {
+          "emoji": "🐻",
+          "text": "دُبّ — تبدأ بحرف الدال."
+        },
+        {
+          "emoji": "🐔",
+          "text": "دَجَاجَة — تبدأ بحرف الدال."
+        },
+        {
+          "emoji": "🚲",
+          "text": "دَرَّاجَة — تبدأ بحرف الدال."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أي كلمة تبدأ بحرف الدال؟",
+          "options": [
+            "خَرُوف",
+            "خُبْز",
+            "دُبّ"
+          ],
+          "answerIndex": 2,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "🐻"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف الدال؟",
+          "options": [
+            "دَجَاجَة",
+            "ذَهَب",
+            "رَسْم"
+          ],
+          "answerIndex": 0,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "🐔"
+        }
+      ]
+    },
+    {
+      "id": "w3_letter_6",
+      "title": "حرف الذال 🌽",
+      "emoji": "🌽",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف حرف الذال وصوته",
+      "learned": "حرف الذال في أول: ذُرَة، ذِئْب، ذَهَب.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 3"
+      },
+      "steps": [
+        {
+          "emoji": "🌽",
+          "text": "ذُرَة — تبدأ بحرف الذال."
+        },
+        {
+          "emoji": "🐺",
+          "text": "ذِئْب — تبدأ بحرف الذال."
+        },
+        {
+          "emoji": "💍",
+          "text": "ذَهَب — تبدأ بحرف الذال."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أي كلمة تبدأ بحرف الذال؟",
+          "options": [
+            "ذُرَة",
+            "دُبّ",
+            "دَجَاجَة"
+          ],
+          "answerIndex": 0,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "🌽"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف الذال؟",
+          "options": [
+            "رَمْل",
+            "ذِئْب",
+            "زَرَافَة"
+          ],
+          "answerIndex": 1,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "🐺"
+        }
+      ]
+    },
+    {
+      "id": "w3_review_letters",
+      "title": "أراجع الحروف 🔤",
+      "emoji": "🔤",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أراجع حروف الأسبوع",
+      "learned": "أتذكّر حروفي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 3"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "هيا نراجع حروفنا!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أي كلمة تبدأ بحرف الخاء؟",
+          "options": [
+            "خَوْخ",
+            "بَقَرَة",
+            "تُفَّاحَة"
+          ],
+          "answerIndex": 0,
+          "hint": "تذكّري الكلمات التي تعلمناها",
+          "emoji": "🍑"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف الدال؟",
+          "options": [
+            "ثَوْر",
+            "دَرَّاجَة",
+            "ثَلْج"
+          ],
+          "answerIndex": 1,
+          "hint": "تذكّري الكلمات التي تعلمناها",
+          "emoji": "🚲"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف الذال؟",
+          "options": [
+            "جَبَل",
+            "حِصَان",
+            "ذَهَب"
+          ],
+          "answerIndex": 2,
+          "hint": "تذكّري الكلمات التي تعلمناها",
+          "emoji": "💍"
+        }
+      ]
+    },
+    {
+      "id": "w3_compare",
+      "title": "أكثر وأقل ⚖️",
+      "emoji": "⚖️",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أقارن بين الأعداد والأحجام",
+      "learned": "أعرف الأكثر والأقل والأكبر.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 3"
+      },
+      "steps": [
+        {
+          "emoji": "🍎🍎🍎",
+          "text": "هنا ثلاث تفاحات، وهناك تفاحتان 🍎🍎. الثلاث أكثر!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أيهما أكثر؟",
+          "options": [
+            "🍎🍎🍎🍎",
+            "🍎🍎"
+          ],
+          "answerIndex": 0,
+          "hint": "عدّي كل مجموعة"
+        },
+        {
+          "prompt": "أيهما أقل؟",
+          "options": [
+            "⭐⭐⭐",
+            "⭐"
+          ],
+          "answerIndex": 1,
+          "hint": "الأقل هو الأصغر عددًا"
+        },
+        {
+          "prompt": "أيهما أكبر؟",
+          "options": [
+            "🐘",
+            "🐭"
+          ],
+          "answerIndex": 0,
+          "hint": "الفيل كبير جدًا 🐘",
+          "emoji": "🐘"
+        }
+      ]
+    },
+    {
+      "id": "w3_animals_live",
+      "title": "أين تعيش؟ 🐾",
+      "emoji": "🐾",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف أماكن الحيوانات",
+      "learned": "السمكة في الماء، والعصفور يطير.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 3"
+      },
+      "steps": [
+        {
+          "emoji": "🐟",
+          "text": "السمكة تعيش في الماء."
+        },
+        {
+          "emoji": "🐄",
+          "text": "البقرة تعيش في المزرعة."
+        },
+        {
+          "emoji": "🐦",
+          "text": "والعصفور يطير في السماء."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أين تعيش السمكة؟",
+          "options": [
+            "في الماء 💧",
+            "في الشجرة 🌳",
+            "في البيت 🏠"
+          ],
+          "answerIndex": 0,
+          "hint": "تسبح",
+          "emoji": "🐟"
+        },
+        {
+          "prompt": "من يطير في السماء؟",
+          "options": [
+            "السمكة 🐟",
+            "العصفور 🐦",
+            "البقرة 🐄"
+          ],
+          "answerIndex": 1,
+          "hint": "له جناحان",
+          "emoji": "🐦"
+        }
+      ]
+    },
+    {
+      "id": "w3_english_colors",
+      "title": "Red Blue Yellow 🎨",
+      "emoji": "🎨",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أتعلم كلمات إنجليزية جديدة",
+      "learned": "مثل: Red = أحمر.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 3"
+      },
+      "steps": [
+        {
+          "emoji": "🔴",
+          "text": "Red = أحمر"
+        },
+        {
+          "emoji": "🔵",
+          "text": "Blue = أزرق"
+        },
+        {
+          "emoji": "🟡",
+          "text": "Yellow = أصفر"
+        },
+        {
+          "emoji": "🟢",
+          "text": "Green = أخضر"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تعني Red؟",
+          "options": [
+            "أحمر",
+            "أزرق",
+            "أصفر"
+          ],
+          "answerIndex": 0,
+          "hint": "تذكّري الصورة",
+          "emoji": "🔴"
+        },
+        {
+          "prompt": "ماذا تعني Blue؟",
+          "options": [
+            "أحمر",
+            "أزرق",
+            "أصفر"
+          ],
+          "answerIndex": 1,
+          "hint": "تذكّري الصورة",
+          "emoji": "🔵"
+        },
+        {
+          "prompt": "ماذا تعني Yellow؟",
+          "options": [
+            "أحمر",
+            "أزرق",
+            "أصفر"
+          ],
+          "answerIndex": 2,
+          "hint": "تذكّري الصورة",
+          "emoji": "🟡"
+        }
+      ]
+    },
+    {
+      "id": "w3_pattern",
+      "title": "ما التالي؟ 🔴🔵",
+      "emoji": "🧩",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أكمل النمط",
+      "learned": "الأنماط تتكرر.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 3"
+      },
+      "steps": [
+        {
+          "emoji": "🧩",
+          "text": "الأنماط تتكرر: 🔴🔵🔴🔵"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🔴🔵🔴🔵🔴 ؟",
+          "options": [
+            "🔵",
+            "🔴",
+            "🟢"
+          ],
+          "answerIndex": 0,
+          "hint": "الأحمر ثم الأزرق ثم الأحمر…",
+          "emoji": "🧩"
+        },
+        {
+          "prompt": "⭐🌙⭐🌙⭐ ؟",
+          "options": [
+            "⭐",
+            "🌙",
+            "☀️"
+          ],
+          "answerIndex": 1,
+          "hint": "نجمة ثم قمر ثم نجمة…",
+          "emoji": "🧩"
+        }
+      ]
+    },
+    {
+      "id": "w3_review_game",
+      "title": "لعبة الأسبوع 🎮",
+      "emoji": "🎮",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أراجع ما تعلمته",
+      "learned": "أنا أتعلم وألعب!",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 3"
+      },
+      "steps": [
+        {
+          "emoji": "🎮",
+          "text": "هيا نلعب بما تعلمناه!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أيهما أكثر؟",
+          "options": [
+            "🍎🍎🍎🍎🍎",
+            "🍎🍎"
+          ],
+          "answerIndex": 0,
+          "hint": "عدّي",
+          "emoji": "🍎"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف الدال؟",
+          "options": [
+            "خُبْز",
+            "دُبّ",
+            "ذُرَة"
+          ],
+          "answerIndex": 1,
+          "hint": "دَ دَ دُبّ",
+          "emoji": "🐻"
+        },
+        {
+          "prompt": "ماذا تعني Red؟",
+          "options": [
+            "أحمر",
+            "أزرق",
+            "أصفر"
+          ],
+          "answerIndex": 0,
+          "hint": "🔴",
+          "emoji": "🔴"
+        },
+        {
+          "prompt": "أختك تبكي لأن لعبتها وقعت، ماذا نفعل؟",
+          "options": [
+            "نساعدها 🤗",
+            "نضحك 😝"
+          ],
+          "answerIndex": 0,
+          "hint": "الرحمة",
+          "emoji": "🧸",
+          "praise": "أحسنتِ! الرحمة شيء جميل."
+        }
+      ]
+    },
+    {
+      "id": "w3_compare_big",
+      "title": "كبير وصغير 🐘",
+      "emoji": "🐘",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف الكبير والصغير",
+      "learned": "الفيل كبير والنملة صغيرة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 3"
+      },
+      "steps": [
+        {
+          "emoji": "🐘",
+          "text": "الفيل كبير 🐘، والفأر صغير 🐭."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "من الأكبر؟",
+          "options": [
+            "🐘",
+            "🐭"
+          ],
+          "answerIndex": 0,
+          "hint": "الفيل ضخم",
+          "emoji": "🐘"
+        },
+        {
+          "prompt": "من الأصغر؟",
+          "options": [
+            "🐘",
+            "🐜"
+          ],
+          "answerIndex": 1,
+          "hint": "النملة صغيرة جدًا",
+          "emoji": "🐜"
+        }
+      ]
+    }
+  ]
+}

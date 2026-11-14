@@ -3,6 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'core/router/app_router.dart';
+import 'core/usage_tracker.dart';
 import 'core/theme/app_theme.dart';
 
 class NourFadaaApp extends ConsumerWidget {
@@ -22,6 +23,8 @@ class NourFadaaApp extends ConsumerWidget {
         GlobalCupertinoLocalizations.delegate,
       ],
       routerConfig: ref.watch(routerProvider),
+      builder: (context, child) =>
+          UsageTrackerScope(child: child ?? const SizedBox.shrink()),
     );
   }
 }
