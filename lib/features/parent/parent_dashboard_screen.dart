@@ -40,6 +40,8 @@ class ParentDashboardScreen extends ConsumerWidget {
           ),
           const SizedBox(height: 24),
           Text('الصوت', style: Theme.of(context).textTheme.titleLarge),
+          const SizedBox(height: 8),
+          _Group(children: [
           SwitchListTile(
             title: const Text('🔊  المؤثرات الصوتية'),
             subtitle: const Text('أصوات النجاح والمكافآت'),
@@ -59,23 +61,46 @@ class ParentDashboardScreen extends ConsumerWidget {
               ref.invalidate(voiceEnabledProvider);
             },
           ),
+          ]),
           const SizedBox(height: 16),
           Text('الأقسام الظاهرة للطفلتين',
               style: Theme.of(context).textTheme.titleLarge),
           const SizedBox(height: 8),
-          for (final s in appSections)
-            SwitchListTile(
-              title: Text('${s.emoji}  ${s.title}'),
-              value: states[s.id] ?? true,
-              onChanged: (v) async {
-                await ref
-                    .read(settingsRepositoryProvider)
-                    .setSectionEnabled(s.id, v);
-                ref.invalidate(sectionStatesProvider);
-              },
-            ),
+          _Group(children: [
+            for (final s in appSections)
+              SwitchListTile(
+                title: Text('${s.emoji}  ${s.title}'),
+                value: states[s.id] ?? true,
+                onChanged: (v) async {
+                  await ref
+                      .read(settingsRepositoryProvider)
+                      .setSectionEnabled(s.id, v);
+                  ref.invalidate(sectionStatesProvider);
+                },
+              ),
+          ]),
         ],
       ),
+    );
+  }
+}
+
+/// مجموعة إعدادات داخل بطاقة بيضاء مدوّرة.
+class _Group extends StatelessWidget {
+  const _Group({required this.children});
+
+  final List<Widget> children;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      clipBehavior: Clip.antiAlias,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(28),
+        boxShadow: const [BoxShadow(color: Color(0x14000000), blurRadius: 10, offset: Offset(0, 4))],
+      ),
+      child: Column(children: children),
     );
   }
 }
@@ -90,7 +115,9 @@ class _ChildReportCard extends ConsumerWidget {
     final report = ref.watch(childReportProvider(childId));
     return Card(
       margin: const EdgeInsets.only(bottom: 14),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(22)),
+      elevation: 3,
+      shadowColor: const Color(0x33000000),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: report.when(
