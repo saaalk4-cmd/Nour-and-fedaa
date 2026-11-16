@@ -6,6 +6,9 @@ on:
   pull_request:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -57,3 +60,17 @@ jobs:
         with:
           name: nour-fedaa-apk
           path: build/app/outputs/flutter-apk/app-release.apk
+
+      # رابط مباشر لتحميل الـ APK وتثبيته من المتصفح (بدون تسجيل دخول ولا فك ضغط).
+      # يُحدَّث عند كل push على فرع الميزة: /releases/download/latest-apk/nour-fedaa.apk
+      - name: Publish APK as a direct-download release
+        if: github.event_name == 'push' && startsWith(github.ref, 'refs/heads/feature/')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cp build/app/outputs/flutter-apk/app-release.apk nour-fedaa.apk
+          gh release delete latest-apk --cleanup-tag --yes || true
+          gh release create latest-apk nour-fedaa.apk \
+            --prerelease \
+            --title "نور وفداء — آخر نسخة" \
+            --notes "نسخة تجريبية تُبنى تلقائيًا من الفرع ${GITHUB_REF_NAME} (commit ${GITHUB_SHA::7}). حمّلي الملف وثبّتيه على الأندرويد."
