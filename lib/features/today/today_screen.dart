@@ -157,7 +157,6 @@ class _TodayScreenState extends ConsumerState<TodayScreen> {
               lesson: plan.adventures[i],
               done: done.requireValue.contains(plan.adventures[i].id),
               little: little,
-              isLast: i == plan.adventures.length - 1,
             ),
         ],
       ],
@@ -202,14 +201,12 @@ class _AdventureCard extends StatelessWidget {
     required this.lesson,
     required this.done,
     required this.little,
-    required this.isLast,
   });
 
   final int index;
   final Lesson lesson;
   final bool done;
   final bool little;
-  final bool isLast;
 
   static const _colors = <Color>[
     Color(0xFF2A9D8F),
