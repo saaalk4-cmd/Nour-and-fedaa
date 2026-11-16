@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../core/design/pop_tap.dart';
+import '../../core/design/section_tile.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/mascot.dart';
+import '../../data/content/lesson.dart';
 import '../../data/models/child.dart';
 import '../../data/providers.dart';
 import '../../domain/gamification/achievements.dart';
@@ -23,7 +26,7 @@ class HomeScreen extends ConsumerWidget {
       appBar: AppBar(
         leading: IconButton(
           tooltip: 'تغيير الطفلة',
-          icon: const Icon(Icons.swap_horiz),
+          icon: const Icon(Icons.swap_horiz_rounded, size: 30),
           onPressed: () {
             ref.read(selectedChildIdProvider.notifier).state = null;
             context.go('/');
@@ -44,76 +47,40 @@ class HomeScreen extends ConsumerWidget {
                 ),
               );
             }
+            final little = ContentLevel.forAge(c.age).pictureOnly;
             final enabled = states.valueOrNull ?? const <String, bool>{};
             final visible = appSections.where((s) => enabled[s.id] ?? true).toList();
             return ListView(
-              padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
+              padding: const EdgeInsets.fromLTRB(20, 4, 20, 28),
               children: [
-                Row(
-                  children: [
-                    const Mascot(size: 84),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text('أهلًا يا ${c.name}! 🌟', style: Theme.of(context).textTheme.headlineMedium),
-                          const SizedBox(height: 2),
-                          const Text('أنا لَمعة، ومغامرتك اليوم جاهزة!', style: TextStyle(fontSize: 16)),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 14),
-                _StatusCard(child: c),
-                const SizedBox(height: 14),
-                _QuestsCard(child: c),
+                _Greeting(name: c.name, little: little),
+                const SizedBox(height: 16),
+                _StatusCard(child: c, compact: little),
+                const SizedBox(height: 16),
+                _JourneyHero(little: little),
+                if (!little) ...[
+                  const SizedBox(height: 16),
+                  _QuestsCard(child: c),
+                ],
                 _LatestBadge(childId: c.id),
-                const SizedBox(height: 14),
-                SizedBox(
-                  height: 64,
-                  child: FilledButton.icon(
-                    onPressed: () => context.push('/today'),
-                    icon: const Icon(Icons.explore),
-                    label: const Text('رحلتي اليوم', style: TextStyle(fontSize: 20)),
-                  ),
-                ),
-                const SizedBox(height: 22),
+                const SizedBox(height: 24),
                 Text('ماذا سنتعلم اليوم؟', style: Theme.of(context).textTheme.titleLarge),
-                const SizedBox(height: 10),
+                const SizedBox(height: 12),
                 GridView.count(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                   crossAxisCount: 2,
                   mainAxisSpacing: 16,
                   crossAxisSpacing: 16,
-                  childAspectRatio: 1.05,
+                  childAspectRatio: little ? 0.95 : 1.0,
                   children: [
                     for (final s in visible)
-                      Material(
+                      SectionTile(
+                        emoji: s.emoji,
+                        title: s.title,
                         color: s.color,
-                        borderRadius: BorderRadius.circular(28),
-                        child: InkWell(
-                          borderRadius: BorderRadius.circular(28),
-                          onTap: () => context.push('/section/${s.id}'),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(s.emoji, style: const TextStyle(fontSize: 44)),
-                              const SizedBox(height: 8),
-                              Text(
-                                s.title,
-                                textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 19,
-                                  fontWeight: FontWeight.w800,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
+                        emojiSize: little ? 58 : 46,
+                        onTap: () => context.push('/section/${s.id}'),
                       ),
                   ],
                 ),
@@ -126,11 +93,152 @@ class HomeScreen extends ConsumerWidget {
   }
 }
 
+/// لَمعة + تحية الطفلة داخل فقاعة كلام.
+class _Greeting extends StatelessWidget {
+  const _Greeting({required this.name, required this.little});
+
+  final String name;
+  final bool little;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Container(
+          padding: const EdgeInsets.all(6),
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: Colors.white.withValues(alpha: 0.75),
+            boxShadow: const [BoxShadow(color: Color(0x22000000), blurRadius: 12, offset: Offset(0, 6))],
+          ),
+          child: Mascot(size: little ? 100 : 88),
+        ),
+        const SizedBox(width: 14),
+        Expanded(
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(26),
+              boxShadow: const [BoxShadow(color: Color(0x14000000), blurRadius: 10, offset: Offset(0, 4))],
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text('أهلًا يا $name! 🌟', style: AppText.display(little ? 30 : 26)),
+                if (!little) ...[
+                  const SizedBox(height: 2),
+                  const Text(
+                    'أنا لَمعة، ومغامرتك اليوم جاهزة!',
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500, color: AppColors.ink),
+                  ),
+                ],
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+/// زر «رحلتي اليوم»: بطاقة كبيرة بتدرّج دافئ وأيقونة تتمايل.
+class _JourneyHero extends StatelessWidget {
+  const _JourneyHero({required this.little});
+
+  final bool little;
+
+  @override
+  Widget build(BuildContext context) {
+    return PopTap(
+      onTap: () => context.push('/today'),
+      child: Container(
+        height: little ? 150 : 128,
+        padding: const EdgeInsets.symmetric(horizontal: 18),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(38),
+          gradient: const LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            colors: [Color(0xFFFFB84D), Color(0xFFF2709C)],
+          ),
+          boxShadow: const [BoxShadow(color: Color(0x55F2709C), blurRadius: 18, offset: Offset(0, 10))],
+        ),
+        child: Row(
+          children: [
+            const _Bob(child: Text('🧭', style: TextStyle(fontSize: 64))),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('رحلتي اليوم', style: AppText.display(little ? 38 : 34, color: Colors.white)),
+                  if (!little)
+                    const Text(
+                      'مغامرات قصيرة وممتعة',
+                      style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w700),
+                    ),
+                ],
+              ),
+            ),
+            Container(
+              width: 66,
+              height: 66,
+              decoration: const BoxDecoration(color: Colors.white, shape: BoxShape.circle),
+              child: const Icon(Icons.play_arrow_rounded, size: 46, color: Color(0xFFF2709C)),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// حركة صعود وهبوط لطيفة للأيقونات.
+class _Bob extends StatefulWidget {
+  const _Bob({required this.child});
+
+  final Widget child;
+
+  @override
+  State<_Bob> createState() => _BobState();
+}
+
+class _BobState extends State<_Bob> with SingleTickerProviderStateMixin {
+  late final AnimationController _c = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 1600),
+  )..repeat(reverse: true);
+
+  @override
+  void dispose() {
+    _c.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedBuilder(
+      animation: _c,
+      builder: (context, child) => Transform.translate(
+        offset: Offset(0, -8 * Curves.easeInOut.transform(_c.value)),
+        child: child,
+      ),
+      child: widget.child,
+    );
+  }
+}
+
 /// المستوى + شريط XP + النجوم + السلسلة + عدد الدروس.
 class _StatusCard extends ConsumerWidget {
-  const _StatusCard({required this.child});
+  const _StatusCard({required this.child, this.compact = false});
 
   final Child child;
+
+  /// للصغيرات: أيقونات وأرقام فقط بلا نصوص شرح.
+  final bool compact;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -140,6 +248,7 @@ class _StatusCard extends ConsumerWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(28),
         gradient: const LinearGradient(colors: [Color(0xFF4FB3BF), AppColors.teal]),
+        boxShadow: const [BoxShadow(color: Color(0x332A9D8F), blurRadius: 14, offset: Offset(0, 8))],
       ),
       child: profile.when(
         loading: () => const SizedBox(
@@ -157,6 +266,16 @@ class _StatusCard extends ConsumerWidget {
             today: dayKey(DateTime.now()),
             current: p.streakDays,
           );
+          if (compact) {
+            return Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                _Pill(text: '⭐ ${p.stars}', big: true),
+                _Pill(text: '🔥 $streak', big: true),
+                _Pill(text: '📚 ${p.totalLessons}', big: true),
+              ],
+            );
+          }
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -203,21 +322,22 @@ class _StatusCard extends ConsumerWidget {
 }
 
 class _Pill extends StatelessWidget {
-  const _Pill({required this.text});
+  const _Pill({required this.text, this.big = false});
 
   final String text;
+  final bool big;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      padding: EdgeInsets.symmetric(horizontal: big ? 16 : 12, vertical: big ? 10 : 6),
       decoration: BoxDecoration(
         color: Colors.white24,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(22),
       ),
       child: Text(
         text,
-        style: const TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w800),
+        style: TextStyle(color: Colors.white, fontSize: big ? 24 : 15, fontWeight: FontWeight.w800),
       ),
     );
   }

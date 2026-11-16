@@ -1,0 +1,7 @@
+# أيقونة التطبيق (لَمعة على خلفية تدرّج): تُطبَّق في CI بعد توليد android/
+flutter_launcher_icons:
+  android: true
+  ios: false
+  image_path: assets/icon/icon.png
+  adaptive_icon_background: "#2A9D8F"
+  adaptive_icon_foreground: assets/icon/icon_fg.png

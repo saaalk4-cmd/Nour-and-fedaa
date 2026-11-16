@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../design/app_backdrop.dart';
+
 class AppColors {
   static const Color sky = Color(0xFFE8F4FD);
   static const Color teal = Color(0xFF2A9D8F);
@@ -7,6 +9,21 @@ class AppColors {
   static const Color rose = Color(0xFFE76F8B);
   static const Color leaf = Color(0xFF6BBF59);
   static const Color ink = Color(0xFF2B3A4A);
+}
+
+/// خطوط التطبيق: Lalezar للعناوين والكلمات الكبيرة، وTajawal للنص (تُنزَّل في CI؛ وإلا الخط الافتراضي).
+class AppText {
+  static const String bodyFont = 'Tajawal';
+  static const String displayFont = 'Lalezar';
+
+  /// نص عناوين بخط Lalezar (وزن واحد، لا نستخدم bold حتى لا يُزوَّر الخط).
+  static TextStyle display(double size, {Color color = AppColors.ink}) => TextStyle(
+        fontFamily: displayFont,
+        fontWeight: FontWeight.w400,
+        fontSize: size,
+        height: 1.15,
+        color: color,
+      );
 }
 
 class AppTheme {
@@ -18,25 +35,38 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       colorScheme: scheme,
-      scaffoldBackgroundColor: AppColors.sky,
+      fontFamily: AppText.bodyFont,
+      pageTransitionsTheme: const PageTransitionsTheme(builders: {
+        TargetPlatform.android: BackdropPageTransitions(),
+        TargetPlatform.iOS: BackdropPageTransitions(),
+        TargetPlatform.linux: BackdropPageTransitions(),
+        TargetPlatform.macOS: BackdropPageTransitions(),
+        TargetPlatform.windows: BackdropPageTransitions(),
+      }),
+      // شفاف: خلفية التطبيق (AppBackdrop) تظهر خلف كل الشاشات.
+      scaffoldBackgroundColor: Colors.transparent,
       textTheme: const TextTheme(
         headlineMedium: TextStyle(
-          fontSize: 30,
-          fontWeight: FontWeight.w800,
+          fontFamily: AppText.displayFont,
+          fontSize: 32,
+          fontWeight: FontWeight.w400,
           color: AppColors.ink,
         ),
         titleLarge: TextStyle(
-          fontSize: 22,
-          fontWeight: FontWeight.w700,
+          fontFamily: AppText.displayFont,
+          fontSize: 24,
+          fontWeight: FontWeight.w400,
           color: AppColors.ink,
         ),
         bodyLarge: TextStyle(fontSize: 18, color: AppColors.ink),
       ),
-      appBarTheme: const AppBarTheme(
+      appBarTheme: AppBarTheme(
         backgroundColor: Colors.transparent,
         elevation: 0,
+        scrolledUnderElevation: 0,
         centerTitle: true,
         foregroundColor: AppColors.ink,
+        titleTextStyle: AppText.display(28),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
