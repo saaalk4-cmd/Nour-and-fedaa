@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../../data/content/lesson.dart';
+import '../../data/providers.dart';
+import '../lessons/toddler_section_screen.dart';
 
 import '../../data/repositories/settings_repository.dart';
 import '../achievements/trophy_room_screen.dart';
@@ -9,13 +14,25 @@ import '../quran/quran_screen.dart';
 import 'sections.dart';
 
 /// شاشة مؤقتة لكل قسم إلى أن يُبنى محتواه في المراحل التالية.
-class SectionScreen extends StatelessWidget {
+class SectionScreen extends ConsumerWidget {
   const SectionScreen({super.key, required this.sectionId});
 
   final String sectionId;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    // محرك المحتوى حسب العمر: الصغيرات (3–4) يرين بطاقات صور فقط في كل الأقسام التعليمية.
+    final c = ref.watch(selectedChildProvider).valueOrNull;
+    if (c != null &&
+        ContentLevel.forAge(c.age).pictureOnly &&
+        sectionId != SectionIds.achievements) {
+      final section = sectionById(sectionId);
+      return ToddlerSectionScreen(
+        category: sectionId,
+        title: '${section.title} ${section.emoji}',
+        child: c,
+      );
+    }
     if (sectionId == SectionIds.learn) return const LessonListScreen();
     const hadithAssets = {
       SectionIds.akhlaq: 'assets/content/akhlaq_hadith.json',
