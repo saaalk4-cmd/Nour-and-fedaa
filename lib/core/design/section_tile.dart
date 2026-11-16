@@ -65,30 +65,41 @@ class SectionTile extends StatelessWidget {
                   decoration: BoxDecoration(color: Colors.white.withValues(alpha: 0.10), shape: BoxShape.circle),
                 ),
               ),
-              Center(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(12),
-                      decoration: BoxDecoration(
-                        color: Colors.white.withValues(alpha: 0.28),
-                        shape: BoxShape.circle,
+              Positioned.fill(
+                child: LayoutBuilder(
+                  builder: (context, box) => Center(
+                    // يصغّر المحتوى تلقائيًا ليتسع في الشاشات الصغيرة أو الخط الكبير.
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: SizedBox(
+                        width: box.maxWidth,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.all(12),
+                              decoration: BoxDecoration(
+                                color: Colors.white.withValues(alpha: 0.28),
+                                shape: BoxShape.circle,
+                              ),
+                              child: Text(emoji, style: TextStyle(fontSize: emojiSize)),
+                            ),
+                            const SizedBox(height: 8),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 8),
+                              child: Text(
+                                title,
+                                textAlign: TextAlign.center,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                style: AppText.display(21, color: Colors.white),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                      child: Text(emoji, style: TextStyle(fontSize: emojiSize)),
                     ),
-                    const SizedBox(height: 8),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8),
-                      child: Text(
-                        title,
-                        textAlign: TextAlign.center,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: AppText.display(21, color: Colors.white),
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
               ),
               if (badge != null)
