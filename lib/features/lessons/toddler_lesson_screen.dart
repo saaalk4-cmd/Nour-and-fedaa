@@ -216,11 +216,7 @@ class _ToddlerLessonPlayerState extends ConsumerState<ToddlerLessonPlayer> {
           Text(
             c.word,
             textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 46,
-              fontWeight: FontWeight.w900,
-              color: AppColors.ink,
-            ),
+            style: AppText.display(54),
           ),
         const SizedBox(height: 22),
         _RoundButton(
@@ -318,11 +314,15 @@ class _BigPicture extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(24),
+      padding: const EdgeInsets.all(26),
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(48),
-        boxShadow: const [BoxShadow(color: Colors.black12, blurRadius: 14, offset: Offset(0, 6))],
+        borderRadius: BorderRadius.circular(56),
+        gradient: const LinearGradient(
+          begin: Alignment.topRight,
+          end: Alignment.bottomLeft,
+          colors: [Colors.white, Color(0xFFFFF1D0)],
+        ),
+        boxShadow: const [BoxShadow(color: Color(0x26000000), blurRadius: 18, offset: Offset(0, 10))],
       ),
       child: Text(emoji, style: TextStyle(fontSize: size)),
     );

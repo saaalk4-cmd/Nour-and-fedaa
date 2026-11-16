@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import '../../core/audio/ayah_player.dart';
 import '../../core/audio/sound_service.dart';
 import '../../core/audio/voice_service.dart';
+import '../../core/design/big_button.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/mascot.dart';
 import '../../data/content/lesson.dart';
@@ -244,13 +245,9 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
                 ),
               ),
               const SizedBox(height: 12),
-              SizedBox(
-                width: double.infinity,
-                height: 66,
-                child: ElevatedButton(
-                  onPressed: canContinue && !_saving ? _next : null,
-                  child: Text(_isLast ? 'أنهيتُ الدرس 🎉' : 'التالي'),
-                ),
+              BigButton(
+                label: _isLast ? 'أنهيتُ الدرس 🎉' : 'التالي',
+                onPressed: canContinue && !_saving ? _next : null,
               ),
             ],
           ),
@@ -260,25 +257,39 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
   }
 
   Widget _stepView(LessonStep s, bool little) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          s.emoji,
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize: little ? 110 : 84),
-        ),
-        const SizedBox(height: 24),
-        Text(
-          s.text,
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: little ? 34 : 28,
-            fontWeight: FontWeight.w800,
-            color: AppColors.ink,
+    return Center(
+      child: SingleChildScrollView(
+        child: Container(
+          width: double.infinity,
+          padding: const EdgeInsets.fromLTRB(20, 28, 20, 28),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(40),
+            boxShadow: const [BoxShadow(color: Color(0x1A000000), blurRadius: 16, offset: Offset(0, 8))],
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                padding: const EdgeInsets.all(18),
+                decoration: const BoxDecoration(color: Color(0xFFFFF1D0), shape: BoxShape.circle),
+                child: Text(s.emoji, style: TextStyle(fontSize: little ? 96 : 76)),
+              ),
+              const SizedBox(height: 22),
+              Text(
+                s.text,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: little ? 32 : 28,
+                  fontWeight: FontWeight.w800,
+                  height: 1.45,
+                  color: AppColors.ink,
+                ),
+              ),
+            ],
           ),
         ),
-      ],
+      ),
     );
   }
 
@@ -400,9 +411,10 @@ class _OptionButton extends StatelessWidget {
       child: Material(
         color: bg,
         elevation: state == _OptionState.neutral ? 2 : 0,
-        borderRadius: BorderRadius.circular(24),
+        borderRadius: BorderRadius.circular(28),
+        shadowColor: Colors.black26,
         child: InkWell(
-          borderRadius: BorderRadius.circular(24),
+          borderRadius: BorderRadius.circular(28),
           onTap: state == _OptionState.tried ? null : onTap,
           child: Center(
             child: Text(
