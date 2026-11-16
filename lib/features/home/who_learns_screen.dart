@@ -114,7 +114,7 @@ class _ChildCard extends StatelessWidget {
                     child: Text(name, style: AppText.display(46, color: Colors.white)),
                   ),
                   Text(
-                    '${'⭐' * (age > 5 ? 5 : age)}',
+                    '⭐' * (age > 5 ? 5 : age),
                     style: const TextStyle(fontSize: 20),
                   ),
                 ],

@@ -70,8 +70,8 @@ class BackdropPainter extends CustomPainter {
       sun,
       w * 0.34,
       Paint()
-        ..shader = RadialGradient(
-          colors: [const Color(0x66FFE49A), const Color(0x00FFE49A)],
+        ..shader = const RadialGradient(
+          colors: [Color(0x66FFE49A), Color(0x00FFE49A)],
         ).createShader(Rect.fromCircle(center: sun, radius: w * 0.34)),
     );
     canvas.drawCircle(sun, w * 0.075, Paint()..color = const Color(0xFFFFD66B));
