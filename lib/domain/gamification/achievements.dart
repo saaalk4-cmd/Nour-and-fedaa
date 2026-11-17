@@ -123,6 +123,48 @@ class Achievements {
       description: 'ارتقي إلى المستوى 3',
       test: (s) => s.level >= 3,
     ),
+    AchievementDef(
+      id: 'month_1',
+      emoji: '🏅',
+      title: 'شهر من الرحلة',
+      description: 'أكملي 4 أسبوعًا من الرحلة',
+      test: (_) => false, // تُمنح عند إكمال الأسابيع (Milestones)
+    ),
+    AchievementDef(
+      id: 'month_2',
+      emoji: '🏅',
+      title: 'شهران من الرحلة',
+      description: 'أكملي 8 أسبوعًا من الرحلة',
+      test: (_) => false, // تُمنح عند إكمال الأسابيع (Milestones)
+    ),
+    AchievementDef(
+      id: 'month_3',
+      emoji: '🏅',
+      title: '3 أشهر من الرحلة',
+      description: 'أكملي 12 أسبوعًا من الرحلة',
+      test: (_) => false, // تُمنح عند إكمال الأسابيع (Milestones)
+    ),
+    AchievementDef(
+      id: 'month_4',
+      emoji: '🏅',
+      title: '4 أشهر من الرحلة',
+      description: 'أكملي 16 أسبوعًا من الرحلة',
+      test: (_) => false, // تُمنح عند إكمال الأسابيع (Milestones)
+    ),
+    AchievementDef(
+      id: 'month_5',
+      emoji: '🏅',
+      title: '5 أشهر من الرحلة',
+      description: 'أكملي 20 أسبوعًا من الرحلة',
+      test: (_) => false, // تُمنح عند إكمال الأسابيع (Milestones)
+    ),
+    AchievementDef(
+      id: 'graduate_24',
+      emoji: '🎓',
+      title: 'التخرج من الرحلة الأولى',
+      description: 'أكملي الأسابيع الـ24',
+      test: (_) => false, // تُمنح عند إكمال الأسبوع 24 (Milestones)
+    ),
     // شارات المحتوى الديني: لا تُمنح قبل وجود الدروس الموثقة.
     AchievementDef(
       id: 'first_surah',

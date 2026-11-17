@@ -14,7 +14,10 @@ import '../../data/models/child.dart';
 import '../../data/models/lesson_completion.dart';
 import '../../data/providers.dart';
 import 'break_reminder.dart';
+import '../../domain/gamification/milestones.dart';
+import '../today/today_screen.dart' show curriculumProvider;
 import 'celebration_view.dart';
+import 'milestone_dialog.dart';
 import 'toddler_lesson_screen.dart';
 
 class LessonScreen extends ConsumerWidget {
@@ -73,8 +76,12 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
   // أسئلة الترتيب: كم عنصرًا وُضع في مكانه الصحيح، وكم محاولة غير صحيحة.
   int _placed = 0;
   int _slips = 0;
+  // أسئلة التوصيل: العناصر الموصولة، والعنصر الأيسر المختار حاليًا.
+  final Set<int> _matched = <int>{};
+  int? _leftSel;
   bool _saving = false;
   LessonCompletion? _done;
+  List<Milestone> _milestones = const [];
 
   late final VoiceService _voice;
   late final AyahPlayer _ayahPlayer;
@@ -122,8 +129,28 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
       final st = _lesson.steps[_page];
       final t = _lesson.spokenText(st.text, say: st.say, step: true);
       if (t != null) await _voice.speak(t);
+      final r = st.recite;
+      if (r != null) await _ayahPlayer.play(r.surah, r.ayah);
     } else {
       final q = _lesson.questions[_page - _lesson.steps.length];
+      final r = q.recite;
+      if (r != null) {
+        // «استمعي ثم اختاري»: نقرأ التعليمات ثم نشغّل التلاوة المسجّلة.
+        final intro = _lesson.spokenText(q.prompt, say: q.say);
+        if (intro != null) {
+          await _voice.speak(intro);
+          await Future<void>.delayed(const Duration(milliseconds: 2500));
+        }
+        if (mounted && _page == _lesson.steps.length + _lesson.questions.indexOf(q)) {
+          await _ayahPlayer.play(r.surah, r.ayah);
+        }
+        return;
+      }
+      if (q.isMatch) {
+        final intro = _lesson.spokenText(q.prompt, say: q.say);
+        if (intro != null) await _voice.speak(intro);
+        return;
+      }
       final parts = <String>[];
       final prompt = _lesson.spokenText(q.prompt, say: q.say);
       if (prompt != null) parts.add(prompt);
@@ -149,11 +176,37 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
         _picked = null;
         _placed = 0;
         _slips = 0;
+        _matched.clear();
+        _leftSel = null;
       });
       _narrate();
       return;
     }
     await _finish();
+  }
+
+  /// مكافآت الأسبوع / 4 أسابيع / التخرج: تُمنح مرة واحدة ولا تُوقف الحفظ إن فشلت.
+  Future<void> _awardMilestones() async {
+    try {
+      final repo = ref.read(gamificationRepositoryProvider);
+      final cur = await ref.read(curriculumProvider.future);
+      final all = await ref.read(lessonsProvider.future);
+      final reached = Milestones.newlyReached(
+        curriculum: cur,
+        childAge: widget.child.age,
+        allLessons: all,
+        completed: await repo.completedLessonIds(widget.child.id),
+        alreadyGranted: await repo.grantedMilestoneIds(widget.child.id),
+      );
+      await repo.grantMilestones(widget.child.id, [
+        for (final m in reached) (id: m.id, stars: m.stars, xp: m.xp),
+      ]);
+      _milestones = reached;
+      ref.invalidate(gamificationProfileProvider(widget.child.id));
+      ref.invalidate(earnedBadgesProvider(widget.child.id));
+    } catch (_) {
+      // المكافآت إضافية: لا نمنع حفظ التقدم بسببها.
+    }
   }
 
   Future<void> _finish() async {
@@ -173,6 +226,8 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
       ref.invalidate(dailyQuestsProvider(widget.child.id));
       ref.invalidate(earnedBadgesProvider(widget.child.id));
       ref.invalidate(childrenProvider);
+      await _awardMilestones();
+      if (!mounted) return;
       HapticFeedback.mediumImpact();
       ref.read(soundServiceProvider).play(
             result.leveledUp ? SoundEffect.levelUp : SoundEffect.success,
@@ -187,6 +242,41 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('لم نستطع حفظ التقدم، جرّبي مرة أخرى')),
       );
+    }
+  }
+
+  /// سؤال التوصيل: نختار عنصرًا من اليسار ثم ما يقابله من اليمين.
+  void _pickMatchLeft(LessonQuestion q, int i) {
+    if (_picked != null || _matched.contains(i)) return;
+    setState(() => _leftSel = i);
+    if (_lesson.isSpeakable(q.matchLeft[i])) _voice.speak(q.matchLeft[i]);
+  }
+
+  void _pickMatchRight(LessonQuestion q, int j) {
+    final i = _leftSel;
+    if (_picked != null || i == null || _matched.contains(j)) return;
+    if (i == j) {
+      HapticFeedback.lightImpact();
+      ref.read(soundServiceProvider).play(SoundEffect.correct);
+      setState(() {
+        _matched.add(j);
+        _leftSel = null;
+        if (_matched.length == q.options.length) {
+          _picked = 0;
+          if (_slips == 0) _firstTryCorrect++;
+        }
+      });
+      if (_matched.length == q.options.length) {
+        final praise = q.praise == null ? null : _lesson.spokenText(q.praise!);
+        _voice.speak(praise ?? 'أحسنتِ! وصّلتِ كل شيء');
+      }
+    } else {
+      ref.read(soundServiceProvider).play(SoundEffect.tap);
+      setState(() {
+        _slips++;
+        _leftSel = null;
+      });
+      _voice.speak('قريب جدًا! جرّبي مرة ثانية');
     }
   }
 
@@ -249,6 +339,9 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
         completion: done,
         learned: _lesson.learned,
         onContinue: () async {
+          await MilestoneDialog.show(
+              context, ref.read(voiceServiceProvider), _milestones, widget.child.name);
+          if (!context.mounted) return;
           await BreakReminder.maybeShow(context, ref.read(voiceServiceProvider));
           if (context.mounted) context.pop();
         },
@@ -350,11 +443,20 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
     // للصغيرات: بعد محاولتين نُظهر الإجابة الصحيحة بنبض لطيف (مساعدة بصرية).
     final showHelp = little && !answered && _tried.length >= 2;
     if (q.isOrder) return _orderView(q, answered);
+    if (q.isMatch) return _matchView(q, answered);
     return SingleChildScrollView(
       child: Column(
         children: [
           if (emoji != null)
             Text(emoji, style: TextStyle(fontSize: little ? 88 : 64)),
+          if (q.recite != null)
+            IconButton(
+              tooltip: 'استمعي للتلاوة',
+              iconSize: 64,
+              color: AppColors.teal,
+              icon: const Icon(Icons.headphones_rounded),
+              onPressed: () => _ayahPlayer.play(q.recite!.surah, q.recite!.ayah),
+            ),
           const SizedBox(height: 10),
           Text(
             q.prompt,
@@ -405,6 +507,107 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
 }
 
 extension _OrderUi on _LessonPlayerState {
+  Widget _matchView(LessonQuestion q, bool answered) {
+    final left = q.matchLeft;
+    final right = q.matchRight;
+    final order = q.matchRightOrder;
+    Widget cell(String text, {required bool done, required bool selected, required VoidCallback? onTap}) {
+      final big = text.runes.length <= 4; // إيموجي/كلمة قصيرة: خط أكبر
+      return SizedBox(
+        height: 84,
+        child: Material(
+          color: done
+              ? const Color(0xFFCDEFC6)
+              : (selected ? const Color(0xFFFFE9A8) : Colors.white),
+          elevation: done ? 0 : 2,
+          borderRadius: BorderRadius.circular(24),
+          child: InkWell(
+            borderRadius: BorderRadius.circular(24),
+            onTap: onTap,
+            child: Center(
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  child: Text(
+                    text,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: big ? 40 : 22,
+                      fontWeight: FontWeight.w800,
+                      color: AppColors.ink,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      );
+    }
+
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          if (q.emoji != null) Text(q.emoji!, style: const TextStyle(fontSize: 56)),
+          const SizedBox(height: 8),
+          Text(
+            q.prompt,
+            textAlign: TextAlign.center,
+            style: const TextStyle(fontSize: 26, fontWeight: FontWeight.w800, color: AppColors.ink),
+          ),
+          const SizedBox(height: 16),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: Column(
+                  children: [
+                    for (var i = 0; i < left.length; i++)
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 12),
+                        child: cell(left[i],
+                            done: _matched.contains(i),
+                            selected: _leftSel == i,
+                            onTap: () => _pickMatchLeft(q, i)),
+                      ),
+                  ],
+                ),
+              ),
+              const SizedBox(width: 14),
+              Expanded(
+                child: Column(
+                  children: [
+                    for (final j in order)
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 12),
+                        child: cell(right[j],
+                            done: _matched.contains(j),
+                            selected: false,
+                            onTap: () => _pickMatchRight(q, j)),
+                      ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          if (_slips > 0 && !answered)
+            const _FeedbackBubble(
+              mood: MascotMood.encourage,
+              title: 'قريب جدًا ❤️',
+              body: 'اضغطي على صورة ثم على ما يناسبها',
+            ),
+          if (answered)
+            _FeedbackBubble(
+              mood: MascotMood.cheer,
+              title: 'أحسنتِ! ✨',
+              body: q.praise ?? 'وصّلتِ كل شيء',
+            ),
+        ],
+      ),
+    );
+  }
+
   Widget _orderView(LessonQuestion q, bool answered) {
     final shown = q.displayOptions;
     return SingleChildScrollView(

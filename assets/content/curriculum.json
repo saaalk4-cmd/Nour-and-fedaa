@@ -784,6 +784,669 @@
           "earlyLessons": []
         }
       ]
+    },
+    {
+      "week": 13,
+      "title": "أكتشف: الصلاة والاعتذار",
+      "days": [
+        {
+          "day": 1,
+          "title": "أعتذر وأتعلم الباء",
+          "lessons": [
+            "w13_s1",
+            "w13_syll_1",
+            "w13_numbers"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 2,
+          "title": "الصلوات الخمس",
+          "lessons": [
+            "w13_prayers",
+            "w13_english",
+            "w13_senses"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 3,
+          "title": "نشارك ونرتّب",
+          "lessons": [
+            "w13_s2",
+            "w13_syll_2",
+            "w13_add",
+            "w13_order_prayers"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 4,
+          "title": "أستمع وأتعلم",
+          "lessons": [
+            "w13_syll_3",
+            "w13_listen",
+            "w13_match_senses"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 5,
+          "title": "يوم المرح",
+          "lessons": [
+            "w13_review_game",
+            "w13_pattern"
+          ],
+          "earlyLessons": []
+        }
+      ]
+    },
+    {
+      "week": 14,
+      "title": "أكتشف: الوضوء والاحترام",
+      "days": [
+        {
+          "day": 1,
+          "title": "أحترم الكبير",
+          "lessons": [
+            "w14_s1",
+            "w14_syll_1",
+            "w14_add"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 2,
+          "title": "الوضوء",
+          "lessons": [
+            "hadith_wudu_prayer_lesson",
+            "w14_order_wudu",
+            "w14_english"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 3,
+          "title": "أحفظ لساني",
+          "lessons": [
+            "w14_s2",
+            "w14_syll_2",
+            "w14_sub",
+            "w14_body"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 4,
+          "title": "أستمع وأتعلم",
+          "lessons": [
+            "w14_syll_3",
+            "w14_listen",
+            "w14_match_body"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 5,
+          "title": "يوم المرح",
+          "lessons": [
+            "w14_review_game",
+            "w14_pattern"
+          ],
+          "earlyLessons": []
+        }
+      ]
+    },
+    {
+      "week": 15,
+      "title": "أكتشف: الصلاة والصبر",
+      "days": [
+        {
+          "day": 1,
+          "title": "لا أسخر",
+          "lessons": [
+            "w15_s1",
+            "w15_syll_1",
+            "w15_compare"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 2,
+          "title": "كيف نصلي",
+          "lessons": [
+            "w15_salah",
+            "w15_english",
+            "w15_plants"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 3,
+          "title": "الصبر",
+          "lessons": [
+            "w15_s2",
+            "w15_syll_2",
+            "w15_sub",
+            "w15_order_salah"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 4,
+          "title": "أستمع وأتعلم",
+          "lessons": [
+            "w15_syll_3",
+            "w15_listen"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 5,
+          "title": "يوم المرح",
+          "lessons": [
+            "w15_review_game",
+            "w15_pattern"
+          ],
+          "earlyLessons": []
+        }
+      ]
+    },
+    {
+      "week": 16,
+      "title": "أكتشف: الرحمة والشكر",
+      "days": [
+        {
+          "day": 1,
+          "title": "أرحم الحيوان",
+          "lessons": [
+            "w16_s1",
+            "w16_syll_1",
+            "w16_count"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 2,
+          "title": "أوقات الصلاة",
+          "lessons": [
+            "w16_times",
+            "w16_english",
+            "w16_clock"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 3,
+          "title": "أشكر النعمة",
+          "lessons": [
+            "w16_s2",
+            "w16_syll_2",
+            "w16_match_times",
+            "w16_animals"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 4,
+          "title": "أستمع وأتعلم",
+          "lessons": [
+            "w16_syll_3",
+            "w16_listen"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 5,
+          "title": "تحدّي الاكتشاف",
+          "lessons": [
+            "w16_review_game",
+            "w16_pattern"
+          ],
+          "earlyLessons": []
+        }
+      ]
+    },
+    {
+      "week": 17,
+      "title": "مهارتي: أقرأ وأعدّ",
+      "days": [
+        {
+          "day": 1,
+          "title": "الأمانة",
+          "lessons": [
+            "w17_s1",
+            "w17_read_1",
+            "w17_add"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 2,
+          "title": "إماطة الأذى",
+          "lessons": [
+            "hadith_remove_harm_lesson",
+            "w17_english",
+            "w17_living"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 3,
+          "title": "الصدق",
+          "lessons": [
+            "w17_s2",
+            "w17_letter_1",
+            "w17_combo",
+            "w17_match_clean"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 4,
+          "title": "المسجد والقرآن",
+          "lessons": [
+            "w17_masjid",
+            "w17_listen"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 5,
+          "title": "يوم المرح",
+          "lessons": [
+            "w17_review_game",
+            "w17_pattern"
+          ],
+          "earlyLessons": []
+        }
+      ]
+    },
+    {
+      "week": 18,
+      "title": "مهارتي: أقرأ وأتواصل",
+      "days": [
+        {
+          "day": 1,
+          "title": "أساعد جيراني",
+          "lessons": [
+            "w18_s1",
+            "w18_read_1",
+            "w18_sub"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 2,
+          "title": "أتواصل بلغتين",
+          "lessons": [
+            "w18_english",
+            "w18_build",
+            "w18_daynight"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 3,
+          "title": "نتعاون",
+          "lessons": [
+            "w18_s2",
+            "w18_combo",
+            "w18_match_words"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 4,
+          "title": "الدعاء والقرآن",
+          "lessons": [
+            "w18_dua",
+            "w18_listen"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 5,
+          "title": "يوم المرح",
+          "lessons": [
+            "w18_review_game",
+            "w18_pattern"
+          ],
+          "earlyLessons": []
+        }
+      ]
+    },
+    {
+      "week": 19,
+      "title": "مهارتي: أحلّ وأقرأ",
+      "days": [
+        {
+          "day": 1,
+          "title": "بر الوالدين",
+          "lessons": [
+            "w19_s1",
+            "w19_read_1",
+            "w19_add"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 2,
+          "title": "عائلتي وصحتي",
+          "lessons": [
+            "w19_english",
+            "w19_food",
+            "w19_letter_1"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 3,
+          "title": "المسامحة",
+          "lessons": [
+            "w19_s2",
+            "w19_build",
+            "w19_stories",
+            "w19_order_story"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 4,
+          "title": "النظافة والقرآن",
+          "lessons": [
+            "w19_clean_mosque",
+            "w19_listen"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 5,
+          "title": "يوم المرح",
+          "lessons": [
+            "w19_review_game",
+            "w19_pattern"
+          ],
+          "earlyLessons": []
+        }
+      ]
+    },
+    {
+      "week": 20,
+      "title": "مهارتي: أنهي مرحلة المهارة",
+      "days": [
+        {
+          "day": 1,
+          "title": "أقرأ وأعدّ",
+          "lessons": [
+            "w20_s1",
+            "w20_read_1",
+            "w20_combo"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 2,
+          "title": "أحلّ وأتعلم",
+          "lessons": [
+            "w20_stories",
+            "w20_english",
+            "w20_clock"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 3,
+          "title": "الضوء والطقس",
+          "lessons": [
+            "w20_s2",
+            "w20_light",
+            "w20_match_weather",
+            "w20_build"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 4,
+          "title": "أستمع للقرآن",
+          "lessons": [
+            "w20_listen"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 5,
+          "title": "تحدّي المهارة",
+          "lessons": [
+            "w20_review_game",
+            "w20_pattern"
+          ],
+          "earlyLessons": []
+        }
+      ]
+    },
+    {
+      "week": 21,
+      "title": "أستعدّ: حروفي وكلماتي",
+      "days": [
+        {
+          "day": 1,
+          "title": "أراجع الحروف",
+          "lessons": [
+            "w21_letters_1",
+            "w21_letters_2",
+            "w21_s1"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 2,
+          "title": "أراجع الكلمات",
+          "lessons": [
+            "w21_letters_3",
+            "w21_read_1",
+            "w21_syll"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 3,
+          "title": "أقرأ وأكوّن",
+          "lessons": [
+            "w21_letters_4",
+            "w21_build",
+            "w21_s2",
+            "w21_combo"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 4,
+          "title": "أراجع القرآن والإنجليزي",
+          "lessons": [
+            "w21_listen",
+            "w21_english_review",
+            "w21_read_2"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 5,
+          "title": "تحدّي الحروف",
+          "lessons": [
+            "w21_review_game",
+            "w21_pattern"
+          ],
+          "earlyLessons": []
+        }
+      ]
+    },
+    {
+      "week": 22,
+      "title": "أستعدّ: حسابي وعلومي",
+      "days": [
+        {
+          "day": 1,
+          "title": "أراجع الجمع والطرح",
+          "lessons": [
+            "w22_add",
+            "w22_sub",
+            "w22_s1"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 2,
+          "title": "أراجع المقارنة والعدّ",
+          "lessons": [
+            "w22_compare",
+            "w22_count",
+            "w22_clock"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 3,
+          "title": "أحلّ المسائل",
+          "lessons": [
+            "w22_stories",
+            "w22_s2",
+            "w22_english_review"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 4,
+          "title": "أراجع علومي",
+          "lessons": [
+            "w22_science_review",
+            "w22_living_review",
+            "w22_match_animals",
+            "w22_listen"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 5,
+          "title": "تحدّي الحساب",
+          "lessons": [
+            "w22_review_game",
+            "w22_pattern"
+          ],
+          "earlyLessons": []
+        }
+      ]
+    },
+    {
+      "week": 23,
+      "title": "أستعدّ: ديني وأخلاقي",
+      "days": [
+        {
+          "day": 1,
+          "title": "أراجع الصلاة",
+          "lessons": [
+            "w23_order_prayers",
+            "w23_match_prayer",
+            "w23_s1"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 2,
+          "title": "أراجع الوضوء",
+          "lessons": [
+            "w23_order_wudu",
+            "w23_islam_review",
+            "w23_listen_1"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 3,
+          "title": "أراجع أخلاقي",
+          "lessons": [
+            "w23_akhlaq_review",
+            "w23_s2",
+            "w23_match_good",
+            "w23_listen_2"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 4,
+          "title": "أراجع القرآن",
+          "lessons": [
+            "w23_listen_3",
+            "w23_english_review"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 5,
+          "title": "تحدّي ديني",
+          "lessons": [
+            "w23_review_game",
+            "w23_pattern"
+          ],
+          "earlyLessons": []
+        }
+      ]
+    },
+    {
+      "week": 24,
+      "title": "التخرج: رحلتي الأولى 🎓",
+      "days": [
+        {
+          "day": 1,
+          "title": "تحدّي الحروف والقراءة",
+          "lessons": [
+            "w24_letters",
+            "w24_read",
+            "w24_combo"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 2,
+          "title": "تحدّي الأرقام والوقت",
+          "lessons": [
+            "w24_numbers",
+            "w24_clock",
+            "w24_stories"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 3,
+          "title": "تحدّي ديني",
+          "lessons": [
+            "w24_islam",
+            "w24_listen",
+            "w24_order_salah"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 4,
+          "title": "تحدّي العلوم والإنجليزي",
+          "lessons": [
+            "w24_science",
+            "w24_english_review",
+            "w24_match",
+            "w24_s1"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 5,
+          "title": "حفل التخرج 🎓",
+          "lessons": [
+            "w24_review_game",
+            "w24_graduation"
+          ],
+          "earlyLessons": []
+        }
+      ]
     }
   ]
 }

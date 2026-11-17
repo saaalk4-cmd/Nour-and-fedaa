@@ -262,4 +262,21 @@ void main() {
     expect(updated.ageGroup, AgeGroup.early);
     expect(await game.completedLessonIds(nour.id), {'learn_colors_basic'});
   });
+
+  test('milestones are granted once and week rewards stay hidden from the trophy room', () async {
+    final fedaa = await byName('فداء');
+    final items = [
+      (id: 'ms_week_1', stars: 3, xp: 20),
+      (id: 'month_1', stars: 10, xp: 50),
+    ];
+    await game.grantMilestones(fedaa.id, items);
+    await game.grantMilestones(fedaa.id, items); // مرة ثانية: لا تتكرر
+    final p = await game.profile(fedaa.id);
+    expect(p.stars, 13);
+    expect(p.xp, 70);
+    final badges = await game.earnedBadges(fedaa.id);
+    expect(badges.keys, contains('month_1'));
+    expect(badges.keys, isNot(contains('ms_week_1')));
+    expect(await game.grantedMilestoneIds(fedaa.id), containsAll(['ms_week_1', 'month_1']));
+  });
 }

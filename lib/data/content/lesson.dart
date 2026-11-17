@@ -29,8 +29,28 @@ class ContentSource {
   }
 }
 
+/// آية مسجّلة تُشغَّل بدل النطق الآلي (سورة، آية). لا نص قرآني في JSON.
+class Recitation {
+  const Recitation(this.surah, this.ayah);
+
+  final int surah;
+  final int ayah;
+
+  static Recitation? fromJson(Object? raw) {
+    if (raw == null) return null;
+    final l = (raw as List<dynamic>).cast<int>();
+    if (l.length != 2 || l[0] < 1 || l[0] > 114 || l[1] < 1) {
+      throw const FormatException('تلاوة غير صالحة');
+    }
+    return Recitation(l[0], l[1]);
+  }
+}
+
 class LessonStep {
-  const LessonStep({required this.emoji, required this.text, this.say});
+  const LessonStep({required this.emoji, required this.text, this.say, this.recite});
+
+  /// تلاوة مسجّلة تُشغَّل لهذه الخطوة (اختياري).
+  final Recitation? recite;
 
   final String emoji;
   final String text;
@@ -42,6 +62,7 @@ class LessonStep {
         emoji: json['emoji'] as String,
         text: json['text'] as String,
         say: json['say'] as String?,
+        recite: Recitation.fromJson(json['recite']),
       );
 }
 
@@ -55,13 +76,26 @@ class LessonQuestion {
     this.praise,
     this.say,
     this.kind = 'choice',
+    this.recite,
   });
+
+  /// «استمعي ثم اختاري»: تلاوة مسجّلة تُشغَّل مع السؤال (اختياري).
+  final Recitation? recite;
 
   final String prompt;
 
   /// 'choice' (اختيار من متعدد) أو 'order' (ترتيب: [options] مكتوبة بالترتيب الصحيح).
   final String kind;
   bool get isOrder => kind == 'order';
+
+  /// 'match': كل خيار بصيغة «يسار|يمين»؛ تُوصَل العناصر المتقابلة.
+  bool get isMatch => kind == 'match';
+  List<String> get matchLeft => [for (final o in options) o.split('|').first];
+  List<String> get matchRight => [for (final o in options) o.split('|').last];
+
+  /// ترتيب عرض العمود الأيمن (معكوس وثابت).
+  List<int> get matchRightOrder =>
+      [for (var i = options.length - 1; i >= 0; i--) i];
 
   /// ترتيب العرض: للترتيب نعرض العناصر معكوسة (ثابتة وليست عشوائية)، وللاختيار كما هي.
   List<String> get displayOptions =>
@@ -84,8 +118,11 @@ class LessonQuestion {
     if (options.length < 2 ||
         answer < 0 ||
         answer >= options.length ||
-        (kind != 'choice' && kind != 'order') ||
-        (kind == 'order' && options.length > 5)) {
+        (kind != 'choice' && kind != 'order' && kind != 'match') ||
+        (kind == 'order' && options.length > 5) ||
+        (kind == 'match' &&
+            (options.length > 4 ||
+                options.any((o) => '|'.allMatches(o).length != 1)))) {
       throw FormatException('سؤال غير صالح: ${json['prompt']}');
     }
     return LessonQuestion(
@@ -97,6 +134,7 @@ class LessonQuestion {
       praise: json['praise'] as String?,
       say: json['say'] as String?,
       kind: kind,
+      recite: Recitation.fromJson(json['recite']),
     );
   }
 }
@@ -240,7 +278,7 @@ class Lesson {
     final t = toddler;
     if (t != null) return t.question == null ? const [] : [t.question!];
     if (source.type == 'educational' || maxAge <= 4) {
-      return [for (final q in questions) if (!q.isOrder) q];
+      return [for (final q in questions) if (!q.isOrder && !q.isMatch) q];
     }
     return const [];
   }

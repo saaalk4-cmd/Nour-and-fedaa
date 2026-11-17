@@ -9,6 +9,7 @@ import '../../data/content/curriculum.dart';
 import '../../data/content/lesson.dart';
 import '../../data/models/child.dart';
 import '../../data/providers.dart';
+import '../../domain/gamification/milestones.dart';
 
 final curriculumProvider = FutureProvider<Curriculum>((ref) {
   return CurriculumRepository().load();
@@ -70,10 +71,11 @@ class _TodayScreenState extends ConsumerState<TodayScreen> {
     final curriculum = ref.watch(curriculumProvider);
     final lessons = ref.watch(lessonsProvider);
     final done = ref.watch(completedLessonIdsProvider(c.id));
-    if (curriculum.isLoading || lessons.isLoading || done.isLoading) {
+    final entries = ref.watch(progressEntriesProvider(c.id));
+    if (curriculum.isLoading || lessons.isLoading || done.isLoading || entries.isLoading) {
       return const Center(child: CircularProgressIndicator());
     }
-    if (curriculum.hasError || lessons.hasError || done.hasError) {
+    if (curriculum.hasError || lessons.hasError || done.hasError || entries.hasError) {
       return const Center(child: Text('تعذر تحميل الرحلة'));
     }
     final plan = curriculum.requireValue.planFor(
@@ -82,6 +84,15 @@ class _TodayScreenState extends ConsumerState<TodayScreen> {
       completed: done.requireValue,
     );
     final key = plan.finishedAll ? 'all' : '${plan.week!.week}-${plan.day!.day}';
+    // مراجعة ذكية: درس أُكمل وفيه أسئلة لم تُجب من أول مرة (قاعدة بسيطة، لا AI).
+    final review = plan.finishedAll || plan.adventures.length >= 5
+        ? null
+        : ReviewPicker.pick(
+            entries: entries.requireValue,
+            byId: {for (final l in lessons.requireValue) l.id: l},
+            childAge: c.age,
+            exclude: {for (final l in plan.adventures) l.id},
+          );
     _openedDayKey ??= key;
     final justFinishedDay = _openedDayKey != key;
     final little = c.ageGroup == AgeGroup.early;
@@ -134,7 +145,7 @@ class _TodayScreenState extends ConsumerState<TodayScreen> {
         ),
         const SizedBox(height: 18),
         if (plan.finishedAll)
-          const _AllDoneCard()
+          _AllDoneCard(graduate: !little, name: c.name)
         else ...[
           if (!little)
             Container(
@@ -158,6 +169,13 @@ class _TodayScreenState extends ConsumerState<TodayScreen> {
               done: done.requireValue.contains(plan.adventures[i].id),
               little: little,
             ),
+          if (review != null) ...[
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: Text('🔁 مراجعة خفيفة', style: AppText.display(20)),
+            ),
+            _AdventureCard(index: plan.adventures.length + 1, lesson: review, done: false, little: little),
+          ],
         ],
       ],
     );
@@ -280,7 +298,11 @@ class _AdventureCard extends StatelessWidget {
 }
 
 class _AllDoneCard extends StatelessWidget {
-  const _AllDoneCard();
+  const _AllDoneCard({this.graduate = false, this.name = ''});
+
+  /// فداء (القارئة): شاشة التخرج بعد الأسبوع 24 مع وعد برحلات جديدة.
+  final bool graduate;
+  final String name;
 
   @override
   Widget build(BuildContext context) {
@@ -293,16 +315,18 @@ class _AllDoneCard extends StatelessWidget {
       ),
       child: Column(
         children: [
-          const Text('🏆', style: TextStyle(fontSize: 80)),
+          Text(graduate ? '🎓' : '🏆', style: const TextStyle(fontSize: 80)),
           const SizedBox(height: 8),
           Text(
-            'أكملتِ كل مغامرات المنهج المتاح الآن!',
+            graduate
+                ? 'أحسنتِ يا $name! 🎉\nأكملتِ رحلتك الأولى!'
+                : 'أكملتِ كل مغامرات المنهج المتاح الآن!',
             textAlign: TextAlign.center,
             style: AppText.display(26, color: Colors.white),
           ),
           const SizedBox(height: 6),
-          const Text(
-            'مغامرات جديدة قادمة قريبًا إن شاء الله.',
+          Text(
+            graduate ? 'رحلات جديدة قادمة...' : 'مغامرات جديدة قادمة قريبًا إن شاء الله.',
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700, color: Colors.white),
           ),

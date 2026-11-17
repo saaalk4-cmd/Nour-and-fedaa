@@ -32,6 +32,19 @@
       "url": "https://hadeethenc.com/en/browse/hadith/65004",
       "excerpt": true,
       "kidMeaning": "النظافة والوضوء شيء عظيم نحبه."
+    },
+    {
+      "id": "hadith_wudu_prayer",
+      "title": "الوضوء والصلاة",
+      "emoji": "💧",
+      "text": "من توضأ نحو وضوئي هذا ثم صلى ركعتين لا يحدث فيهما نفسه غفر الله له ما تقدم من ذنبه",
+      "narrator": "عثمان بن عفان رضي الله عنه (رواه عنه حمران)",
+      "book": "صحيح البخاري",
+      "number": "164",
+      "grade": "صحيح (متفق عليه؛ أخرجه مسلم برقم 226)",
+      "url": "https://hadeethenc.com/en/browse/hadith/3313",
+      "kidMeaning": "نتوضأ ثم نصلي بقلب حاضر، والله يغفر لمن فعل ذلك.",
+      "excerpt": true
     }
   ]
 }

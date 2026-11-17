@@ -81,6 +81,19 @@
       "url": "https://hadeethenc.com/en/browse/hadith/4182",
       "excerpt": true,
       "kidMeaning": "نحب أمنا وأبانا ونحسن إليهما، وأمي لها حق كبير علينا."
+    },
+    {
+      "id": "hadith_remove_harm",
+      "title": "إبعاد الأذى عن الطريق",
+      "emoji": "🪨",
+      "text": "ويميط الأذى عن الطريق صدقة",
+      "narrator": "أبو هريرة رضي الله عنه",
+      "book": "صحيح البخاري",
+      "number": "2989",
+      "grade": "صحيح (متفق عليه)",
+      "url": "https://hadeethenc.com/en/browse/hadith/4568",
+      "kidMeaning": "إذا أبعدنا الحجر أو الأذى عن الطريق فهذا عمل طيب له أجر.",
+      "excerpt": true
     }
   ]
 }

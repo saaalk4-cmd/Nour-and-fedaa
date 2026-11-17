@@ -112,7 +112,47 @@ class GamificationRepository {
   Future<Map<String, String>> earnedBadges(int childId) async {
     final db = await AppDatabase.instance.database;
     final rows = await db.query('badges', where: 'child_id = ?', whereArgs: [childId]);
-    return {for (final r in rows) r['badge_id']! as String: r['earned_at']! as String};
+    return {
+      for (final r in rows)
+        // مكافآت الأسابيع (ms_) تُحفظ هنا لكنها لا تُعدّ شارات ظاهرة.
+        if (!(r['badge_id']! as String).startsWith('ms_'))
+          r['badge_id']! as String: r['earned_at']! as String,
+    };
+  }
+
+  /// كل المكافآت الممنوحة (بما فيها مكافآت الأسابيع) لمنع تكرارها.
+  Future<Set<String>> grantedMilestoneIds(int childId) async {
+    final db = await AppDatabase.instance.database;
+    final rows = await db.query('badges', where: 'child_id = ?', whereArgs: [childId]);
+    return {for (final r in rows) r['badge_id']! as String};
+  }
+
+  /// يمنح مكافآت الأسابيع/الشهور/التخرج مرة واحدة فقط (نجوم وXP وشارة).
+  Future<void> grantMilestones(
+    int childId,
+    List<({String id, int stars, int xp})> items, {
+    DateTime? now,
+  }) async {
+    if (items.isEmpty) return;
+    final db = await AppDatabase.instance.database;
+    final time = (now ?? DateTime.now()).toIso8601String();
+    await db.transaction((txn) async {
+      await txn.insert('gamification', {'child_id': childId},
+          conflictAlgorithm: ConflictAlgorithm.ignore);
+      for (final m in items) {
+        final exists = await txn.query('badges',
+            where: 'child_id = ? AND badge_id = ?', whereArgs: [childId, m.id]);
+        if (exists.isNotEmpty) continue;
+        await txn.insert('badges', {'child_id': childId, 'badge_id': m.id, 'earned_at': time},
+            conflictAlgorithm: ConflictAlgorithm.ignore);
+        await txn.rawUpdate(
+            'UPDATE gamification SET stars = stars + ?, xp = xp + ? WHERE child_id = ?',
+            [m.stars, m.xp, childId]);
+        await txn.rawUpdate(
+            'UPDATE children SET stars = stars + ?, points = points + ? WHERE id = ?',
+            [m.stars, m.xp, childId]);
+      }
+    });
   }
 
   /// يسجّل إكمال درس في معاملة واحدة (كلها أو لا شيء):
