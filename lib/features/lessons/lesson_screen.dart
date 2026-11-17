@@ -114,15 +114,25 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
       }
       return;
     }
-    if (!_lesson.canSpeak) return;
     if (_isStep) {
       final st = _lesson.steps[_page];
-      await _voice.speak(st.say ?? st.text);
+      final t = _lesson.spokenText(st.text, say: st.say);
+      if (t != null) await _voice.speak(t);
     } else {
       final q = _lesson.questions[_page - _lesson.steps.length];
-      await _voice.speak(q.say ?? q.prompt);
+      final parts = <String>[];
+      final prompt = _lesson.spokenText(q.prompt, say: q.say);
+      if (prompt != null) parts.add(prompt);
+      // نقرأ الاختيارات المسموح بها فقط، ليسمعها الطفل دون الحاجة للقراءة.
+      final opts = [
+        for (final o in q.options)
+          if (_lesson.isSpeakable(o)) o,
+      ];
+      if (opts.length == q.options.length) parts.addAll(opts);
+      if (parts.isNotEmpty) await _voice.speak(parts.join('. '));
     }
   }
+
   int get _total => _lesson.steps.length + _lesson.questions.length;
   bool get _isStep => _page < _lesson.steps.length;
   bool get _isLast => _page + 1 >= _total;
@@ -184,11 +194,15 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
         // نحسب الإجابة الصحيحة من أول محاولة فقط (للمكافأة الإضافية).
         if (_tried.isEmpty) _firstTryCorrect++;
       });
-      if (_lesson.canSpeak) _voice.speak(q.praise ?? 'أحسنتِ!');
+      final praise = q.praise == null ? null : _lesson.spokenText(q.praise!);
+      _voice.speak(praise ?? 'أحسنتِ!');
     } else {
       ref.read(soundServiceProvider).play(SoundEffect.tap);
       setState(() => _tried.add(index));
-      if (_lesson.canSpeak) _voice.speak('قريب جدًا! جرّبي مرة ثانية');
+      final hint = _tried.length >= 2 ? _lesson.spokenText(q.hint) : null;
+      _voice.speak(hint == null
+          ? 'قريب جدًا! جرّبي مرة ثانية'
+          : 'قريب جدًا! $hint');
     }
   }
 
@@ -328,6 +342,9 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
                         ? _OptionState.tried
                         : _OptionState.neutral),
                 onTap: () => _pick(q, i),
+                onHear: _lesson.isSpeakable(q.options[i])
+                    ? () => _voice.speak(q.options[i])
+                    : null,
               ),
             ),
           if (_tried.isNotEmpty && !answered)
@@ -382,9 +399,13 @@ class _OptionButton extends StatelessWidget {
     required this.onTap,
     required this.little,
     required this.highlight,
+    this.onHear,
   });
 
   final String label;
+
+  /// زر 🔊 لسماع الاختيار دون اختياره (null إن لم يجز نطقه).
+  final VoidCallback? onHear;
   final _OptionState state;
   final VoidCallback onTap;
 
@@ -416,15 +437,31 @@ class _OptionButton extends StatelessWidget {
         child: InkWell(
           borderRadius: BorderRadius.circular(28),
           onTap: state == _OptionState.tried ? null : onTap,
-          child: Center(
-            child: Text(
-              label,
-              style: TextStyle(
-                fontSize: little ? 32 : 24,
-                fontWeight: FontWeight.w800,
-                color: AppColors.ink,
+          child: Row(
+            children: [
+              if (onHear != null)
+                IconButton(
+                  tooltip: 'اسمعي',
+                  iconSize: 32,
+                  color: AppColors.teal,
+                  icon: const Icon(Icons.volume_up_rounded),
+                  onPressed: onHear,
+                )
+              else
+                const SizedBox(width: 12),
+              Expanded(
+                child: Text(
+                  label,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: little ? 32 : 24,
+                    fontWeight: FontWeight.w800,
+                    color: AppColors.ink,
+                  ),
+                ),
               ),
-            ),
+              const SizedBox(width: 48),
+            ],
           ),
         ),
       ),

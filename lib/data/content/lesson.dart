@@ -231,6 +231,20 @@ class Lesson {
   /// هل يجوز النطق الآلي لهذا الدرس؟ المحتوى التعليمي فقط (أو المسموح صراحة).
   bool get canSpeak => source.type == 'educational' || allowSpeech;
 
+  static final RegExp _tashkeel = RegExp('[ً-ْٰ]');
+
+  /// هل هذا النص آمن للنطق الآلي؟ التعليمي دائمًا؛ وفي الدروس الدينية لا
+  /// نقرأ إلا شرحنا المبسّط (بلا تشكيل)، أما نص الآية/الحديث (مشكَّل) فلا.
+  bool isSpeakable(String text) =>
+      canSpeak || _tashkeel.allMatches(text).length < 3;
+
+  /// يرجع ما يُقرأ صوتيًا من [text] (سطرًا سطرًا)، أو null إن لم يجز شيء.
+  String? spokenText(String text, {String? say}) {
+    if (say != null && say.trim().isNotEmpty) return say;
+    final lines = text.split('\n').where(isSpeakable).join('\n').trim();
+    return lines.isEmpty ? null : lines;
+  }
+
   bool fitsAge(int age) => age >= minAge && age <= maxAge;
 
   factory Lesson.fromJson(Map<String, dynamic> json) {
