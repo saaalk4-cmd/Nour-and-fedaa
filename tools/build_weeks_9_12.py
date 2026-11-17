@@ -52,6 +52,16 @@ def numbers_lesson(week, id, title, pairs):
     return L(week, id, title, '🔢', 'learn', steps, qs, 'أعرف الأعداد الكبيرة', 'أعدّ حتى 20.')
 
 
+def O(prompt, items, hint, emoji=None, praise=None):
+    """سؤال ترتيب: items بالترتيب الصحيح؛ التطبيق يعرضها بترتيب آخر."""
+    q = {'prompt': prompt, 'options': list(items), 'answerIndex': 0, 'hint': hint, 'kind': 'order'}
+    if emoji:
+        q['emoji'] = emoji
+    if praise:
+        q['praise'] = praise
+    return q
+
+
 def build():
     b78.build()
     bw.WORDS.update(WORDS912)
@@ -83,6 +93,11 @@ def build():
         english(9, 'w9_english_colors', 'Red Blue Green 🎨', '🎨',
                 [('Red', 'أحمر', '🔴'), ('Blue', 'أزرق', '🔵'), ('Green', 'أخضر', '🟢'),
                  ('Yellow', 'أصفر', '🟡')]),
+        L(9, 'w9_order_wash', 'أغسل يدي بالترتيب 🧼', '🧼', 'learn',
+          [('🧼', 'نغسل أيدينا لتبقى نظيفة.', None)],
+          [O('رتّبي خطوات غسل اليدين', ['💧 نبلّل يدينا', '🧼 نضع الصابون', '🚿 نشطف بالماء', '🧻 ننشّف يدينا'],
+             'نبدأ بالماء', '🧼', 'أحسنتِ! النظافة جميلة.')],
+          'أرتّب خطوات غسل اليدين', 'أغسل يدي بالصابون والماء.'),
         pattern_lesson(9, 'w9_pattern'),
         L(9, 'w9_review_game', 'لعبة الأسبوع 🎮', '🎮', 'learn',
           [('🎮', 'هيا نلعب بما تعلمناه!', None)],
@@ -122,6 +137,11 @@ def build():
                 'أعرف بيوت الحيوانات', 'الطائر في عش والسمكة في الماء والنحلة في خلية.'),
         english(10, 'w10_english_animals', 'Cat Dog Bird 🐱', '🐱',
                 [('Cat', 'قطة', '🐱'), ('Dog', 'كلب', '🐶'), ('Bird', 'طائر', '🐦'), ('Fish', 'سمكة', '🐟')]),
+        L(10, 'w10_order_day', 'رتّبي يومي 🌅', '🌅', 'learn',
+          [('🌅', 'اليوم له بداية ووسط ونهاية.', None)],
+          [O('رتّبي يومك من الصباح إلى الليل', ['🌅 نصحو في الصباح', '🍽️ نأكل الغداء', '🌙 ننام في الليل'],
+             'الشمس تشرق أولًا', '🌅', 'أحسنتِ! رتّبتِ يومك.')],
+          'أرتّب أحداث يومي', 'الصباح ثم الظهر ثم الليل.'),
         pattern_lesson(10, 'w10_pattern'),
         L(10, 'w10_review_game', 'لعبة الأسبوع 🎮', '🎮', 'learn',
           [('🎮', 'هيا نلعب بما تعلمناه!', None)],
@@ -160,6 +180,11 @@ def build():
                 [Q('ماذا نضع في التراب؟', 'بذرة 🌰', ['حجرًا', 'لعبة'], 0, 'منها تنبت النبتة', '🌰'),
                  Q('ماذا تحتاج النبتة لتكبر؟', 'ماء وشمس 💧☀️', ['حلوى', 'ظلام'], 1, 'نسقيها', '🌱')],
                 'أعرف كيف تنمو النبتة', 'البذرة تصير نبتة ثم شجرة.'),
+        L(11, 'w11_order_seed', 'رتّبي نموّ الشجرة 🌳', '🌳', 'learn',
+          [('🌳', 'هيا نرتب كيف تكبر الشجرة.', None)],
+          [O('رتّبي من البذرة إلى الشجرة', ['🌰 بذرة', '🌱 نبتة صغيرة', '🌳 شجرة كبيرة'],
+             'نبدأ بالبذرة', '🌳', 'أحسنتِ! رتّبتِ النموّ.')],
+          'أرتّب مراحل نموّ الشجرة', 'بذرة ثم نبتة ثم شجرة.'),
         L(11, 'w11_review_game', 'لعبة الأسبوع 🎮', '🎮', 'learn',
           [('🎮', 'هيا نلعب بما تعلمناه!', None)],
           [Q('أي كلمة تعني 🌙؟', 'قمر', ['بيت', 'باب'], 0, 'قَ مَ ر', '🌙'),
@@ -216,21 +241,21 @@ def build():
             day(1, 'الناس وبر الوالدين', ['quran_surah_114', 'hadith_parents_lesson', 'w9_family_help', 'w9_letter_1']),
             day(2, 'أشكر الله', ['hadith_gratitude_food_lesson', 'w9_thanks_food', 'w9_letter_2', 'w9_add']),
             day(3, 'نتعاون', ['w9_cooperate', 'w9_letter_3', 'w9_sub', 'w9_english_colors']),
-            day(4, 'أراجع', ['w9_review_letters', 'w9_environment']),
+            day(4, 'أراجع', ['w9_review_letters', 'w9_environment', 'w9_order_wash']),
             day(5, 'يوم المرح', ['w9_review_game', 'w9_pattern']),
         ]},
         {'week': 10, 'title': 'أراجع وأتقدم', 'days': [
             day(1, 'حرف الياء', ['w10_letter_1', 'w10_numbers_11_15', 'w10_homes']),
             day(2, 'أراجع القرآن', ['w10_quran_count', 'w10_review_all_a']),
             day(3, 'أراجع أخلاقي', ['w10_akhlaq_review', 'w10_review_all_b', 'w10_english_animals']),
-            day(4, 'أتدرّب', ['w10_pattern']),
+            day(4, 'أرتّب يومي', ['w10_order_day', 'w10_pattern']),
             day(5, 'يوم المرح', ['w10_review_game']),
         ]},
         {'week': 11, 'title': 'أقرأ وأحسب', 'days': [
             day(1, 'أقرأ كلماتي الأولى', ['w11_read_1', 'w11_add', 'w11_truth']),
             day(2, 'كلمات جديدة', ['w11_read_2', 'w11_sub', 'w11_amanah']),
             day(3, 'أعدّ حتى 20', ['w11_numbers_16_20', 'w11_float']),
-            day(4, 'من البذرة للشجرة', ['w11_seed']),
+            day(4, 'من البذرة للشجرة', ['w11_seed', 'w11_order_seed']),
             day(5, 'يوم المرح', ['w11_review_game']),
         ]},
         {'week': 12, 'title': 'رحلتي الكبرى', 'days': [

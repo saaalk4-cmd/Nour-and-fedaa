@@ -519,6 +519,43 @@
       ]
     },
     {
+      "id": "w11_order_seed",
+      "title": "رتّبي نموّ الشجرة 🌳",
+      "emoji": "🌳",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أرتّب مراحل نموّ الشجرة",
+      "learned": "بذرة ثم نبتة ثم شجرة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 11"
+      },
+      "steps": [
+        {
+          "emoji": "🌳",
+          "text": "هيا نرتب كيف تكبر الشجرة.",
+          "say": "هيا نرتب كيف تكبر الشجرة."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "رتّبي من البذرة إلى الشجرة",
+          "options": [
+            "🌰 بذرة",
+            "🌱 نبتة صغيرة",
+            "🌳 شجرة كبيرة"
+          ],
+          "answerIndex": 0,
+          "hint": "نبدأ بالبذرة",
+          "kind": "order",
+          "emoji": "🌳",
+          "praise": "أحسنتِ! رتّبتِ النموّ."
+        }
+      ]
+    },
+    {
       "id": "w11_review_game",
       "title": "لعبة الأسبوع 🎮",
       "emoji": "🎮",

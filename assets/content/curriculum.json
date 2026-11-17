@@ -618,7 +618,8 @@
           "title": "أراجع",
           "lessons": [
             "w9_review_letters",
-            "w9_environment"
+            "w9_environment",
+            "w9_order_wash"
           ],
           "earlyLessons": []
         },
@@ -668,8 +669,9 @@
         },
         {
           "day": 4,
-          "title": "أتدرّب",
+          "title": "أرتّب يومي",
           "lessons": [
+            "w10_order_day",
             "w10_pattern"
           ],
           "earlyLessons": []
@@ -721,7 +723,8 @@
           "day": 4,
           "title": "من البذرة للشجرة",
           "lessons": [
-            "w11_seed"
+            "w11_seed",
+            "w11_order_seed"
           ],
           "earlyLessons": []
         },

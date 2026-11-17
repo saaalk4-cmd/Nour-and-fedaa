@@ -54,9 +54,18 @@ class LessonQuestion {
     this.emoji,
     this.praise,
     this.say,
+    this.kind = 'choice',
   });
 
   final String prompt;
+
+  /// 'choice' (اختيار من متعدد) أو 'order' (ترتيب: [options] مكتوبة بالترتيب الصحيح).
+  final String kind;
+  bool get isOrder => kind == 'order';
+
+  /// ترتيب العرض: للترتيب نعرض العناصر معكوسة (ثابتة وليست عشوائية)، وللاختيار كما هي.
+  List<String> get displayOptions =>
+      isOrder ? options.reversed.toList() : options;
   final String? emoji;
   final List<String> options;
   final int answerIndex;
@@ -71,7 +80,12 @@ class LessonQuestion {
   factory LessonQuestion.fromJson(Map<String, dynamic> json) {
     final options = (json['options'] as List<dynamic>).cast<String>();
     final answer = json['answerIndex'] as int;
-    if (options.length < 2 || answer < 0 || answer >= options.length) {
+    final kind = (json['kind'] as String?) ?? 'choice';
+    if (options.length < 2 ||
+        answer < 0 ||
+        answer >= options.length ||
+        (kind != 'choice' && kind != 'order') ||
+        (kind == 'order' && options.length > 5)) {
       throw FormatException('سؤال غير صالح: ${json['prompt']}');
     }
     return LessonQuestion(
@@ -82,6 +96,7 @@ class LessonQuestion {
       hint: json['hint'] as String,
       praise: json['praise'] as String?,
       say: json['say'] as String?,
+      kind: kind,
     );
   }
 }
@@ -224,7 +239,9 @@ class Lesson {
   List<LessonQuestion> toddlerQuestions() {
     final t = toddler;
     if (t != null) return t.question == null ? const [] : [t.question!];
-    if (source.type == 'educational' || maxAge <= 4) return questions;
+    if (source.type == 'educational' || maxAge <= 4) {
+      return [for (final q in questions) if (!q.isOrder) q];
+    }
     return const [];
   }
 

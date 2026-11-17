@@ -45,4 +45,18 @@ void main() {
       expect(spoken, isNotEmpty, reason: '${l.id} has nothing for the child to hear');
     }
   });
+
+  test('order questions have 2-5 unique items and appear only in educational lessons', () {
+    var count = 0;
+    for (final l in all) {
+      for (final q in l.questions.where((q) => q.isOrder)) {
+        count++;
+        expect(l.source.type, 'educational', reason: l.id);
+        expect(q.options.length, inInclusiveRange(2, 5), reason: l.id);
+        expect(q.options.toSet().length, q.options.length, reason: l.id);
+        expect(q.displayOptions, isNot(equals(q.options)), reason: '${l.id} would show the answer already ordered');
+      }
+    }
+    expect(count, greaterThan(0));
+  });
 }

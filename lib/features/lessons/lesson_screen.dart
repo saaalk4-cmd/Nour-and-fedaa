@@ -69,6 +69,9 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
   int _firstTryCorrect = 0;
   final Set<int> _tried = <int>{};
   int? _picked;
+  // أسئلة الترتيب: كم عنصرًا وُضع في مكانه الصحيح، وكم محاولة غير صحيحة.
+  int _placed = 0;
+  int _slips = 0;
   bool _saving = false;
   LessonCompletion? _done;
 
@@ -125,7 +128,7 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
       if (prompt != null) parts.add(prompt);
       // نقرأ الاختيارات المسموح بها فقط، ليسمعها الطفل دون الحاجة للقراءة.
       final opts = [
-        for (final o in q.options)
+        for (final o in q.displayOptions)
           if (_lesson.isSpeakable(o)) o,
       ];
       if (opts.length == q.options.length) parts.addAll(opts);
@@ -143,6 +146,8 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
         _page++;
         _tried.clear();
         _picked = null;
+        _placed = 0;
+        _slips = 0;
       });
       _narrate();
       return;
@@ -181,6 +186,33 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('لم نستطع حفظ التقدم، جرّبي مرة أخرى')),
       );
+    }
+  }
+
+  /// سؤال الترتيب: [item] فهرس العنصر في الترتيب الصحيح؛ المطلوب الآن هو [_placed].
+  void _pickOrder(LessonQuestion q, int item) {
+    if (_picked != null || item < _placed) return;
+    if (item == _placed) {
+      HapticFeedback.lightImpact();
+      ref.read(soundServiceProvider).play(SoundEffect.correct);
+      final done = _placed + 1 == q.options.length;
+      setState(() {
+        _placed++;
+        if (done) {
+          _picked = 0;
+          if (_slips == 0) _firstTryCorrect++;
+        }
+      });
+      if (done) {
+        final praise = q.praise == null ? null : _lesson.spokenText(q.praise!);
+        _voice.speak(praise ?? 'أحسنتِ! رتّبتِ كل شيء');
+      } else if (_lesson.isSpeakable(q.options[item])) {
+        _voice.speak(q.options[item]);
+      }
+    } else {
+      ref.read(soundServiceProvider).play(SoundEffect.tap);
+      setState(() => _slips++);
+      _voice.speak('قريب جدًا! جرّبي مرة ثانية');
     }
   }
 
@@ -313,6 +345,7 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
     final little = widget.child.ageGroup == AgeGroup.early;
     // للصغيرات: بعد محاولتين نُظهر الإجابة الصحيحة بنبض لطيف (مساعدة بصرية).
     final showHelp = little && !answered && _tried.length >= 2;
+    if (q.isOrder) return _orderView(q, answered);
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -360,6 +393,72 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
               mood: MascotMood.cheer,
               title: 'أحسنتِ! ✨',
               body: q.praise ?? 'إجابة صحيحة',
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+extension _OrderUi on _LessonPlayerState {
+  Widget _orderView(LessonQuestion q, bool answered) {
+    final shown = q.displayOptions;
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          if (q.emoji != null) Text(q.emoji!, style: const TextStyle(fontSize: 64)),
+          const SizedBox(height: 10),
+          Text(
+            q.prompt,
+            textAlign: TextAlign.center,
+            style: const TextStyle(fontSize: 27, fontWeight: FontWeight.w800, color: AppColors.ink),
+          ),
+          const SizedBox(height: 16),
+          // الخانات المرتّبة
+          for (var i = 0; i < q.options.length; i++)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: Container(
+                width: double.infinity,
+                height: 56,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: i < _placed ? const Color(0xFFCDEFC6) : const Color(0x33FFFFFF),
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(color: Colors.white, width: 2),
+                ),
+                child: Text(
+                  i < _placed ? '${i + 1}. ${q.options[i]}' : '${i + 1}',
+                  style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w800, color: AppColors.ink),
+                ),
+              ),
+            ),
+          const SizedBox(height: 10),
+          // العناصر المتبقية (بترتيب عرض مختلف)
+          for (final label in shown)
+            if (q.options.indexOf(label) >= _placed)
+              Padding(
+                padding: const EdgeInsets.only(bottom: 12),
+                child: _OptionButton(
+                  label: label,
+                  little: false,
+                  highlight: _slips >= 2 && q.options.indexOf(label) == _placed,
+                  state: _OptionState.neutral,
+                  onTap: () => _pickOrder(q, q.options.indexOf(label)),
+                  onHear: _lesson.isSpeakable(label) ? () => _voice.speak(label) : null,
+                ),
+              ),
+          if (_slips > 0 && !answered)
+            const _FeedbackBubble(
+              mood: MascotMood.encourage,
+              title: 'قريب جدًا ❤️',
+              body: 'جرّبي مرة ثانية',
+            ),
+          if (answered)
+            _FeedbackBubble(
+              mood: MascotMood.cheer,
+              title: 'أحسنتِ! ✨',
+              body: q.praise ?? 'رتّبتِ كل شيء',
             ),
         ],
       ),
