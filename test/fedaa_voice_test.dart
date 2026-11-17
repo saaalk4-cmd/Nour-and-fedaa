@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:nourfadaa/data/content/content_repository.dart';
 import 'package:nourfadaa/data/content/lesson.dart';
+import 'package:nourfadaa/features/lessons/break_reminder.dart';
 
 void main() {
   final all = <Lesson>[
@@ -58,5 +59,11 @@ void main() {
       }
     }
     expect(count, greaterThan(0));
+  });
+
+  test('break reminder is due only after the interval', () {
+    final t = DateTime(2026, 1, 1, 10);
+    expect(BreakReminder.due(t.add(const Duration(minutes: 14)), anchor: t), isFalse);
+    expect(BreakReminder.due(t.add(const Duration(minutes: 15)), anchor: t), isTrue);
   });
 }

@@ -13,6 +13,7 @@ import '../../data/content/lesson.dart';
 import '../../data/models/child.dart';
 import '../../data/models/lesson_completion.dart';
 import '../../data/providers.dart';
+import 'break_reminder.dart';
 import 'celebration_view.dart';
 import 'toddler_lesson_screen.dart';
 
@@ -247,7 +248,10 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
         little: widget.child.ageGroup == AgeGroup.early,
         completion: done,
         learned: _lesson.learned,
-        onContinue: () => context.pop(),
+        onContinue: () async {
+          await BreakReminder.maybeShow(context, ref.read(voiceServiceProvider));
+          if (context.mounted) context.pop();
+        },
       );
     }
 

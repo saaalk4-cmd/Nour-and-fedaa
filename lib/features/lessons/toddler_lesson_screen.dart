@@ -12,6 +12,7 @@ import '../../data/content/lesson.dart';
 import '../../data/models/child.dart';
 import '../../data/models/lesson_completion.dart';
 import '../../data/providers.dart';
+import 'break_reminder.dart';
 import 'celebration_view.dart';
 
 /// واجهة الصغيرات (3–4 سنوات): «صورة + صوت + كلمة قصيرة + لمس».
@@ -159,7 +160,10 @@ class _ToddlerLessonPlayerState extends ConsumerState<ToddlerLessonPlayer> {
         childName: widget.child.name,
         little: true,
         completion: done,
-        onContinue: () => context.pop(),
+        onContinue: () async {
+          await BreakReminder.maybeShow(context, ref.read(voiceServiceProvider));
+          if (context.mounted) context.pop();
+        },
       );
     }
     final answered = _isCard || _picked != null;
