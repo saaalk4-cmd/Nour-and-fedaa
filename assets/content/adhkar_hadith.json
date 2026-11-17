@@ -31,6 +31,19 @@
       "grade": "صحيح (متفق عليه)",
       "url": "https://hadeethenc.com/en/browse/hadith/58120",
       "kidMeaning": "نبدأ الأكل بقول «بسم الله»."
+    },
+    {
+      "id": "hadith_gratitude_food",
+      "title": "الحمد بعد الأكل",
+      "emoji": "🥛",
+      "text": "إن الله ليرضى عن العبد أن يأكل الأكلة، فيحمده عليها، أو يشرب الشربة، فيحمده عليها",
+      "narrator": "أنس بن مالك رضي الله عنه",
+      "book": "صحيح مسلم",
+      "number": "2734",
+      "grade": "صحيح",
+      "url": "https://hadeethenc.com/en/browse/hadith/5798",
+      "kidMeaning": "الله يرضى عنا عندما نشكره بعد الأكل والشرب.",
+      "excerpt": false
     }
   ]
 }

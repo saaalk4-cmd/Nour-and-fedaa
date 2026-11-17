@@ -575,6 +575,212 @@
           ]
         }
       ]
+    },
+    {
+      "week": 9,
+      "title": "أحب أهلي والصالحين",
+      "days": [
+        {
+          "day": 1,
+          "title": "الناس وبر الوالدين",
+          "lessons": [
+            "quran_surah_114",
+            "hadith_parents_lesson",
+            "w9_family_help",
+            "w9_letter_1"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 2,
+          "title": "أشكر الله",
+          "lessons": [
+            "hadith_gratitude_food_lesson",
+            "w9_thanks_food",
+            "w9_letter_2",
+            "w9_add"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 3,
+          "title": "نتعاون",
+          "lessons": [
+            "w9_cooperate",
+            "w9_letter_3",
+            "w9_sub",
+            "w9_english_colors"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 4,
+          "title": "أراجع",
+          "lessons": [
+            "w9_review_letters",
+            "w9_environment"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 5,
+          "title": "يوم المرح",
+          "lessons": [
+            "w9_review_game",
+            "w9_pattern"
+          ],
+          "earlyLessons": []
+        }
+      ]
+    },
+    {
+      "week": 10,
+      "title": "أراجع وأتقدم",
+      "days": [
+        {
+          "day": 1,
+          "title": "حرف الياء",
+          "lessons": [
+            "w10_letter_1",
+            "w10_numbers_11_15",
+            "w10_homes"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 2,
+          "title": "أراجع القرآن",
+          "lessons": [
+            "w10_quran_count",
+            "w10_review_all_a"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 3,
+          "title": "أراجع أخلاقي",
+          "lessons": [
+            "w10_akhlaq_review",
+            "w10_review_all_b",
+            "w10_english_animals"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 4,
+          "title": "أتدرّب",
+          "lessons": [
+            "w10_pattern"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 5,
+          "title": "يوم المرح",
+          "lessons": [
+            "w10_review_game"
+          ],
+          "earlyLessons": []
+        }
+      ]
+    },
+    {
+      "week": 11,
+      "title": "أقرأ وأحسب",
+      "days": [
+        {
+          "day": 1,
+          "title": "أقرأ كلماتي الأولى",
+          "lessons": [
+            "w11_read_1",
+            "w11_add",
+            "w11_truth"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 2,
+          "title": "كلمات جديدة",
+          "lessons": [
+            "w11_read_2",
+            "w11_sub",
+            "w11_amanah"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 3,
+          "title": "أعدّ حتى 20",
+          "lessons": [
+            "w11_numbers_16_20",
+            "w11_float"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 4,
+          "title": "من البذرة للشجرة",
+          "lessons": [
+            "w11_seed"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 5,
+          "title": "يوم المرح",
+          "lessons": [
+            "w11_review_game"
+          ],
+          "earlyLessons": []
+        }
+      ]
+    },
+    {
+      "week": 12,
+      "title": "رحلتي الكبرى",
+      "days": [
+        {
+          "day": 1,
+          "title": "تحدّي الحروف",
+          "lessons": [
+            "w12_letters_a",
+            "w12_letters_b"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 2,
+          "title": "تحدّي الأرقام",
+          "lessons": [
+            "w12_numbers"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 3,
+          "title": "ديني الجميل",
+          "lessons": [
+            "w12_recall_islam"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 4,
+          "title": "معلوماتي",
+          "lessons": [
+            "w12_world_quiz"
+          ],
+          "earlyLessons": []
+        },
+        {
+          "day": 5,
+          "title": "الاحتفال الكبير",
+          "lessons": [
+            "w12_graduation"
+          ],
+          "earlyLessons": []
+        }
+      ]
     }
   ]
 }
