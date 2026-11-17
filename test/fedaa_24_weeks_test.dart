@@ -13,7 +13,7 @@ void main() {
       ...ContentRepository.parseLessons(File(a).readAsStringSync()),
   ];
   final byId = {for (final l in all) l.id: l};
-  final curriculum = Curriculum.parse(File(curriculumAsset).readAsStringSync());
+  final curriculum = Curriculum.parse(File('assets/content/curriculum.json').readAsStringSync());
   final newWeek = RegExp(r'^w(1[3-9]|2\d)_');
 
   test('weeks 1-12 are the untouched baseline', () {

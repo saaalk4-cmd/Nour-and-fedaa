@@ -328,7 +328,7 @@ class _AllDoneCard extends StatelessWidget {
           Text(
             graduate ? 'رحلات جديدة قادمة...' : 'مغامرات جديدة قادمة قريبًا إن شاء الله.',
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700, color: Colors.white),
+            style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w700, color: Colors.white),
           ),
         ],
       ),
