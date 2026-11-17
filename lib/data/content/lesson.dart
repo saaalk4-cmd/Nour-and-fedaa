@@ -231,17 +231,29 @@ class Lesson {
   /// هل يجوز النطق الآلي لهذا الدرس؟ المحتوى التعليمي فقط (أو المسموح صراحة).
   bool get canSpeak => source.type == 'educational' || allowSpeech;
 
-  static final RegExp _tashkeel = RegExp('[ً-ْٰ]');
+  static final RegExp _tashkeel = RegExp('[\u064B-\u0652\u0670]');
 
-  /// هل هذا النص آمن للنطق الآلي؟ التعليمي دائمًا؛ وفي الدروس الدينية لا
-  /// نقرأ إلا شرحنا المبسّط (بلا تشكيل)، أما نص الآية/الحديث (مشكَّل) فلا.
-  bool isSpeakable(String text) =>
-      canSpeak || _tashkeel.allMatches(text).length < 3;
+  /// هل هذا النص هو النص المنقول (آية/حديث) نفسه؟ هو الخطوة الأولى دائمًا.
+  bool _isQuote(String text) =>
+      steps.isNotEmpty && text.trim() == steps.first.text.trim();
 
-  /// يرجع ما يُقرأ صوتيًا من [text] (سطرًا سطرًا)، أو null إن لم يجز شيء.
-  String? spokenText(String text, {String? say}) {
+  /// هل هذا النص آمن للنطق الآلي؟ التعليمي دائمًا. وفي الدروس الدينية لا
+  /// نقرأ النص المنقول نفسه ولا أي نص مشكَّل (قد يكون آية أو حديثًا)؛
+  /// أما شرحنا المبسّط فيُقرأ. [step] للخطوات المؤلَّفة (يُسمح فيها بالتشكيل).
+  bool isSpeakable(String text, {bool step = false}) {
+    if (canSpeak) return true;
+    if (_isQuote(text)) return false;
+    return step || _tashkeel.allMatches(text).length < 3;
+  }
+
+  /// ما يُقرأ صوتيًا من [text] (سطرًا سطرًا)، أو null إن لم يجز شيء.
+  String? spokenText(String text, {String? say, bool step = false}) {
     if (say != null && say.trim().isNotEmpty) return say;
-    final lines = text.split('\n').where(isSpeakable).join('\n').trim();
+    final lines = text
+        .split('\n')
+        .where((l) => isSpeakable(l, step: step))
+        .join('\n')
+        .trim();
     return lines.isEmpty ? null : lines;
   }
 

@@ -41,7 +41,7 @@ void main() {
   test('every religious lesson has at least one spoken step (the simple meaning)', () {
     for (final l in forFedaa) {
       if (l.canSpeak || l.surahNumber != null) continue;
-      final spoken = l.steps.where((s) => l.spokenText(s.text, say: s.say) != null);
+      final spoken = l.steps.where((s) => l.spokenText(s.text, say: s.say, step: true) != null);
       expect(spoken, isNotEmpty, reason: '${l.id} has nothing for the child to hear');
     }
   });

@@ -116,7 +116,7 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
     }
     if (_isStep) {
       final st = _lesson.steps[_page];
-      final t = _lesson.spokenText(st.text, say: st.say);
+      final t = _lesson.spokenText(st.text, say: st.say, step: true);
       if (t != null) await _voice.speak(t);
     } else {
       final q = _lesson.questions[_page - _lesson.steps.length];
