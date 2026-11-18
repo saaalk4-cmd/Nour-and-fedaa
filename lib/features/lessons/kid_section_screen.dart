@@ -20,7 +20,7 @@ const _palette = <Color>[
 
 /// الاسم كما يُنطق: بلا رموز تعبيرية.
 String spokenTitle(String title) => title
-    .replaceAll(RegExp(r'[\u{1F000}-\u{1FFFF}\u{2600}-\u{27BF}\u{FE0F}]', unicode: true), '')
+    .replaceAll(RegExp(r'[\u{1F000}-\u{1FFFF}\u{2190}-\u{27BF}\u{2B00}-\u{2BFF}\u{FE0F}]', unicode: true), '')
     .trim();
 
 /// قسم فداء (5 سنوات): بطاقات صور كبيرة ناطقة بدل القوائم النصية.
