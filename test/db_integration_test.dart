@@ -224,7 +224,6 @@ void main() {
     expect(await settings.cinematicIntroSeen(), isFalse);
     await settings.setCinematicIntroSeen(true);
     expect(await settings.cinematicIntroSeen(), isTrue);
-    await AppDatabase.instance.resetForTest(); // «إغلاق وإعادة فتح» لا يمسح القيمة المحفوظة فعليًا
     await settings.setCinematicIntroSeen(false);
     expect(await settings.cinematicIntroSeen(), isFalse);
   });
