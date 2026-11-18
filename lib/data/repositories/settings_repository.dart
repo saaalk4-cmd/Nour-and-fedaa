@@ -69,6 +69,13 @@ class SettingsRepository {
   String _hash(String pin, String salt) =>
       sha256.convert(utf8.encode('$salt:$pin')).toString();
 
+  // ---------- المقدمة السينمائية ----------
+
+  /// تُعدّ مشاهَدة فقط بعد وصولها للنهاية (أو تخطّيها بعد معظمها).
+  Future<bool> cinematicIntroSeen() async => (await _get('cinematic_intro_seen')) == '1';
+
+  Future<void> setCinematicIntroSeen(bool seen) => _set('cinematic_intro_seen', seen ? '1' : '0');
+
   // ---------- الصوت ----------
 
   /// الصوت مفعّل افتراضيًا، ويتحكم به ولي الأمر.

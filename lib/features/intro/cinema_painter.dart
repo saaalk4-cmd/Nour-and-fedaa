@@ -6,6 +6,24 @@ import 'package:flutter/material.dart';
 const double kCinemaSeconds = 45;
 const List<double> kCinemaShots = [0, 5, 10, 15, 22, 30, 38, 45];
 
+/// لحظات الصوت (موسيقى/مؤثرات) لتُربط لاحقًا دون تعديل الرسم.
+class CinemaCue {
+  const CinemaCue(this.t, this.name);
+  final double t;
+  final String name;
+}
+
+const List<CinemaCue> kCinemaCues = [
+  CinemaCue(0.5, 'first_light'),
+  CinemaCue(5, 'descend'),
+  CinemaCue(10, 'lamaa'),
+  CinemaCue(15, 'sisters'),
+  CinemaCue(23, 'map_appears'),
+  CinemaCue(31, 'star_to_nour'),
+  CinemaCue(35, 'star_to_fedaa'),
+  CinemaCue(39, 'portals_open'),
+];
+
 /// رقم المشهد (1–7) عند الزمن [t].
 int cinemaShotAt(double t) {
   for (var i = kCinemaShots.length - 2; i >= 0; i--) {
@@ -72,7 +90,7 @@ class CinemaPainter extends CustomPainter {
         ).createShader(Offset.zero & size),
     );
     // البداية والنهاية من/إلى العتمة.
-    final black = math.max(1 - _ease(cinemaRamp(t, 0, 0.8)), _ease(cinemaRamp(t, 44.4, 45)));
+    final black = 1 - _ease(cinemaRamp(t, 0, 0.8));
     if (black > 0) {
       canvas.drawRect(Offset.zero & size, Paint()..color = Colors.black.withValues(alpha: black));
     }
@@ -129,6 +147,7 @@ class CinemaPainter extends CustomPainter {
     canvas.scale(s);
     canvas.translate(-center.dx, -center.dy);
     _drawWorld(canvas, size);
+    if (t > 22) _drawMapVeil(canvas, size);
     canvas.restore();
   }
 
@@ -229,6 +248,30 @@ class CinemaPainter extends CustomPainter {
     }
   }
 
+  /// العالم يتحوّل إلى خريطة: ظلّ أزرق ناعم، والأماكن تصير نقاطًا مضيئة تعلوها نجوم.
+  void _drawMapVeil(Canvas canvas, Size size) {
+    final m = _ease(cinemaRamp(t, 22, 30));
+    canvas.drawRect(
+      (Offset.zero & size).inflate(80),
+      Paint()..color = const Color(0xFF0B2A5B).withValues(alpha: 0.5 * m),
+    );
+    const spots = [
+      Offset(0.17, 0.3), // الجبل
+      Offset(0.14, 0.6), // الغابة
+      Offset(0.5, 0.58), // القرية
+      Offset(0.78, 0.46), // المكتبة
+      Offset(0.8, 0.8), // الحديقة
+      Offset(0.55, 0.75), // النهر
+    ];
+    for (var i = 0; i < spots.length; i++) {
+      final c = Offset(spots[i].dx * size.width, spots[i].dy * size.height);
+      final pulse = 0.75 + 0.25 * math.sin(t * 3 + i);
+      canvas.drawCircle(c, 16 * m * pulse, Paint()..color = _gold.withValues(alpha: 0.35 * m));
+      canvas.drawCircle(c, 6 * m, Paint()..color = const Color(0xFFFFF1B8).withValues(alpha: m));
+      _star(canvas, c.translate(0, -22 * m), 5 * m, _gold.withValues(alpha: m * pulse));
+    }
+  }
+
   void _tree(Canvas canvas, Offset base, double s) {
     canvas.drawRect(Rect.fromLTWH(base.dx - 2, base.dy - s * 0.4, 4, s * 0.4), Paint()..color = const Color(0xFF5B3A29));
     for (var k = 0; k < 3; k++) {
@@ -291,8 +334,9 @@ class CinemaPainter extends CustomPainter {
     if (tt < 38) {
       return Offset(w * 0.5 + math.sin(tt * 0.7) * w * 0.12, h * 0.14 + math.sin(tt * 1.3) * 6);
     }
-    final k = _ease(cinemaRamp(tt, 38, 44));
-    return Offset(w * (0.5 - 0.3 * k) + math.sin(tt * 2) * 6, _lerp(h * 0.14, h * 0.2, k));
+    // لمعة تتنقل بين المسارين: مسار فداء ثم مسار نور.
+    final k = _ease(cinemaRamp(tt, 38, 40));
+    return Offset(w * (0.5 + 0.3 * math.sin((tt - 38) * 0.9) * k), _lerp(h * 0.14, h * 0.3, k) + math.sin(tt * 2) * 5);
   }
 
   void _drawLamaa(Canvas canvas, Size size) {
