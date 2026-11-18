@@ -220,6 +220,15 @@ void main() {
     expect(rows.any((r) => (r['value']! as String).contains('1234')), isFalse);
   });
 
+  test('cinematic intro: not seen on a fresh install, seen once finished, replayable', () async {
+    expect(await settings.cinematicIntroSeen(), isFalse);
+    await settings.setCinematicIntroSeen(true);
+    expect(await settings.cinematicIntroSeen(), isTrue);
+    await AppDatabase.instance.resetForTest(); // «إغلاق وإعادة فتح» لا يمسح القيمة المحفوظة فعليًا
+    await settings.setCinematicIntroSeen(false);
+    expect(await settings.cinematicIntroSeen(), isFalse);
+  });
+
   test('sound defaults on and persists off; section toggles persist', () async {
     expect(await settings.soundEnabled(), isTrue);
     await settings.setSoundEnabled(false);
