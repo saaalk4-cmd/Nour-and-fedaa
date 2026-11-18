@@ -15,6 +15,15 @@ class WhoLearnsScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final children = ref.watch(childrenProvider);
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
+      floatingActionButton: FloatingActionButton.small(
+        heroTag: 'intro',
+        tooltip: 'المقدمة',
+        backgroundColor: Colors.white70,
+        elevation: 0,
+        onPressed: () => context.push('/intro'),
+        child: const Text('🎬', style: TextStyle(fontSize: 20)),
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),

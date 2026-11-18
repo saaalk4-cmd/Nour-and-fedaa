@@ -1,3 +1,4 @@
+import '../../features/intro/intro_cinema_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../features/home/home_screen.dart';
@@ -14,6 +15,7 @@ final routerProvider = Provider<GoRouter>((ref) {
     initialLocation: '/',
     routes: [
       GoRoute(path: '/', builder: (_, __) => const WhoLearnsScreen()),
+      GoRoute(path: '/intro', builder: (_, __) => const IntroCinemaScreen()),
       GoRoute(path: '/home', builder: (_, __) => const HomeScreen()),
       GoRoute(path: '/today', builder: (_, __) => const TodayScreen()),
       GoRoute(path: '/journey', builder: (_, __) => const JourneyScreen()),
