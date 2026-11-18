@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../core/design/pop_tap.dart';
 import '../../core/design/section_tile.dart';
 import '../../core/theme/app_theme.dart';
+import '../../core/widgets/speak_on_open.dart';
 import '../../core/widgets/mascot.dart';
 import '../../data/content/lesson.dart';
 import '../../data/models/child.dart';
@@ -50,7 +51,9 @@ class HomeScreen extends ConsumerWidget {
             final little = ContentLevel.forAge(c.age).pictureOnly;
             final enabled = states.valueOrNull ?? const <String, bool>{};
             final visible = appSections.where((s) => enabled[s.id] ?? true).toList();
-            return ListView(
+            return SpeakOnOpen(
+              text: 'أهلًا يا ${c.name}! ماذا نتعلم اليوم؟',
+              child: ListView(
               padding: const EdgeInsets.fromLTRB(20, 4, 20, 28),
               children: [
                 _Greeting(name: c.name, little: little),
@@ -85,7 +88,7 @@ class HomeScreen extends ConsumerWidget {
                   ],
                 ),
               ],
-            );
+            ));
           },
         ),
       ),

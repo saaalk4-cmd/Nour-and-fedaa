@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/design/section_tile.dart';
+import '../../core/widgets/speak_on_open.dart';
+import 'kid_section_screen.dart' show spokenTitle;
 import '../../data/content/lesson.dart';
 import '../../data/models/child.dart';
 import '../../data/providers.dart';
@@ -29,7 +31,9 @@ class ToddlerSectionScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final lessons = ref.watch(lessonsProvider);
     final done = ref.watch(completedLessonIdsProvider(child.id)).valueOrNull ?? const <String>{};
-    return Scaffold(
+    return SpeakOnOpen(
+      text: spokenTitle(title),
+      child: Scaffold(
       appBar: AppBar(title: Text(title)),
       body: lessons.when(
         loading: () => const Center(child: CircularProgressIndicator()),
@@ -56,7 +60,7 @@ class ToddlerSectionScreen extends ConsumerWidget {
           );
         },
       ),
-    );
+    ));
   }
 }
 

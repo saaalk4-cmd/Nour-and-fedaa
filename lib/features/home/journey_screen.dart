@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../core/widgets/speak_on_open.dart';
 import '../../data/providers.dart';
 import '../../domain/gamification/level_system.dart';
 
@@ -16,7 +18,9 @@ class JourneyScreen extends ConsumerWidget {
       data: (c) {
         if (c == null) return const Scaffold(body: Center(child: Text('اختاري طفلة أولًا')));
         final profile = ref.watch(gamificationProfileProvider(c.id));
-        return Scaffold(
+        return SpeakOnOpen(
+          text: 'أهلًا يا ${c.name}! هذه رحلتك',
+          child: Scaffold(
           appBar: AppBar(title: const Text('رحلتي 🧭')),
           body: profile.when(
             loading: () => const Center(child: CircularProgressIndicator()),
@@ -81,7 +85,7 @@ class JourneyScreen extends ConsumerWidget {
               ],
             ),
           ),
-        );
+        ));
       },
     );
   }

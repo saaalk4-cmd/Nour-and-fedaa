@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/design/pop_tap.dart';
 import '../../core/theme/app_theme.dart';
+import '../../core/widgets/speak_on_open.dart';
 import '../../data/providers.dart';
 import '../../domain/gamification/achievements.dart';
 
@@ -13,7 +14,9 @@ class TrophyRoomScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final child = ref.watch(selectedChildProvider);
-    return Scaffold(
+    return SpeakOnOpen(
+      text: 'هذه إنجازاتي',
+      child: Scaffold(
       appBar: AppBar(title: const Text('إنجازاتي 🌟')),
       body: child.when(
         loading: () => const Center(child: CircularProgressIndicator()),
@@ -52,7 +55,7 @@ class TrophyRoomScreen extends ConsumerWidget {
           );
         },
       ),
-    );
+    ));
   }
 }
 

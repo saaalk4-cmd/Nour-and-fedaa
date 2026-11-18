@@ -44,4 +44,18 @@ void main() {
       expect(say, isNotNull, reason: l.id);
     }
   });
+
+  test('every question in every Fedaa lesson can be spoken (no silent screens)', () {
+    for (final l in forFedaa) {
+      for (final q in l.questions) {
+        expect(l.spokenText(q.prompt, say: q.say, step: true), isNotNull, reason: '${l.id}: ${q.prompt}');
+      }
+    }
+  });
+
+  test('the quoted text itself is still never speakable', () {
+    for (final l in forFedaa.where((l) => !l.canSpeak && l.steps.isNotEmpty)) {
+      expect(l.isSpeakable(l.steps.first.text, step: true), isFalse, reason: l.id);
+    }
+  });
 }

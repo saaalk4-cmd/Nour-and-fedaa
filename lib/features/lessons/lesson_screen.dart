@@ -128,7 +128,12 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
     if (_isStep) {
       final st = _lesson.steps[_page];
       final t = _lesson.spokenText(st.text, say: st.say, step: true);
-      if (t != null) await _voice.speak(t);
+      if (t != null) {
+        await _voice.speak(t);
+      } else if (st.recite == null) {
+        // نص منقول (حديث) لا يُقرأ آليًا: جملة ثابتة قصيرة حتى لا تبقى الشاشة صامتة.
+        await _voice.speak('هذا كلام جميل، هيا نعرف معناه');
+      }
       final r = st.recite;
       if (r != null) await _ayahPlayer.play(r.surah, r.ayah);
     } else {
@@ -136,7 +141,7 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
       final r = q.recite;
       if (r != null) {
         // «استمعي ثم اختاري»: نقرأ التعليمات ثم نشغّل التلاوة المسجّلة.
-        final intro = _lesson.spokenText(q.prompt, say: q.say);
+        final intro = _lesson.spokenText(q.prompt, say: q.say, step: true);
         if (intro != null) {
           await _voice.speak(intro);
           await Future<void>.delayed(const Duration(milliseconds: 2500));
@@ -147,19 +152,19 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
         return;
       }
       if (q.isMatch) {
-        final intro = _lesson.spokenText(q.prompt, say: q.say);
+        final intro = _lesson.spokenText(q.prompt, say: q.say, step: true);
         if (intro != null) await _voice.speak(intro);
         return;
       }
       final parts = <String>[];
-      final prompt = _lesson.spokenText(q.prompt, say: q.say);
+      final prompt = _lesson.spokenText(q.prompt, say: q.say, step: true);
       if (prompt != null) parts.add(prompt);
       // نقرأ الاختيارات المسموح بها فقط، ليسمعها الطفل دون الحاجة للقراءة.
       final opts = [
         for (final o in q.displayOptions)
-          if (_lesson.isSpeakable(o)) o,
+          if (_lesson.isSpeakable(o, step: true)) o,
       ];
-      if (opts.length == q.options.length) parts.addAll(opts);
+      parts.addAll(opts);
       if (parts.isNotEmpty) await _voice.speak(parts.join('. '));
     }
   }
@@ -249,7 +254,7 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
   void _pickMatchLeft(LessonQuestion q, int i) {
     if (_picked != null || _matched.contains(i)) return;
     setState(() => _leftSel = i);
-    if (_lesson.isSpeakable(q.matchLeft[i])) _voice.speak(q.matchLeft[i]);
+    if (_lesson.isSpeakable(q.matchLeft[i], step: true)) _voice.speak(q.matchLeft[i]);
   }
 
   void _pickMatchRight(LessonQuestion q, int j) {
@@ -267,7 +272,7 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
         }
       });
       if (_matched.length == q.options.length) {
-        final praise = q.praise == null ? null : _lesson.spokenText(q.praise!);
+        final praise = q.praise == null ? null : _lesson.spokenText(q.praise!, step: true);
         _voice.speak(praise ?? 'أحسنتِ! وصّلتِ كل شيء');
       }
     } else {
@@ -295,9 +300,9 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
         }
       });
       if (done) {
-        final praise = q.praise == null ? null : _lesson.spokenText(q.praise!);
+        final praise = q.praise == null ? null : _lesson.spokenText(q.praise!, step: true);
         _voice.speak(praise ?? 'أحسنتِ! رتّبتِ كل شيء');
-      } else if (_lesson.isSpeakable(q.options[item])) {
+      } else if (_lesson.isSpeakable(q.options[item], step: true)) {
         _voice.speak(q.options[item]);
       }
     } else {
@@ -317,12 +322,12 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
         // نحسب الإجابة الصحيحة من أول محاولة فقط (للمكافأة الإضافية).
         if (_tried.isEmpty) _firstTryCorrect++;
       });
-      final praise = q.praise == null ? null : _lesson.spokenText(q.praise!);
+      final praise = q.praise == null ? null : _lesson.spokenText(q.praise!, step: true);
       _voice.speak(praise ?? 'أحسنتِ!');
     } else {
       ref.read(soundServiceProvider).play(SoundEffect.tap);
       setState(() => _tried.add(index));
-      final hint = _tried.length >= 2 ? _lesson.spokenText(q.hint) : null;
+      final hint = _tried.length >= 2 ? _lesson.spokenText(q.hint, step: true) : null;
       _voice.speak(hint == null
           ? 'قريب جدًا! جرّبي مرة ثانية'
           : 'قريب جدًا! $hint');
@@ -481,7 +486,7 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
                         ? _OptionState.tried
                         : _OptionState.neutral),
                 onTap: () => _pick(q, i),
-                onHear: _lesson.isSpeakable(q.options[i])
+                onHear: _lesson.isSpeakable(q.options[i], step: true)
                     ? () => _voice.speak(q.options[i])
                     : null,
               ),
@@ -652,7 +657,7 @@ extension _OrderUi on _LessonPlayerState {
                   highlight: _slips >= 2 && q.options.indexOf(label) == _placed,
                   state: _OptionState.neutral,
                   onTap: () => _pickOrder(q, q.options.indexOf(label)),
-                  onHear: _lesson.isSpeakable(label) ? () => _voice.speak(label) : null,
+                  onHear: _lesson.isSpeakable(label, step: true) ? () => _voice.speak(label) : null,
                 ),
               ),
           if (_slips > 0 && !answered)
