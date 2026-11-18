@@ -23,6 +23,16 @@ void main() {
     }
   });
 
+  test('learn lessons group into week folders of a few cards each', () {
+    final learn = forFedaa.where((l) => l.category == 'learn').toList();
+    final groups = <int, int>{};
+    for (final l in learn) {
+      groups[weekOf(l)] = (groups[weekOf(l)] ?? 0) + 1;
+    }
+    expect(groups.length, greaterThanOrEqualTo(20));
+    expect(groups.values.every((n) => n <= 20), isTrue);
+  });
+
   test('card titles are short and are never the quoted ayah/hadith text', () {
     for (final l in forFedaa) {
       final t = spokenTitle(l.title);
