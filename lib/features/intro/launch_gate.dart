@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../data/providers.dart';
 import '../home/who_learns_screen.dart';
-import 'intro_cinema_screen.dart';
+import 'intro_experience.dart';
 
 /// أقل ثانية يُحتسب عندها التخطي كمشاهدة (المشهد 6 وما بعده).
 const double kIntroCountsAsSeenAfter = 30;
@@ -59,7 +59,7 @@ class _LaunchGateState extends ConsumerState<LaunchGate> {
       duration: _fromIntro ? const Duration(milliseconds: 1400) : Duration.zero,
       child: switch (_phase) {
         _Phase.loading => const ColoredBox(key: ValueKey('loading'), color: Colors.black, child: SizedBox.expand()),
-        _Phase.intro => IntroCinemaScreen(
+        _Phase.intro => IntroExperience(
             key: const ValueKey('intro'),
             onDone: () => _finish(markSeen: true),
             onExit: (s) => _finish(markSeen: s >= kIntroCountsAsSeenAfter),

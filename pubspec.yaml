@@ -17,6 +17,7 @@ dependencies:
   path: ^1.9.0
   crypto: ^3.0.3
   audioplayers: ^6.1.0
+  video_player: ^2.9.2
   flutter_tts: ^4.2.0
   intl: any
 
@@ -33,3 +34,4 @@ flutter:
     - assets/content/
     - assets/audio/
     - assets/audio/quran/
+    - assets/videos/

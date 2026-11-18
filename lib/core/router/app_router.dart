@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../features/home/home_screen.dart';
 import '../../features/home/journey_screen.dart';
 import '../../features/home/section_screen.dart';
-import '../../features/intro/intro_cinema_screen.dart';
+import '../../features/intro/intro_experience.dart';
 import '../../features/intro/launch_gate.dart';
 import '../../features/lessons/lesson_screen.dart';
 import '../../features/parent/parent_dashboard_screen.dart';
@@ -28,7 +28,7 @@ final routerProvider = Provider<GoRouter>((ref) {
       // 🎬 «إعادة مشاهدة المغامرة»: اختيارية، وتعود للشاشة الرئيسية.
       GoRoute(
         path: '/intro',
-        builder: (context, __) => IntroCinemaScreen(
+        builder: (context, __) => IntroExperience(
           onDone: () => _backToMain(context),
           onExit: (_) => _backToMain(context),
         ),
