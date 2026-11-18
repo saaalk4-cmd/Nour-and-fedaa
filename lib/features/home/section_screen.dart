@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../data/content/lesson.dart';
 import '../../data/providers.dart';
+import '../lessons/kid_section_screen.dart';
 import '../lessons/toddler_section_screen.dart';
 
 import '../../data/repositories/settings_repository.dart';
@@ -33,6 +34,20 @@ class SectionScreen extends ConsumerWidget {
         child: c,
       );
     }
+    if (c != null && sectionId != SectionIds.achievements) {
+      // فداء (5): بطاقات صور ناطقة؛ شاشات النص الكاملة للأهل بالضغط المطوّل على 📋.
+      final section = sectionById(sectionId);
+      return KidSectionScreen(
+        category: sectionId,
+        title: '${section.title} ${section.emoji}',
+        child: c,
+        parentView: (_) => _legacy(sectionId),
+      );
+    }
+    return _legacy(sectionId);
+  }
+
+  Widget _legacy(String sectionId) {
     if (sectionId == SectionIds.learn) return const LessonListScreen();
     const hadithAssets = {
       SectionIds.akhlaq: 'assets/content/akhlaq_hadith.json',
@@ -62,8 +77,7 @@ class SectionScreen extends ConsumerWidget {
           children: [
             Text(s.emoji, style: const TextStyle(fontSize: 80)),
             const SizedBox(height: 16),
-            Text('قريبًا إن شاء الله',
-                style: Theme.of(context).textTheme.titleLarge),
+            const Text('قريبًا إن شاء الله', style: TextStyle(fontSize: 22)),
           ],
         ),
       ),
