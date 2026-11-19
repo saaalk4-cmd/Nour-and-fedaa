@@ -34,6 +34,19 @@ class AssetClipPlayer implements ClipPlayer {
   }
 
   @override
+  Future<void> playAndWait(String key) async {
+    final p = _player ??= AudioPlayer()..setReleaseMode(ReleaseMode.stop);
+    await p.stop();
+    // ينتهي عند اكتمال المقطع أو عند إيقافه (ضغطة أخرى، أو الخروج).
+    final done = Future.any<void>([
+      p.onPlayerComplete.first,
+      p.onPlayerStateChanged.firstWhere((s) => s == PlayerState.stopped || s == PlayerState.disposed),
+    ]);
+    await p.play(AssetSource('audio/voice/$key.mp3'));
+    await done;
+  }
+
+  @override
   Future<void> stop() async {
     await _player?.stop();
   }

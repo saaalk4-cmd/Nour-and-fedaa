@@ -160,32 +160,56 @@ save('hadith_lessons.json', h_lessons)
 print(len(q_lessons), 'quran lessons;', len(h_lessons), 'hadith lessons')
 
 # ---------------- قصص الأنبياء (آيات) ----------------
+# فداء (5): الآية بصوت الشيخ + المعنى ببساطة + سؤالان.
+# نور (3): بطاقة الاسم (يُنطق) + بطاقة الآية (الشيخ يقرأ) + بطاقة معنى قصيرة. لا نطق آلي للآية.
 pv = load('prophets_ayat.json')
 verses = pv['verses']
-who = [v['prophet'] for v in verses]
-means = [v['kidMeaning'] for v in verses]
+# الدروس الخمسة الأولى مستعملة في منهج الأسابيع (لا تُمس): نفس الرمز ونفس الأسئلة كما كانت،
+# ويُضاف فقط صوت الشيخ وبطاقات نور.
+ORIGINAL = ['prophet_ibrahim', 'prophet_nuh', 'prophet_musa', 'prophet_yusuf', 'prophet_isa']
 p_lessons = []
 for i, v in enumerate(verses):
-    ow = [w for w in who if w != v['prophet']]
-    om = [m for m in means if m != v['kidMeaning']]
-    ow = ow[i % len(ow):] + ow[:i % len(ow)]
-    om = om[i % len(om):] + om[:i % len(om)]
+    if v['id'] in ORIGINAL:
+        k = ORIGINAL.index(v['id'])
+        orig = [o for o in verses if o['id'] in ORIGINAL]
+        orig.sort(key=lambda o: ORIGINAL.index(o['id']))
+        ow = [o['prophet'] for o in orig if o['id'] != v['id']]
+        om = [o['kidMeaning'] for o in orig if o['id'] != v['id']]
+        ow = ow[k % len(ow):] + ow[:k % len(ow)]
+        om = om[k % len(om):] + om[:k % len(om)]
+        v = dict(v, emoji='🌿')
+        qi = k
+    else:
+        qi = i
+    others = [o for o in verses if o['id'] != v['id']]
+    others = others[i % len(others):] + others[:i % len(others)]
+    if v['id'] not in ORIGINAL:
+        ow = [o['prophet'] for o in others]
+        # خيارات المعنى الخاطئة من آيات بمعنى مختلف فقط (لا «ألا تتقون» مقابل «ألا تتقون»).
+        om = [o['kidMeaning'] for o in others if o['meaningGroup'] != v['meaningGroup']]
     ref = 'سورة %s، آية %d' % (v['surahName'], v['ayahFrom']) if v['ayahFrom'] == v['ayahTo'] \
         else 'سورة %s، الآيات %d-%d' % (v['surahName'], v['ayahFrom'], v['ayahTo'])
+    recite = [v['surahNumber'], v['ayahFrom']] if v['ayahFrom'] == v['ayahTo'] \
+        else [v['surahNumber'], v['ayahFrom'], v['ayahTo']]
+    name = v['prophet'].split(' عليه')[0].replace(' ﷺ', '')
+    assert v['toddlerSay'] not in v['kidMeaning'] or len(v['toddlerSay'].split()) < 4, v['id']
     p_lessons.append({
         'id': v['id'] + '_lesson', 'title': v['prophet'], 'emoji': v['emoji'],
         'category': 'prophets', 'minAge': 3, 'maxAge': 6, 'difficulty': 1,
         'source': {'type': 'quran', 'reference': '%s — %s' % (pv['source']['name'], ref)},
-        'steps': [{'emoji': '📖', 'text': v['text']}, {'emoji': '💡', 'text': v['kidMeaning']}],
+        'steps': [{'emoji': '📖', 'text': v['text'], 'recite': recite},
+                  {'emoji': '💡', 'text': v['kidMeaning']}],
         'questions': [
-            question('عن أي نبي تتحدث هذه الآية؟\n' + v['text'], v['prophet'], ow, i,
+            question('عن أي نبي تتحدث هذه الآية؟\n' + v['text'], v['prophet'], ow, qi,
                      'استمعي لاسم النبي في الآية', v['emoji']),
-            question('ماذا تقول الآية؟', v['kidMeaning'], om, i + 1,
+            question('ماذا تقول الآية؟', v['kidMeaning'], om, qi + 1,
                      'تذكّري الخطوة الثانية', '💡'),
         ],
+        'toddler': {'cards': [
+            {'emoji': v['emoji'], 'word': name, 'say': name},
+            {'emoji': '📖', 'word': '', 'recite': recite},
+            {'emoji': '💡', 'word': v['toddlerWord'], 'say': v['toddlerSay']},
+        ]},
     })
-for l, v in zip(p_lessons, verses):
-    name = v['prophet'].split(' عليه')[0]
-    l['toddler'] = {'cards': [{'emoji': v['emoji'], 'word': name, 'say': name}]}
 save('prophets_lessons.json', p_lessons)
 print(len(p_lessons), 'prophet lessons')

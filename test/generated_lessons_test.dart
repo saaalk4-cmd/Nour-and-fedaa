@@ -63,7 +63,11 @@ void prophetsTests() {
 
   test('prophet verses carry a reference and a Quran source', () {
     expect(prophets.sourceName, contains('Tanzil'));
-    expect(prophets.verses.length, 5);
+    // الأنبياء الخمسة والعشرون المذكورون في القرآن، من آدم إلى محمد ﷺ.
+    expect(prophets.verses.length, 25);
+    expect(prophets.verses.first.id, 'prophet_adam');
+    expect(prophets.verses.last.id, 'prophet_muhammad');
+    expect(prophets.verses.map((v) => v.id).toSet().length, 25);
     for (final v in prophets.verses) {
       expect(v.reference, contains('سورة'), reason: v.id);
       expect(v.ayahTo, greaterThanOrEqualTo(v.ayahFrom), reason: v.id);
@@ -78,6 +82,22 @@ void prophetsTests() {
       expect(l.source.type, 'quran');
       expect(l.category, 'prophets');
       expect(l.steps.first.text, v.text);
+    }
+  });
+
+  test('every prophet ayah is recited by the sheikh, for Fedaa and for Nour', () {
+    for (final v in prophets.verses) {
+      final l = lessons.firstWhere((l) => l.id == '${v.id}_lesson');
+      final r = l.steps.first.recite;
+      expect(r, isNotNull, reason: l.id);
+      expect([r!.surah, r.ayah, r.toAyah], [v.surahNumber, v.ayahFrom, v.ayahTo], reason: l.id);
+      final cards = l.toddlerCards();
+      expect(cards.where((c) => c.recite != null).length, 1, reason: '${l.id}: Nour hears the sheikh');
+      // الآية لا تُنطق آليًا أبدًا: لا في درس فداء ولا في بطاقات نور.
+      expect(l.spokenText(v.text), isNull, reason: l.id);
+      for (final c in cards) {
+        expect(v.text.contains(c.say ?? c.word) && (c.say ?? c.word).isNotEmpty, isFalse, reason: l.id);
+      }
     }
   });
 }

@@ -168,8 +168,7 @@ class _LearningPathScreenState extends ConsumerState<LearningPathScreen> {
     }
     _busy = true;
     try {
-      unawaited(voice.speak(spokenTitle(n.lesson.title)));
-      await Future<void>.delayed(const Duration(milliseconds: 900));
+      await voice.sayAndWait(spokenTitle(n.lesson.title));
       if (mounted) await context.push('/lesson/${n.lesson.id}');
     } finally {
       _busy = false;

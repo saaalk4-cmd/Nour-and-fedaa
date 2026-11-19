@@ -72,6 +72,16 @@ class _ToddlerLessonPlayerState extends ConsumerState<ToddlerLessonPlayer> {
         return;
       }
       final c = _cards[_page];
+      final r = c.recite;
+      if (r != null) {
+        // اسم قصير أولًا (إن وُجد) ثم تلاوة الشيخ. لا نطق آلي للآية أبدًا.
+        final say = c.say;
+        if (say != null && say.isNotEmpty) await _voice.sayAndWait(say);
+        if (mounted && _isCard && identical(_cards[_page], c)) {
+          await _ayahPlayer.playRange(r.surah, r.ayah, r.toAyah);
+        }
+        return;
+      }
       final text = c.say ?? c.word;
       if (text.isNotEmpty) await _voice.speak(text);
     } else {

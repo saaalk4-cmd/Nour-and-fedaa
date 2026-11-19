@@ -51,8 +51,8 @@ class _WorldScreenState extends ConsumerState<WorldScreen> {
     if (_busy) return;
     _busy = true;
     try {
-      _say(say);
-      await Future<void>.delayed(const Duration(milliseconds: 700));
+      // ننتظر حتى تكتمل الجملة ثم نفتح (وإلا تنقطع عند فتح الدرس).
+      await ref.read(voiceServiceProvider).sayAndWait(say);
       if (mounted) await context.push(route);
     } finally {
       _busy = false;
@@ -396,8 +396,7 @@ class DeenScreen extends ConsumerWidget {
                       icon: Text(s.emoji),
                       title: s.title,
                       onTap: () async {
-                        unawaited(ref.read(voiceServiceProvider).speak(spokenTitle(s.title)));
-                        await Future<void>.delayed(const Duration(milliseconds: 600));
+                        await ref.read(voiceServiceProvider).sayAndWait(spokenTitle(s.title));
                         if (context.mounted) await context.push('/section/${s.id}');
                       },
                     ),

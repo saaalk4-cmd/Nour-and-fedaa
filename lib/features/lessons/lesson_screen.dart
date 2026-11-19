@@ -135,7 +135,7 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
         await _voice.speak('هذا كلام جميل، هيا نعرف معناه');
       }
       final r = st.recite;
-      if (r != null) await _ayahPlayer.play(r.surah, r.ayah);
+      if (r != null) await _ayahPlayer.playRange(r.surah, r.ayah, r.toAyah);
     } else {
       final q = _lesson.questions[_page - _lesson.steps.length];
       final r = q.recite;
@@ -147,7 +147,7 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
           await Future<void>.delayed(const Duration(milliseconds: 2500));
         }
         if (mounted && _page == _lesson.steps.length + _lesson.questions.indexOf(q)) {
-          await _ayahPlayer.play(r.surah, r.ayah);
+          await _ayahPlayer.playRange(r.surah, r.ayah, r.toAyah);
         }
         return;
       }
@@ -460,7 +460,7 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
               iconSize: 64,
               color: AppColors.teal,
               icon: const Icon(Icons.headphones_rounded),
-              onPressed: () => _ayahPlayer.play(q.recite!.surah, q.recite!.ayah),
+              onPressed: () => _ayahPlayer.playRange(q.recite!.surah, q.recite!.ayah, q.recite!.toAyah),
             ),
           const SizedBox(height: 10),
           Text(

@@ -29,29 +29,57 @@ def global_number(surah, ayah):
     return sum(counts[:surah - 1]) + ayah
 
 
+def wanted():
+    """كل آية لها نص في التطبيق: السور، وأي «recite» في الدروس، وآيات الأنبياء."""
+    refs = set()
+    for s in surahs:
+        for a in s['ayahs']:
+            refs.add((s['surahNumber'], a['number']))
+
+    def walk(x):
+        if isinstance(x, dict):
+            r = x.get('recite')
+            if isinstance(r, list) and len(r) in (2, 3):
+                for a in range(r[1], (r[2] if len(r) == 3 else r[1]) + 1):
+                    refs.add((r[0], a))
+            for v in x.values():
+                walk(v)
+        elif isinstance(x, list):
+            for v in x:
+                walk(v)
+
+    content = os.path.join(ROOT, 'assets', 'content')
+    for f in sorted(os.listdir(content)):
+        if f.endswith('.json'):
+            doc = json.load(open(os.path.join(content, f), encoding='utf-8'))
+            walk(doc)
+            for v in (doc.get('verses', []) if isinstance(doc, dict) else []):
+                for a in range(v['ayahFrom'], v['ayahTo'] + 1):
+                    refs.add((v['surahNumber'], a))
+    return sorted(refs)
+
+
 ok = fail = 0
-for s in surahs:
-    for a in s['ayahs']:
-        n, i = s['surahNumber'], a['number']
-        path = os.path.join(OUT, '%d_%d.mp3' % (n, i))
-        if os.path.exists(path) and os.path.getsize(path) > 1000:
+for n, i in wanted():
+    path = os.path.join(OUT, '%d_%d.mp3' % (n, i))
+    if os.path.exists(path) and os.path.getsize(path) > 1000:
+        ok += 1
+        continue
+    url = URL % (BITRATE, EDITION, global_number(n, i))
+    for attempt in range(3):
+        try:
+            data = urllib.request.urlopen(url, timeout=30).read()
+            if len(data) < 1000:
+                raise ValueError('too small')
+            open(path, 'wb').write(data)
             ok += 1
-            continue
-        url = URL % (BITRATE, EDITION, global_number(n, i))
-        for attempt in range(3):
-            try:
-                data = urllib.request.urlopen(url, timeout=30).read()
-                if len(data) < 1000:
-                    raise ValueError('too small')
-                open(path, 'wb').write(data)
-                ok += 1
-                break
-            except Exception as e:  # noqa: BLE001
-                if attempt == 2:
-                    fail += 1
-                    print('FAILED %s: %s' % (url, e), file=sys.stderr)
-                else:
-                    time.sleep(2)
+            break
+        except Exception as e:  # noqa: BLE001
+            if attempt == 2:
+                fail += 1
+                print('FAILED %s: %s' % (url, e), file=sys.stderr)
+            else:
+                time.sleep(2)
 print('quran audio: %d ok, %d failed' % (ok, fail))
 if fail:
     print('::warning::Quran audio incomplete (%d failed); APK built without those recitations' % fail)

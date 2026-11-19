@@ -85,6 +85,7 @@ class ProphetVerse {
     required this.title,
     required this.emoji,
     required this.surahName,
+    required this.surahNumber,
     required this.ayahFrom,
     required this.ayahTo,
     required this.text,
@@ -96,6 +97,7 @@ class ProphetVerse {
   final String title;
   final String emoji;
   final String surahName;
+  final int surahNumber;
   final int ayahFrom;
   final int ayahTo;
   final String text;
@@ -118,6 +120,7 @@ class ProphetVerse {
       title: req('title'),
       emoji: req('emoji'),
       surahName: req('surahName'),
+      surahNumber: j['surahNumber'] as int,
       ayahFrom: j['ayahFrom'] as int,
       ayahTo: j['ayahTo'] as int,
       text: req('text'),

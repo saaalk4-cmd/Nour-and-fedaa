@@ -96,10 +96,13 @@ class _KidSectionScreenState extends ConsumerState<KidSectionScreen> {
     if (_busy) return;
     _busy = true;
     final say = l.spokenText(spokenTitle(l.title), step: true);
-    if (say != null) unawaited(ref.read(voiceServiceProvider).speak(say));
-    await Future<void>.delayed(const Duration(milliseconds: 900));
-    if (mounted) await context.push('/lesson/${l.id}');
-    _busy = false;
+    try {
+      // الاسم يُقال كاملًا ثم يفتح الدرس.
+      if (say != null) await ref.read(voiceServiceProvider).sayAndWait(say);
+      if (mounted) await context.push('/lesson/${l.id}');
+    } finally {
+      _busy = false;
+    }
   }
 
   @override

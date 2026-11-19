@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_tts/flutter_tts.dart';
 
 import 'voice_service.dart';
@@ -91,6 +93,30 @@ class FlutterTtsEngine implements SpeechEngine {
   @override
   Future<void> speak(String text) async => (await _ready()).speak(text);
 
+  Completer<void>? _pending;
+
   @override
-  Future<void> stop() async => (await _ready()).stop();
+  Future<void> speakAndWait(String text) async {
+    final tts = await _ready();
+    _pending?.complete();
+    final c = _pending = Completer<void>();
+    void finish() {
+      if (!c.isCompleted) c.complete();
+    }
+
+    tts.setCompletionHandler(finish);
+    tts.setCancelHandler(finish);
+    tts.setErrorHandler((_) => finish());
+    final r = await tts.speak(text);
+    // 1 = بدأ النطق؛ غير ذلك لن يأتي إشعار انتهاء.
+    if (r != 1) finish();
+    await c.future;
+  }
+
+  @override
+  Future<void> stop() async {
+    final c = _pending;
+    if (c != null && !c.isCompleted) c.complete();
+    await (await _ready()).stop();
+  }
 }

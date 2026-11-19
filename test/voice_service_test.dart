@@ -13,6 +13,9 @@ class _FakeEngine implements SpeechEngine {
   }
 
   @override
+  Future<void> speakAndWait(String text) => speak(text);
+
+  @override
   Future<void> stop() async {}
 }
 
@@ -81,6 +84,15 @@ void main() {
     expect(clips.played, isEmpty);
   });
 
+  test('sayAndWait returns after the phrase, and never hangs past the limit', () async {
+    final slow = _SlowEngine();
+    final v = VoiceService(engine: slow, readEnabled: () async => true, writeEnabled: (_) async {});
+    final sw = Stopwatch()..start();
+    await v.sayAndWait('أنا أحب الصدق', max: const Duration(milliseconds: 200));
+    expect(slow.started, ['أنا أحب الصدق']);
+    expect(sw.elapsedMilliseconds, lessThan(1500));
+  });
+
   group('device voice choice', () {
     const voices = [
       TtsVoice(name: 'en-us-x', locale: 'en-US', quality: 500),
@@ -122,6 +134,25 @@ class _FakeClips implements ClipPlayer {
 
   @override
   Future<void> play(String key) async => played.add(key);
+
+  @override
+  Future<void> playAndWait(String key) => play(key);
+
+  @override
+  Future<void> stop() async {}
+}
+
+class _SlowEngine implements SpeechEngine {
+  final List<String> started = [];
+
+  @override
+  Future<void> speak(String text) async => started.add(text);
+
+  @override
+  Future<void> speakAndWait(String text) async {
+    started.add(text);
+    await Future<void>.delayed(const Duration(seconds: 30));
+  }
 
   @override
   Future<void> stop() async {}

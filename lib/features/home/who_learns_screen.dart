@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -73,8 +71,7 @@ class WhoLearnsScreen extends ConsumerWidget {
                                 child: c,
                                 onTap: () async {
                                   ref.read(selectedChildIdProvider.notifier).state = c.id;
-                                  unawaited(ref.read(voiceServiceProvider).speak(c.name));
-                                  await Future<void>.delayed(const Duration(milliseconds: 700));
+                                  await ref.read(voiceServiceProvider).sayAndWait(c.name);
                                   if (context.mounted) context.go('/world');
                                 },
                               ),

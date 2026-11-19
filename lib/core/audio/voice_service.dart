@@ -5,6 +5,9 @@ import 'package:crypto/crypto.dart';
 /// محرّك النطق (يُستبدل في الاختبارات). التنفيذ الحقيقي: flutter_tts.
 abstract class SpeechEngine {
   Future<void> speak(String text);
+
+  /// ينطق ويرجع بعد انتهاء الجملة (أو إيقافها).
+  Future<void> speakAndWait(String text);
   Future<void> stop();
 }
 
@@ -13,6 +16,9 @@ abstract class SpeechEngine {
 abstract class ClipPlayer {
   Future<bool> has(String key);
   Future<void> play(String key);
+
+  /// يشغّل ويرجع بعد انتهاء المقطع (أو إيقافه).
+  Future<void> playAndWait(String key);
   Future<void> stop();
 }
 
@@ -63,7 +69,19 @@ class VoiceService {
   static String clipKey(String cleaned) => sha1.convert(utf8.encode(cleaned)).toString().substring(0, 16);
 
   /// يُشغّل المقطع المسجّل لو موجود (أوضح وأجمل)، وإلا صوت الجهاز.
-  Future<void> speak(String text) async {
+  Future<void> speak(String text) => _say(text, wait: false);
+
+  /// مثل [speak] لكن يرجع بعد انتهاء الجملة، بحد أقصى [max] (حتى لا تنتظر الطفلة
+  /// للأبد لو تعطّل الصوت). يُستعمل قبل فتح شاشة جديدة حتى لا تنقطع الجملة.
+  Future<void> sayAndWait(String text, {Duration max = const Duration(seconds: 5)}) async {
+    try {
+      await _say(text, wait: true).timeout(max);
+    } catch (_) {
+      // انتهى الوقت أو تعطّل الصوت: نكمل.
+    }
+  }
+
+  Future<void> _say(String text, {required bool wait}) async {
     try {
       if (!await isEnabled()) return;
       final t = clean(text);
@@ -73,11 +91,11 @@ class VoiceService {
       if (clips != null) {
         final key = clipKey(t);
         if (await clips.has(key)) {
-          await clips.play(key);
+          await (wait ? clips.playAndWait(key) : clips.play(key));
           return;
         }
       }
-      await _engine.speak(t);
+      await (wait ? _engine.speakAndWait(t) : _engine.speak(t));
     } catch (_) {
       // نتجاهل أي خطأ في النطق.
     }

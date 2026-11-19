@@ -31,18 +31,22 @@ class ContentSource {
 
 /// آية مسجّلة تُشغَّل بدل النطق الآلي (سورة، آية). لا نص قرآني في JSON.
 class Recitation {
-  const Recitation(this.surah, this.ayah);
+  const Recitation(this.surah, this.ayah, [int? toAyah]) : toAyah = toAyah ?? ayah;
 
   final int surah;
   final int ayah;
 
+  /// آخر آية (للمقطع من عدة آيات تُتلى متتالية). يساوي [ayah] للآية الواحدة.
+  final int toAyah;
+
+  /// [سورة، آية] أو [سورة، من، إلى].
   static Recitation? fromJson(Object? raw) {
     if (raw == null) return null;
     final l = (raw as List<dynamic>).cast<int>();
-    if (l.length != 2 || l[0] < 1 || l[0] > 114 || l[1] < 1) {
+    if ((l.length != 2 && l.length != 3) || l[0] < 1 || l[0] > 114 || l[1] < 1 || (l.length == 3 && l[2] < l[1])) {
       throw const FormatException('تلاوة غير صالحة');
     }
-    return Recitation(l[0], l[1]);
+    return Recitation(l[0], l[1], l.length == 3 ? l[2] : null);
   }
 }
 
@@ -142,7 +146,7 @@ class LessonQuestion {
 /// بطاقة واحدة في واجهة الصغيرات: صورة كبيرة + كلمة قصيرة جدًا + صوت.
 /// تُكتب يدويًا (أو تُشتق من خطوات قصيرة) ولا تحتوي نص حديث أو مرجعًا أبدًا.
 class ToddlerCard {
-  const ToddlerCard({required this.emoji, required this.word, this.say});
+  const ToddlerCard({required this.emoji, required this.word, this.say, this.recite});
 
   final String emoji;
 
@@ -152,10 +156,14 @@ class ToddlerCard {
   /// ما يُنطق عند الضغط على 🔊 (الافتراضي: الكلمة).
   final String? say;
 
+  /// تلاوة مسجّلة للبطاقة (آية): يُقال [say] أولًا إن وُجد ثم يقرأ الشيخ.
+  final Recitation? recite;
+
   factory ToddlerCard.fromJson(Map<String, dynamic> json) => ToddlerCard(
         emoji: json['emoji'] as String,
         word: json['word'] as String,
         say: json['say'] as String?,
+        recite: Recitation.fromJson(json['recite']),
       );
 }
 

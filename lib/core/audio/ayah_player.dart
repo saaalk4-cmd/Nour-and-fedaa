@@ -9,6 +9,7 @@ class AyahPlayer {
   static String assetPath(int surah, int ayah) => 'audio/quran/${surah}_$ayah.mp3';
 
   Future<bool> play(int surah, int ayah) async {
+    _run++;
     try {
       await rootBundle.load('assets/${assetPath(surah, ayah)}');
     } catch (_) {
@@ -24,7 +25,37 @@ class AyahPlayer {
     }
   }
 
+  int _run = 0;
+
+  /// يتلو آية واحدة أو عدة آيات متتالية [from]..[to] وينتظر انتهاءها.
+  /// يتوقف لو أُوقف التشغيل أو بدأت تلاوة أخرى. يرجع false لو لا توجد تلاوة.
+  Future<bool> playRange(int surah, int from, int to) async {
+    final run = ++_run;
+    for (var a = from; a <= to; a++) {
+      if (run != _run) return true;
+      try {
+        await rootBundle.load('assets/${assetPath(surah, a)}');
+      } catch (_) {
+        return a > from;
+      }
+      try {
+        final p = _player ??= AudioPlayer()..setReleaseMode(ReleaseMode.stop);
+        await p.stop();
+        final done = Future.any<void>([
+          p.onPlayerComplete.first,
+          p.onPlayerStateChanged.firstWhere((s) => s == PlayerState.stopped || s == PlayerState.disposed),
+        ]);
+        await p.play(AssetSource(assetPath(surah, a)));
+        await done.timeout(const Duration(seconds: 90));
+      } catch (_) {
+        return a > from;
+      }
+    }
+    return true;
+  }
+
   Future<void> stop() async {
+    _run++;
     try {
       await _player?.stop();
     } catch (_) {}

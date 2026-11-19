@@ -64,7 +64,7 @@ class ToddlerSectionScreen extends ConsumerWidget {
   }
 }
 
-class _PictureCard extends StatelessWidget {
+class _PictureCard extends ConsumerStatefulWidget {
   const _PictureCard({required this.lesson, required this.done, required this.color});
 
   final Lesson lesson;
@@ -72,14 +72,35 @@ class _PictureCard extends StatelessWidget {
   final Color color;
 
   @override
+  ConsumerState<_PictureCard> createState() => _PictureCardState();
+}
+
+class _PictureCardState extends ConsumerState<_PictureCard> {
+  bool _busy = false;
+
+  /// نور تسمع اسم الدرس كاملًا (لو مسموح نطقه) ثم يفتح.
+  Future<void> _open() async {
+    if (_busy) return;
+    _busy = true;
+    try {
+      final l = widget.lesson;
+      final say = l.spokenText(spokenTitle(l.title), step: true);
+      if (say != null) await ref.read(voiceServiceProvider).sayAndWait(say);
+      if (mounted) await context.push('/lesson/${l.id}');
+    } finally {
+      _busy = false;
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SectionTile(
-      emoji: lesson.emoji,
-      title: lesson.title,
-      color: color,
+      emoji: widget.lesson.emoji,
+      title: widget.lesson.title,
+      color: widget.color,
       emojiSize: 60,
-      badge: done ? '⭐' : null,
-      onTap: () => context.push('/lesson/${lesson.id}'),
+      badge: widget.done ? '⭐' : null,
+      onTap: _open,
     );
   }
 }
