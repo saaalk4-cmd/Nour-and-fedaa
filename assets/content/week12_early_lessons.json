@@ -1,0 +1,351 @@
+{
+  "schema": 1,
+  "lessons": [
+    {
+      "id": "w12e_body",
+      "title": "جسمي 👀",
+      "emoji": "👀",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 12 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "👁️",
+          "text": "العين",
+          "say": "العين"
+        },
+        {
+          "emoji": "👂",
+          "text": "الأذن",
+          "say": "الأذن"
+        },
+        {
+          "emoji": "👃",
+          "text": "الأنف",
+          "say": "الأنف"
+        },
+        {
+          "emoji": "👄",
+          "text": "الفم",
+          "say": "الفم"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين العين؟",
+          "options": [
+            "👁️",
+            "👂",
+            "👃"
+          ],
+          "answerIndex": 0,
+          "hint": "العين",
+          "emoji": "👁️",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الفم؟",
+          "options": [
+            "👁️",
+            "👄",
+            "👂"
+          ],
+          "answerIndex": 1,
+          "hint": "الفم",
+          "emoji": "👄",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الأذن؟",
+          "options": [
+            "👁️",
+            "👃",
+            "👂"
+          ],
+          "answerIndex": 2,
+          "hint": "الأذن",
+          "emoji": "👂",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w12e_home",
+      "title": "بيتي 🏠",
+      "emoji": "🏠",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 12 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🛏️",
+          "text": "السرير",
+          "say": "السرير"
+        },
+        {
+          "emoji": "🪑",
+          "text": "الكرسي",
+          "say": "الكرسي"
+        },
+        {
+          "emoji": "🚪",
+          "text": "الباب",
+          "say": "الباب"
+        },
+        {
+          "emoji": "🪟",
+          "text": "النافذة",
+          "say": "النافذة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين السرير؟",
+          "options": [
+            "🛏️",
+            "🪑",
+            "🚪"
+          ],
+          "answerIndex": 0,
+          "hint": "السرير",
+          "emoji": "🛏️",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين النافذة؟",
+          "options": [
+            "🛏️",
+            "🪟",
+            "🪑"
+          ],
+          "answerIndex": 1,
+          "hint": "النافذة",
+          "emoji": "🪟",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الكرسي؟",
+          "options": [
+            "🛏️",
+            "🚪",
+            "🪑"
+          ],
+          "answerIndex": 2,
+          "hint": "الكرسي",
+          "emoji": "🪑",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w12e_count_balloons",
+      "title": "نعدّ البالونات 🎈",
+      "emoji": "🎈",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعدّ أشياء صغيرة",
+      "learned": "أعدّ بأصابعي وأعرف العدد.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 12 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🎈🎈🎈",
+          "text": "3",
+          "say": "واحدة، اثنتان، ثلاث بالونات"
+        },
+        {
+          "emoji": "🎈🎈🎈🎈🎈",
+          "text": "5",
+          "say": "واحدة، اثنتان، ثلاث، أربع، خمس بالونات"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🎈🎈🎈",
+          "say": "اضغطي على ثلاث بالونات",
+          "options": [
+            "🎈🎈🎈",
+            "🎈🎈",
+            "🎈🎈🎈🎈"
+          ],
+          "answerIndex": 0,
+          "hint": "ثلاث",
+          "emoji": "🎈",
+          "praise": "أحسنتِ! عددتِ صح."
+        },
+        {
+          "prompt": "🎈🎈🎈🎈🎈",
+          "say": "اضغطي على خمس بالونات",
+          "options": [
+            "🎈🎈🎈🎈",
+            "🎈🎈🎈🎈🎈",
+            "🎈🎈🎈🎈🎈🎈"
+          ],
+          "answerIndex": 1,
+          "hint": "خمس",
+          "emoji": "🎈",
+          "praise": "أحسنتِ! عددتِ صح."
+        },
+        {
+          "prompt": "🎈🎈🎈🎈🎈🎈",
+          "say": "اضغطي على ست بالونات",
+          "options": [
+            "🎈🎈🎈🎈🎈",
+            "🎈🎈🎈🎈🎈🎈🎈",
+            "🎈🎈🎈🎈🎈🎈"
+          ],
+          "answerIndex": 2,
+          "hint": "ست",
+          "emoji": "🎈",
+          "praise": "أحسنتِ! عددتِ صح."
+        }
+      ]
+    },
+    {
+      "id": "w12e_teeth",
+      "title": "أنظّف أسناني 🪥",
+      "emoji": "🪥",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أنظّف أسناني",
+      "learned": "أنظّف أسناني.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 12 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "😁",
+          "text": "حان وقت النوم",
+          "say": "حان وقت النوم"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "😁 ؟",
+          "say": "ماذا نفعل؟ ننظّف أسناننا، أم نأكل حلوى؟",
+          "options": [
+            "🪥",
+            "🍬"
+          ],
+          "answerIndex": 0,
+          "hint": "أنظّف أسناني",
+          "emoji": "🪥",
+          "praise": "أحسنتِ! أسنانك تلمع."
+        }
+      ]
+    },
+    {
+      "id": "w12e_sleep",
+      "title": "أنام مبكرًا 🌙",
+      "emoji": "🌙",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أنام مبكرًا",
+      "learned": "أنام مبكرًا.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 12 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🌙",
+          "text": "جاء الليل",
+          "say": "جاء الليل"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🌙 ؟",
+          "say": "ماذا نفعل؟ ننام مبكرًا، أم نلعب كثيرًا؟",
+          "options": [
+            "🎮",
+            "😴"
+          ],
+          "answerIndex": 1,
+          "hint": "أنام مبكرًا",
+          "emoji": "😴",
+          "praise": "أحسنتِ! النوم يقوّي الجسم."
+        }
+      ]
+    },
+    {
+      "id": "w12e_review_game",
+      "title": "لعبة الأسبوع 🎮",
+      "emoji": "🎮",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أراجع ما تعلمته",
+      "learned": "أنا أتعلم وألعب!",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 12 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🎮",
+          "text": "هيا نلعب",
+          "say": "هيا نلعب بما تعلمنا!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين العين؟",
+          "options": [
+            "👁️",
+            "👂",
+            "👃"
+          ],
+          "answerIndex": 0,
+          "hint": "العين",
+          "emoji": "👁️",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين السرير؟",
+          "options": [
+            "🪑",
+            "🛏️",
+            "🚪"
+          ],
+          "answerIndex": 1,
+          "hint": "السرير",
+          "emoji": "🛏️",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    }
+  ]
+}

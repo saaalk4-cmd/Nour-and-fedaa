@@ -1,0 +1,358 @@
+{
+  "schema": 1,
+  "lessons": [
+    {
+      "id": "w14e_transport",
+      "title": "وسائل المواصلات 🚌",
+      "emoji": "🚌",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 14 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🚗",
+          "text": "السيارة",
+          "say": "السيارة"
+        },
+        {
+          "emoji": "🚌",
+          "text": "الحافلة",
+          "say": "الحافلة"
+        },
+        {
+          "emoji": "🚲",
+          "text": "الدراجة",
+          "say": "الدراجة"
+        },
+        {
+          "emoji": "🚆",
+          "text": "القطار",
+          "say": "القطار"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين السيارة؟",
+          "options": [
+            "🚗",
+            "🚌",
+            "🚲"
+          ],
+          "answerIndex": 0,
+          "hint": "السيارة",
+          "emoji": "🚗",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين القطار؟",
+          "options": [
+            "🚗",
+            "🚆",
+            "🚌"
+          ],
+          "answerIndex": 1,
+          "hint": "القطار",
+          "emoji": "🚆",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الحافلة؟",
+          "options": [
+            "🚗",
+            "🚲",
+            "🚌"
+          ],
+          "answerIndex": 2,
+          "hint": "الحافلة",
+          "emoji": "🚌",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w14e_sea",
+      "title": "أصدقاء البحر 🐬",
+      "emoji": "🐬",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 14 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🐟",
+          "text": "السمكة",
+          "say": "السمكة"
+        },
+        {
+          "emoji": "🐢",
+          "text": "السلحفاة",
+          "say": "السلحفاة"
+        },
+        {
+          "emoji": "🐬",
+          "text": "الدلفين",
+          "say": "الدلفين"
+        },
+        {
+          "emoji": "🦀",
+          "text": "السلطعون",
+          "say": "السلطعون"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين السمكة؟",
+          "options": [
+            "🐟",
+            "🐢",
+            "🐬"
+          ],
+          "answerIndex": 0,
+          "hint": "السمكة",
+          "emoji": "🐟",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين السلطعون؟",
+          "options": [
+            "🐟",
+            "🦀",
+            "🐢"
+          ],
+          "answerIndex": 1,
+          "hint": "السلطعون",
+          "emoji": "🦀",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين السلحفاة؟",
+          "options": [
+            "🐟",
+            "🐬",
+            "🐢"
+          ],
+          "answerIndex": 2,
+          "hint": "السلحفاة",
+          "emoji": "🐢",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w14e_fast_slow",
+      "title": "سريع وبطيء 🐇",
+      "emoji": "🐇",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف الأضداد",
+      "learned": "أعرف الكبير والصغير وأمثالهما.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 14 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🐇",
+          "text": "سريع",
+          "say": "سريع"
+        },
+        {
+          "emoji": "🐢",
+          "text": "بطيء",
+          "say": "بطيء"
+        },
+        {
+          "emoji": "☀️",
+          "text": "نهار",
+          "say": "نهار"
+        },
+        {
+          "emoji": "🌙",
+          "text": "ليل",
+          "say": "ليل"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين سريع؟",
+          "options": [
+            "🐇",
+            "🐢"
+          ],
+          "answerIndex": 0,
+          "hint": "سريع",
+          "emoji": "🐇",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين بطيء؟",
+          "options": [
+            "🐇",
+            "🐢"
+          ],
+          "answerIndex": 1,
+          "hint": "بطيء",
+          "emoji": "🐢",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين نهار؟",
+          "options": [
+            "☀️",
+            "🌙"
+          ],
+          "answerIndex": 0,
+          "hint": "نهار",
+          "emoji": "☀️",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w14e_wait",
+      "title": "أنتظر دوري ⏳",
+      "emoji": "⏳",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أنتظر دوري",
+      "learned": "أنتظر دوري.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 14 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🛝",
+          "text": "صديقتي تلعب قبلي",
+          "say": "صديقتي تلعب قبلي"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🛝 ؟",
+          "say": "ماذا نفعل؟ ننتظر دورنا، أم ندفعها؟",
+          "options": [
+            "⏳",
+            "✋"
+          ],
+          "answerIndex": 0,
+          "hint": "أنتظر دوري",
+          "emoji": "⏳",
+          "praise": "أحسنتِ! الانتظار جميل."
+        }
+      ]
+    },
+    {
+      "id": "w14e_salam",
+      "title": "ألقي السلام 👋",
+      "emoji": "👋",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "ألقي السلام",
+      "learned": "ألقي السلام.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 14 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🚶",
+          "text": "نرى جارتنا",
+          "say": "نرى جارتنا"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🚶 ؟",
+          "say": "ماذا نقول؟ السلام عليكم، أم نمرّ بدون كلام؟",
+          "options": [
+            "🙈",
+            "👋"
+          ],
+          "answerIndex": 1,
+          "hint": "ألقي السلام",
+          "emoji": "👋",
+          "praise": "أحسنتِ! السلام تحية جميلة."
+        }
+      ]
+    },
+    {
+      "id": "w14e_review_game",
+      "title": "لعبة الأسبوع 🎮",
+      "emoji": "🎮",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أراجع ما تعلمته",
+      "learned": "أنا أتعلم وألعب!",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 14 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🎮",
+          "text": "هيا نلعب",
+          "say": "هيا نلعب بما تعلمنا!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين السيارة؟",
+          "options": [
+            "🚗",
+            "🚌",
+            "🚲"
+          ],
+          "answerIndex": 0,
+          "hint": "السيارة",
+          "emoji": "🚗",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين السمكة؟",
+          "options": [
+            "🐢",
+            "🐟",
+            "🐬"
+          ],
+          "answerIndex": 1,
+          "hint": "السمكة",
+          "emoji": "🐟",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,351 @@
+{
+  "schema": 1,
+  "lessons": [
+    {
+      "id": "w9e_family",
+      "title": "أهلي 👨‍👩‍👧",
+      "emoji": "👨‍👩‍👧",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 9 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "👩",
+          "text": "ماما",
+          "say": "ماما"
+        },
+        {
+          "emoji": "👨",
+          "text": "بابا",
+          "say": "بابا"
+        },
+        {
+          "emoji": "👵",
+          "text": "تيتة",
+          "say": "تيتة"
+        },
+        {
+          "emoji": "👴",
+          "text": "جدو",
+          "say": "جدو"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين ماما؟",
+          "options": [
+            "👩",
+            "👨",
+            "👵"
+          ],
+          "answerIndex": 0,
+          "hint": "ماما",
+          "emoji": "👩",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين جدو؟",
+          "options": [
+            "👩",
+            "👴",
+            "👨"
+          ],
+          "answerIndex": 1,
+          "hint": "جدو",
+          "emoji": "👴",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين بابا؟",
+          "options": [
+            "👩",
+            "👵",
+            "👨"
+          ],
+          "answerIndex": 2,
+          "hint": "بابا",
+          "emoji": "👨",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w9e_farm",
+      "title": "حيوانات المزرعة 🐄",
+      "emoji": "🐄",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 9 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🐄",
+          "text": "البقرة",
+          "say": "البقرة"
+        },
+        {
+          "emoji": "🐑",
+          "text": "الخروف",
+          "say": "الخروف"
+        },
+        {
+          "emoji": "🐔",
+          "text": "الدجاجة",
+          "say": "الدجاجة"
+        },
+        {
+          "emoji": "🐴",
+          "text": "الحصان",
+          "say": "الحصان"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين البقرة؟",
+          "options": [
+            "🐄",
+            "🐑",
+            "🐔"
+          ],
+          "answerIndex": 0,
+          "hint": "البقرة",
+          "emoji": "🐄",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الحصان؟",
+          "options": [
+            "🐄",
+            "🐴",
+            "🐑"
+          ],
+          "answerIndex": 1,
+          "hint": "الحصان",
+          "emoji": "🐴",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الخروف؟",
+          "options": [
+            "🐄",
+            "🐔",
+            "🐑"
+          ],
+          "answerIndex": 2,
+          "hint": "الخروف",
+          "emoji": "🐑",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w9e_count_apples",
+      "title": "نعدّ التفاح 🍎",
+      "emoji": "🍎",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعدّ أشياء صغيرة",
+      "learned": "أعدّ بأصابعي وأعرف العدد.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 9 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🍎🍎",
+          "text": "2",
+          "say": "واحدة، اثنتان تفاحات"
+        },
+        {
+          "emoji": "🍎🍎🍎",
+          "text": "3",
+          "say": "واحدة، اثنتان، ثلاث تفاحات"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🍎🍎",
+          "say": "اضغطي على اثنتان تفاحات",
+          "options": [
+            "🍎🍎",
+            "🍎",
+            "🍎🍎🍎"
+          ],
+          "answerIndex": 0,
+          "hint": "اثنتان",
+          "emoji": "🍎",
+          "praise": "أحسنتِ! عددتِ صح."
+        },
+        {
+          "prompt": "🍎🍎🍎",
+          "say": "اضغطي على ثلاث تفاحات",
+          "options": [
+            "🍎🍎",
+            "🍎🍎🍎",
+            "🍎🍎🍎🍎"
+          ],
+          "answerIndex": 1,
+          "hint": "ثلاث",
+          "emoji": "🍎",
+          "praise": "أحسنتِ! عددتِ صح."
+        },
+        {
+          "prompt": "🍎🍎🍎🍎",
+          "say": "اضغطي على أربع تفاحات",
+          "options": [
+            "🍎🍎🍎",
+            "🍎🍎🍎🍎🍎",
+            "🍎🍎🍎🍎"
+          ],
+          "answerIndex": 2,
+          "hint": "أربع",
+          "emoji": "🍎",
+          "praise": "أحسنتِ! عددتِ صح."
+        }
+      ]
+    },
+    {
+      "id": "w9e_thanks",
+      "title": "أشكر 🎁",
+      "emoji": "🎁",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أقول شكرًا",
+      "learned": "أقول شكرًا.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 9 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🎁",
+          "text": "أحدهم أعطاني هدية",
+          "say": "أحدهم أعطاني هدية"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🎁 ؟",
+          "say": "ماذا نقول؟ نقول شكرًا، أم نسكت؟",
+          "options": [
+            "😶",
+            "🙏"
+          ],
+          "answerIndex": 1,
+          "hint": "أقول شكرًا",
+          "emoji": "🙏",
+          "praise": "أحسنتِ! الشكر جميل."
+        }
+      ]
+    },
+    {
+      "id": "w9e_sibling",
+      "title": "أحب أختي 💛",
+      "emoji": "💛",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أحب أختي",
+      "learned": "أحب أختي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 9 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "👧",
+          "text": "أختي حزينة",
+          "say": "أختي حزينة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "👧 ؟",
+          "say": "ماذا نفعل؟ نحضنها، أم نبتعد؟",
+          "options": [
+            "🤗",
+            "🙈"
+          ],
+          "answerIndex": 0,
+          "hint": "أحب أختي",
+          "emoji": "🤗",
+          "praise": "أحسنتِ! الحب جميل."
+        }
+      ]
+    },
+    {
+      "id": "w9e_review_game",
+      "title": "لعبة الأسبوع 🎮",
+      "emoji": "🎮",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أراجع ما تعلمته",
+      "learned": "أنا أتعلم وألعب!",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 9 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🎮",
+          "text": "هيا نلعب",
+          "say": "هيا نلعب بما تعلمنا!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين ماما؟",
+          "options": [
+            "👩",
+            "👨",
+            "👵"
+          ],
+          "answerIndex": 0,
+          "hint": "ماما",
+          "emoji": "👩",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين البقرة؟",
+          "options": [
+            "🐑",
+            "🐄",
+            "🐔"
+          ],
+          "answerIndex": 1,
+          "hint": "البقرة",
+          "emoji": "🐄",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    }
+  ]
+}

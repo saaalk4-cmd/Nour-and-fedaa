@@ -1,0 +1,358 @@
+{
+  "schema": 1,
+  "lessons": [
+    {
+      "id": "w19e_clothes2",
+      "title": "ملابس الشتاء 🧥",
+      "emoji": "🧥",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 19 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🧥",
+          "text": "الجاكيت",
+          "say": "الجاكيت"
+        },
+        {
+          "emoji": "🧤",
+          "text": "القفازات",
+          "say": "القفازات"
+        },
+        {
+          "emoji": "🧣",
+          "text": "الوشاح",
+          "say": "الوشاح"
+        },
+        {
+          "emoji": "🧦",
+          "text": "الجورب",
+          "say": "الجورب"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الجاكيت؟",
+          "options": [
+            "🧥",
+            "🧤",
+            "🧣"
+          ],
+          "answerIndex": 0,
+          "hint": "الجاكيت",
+          "emoji": "🧥",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الجورب؟",
+          "options": [
+            "🧥",
+            "🧦",
+            "🧤"
+          ],
+          "answerIndex": 1,
+          "hint": "الجورب",
+          "emoji": "🧦",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين القفازات؟",
+          "options": [
+            "🧥",
+            "🧣",
+            "🧤"
+          ],
+          "answerIndex": 2,
+          "hint": "القفازات",
+          "emoji": "🧤",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w19e_body2",
+      "title": "جسمي أيضًا ✋",
+      "emoji": "✋",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 19 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "✋",
+          "text": "اليد",
+          "say": "اليد"
+        },
+        {
+          "emoji": "🦶",
+          "text": "القدم",
+          "say": "القدم"
+        },
+        {
+          "emoji": "🦷",
+          "text": "السن",
+          "say": "السن"
+        },
+        {
+          "emoji": "🦵",
+          "text": "الساق",
+          "say": "الساق"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين اليد؟",
+          "options": [
+            "✋",
+            "🦶",
+            "🦷"
+          ],
+          "answerIndex": 0,
+          "hint": "اليد",
+          "emoji": "✋",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الساق؟",
+          "options": [
+            "✋",
+            "🦵",
+            "🦶"
+          ],
+          "answerIndex": 1,
+          "hint": "الساق",
+          "emoji": "🦵",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين القدم؟",
+          "options": [
+            "✋",
+            "🦷",
+            "🦶"
+          ],
+          "answerIndex": 2,
+          "hint": "القدم",
+          "emoji": "🦶",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w19e_open_close",
+      "title": "مفتوح ومغلق 🚪",
+      "emoji": "🚪",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف الأضداد",
+      "learned": "أعرف الكبير والصغير وأمثالهما.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 19 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🚪",
+          "text": "مفتوح",
+          "say": "مفتوح"
+        },
+        {
+          "emoji": "🔒",
+          "text": "مغلق",
+          "say": "مغلق"
+        },
+        {
+          "emoji": "😊",
+          "text": "سعيد",
+          "say": "سعيد"
+        },
+        {
+          "emoji": "😢",
+          "text": "حزين",
+          "say": "حزين"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين مفتوح؟",
+          "options": [
+            "🚪",
+            "🔒"
+          ],
+          "answerIndex": 0,
+          "hint": "مفتوح",
+          "emoji": "🚪",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين مغلق؟",
+          "options": [
+            "🚪",
+            "🔒"
+          ],
+          "answerIndex": 1,
+          "hint": "مغلق",
+          "emoji": "🔒",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين سعيد؟",
+          "options": [
+            "😊",
+            "😢"
+          ],
+          "answerIndex": 0,
+          "hint": "سعيد",
+          "emoji": "😊",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w19e_plant",
+      "title": "أسقي الزرع 🌱",
+      "emoji": "🌱",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أسقي الزرع",
+      "learned": "أسقي الزرع.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 19 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🌱",
+          "text": "النبتة عطشانة",
+          "say": "النبتة عطشانة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🌱 ؟",
+          "say": "ماذا نفعل؟ نسقيها، أم نتركها؟",
+          "options": [
+            "🙈",
+            "💧"
+          ],
+          "answerIndex": 1,
+          "hint": "أسقي الزرع",
+          "emoji": "💧",
+          "praise": "أحسنتِ! الزرع يكبر."
+        }
+      ]
+    },
+    {
+      "id": "w19e_ask",
+      "title": "أستأذن 🙋",
+      "emoji": "🙋",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أستأذن",
+      "learned": "أستأذن.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 19 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🧸",
+          "text": "أريد لعبة أختي",
+          "say": "أريد لعبة أختي"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🧸 ؟",
+          "say": "ماذا نفعل؟ نسأل أولًا، أم نأخذها؟",
+          "options": [
+            "🙋",
+            "🏃"
+          ],
+          "answerIndex": 0,
+          "hint": "أستأذن",
+          "emoji": "🙋",
+          "praise": "أحسنتِ! الاستئذان جميل."
+        }
+      ]
+    },
+    {
+      "id": "w19e_review_game",
+      "title": "لعبة الأسبوع 🎮",
+      "emoji": "🎮",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أراجع ما تعلمته",
+      "learned": "أنا أتعلم وألعب!",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 19 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🎮",
+          "text": "هيا نلعب",
+          "say": "هيا نلعب بما تعلمنا!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الجاكيت؟",
+          "options": [
+            "🧥",
+            "🧤",
+            "🧣"
+          ],
+          "answerIndex": 0,
+          "hint": "الجاكيت",
+          "emoji": "🧥",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين اليد؟",
+          "options": [
+            "🦶",
+            "✋",
+            "🦷"
+          ],
+          "answerIndex": 1,
+          "hint": "اليد",
+          "emoji": "✋",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    }
+  ]
+}

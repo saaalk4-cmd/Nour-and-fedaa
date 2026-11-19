@@ -116,7 +116,7 @@ void main() {
 
   test('younger child follows the early track and always has something to do', () {
     final done = <String>{};
-    for (var i = 0; i < 60; i++) {
+    for (var i = 0; i < 130; i++) {
       final plan = curriculum.planFor(childAge: 3, allLessons: all, completed: done);
       if (plan.finishedAll) break;
       expect(plan.adventures, isNotEmpty);

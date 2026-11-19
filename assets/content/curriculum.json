@@ -589,7 +589,10 @@
             "w9_family_help",
             "w9_letter_1"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "hadith_parents_lesson",
+            "w9e_family"
+          ]
         },
         {
           "day": 2,
@@ -600,7 +603,10 @@
             "w9_letter_2",
             "w9_add"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w9e_farm",
+            "w9e_thanks"
+          ]
         },
         {
           "day": 3,
@@ -611,7 +617,9 @@
             "w9_sub",
             "w9_english_colors"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w9e_count_apples"
+          ]
         },
         {
           "day": 4,
@@ -621,7 +629,10 @@
             "w9_environment",
             "w9_order_wash"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w9e_sibling",
+            "quran_surah_114"
+          ]
         },
         {
           "day": 5,
@@ -630,7 +641,9 @@
             "w9_review_game",
             "w9_pattern"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w9e_review_game"
+          ]
         }
       ]
     },
@@ -646,7 +659,10 @@
             "w10_numbers_11_15",
             "w10_homes"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "hadith_good_word_lesson",
+            "w10e_colors2"
+          ]
         },
         {
           "day": 2,
@@ -655,7 +671,10 @@
             "w10_quran_count",
             "w10_review_all_a"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w10e_fruits",
+            "w10e_please"
+          ]
         },
         {
           "day": 3,
@@ -665,7 +684,9 @@
             "w10_review_all_b",
             "w10_english_animals"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w10e_sounds1"
+          ]
         },
         {
           "day": 4,
@@ -674,7 +695,9 @@
             "w10_order_day",
             "w10_pattern"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w10e_share"
+          ]
         },
         {
           "day": 5,
@@ -682,7 +705,9 @@
           "lessons": [
             "w10_review_game"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w10e_review_game"
+          ]
         }
       ]
     },
@@ -698,7 +723,10 @@
             "w11_add",
             "w11_truth"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "hadith_every_good_is_charity_lesson",
+            "w11e_shapes"
+          ]
         },
         {
           "day": 2,
@@ -708,7 +736,10 @@
             "w11_sub",
             "w11_amanah"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w11e_veg",
+            "w11e_wash"
+          ]
         },
         {
           "day": 3,
@@ -717,7 +748,9 @@
             "w11_numbers_16_20",
             "w11_float"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w11e_big_small"
+          ]
         },
         {
           "day": 4,
@@ -726,7 +759,9 @@
             "w11_seed",
             "w11_order_seed"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w11e_tidy"
+          ]
         },
         {
           "day": 5,
@@ -734,7 +769,9 @@
           "lessons": [
             "w11_review_game"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w11e_review_game"
+          ]
         }
       ]
     },
@@ -749,7 +786,10 @@
             "w12_letters_a",
             "w12_letters_b"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "hadith_sleep_dhikr_lesson",
+            "w12e_body"
+          ]
         },
         {
           "day": 2,
@@ -757,7 +797,10 @@
           "lessons": [
             "w12_numbers"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w12e_home",
+            "w12e_teeth"
+          ]
         },
         {
           "day": 3,
@@ -765,7 +808,9 @@
           "lessons": [
             "w12_recall_islam"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w12e_count_balloons"
+          ]
         },
         {
           "day": 4,
@@ -773,7 +818,9 @@
           "lessons": [
             "w12_world_quiz"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w12e_sleep"
+          ]
         },
         {
           "day": 5,
@@ -781,7 +828,9 @@
           "lessons": [
             "w12_graduation"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w12e_review_game"
+          ]
         }
       ]
     },
@@ -797,7 +846,10 @@
             "w13_syll_1",
             "w13_numbers"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "hadith_gratitude_food_lesson",
+            "w13e_clothes"
+          ]
         },
         {
           "day": 2,
@@ -807,7 +859,10 @@
             "w13_english",
             "w13_senses"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w13e_wild",
+            "w13e_help_mom"
+          ]
         },
         {
           "day": 3,
@@ -818,7 +873,9 @@
             "w13_add",
             "w13_order_prayers"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w13e_sounds2"
+          ]
         },
         {
           "day": 4,
@@ -828,7 +885,9 @@
             "w13_listen",
             "w13_match_senses"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w13e_listen"
+          ]
         },
         {
           "day": 5,
@@ -837,7 +896,9 @@
             "w13_review_game",
             "w13_pattern"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w13e_review_game"
+          ]
         }
       ]
     },
@@ -853,7 +914,10 @@
             "w14_syll_1",
             "w14_add"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "hadith_prayer_on_time_lesson",
+            "w14e_transport"
+          ]
         },
         {
           "day": 2,
@@ -863,7 +927,10 @@
             "w14_order_wudu",
             "w14_english"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w14e_sea",
+            "w14e_wait"
+          ]
         },
         {
           "day": 3,
@@ -874,7 +941,9 @@
             "w14_sub",
             "w14_body"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w14e_fast_slow"
+          ]
         },
         {
           "day": 4,
@@ -884,7 +953,9 @@
             "w14_listen",
             "w14_match_body"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w14e_salam"
+          ]
         },
         {
           "day": 5,
@@ -893,7 +964,9 @@
             "w14_review_game",
             "w14_pattern"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w14e_review_game"
+          ]
         }
       ]
     },
@@ -909,7 +982,10 @@
             "w15_syll_1",
             "w15_compare"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "hadith_wudu_prayer_lesson",
+            "w15e_weather"
+          ]
         },
         {
           "day": 2,
@@ -919,7 +995,10 @@
             "w15_english",
             "w15_plants"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w15e_nature",
+            "w15e_clean_place"
+          ]
         },
         {
           "day": 3,
@@ -930,7 +1009,9 @@
             "w15_sub",
             "w15_order_salah"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w15e_count_stars"
+          ]
         },
         {
           "day": 4,
@@ -939,7 +1020,9 @@
             "w15_syll_3",
             "w15_listen"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w15e_cat"
+          ]
         },
         {
           "day": 5,
@@ -948,7 +1031,9 @@
             "w15_review_game",
             "w15_pattern"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w15e_review_game"
+          ]
         }
       ]
     },
@@ -964,7 +1049,10 @@
             "w16_syll_1",
             "w16_count"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "hadith_hasan_husayn_lesson",
+            "w16e_food"
+          ]
         },
         {
           "day": 2,
@@ -974,7 +1062,10 @@
             "w16_english",
             "w16_clock"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w16e_jobs",
+            "w16e_bird"
+          ]
         },
         {
           "day": 3,
@@ -985,7 +1076,9 @@
             "w16_match_times",
             "w16_animals"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w16e_colors3"
+          ]
         },
         {
           "day": 4,
@@ -994,7 +1087,9 @@
             "w16_syll_3",
             "w16_listen"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w16e_sorry"
+          ]
         },
         {
           "day": 5,
@@ -1003,7 +1098,9 @@
             "w16_review_game",
             "w16_pattern"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w16e_review_game"
+          ]
         }
       ]
     },
@@ -1019,7 +1116,10 @@
             "w17_read_1",
             "w17_add"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "prophet_ibrahim_lesson",
+            "w17e_toys"
+          ]
         },
         {
           "day": 2,
@@ -1029,7 +1129,10 @@
             "w17_english",
             "w17_living"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w17e_birds",
+            "w17e_clean_mine"
+          ]
         },
         {
           "day": 3,
@@ -1040,7 +1143,9 @@
             "w17_combo",
             "w17_match_clean"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w17e_shapes2"
+          ]
         },
         {
           "day": 4,
@@ -1049,7 +1154,9 @@
             "w17_masjid",
             "w17_listen"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w17e_grandma"
+          ]
         },
         {
           "day": 5,
@@ -1058,7 +1165,9 @@
             "w17_review_game",
             "w17_pattern"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w17e_review_game"
+          ]
         }
       ]
     },
@@ -1074,7 +1183,10 @@
             "w18_read_1",
             "w18_sub"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "prophet_nuh_lesson",
+            "w18e_fruits2"
+          ]
         },
         {
           "day": 2,
@@ -1084,7 +1196,10 @@
             "w18_build",
             "w18_daynight"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w18e_home2",
+            "w18e_calm"
+          ]
         },
         {
           "day": 3,
@@ -1094,7 +1209,9 @@
             "w18_combo",
             "w18_match_words"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w18e_count_fish"
+          ]
         },
         {
           "day": 4,
@@ -1103,7 +1220,9 @@
             "w18_dua",
             "w18_listen"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w18e_water"
+          ]
         },
         {
           "day": 5,
@@ -1112,7 +1231,9 @@
             "w18_review_game",
             "w18_pattern"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w18e_review_game"
+          ]
         }
       ]
     },
@@ -1128,7 +1249,9 @@
             "w19_read_1",
             "w19_add"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w19e_clothes2"
+          ]
         },
         {
           "day": 2,
@@ -1138,7 +1261,10 @@
             "w19_food",
             "w19_letter_1"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w19e_body2",
+            "w19e_plant"
+          ]
         },
         {
           "day": 3,
@@ -1149,7 +1275,9 @@
             "w19_stories",
             "w19_order_story"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w19e_open_close"
+          ]
         },
         {
           "day": 4,
@@ -1158,7 +1286,9 @@
             "w19_clean_mosque",
             "w19_listen"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w19e_ask"
+          ]
         },
         {
           "day": 5,
@@ -1167,7 +1297,9 @@
             "w19_review_game",
             "w19_pattern"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w19e_review_game"
+          ]
         }
       ]
     },
@@ -1183,7 +1315,9 @@
             "w20_read_1",
             "w20_combo"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w20e_transport2"
+          ]
         },
         {
           "day": 2,
@@ -1193,7 +1327,10 @@
             "w20_english",
             "w20_clock"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w20e_farm2",
+            "w20e_keep"
+          ]
         },
         {
           "day": 3,
@@ -1204,7 +1341,9 @@
             "w20_match_weather",
             "w20_build"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w20e_sounds3"
+          ]
         },
         {
           "day": 4,
@@ -1212,7 +1351,9 @@
           "lessons": [
             "w20_listen"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w20e_patience"
+          ]
         },
         {
           "day": 5,
@@ -1221,7 +1362,9 @@
             "w20_review_game",
             "w20_pattern"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w20e_review_game"
+          ]
         }
       ]
     },
@@ -1237,7 +1380,9 @@
             "w21_letters_2",
             "w21_s1"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w21e_weather2"
+          ]
         },
         {
           "day": 2,
@@ -1247,7 +1392,10 @@
             "w21_read_1",
             "w21_syll"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w21e_jobs2",
+            "w21e_trash"
+          ]
         },
         {
           "day": 3,
@@ -1258,7 +1406,9 @@
             "w21_s2",
             "w21_combo"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w21e_count_flowers"
+          ]
         },
         {
           "day": 4,
@@ -1268,7 +1418,9 @@
             "w21_english_review",
             "w21_read_2"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w21e_smile"
+          ]
         },
         {
           "day": 5,
@@ -1277,7 +1429,9 @@
             "w21_review_game",
             "w21_pattern"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w21e_review_game"
+          ]
         }
       ]
     },
@@ -1293,7 +1447,9 @@
             "w22_sub",
             "w22_s1"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w22e_animals_mix"
+          ]
         },
         {
           "day": 2,
@@ -1303,7 +1459,10 @@
             "w22_count",
             "w22_clock"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w22e_sounds_mix",
+            "w22e_hug"
+          ]
         },
         {
           "day": 3,
@@ -1313,7 +1472,9 @@
             "w22_s2",
             "w22_english_review"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w22e_fruit_veg_mix"
+          ]
         },
         {
           "day": 4,
@@ -1324,7 +1485,9 @@
             "w22_match_animals",
             "w22_listen"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w22e_mind"
+          ]
         },
         {
           "day": 5,
@@ -1333,7 +1496,9 @@
             "w22_review_game",
             "w22_pattern"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w22e_review_game"
+          ]
         }
       ]
     },
@@ -1349,7 +1514,9 @@
             "w23_match_prayer",
             "w23_s1"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w23e_colors_mix"
+          ]
         },
         {
           "day": 2,
@@ -1359,7 +1526,10 @@
             "w23_islam_review",
             "w23_listen_1"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w23e_shapes_mix",
+            "w23e_thanks2"
+          ]
         },
         {
           "day": 3,
@@ -1370,7 +1540,9 @@
             "w23_match_good",
             "w23_listen_2"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w23e_count_mix"
+          ]
         },
         {
           "day": 4,
@@ -1379,7 +1551,9 @@
             "w23_listen_3",
             "w23_english_review"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w23e_share2"
+          ]
         },
         {
           "day": 5,
@@ -1388,7 +1562,9 @@
             "w23_review_game",
             "w23_pattern"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w23e_review_game"
+          ]
         }
       ]
     },
@@ -1404,7 +1580,9 @@
             "w24_read",
             "w24_combo"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w24e_home_mix"
+          ]
         },
         {
           "day": 2,
@@ -1414,7 +1592,10 @@
             "w24_clock",
             "w24_stories"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w24e_nature_mix",
+            "w24e_proud"
+          ]
         },
         {
           "day": 3,
@@ -1424,7 +1605,9 @@
             "w24_listen",
             "w24_order_salah"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w24e_sounds_last"
+          ]
         },
         {
           "day": 4,
@@ -1435,7 +1618,9 @@
             "w24_match",
             "w24_s1"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w24e_love"
+          ]
         },
         {
           "day": 5,
@@ -1444,7 +1629,9 @@
             "w24_review_game",
             "w24_graduation"
           ],
-          "earlyLessons": []
+          "earlyLessons": [
+            "w24e_review_game"
+          ]
         }
       ]
     }
