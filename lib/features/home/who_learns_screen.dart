@@ -47,7 +47,7 @@ class WhoLearnsScreen extends ConsumerWidget {
                           small: c.age <= 4,
                           onTap: () {
                             ref.read(selectedChildIdProvider.notifier).state = c.id;
-                            context.go('/home');
+                            context.go('/path');
                           },
                         ),
                         const SizedBox(height: 18),

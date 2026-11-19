@@ -9,6 +9,7 @@ import '../../features/intro/intro_audio_player.dart';
 import '../../features/intro/intro_experience.dart';
 import '../../features/intro/launch_gate.dart';
 import '../../features/lessons/lesson_screen.dart';
+import '../../features/path/learning_path_screen.dart';
 import '../../features/parent/parent_dashboard_screen.dart';
 import '../../features/parent/parent_gate_screen.dart';
 import '../../features/today/today_screen.dart';
@@ -35,6 +36,7 @@ final routerProvider = Provider<GoRouter>((ref) {
           onExit: (_) => _backToMain(context),
         ),
       ),
+      GoRoute(path: '/path', builder: (_, __) => const LearningPathScreen()),
       GoRoute(path: '/home', builder: (_, __) => const HomeScreen()),
       GoRoute(path: '/today', builder: (_, __) => const TodayScreen()),
       GoRoute(path: '/journey', builder: (_, __) => const JourneyScreen()),

@@ -74,6 +74,16 @@ class Curriculum {
     }).toList());
   }
 
+  /// مغامرات اليوم المناسبة لعمر الطفلة (مسار الصغيرات إن وُجد).
+  static List<Lesson> _mine(CurriculumDay d, int childAge, Map<String, Lesson> byId) {
+    final early = childAge <= 4 && d.earlyLessonIds.isNotEmpty;
+    final ids = early ? d.earlyLessonIds : d.lessonIds;
+    return [
+      for (final id in ids)
+        if (byId[id] != null && byId[id]!.fitsAge(childAge)) byId[id]!,
+    ];
+  }
+
   /// يحدّد رحلة اليوم بناءً على التقدم (وليس التاريخ): لا ضغط ولا فقدان أيام.
   TodayPlan planFor({
     required int childAge,
@@ -83,12 +93,7 @@ class Curriculum {
     final byId = {for (final l in allLessons) l.id: l};
     for (final w in weeks) {
       for (final d in w.days) {
-        final early = childAge <= 4 && d.earlyLessonIds.isNotEmpty;
-        final ids = early ? d.earlyLessonIds : d.lessonIds;
-        final mine = [
-          for (final id in ids)
-            if (byId[id] != null && byId[id]!.fitsAge(childAge)) byId[id]!,
-        ];
+        final mine = _mine(d, childAge, byId);
         if (mine.isEmpty) continue; // لا شيء مناسب لعمرها في هذا اليوم
         final done = mine.where((l) => completed.contains(l.id)).length;
         if (done < mine.length) {
@@ -109,6 +114,86 @@ class Curriculum {
       doneCount: 0,
       finishedAll: true,
     );
+  }
+
+  /// «المسار»: أسبوع الطفلة الحالي كله مقسومًا إلى أيام. الترتيب صارم:
+  /// المنجَز [PathState.done] (يمكن إعادته)، أول غير منجز [PathState.current]،
+  /// وما بعده [PathState.locked]. لا شيء يُحذف ولا يُخصم.
+  PathWeek pathFor({
+    required int childAge,
+    required List<Lesson> allLessons,
+    required Set<String> completed,
+  }) {
+    final byId = {for (final l in allLessons) l.id: l};
+    final plan = planFor(childAge: childAge, allLessons: allLessons, completed: completed);
+    CurriculumWeek? target = plan.week;
+    if (target == null) {
+      // أنهت كل شيء: نعرض آخر أسبوع فيه دروس تناسبها، كله منجز.
+      for (final w in weeks.reversed) {
+        if (w.days.any((d) => _mine(d, childAge, byId).isNotEmpty)) {
+          target = w;
+          break;
+        }
+      }
+    }
+    if (target == null) return const PathWeek(week: null, days: [], finishedAll: true);
+
+    var currentTaken = plan.finishedAll;
+    final days = <PathDay>[];
+    for (final d in target.days) {
+      final mine = _mine(d, childAge, byId);
+      if (mine.isEmpty) continue;
+      final nodes = <PathNode>[];
+      for (final l in mine) {
+        if (completed.contains(l.id)) {
+          nodes.add(PathNode(l, PathState.done));
+        } else if (!currentTaken) {
+          currentTaken = true;
+          nodes.add(PathNode(l, PathState.current));
+        } else {
+          nodes.add(PathNode(l, PathState.locked));
+        }
+      }
+      days.add(PathDay(day: d.day, title: d.title, nodes: nodes));
+    }
+    return PathWeek(week: target, days: days, finishedAll: plan.finishedAll);
+  }
+}
+
+enum PathState { done, current, locked }
+
+class PathNode {
+  const PathNode(this.lesson, this.state);
+
+  final Lesson lesson;
+  final PathState state;
+}
+
+class PathDay {
+  const PathDay({required this.day, required this.title, required this.nodes});
+
+  final int day;
+  final String title;
+  final List<PathNode> nodes;
+
+  /// 🎁 تُفتح حين تُنجَز كل مغامرات اليوم.
+  bool get complete => nodes.every((n) => n.state == PathState.done);
+}
+
+class PathWeek {
+  const PathWeek({required this.week, required this.days, required this.finishedAll});
+
+  final CurriculumWeek? week;
+  final List<PathDay> days;
+  final bool finishedAll;
+
+  Lesson? get current {
+    for (final d in days) {
+      for (final n in d.nodes) {
+        if (n.state == PathState.current) return n.lesson;
+      }
+    }
+    return null;
   }
 }
 
