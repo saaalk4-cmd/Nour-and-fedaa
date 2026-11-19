@@ -1,13 +1,20 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../core/design/art.dart';
 import '../../core/design/pop_tap.dart';
 import '../../core/theme/app_theme.dart';
-import '../../core/widgets/mascot.dart';
+import '../../core/widgets/speak_on_open.dart';
+import '../../data/models/child.dart';
 import '../../data/providers.dart';
 
-/// شاشة البداية: شعار التطبيق ولَمعة وبطاقتان كبيرتان لاختيار من ستتعلم.
+/// العبارة المنطوقة عند فتح الشاشة (الطفلة لا تقرأ: تسمع وترى الشخصيتين).
+const kWhoLearnsSay = 'من سيتعلم اليوم؟';
+
+/// شاشة البداية: لَمعة وبطاقتان كبيرتان بصورة الشخصيتين. لمسة واحدة = تبدأ الرحلة.
 class WhoLearnsScreen extends ConsumerWidget {
   const WhoLearnsScreen({super.key});
 
@@ -25,43 +32,64 @@ class WhoLearnsScreen extends ConsumerWidget {
         child: const Text('🎬', style: TextStyle(fontSize: 20)),
       ),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
-          child: Column(
-            children: [
-              const Mascot(size: 110),
-              Text('نُور وفداء', style: AppText.display(52, color: AppColors.teal)),
-              const SizedBox(height: 2),
-              Text('من سيتعلم اليوم؟', style: AppText.display(26)),
-              const SizedBox(height: 20),
-              Expanded(
-                child: children.when(
-                  loading: () => const Center(child: CircularProgressIndicator()),
-                  error: (e, _) => const Center(child: Text('حدث خطأ، حاول مرة أخرى')),
-                  data: (list) => ListView(
-                    children: [
-                      for (final c in list) ...[
-                        _ChildCard(
-                          name: c.name,
-                          age: c.age,
-                          small: c.age <= 4,
-                          onTap: () {
-                            ref.read(selectedChildIdProvider.notifier).state = c.id;
-                            context.go('/path');
-                          },
-                        ),
-                        const SizedBox(height: 18),
-                      ],
-                    ],
+        child: SpeakOnOpen(
+          text: kWhoLearnsSay,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(20, 8, 20, 8),
+            child: Column(
+              children: [
+                const ArtImage(Art.lamaa, height: 104),
+                Text('نُور وفداء', style: AppText.display(46, color: AppColors.teal)),
+                const SizedBox(height: 10),
+                Expanded(
+                  child: children.when(
+                    loading: () => const Center(child: CircularProgressIndicator()),
+                    error: (e, _) => const Center(child: Text('حدث خطأ، حاول مرة أخرى')),
+                    data: (list) {
+                      Widget card(Child c) => ChildCard(
+                            child: c,
+                            onTap: () async {
+                              ref.read(selectedChildIdProvider.notifier).state = c.id;
+                              unawaited(ref.read(voiceServiceProvider).speak(c.name));
+                              await Future<void>.delayed(const Duration(milliseconds: 700));
+                              if (context.mounted) context.go('/path');
+                            },
+                          );
+                      if (list.length <= 2) {
+                        return Center(
+                          child: ConstrainedBox(
+                            constraints: const BoxConstraints(maxHeight: 420),
+                            child: Row(
+                              children: [
+                                for (final c in list)
+                                  Expanded(
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                                      child: card(c),
+                                    ),
+                                  ),
+                              ],
+                            ),
+                          ),
+                        );
+                      }
+                      return GridView.count(
+                        crossAxisCount: 2,
+                        mainAxisSpacing: 16,
+                        crossAxisSpacing: 16,
+                        childAspectRatio: 0.8,
+                        children: [for (final c in list) card(c)],
+                      );
+                    },
                   ),
                 ),
-              ),
-              TextButton.icon(
-                onPressed: () => context.push('/parent'),
-                icon: const Icon(Icons.lock_outline),
-                label: const Text('لوحة ولي الأمر'),
-              ),
-            ],
+                TextButton.icon(
+                  onPressed: () => context.push('/parent'),
+                  icon: const Icon(Icons.lock_outline),
+                  label: const Text('لوحة ولي الأمر'),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -69,68 +97,56 @@ class WhoLearnsScreen extends ConsumerWidget {
   }
 }
 
-class _ChildCard extends StatelessWidget {
-  const _ChildCard({
-    required this.name,
-    required this.age,
-    required this.small,
-    required this.onTap,
-  });
+/// الشخصية المناسبة للعمر: الأصغر (≤4) نُور، والأكبر فداء.
+String characterFor(Child c) => c.age <= 4 ? Art.nour : Art.fedaa;
 
-  final String name;
-  final int age;
+/// بطاقة طفلة: صورة الشخصية كبيرة + الاسم. لا كلام آخر.
+class ChildCard extends StatelessWidget {
+  const ChildCard({super.key, required this.child, required this.onTap});
 
-  /// الأصغر (3–4): ألوان زرقاء/خضراء هادئة؛ الأكبر: وردي/بنفسجي.
-  final bool small;
+  final Child child;
   final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    final colors = small
-        ? const [Color(0xFF4FC3D9), Color(0xFF2A9D8F)]
-        : const [Color(0xFFFF8FB1), Color(0xFFB36AE0)];
-    return PopTap(
-      onTap: onTap,
-      child: Container(
-        height: 150,
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(40),
-          gradient: LinearGradient(begin: Alignment.topRight, end: Alignment.bottomLeft, colors: colors),
-          boxShadow: [BoxShadow(color: colors.last.withValues(alpha: 0.4), blurRadius: 18, offset: const Offset(0, 10))],
-        ),
-        child: Row(
-          children: [
-            Container(
-              width: 96,
-              height: 96,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.white.withValues(alpha: 0.3),
+    final little = child.age <= 4;
+    final colors = little
+        ? const [Color(0xFFB6F0A6), Kid.greenN]
+        : const [Color(0xFFFFC2D6), Kid.pinkF];
+    return Semantics(
+      button: true,
+      label: child.name,
+      child: PopTap(
+        onTap: onTap,
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(Kid.radiusL),
+            gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: colors),
+            border: Border.all(color: Colors.white, width: 5),
+            boxShadow: [BoxShadow(color: colors.last.withValues(alpha: 0.5), blurRadius: 18, offset: const Offset(0, 10))],
+          ),
+          child: Column(
+            children: [
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(8, 12, 8, 0),
+                  child: ArtImage(characterFor(child), fit: BoxFit.contain),
+                ),
               ),
-              alignment: Alignment.center,
-              child: const Text('👧', style: TextStyle(fontSize: 58)),
-            ),
-            const SizedBox(width: 18),
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  FittedBox(
-                    fit: BoxFit.scaleDown,
-                    alignment: AlignmentDirectional.centerStart,
-                    child: Text(name, style: AppText.display(46, color: Colors.white)),
-                  ),
-                  Text(
-                    '⭐' * (age > 5 ? 5 : age),
-                    style: const TextStyle(fontSize: 20),
-                  ),
-                ],
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                decoration: BoxDecoration(
+                  color: Colors.white.withValues(alpha: 0.85),
+                  borderRadius: const BorderRadius.vertical(bottom: Radius.circular(Kid.radiusL - 5)),
+                ),
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(child.name, style: AppText.display(40, color: AppColors.ink)),
+                ),
               ),
-            ),
-            const Icon(Icons.arrow_back_ios_new_rounded, color: Colors.white, size: 28),
-          ],
+            ],
+          ),
         ),
       ),
     );

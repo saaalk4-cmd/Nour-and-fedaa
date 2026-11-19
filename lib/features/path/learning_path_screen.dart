@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../core/design/art.dart';
 import '../../core/design/pop_tap.dart';
 import '../../core/theme/app_theme.dart';
-import '../../core/widgets/mascot.dart';
 import '../../data/content/curriculum.dart';
 import '../../data/content/lesson.dart';
 import '../../data/models/child.dart';
@@ -57,11 +57,8 @@ class _LearningPathScreenState extends ConsumerState<LearningPathScreen> {
         ),
         title: const Text('رحلتي 🌟'),
         actions: [
-          TextButton.icon(
-            onPressed: () => context.push('/home'),
-            icon: const Text('🎮', style: TextStyle(fontSize: 22)),
-            label: const Text('العب بحرية'),
-          ),
+          // «العب بحرية»: لافتة طريق بلا كلمات.
+          ArtButton(art: Art.signpost, label: 'العب بحرية', size: 64, onTap: () => context.push('/home')),
         ],
       ),
       body: SafeArea(
@@ -192,7 +189,7 @@ class _WeekHeader extends StatelessWidget {
             color: Colors.white.withValues(alpha: 0.75),
             boxShadow: const [BoxShadow(color: Color(0x22000000), blurRadius: 12, offset: Offset(0, 6))],
           ),
-          child: Mascot(size: little ? 90 : 72, mood: finishedAll ? MascotMood.cheer : MascotMood.happy),
+          child: ArtImage(Art.lamaa, height: little ? 90 : 72),
         ),
         const SizedBox(width: 12),
         Expanded(
@@ -333,8 +330,8 @@ class _NodeRow extends StatelessWidget {
     if (state == PathState.current) circle = _Pulse(child: circle);
 
     final badge = switch (state) {
-      PathState.done => '⭐',
-      PathState.locked => '🔒',
+      PathState.done => Art.star,
+      PathState.locked => Art.lock,
       PathState.current => '',
     };
 
@@ -356,13 +353,13 @@ class _NodeRow extends StatelessWidget {
                     PositionedDirectional(
                       end: -4,
                       top: -4,
-                      child: Text(badge, style: const TextStyle(fontSize: 30)),
+                      child: ArtImage(badge, width: 42),
                     ),
                   if (state == PathState.current)
                     const PositionedDirectional(
-                      start: -64,
+                      start: -72,
                       bottom: 0,
-                      child: Mascot(size: 56),
+                      child: ArtImage(Art.lamaa, width: 68),
                     ),
                 ],
               ),
@@ -412,7 +409,7 @@ class _GiftNode extends StatelessWidget {
           ),
           child: Opacity(
             opacity: open ? 1 : 0.5,
-            child: Text(open ? '🎁' : '🔒', style: TextStyle(fontSize: size * 0.5)),
+            child: ArtImage(open ? Art.gift : Art.lock, height: size * 0.62),
           ),
         ),
       ),
