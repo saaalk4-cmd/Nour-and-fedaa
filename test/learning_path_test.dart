@@ -11,7 +11,7 @@ void main() {
     for (final a in ContentRepository.lessonAssets)
       ...ContentRepository.parseLessons(File(a).readAsStringSync()),
   ];
-  final curriculum = Curriculum.parse(File(curriculumAsset).readAsStringSync());
+  final curriculum = Curriculum.parse(File(CurriculumRepository.asset).readAsStringSync());
 
   PathWeek path(int age, Set<String> done) =>
       curriculum.pathFor(childAge: age, allLessons: all, completed: done);
