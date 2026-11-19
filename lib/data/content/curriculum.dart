@@ -140,8 +140,12 @@ class Curriculum {
 
     var currentTaken = plan.finishedAll;
     final days = <PathDay>[];
+    final seen = <String>{}; // درس يتكرر في الأسبوع يظهر مرة واحدة على المسار
     for (final d in target.days) {
-      final mine = _mine(d, childAge, byId);
+      final mine = [
+        for (final l in _mine(d, childAge, byId))
+          if (seen.add(l.id)) l,
+      ];
       if (mine.isEmpty) continue;
       final nodes = <PathNode>[];
       for (final l in mine) {
