@@ -15,6 +15,12 @@ class IntroAudio {
 
   /// يُستدعى عند كل لحظة؛ الافتراضي: لا شيء (آمن).
   void onCue(String cue) {}
+
+  /// موسيقى المقدمة المرسومة بالكود (الفيلم الحقيقي يحمل صوته بنفسه). الافتراضي: صامت.
+  Future<void> start() async {}
+  Future<void> pause() async {}
+  Future<void> resume() async {}
+  Future<void> stop() async {}
 }
 
 /// اللحظة المقابلة لموضع [positionSeconds] من فيلم مدته [durationSeconds]

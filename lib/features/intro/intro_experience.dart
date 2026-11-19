@@ -112,6 +112,7 @@ class _IntroExperienceState extends State<IntroExperience> with WidgetsBindingOb
     h?.removeListener(_tick);
     unawaited(h?.dispose());
     setState(() => _mode = _Mode.fallback);
+    unawaited(widget.audio.start());
   }
 
   void _exit() {
@@ -124,6 +125,14 @@ class _IntroExperienceState extends State<IntroExperience> with WidgetsBindingOb
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (_mode == _Mode.fallback) {
+      if (state == AppLifecycleState.resumed) {
+        unawaited(widget.audio.resume());
+      } else if (state == AppLifecycleState.paused) {
+        unawaited(widget.audio.pause());
+      }
+      return;
+    }
     final h = _video;
     if (h == null || _mode != _Mode.video) return;
     if (state == AppLifecycleState.resumed) {
@@ -139,6 +148,7 @@ class _IntroExperienceState extends State<IntroExperience> with WidgetsBindingOb
     final h = _video;
     h?.removeListener(_tick);
     unawaited(h?.dispose());
+    unawaited(widget.audio.stop());
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
     super.dispose();
   }

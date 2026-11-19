@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:nourfadaa/features/intro/cinema_painter.dart';
@@ -62,8 +64,14 @@ class FakeVideo implements IntroVideoHandle {
 class RecordingAudio extends IntroAudio {
   RecordingAudio();
   final cues = <String>[];
+  int starts = 0;
+  int stops = 0;
   @override
   void onCue(String cue) => cues.add(cue);
+  @override
+  Future<void> start() async => starts++;
+  @override
+  Future<void> stop() async => stops++;
 }
 
 Widget host(IntroExperience w) => MaterialApp(home: w);
@@ -175,6 +183,28 @@ void main() {
     expect(exits.first, closeTo(36, 0.5));
     await tester.pumpWidget(const SizedBox());
     expect(v.disposed, isTrue);
+  });
+
+  testWidgets('score plays only for the 2D fallback and is stopped on leaving', (tester) async {
+    final audio = RecordingAudio();
+    await tester.pumpWidget(host(IntroExperience(openVideo: () async => null, audio: audio, onDone: () {}, onExit: (_) {})));
+    await tester.pump();
+    expect(audio.starts, 1);
+    await tester.pumpWidget(const SizedBox());
+    expect(audio.stops, 1);
+
+    final withVideo = RecordingAudio();
+    await tester.pumpWidget(host(IntroExperience(openVideo: () async => FakeVideo(), audio: withVideo, onDone: () {}, onExit: (_) {})));
+    await tester.pump();
+    expect(withVideo.starts, 0); // الفيلم الحقيقي يحمل صوته بنفسه
+    await tester.pumpWidget(const SizedBox());
+  });
+
+  test('intro score asset exists and is a real 45-second recording', () {
+    final f = File('assets/audio/intro_score.wav');
+    expect(f.existsSync(), isTrue);
+    // 22050 Hz * 2 bytes * 45 s ≈ 1.98 MB
+    expect(f.lengthSync(), inInclusiveRange(1900000, 2100000));
   });
 
   test('cue timing scales to any video length', () {

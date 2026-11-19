@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../data/providers.dart';
 import '../home/who_learns_screen.dart';
+import 'intro_audio_player.dart';
 import 'intro_experience.dart';
 
 /// أقل ثانية يُحتسب عندها التخطي كمشاهدة (المشهد 6 وما بعده).
@@ -61,6 +62,7 @@ class _LaunchGateState extends ConsumerState<LaunchGate> {
         _Phase.loading => const ColoredBox(key: ValueKey('loading'), color: Colors.black, child: SizedBox.expand()),
         _Phase.intro => IntroExperience(
             key: const ValueKey('intro'),
+            audio: AssetIntroAudio(),
             onDone: () => _finish(markSeen: true),
             onExit: (s) => _finish(markSeen: s >= kIntroCountsAsSeenAfter),
           ),
