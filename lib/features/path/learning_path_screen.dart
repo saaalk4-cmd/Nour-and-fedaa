@@ -26,6 +26,7 @@ const _palette = <Color>[
 /// عبارات قصيرة تُنطق (تعليمية فقط، لا آيات ولا أحاديث).
 const kPathLockedSay = 'أكملي المغامرة السابقة أولًا';
 const kPathGiftLockedSay = 'هديتك تنتظرك بعد آخر مغامرة';
+const kPathGateSay = 'مغامرة جديدة تنتظرك';
 
 /// «مسار التعلّم»: شريط عمودي ينزل لتحت. الطفلة لا تختار شيئًا؛
 /// تُكمل المغامرة الحالية فتنفتح التي بعدها. ينتهي كل يوم بهدية 🎁.
@@ -144,7 +145,18 @@ class _LearningPathScreenState extends ConsumerState<LearningPathScreen> {
       items.add(_GiftNode(open: d.complete, little: little, onTap: () => _onGift(d, c.name)));
       items.add(const SizedBox(height: 18));
     }
-    return ListView(padding: const EdgeInsets.fromLTRB(16, 8, 16, 40), children: items);
+    items.add(const SizedBox(height: 8));
+    items.add(path.finishedAll
+        ? _EndNode(art: Art.medal, onTap: () => _say('أحسنتِ يا ${c.name}! أنتِ مستكشفة صغيرة'))
+        : _EndNode(art: Art.gate, onTap: () => _say(kPathGateSay)));
+    final bg = Art.weekBackgrounds[(path.week!.week - 1) % Art.weekBackgrounds.length];
+    return Stack(
+      fit: StackFit.expand,
+      children: [
+        Positioned.fill(child: _PathBackdrop(bg)),
+        ListView(padding: const EdgeInsets.fromLTRB(16, 8, 16, 40), children: items),
+      ],
+    );
   }
 
   Future<void> _onNode(PathNode n) async {
@@ -163,6 +175,8 @@ class _LearningPathScreenState extends ConsumerState<LearningPathScreen> {
       _busy = false;
     }
   }
+
+  void _say(String text) => unawaited(ref.read(voiceServiceProvider).speak(text));
 
   void _onGift(PathDay d, String name) {
     final voice = ref.read(voiceServiceProvider);
@@ -335,8 +349,9 @@ class _NodeRow extends StatelessWidget {
       PathState.current => '',
     };
 
-    return Align(
-      alignment: Alignment(_curve[slot % _curve.length], 0),
+    final cx = _curve[slot % _curve.length];
+    final nodeWidget = Align(
+      alignment: Alignment(cx, 0),
       child: Semantics(
         button: true,
         label: state == PathState.locked ? 'مغلقة' : node.lesson.title,
@@ -356,10 +371,15 @@ class _NodeRow extends StatelessWidget {
                       child: ArtImage(badge, width: 42),
                     ),
                   if (state == PathState.current)
-                    const PositionedDirectional(
-                      start: -72,
+                    Positioned(
+                      left: cx > 0 ? -84 : null,
+                      right: cx > 0 ? null : -84,
                       bottom: 0,
-                      child: ArtImage(Art.lamaa, width: 68),
+                      // لَمعة تشير إلى العقدة من الجهة المقابلة.
+                      child: Transform.flip(
+                        flipX: cx <= 0,
+                        child: const ArtImage(Art.lamaaPoint, width: 78),
+                      ),
                     ),
                 ],
               ),
@@ -382,6 +402,26 @@ class _NodeRow extends StatelessWidget {
         ),
       ),
     );
+
+    // زينة على الجهة المقابلة للعقدة (غير العقدة الحالية: مكان لَمعة).
+    final decorName = Art.decor[slot % Art.decor.length];
+    final decorLeft = cx > 0 || (cx == 0 && slot.isEven);
+    return SizedBox(
+      width: double.infinity,
+      child: Stack(
+        clipBehavior: Clip.none,
+        children: [
+          if (state != PathState.current)
+            Positioned(
+              left: decorLeft ? 6 : null,
+              right: decorLeft ? null : 6,
+              bottom: 0,
+              child: IgnorePointer(child: ArtImage(decorName, height: little ? 92 : 80)),
+            ),
+          nodeWidget,
+        ],
+      ),
+    );
   }
 }
 
@@ -394,25 +434,76 @@ class _GiftNode extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = little ? 96.0 : 80.0;
+    final size = little ? 104.0 : 88.0;
     return Center(
-      child: PopTap(
-        onTap: onTap,
-        child: Container(
-          width: size,
-          height: size,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: open ? const Color(0xFFFFE9A8) : const Color(0xFFE3E8ED),
-            border: Border.all(color: open ? AppColors.sun : const Color(0xFFB7C0C9), width: 4),
-          ),
-          child: Opacity(
-            opacity: open ? 1 : 0.5,
-            child: ArtImage(open ? Art.gift : Art.lock, height: size * 0.62),
+      child: Semantics(
+        button: true,
+        label: 'هدية اليوم',
+        child: PopTap(
+          onTap: onTap,
+          child: SizedBox(
+            width: size,
+            height: size,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Opacity(opacity: open ? 1 : 0.5, child: ArtImage(Art.gift, width: size)),
+                if (!open) ArtImage(Art.lock, width: size * 0.42),
+              ],
+            ),
           ),
         ),
       ),
+    );
+  }
+}
+
+/// نهاية المسار: بوابة المغامرة القادمة، أو ميدالية «مستكشفة صغيرة» عند إنهاء كل شيء.
+class _EndNode extends StatelessWidget {
+  const _EndNode({required this.art, required this.onTap});
+
+  final String art;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: PopTap(
+        onTap: onTap,
+        child: Padding(
+          padding: const EdgeInsets.only(top: 12),
+          child: ArtImage(art, width: 210),
+        ),
+      ),
+    );
+  }
+}
+
+/// خلفية المسار: صورة الأسبوع + طبقة بيضاء خفيفة ليبقى المسار واضحًا.
+class _PathBackdrop extends StatelessWidget {
+  const _PathBackdrop(this.art);
+
+  final String art;
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      fit: StackFit.expand,
+      children: [
+        ArtImage(art, fit: BoxFit.cover),
+        DecoratedBox(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                Colors.white.withValues(alpha: 0.18),
+                Colors.white.withValues(alpha: 0.38),
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:nourfadaa/core/design/art.dart';
+import 'package:nourfadaa/core/widgets/mascot.dart';
+import 'package:nourfadaa/features/path/learning_path_screen.dart';
 import 'package:nourfadaa/data/models/child.dart';
 import 'package:nourfadaa/features/home/who_learns_screen.dart';
 
@@ -15,7 +17,7 @@ void main() {
       total += f.lengthSync();
     }
     expect(Art.all.toSet().length, Art.all.length);
-    expect(total, lessThan(500 * 1024), reason: 'art kit should stay under 500KB');
+    expect(total, lessThan(2 * 1024 * 1024), reason: 'art kit should stay under 2MB');
   });
 
   test('assets/art is declared in pubspec', () {
@@ -33,6 +35,25 @@ void main() {
   test('little ones get Nour, the older one gets Fedaa', () {
     expect(characterFor(const Child(id: 1, name: 'نور', age: 3)), Art.nour);
     expect(characterFor(const Child(id: 2, name: 'فداء', age: 5)), Art.fedaa);
+  });
+
+  test('Lamaa has a distinct approved pose for every mood', () {
+    final names = MascotMood.values.map(mascotArt).toSet();
+    expect(names.length, MascotMood.values.length);
+    for (final n in names) {
+      expect(Art.all, contains(n));
+    }
+  });
+
+  test('week backgrounds and side decor all exist in the kit', () {
+    for (final n in [...Art.weekBackgrounds, ...Art.decor]) {
+      expect(Art.all, contains(n));
+    }
+    expect(Art.weekBackgrounds.toSet().length, Art.weekBackgrounds.length);
+  });
+
+  test('path gate phrase is short and gentle', () {
+    expect(kPathGateSay.split(' ').length, lessThanOrEqualTo(4));
   });
 
   test('spoken prompt is short and has no failure wording', () {

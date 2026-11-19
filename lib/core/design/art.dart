@@ -18,33 +18,84 @@ class Kid {
   static const Color greenN = Color(0xFF7ED36B); // نور
 }
 
-/// أسماء ملفات الصور في assets/art/ (مقصوصة من ورقة العناصر المعتمدة).
+/// أسماء ملفات الصور في assets/art/ (التصاميم المعتمدة، خلفيتها شفافة).
 class Art {
-  static const String fedaa = 'char_fedaa';
-  static const String nour = 'char_nour';
-  static const String lamaa = 'lamaa';
-  static const String star = 'star_on';
-  static const String starOff = 'star_off';
-  static const String gift = 'gift';
-  static const String chest = 'chest';
-  static const String lock = 'ic_lock';
-  static const String home = 'ic_home';
-  static const String back = 'ic_back';
-  static const String sound = 'ic_sound';
-  static const String check = 'ic_check';
-  static const String question = 'ic_question';
-  static const String signpost = 'signpost';
-  static const String flower = 'flower';
-  static const String foliage = 'foliage';
-  static const String sceneCastle = 'scene_castle';
-  static const String sceneHouse = 'scene_house';
-  static const String sceneMountain = 'scene_mountain';
+  // الشخصيتان (وضعيات: ترحيب، تفكير، احتفال)
+  static const String fedaaWelcome = 'fedaa_welcome';
+  static const String fedaaThink = 'fedaa_think';
+  static const String fedaaCheer = 'fedaa_cheer';
+  static const String nourWelcome = 'nour_welcome';
+  static const String nourThink = 'nour_think';
+  static const String nourCheer = 'nour_cheer';
 
-  /// كل الأسماء (للاختبار).
+  // لَمعة (خمس وضعيات)
+  static const String lamaaCalm = 'lamaa_calm';
+  static const String lamaaPoint = 'lamaa_point';
+  static const String lamaaCheer = 'lamaa_cheer';
+  static const String lamaaThink = 'lamaa_think';
+  static const String lamaaWelcome = 'lamaa_welcome';
+
+  // أيقونات بلا كلمات
+  static const String icGift = 'ic_gift';
+  static const String icSound = 'ic_sound';
+  static const String icBack = 'ic_back';
+  static const String icHome = 'ic_home';
+  static const String icLock = 'ic_lock';
+  static const String starOn = 'star_on';
+  static const String starOff = 'star_off';
+
+  // مكافآت وبوابات
+  static const String gate = 'gate';
+  static const String medal = 'medal';
+
+  // خلفيات
+  static const String bgSky = 'bg_sky';
+  static const String bgRiver = 'bg_river';
+  static const String bgForest = 'bg_forest';
+  static const String bgHouse = 'bg_house';
+  static const String bgCastle = 'bg_castle';
+  static const String bgPath = 'bg_path';
+
+  // زينة المسار
+  static const String decorTree1 = 'decor_tree1';
+  static const String decorTree2 = 'decor_tree2';
+  static const String decorTree3 = 'decor_tree3';
+  static const String decorTree4 = 'decor_tree4';
+  static const String decorBush = 'decor_bush';
+  static const String decorFlowers1 = 'decor_flowers1';
+  static const String decorFlowers2 = 'decor_flowers2';
+  static const String decorRock = 'decor_rock';
+  static const String decorSignpost = 'decor_signpost';
+
+  // أسماء مختصرة مستعملة في الشاشات
+  static const String fedaa = fedaaWelcome;
+  static const String nour = nourWelcome;
+  static const String lamaa = lamaaCalm;
+  static const String star = starOn;
+  static const String lock = icLock;
+  static const String gift = icGift;
+  static const String home = icHome;
+  static const String back = icBack;
+  static const String sound = icSound;
+  static const String signpost = decorSignpost;
+
+  /// خلفيات المسار تتبدل كل أسبوع.
+  static const List<String> weekBackgrounds = [bgPath, bgForest, bgHouse, bgRiver, bgCastle, bgSky];
+
+  /// زينة جانب المسار بالتناوب.
+  static const List<String> decor = [
+    decorTree1, decorFlowers1, decorTree3, decorRock, decorBush, decorTree4, decorFlowers2, decorTree2,
+  ];
+
+  /// كل الملفات (للاختبار).
   static const List<String> all = [
-    fedaa, nour, lamaa, star, starOff, gift, chest, lock, home, back, sound, check,
-    question, signpost, flower, foliage, sceneCastle, sceneHouse, sceneMountain,
-    'ic_star', 'ic_trophy', 'ic_gift', 'ic_gear', 'ic_music', 'ic_crown', 'ic_info',
+    fedaaWelcome, fedaaThink, fedaaCheer, nourWelcome, nourThink, nourCheer,
+    lamaaCalm, lamaaPoint, lamaaCheer, lamaaThink, lamaaWelcome,
+    icGift, icSound, icBack, icHome, icLock, starOn, starOff,
+    gate, medal,
+    bgSky, bgRiver, bgForest, bgHouse, bgCastle, bgPath,
+    decorTree1, decorTree2, decorTree3, decorTree4, decorBush, decorFlowers1, decorFlowers2,
+    decorRock, decorSignpost,
   ];
 
   static String path(String name) => 'assets/art/$name.webp';

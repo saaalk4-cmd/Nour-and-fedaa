@@ -31,14 +31,18 @@ class WhoLearnsScreen extends ConsumerWidget {
         onPressed: () => context.push('/intro'),
         child: const Text('🎬', style: TextStyle(fontSize: 20)),
       ),
-      body: SafeArea(
+      body: Stack(
+        fit: StackFit.expand,
+        children: [
+          Positioned.fill(child: ArtImage(Art.bgSky, fit: BoxFit.cover)),
+          SafeArea(
         child: SpeakOnOpen(
           text: kWhoLearnsSay,
           child: Padding(
             padding: const EdgeInsets.fromLTRB(20, 8, 20, 8),
             child: Column(
               children: [
-                const ArtImage(Art.lamaa, height: 104),
+                const ArtImage(Art.lamaaWelcome, height: 110),
                 Text('نُور وفداء', style: AppText.display(46, color: AppColors.teal)),
                 const SizedBox(height: 10),
                 Expanded(
@@ -92,6 +96,8 @@ class WhoLearnsScreen extends ConsumerWidget {
             ),
           ),
         ),
+      ),
+        ],
       ),
     );
   }
