@@ -34,7 +34,7 @@ class WhoLearnsScreen extends ConsumerWidget {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          Positioned.fill(child: ArtImage(Art.bgSky, fit: BoxFit.cover)),
+          const Positioned.fill(child: ArtImage(Art.bgSky, fit: BoxFit.cover)),
           SafeArea(
         child: SpeakOnOpen(
           text: kWhoLearnsSay,
