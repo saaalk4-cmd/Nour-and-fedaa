@@ -131,7 +131,7 @@ void main() {
 
     await tester.pumpWidget(const SizedBox());
     await tester.pumpWidget(host(IntroExperience(
-      openVideo: () => Future<IntroVideoHandle?>.delayed(const Duration(seconds: 30)),
+      openVideo: () => Future<IntroVideoHandle?>.delayed(const Duration(seconds: 3)),
       openTimeout: const Duration(seconds: 1),
       onDone: () {},
       onExit: (_) {},
@@ -139,6 +139,7 @@ void main() {
     await tester.pump(const Duration(seconds: 2));
     await tester.pump();
     expect(find.byType(IntroCinemaScreen), findsOneWidget);
+    await tester.pump(const Duration(seconds: 2)); // يُنهي المؤقّت المتأخر الخاص بالاختبار
     await tester.pumpWidget(const SizedBox());
   });
 
