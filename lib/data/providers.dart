@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../core/audio/audioplayers_sound_player.dart';
 import '../core/audio/ayah_player.dart';
 import '../core/audio/flutter_tts_engine.dart';
+import '../core/audio/asset_clip_player.dart';
 import '../core/audio/voice_service.dart';
 import '../core/audio/sound_service.dart';
 import '../domain/gamification/quests.dart';
@@ -88,10 +89,17 @@ final soundServiceProvider = Provider<SoundService>((ref) {
   );
 });
 
+/// محرك صوت الجهاز (مشترك لتعرض لوحة الأهل الأصوات المتاحة وتغيّرها).
+final ttsEngineProvider = Provider<FlutterTtsEngine>((ref) {
+  final settings = ref.watch(settingsRepositoryProvider);
+  return FlutterTtsEngine(preferredVoice: settings.ttsVoice);
+});
+
 final voiceServiceProvider = Provider<VoiceService>((ref) {
   final settings = ref.watch(settingsRepositoryProvider);
   return VoiceService(
-    engine: FlutterTtsEngine(),
+    engine: ref.watch(ttsEngineProvider),
+    clips: AssetClipPlayer(),
     readEnabled: settings.voiceEnabled,
     writeEnabled: settings.setVoiceEnabled,
   );

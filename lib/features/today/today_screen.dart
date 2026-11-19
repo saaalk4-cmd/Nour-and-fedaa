@@ -275,7 +275,7 @@ class _AdventureCard extends StatelessWidget {
                     if (!little)
                       Text(
                         done ? 'أكملتِها ✨' : 'مغامرة $index',
-                        style: const TextStyle(fontWeight: FontWeight.w700, color: Color(0xFF6B7A89)),
+                        style: const TextStyle(fontWeight: FontWeight.w700, color: Color(0xFF45525F)),
                       ),
                   ],
                 ),

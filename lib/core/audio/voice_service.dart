@@ -1,6 +1,18 @@
+import 'dart:convert';
+
+import 'package:crypto/crypto.dart';
+
 /// محرّك النطق (يُستبدل في الاختبارات). التنفيذ الحقيقي: flutter_tts.
 abstract class SpeechEngine {
   Future<void> speak(String text);
+  Future<void> stop();
+}
+
+/// مقاطع صوتية مسجّلة مسبقًا بصوت عالي الجودة (تُولَّد وقت البناء في CI).
+/// المفتاح = [VoiceService.clipKey] للنص بعد [VoiceService.clean].
+abstract class ClipPlayer {
+  Future<bool> has(String key);
+  Future<void> play(String key);
   Future<void> stop();
 }
 
@@ -15,11 +27,14 @@ class VoiceService {
     required SpeechEngine engine,
     required Future<bool> Function() readEnabled,
     required Future<void> Function(bool enabled) writeEnabled,
+    ClipPlayer? clips,
   })  : _engine = engine,
+        _clips = clips,
         _readEnabled = readEnabled,
         _writeEnabled = writeEnabled;
 
   final SpeechEngine _engine;
+  final ClipPlayer? _clips;
   final Future<bool> Function() _readEnabled;
   final Future<void> Function(bool enabled) _writeEnabled;
   bool? _enabled;
@@ -44,12 +59,24 @@ class VoiceService {
       .replaceAll(RegExp(r'\s+'), ' ')
       .trim();
 
+  /// مفتاح المقطع المسجّل لنص منظَّف (أول 16 حرفًا من sha1). يطابق tools/build_voice.py.
+  static String clipKey(String cleaned) => sha1.convert(utf8.encode(cleaned)).toString().substring(0, 16);
+
+  /// يُشغّل المقطع المسجّل لو موجود (أوضح وأجمل)، وإلا صوت الجهاز.
   Future<void> speak(String text) async {
     try {
       if (!await isEnabled()) return;
       final t = clean(text);
       if (t.isEmpty) return;
-      await _engine.stop();
+      await stop();
+      final clips = _clips;
+      if (clips != null) {
+        final key = clipKey(t);
+        if (await clips.has(key)) {
+          await clips.play(key);
+          return;
+        }
+      }
       await _engine.speak(t);
     } catch (_) {
       // نتجاهل أي خطأ في النطق.
@@ -57,6 +84,9 @@ class VoiceService {
   }
 
   Future<void> stop() async {
+    try {
+      await _clips?.stop();
+    } catch (_) {}
     try {
       await _engine.stop();
     } catch (_) {}

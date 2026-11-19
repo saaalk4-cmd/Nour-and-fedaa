@@ -153,7 +153,7 @@ class _BadgeCard extends StatelessWidget {
                   opacity: earned ? 1 : 0.3,
                   child: Text(def.emoji, style: const TextStyle(fontSize: 58)),
                 ),
-                if (!earned) const Icon(Icons.lock_rounded, size: 26, color: Color(0xFF7A8794)),
+                if (!earned) const Icon(Icons.lock_rounded, size: 26, color: Color(0xFF55626F)),
               ],
             ),
             const SizedBox(height: 8),
@@ -163,7 +163,7 @@ class _BadgeCard extends StatelessWidget {
                 textAlign: TextAlign.center,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
-                style: AppText.display(19, color: earned ? AppColors.ink : const Color(0xFF7A8794)),
+                style: AppText.display(19, color: earned ? AppColors.ink : const Color(0xFF55626F)),
               ),
             ),
             if (earned)

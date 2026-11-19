@@ -2,13 +2,14 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
-import '../../core/design/big_button.dart';
+import '../../core/design/art.dart';
+import '../../core/design/kit.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/mascot.dart';
 import '../../data/models/lesson_completion.dart';
-import '../../domain/gamification/level_system.dart';
 
-/// شاشة احتفال قصيرة بعد إكمال الدرس: نجوم، XP، تقدم المستوى، وسلسلة الأيام.
+/// شاشة احتفال قصيرة بعد إكمال الدرس: البنت تحتفل مع لَمعة، نجوم الدرس، والشارات.
+/// لا XP ولا مستويات ولا سلاسل أيام أمام الطفلة (مكانها لوحة الأهل).
 /// خفيفة الأداء: متحكم حركة واحد + رسم بسيط بدون حزم خارجية.
 class CelebrationView extends StatefulWidget {
   const CelebrationView({
@@ -61,25 +62,10 @@ class _CelebrationViewState extends State<CelebrationView>
     return options[c.totalXp % options.length];
   }
 
-  String? get _streakMessage {
-    final s = widget.completion.streak;
-    if (s.welcomeBack) return 'أهلًا بعودتك يا بطلة ❤️\nنكمل رحلتنا من هنا.';
-    if (s.extended && s.current >= 2) return '🔥 ${s.current} أيام متتالية';
-    if (s.extended) return '🔥 بدأتِ سلسلة جديدة';
-    return null;
-  }
-
   @override
   Widget build(BuildContext context) {
     final c = widget.completion;
     final reward = c.reward;
-    final streakMessage = _streakMessage;
-    final level = LevelSystem.info(c.newLevel);
-
-    final oldXp = c.totalXp - c.gainedXp;
-    final oldFraction = (oldXp % LevelSystem.xpPerLevel) / LevelSystem.xpPerLevel;
-    final newFraction =
-        (c.totalXp % LevelSystem.xpPerLevel) / LevelSystem.xpPerLevel;
 
     return Scaffold(
       body: Stack(
@@ -123,105 +109,57 @@ class _CelebrationViewState extends State<CelebrationView>
                             parent: _controller,
                             curve: const Interval(0, 0.35, curve: Curves.elasticOut),
                           ),
-                          child: Mascot(
-                            size: widget.little ? 200 : 150,
-                            mood: MascotMood.cheer,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              // البنت نفسها وهي تحتفل، ولَمعة جنبها.
+                              ArtImage(widget.little ? Art.nourCheer : Art.fedaaCheer,
+                                  height: widget.little ? 230 : 190),
+                              Mascot(size: widget.little ? 110 : 90, mood: MascotMood.cheer),
+                            ],
                           ),
                         ),
                       ],
                     ),
                   ),
                   const SizedBox(height: 12),
-                  Text(
-                    _message,
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.headlineMedium,
-                  ),
-                  const SizedBox(height: 20),
-                  Wrap(
-                    alignment: WrapAlignment.center,
-                    spacing: 12,
-                    runSpacing: 12,
-                    children: [
-                      _RewardChip(text: '⚡ +${reward.xp} XP', color: AppColors.sun),
-                      if (reward.stars > 0)
-                        _RewardChip(
-                          text: '⭐ +${reward.stars} ${reward.stars == 1 ? 'نجمة' : 'نجوم'}',
-                          color: AppColors.rose,
+                  ParchmentCard(
+                    child: Column(
+                      children: [
+                        Text(
+                          _message,
+                          textAlign: TextAlign.center,
+                          style: AppText.display(widget.little ? 34 : 30, color: Wood.text),
                         ),
-                      if (c.dailyBonusEarned)
-                        _RewardChip(
-                          text: '🎯 مهام اليوم +${c.bonusXp} XP',
-                          color: AppColors.leaf,
-                        ),
-                    ],
-                  ),
-                  if (c.dailyBonusEarned) ...[
-                    const SizedBox(height: 12),
-                    const Text(
-                      '🎉 أكملتِ كل مهام اليوم!',
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
-                    ),
-                  ],
-                  if (widget.learned != null) ...[
-                    const SizedBox(height: 16),
-                    Text(
-                      '💡 ماذا تعلمتِ؟\n${widget.learned}',
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(fontSize: 19, fontWeight: FontWeight.w700),
-                    ),
-                  ],
-                  const SizedBox(height: 24),
-                  TweenAnimationBuilder<double>(
-                    tween: Tween<double>(
-                      begin: c.leveledUp ? 0 : oldFraction,
-                      end: newFraction,
-                    ),
-                    duration: const Duration(milliseconds: 1200),
-                    curve: Curves.easeOutCubic,
-                    builder: (context, v, _) => ClipRRect(
-                      borderRadius: BorderRadius.circular(20),
-                      child: LinearProgressIndicator(
-                        value: v,
-                        minHeight: 16,
-                        backgroundColor: Colors.white,
-                        color: AppColors.teal,
-                      ),
+                        // نجوم الدرس فقط (بلا أرقام ولا نجوم فارغة).
+                        if (reward.stars > 0) ...[
+                          const SizedBox(height: 8),
+                          StarRow(filled: reward.stars, total: reward.stars, size: 52),
+                        ],
+                        if (widget.learned != null) ...[
+                          const SizedBox(height: 12),
+                          Text(
+                            '💡 ${widget.learned}',
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(fontSize: 19, fontWeight: FontWeight.w800),
+                          ),
+                        ],
+                      ],
                     ),
                   ),
-                  const SizedBox(height: 8),
-                  Text(
-                    '${level.icon} ${level.name} — المستوى ${c.newLevel}',
-                    style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w700),
-                  ),
-                  if (c.leveledUp) ...[
-                    const SizedBox(height: 12),
-                    const Text(
-                      '🎉 وصلتِ إلى مستوى جديد!',
-                      style: TextStyle(fontSize: 22, fontWeight: FontWeight.w900),
-                    ),
-                  ],
-                  if (streakMessage != null) ...[
-                    const SizedBox(height: 12),
-                    Text(
-                      streakMessage,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(fontSize: 19, fontWeight: FontWeight.w700),
-                    ),
-                  ],
-                  if (!widget.little && reward.isFirstCompletion && reward.perfect) ...[
-                    const SizedBox(height: 12),
-                    const Text(
-                      '✨ أجبتِ عن كل الأسئلة من أول مرة!',
-                      style: TextStyle(fontSize: 18),
-                    ),
-                  ],
+                  // شارة جديدة: ميدالية + اسمها.
                   for (final b in c.newBadges) ...[
                     const SizedBox(height: 12),
-                    Text(
-                      '🏅 شارة جديدة: ${b.emoji} ${b.title}',
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const ArtImage(Art.medal, height: 70),
+                        const SizedBox(width: 8),
+                        Flexible(
+                          child: OutlineText('${b.emoji} ${b.title}', size: 24, stroke: Wood.edge),
+                        ),
+                      ],
                     ),
                   ],
                           ],
@@ -230,7 +168,7 @@ class _CelebrationViewState extends State<CelebrationView>
                     ),
                   ),
                   const SizedBox(height: 12),
-                  BigButton(label: 'متابعة', onPressed: widget.onContinue),
+                  SunButton(label: 'متابعة', onTap: widget.onContinue),
                 ],
               ),
             ),
@@ -241,44 +179,6 @@ class _CelebrationViewState extends State<CelebrationView>
   }
 }
 
-class _RewardChip extends StatelessWidget {
-  const _RewardChip({required this.text, required this.color});
-
-  final String text;
-  final Color color;
-
-  @override
-  Widget build(BuildContext context) {
-    return TweenAnimationBuilder<double>(
-      tween: Tween<double>(begin: 0, end: 1),
-      duration: const Duration(milliseconds: 700),
-      curve: Curves.elasticOut,
-      builder: (context, v, child) => Transform.scale(scale: v.clamp(0.0, 1.4), child: child),
-      child: _chip(),
-    );
-  }
-
-  Widget _chip() {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.circular(26),
-        boxShadow: [BoxShadow(color: color.withValues(alpha: 0.45), blurRadius: 10, offset: const Offset(0, 5))],
-      ),
-      child: Text(
-        text,
-        style: const TextStyle(
-          color: Colors.white,
-          fontSize: 22,
-          fontWeight: FontWeight.w900,
-        ),
-      ),
-    );
-  }
-}
-
-/// أشعة ذهبية تدور ببطء خلف لَمعة.
 class _RaysPainter extends CustomPainter {
   _RaysPainter(this.t);
 

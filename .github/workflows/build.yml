@@ -53,6 +53,12 @@ jobs:
       - name: Fetch fonts
         run: python3 tools/fetch_fonts.py
 
+      # جمل التطبيق المتكررة بصوت عالي الجودة (لا تُرفع إلى git ولا يفشل البناء إن تعذّر توليدها)
+      - name: Build high-quality voice clips
+        run: |
+          pip install --quiet edge-tts || true
+          python3 tools/build_voice.py
+
       - run: flutter pub get
       - name: Apply app icon
         run: dart run flutter_launcher_icons -f flutter_launcher_icons.yaml

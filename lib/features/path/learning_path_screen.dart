@@ -59,7 +59,7 @@ class _LearningPathScreenState extends ConsumerState<LearningPathScreen> {
         title: const Text('رحلتي 🌟'),
         actions: [
           // «العب بحرية»: لافتة طريق بلا كلمات.
-          ArtButton(art: Art.signpost, label: 'العب بحرية', size: 64, onTap: () => context.push('/home')),
+          ArtButton(art: Art.signpost, label: 'العب بحرية', size: 64, onTap: () => context.canPop() ? context.pop() : context.go('/world')),
         ],
       ),
       body: SafeArea(

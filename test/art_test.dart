@@ -65,13 +65,14 @@ void main() {
     await tester.pumpWidget(MaterialApp(
       home: Scaffold(
         body: SizedBox(
-          width: 200,
+          width: 360,
           height: 300,
           child: ChildCard(child: const Child(id: 1, name: 'فداء', age: 5), onTap: () => taps++),
         ),
       ),
     ));
-    expect(find.text('فداء'), findsOneWidget);
+    expect(find.text('فداء'), findsWidgets);
+    expect(find.text('5 سنوات'), findsOneWidget);
     await tester.tap(find.byType(ChildCard));
     expect(taps, 1);
   });

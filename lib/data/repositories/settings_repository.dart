@@ -92,6 +92,14 @@ class SettingsRepository {
   Future<void> setVoiceEnabled(bool enabled) =>
       _set('voice_enabled', enabled ? '1' : '0');
 
+  /// الصوت العربي الذي اختاره الأهل (null = تلقائي: أوضح صوت على الجهاز).
+  Future<String?> ttsVoice() async {
+    final v = await _get('tts_voice');
+    return (v == null || v.isEmpty) ? null : v;
+  }
+
+  Future<void> setTtsVoice(String? name) => _set('tts_voice', name ?? '');
+
   // ---------- الأقسام ----------
 
   Future<bool> isSectionEnabled(String id) async =>

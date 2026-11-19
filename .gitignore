@@ -33,3 +33,7 @@ secrets.*
 assets/audio/quran/*.mp3
 __pycache__/
 assets/fonts/
+
+# أصوات عالية الجودة تُولَّد في CI (tools/build_voice.py)
+assets/audio/voice/*.mp3
+assets/audio/voice/index.json

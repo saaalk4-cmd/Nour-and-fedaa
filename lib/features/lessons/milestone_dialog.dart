@@ -37,9 +37,10 @@ class MilestoneDialog {
                 const SizedBox(height: 6),
                 Text(m.title, textAlign: TextAlign.center, style: AppText.display(28)),
                 const SizedBox(height: 8),
+                // نجوم فقط، بلا XP أمام الطفلة.
                 Text(
-                  '+${m.stars} ⭐   +${m.xp} XP',
-                  style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w800),
+                  '⭐' * m.stars.clamp(1, 5),
+                  style: const TextStyle(fontSize: 30),
                 ),
                 const SizedBox(height: 16),
                 BigButton(label: 'شكرًا 🎉', onPressed: () => ctx.pop()),

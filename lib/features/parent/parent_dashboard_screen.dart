@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../core/audio/flutter_tts_engine.dart';
 import '../../core/theme/app_theme.dart';
 import '../../data/models/child_report.dart';
 import '../../data/providers.dart';
@@ -61,6 +62,7 @@ class ParentDashboardScreen extends ConsumerWidget {
               ref.invalidate(voiceEnabledProvider);
             },
           ),
+          if (voiceOn) const _VoicePicker(),
           ]),
           const SizedBox(height: 16),
           Text('الأقسام الظاهرة للطفلتين',
@@ -419,4 +421,74 @@ void _showLessonDetails(BuildContext context, CompletedLessonInfo c) {
       ],
     ),
   );
+}
+
+/// أصوات الجهاز العربية: ولي الأمر يسمع ويختار الأوضح. الجمل المتكررة مسجّلة
+/// مسبقًا بصوت عالي الجودة، وهذا الاختيار للباقي.
+final _ttsVoicesProvider = FutureProvider<(List<TtsVoice>, String?)>((ref) async {
+  final voices = await ref.watch(ttsEngineProvider).arabicVoices();
+  final chosen = await ref.watch(settingsRepositoryProvider).ttsVoice();
+  return (voices, chosen);
+});
+
+class _VoicePicker extends ConsumerWidget {
+  const _VoicePicker();
+
+  static const _sample = 'أهلًا يا فداء، أهلًا يا نور. هيا نتعلم معًا';
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final data = ref.watch(_ttsVoicesProvider);
+    return data.when(
+      loading: () => const Padding(padding: EdgeInsets.all(12), child: LinearProgressIndicator()),
+      error: (_, __) => const SizedBox.shrink(),
+      data: (d) {
+        final (voices, chosen) = d;
+        if (voices.isEmpty) {
+          return const ListTile(
+            title: Text('لا يوجد صوت عربي على الجهاز'),
+            subtitle: Text('نزّلي «العربية» من إعدادات الموبايل: تحويل النص إلى كلام ← محرك Google'),
+          );
+        }
+        final auto = TtsVoice.pick(voices);
+        Future<void> choose(String? name) async {
+          await ref.read(settingsRepositoryProvider).setTtsVoice(name);
+          ref.read(ttsEngineProvider).reset();
+          ref.invalidate(_ttsVoicesProvider);
+          await ref.read(voiceServiceProvider).speak(_sample);
+        }
+
+        String label(TtsVoice v) =>
+            '${v.name}${v.needsNetwork ? ' (يحتاج إنترنت)' : ''}${v.quality >= 400 ? ' ★' : ''}';
+        return Padding(
+          padding: const EdgeInsets.fromLTRB(16, 4, 16, 12),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text('صوت القراءة', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w800)),
+              const SizedBox(height: 6),
+              DropdownButton<String?>(
+                isExpanded: true,
+                value: voices.any((v) => v.name == chosen) ? chosen : null,
+                items: [
+                  DropdownMenuItem<String?>(
+                    value: null,
+                    child: Text('تلقائي (الأوضح)${auto == null ? '' : ': ${auto.name}'}', overflow: TextOverflow.ellipsis),
+                  ),
+                  for (final v in voices)
+                    DropdownMenuItem<String?>(value: v.name, child: Text(label(v), overflow: TextOverflow.ellipsis)),
+                ],
+                onChanged: choose,
+              ),
+              TextButton.icon(
+                onPressed: () => ref.read(voiceServiceProvider).speak(_sample),
+                icon: const Icon(Icons.volume_up_rounded),
+                label: const Text('اسمعي الصوت'),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
 }

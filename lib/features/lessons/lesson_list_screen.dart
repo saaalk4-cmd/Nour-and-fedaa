@@ -145,7 +145,7 @@ class _LessonCard extends StatelessWidget {
                       style: TextStyle(
                         fontSize: little ? 24 : 21,
                         fontWeight: FontWeight.w800,
-                        color: unlocked ? AppColors.ink : const Color(0xFF7A8794),
+                        color: unlocked ? AppColors.ink : const Color(0xFF55626F),
                       ),
                     ),
                     const SizedBox(height: 4),

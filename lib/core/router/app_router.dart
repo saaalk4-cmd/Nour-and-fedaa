@@ -2,7 +2,6 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../features/home/home_screen.dart';
 import '../../features/home/journey_screen.dart';
 import '../../features/home/section_screen.dart';
 import '../../features/intro/intro_audio_player.dart';
@@ -13,6 +12,7 @@ import '../../features/path/learning_path_screen.dart';
 import '../../features/parent/parent_dashboard_screen.dart';
 import '../../features/parent/parent_gate_screen.dart';
 import '../../features/today/today_screen.dart';
+import '../../features/world/world_screen.dart';
 
 void _backToMain(BuildContext context) {
   if (context.canPop()) {
@@ -37,7 +37,10 @@ final routerProvider = Provider<GoRouter>((ref) {
         ),
       ),
       GoRoute(path: '/path', builder: (_, __) => const LearningPathScreen()),
-      GoRoute(path: '/home', builder: (_, __) => const HomeScreen()),
+      GoRoute(path: '/world', builder: (_, __) => const WorldScreen()),
+      GoRoute(path: '/world/deen', builder: (_, __) => const DeenScreen()),
+      // المسار القديم «العب بحرية» صار جزءًا من «عالمنا».
+      GoRoute(path: '/home', redirect: (_, __) => '/world'),
       GoRoute(path: '/today', builder: (_, __) => const TodayScreen()),
       GoRoute(path: '/journey', builder: (_, __) => const JourneyScreen()),
       GoRoute(path: '/section/:id', builder: (_, state) => SectionScreen(sectionId: state.pathParameters['id']!)),

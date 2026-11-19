@@ -8,7 +8,7 @@ class AppColors {
   static const Color sun = Color(0xFFF4B942);
   static const Color rose = Color(0xFFE76F8B);
   static const Color leaf = Color(0xFF6BBF59);
-  static const Color ink = Color(0xFF2B3A4A);
+  static const Color ink = Color(0xFF1E2833);
 }
 
 /// خطوط التطبيق: Lalezar للعناوين والكلمات الكبيرة، وTajawal للنص (تُنزَّل في CI؛ وإلا الخط الافتراضي).
@@ -45,6 +45,7 @@ class AppTheme {
       }),
       // شفاف: خلفية التطبيق (AppBackdrop) تظهر خلف كل الشاشات.
       scaffoldBackgroundColor: Colors.transparent,
+      // نص سميك وغامق دائمًا: الوزن الخفيف لـTajawal يبدو باهتًا على الموبايل.
       textTheme: const TextTheme(
         headlineMedium: TextStyle(
           fontFamily: AppText.displayFont,
@@ -58,7 +59,13 @@ class AppTheme {
           fontWeight: FontWeight.w400,
           color: AppColors.ink,
         ),
-        bodyLarge: TextStyle(fontSize: 18, color: AppColors.ink),
+        titleMedium: TextStyle(fontSize: 18, fontWeight: FontWeight.w800, color: AppColors.ink),
+        titleSmall: TextStyle(fontSize: 16, fontWeight: FontWeight.w800, color: AppColors.ink),
+        bodyLarge: TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: AppColors.ink),
+        bodyMedium: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: AppColors.ink),
+        bodySmall: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: AppColors.ink),
+        labelLarge: TextStyle(fontSize: 16, fontWeight: FontWeight.w800),
+        labelMedium: TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
       ),
       appBarTheme: AppBarTheme(
         backgroundColor: Colors.transparent,
