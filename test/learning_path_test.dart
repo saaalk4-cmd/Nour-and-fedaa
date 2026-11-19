@@ -55,7 +55,7 @@ void main() {
     expect(after.days[1].complete, isFalse);
   });
 
-  test('strict order: every week reads done* current locked* all the way through', () {
+  test('strict order: nothing before the current node is open or locked, nothing after it is open', () {
     for (final age in [3, 5]) {
       final done = <String>{};
       var steps = 0;
@@ -66,7 +66,9 @@ void main() {
         final cur = seq.indexOf(PathState.current);
         expect(cur, isNonNegative);
         expect(seq.take(cur).every((s) => s == PathState.done), isTrue);
-        expect(seq.skip(cur + 1).every((s) => s == PathState.locked), isTrue);
+        // بعد الحالية: مقفلة، أو منجزة سابقًا إن تكرر الدرس نفسه في أسبوع آخر.
+        expect(seq.skip(cur + 1).every((s) => s != PathState.current), isTrue);
+        expect(seq.take(cur).contains(PathState.locked), isFalse);
         done.add(p.current!.id);
         expect(++steps, lessThan(1000), reason: 'walk must terminate');
       }
