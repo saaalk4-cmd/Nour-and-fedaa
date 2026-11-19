@@ -81,12 +81,20 @@ for cat, f in SECTIONS:
             continue
         seen_texts.add(h['text'])
         all_items.append((cat, h))
+# الأحاديث الستة عشر الأولى مستعملة في منهج الأسابيع: تُبنى أسئلتها من نفس المجموعة كما كانت
+# (لا تتغير خياراتها بإضافة أحاديث جديدة). الجديدة تأتي بعدها.
+ORIGINAL_HADITH = 16
+originals = [x for x in all_items if 'verified' not in x[1]]
+assert len(originals) == ORIGINAL_HADITH, len(originals)
+all_items = originals + [x for x in all_items if 'verified' in x[1]]
 titles = [h['title'] for _, h in all_items]
 meanings = [h['kidMeaning'] for _, h in all_items]
 h_lessons = []
 for i, (cat, h) in enumerate(all_items):
-    ot = [t for t in titles if t != h['title']]
-    om = [m for m in meanings if m != h['kidMeaning']]
+    pool_t = titles[:ORIGINAL_HADITH] if i < ORIGINAL_HADITH else titles
+    pool_m = meanings[:ORIGINAL_HADITH] if i < ORIGINAL_HADITH else meanings
+    ot = [t for t in pool_t if t != h['title']]
+    om = [m for m in pool_m if m != h['kidMeaning']]
     ot = ot[i % len(ot):] + ot[:i % len(ot)]
     om = om[i % len(om):] + om[:i % len(om)]
     h_lessons.append({
@@ -149,6 +157,23 @@ TODDLER = {
                            tq('حجر في الطريق. ماذا نفعل؟', '🪨', '🤝 نبعده', '🙈 نتركه', 'نبعده')),
     'hadith_parents': ([('👩‍👧', 'ماما وبابا', 'نحب ماما وبابا')],
                        tq('من نحب ونحسن إليهما؟', '👩‍👧', '👩‍👧 ماما وبابا', '🙈 لا أحد', 'ماما وبابا')),
+    # إضافات الجلسة الثالثة (أذكار، سيرة، شخصيات). العبارات تعليمية قصيرة لا تقتبس الحديث.
+    'hadith_toilet_in': ([('🚽', 'قبل الحمّام', 'قبل الحمّام ندعو الله')],
+                         tq('قبل دخول الحمّام. ماذا نفعل؟', '🚽', '🤲 ندعو الله', '🏃 نجري', 'ندعو')),
+    'hadith_toilet_out': ([('🚪', 'بعد الحمّام', 'بعد الحمّام نستغفر الله')],
+                          tq('خرجنا من الحمّام. ماذا نفعل؟', '🚪', '🤲 نستغفر الله', '🙈 لا شيء', 'نستغفر')),
+    'hadith_home_in': ([('🏠', 'ندخل البيت', 'ندخل البيت ونذكر الله')],
+                       tq('ندخل البيت. ماذا نقول؟', '🏠', '🤲 بسم الله', '🤐 لا شيء', 'بسم الله')),
+    'hadith_mosque': ([('🕌', 'المسجد', 'ندخل المسجد وندعو الله')], None),
+    'hadith_rain': ([('🌧️', 'المطر', 'المطر نعمة من الله')],
+                    tq('نزل المطر. ماذا نفعل؟', '🌧️', '🤲 ندعو الله', '😠 نغضب', 'ندعو')),
+    'hadith_serving_family': ([('🏡', 'نساعد في البيت', 'النبي كان يساعد أهله')],
+                              tq('ماما ترتّب البيت. ماذا نفعل؟', '🧺', '🤝 نساعدها', '🙈 نتركها', 'نساعد')),
+    'hadith_mercy_children': ([('🤗', 'الرحمة', 'النبي يحب الأطفال')],
+                              tq('أخوك الصغير يبكي. ماذا نفعل؟', '😢', '🤗 نحضنه', '🙈 نتركه', 'نحضنه')),
+    'hadith_ali': ([('💛', 'علي', 'نحب علي بن أبي طالب')], None),
+    'hadith_bilal': ([('🕌', 'بلال', 'بلال يحب الصلاة')],
+                     tq('توضأنا. ماذا نفعل؟', '💧', '🕌 نصلي', '📺 نتفرج', 'نصلي')),
 }
 for l in h_lessons:
     base = l['id'][:-len('_lesson')]
@@ -213,3 +238,34 @@ for i, v in enumerate(verses):
     })
 save('prophets_lessons.json', p_lessons)
 print(len(p_lessons), 'prophet lessons')
+
+# ---------------- سيرة وشخصيات وأذكار من القرآن ----------------
+sv = load('section_ayat.json')
+s_lessons = []
+for i, v in enumerate(sv['verses']):
+    same = [o for o in sv['verses'] if o['category'] == v['category'] and o['id'] != v['id']]
+    pool = same if len(same) >= 2 else [o for o in sv['verses'] if o['id'] != v['id']]
+    pool = pool[i % len(pool):] + pool[:i % len(pool)]
+    ref = 'سورة %s، آية %d' % (v['surahName'], v['ayahFrom']) if v['ayahFrom'] == v['ayahTo'] \
+        else 'سورة %s، الآيات %d-%d' % (v['surahName'], v['ayahFrom'], v['ayahTo'])
+    recite = [v['surahNumber'], v['ayahFrom']] if v['ayahFrom'] == v['ayahTo'] \
+        else [v['surahNumber'], v['ayahFrom'], v['ayahTo']]
+    s_lessons.append({
+        'id': v['id'] + '_lesson', 'title': v['title'], 'emoji': v['emoji'],
+        'category': v['category'], 'minAge': 3, 'maxAge': 6, 'difficulty': 1,
+        'source': {'type': 'quran', 'reference': '%s — %s' % (sv['source']['name'], ref)},
+        'steps': [{'emoji': '📖', 'text': v['text'], 'recite': recite},
+                  {'emoji': '💡', 'text': v['kidMeaning']}],
+        'questions': [
+            question('عن ماذا تتحدث هذه الآية؟\n' + v['text'], v['title'], [o['title'] for o in pool], i,
+                     'استمعي للآية جيدًا', v['emoji']),
+            question('ماذا نتعلّم؟', v['kidMeaning'], [o['kidMeaning'] for o in pool], i + 1,
+                     'تذكّري الخطوة الثانية', '💡'),
+        ],
+        'toddler': {'cards': [
+            {'emoji': v['emoji'], 'word': v['toddlerWord'], 'say': v['toddlerSay']},
+            {'emoji': '📖', 'word': '', 'recite': recite},
+        ]},
+    })
+save('section_ayat_lessons.json', s_lessons)
+print(len(s_lessons), 'section ayah lessons')

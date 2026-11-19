@@ -15,6 +15,7 @@ class ContentRepository {
     'assets/content/quran_lessons.json',
     'assets/content/hadith_lessons.json',
     'assets/content/prophets_lessons.json',
+    'assets/content/section_ayat_lessons.json',
     'assets/content/week1_lessons.json',
     'assets/content/week1_early_lessons.json',
     'assets/content/week2_lessons.json',

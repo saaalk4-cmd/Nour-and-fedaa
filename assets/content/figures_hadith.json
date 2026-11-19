@@ -45,6 +45,40 @@
       "url": "https://hadeethenc.com/ar/browse/hadith/66402",
       "kidMeaning": "كان النبي ﷺ لطيفًا مع أنس، ولم يقل له كلمة جارحة؛ ونحن نتعلم اللطف مع الناس.",
       "excerpt": true
+    },
+    {
+      "id": "hadith_ali",
+      "title": "علي بن أبي طالب",
+      "emoji": "💛",
+      "text": "أما ترضى أن تكون مني بمنزلة هارون من موسى؟ غير أنه لا نبي بعدي",
+      "narrator": "سعد بن أبي وقاص رضي الله عنه",
+      "book": "صحيح البخاري",
+      "number": "4416",
+      "grade": "صحيح",
+      "url": "https://hadeethenc.com/ar/browse/hadith/65843",
+      "kidMeaning": "علي رضي الله عنه كان قريبًا من النبي ﷺ، كما كان هارون قريبًا من أخيه موسى.",
+      "excerpt": false,
+      "verified": [
+        "HadeethEnc #65843 (متفق عليه)",
+        "نص مطابق في صحيح البخاري (hadith-json / sunnah.com)"
+      ]
+    },
+    {
+      "id": "hadith_bilal",
+      "title": "بلال بن رباح",
+      "emoji": "🕌",
+      "text": "يَا بِلاَلُ، حَدِّثْنِي بِأَرْجَى عَمَلٍ عَمِلْتَهُ فِي الإِسْلاَمِ، فَإِنِّي سَمِعْتُ دَفَّ نَعْلَيْكَ بَيْنَ يَدَيَّ فِي الجَنَّةِ",
+      "narrator": "أبو هريرة رضي الله عنه",
+      "book": "صحيح البخاري",
+      "number": "1149",
+      "grade": "صحيح",
+      "url": "https://hadeethenc.com/ar/browse/hadith/65849",
+      "kidMeaning": "سمع النبي ﷺ صوت خطوات بلال في الجنة، لأن بلالًا كان يصلي كلما توضأ.",
+      "excerpt": true,
+      "verified": [
+        "HadeethEnc #65849 (متفق عليه)",
+        "نص مطابق في صحيح البخاري (hadith-json / sunnah.com)"
+      ]
     }
   ]
 }

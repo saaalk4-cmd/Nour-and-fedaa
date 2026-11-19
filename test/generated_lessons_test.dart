@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
@@ -97,6 +98,35 @@ void prophetsTests() {
       expect(l.spokenText(v.text), isNull, reason: l.id);
       for (final c in cards) {
         expect(v.text.contains(c.say ?? c.word) && (c.say ?? c.word).isNotEmpty, isFalse, reason: l.id);
+      }
+    }
+  });
+
+  final sections = ContentRepository.parseLessons(
+    File('assets/content/section_ayat_lessons.json').readAsStringSync(),
+  );
+
+  test('seerah, figures and adhkar ayat are Quran-sourced and recited by the sheikh', () {
+    expect(sections.length, greaterThanOrEqualTo(13));
+    for (final l in sections) {
+      expect(['seerah', 'figures', 'adhkar'], contains(l.category), reason: l.id);
+      expect(l.source.type, 'quran', reason: l.id);
+      expect(l.source.reference, contains('Tanzil'), reason: l.id);
+      expect(l.steps.first.recite, isNotNull, reason: l.id);
+      expect(l.spokenText(l.steps.first.text), isNull, reason: '${l.id}: ayah never machine-spoken');
+      expect(l.toddlerCards().where((c) => c.recite != null).length, 1, reason: l.id);
+    }
+  });
+
+  test('new hadith entries are sahih, numbered and read twice', () {
+    for (final f in ['adhkar', 'seerah', 'figures']) {
+      final doc = jsonDecode(File('assets/content/${f}_hadith.json').readAsStringSync()) as Map<String, dynamic>;
+      for (final h in (doc['hadiths'] as List).cast<Map<String, dynamic>>()) {
+        if (!h.containsKey('verified')) continue;
+        expect(h['grade'], 'صحيح', reason: h['id'] as String);
+        expect(int.tryParse(h['number'] as String), isNotNull, reason: h['id'] as String);
+        expect((h['verified'] as List).length, 2, reason: h['id'] as String);
+        expect(h['url'] as String, startsWith('https://hadeethenc.com/'), reason: h['id'] as String);
       }
     }
   });
