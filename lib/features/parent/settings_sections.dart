@@ -299,8 +299,19 @@ class DisplayControls extends ConsumerWidget {
     final scale = ref.watch(fontScaleProvider).valueOrNull ?? 1.0;
     final songButton = ref.watch(songButtonProvider).valueOrNull ?? true;
     final songAfter = ref.watch(songAfterAdventureProvider).valueOrNull ?? true;
+    final homeMap = ref.watch(homeMapProvider).valueOrNull ?? false;
     return Column(
       children: [
+        SwitchListTile(
+          secondary: const Text('🗺️', style: TextStyle(fontSize: 26)),
+          title: const Text('«عالمي» كخريطة مرسومة'),
+          subtitle: const Text('الأقسام محطات على طريق بدل المربعات'),
+          value: homeMap,
+          onChanged: (v) async {
+            await repo.setHomeMap(v);
+            ref.invalidate(homeMapProvider);
+          },
+        ),
         SwitchListTile(
           secondary: const Text('🎵', style: TextStyle(fontSize: 26)),
           title: const Text('زر «أغنيتنا» في الرئيسية'),

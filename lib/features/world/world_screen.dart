@@ -15,6 +15,7 @@ import '../../data/providers.dart';
 import '../../data/repositories/settings_repository.dart';
 import '../home/sections.dart';
 import '../home/who_learns_screen.dart' show characterFor, colorFor;
+import 'world_map.dart';
 import '../lessons/kid_section_screen.dart' show spokenTitle;
 import '../song/song_screen.dart' show currentDayKey, dayJustCompleted;
 import '../today/today_screen.dart' show curriculumProvider;
@@ -94,6 +95,7 @@ class _WorldScreenState extends ConsumerState<WorldScreen> {
     final states = ref.watch(sectionStatesProvider).valueOrNull ?? const <String, bool>{};
     final stars = ref.watch(gamificationProfileProvider(c.id)).valueOrNull?.stars;
     final songButton = ref.watch(songButtonProvider).valueOrNull ?? true;
+    final homeMap = ref.watch(homeMapProvider).valueOrNull ?? false;
     final songAfter = ref.watch(songAfterAdventureProvider).valueOrNull ?? true;
 
     PathWeek? path;
@@ -203,6 +205,22 @@ class _WorldScreenState extends ConsumerState<WorldScreen> {
               const SizedBox(height: 8),
             ]),
           ),
+          if (homeMap)
+            SliverPadding(
+              padding: const EdgeInsets.fromLTRB(16, 0, 16, 28),
+              sliver: SliverToBoxAdapter(
+                child: WorldMap(stops: [
+                  for (final s in sections)
+                    MapStop(
+                      art: s.art,
+                      title: spokenTitle(s.title),
+                      color: SectionLook.of(s.id).color,
+                      onTap: () => _go(spokenTitle(s.title), '/section/${s.id}'),
+                    ),
+                ]),
+              ),
+            )
+          else
           SliverPadding(
             padding: const EdgeInsets.fromLTRB(16, 0, 16, 28),
             sliver: SliverGrid.count(
