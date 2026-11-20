@@ -69,8 +69,23 @@ jobs:
       - name: Fetch fonts
         run: python3 tools/fetch_fonts.py
 
-      # جمل التطبيق المتكررة بصوت عالي الجودة (لا تُرفع إلى git ولا يفشل البناء إن تعذّر توليدها)
+      # يُحفظ ما وُلِّد بين البنايات: كل جملة تُحسب مرة واحدة فقط من رصيد ElevenLabs
+      - name: Restore generated voice clips
+        uses: actions/cache@v4
+        with:
+          path: assets/audio/voice
+          key: voice-v1-${{ github.run_id }}
+          restore-keys: |
+            voice-v1-
+
+      # جمل التطبيق المتكررة بصوت عالي الجودة (لا تُرفع إلى git ولا يفشل البناء إن تعذّر توليدها).
+      # صوت «وئام» من ElevenLabs لو وُجد secret باسم ELEVENLABS_API_KEY (على الـpush فقط حتى لا يُصرف الرصيد مرتين)،
+      # وإلا edge-tts. اختياري: متغيرات ELEVENLABS_VOICE_ID و ELEVENLABS_MAX_CHARS في Variables.
       - name: Build high-quality voice clips
+        env:
+          ELEVENLABS_API_KEY: ${{ github.event_name == 'push' && secrets.ELEVENLABS_API_KEY || '' }}
+          ELEVENLABS_VOICE_ID: ${{ vars.ELEVENLABS_VOICE_ID }}
+          ELEVENLABS_MAX_CHARS: ${{ vars.ELEVENLABS_MAX_CHARS }}
         run: |
           pip install --quiet edge-tts || true
           python3 tools/build_voice.py

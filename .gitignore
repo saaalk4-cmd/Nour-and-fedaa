@@ -37,3 +37,5 @@ assets/fonts/
 # أصوات عالية الجودة تُولَّد في CI (tools/build_voice.py)
 assets/audio/voice/*.mp3
 assets/audio/voice/index.json
+assets/audio/voice/_sources.json
+assets/audio/voice/_voice.txt

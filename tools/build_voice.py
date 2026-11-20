@@ -3,8 +3,13 @@
 
 - المصدر: الجمل التعليمية المكتوبة في كود الشاشات (ما يُمرَّر إلى speak) مع أسماء
   البنتين، وعناوين الدروس والأقسام. لا يُولَّد صوت لأي آية أو حديث أبدًا.
-- الصوت: edge-tts (أصوات Microsoft العصبية). القيمة الافتراضية ar-EG-SalmaNeural
-  ويمكن تغييرها بـ VOICE_NAME.
+- الصوت: **ElevenLabs بصوت «وئام»** إن وُجد المتغير ELEVENLABS_API_KEY (في CI من secret باسم
+  ELEVENLABS_API_KEY)؛ وإلا edge-tts (أصوات Microsoft العصبية، الافتراضي ar-EG-SalmaNeural).
+  - يبدأ بالجمل الأساسية ثم الباقي، ولا يتجاوز حد الأحرف في البناء الواحد (ELEVENLABS_MAX_CHARS، الافتراضي 9000)،
+    ولا يتجاوز الرصيد المتبقي في الحساب؛ وما لا يتسع يكمله صوت edge-tts (VOICE_FALLBACK=edge) أو يُترك لصوت الجهاز (none)،
+    ثم يُستبدل بصوت ElevenLabs في أول بناء يتسع له الرصيد. كل جملة تُحسب مرة واحدة فقط (يُحفظ ما وُلِّد).
+  - متغيرات: ELEVENLABS_VOICE_ID (الافتراضي وئام R5kMoWNNTn84ezIJA53m)، ELEVENLABS_MODEL (eleven_multilingual_v2)،
+    ELEVENLABS_SPEED (0.9).
 - الناتج: assets/audio/voice/<key>.mp3 + index.json. المفتاح يطابق
   VoiceService.clipKey في Dart (أول 16 حرفًا من sha1 للنص بعد التنظيف).
 - لا يفشل البناء أبدًا: لو تعذّر التوليد يعمل التطبيق بصوت الجهاز.
@@ -21,14 +26,26 @@ import json
 import os
 import re
 import sys
+import time
+import urllib.error
+import urllib.request
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
-OUT = os.path.join(ROOT, 'assets', 'audio', 'voice')
+OUT = os.environ.get('VOICE_OUT_DIR') or os.path.join(ROOT, 'assets', 'audio', 'voice')
 VOICE = os.environ.get('VOICE_NAME', 'ar-EG-SalmaNeural')
 RATE = os.environ.get('VOICE_RATE', '-8%')
 PITCH = os.environ.get('VOICE_PITCH', '+4Hz')
 NAMES = ['فداء', 'نور']
 MAX_CLIPS = 4000
+
+EL_KEY = os.environ.get('ELEVENLABS_API_KEY', '').strip()
+EL_VOICE = os.environ.get('ELEVENLABS_VOICE_ID', '').strip() or 'R5kMoWNNTn84ezIJA53m'  # وئام
+EL_MODEL = os.environ.get('ELEVENLABS_MODEL', '').strip() or 'eleven_multilingual_v2'
+EL_BASE = os.environ.get('ELEVENLABS_BASE', 'https://api.elevenlabs.io').rstrip('/')
+EL_FORMAT = os.environ.get('ELEVENLABS_FORMAT', 'mp3_44100_64')
+EL_SPEED = float(os.environ.get('ELEVENLABS_SPEED', '0.9') or 0.9)
+EL_MAX_CHARS = int(os.environ.get('ELEVENLABS_MAX_CHARS', '9000') or 9000)
+FALLBACK = os.environ.get('VOICE_FALLBACK', 'edge')  # edge | none
 
 ARABIC = re.compile('[؀-ۿ]')
 # يطابق VoiceService.clean
@@ -230,34 +247,213 @@ def phrases():
 
 # --------- التوليد ---------
 
-async def _generate(items):
-    import edge_tts  # noqa: PLC0415
+SOURCES = os.path.join(OUT, '_sources.json')  # مفتاح الجملة ← مصدر صوتها (eleven | edge)
 
+
+def essential_keys():
+    """مفاتيح الجمل الأساسية (ترحيب وتشجيع وأسماء الأقسام): تُولَّد أولًا."""
+    texts = []
+    texts += NAMES
+    texts += sorted(cheer_phrases())
+    texts += [x.replace('{n}', n) for x in ESSENTIAL_EXTRA for n in (NAMES if '{n}' in x else [''])]
+    texts += sorted(section_phrases())
+    out, seen = [], set()
+    for t in texts:
+        c = clean(t)
+        if c and c not in seen and ARABIC.search(c):
+            seen.add(c)
+            out.append(clip_key(c))
+    return out
+
+
+def ordered_items():
+    """كل الجمل: الأساسية أولًا (بترتيبها) ثم الباقي بالترتيب الأبجدي."""
+    allp = phrases()
+    first = [k for k in essential_keys() if k in allp]
+    seen = set(first)
+    return [(k, allp[k]) for k in first] + [(k, t) for k, t in allp.items() if k not in seen]
+
+
+def load_sources():
+    try:
+        with open(SOURCES, encoding='utf-8') as fh:
+            return json.load(fh)
+    except Exception:  # noqa: BLE001
+        return {}
+
+
+def save_sources(src):
+    with open(SOURCES, 'w', encoding='utf-8') as fh:
+        json.dump(src, fh, ensure_ascii=False, sort_keys=True)
+
+
+class ElevenLabs:
+    """عميل ElevenLabs بسيط (urllib، بلا اعتماديات). يتعطّل نفسه عند خطأ دائم (مفتاح/خطة)."""
+
+    def __init__(self):
+        self.enabled = bool(EL_KEY)
+        self.reason = ''
+
+    def _req(self, path, body=None, timeout=60):
+        data = None if body is None else json.dumps(body).encode('utf-8')
+        req = urllib.request.Request(
+            EL_BASE + path, data=data, method='POST' if body is not None else 'GET',
+            headers={'xi-api-key': EL_KEY, 'Content-Type': 'application/json', 'Accept': 'audio/mpeg, application/json'})
+        return urllib.request.urlopen(req, timeout=timeout)
+
+    def remaining_chars(self):
+        """الرصيد المتبقي في الحساب (None لو تعذّرت القراءة)."""
+        try:
+            with self._req('/v1/user/subscription', timeout=20) as r:
+                d = json.load(r)
+            return int(d['character_limit']) - int(d['character_count'])
+        except Exception:  # noqa: BLE001
+            return None
+
+    def speak(self, text, path):
+        """يولّد الجملة إلى path. يرجع True عند النجاح. يعطّل نفسه عند 401/402/403."""
+        body = {
+            'text': text,
+            'model_id': EL_MODEL,
+            'voice_settings': {'stability': 0.55, 'similarity_boost': 0.75, 'style': 0.0,
+                               'use_speaker_boost': True, 'speed': EL_SPEED},
+        }
+        for attempt in range(4):
+            try:
+                with self._req('/v1/text-to-speech/%s?output_format=%s' % (EL_VOICE, EL_FORMAT), body) as r:
+                    audio = r.read()
+                if len(audio) < 800:
+                    raise ValueError('audio too small')
+                with open(path, 'wb') as fh:
+                    fh.write(audio)
+                return True
+            except urllib.error.HTTPError as e:
+                if e.code in (401, 402, 403):
+                    detail = ''
+                    try:
+                        detail = e.read().decode('utf-8', 'ignore')[:160]
+                    except Exception:  # noqa: BLE001
+                        pass
+                    self.enabled = False
+                    self.reason = 'HTTP %d %s' % (e.code, detail)
+                    return False
+                if e.code in (429, 500, 502, 503, 504) and attempt < 3:
+                    time.sleep(2 + attempt * 3)
+                    continue
+                print('eleven fail', text[:30], 'HTTP', e.code)
+                return False
+            except Exception as e:  # noqa: BLE001
+                if attempt == 3:
+                    print('eleven fail', text[:30], ':', e)
+                    return False
+                time.sleep(1 + attempt * 2)
+        return False
+
+
+def edge_speak(text, path):
+    try:
+        import edge_tts  # noqa: PLC0415
+    except Exception:  # noqa: BLE001
+        return False
+
+    async def run():
+        await edge_tts.Communicate(text, VOICE, rate=RATE, pitch=PITCH).save(path)
+
+    for attempt in range(3):
+        try:
+            asyncio.run(run())
+            if os.path.getsize(path) > 0:
+                return True
+        except Exception as e:  # noqa: BLE001
+            if attempt == 2:
+                print('edge fail', text[:30], ':', e)
+            time.sleep(1 + attempt * 2)
+    if os.path.exists(path):
+        os.remove(path)
+    return False
+
+
+def generate(items):
+    """يولّد المقاطع الناقصة. يرجع (مفاتيح الجاهز، المصادر، ملخص)."""
     os.makedirs(OUT, exist_ok=True)
-    sem = asyncio.Semaphore(6)
-    ok = []
+    src = load_sources()
+    eleven = ElevenLabs()
+    budget = EL_MAX_CHARS
+    summary = {'eleven': 0, 'edge': 0, 'reused': 0, 'skipped': 0}
+    if eleven.enabled:
+        rem = eleven.remaining_chars()
+        if rem is not None:
+            budget = min(budget, max(0, rem - 300))  # هامش أمان
+        print('ElevenLabs: voice %s, model %s, budget %d chars' % (EL_VOICE, EL_MODEL, budget))
 
-    async def one(key, text):
-        path = os.path.join(OUT, key + '.mp3')
-        if os.path.exists(path) and os.path.getsize(path) > 0:
-            ok.append(key)
-            return
-        async with sem:
-            for attempt in range(3):
-                try:
-                    await edge_tts.Communicate(text, VOICE, rate=RATE, pitch=PITCH).save(path)
-                    if os.path.getsize(path) > 0:
-                        ok.append(key)
-                        return
-                except Exception as e:  # noqa: BLE001
-                    if attempt == 2:
-                        print('fail', text, ':', e)
-                    await asyncio.sleep(1 + attempt * 2)
-            if os.path.exists(path):
-                os.remove(path)
+    # صوت ElevenLabs/ الصوت المختار تغيّر؟ لا نخلط مقاطع صوت قديم.
+    want = 'eleven:%s:%s' % (EL_VOICE, EL_MODEL) if eleven.enabled else 'edge:%s' % VOICE
+    meta_path = os.path.join(OUT, '_voice.txt')
+    try:
+        old = open(meta_path, encoding='utf-8').read().strip()
+    except Exception:  # noqa: BLE001
+        old = ''
+    if old and old != want:
+        for f in os.listdir(OUT):
+            if f.endswith('.mp3'):
+                os.remove(os.path.join(OUT, f))
+        src = {}
+        print('voice changed (%s -> %s): regenerating all clips' % (old, want))
+    with open(meta_path, 'w', encoding='utf-8') as fh:
+        fh.write(want)
 
-    await asyncio.gather(*(one(k, t) for k, t in items))
-    return ok
+    ready = []
+    todo = []
+    for k, t in items:
+        path = os.path.join(OUT, k + '.mp3')
+        have = os.path.exists(path) and os.path.getsize(path) > 0
+        kind = src.get(k)
+        if have and (kind == 'eleven' or not eleven.enabled):
+            ready.append(k)
+            summary['reused'] += 1
+        else:
+            todo.append((k, t, have))
+
+    # ElevenLabs أولًا بالترتيب (الأساسي ثم الباقي)، ضمن الميزانية
+    pending = []
+    if eleven.enabled:
+        for k, t, have in todo:
+            path = os.path.join(OUT, k + '.mp3')
+            if not eleven.enabled:
+                pending.append((k, t, have))
+                continue
+            if len(t) > budget:
+                pending.append((k, t, have))
+                summary['skipped'] += 1
+                continue
+            tmp = path + '.part'
+            if eleven.speak(t, tmp):
+                os.replace(tmp, path)
+                budget -= len(t)
+                src[k] = 'eleven'
+                ready.append(k)
+                summary['eleven'] += 1
+            else:
+                if os.path.exists(tmp):
+                    os.remove(tmp)
+                pending.append((k, t, have))
+        if not eleven.enabled and eleven.reason:
+            print('ElevenLabs disabled for this run:', eleven.reason)
+    else:
+        pending = todo
+
+    # ما لم يتسع له الرصيد: صوت edge-tts (إن سُمح) وإلا يبقى لصوت الجهاز
+    for k, t, have in pending:
+        path = os.path.join(OUT, k + '.mp3')
+        if have and src.get(k) == 'edge':
+            ready.append(k)
+            continue
+        if FALLBACK == 'edge' and edge_speak(t, path):
+            src[k] = 'edge'
+            ready.append(k)
+            summary['edge'] += 1
+    save_sources(src)
+    return ready, src, summary
 
 
 # جمل يُنصح الأهل بتسجيلها أولًا (ترحيب وتشجيع وأسماء الأقسام)
@@ -320,21 +516,23 @@ def main():
     if '--catalog' in sys.argv:
         write_catalog()
         return 0
-    items = list(phrases().items())[:MAX_CLIPS]
+    items = ordered_items()[:MAX_CLIPS]
     if '--list' in sys.argv:
         for k, t in items:
             print(k, t)
         print(len(items), 'phrases')
         return 0
     try:
-        ok = asyncio.run(_generate(items))
+        ok, src, summary = generate(ordered_items()[:MAX_CLIPS])
     except Exception as e:  # noqa: BLE001
         print('voice clips skipped:', e)
         return 0
+    voice = ('eleven:' + EL_VOICE) if (EL_KEY and any(v == 'eleven' for v in src.values())) else VOICE
     with open(os.path.join(OUT, 'index.json'), 'w', encoding='utf-8') as fh:
-        json.dump({'voice': VOICE, 'clips': sorted(ok)}, fh)
+        json.dump({'voice': voice, 'clips': sorted(ok), 'sources': {k: src.get(k, 'edge') for k in ok}}, fh)
     size = sum(os.path.getsize(os.path.join(OUT, k + '.mp3')) for k in ok)
-    print('voice clips: %d ok of %d, %.1f MB, voice %s' % (len(ok), len(items), size / 1e6, VOICE))
+    print('voice clips: %d ready, %.1f MB | ElevenLabs new %d, edge new %d, reused %d, over budget %d' % (
+        len(ok), size / 1e6, summary['eleven'], summary['edge'], summary['reused'], summary['skipped']))
     return 0
 
 
