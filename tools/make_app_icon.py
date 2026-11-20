@@ -32,7 +32,7 @@ legacy.paste(inner, (0, 0), rmask(1024, 150, 24))
 legacy.save(f'{outdir}/icon.png')
 
 # الأيقونة المتكيّفة: Android يقص الدائرة الوسطى (حوالي 66%)، فنصغّر المحتوى
-s = int(1024 * 0.74)
+s = int(1024 * 0.60)  # الدائرة تُظهر 72 من 108 (66%): اللوجو كله بالكلام جواها
 small = inner.resize((s, s), Image.LANCZOS)
 fg = bg.copy()
 o = (1024 - s) // 2
@@ -45,7 +45,7 @@ for i, shape in enumerate(['circle', 'squircle']):
     t = fg.resize((432, 432), Image.LANCZOS)
     m = Image.new('L', (432, 432), 0); d = ImageDraw.Draw(m)
     vis = (432 - 288) // 2  # 72dp من 108dp
-    box = (vis - 30, vis - 30, 432 - vis + 30, 432 - vis + 30)
+    box = (vis, vis, 432 - vis, 432 - vis)  # المساحة الظاهرة فعلًا على الموبايل
     (d.ellipse if shape == 'circle' else lambda b, fill: d.rounded_rectangle(b, 70, fill=fill))(box, fill=255)
     prev.paste(t, (40 + i * 520, 60), m)
 prev.paste(legacy.resize((200, 200)), (450, 340))
