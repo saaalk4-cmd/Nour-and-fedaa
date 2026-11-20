@@ -300,24 +300,41 @@ def nour_lesson_phrases():
     return {x for x in out if x}
 
 
+def lesson_file_phrases():
+    """assets/content/lesson_phrases.json: كل ما تقوله شاشتا الدرس بالصوت (لفداء ونور)، يولّده
+    test/lesson_phrases_test.dart من كود التطبيق نفسه (classifyLine): بلا آيات ولا نص حديث."""
+    p = os.path.join(ROOT, 'assets', 'content', 'lesson_phrases.json')
+    try:
+        with open(p, encoding='utf-8') as fh:
+            return set(json.load(fh)['phrases'])
+    except Exception:  # noqa: BLE001
+        return set()
+
+
 def phrases():
+    # الحماية بنص الآية/الحديث نفسه (quote_texts)، لا بالملف كله: كان يمنع حتى أسماء الدروس
+    # في ملفات القرآن والحديث (مثل «بلال بن رباح») فتبقى بلا صوت.
+    quotes = quote_texts()
     protected = protected_texts()
     raw = dart_phrases() | content_phrases() | section_phrases() | game_phrases() | cheer_phrases()
     result = {}
     for r in raw:
         t = clean(r)
-        if not t or not ARABIC.search(t) or t in protected or looks_religious(t):
+        if not t or not ARABIC.search(t) or t in quotes or looks_religious(t):
             continue
         result[clip_key(t)] = t
-    # جمل دروس نور: كلها مسموعة. الحماية هنا بنص الآية/الحديث نفسه (لا بالملف كله)، وبالتشكيل.
-    # والجملة المشكَّلة من ملفات القرآن والحديث لا تُنطق (قد تكون آية أو حديثًا)؛ أما في الدروس التعليمية فتُنطق.
-    quotes = quote_texts()
+    # جمل دروس نور (احتياطًا، والملف أدناه يشملها). المشكَّلة من ملفات القرآن والحديث لا تُنطق.
     for r in nour_lesson_phrases():
         t = clean(r)
         if (not t or not ARABIC.search(t) or t in quotes or looks_religious(t)
                 or (t in protected and len(TASHKEEL.findall(t)) >= 3)):
             continue
         result[clip_key(t)] = t
+    # كل جمل الدروس كما يصنّفها التطبيق نفسه.
+    for r in lesson_file_phrases():
+        t = clean(r)
+        if t and ARABIC.search(t) and not looks_religious(t):
+            result[clip_key(t)] = t
     return dict(sorted(result.items(), key=lambda kv: kv[1]))
 
 
@@ -532,6 +549,48 @@ def generate(items):
     return ready, src, summary
 
 
+SMALL = os.path.join(OUT, '_small.json')  # مقاطع صُغّرت بالفعل (لا نعيد ضغطها)
+
+
+def shrink_clips(keys):
+    """يصغّر المقاطع لصوت أحادي 32 كيلوبت (كلام واضح، وحجم أقل بحوالي النصف) إن وُجد ffmpeg.
+    مرة واحدة لكل مقطع؛ أي فشل يترك المقطع كما هو."""
+    import shutil  # noqa: PLC0415
+    import subprocess  # noqa: PLC0415
+    if not shutil.which('ffmpeg'):
+        print('shrink skipped: no ffmpeg')
+        return 0
+    try:
+        with open(SMALL, encoding='utf-8') as fh:
+            done = json.load(fh)
+    except Exception:  # noqa: BLE001
+        done = {}
+    n = 0
+    for k in keys:
+        path = os.path.join(OUT, k + '.mp3')
+        if not os.path.exists(path):
+            continue
+        sig = '%d' % os.path.getsize(path)
+        if done.get(k) == sig:
+            continue
+        tmp = path + '.small.mp3'
+        try:
+            subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', path, '-ac', '1', '-ar', '22050',
+                            '-b:a', '32k', tmp], check=True, timeout=60)
+            if 800 < os.path.getsize(tmp) < os.path.getsize(path):
+                os.replace(tmp, path)
+            n += 1
+        except Exception:  # noqa: BLE001
+            pass
+        finally:
+            if os.path.exists(tmp):
+                os.remove(tmp)
+        done[k] = '%d' % os.path.getsize(path)
+    with open(SMALL, 'w', encoding='utf-8') as fh:
+        json.dump(done, fh, sort_keys=True)
+    return n
+
+
 # جمل يُنصح الأهل بتسجيلها أولًا (ترحيب وتشجيع وأسماء الأقسام)
 ESSENTIAL_EXTRA = [
     'من سيتعلم اليوم؟', 'أهلًا يا {n}! هيا نبدأ مهمتنا', 'أحسنتِ يا {n}! هيا نكمل', 'أحسنتِ يا {n}! أكملتِ اليوم',
@@ -603,6 +662,10 @@ def main():
     except Exception as e:  # noqa: BLE001
         print('voice clips skipped:', e)
         return 0
+    try:
+        print('shrunk %d clips' % shrink_clips(ok))
+    except Exception as e:  # noqa: BLE001
+        print('shrink skipped:', e)
     voice = ('eleven:' + EL_VOICE) if (EL_KEY and any(v == 'eleven' for v in src.values())) else VOICE
     with open(os.path.join(OUT, 'index.json'), 'w', encoding='utf-8') as fh:
         json.dump({'voice': voice, 'clips': sorted(ok), 'sources': {k: src.get(k, 'edge') for k in ok}}, fh)

@@ -64,6 +64,7 @@ class ContentRepository {
     'assets/content/week22_early_lessons.json',
     'assets/content/week23_early_lessons.json',
     'assets/content/week24_early_lessons.json',
+    'assets/content/nour_more_lessons.json',
   ];
 
   Future<List<Lesson>> loadLessons() async {

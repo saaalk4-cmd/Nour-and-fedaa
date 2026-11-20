@@ -591,7 +591,8 @@
           ],
           "earlyLessons": [
             "hadith_parents_lesson",
-            "w9e_family"
+            "w9e_family",
+            "w9e_more_letter_1"
           ]
         },
         {
@@ -605,7 +606,8 @@
           ],
           "earlyLessons": [
             "w9e_farm",
-            "w9e_thanks"
+            "w9e_thanks",
+            "prophet_adam_lesson"
           ]
         },
         {
@@ -618,7 +620,9 @@
             "w9_english_colors"
           ],
           "earlyLessons": [
-            "w9e_count_apples"
+            "w9e_count_apples",
+            "w9e_more_feelings",
+            "w9e_more_bismillah_eat"
           ]
         },
         {
@@ -631,7 +635,8 @@
           ],
           "earlyLessons": [
             "w9e_sibling",
-            "quran_surah_114"
+            "quran_surah_114",
+            "w9e_more_letter_2"
           ]
         },
         {
@@ -642,7 +647,9 @@
             "w9_pattern"
           ],
           "earlyLessons": [
-            "w9e_review_game"
+            "w9e_review_game",
+            "hadith_eating_manners_lesson",
+            "w9e_more_ducks"
           ]
         }
       ]
@@ -661,7 +668,8 @@
           ],
           "earlyLessons": [
             "hadith_good_word_lesson",
-            "w10e_colors2"
+            "w10e_colors2",
+            "w10e_more_right_hand"
           ]
         },
         {
@@ -673,7 +681,8 @@
           ],
           "earlyLessons": [
             "w10e_fruits",
-            "w10e_please"
+            "w10e_please",
+            "w10e_more_letter_3"
           ]
         },
         {
@@ -685,7 +694,9 @@
             "w10_english_animals"
           ],
           "earlyLessons": [
-            "w10e_sounds1"
+            "w10e_sounds1",
+            "prophet_idris_lesson",
+            "w10e_more_color_red"
           ]
         },
         {
@@ -696,7 +707,9 @@
             "w10_pattern"
           ],
           "earlyLessons": [
-            "w10e_share"
+            "w10e_share",
+            "w10e_more_gentle_pet",
+            "w10e_more_letter_4"
           ]
         },
         {
@@ -706,7 +719,9 @@
             "w10_review_game"
           ],
           "earlyLessons": [
-            "w10e_review_game"
+            "w10e_review_game",
+            "hadith_home_in_lesson",
+            "w10e_more_up_down"
           ]
         }
       ]
@@ -725,7 +740,8 @@
           ],
           "earlyLessons": [
             "hadith_every_good_is_charity_lesson",
-            "w11e_shapes"
+            "w11e_shapes",
+            "w11e_more_quiet_sleep"
           ]
         },
         {
@@ -738,7 +754,8 @@
           ],
           "earlyLessons": [
             "w11e_veg",
-            "w11e_wash"
+            "w11e_wash",
+            "w11e_more_letter_5"
           ]
         },
         {
@@ -749,7 +766,9 @@
             "w11_float"
           ],
           "earlyLessons": [
-            "w11e_big_small"
+            "w11e_big_small",
+            "prophet_hud_lesson",
+            "w11e_more_actions"
           ]
         },
         {
@@ -760,7 +779,9 @@
             "w11_order_seed"
           ],
           "earlyLessons": [
-            "w11e_tidy"
+            "w11e_tidy",
+            "w11e_more_cover_cough",
+            "w11e_more_letter_6"
           ]
         },
         {
@@ -770,7 +791,9 @@
             "w11_review_game"
           ],
           "earlyLessons": [
-            "w11e_review_game"
+            "w11e_review_game",
+            "hadith_toilet_in_lesson",
+            "w11e_more_cars"
           ]
         }
       ]
@@ -788,7 +811,8 @@
           ],
           "earlyLessons": [
             "hadith_sleep_dhikr_lesson",
-            "w12e_body"
+            "w12e_body",
+            "w12e_more_shoes"
           ]
         },
         {
@@ -799,7 +823,8 @@
           ],
           "earlyLessons": [
             "w12e_home",
-            "w12e_teeth"
+            "w12e_teeth",
+            "w12e_more_letter_7"
           ]
         },
         {
@@ -809,7 +834,9 @@
             "w12_recall_islam"
           ],
           "earlyLessons": [
-            "w12e_count_balloons"
+            "w12e_count_balloons",
+            "prophet_salih_lesson",
+            "w12e_more_color_yellow"
           ]
         },
         {
@@ -819,7 +846,9 @@
             "w12_world_quiz"
           ],
           "earlyLessons": [
-            "w12e_sleep"
+            "w12e_sleep",
+            "w12e_more_light_off",
+            "w12e_more_letter_8"
           ]
         },
         {
@@ -829,7 +858,9 @@
             "w12_graduation"
           ],
           "earlyLessons": [
-            "w12e_review_game"
+            "w12e_review_game",
+            "hadith_toilet_out_lesson",
+            "w12e_more_heavy_light"
           ]
         }
       ]
@@ -848,7 +879,8 @@
           ],
           "earlyLessons": [
             "hadith_gratitude_food_lesson",
-            "w13e_clothes"
+            "w13e_clothes",
+            "w13e_more_kind_words"
           ]
         },
         {
@@ -861,7 +893,8 @@
           ],
           "earlyLessons": [
             "w13e_wild",
-            "w13e_help_mom"
+            "w13e_help_mom",
+            "w13e_more_letter_9"
           ]
         },
         {
@@ -874,7 +907,9 @@
             "w13_order_prayers"
           ],
           "earlyLessons": [
-            "w13e_sounds2"
+            "w13e_sounds2",
+            "prophet_lut_lesson",
+            "w13e_more_school"
           ]
         },
         {
@@ -886,7 +921,9 @@
             "w13_match_senses"
           ],
           "earlyLessons": [
-            "w13e_listen"
+            "w13e_listen",
+            "w13e_more_help_up",
+            "w13e_more_letter_10"
           ]
         },
         {
@@ -897,7 +934,9 @@
             "w13_pattern"
           ],
           "earlyLessons": [
-            "w13e_review_game"
+            "w13e_review_game",
+            "hadith_mosque_lesson",
+            "w13e_more_bananas"
           ]
         }
       ]
@@ -916,7 +955,8 @@
           ],
           "earlyLessons": [
             "hadith_prayer_on_time_lesson",
-            "w14e_transport"
+            "w14e_transport",
+            "w14e_more_wash_after"
           ]
         },
         {
@@ -929,7 +969,8 @@
           ],
           "earlyLessons": [
             "w14e_sea",
-            "w14e_wait"
+            "w14e_wait",
+            "w14e_more_letter_11"
           ]
         },
         {
@@ -942,7 +983,9 @@
             "w14_body"
           ],
           "earlyLessons": [
-            "w14e_fast_slow"
+            "w14e_fast_slow",
+            "prophet_ismail_lesson",
+            "w14e_more_color_green"
           ]
         },
         {
@@ -954,7 +997,9 @@
             "w14_match_body"
           ],
           "earlyLessons": [
-            "w14e_salam"
+            "w14e_salam",
+            "w14e_more_dress_self",
+            "w14e_more_letter_12"
           ]
         },
         {
@@ -965,7 +1010,9 @@
             "w14_pattern"
           ],
           "earlyLessons": [
-            "w14e_review_game"
+            "w14e_review_game",
+            "hadith_rain_lesson",
+            "w14e_more_day_night"
           ]
         }
       ]
@@ -984,7 +1031,8 @@
           ],
           "earlyLessons": [
             "hadith_wudu_prayer_lesson",
-            "w15e_weather"
+            "w15e_weather",
+            "w15e_more_carry_bag"
           ]
         },
         {
@@ -997,7 +1045,8 @@
           ],
           "earlyLessons": [
             "w15e_nature",
-            "w15e_clean_place"
+            "w15e_clean_place",
+            "w15e_more_letter_13"
           ]
         },
         {
@@ -1010,7 +1059,9 @@
             "w15_order_salah"
           ],
           "earlyLessons": [
-            "w15e_count_stars"
+            "w15e_count_stars",
+            "prophet_ishaq_lesson",
+            "w15e_more_garden"
           ]
         },
         {
@@ -1021,7 +1072,9 @@
             "w15_listen"
           ],
           "earlyLessons": [
-            "w15e_cat"
+            "w15e_cat",
+            "w15e_more_no_hit",
+            "w15e_more_letter_14"
           ]
         },
         {
@@ -1032,7 +1085,9 @@
             "w15_pattern"
           ],
           "earlyLessons": [
-            "w15e_review_game"
+            "w15e_review_game",
+            "hadith_remove_harm_lesson",
+            "w15e_more_hearts"
           ]
         }
       ]
@@ -1051,7 +1106,8 @@
           ],
           "earlyLessons": [
             "hadith_hasan_husayn_lesson",
-            "w16e_food"
+            "w16e_food",
+            "w16e_more_veggies"
           ]
         },
         {
@@ -1064,7 +1120,8 @@
           ],
           "earlyLessons": [
             "w16e_jobs",
-            "w16e_bird"
+            "w16e_bird",
+            "w16e_more_letter_15"
           ]
         },
         {
@@ -1077,7 +1134,9 @@
             "w16_animals"
           ],
           "earlyLessons": [
-            "w16e_colors3"
+            "w16e_colors3",
+            "prophet_yaqub_lesson",
+            "w16e_more_color_blue"
           ]
         },
         {
@@ -1088,7 +1147,9 @@
             "w16_listen"
           ],
           "earlyLessons": [
-            "w16e_sorry"
+            "w16e_sorry",
+            "w16e_more_water_drink",
+            "w16e_more_letter_16"
           ]
         },
         {
@@ -1099,7 +1160,9 @@
             "w16_pattern"
           ],
           "earlyLessons": [
-            "w16e_review_game"
+            "w16e_review_game",
+            "hadith_serving_family_lesson",
+            "w16e_more_happy_sad"
           ]
         }
       ]
@@ -1118,7 +1181,8 @@
           ],
           "earlyLessons": [
             "prophet_ibrahim_lesson",
-            "w17e_toys"
+            "w17e_toys",
+            "w17e_more_greet_guest"
           ]
         },
         {
@@ -1131,7 +1195,8 @@
           ],
           "earlyLessons": [
             "w17e_birds",
-            "w17e_clean_mine"
+            "w17e_clean_mine",
+            "w17e_more_letter_17"
           ]
         },
         {
@@ -1144,7 +1209,9 @@
             "w17_match_clean"
           ],
           "earlyLessons": [
-            "w17e_shapes2"
+            "w17e_shapes2",
+            "prophet_ayyub_lesson",
+            "w17e_more_insects"
           ]
         },
         {
@@ -1155,7 +1222,9 @@
             "w17_listen"
           ],
           "earlyLessons": [
-            "w17e_grandma"
+            "w17e_grandma",
+            "w17e_more_take_turns",
+            "w17e_more_letter_18"
           ]
         },
         {
@@ -1166,7 +1235,9 @@
             "w17_pattern"
           ],
           "earlyLessons": [
-            "w17e_review_game"
+            "w17e_review_game",
+            "hadith_mercy_children_lesson",
+            "w17e_more_balls"
           ]
         }
       ]
@@ -1185,7 +1256,8 @@
           ],
           "earlyLessons": [
             "prophet_nuh_lesson",
-            "w18e_fruits2"
+            "w18e_fruits2",
+            "w18e_more_dad_tired"
           ]
         },
         {
@@ -1198,7 +1270,8 @@
           ],
           "earlyLessons": [
             "w18e_home2",
-            "w18e_calm"
+            "w18e_calm",
+            "w18e_more_letter_19"
           ]
         },
         {
@@ -1210,7 +1283,9 @@
             "w18_match_words"
           ],
           "earlyLessons": [
-            "w18e_count_fish"
+            "w18e_count_fish",
+            "prophet_shuayb_lesson",
+            "w18e_more_color_orange"
           ]
         },
         {
@@ -1221,7 +1296,9 @@
             "w18_listen"
           ],
           "earlyLessons": [
-            "w18e_water"
+            "w18e_water",
+            "w18e_more_book_care",
+            "w18e_more_letter_20"
           ]
         },
         {
@@ -1232,7 +1309,9 @@
             "w18_pattern"
           ],
           "earlyLessons": [
-            "w18e_review_game"
+            "w18e_review_game",
+            "prophet_harun_lesson",
+            "w18e_more_bath"
           ]
         }
       ]
@@ -1250,7 +1329,9 @@
             "w19_add"
           ],
           "earlyLessons": [
-            "w19e_clothes2"
+            "w19e_clothes2",
+            "w19e_more_flowers",
+            "w19e_more_letter_21"
           ]
         },
         {
@@ -1263,7 +1344,8 @@
           ],
           "earlyLessons": [
             "w19e_body2",
-            "w19e_plant"
+            "w19e_plant",
+            "prophet_dhulkifl_lesson"
           ]
         },
         {
@@ -1276,7 +1358,9 @@
             "w19_order_story"
           ],
           "earlyLessons": [
-            "w19e_open_close"
+            "w19e_open_close",
+            "w19e_more_cats",
+            "w19e_more_cross_road"
           ]
         },
         {
@@ -1287,7 +1371,9 @@
             "w19_listen"
           ],
           "earlyLessons": [
-            "w19e_ask"
+            "w19e_ask",
+            "w19e_more_letter_22",
+            "prophet_dawud_lesson"
           ]
         },
         {
@@ -1298,7 +1384,9 @@
             "w19_pattern"
           ],
           "earlyLessons": [
-            "w19e_review_game"
+            "w19e_review_game",
+            "w19e_more_color_white",
+            "w19e_more_seatbelt"
           ]
         }
       ]
@@ -1316,7 +1404,9 @@
             "w20_combo"
           ],
           "earlyLessons": [
-            "w20e_transport2"
+            "w20e_transport2",
+            "w20e_more_letter_23",
+            "prophet_sulayman_lesson"
           ]
         },
         {
@@ -1329,7 +1419,8 @@
           ],
           "earlyLessons": [
             "w20e_farm2",
-            "w20e_keep"
+            "w20e_keep",
+            "w20e_more_animals3"
           ]
         },
         {
@@ -1342,7 +1433,9 @@
             "w20_build"
           ],
           "earlyLessons": [
-            "w20e_sounds3"
+            "w20e_sounds3",
+            "w20e_more_hot_stove",
+            "w20e_more_letter_24"
           ]
         },
         {
@@ -1352,7 +1445,9 @@
             "w20_listen"
           ],
           "earlyLessons": [
-            "w20e_patience"
+            "w20e_patience",
+            "hadith_ali_lesson",
+            "w20e_more_trees"
           ]
         },
         {
@@ -1363,7 +1458,9 @@
             "w20_pattern"
           ],
           "earlyLessons": [
-            "w20e_review_game"
+            "w20e_review_game",
+            "w20e_more_ask_help",
+            "w20e_more_letter_25"
           ]
         }
       ]
@@ -1381,7 +1478,9 @@
             "w21_s1"
           ],
           "earlyLessons": [
-            "w21e_weather2"
+            "w21e_weather2",
+            "prophet_ilyas_lesson",
+            "w21e_more_veg2"
           ]
         },
         {
@@ -1394,7 +1493,8 @@
           ],
           "earlyLessons": [
             "w21e_jobs2",
-            "w21e_trash"
+            "w21e_trash",
+            "w21e_more_baby_gentle"
           ]
         },
         {
@@ -1407,7 +1507,9 @@
             "w21_combo"
           ],
           "earlyLessons": [
-            "w21e_count_flowers"
+            "w21e_count_flowers",
+            "w21e_more_letter_26",
+            "prophet_alyasa_lesson"
           ]
         },
         {
@@ -1419,7 +1521,9 @@
             "w21_read_2"
           ],
           "earlyLessons": [
-            "w21e_smile"
+            "w21e_smile",
+            "w21e_more_moons",
+            "w21e_more_good_morning"
           ]
         },
         {
@@ -1430,7 +1534,9 @@
             "w21_pattern"
           ],
           "earlyLessons": [
-            "w21e_review_game"
+            "w21e_review_game",
+            "w21e_more_letter_27",
+            "prophet_yunus_lesson"
           ]
         }
       ]
@@ -1448,7 +1554,9 @@
             "w22_s1"
           ],
           "earlyLessons": [
-            "w22e_animals_mix"
+            "w22e_animals_mix",
+            "w22e_more_fruits3",
+            "w22e_more_share_food"
           ]
         },
         {
@@ -1461,7 +1569,8 @@
           ],
           "earlyLessons": [
             "w22e_sounds_mix",
-            "w22e_hug"
+            "w22e_hug",
+            "w22e_more_letter_28"
           ]
         },
         {
@@ -1473,7 +1582,9 @@
             "w22_english_review"
           ],
           "earlyLessons": [
-            "w22e_fruit_veg_mix"
+            "w22e_fruit_veg_mix",
+            "hadith_bilal_lesson",
+            "w22e_more_bees"
           ]
         },
         {
@@ -1486,7 +1597,9 @@
             "w22_listen"
           ],
           "earlyLessons": [
-            "w22e_mind"
+            "w22e_mind",
+            "w22e_more_toys_back",
+            "prophet_zakariya_lesson"
           ]
         },
         {
@@ -1497,7 +1610,9 @@
             "w22_pattern"
           ],
           "earlyLessons": [
-            "w22e_review_game"
+            "w22e_review_game",
+            "w22e_more_drinks",
+            "w22e_more_finish_plate"
           ]
         }
       ]
@@ -1515,7 +1630,9 @@
             "w23_s1"
           ],
           "earlyLessons": [
-            "w23e_colors_mix"
+            "w23e_colors_mix",
+            "prophet_yahya_lesson",
+            "w23e_more_gifts"
           ]
         },
         {
@@ -1528,7 +1645,8 @@
           ],
           "earlyLessons": [
             "w23e_shapes_mix",
-            "w23e_thanks2"
+            "w23e_thanks2",
+            "w23e_more_nature_trash"
           ]
         },
         {
@@ -1541,7 +1659,9 @@
             "w23_listen_2"
           ],
           "earlyLessons": [
-            "w23e_count_mix"
+            "w23e_count_mix",
+            "prophet_muhammad_lesson",
+            "w23e_more_tools"
           ]
         },
         {
@@ -1552,7 +1672,9 @@
             "w23_english_review"
           ],
           "earlyLessons": [
-            "w23e_share2"
+            "w23e_share2",
+            "w23e_more_bedtime_tidy",
+            "w23e_more_butterflies"
           ]
         },
         {
@@ -1563,7 +1685,9 @@
             "w23_pattern"
           ],
           "earlyLessons": [
-            "w23e_review_game"
+            "w23e_review_game",
+            "w23e_more_thank_mom",
+            "w23e_more_helpers"
           ]
         }
       ]
@@ -1581,7 +1705,9 @@
             "w24_combo"
           ],
           "earlyLessons": [
-            "w24e_home_mix"
+            "w24e_home_mix",
+            "w24e_more_friend_alone",
+            "w24e_more_teddies"
           ]
         },
         {
@@ -1594,7 +1720,8 @@
           ],
           "earlyLessons": [
             "w24e_nature_mix",
-            "w24e_proud"
+            "w24e_proud",
+            "w24e_more_honest"
           ]
         },
         {
@@ -1606,7 +1733,9 @@
             "w24_order_salah"
           ],
           "earlyLessons": [
-            "w24e_sounds_last"
+            "w24e_sounds_last",
+            "w24e_more_desert",
+            "w24e_more_pray_with_dad"
           ]
         },
         {
@@ -1619,7 +1748,9 @@
             "w24_s1"
           ],
           "earlyLessons": [
-            "w24e_love"
+            "w24e_love",
+            "w24e_more_sky",
+            "w24e_more_visit_sick"
           ]
         },
         {
@@ -1630,7 +1761,9 @@
             "w24_graduation"
           ],
           "earlyLessons": [
-            "w24e_review_game"
+            "w24e_review_game",
+            "w24e_more_kitchen2",
+            "w24e_more_face"
           ]
         }
       ]

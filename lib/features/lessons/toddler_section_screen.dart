@@ -84,8 +84,14 @@ class _PictureCardState extends ConsumerState<_PictureCard> {
     _busy = true;
     try {
       final l = widget.lesson;
-      // الدرس يبدأ بقول اسمه، فنفتحه مباشرة.
-      await ref.read(voiceServiceProvider).stop();
+      // نور تسمع اسم الدرس عند الضغط على الصورة، ثم يُفتح الدرس (ويقول اسمه مرة ثانية أول ما يفتح).
+      final voice = ref.read(voiceServiceProvider);
+      final name = l.spokenText(spokenTitle(l.title), step: true);
+      if (name != null) {
+        await voice.sayAndWait(name, max: const Duration(seconds: 6));
+      } else {
+        await voice.stop();
+      }
       if (mounted) await context.push('/lesson/${l.id}');
     } finally {
       _busy = false;

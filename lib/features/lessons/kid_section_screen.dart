@@ -90,8 +90,14 @@ class _KidSectionScreenState extends ConsumerState<KidSectionScreen> {
     if (_busy) return;
     _busy = true;
     try {
-      // الدرس نفسه يبدأ بقول اسمه كاملًا (في كل مكان)، فنفتحه مباشرة.
-      await ref.read(voiceServiceProvider).stop();
+      // اسم الدرس يُقال بصوت عالٍ عند الضغط على البطاقة، ثم يُفتح الدرس (ويقول اسمه مرة ثانية أول ما يفتح).
+      final voice = ref.read(voiceServiceProvider);
+      final name = l.spokenText(spokenTitle(l.title), step: true);
+      if (name != null) {
+        await voice.sayAndWait(name, max: const Duration(seconds: 6));
+      } else {
+        await voice.stop();
+      }
       if (mounted) await context.push('/lesson/${l.id}');
     } finally {
       _busy = false;
