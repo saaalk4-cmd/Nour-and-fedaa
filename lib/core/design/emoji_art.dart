@@ -41,6 +41,8 @@ const Map<String, String> kEmojiArt = {
   '😢': 'pic_sad',
   '😊': 'pic_smile',
   '🎮': 'pic_gamepad',
+  '😴': 'pic_sleepy',
+  '🐢': 'pic_turtle',
 };
 
 /// يزيل محدّد الشكل ليطابق المفاتيح.

@@ -90,7 +90,8 @@ def load_tanzil(path):
             p = line.rstrip('\n').split('|')
             if len(p) != 3 or not p[0].isdigit():
                 continue
-            s, a, t = int(p[0]), int(p[1]), p[2].replace('ـ', '')
+            # ۞ علامة ربع الحزب في المصحف وليست من لفظ الآية.
+            s, a, t = int(p[0]), int(p[1]), p[2].replace('ـ', '').replace('۞ ', '').replace('۞', '')
             if a == 1 and s not in (1, 9) and t.startswith('بِسْمِ'):
                 t = ' '.join(t.split(' ')[4:])  # البسملة المضافة ليست آية من السورة
             q[(s, a)] = t

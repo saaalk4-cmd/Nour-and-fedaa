@@ -42,7 +42,10 @@ void main() {
       expect(find.text('ورد اليوم'), findsWidgets);
       expect(find.textContaining('سورة المجادلة: من ١ لـ ٣'), findsOneWidget);
       expect(find.text('جزء قد سمع'), findsOneWidget);
+      expect(find.text('رتّبي الآيات'), findsWidgets, reason: 'review games for memorized surahs');
+      await tester.scrollUntilVisible(find.text('سورة الناس'), 200, scrollable: find.byType(Scrollable).last);
       expect(find.text('سورة الناس'), findsOneWidget);
+      await tester.scrollUntilVisible(find.text('جزء قد سمع'), -200, scrollable: find.byType(Scrollable).last);
       await tester.tap(find.text('جزء قد سمع'));
       await tester.pump();
       expect(find.text('سورة المجادلة'), findsOneWidget);

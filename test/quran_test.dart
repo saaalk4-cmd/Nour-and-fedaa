@@ -46,4 +46,10 @@ void main() {
       throwsFormatException,
     );
   });
+
+  test('no mushaf margin marks (۞) inside ayah text', () {
+    for (final f in ['quran_surahs', 'quran_lessons', 'prophets_ayat', 'section_ayat']) {
+      expect(File('assets/content/$f.json').readAsStringSync().contains('۞'), isFalse, reason: f);
+    }
+  });
 }

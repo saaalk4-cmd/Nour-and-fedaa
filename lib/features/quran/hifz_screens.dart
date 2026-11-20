@@ -18,6 +18,7 @@ import '../../data/providers.dart';
 import '../../domain/gamification/streak.dart';
 import '../lessons/lesson_list_screen.dart';
 import 'hifz.dart';
+import 'hifz_review_screen.dart';
 import 'quran_screen.dart' show quranContentProvider;
 
 final hifzRepositoryProvider = Provider((ref) => HifzRepository(ref.watch(settingsRepositoryProvider)));
@@ -64,6 +65,14 @@ class _QuranHomeScreenState extends ConsumerState<QuranHomeScreen> {
     await repo.save(c.id, p);
     ref.invalidate(hifzProvider(c));
     if (!wasDone && p.wirdFor(day, q).allDone && mounted) unawaited(_celebrate(c));
+  }
+
+  Future<void> _review(Child c, QuranContent q, HifzProgress p, ReviewMode mode) async {
+    await ref.read(voiceServiceProvider).stop();
+    if (!mounted) return;
+    await Navigator.of(context).push(MaterialPageRoute<void>(
+      builder: (_) => HifzReviewScreen(child: c, content: q, memorized: {...p.memorized}, mode: mode),
+    ));
   }
 
   /// أنهت ورد اليوم كله (الجديد والمراجعة): احتفال هادئ (قرآن) + صوت ومديح.
@@ -135,6 +144,29 @@ class _QuranHomeScreenState extends ConsumerState<QuranHomeScreen> {
                                 AyahRange(s, 1, q.surahs.firstWhere((x) => x.surahNumber == s).ayahs.length),
                             ], HifzPurpose.review),
                   ),
+                // ألعاب مراجعة المحفوظ (للي عندها سور محفوظة).
+                if (p.memorized.isNotEmpty) ...[
+                  const SizedBox(height: 12),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: _GameTile(
+                          art: Art.picPuzzle,
+                          label: 'رتّبي الآيات',
+                          onTap: () => _review(child, q, p, ReviewMode.order),
+                        ),
+                      ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: _GameTile(
+                          art: Art.picHeadphones,
+                          label: 'أكملي الآية',
+                          onTap: () => _review(child, q, p, ReviewMode.next),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
                 const SizedBox(height: 12),
                 Wrap(
                   alignment: WrapAlignment.center,
@@ -168,6 +200,41 @@ class _QuranHomeScreenState extends ConsumerState<QuranHomeScreen> {
               ],
             );
           },
+        ),
+      ),
+    );
+  }
+}
+
+/// زر لعبة مراجعة: صورة كبيرة وكلمة تحتها.
+class _GameTile extends StatelessWidget {
+  const _GameTile({required this.art, required this.label, required this.onTap});
+
+  final String art;
+  final String label;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Semantics(
+      button: true,
+      label: label,
+      excludeSemantics: true,
+      child: PopTap(
+        onTap: onTap,
+        child: Container(
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 6),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(26),
+            border: Border.all(color: const Color(0xFF2A9D8F), width: 4),
+            boxShadow: const [BoxShadow(color: Color(0x33000000), blurRadius: 8, offset: Offset(0, 4))],
+          ),
+          child: Column(mainAxisSize: MainAxisSize.min, children: [
+            ArtImage(art, width: 70, height: 70),
+            const SizedBox(height: 4),
+            FittedBox(fit: BoxFit.scaleDown, child: OutlineText(label, size: 20, stroke: const Color(0xFF14625A), maxLines: 1)),
+          ]),
         ),
       ),
     );
