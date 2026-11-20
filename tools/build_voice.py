@@ -3,12 +3,12 @@
 
 - المصدر: الجمل التعليمية المكتوبة في كود الشاشات (ما يُمرَّر إلى speak) مع أسماء
   البنتين، وعناوين الدروس والأقسام. لا يُولَّد صوت لأي آية أو حديث أبدًا.
-- الصوت: **ElevenLabs بصوت «وئام»** إن وُجد المتغير ELEVENLABS_API_KEY (في CI من secret باسم
+- الصوت: **ElevenLabs بصوت «وئام الصغيرة»** إن وُجد المتغير ELEVENLABS_API_KEY (في CI من secret باسم
   ELEVENLABS_API_KEY)؛ وإلا edge-tts (أصوات Microsoft العصبية، الافتراضي ar-EG-SalmaNeural).
   - يبدأ بالجمل الأساسية ثم الباقي، ولا يتجاوز حد الأحرف في البناء الواحد (ELEVENLABS_MAX_CHARS، الافتراضي 9000)،
     ولا يتجاوز الرصيد المتبقي في الحساب؛ وما لا يتسع يكمله صوت edge-tts (VOICE_FALLBACK=edge) أو يُترك لصوت الجهاز (none)،
     ثم يُستبدل بصوت ElevenLabs في أول بناء يتسع له الرصيد. كل جملة تُحسب مرة واحدة فقط (يُحفظ ما وُلِّد).
-  - متغيرات: ELEVENLABS_VOICE_ID (الافتراضي وئام R5kMoWNNTn84ezIJA53m)، ELEVENLABS_MODEL (eleven_multilingual_v2)،
+  - متغيرات: ELEVENLABS_VOICE_ID (الافتراضي «وئام الصغيرة» Mj7IRmHT4EHsUCXnb3qM)، ELEVENLABS_MODEL (eleven_multilingual_v2)،
     ELEVENLABS_SPEED (0.9).
 - الناتج: assets/audio/voice/<key>.mp3 + index.json. المفتاح يطابق
   VoiceService.clipKey في Dart (أول 16 حرفًا من sha1 للنص بعد التنظيف).
@@ -39,7 +39,8 @@ NAMES = ['فداء', 'نور']
 MAX_CLIPS = 4000
 
 EL_KEY = os.environ.get('ELEVENLABS_API_KEY', '').strip()
-EL_VOICE = os.environ.get('ELEVENLABS_VOICE_ID', '').strip() or 'R5kMoWNNTn84ezIJA53m'  # وئام
+# «وئام الصغيرة»: صوت صُمّم في حساب المستخدمة (Voice Design، المعاينة 3) فيعمل بالـAPI على الخطة المجانية
+EL_VOICE = os.environ.get('ELEVENLABS_VOICE_ID', '').strip() or 'Mj7IRmHT4EHsUCXnb3qM'
 EL_MODEL = os.environ.get('ELEVENLABS_MODEL', '').strip() or 'eleven_multilingual_v2'
 EL_BASE = os.environ.get('ELEVENLABS_BASE', 'https://api.elevenlabs.io').rstrip('/')
 EL_FORMAT = os.environ.get('ELEVENLABS_FORMAT', 'mp3_44100_64')
