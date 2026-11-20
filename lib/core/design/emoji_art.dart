@@ -40,6 +40,7 @@ const Map<String, String> kEmojiArt = {
   '💡': 'pic_bulb',
   '😢': 'pic_sad',
   '😊': 'pic_smile',
+  '🎮': 'pic_gamepad',
 };
 
 /// يزيل محدّد الشكل ليطابق المفاتيح.
