@@ -631,9 +631,13 @@ class WorldTile extends StatelessWidget {
     this.badge,
     this.locked = false,
     this.emojiSize = 54,
+    this.art,
   });
 
   final String emoji;
+
+  /// صورة مرسومة بدل الإيموجي (أيقونات الأقسام).
+  final String? art;
   final String title;
   final String? subtitle;
   final Color color;
@@ -678,7 +682,9 @@ class WorldTile extends StatelessWidget {
                         child: FittedBox(
                           child: Opacity(
                             opacity: locked ? 0.4 : 1,
-                            child: Text(emoji, style: TextStyle(fontSize: emojiSize, height: 1.1)),
+                            child: art != null
+                                ? ArtImage(art!, width: emojiSize * 1.3, height: emojiSize * 1.3)
+                                : Text(emoji, style: TextStyle(fontSize: emojiSize, height: 1.1)),
                           ),
                         ),
                       ),

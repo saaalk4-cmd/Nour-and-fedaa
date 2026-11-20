@@ -104,3 +104,6 @@ for nm,(y0,x0,lid,sl) in zip(names,top+bot):
     m=ndi.binary_dilation(lab==lid,iterations=1)
     c=arr.copy(); c[~m,3]=0
     save(Image.fromarray(c,'RGBA').crop((sl[1].start,sl[0].start,sl[1].stop,sl[0].stop)),'decor_'+nm,300)
+# أيقونات الأقسام (Canva، بنفس أسلوب واحد)
+for n in ['quran', 'prayer', 'adhkar', 'akhlaq', 'seerah', 'figures', 'prophets', 'learn', 'achievements']:
+    save(cutout_white(src('sec_' + n)), 'sec_' + n, 200)

@@ -87,6 +87,17 @@ class Art {
     decorTree1, decorFlowers1, decorTree3, decorRock, decorBush, decorTree4, decorFlowers2, decorTree2,
   ];
 
+  // أيقونات الأقسام (Canva، أسلوب واحد).
+  static const String secQuran = 'sec_quran';
+  static const String secPrayer = 'sec_prayer';
+  static const String secAdhkar = 'sec_adhkar';
+  static const String secAkhlaq = 'sec_akhlaq';
+  static const String secSeerah = 'sec_seerah';
+  static const String secFigures = 'sec_figures';
+  static const String secProphets = 'sec_prophets';
+  static const String secLearn = 'sec_learn';
+  static const String secAchievements = 'sec_achievements';
+
   /// كل الملفات (للاختبار).
   static const List<String> all = [
     fedaaWelcome, fedaaThink, fedaaCheer, nourWelcome, nourThink, nourCheer,
@@ -96,6 +107,7 @@ class Art {
     bgSky, bgRiver, bgForest, bgHouse, bgCastle, bgPath,
     decorTree1, decorTree2, decorTree3, decorTree4, decorBush, decorFlowers1, decorFlowers2,
     decorRock, decorSignpost,
+    secQuran, secPrayer, secAdhkar, secAkhlaq, secSeerah, secFigures, secProphets, secLearn, secAchievements,
   ];
 
   static String path(String name) => 'assets/art/$name.webp';

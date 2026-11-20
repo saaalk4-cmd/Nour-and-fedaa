@@ -192,6 +192,7 @@ class _WorldScreenState extends ConsumerState<WorldScreen> {
                 for (final s in sections)
                   WorldTile(
                     emoji: s.emoji,
+                    art: s.art,
                     title: s.title,
                     color: SectionLook.of(s.id).color,
                     onTap: () => _go(spokenTitle(s.title), '/section/${s.id}'),
@@ -499,7 +500,7 @@ class DeenScreen extends ConsumerWidget {
             Padding(
               padding: const EdgeInsets.only(bottom: 12),
               child: WoodSign(
-                icon: Text(s.emoji),
+                icon: ArtImage(s.art, width: 52, height: 52),
                 title: s.title,
                 onTap: () async {
                   await ref.read(voiceServiceProvider).sayAndWait(spokenTitle(s.title));

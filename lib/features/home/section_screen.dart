@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../core/design/art.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../data/content/lesson.dart';
@@ -75,7 +76,7 @@ class SectionScreen extends ConsumerWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(s.emoji, style: const TextStyle(fontSize: 80)),
+            ArtImage(s.art, width: 120, height: 120),
             const SizedBox(height: 16),
             const Text('قريبًا إن شاء الله', style: TextStyle(fontSize: 22)),
           ],
