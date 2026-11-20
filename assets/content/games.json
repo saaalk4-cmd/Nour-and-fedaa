@@ -2920,6 +2920,1594 @@
      }
     ]
    }
+  },
+  {
+   "id": "prophets_listen",
+   "section": "quran",
+   "type": "choose",
+   "respectful": true,
+   "title": "من النبي في الآية؟",
+   "emoji": "🌿",
+   "intro": "الشيخ يقرأ آية عن نبي من الأنبياء. من هو؟",
+   "goal": "التعرف على الأنبياء من آيات القرآن.",
+   "items": [
+    {
+     "id": "prophet_adam",
+     "emoji": "🔤",
+     "label": "آدم",
+     "say": "آدم عليه السلام",
+     "recite": [
+      2,
+      31
+     ]
+    },
+    {
+     "id": "prophet_idris",
+     "emoji": "💎",
+     "label": "إدريس",
+     "say": "إدريس عليه السلام",
+     "recite": [
+      19,
+      56
+     ]
+    },
+    {
+     "id": "prophet_nuh",
+     "emoji": "🚢",
+     "label": "نوح",
+     "say": "نوح عليه السلام",
+     "recite": [
+      71,
+      10
+     ]
+    },
+    {
+     "id": "prophet_hud",
+     "emoji": "🌬️",
+     "label": "هود",
+     "say": "هود عليه السلام",
+     "recite": [
+      26,
+      124
+     ]
+    },
+    {
+     "id": "prophet_salih",
+     "emoji": "🐪",
+     "label": "صالح",
+     "say": "صالح عليه السلام",
+     "recite": [
+      26,
+      142
+     ]
+    },
+    {
+     "id": "prophet_ibrahim",
+     "emoji": "🔥",
+     "label": "إبراهيم",
+     "say": "إبراهيم عليه السلام",
+     "recite": [
+      21,
+      69
+     ]
+    },
+    {
+     "id": "prophet_lut",
+     "emoji": "🌿",
+     "label": "لوط",
+     "say": "لوط عليه السلام",
+     "recite": [
+      26,
+      161
+     ]
+    },
+    {
+     "id": "prophet_ismail",
+     "emoji": "🤝",
+     "label": "إسماعيل",
+     "say": "إسماعيل عليه السلام",
+     "recite": [
+      19,
+      54
+     ]
+    },
+    {
+     "id": "prophet_ishaq",
+     "emoji": "🌱",
+     "label": "إسحاق",
+     "say": "إسحاق عليه السلام",
+     "recite": [
+      37,
+      112
+     ]
+    },
+    {
+     "id": "prophet_yaqub",
+     "emoji": "💌",
+     "label": "يعقوب",
+     "say": "يعقوب عليه السلام",
+     "recite": [
+      2,
+      132
+     ]
+    },
+    {
+     "id": "prophet_yusuf",
+     "emoji": "⭐",
+     "label": "يوسف",
+     "say": "يوسف عليه السلام",
+     "recite": [
+      12,
+      4
+     ]
+    },
+    {
+     "id": "prophet_ayyub",
+     "emoji": "🤲",
+     "label": "أيوب",
+     "say": "أيوب عليه السلام",
+     "recite": [
+      21,
+      83
+     ]
+    },
+    {
+     "id": "prophet_shuayb",
+     "emoji": "⚖️",
+     "label": "شعيب",
+     "say": "شعيب عليه السلام",
+     "recite": [
+      26,
+      177
+     ]
+    },
+    {
+     "id": "prophet_musa",
+     "emoji": "🌊",
+     "label": "موسى",
+     "say": "موسى عليه السلام",
+     "recite": [
+      20,
+      25,
+      26
+     ]
+    },
+    {
+     "id": "prophet_harun",
+     "emoji": "👬",
+     "label": "هارون",
+     "say": "هارون عليه السلام",
+     "recite": [
+      19,
+      53
+     ]
+    },
+    {
+     "id": "prophet_dhulkifl",
+     "emoji": "⏳",
+     "label": "ذو الكفل",
+     "say": "ذو الكفل عليه السلام",
+     "recite": [
+      21,
+      85
+     ]
+    },
+    {
+     "id": "prophet_dawud",
+     "emoji": "⛰️",
+     "label": "داود",
+     "say": "داود عليه السلام",
+     "recite": [
+      34,
+      10
+     ]
+    },
+    {
+     "id": "prophet_sulayman",
+     "emoji": "🐦",
+     "label": "سليمان",
+     "say": "سليمان عليه السلام",
+     "recite": [
+      27,
+      16
+     ]
+    },
+    {
+     "id": "prophet_ilyas",
+     "emoji": "📜",
+     "label": "إلياس",
+     "say": "إلياس عليه السلام",
+     "recite": [
+      37,
+      123
+     ]
+    },
+    {
+     "id": "prophet_alyasa",
+     "emoji": "🌳",
+     "label": "اليسع",
+     "say": "اليسع عليه السلام",
+     "recite": [
+      38,
+      48
+     ]
+    },
+    {
+     "id": "prophet_yunus",
+     "emoji": "🐋",
+     "label": "يونس",
+     "say": "يونس عليه السلام",
+     "recite": [
+      37,
+      139
+     ]
+    },
+    {
+     "id": "prophet_zakariya",
+     "emoji": "🌙",
+     "label": "زكريا",
+     "say": "زكريا عليه السلام",
+     "recite": [
+      19,
+      2,
+      3
+     ]
+    },
+    {
+     "id": "prophet_yahya",
+     "emoji": "📖",
+     "label": "يحيى",
+     "say": "يحيى عليه السلام",
+     "recite": [
+      19,
+      12
+     ]
+    },
+    {
+     "id": "prophet_isa",
+     "emoji": "🕊️",
+     "label": "عيسى",
+     "say": "عيسى عليه السلام",
+     "recite": [
+      19,
+      30
+     ]
+    },
+    {
+     "id": "prophet_muhammad",
+     "emoji": "🕌",
+     "label": "محمد ﷺ",
+     "say": "محمد صلى الله عليه وسلم",
+     "recite": [
+      33,
+      40
+     ]
+    }
+   ],
+   "fedaa": {
+    "show": "emoji+label",
+    "prompt": "اسمعي الآية… عن أي نبي تتحدث؟",
+    "after": "نعم، {say}",
+    "levels": [
+     {
+      "key": "easy",
+      "title": "سهل",
+      "rounds": 5,
+      "sub": "5 أنبياء",
+      "pool": [
+       "prophet_ibrahim",
+       "prophet_nuh",
+       "prophet_musa",
+       "prophet_yusuf",
+       "prophet_isa"
+      ],
+      "options": 2
+     },
+     {
+      "key": "mid",
+      "title": "متوسط",
+      "rounds": 6,
+      "sub": "10 أنبياء",
+      "pool": [
+       "prophet_ibrahim",
+       "prophet_nuh",
+       "prophet_musa",
+       "prophet_yusuf",
+       "prophet_isa",
+       "prophet_adam",
+       "prophet_yunus",
+       "prophet_sulayman",
+       "prophet_dawud",
+       "prophet_muhammad"
+      ],
+      "options": 3
+     },
+     {
+      "key": "adv",
+      "title": "متقدم",
+      "rounds": 8,
+      "sub": "كل الأنبياء",
+      "options": 4
+     }
+    ]
+   },
+   "nour": {
+    "show": "emoji+label",
+    "prompt": "اسمعي الآية… من النبي؟",
+    "after": "{say}",
+    "levels": [
+     {
+      "key": "l1",
+      "title": "مستوى 1",
+      "rounds": 3,
+      "sub": "نبيان",
+      "pool": [
+       "prophet_ibrahim",
+       "prophet_yunus",
+       "prophet_nuh"
+      ],
+      "options": 2
+     },
+     {
+      "key": "l2",
+      "title": "مستوى 2",
+      "rounds": 4,
+      "sub": "نبيان",
+      "pool": [
+       "prophet_ibrahim",
+       "prophet_nuh",
+       "prophet_musa",
+       "prophet_yusuf",
+       "prophet_isa"
+      ],
+      "options": 2
+     },
+     {
+      "key": "l3",
+      "title": "مستوى 3",
+      "rounds": 5,
+      "sub": "3 أنبياء",
+      "pool": [
+       "prophet_ibrahim",
+       "prophet_nuh",
+       "prophet_musa",
+       "prophet_yusuf",
+       "prophet_isa",
+       "prophet_adam",
+       "prophet_yunus",
+       "prophet_sulayman",
+       "prophet_dawud",
+       "prophet_muhammad"
+      ],
+      "options": 3
+     }
+    ]
+   }
+  },
+  {
+   "id": "animals_names",
+   "section": "letters",
+   "type": "choose",
+   "title": "أصدقائي الحيوانات",
+   "emoji": "🦁",
+   "intro": "هيا نتعرف على الحيوانات",
+   "goal": "أسماء الحيوانات (نور: الصورة، فداء: قراءة الكلمة).",
+   "items": [
+    {
+     "id": "a1",
+     "emoji": "🐄",
+     "label": "بقرة"
+    },
+    {
+     "id": "a2",
+     "emoji": "🐑",
+     "label": "خروف"
+    },
+    {
+     "id": "a3",
+     "emoji": "🐪",
+     "label": "جمل"
+    },
+    {
+     "id": "a4",
+     "emoji": "🐴",
+     "label": "حصان"
+    },
+    {
+     "id": "a5",
+     "emoji": "🐔",
+     "label": "دجاجة"
+    },
+    {
+     "id": "a6",
+     "emoji": "🐱",
+     "label": "قطة"
+    },
+    {
+     "id": "a7",
+     "emoji": "🐶",
+     "label": "كلب"
+    },
+    {
+     "id": "a8",
+     "emoji": "🐘",
+     "label": "فيل"
+    },
+    {
+     "id": "a9",
+     "emoji": "🦁",
+     "label": "أسد"
+    },
+    {
+     "id": "a10",
+     "emoji": "🦒",
+     "label": "زرافة"
+    },
+    {
+     "id": "a11",
+     "emoji": "🐒",
+     "label": "قرد"
+    },
+    {
+     "id": "a12",
+     "emoji": "🐢",
+     "label": "سلحفاة"
+    }
+   ],
+   "fedaa": {
+    "show": "label",
+    "promptShow": "emoji",
+    "prompt": "ما اسم هذا الحيوان؟",
+    "after": "{label}",
+    "levels": [
+     {
+      "key": "easy",
+      "title": "سهل",
+      "rounds": 5,
+      "sub": "4 حيوانات",
+      "pool": [
+       "a1",
+       "a2",
+       "a3",
+       "a4"
+      ],
+      "options": 3
+     },
+     {
+      "key": "mid",
+      "title": "متوسط",
+      "rounds": 6,
+      "sub": "8 حيوانات",
+      "pool": [
+       "a1",
+       "a2",
+       "a3",
+       "a4",
+       "a5",
+       "a6",
+       "a7",
+       "a8"
+      ],
+      "options": 3
+     },
+     {
+      "key": "adv",
+      "title": "متقدم",
+      "rounds": 7,
+      "sub": "كل الحيوانات",
+      "options": 4
+     }
+    ]
+   },
+   "nour": {
+    "show": "emoji",
+    "prompt": "أين {label}؟",
+    "after": "{label}",
+    "levels": [
+     {
+      "key": "l1",
+      "title": "مستوى 1",
+      "rounds": 4,
+      "sub": "صورتان",
+      "pool": [
+       "a1",
+       "a6",
+       "a7"
+      ],
+      "options": 2
+     },
+     {
+      "key": "l2",
+      "title": "مستوى 2",
+      "rounds": 5,
+      "sub": "صورتان",
+      "pool": [
+       "a1",
+       "a2",
+       "a3",
+       "a4",
+       "a5",
+       "a6"
+      ],
+      "options": 2
+     },
+     {
+      "key": "l3",
+      "title": "مستوى 3",
+      "rounds": 5,
+      "sub": "3 صور",
+      "options": 3
+     }
+    ]
+   }
+  },
+  {
+   "id": "food_names",
+   "section": "letters",
+   "type": "choose",
+   "title": "طبق صحي",
+   "emoji": "🍇",
+   "intro": "هيا نتعرف على الفاكهة والخضار",
+   "goal": "أسماء الفاكهة والخضار.",
+   "items": [
+    {
+     "id": "f1",
+     "emoji": "🍎",
+     "label": "تفاحة",
+     "group": "fruit"
+    },
+    {
+     "id": "f2",
+     "emoji": "🍌",
+     "label": "موزة",
+     "group": "fruit"
+    },
+    {
+     "id": "f3",
+     "emoji": "🍇",
+     "label": "عنب",
+     "group": "fruit"
+    },
+    {
+     "id": "f4",
+     "emoji": "🍊",
+     "label": "برتقالة",
+     "group": "fruit"
+    },
+    {
+     "id": "f5",
+     "emoji": "🍉",
+     "label": "بطيخة",
+     "group": "fruit"
+    },
+    {
+     "id": "f6",
+     "emoji": "🍓",
+     "label": "فراولة",
+     "group": "fruit"
+    },
+    {
+     "id": "v1",
+     "emoji": "🥕",
+     "label": "جزرة",
+     "group": "veg"
+    },
+    {
+     "id": "v2",
+     "emoji": "🥒",
+     "label": "خيارة",
+     "group": "veg"
+    },
+    {
+     "id": "v3",
+     "emoji": "🍅",
+     "label": "طماطم",
+     "group": "veg"
+    },
+    {
+     "id": "v4",
+     "emoji": "🥔",
+     "label": "بطاطس",
+     "group": "veg"
+    },
+    {
+     "id": "v5",
+     "emoji": "🌽",
+     "label": "ذرة",
+     "group": "veg"
+    },
+    {
+     "id": "v6",
+     "emoji": "🧅",
+     "label": "بصلة",
+     "group": "veg"
+    }
+   ],
+   "fedaa": {
+    "show": "label",
+    "promptShow": "emoji",
+    "prompt": "ما اسم هذه؟",
+    "after": "{label}",
+    "levels": [
+     {
+      "key": "easy",
+      "title": "سهل",
+      "rounds": 5,
+      "sub": "الفاكهة",
+      "pool": [
+       "f1",
+       "f2",
+       "f3",
+       "f4"
+      ],
+      "options": 3
+     },
+     {
+      "key": "mid",
+      "title": "متوسط",
+      "rounds": 6,
+      "sub": "الخضار",
+      "pool": [
+       "v1",
+       "v2",
+       "v3",
+       "v4",
+       "v5"
+      ],
+      "options": 3
+     },
+     {
+      "key": "adv",
+      "title": "متقدم",
+      "rounds": 7,
+      "sub": "الكل",
+      "options": 4
+     }
+    ]
+   },
+   "nour": {
+    "show": "emoji",
+    "prompt": "أين {label}؟",
+    "after": "{label}",
+    "levels": [
+     {
+      "key": "l1",
+      "title": "مستوى 1",
+      "rounds": 4,
+      "sub": "صورتان",
+      "pool": [
+       "f1",
+       "f2",
+       "f5"
+      ],
+      "options": 2
+     },
+     {
+      "key": "l2",
+      "title": "مستوى 2",
+      "rounds": 5,
+      "sub": "صورتان",
+      "pool": [
+       "f1",
+       "f2",
+       "f3",
+       "f4",
+       "v1"
+      ],
+      "options": 2
+     },
+     {
+      "key": "l3",
+      "title": "مستوى 3",
+      "rounds": 5,
+      "sub": "3 صور",
+      "options": 3
+     }
+    ]
+   }
+  },
+  {
+   "id": "fruit_veg",
+   "section": "focus",
+   "type": "sort",
+   "title": "سوق الفاكهة",
+   "emoji": "🧺",
+   "intro": "فاكهة أم خضار؟ ضعي كل شيء في سلّته",
+   "goal": "التصنيف ومعرفة أسماء الطعام الصحي.",
+   "groups": [
+    {
+     "id": "fruit",
+     "emoji": "🍎",
+     "label": "فاكهة",
+     "color": "#F06262"
+    },
+    {
+     "id": "veg",
+     "emoji": "🥕",
+     "label": "خضار",
+     "color": "#6CCB5F"
+    }
+   ],
+   "items": [
+    {
+     "id": "f1",
+     "emoji": "🍎",
+     "label": "تفاحة",
+     "group": "fruit"
+    },
+    {
+     "id": "f2",
+     "emoji": "🍌",
+     "label": "موزة",
+     "group": "fruit"
+    },
+    {
+     "id": "f3",
+     "emoji": "🍇",
+     "label": "عنب",
+     "group": "fruit"
+    },
+    {
+     "id": "f4",
+     "emoji": "🍊",
+     "label": "برتقالة",
+     "group": "fruit"
+    },
+    {
+     "id": "f5",
+     "emoji": "🍉",
+     "label": "بطيخة",
+     "group": "fruit"
+    },
+    {
+     "id": "f6",
+     "emoji": "🍓",
+     "label": "فراولة",
+     "group": "fruit"
+    },
+    {
+     "id": "v1",
+     "emoji": "🥕",
+     "label": "جزرة",
+     "group": "veg"
+    },
+    {
+     "id": "v2",
+     "emoji": "🥒",
+     "label": "خيارة",
+     "group": "veg"
+    },
+    {
+     "id": "v3",
+     "emoji": "🍅",
+     "label": "طماطم",
+     "group": "veg"
+    },
+    {
+     "id": "v4",
+     "emoji": "🥔",
+     "label": "بطاطس",
+     "group": "veg"
+    },
+    {
+     "id": "v5",
+     "emoji": "🌽",
+     "label": "ذرة",
+     "group": "veg"
+    },
+    {
+     "id": "v6",
+     "emoji": "🧅",
+     "label": "بصلة",
+     "group": "veg"
+    }
+   ],
+   "fedaa": {
+    "mode": "drag",
+    "levels": [
+     {
+      "key": "easy",
+      "title": "سهل",
+      "rounds": 2,
+      "sub": "6 بطاقات",
+      "perRound": 6
+     },
+     {
+      "key": "mid",
+      "title": "متوسط",
+      "rounds": 2,
+      "sub": "8 بطاقات",
+      "perRound": 8
+     },
+     {
+      "key": "adv",
+      "title": "متقدم",
+      "rounds": 2,
+      "sub": "10 بطاقات",
+      "perRound": 10
+     }
+    ]
+   },
+   "nour": {
+    "mode": "tap",
+    "levels": [
+     {
+      "key": "l1",
+      "title": "مستوى 1",
+      "rounds": 2,
+      "sub": "3 بطاقات",
+      "perRound": 3
+     },
+     {
+      "key": "l2",
+      "title": "مستوى 2",
+      "rounds": 2,
+      "sub": "4 بطاقات",
+      "perRound": 4
+     },
+     {
+      "key": "l3",
+      "title": "مستوى 3",
+      "rounds": 3,
+      "sub": "5 بطاقات",
+      "perRound": 5
+     }
+    ]
+   }
+  },
+  {
+   "id": "my_day",
+   "section": "focus",
+   "type": "order",
+   "title": "يومي من الصباح",
+   "emoji": "🌅",
+   "intro": "ماذا نفعل أولًا؟ رتّبي يومك",
+   "goal": "التسلسل الزمني والتفكير المنطقي.",
+   "items": [
+    {
+     "id": "d1",
+     "emoji": "🌅",
+     "label": "أستيقظ وأذكر الله"
+    },
+    {
+     "id": "d2",
+     "emoji": "🪥",
+     "label": "أغسل أسناني"
+    },
+    {
+     "id": "d3",
+     "emoji": "🥣",
+     "label": "أفطر"
+    },
+    {
+     "id": "d4",
+     "emoji": "🎒",
+     "label": "أذهب إلى الحضانة"
+    },
+    {
+     "id": "d5",
+     "emoji": "🧸",
+     "label": "ألعب"
+    },
+    {
+     "id": "d6",
+     "emoji": "🍲",
+     "label": "أتغدى مع أسرتي"
+    },
+    {
+     "id": "d7",
+     "emoji": "🛁",
+     "label": "أستحم"
+    },
+    {
+     "id": "d8",
+     "emoji": "🌙",
+     "label": "أنام"
+    }
+   ],
+   "fedaa": {
+    "mode": "drag",
+    "prompt": "رتّبي يومك من الصباح",
+    "levels": [
+     {
+      "key": "easy",
+      "title": "سهل",
+      "rounds": 2,
+      "sub": "4 صور",
+      "pool": [
+       "d1",
+       "d3",
+       "d5",
+       "d8"
+      ]
+     },
+     {
+      "key": "mid",
+      "title": "متوسط",
+      "rounds": 2,
+      "sub": "6 صور",
+      "pool": [
+       "d1",
+       "d2",
+       "d3",
+       "d5",
+       "d6",
+       "d8"
+      ]
+     },
+     {
+      "key": "adv",
+      "title": "متقدم",
+      "rounds": 2,
+      "sub": "اليوم كاملًا",
+      "count": 8
+     }
+    ]
+   },
+   "nour": {
+    "mode": "tap",
+    "prompt": "ماذا نفعل أولًا؟",
+    "levels": [
+     {
+      "key": "l1",
+      "title": "مستوى 1",
+      "rounds": 3,
+      "sub": "صورتان",
+      "pool": [
+       "d1",
+       "d8"
+      ]
+     },
+     {
+      "key": "l2",
+      "title": "مستوى 2",
+      "rounds": 3,
+      "sub": "3 صور",
+      "pool": [
+       "d1",
+       "d3",
+       "d8"
+      ]
+     },
+     {
+      "key": "l3",
+      "title": "مستوى 3",
+      "rounds": 3,
+      "sub": "4 صور",
+      "pool": [
+       "d1",
+       "d3",
+       "d5",
+       "d8"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "plant_grow",
+   "section": "focus",
+   "type": "order",
+   "title": "كيف تنمو الشجرة؟",
+   "emoji": "🌱",
+   "intro": "من البذرة إلى الشجرة. رتّبي الصور",
+   "goal": "التسلسل والملاحظة (نمو النبات).",
+   "items": [
+    {
+     "id": "p1",
+     "emoji": "🌰",
+     "label": "بذرة"
+    },
+    {
+     "id": "p2",
+     "emoji": "💧",
+     "label": "نسقيها"
+    },
+    {
+     "id": "p3",
+     "emoji": "🌱",
+     "label": "نبتة صغيرة"
+    },
+    {
+     "id": "p4",
+     "emoji": "🌿",
+     "label": "تكبر"
+    },
+    {
+     "id": "p5",
+     "emoji": "🌳",
+     "label": "شجرة"
+    },
+    {
+     "id": "p6",
+     "emoji": "🍎",
+     "label": "ثمرة"
+    }
+   ],
+   "fedaa": {
+    "mode": "drag",
+    "prompt": "رتّبي نمو الشجرة",
+    "levels": [
+     {
+      "key": "easy",
+      "title": "سهل",
+      "rounds": 2,
+      "sub": "3 صور",
+      "pool": [
+       "p1",
+       "p3",
+       "p5"
+      ]
+     },
+     {
+      "key": "mid",
+      "title": "متوسط",
+      "rounds": 2,
+      "sub": "4 صور",
+      "pool": [
+       "p1",
+       "p3",
+       "p5",
+       "p6"
+      ]
+     },
+     {
+      "key": "adv",
+      "title": "متقدم",
+      "rounds": 2,
+      "sub": "6 صور",
+      "count": 6
+     }
+    ]
+   },
+   "nour": {
+    "mode": "tap",
+    "prompt": "ماذا يأتي أولًا؟",
+    "levels": [
+     {
+      "key": "l1",
+      "title": "مستوى 1",
+      "rounds": 3,
+      "sub": "صورتان",
+      "pool": [
+       "p1",
+       "p5"
+      ]
+     },
+     {
+      "key": "l2",
+      "title": "مستوى 2",
+      "rounds": 3,
+      "sub": "3 صور",
+      "pool": [
+       "p1",
+       "p3",
+       "p5"
+      ]
+     },
+     {
+      "key": "l3",
+      "title": "مستوى 3",
+      "rounds": 3,
+      "sub": "4 صور",
+      "pool": [
+       "p1",
+       "p3",
+       "p5",
+       "p6"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "meal_manners",
+   "section": "akhlaq",
+   "type": "scenario",
+   "title": "على مائدة الطعام",
+   "emoji": "🍽️",
+   "intro": "هيا نتعلم آداب الطعام",
+   "goal": "آداب الطعام: التسمية، الأكل باليمين، مما يلينا، الحمد، عدم الإسراف.",
+   "scenarios": [
+    {
+     "emoji": "🍽️",
+     "say": "سنبدأ الأكل. ماذا نقول؟",
+     "options": [
+      {
+       "emoji": "🤲",
+       "label": "بسم الله"
+      },
+      {
+       "emoji": "🎵",
+       "label": "نغني"
+      },
+      {
+       "emoji": "🤐",
+       "label": "لا شيء"
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "emoji": "🫱",
+     "say": "بأي يد نأكل؟",
+     "options": [
+      {
+       "emoji": "🫱",
+       "label": "باليمين"
+      },
+      {
+       "emoji": "🫲",
+       "label": "باليسار"
+      },
+      {
+       "emoji": "🦶",
+       "label": "بالرجل"
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "emoji": "🥘",
+     "say": "الطبق كبير. من أين نأكل؟",
+     "options": [
+      {
+       "emoji": "👇",
+       "label": "من أمامي"
+      },
+      {
+       "emoji": "👉",
+       "label": "من أمام أختي"
+      },
+      {
+       "emoji": "🙌",
+       "label": "من كل مكان"
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "emoji": "🍞",
+     "say": "شبعنا. ماذا نفعل بالطعام الباقي؟",
+     "options": [
+      {
+       "emoji": "🧺",
+       "label": "نحفظه ولا نرميه"
+      },
+      {
+       "emoji": "🗑️",
+       "label": "نرميه"
+      },
+      {
+       "emoji": "🦶",
+       "label": "نلعب به"
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "emoji": "🥛",
+     "say": "انتهينا من الأكل. ماذا نفعل؟",
+     "options": [
+      {
+       "emoji": "🤲",
+       "label": "نحمد الله"
+      },
+      {
+       "emoji": "🏃",
+       "label": "نجري فورًا"
+      },
+      {
+       "emoji": "😝",
+       "label": "نتذمر"
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "emoji": "🧼",
+     "say": "قبل الأكل وبعده. ماذا نفعل بأيدينا؟",
+     "options": [
+      {
+       "emoji": "🧼",
+       "label": "نغسلها"
+      },
+      {
+       "emoji": "🪨",
+       "label": "نلعب بالطين"
+      },
+      {
+       "emoji": "🙈",
+       "label": "لا شيء"
+      }
+     ],
+     "answer": 0
+    }
+   ],
+   "fedaa": {
+    "levels": [
+     {
+      "key": "easy",
+      "title": "سهل",
+      "rounds": 4,
+      "sub": "اختياران",
+      "options": 2
+     },
+     {
+      "key": "mid",
+      "title": "متوسط",
+      "rounds": 5,
+      "sub": "3 اختيارات",
+      "options": 3
+     },
+     {
+      "key": "adv",
+      "title": "متقدم",
+      "rounds": 6,
+      "sub": "كل المواقف",
+      "options": 3
+     }
+    ]
+   },
+   "nour": {
+    "levels": [
+     {
+      "key": "l1",
+      "title": "مستوى 1",
+      "rounds": 3,
+      "sub": "صورتان",
+      "options": 2
+     },
+     {
+      "key": "l2",
+      "title": "مستوى 2",
+      "rounds": 4,
+      "sub": "صورتان",
+      "options": 2
+     },
+     {
+      "key": "l3",
+      "title": "مستوى 3",
+      "rounds": 5,
+      "sub": "صورتان",
+      "options": 2
+     }
+    ]
+   }
+  },
+  {
+   "id": "night_sky",
+   "section": "focus",
+   "type": "find",
+   "title": "سماء الليل",
+   "emoji": "🌙",
+   "intro": "في سماء الليل أشياء جميلة. ابحثي عنها",
+   "goal": "الملاحظة والتركيز.",
+   "items": [
+    {
+     "id": "moon",
+     "emoji": "🌙",
+     "label": "القمر"
+    },
+    {
+     "id": "star",
+     "emoji": "⭐",
+     "label": "النجمة"
+    },
+    {
+     "id": "rocket",
+     "emoji": "🚀",
+     "label": "الصاروخ"
+    },
+    {
+     "id": "owl",
+     "emoji": "🦉",
+     "label": "البومة"
+    }
+   ],
+   "fedaa": {
+    "levels": [
+     {
+      "key": "easy",
+      "title": "سهل",
+      "rounds": 4,
+      "sub": "شيئان",
+      "cells": 12,
+      "targets": 2,
+      "distractors": [
+       "☁️",
+       "🌌",
+       "✨",
+       "🪐",
+       "🌠",
+       "🦉",
+       "🏠",
+       "🌲"
+      ]
+     },
+     {
+      "key": "mid",
+      "title": "متوسط",
+      "rounds": 4,
+      "sub": "3 أشياء",
+      "cells": 16,
+      "targets": 3,
+      "distractors": [
+       "☁️",
+       "🌌",
+       "✨",
+       "🪐",
+       "🌠",
+       "🦉",
+       "🏠",
+       "🌲"
+      ]
+     },
+     {
+      "key": "adv",
+      "title": "متقدم",
+      "rounds": 5,
+      "sub": "4 أشياء",
+      "cells": 20,
+      "targets": 4,
+      "distractors": [
+       "☁️",
+       "🌌",
+       "✨",
+       "🪐",
+       "🌠",
+       "🦉",
+       "🏠",
+       "🌲"
+      ]
+     }
+    ]
+   },
+   "nour": {
+    "levels": [
+     {
+      "key": "l1",
+      "title": "مستوى 1",
+      "rounds": 4,
+      "sub": "بين 4",
+      "cells": 4,
+      "targets": 1,
+      "distractors": [
+       "☁️",
+       "🌌",
+       "✨"
+      ]
+     },
+     {
+      "key": "l2",
+      "title": "مستوى 2",
+      "rounds": 4,
+      "sub": "بين 6",
+      "cells": 6,
+      "targets": 1,
+      "distractors": [
+       "☁️",
+       "🌌",
+       "✨",
+       "🪐",
+       "🌠"
+      ]
+     },
+     {
+      "key": "l3",
+      "title": "مستوى 3",
+      "rounds": 5,
+      "sub": "بين 9",
+      "cells": 9,
+      "targets": 1,
+      "distractors": [
+       "☁️",
+       "🌌",
+       "✨",
+       "🪐",
+       "🌠",
+       "🦉",
+       "🏠",
+       "🌲"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "memory_islamic",
+   "section": "focus",
+   "type": "memory",
+   "title": "كروت ديني",
+   "emoji": "🕋",
+   "intro": "اقلبي الكروت: صور من ديننا الجميل",
+   "goal": "الذاكرة مع كلمات إسلامية (فداء: الصورة وكلمتها).",
+   "items": [
+    {
+     "id": "i1",
+     "emoji": "🕌",
+     "label": "مسجد"
+    },
+    {
+     "id": "i2",
+     "emoji": "📖",
+     "label": "مصحف"
+    },
+    {
+     "id": "i3",
+     "emoji": "🕋",
+     "label": "الكعبة"
+    },
+    {
+     "id": "i4",
+     "emoji": "🌙",
+     "label": "هلال"
+    },
+    {
+     "id": "i5",
+     "emoji": "💧",
+     "label": "وضوء"
+    },
+    {
+     "id": "i6",
+     "emoji": "📿",
+     "label": "مسبحة"
+    },
+    {
+     "id": "i7",
+     "emoji": "🤲",
+     "label": "دعاء"
+    }
+   ],
+   "fedaa": {
+    "mode": "words",
+    "levels": [
+     {
+      "key": "easy",
+      "title": "سهل",
+      "rounds": 2,
+      "sub": "3 أزواج",
+      "pairs": 3
+     },
+     {
+      "key": "mid",
+      "title": "متوسط",
+      "rounds": 2,
+      "sub": "5 أزواج",
+      "pairs": 5
+     },
+     {
+      "key": "adv",
+      "title": "متقدم",
+      "rounds": 2,
+      "sub": "7 أزواج",
+      "pairs": 7
+     }
+    ]
+   },
+   "nour": {
+    "mode": "same",
+    "levels": [
+     {
+      "key": "l1",
+      "title": "مستوى 1",
+      "rounds": 2,
+      "sub": "زوجان",
+      "pairs": 2
+     },
+     {
+      "key": "l2",
+      "title": "مستوى 2",
+      "rounds": 2,
+      "sub": "3 أزواج",
+      "pairs": 3
+     },
+     {
+      "key": "l3",
+      "title": "مستوى 3",
+      "rounds": 2,
+      "sub": "4 أزواج",
+      "pairs": 4
+     }
+    ]
+   }
+  },
+  {
+   "id": "count_farm",
+   "section": "numbers",
+   "type": "count",
+   "title": "عدّي في المزرعة",
+   "emoji": "🐔",
+   "intro": "كم حيوانًا في المزرعة؟ هيا نعدّ",
+   "goal": "العدّ وربط الكمية بالرقم.",
+   "items": [
+    {
+     "id": "c1",
+     "emoji": "🐔",
+     "label": "دجاجة"
+    },
+    {
+     "id": "c2",
+     "emoji": "🐑",
+     "label": "خروف"
+    },
+    {
+     "id": "c3",
+     "emoji": "🐄",
+     "label": "بقرة"
+    },
+    {
+     "id": "c4",
+     "emoji": "🐤",
+     "label": "كتكوت"
+    },
+    {
+     "id": "c5",
+     "emoji": "🐇",
+     "label": "أرنب"
+    }
+   ],
+   "fedaa": {
+    "mode": "choose",
+    "levels": [
+     {
+      "key": "easy",
+      "title": "سهل",
+      "rounds": 5,
+      "sub": "حتى 5",
+      "min": 2,
+      "max": 5
+     },
+     {
+      "key": "mid",
+      "title": "متوسط",
+      "rounds": 6,
+      "sub": "حتى 7",
+      "min": 3,
+      "max": 7
+     },
+     {
+      "key": "adv",
+      "title": "متقدم",
+      "rounds": 6,
+      "sub": "حتى 10",
+      "min": 6,
+      "max": 10
+     }
+    ]
+   },
+   "nour": {
+    "mode": "tap",
+    "levels": [
+     {
+      "key": "l1",
+      "title": "مستوى 1",
+      "rounds": 4,
+      "sub": "حتى 2",
+      "min": 1,
+      "max": 2,
+      "extra": 1
+     },
+     {
+      "key": "l2",
+      "title": "مستوى 2",
+      "rounds": 4,
+      "sub": "حتى 4",
+      "min": 2,
+      "max": 4,
+      "extra": 1
+     },
+     {
+      "key": "l3",
+      "title": "مستوى 3",
+      "rounds": 5,
+      "sub": "حتى 5",
+      "min": 3,
+      "max": 5,
+      "extra": 2
+     }
+    ]
+   }
   }
  ]
 }

@@ -526,6 +526,244 @@ GAMES = [
     find_game, memory_pics, animals,
 ]
 
+# ---------------- ألعاب إضافية ----------------
+PROPHETS = load('prophets_ayat.json')['verses']
+def _pname(v):
+    return v['prophet'].split(' عليه')[0]
+
+
+def _psay(v):
+    # الاسم مع الصلاة/السلام كما يليق بكل نبي.
+    n = _pname(v).replace(' ﷺ', '')
+    return 'محمد صلى الله عليه وسلم' if n == 'محمد' else n + ' عليه السلام'
+
+
+prophet_items = [
+    it(v['id'], v['emoji'], _pname(v), say=_psay(v),
+       recite=[v['surahNumber'], v['ayahFrom']] + ([v['ayahTo']] if v['ayahTo'] != v['ayahFrom'] else []))
+    for v in PROPHETS
+]
+P5 = ['prophet_ibrahim', 'prophet_nuh', 'prophet_musa', 'prophet_yusuf', 'prophet_isa']
+P10 = P5 + ['prophet_adam', 'prophet_yunus', 'prophet_sulayman', 'prophet_dawud', 'prophet_muhammad']
+prophets_listen = {
+    'id': 'prophets_listen', 'section': 'quran', 'type': 'choose', 'respectful': True,
+    'title': 'من النبي في الآية؟', 'emoji': '🌿',
+    'intro': 'الشيخ يقرأ آية عن نبي من الأنبياء. من هو؟',
+    'goal': 'التعرف على الأنبياء من آيات القرآن.',
+    'items': prophet_items,
+    'fedaa': {'show': 'emoji+label', 'prompt': 'اسمعي الآية… عن أي نبي تتحدث؟', 'after': 'نعم، {say}',
+              'levels': [
+                  lv('easy', EASY, 5, '5 أنبياء', pool=P5, options=2),
+                  lv('mid', MID, 6, '10 أنبياء', pool=P10, options=3),
+                  lv('adv', ADV, 8, 'كل الأنبياء', options=4),
+              ]},
+    'nour': {'show': 'emoji+label', 'prompt': 'اسمعي الآية… من النبي؟', 'after': '{say}',
+             'levels': [
+                 lv('l1', L1, 3, 'نبيان', pool=['prophet_ibrahim', 'prophet_yunus', 'prophet_nuh'], options=2),
+                 lv('l2', L2, 4, 'نبيان', pool=P5, options=2),
+                 lv('l3', L3, 5, '3 أنبياء', pool=P10, options=3),
+             ]},
+}
+
+ANIMALS = [
+    it('a1', '🐄', 'بقرة'), it('a2', '🐑', 'خروف'), it('a3', '🐪', 'جمل'), it('a4', '🐴', 'حصان'),
+    it('a5', '🐔', 'دجاجة'), it('a6', '🐱', 'قطة'), it('a7', '🐶', 'كلب'), it('a8', '🐘', 'فيل'),
+    it('a9', '🦁', 'أسد'), it('a10', '🦒', 'زرافة'), it('a11', '🐒', 'قرد'), it('a12', '🐢', 'سلحفاة'),
+]
+animals_game = {
+    'id': 'animals_names', 'section': 'letters', 'type': 'choose',
+    'title': 'أصدقائي الحيوانات', 'emoji': '🦁',
+    'intro': 'هيا نتعرف على الحيوانات',
+    'goal': 'أسماء الحيوانات (نور: الصورة، فداء: قراءة الكلمة).',
+    'items': ANIMALS,
+    'fedaa': {'show': 'label', 'promptShow': 'emoji', 'prompt': 'ما اسم هذا الحيوان؟', 'after': '{label}', 'levels': [
+        lv('easy', EASY, 5, '4 حيوانات', pool=['a1', 'a2', 'a3', 'a4'], options=3),
+        lv('mid', MID, 6, '8 حيوانات', pool=['a%d' % i for i in range(1, 9)], options=3),
+        lv('adv', ADV, 7, 'كل الحيوانات', options=4),
+    ]},
+    'nour': {'show': 'emoji', 'prompt': 'أين {label}؟', 'after': '{label}', 'levels': [
+        lv('l1', L1, 4, 'صورتان', pool=['a1', 'a6', 'a7'], options=2),
+        lv('l2', L2, 5, 'صورتان', pool=['a%d' % i for i in range(1, 7)], options=2),
+        lv('l3', L3, 5, '3 صور', options=3),
+    ]},
+}
+
+FOOD = [
+    it('f1', '🍎', 'تفاحة', group='fruit'), it('f2', '🍌', 'موزة', group='fruit'), it('f3', '🍇', 'عنب', group='fruit'),
+    it('f4', '🍊', 'برتقالة', group='fruit'), it('f5', '🍉', 'بطيخة', group='fruit'), it('f6', '🍓', 'فراولة', group='fruit'),
+    it('v1', '🥕', 'جزرة', group='veg'), it('v2', '🥒', 'خيارة', group='veg'), it('v3', '🍅', 'طماطم', group='veg'),
+    it('v4', '🥔', 'بطاطس', group='veg'), it('v5', '🌽', 'ذرة', group='veg'), it('v6', '🧅', 'بصلة', group='veg'),
+]
+food_sort = {
+    'id': 'fruit_veg', 'section': 'focus', 'type': 'sort',
+    'title': 'سوق الفاكهة', 'emoji': '🧺',
+    'intro': 'فاكهة أم خضار؟ ضعي كل شيء في سلّته',
+    'goal': 'التصنيف ومعرفة أسماء الطعام الصحي.',
+    'groups': [
+        {'id': 'fruit', 'emoji': '🍎', 'label': 'فاكهة', 'color': '#F06262'},
+        {'id': 'veg', 'emoji': '🥕', 'label': 'خضار', 'color': '#6CCB5F'},
+    ],
+    'items': FOOD,
+    'fedaa': {'mode': 'drag', 'levels': [
+        lv('easy', EASY, 2, '6 بطاقات', perRound=6),
+        lv('mid', MID, 2, '8 بطاقات', perRound=8),
+        lv('adv', ADV, 2, '10 بطاقات', perRound=10),
+    ]},
+    'nour': {'mode': 'tap', 'levels': [
+        lv('l1', L1, 2, '3 بطاقات', perRound=3),
+        lv('l2', L2, 2, '4 بطاقات', perRound=4),
+        lv('l3', L3, 3, '5 بطاقات', perRound=5),
+    ]},
+}
+food_names = {
+    'id': 'food_names', 'section': 'letters', 'type': 'choose',
+    'title': 'طبق صحي', 'emoji': '🍇',
+    'intro': 'هيا نتعرف على الفاكهة والخضار',
+    'goal': 'أسماء الفاكهة والخضار.',
+    'items': FOOD,
+    'fedaa': {'show': 'label', 'promptShow': 'emoji', 'prompt': 'ما اسم هذه؟', 'after': '{label}', 'levels': [
+        lv('easy', EASY, 5, 'الفاكهة', pool=['f1', 'f2', 'f3', 'f4'], options=3),
+        lv('mid', MID, 6, 'الخضار', pool=['v1', 'v2', 'v3', 'v4', 'v5'], options=3),
+        lv('adv', ADV, 7, 'الكل', options=4),
+    ]},
+    'nour': {'show': 'emoji', 'prompt': 'أين {label}؟', 'after': '{label}', 'levels': [
+        lv('l1', L1, 4, 'صورتان', pool=['f1', 'f2', 'f5'], options=2),
+        lv('l2', L2, 5, 'صورتان', pool=['f1', 'f2', 'f3', 'f4', 'v1'], options=2),
+        lv('l3', L3, 5, '3 صور', options=3),
+    ]},
+}
+
+DAY = [
+    it('d1', '🌅', 'أستيقظ وأذكر الله'), it('d2', '🪥', 'أغسل أسناني'), it('d3', '🥣', 'أفطر'),
+    it('d4', '🎒', 'أذهب إلى الحضانة'), it('d5', '🧸', 'ألعب'), it('d6', '🍲', 'أتغدى مع أسرتي'),
+    it('d7', '🛁', 'أستحم'), it('d8', '🌙', 'أنام'),
+]
+day_order = {
+    'id': 'my_day', 'section': 'focus', 'type': 'order',
+    'title': 'يومي من الصباح', 'emoji': '🌅',
+    'intro': 'ماذا نفعل أولًا؟ رتّبي يومك',
+    'goal': 'التسلسل الزمني والتفكير المنطقي.',
+    'items': DAY,
+    'fedaa': {'mode': 'drag', 'prompt': 'رتّبي يومك من الصباح', 'levels': [
+        lv('easy', EASY, 2, '4 صور', pool=['d1', 'd3', 'd5', 'd8']),
+        lv('mid', MID, 2, '6 صور', pool=['d1', 'd2', 'd3', 'd5', 'd6', 'd8']),
+        lv('adv', ADV, 2, 'اليوم كاملًا', count=8),
+    ]},
+    'nour': {'mode': 'tap', 'prompt': 'ماذا نفعل أولًا؟', 'levels': [
+        lv('l1', L1, 3, 'صورتان', pool=['d1', 'd8']),
+        lv('l2', L2, 3, '3 صور', pool=['d1', 'd3', 'd8']),
+        lv('l3', L3, 3, '4 صور', pool=['d1', 'd3', 'd5', 'd8']),
+    ]},
+}
+
+PLANT = [it('p1', '🌰', 'بذرة'), it('p2', '💧', 'نسقيها'), it('p3', '🌱', 'نبتة صغيرة'), it('p4', '🌿', 'تكبر'),
+         it('p5', '🌳', 'شجرة'), it('p6', '🍎', 'ثمرة')]
+plant_order = {
+    'id': 'plant_grow', 'section': 'focus', 'type': 'order',
+    'title': 'كيف تنمو الشجرة؟', 'emoji': '🌱',
+    'intro': 'من البذرة إلى الشجرة. رتّبي الصور',
+    'goal': 'التسلسل والملاحظة (نمو النبات).',
+    'items': PLANT,
+    'fedaa': {'mode': 'drag', 'prompt': 'رتّبي نمو الشجرة', 'levels': [
+        lv('easy', EASY, 2, '3 صور', pool=['p1', 'p3', 'p5']),
+        lv('mid', MID, 2, '4 صور', pool=['p1', 'p3', 'p5', 'p6']),
+        lv('adv', ADV, 2, '6 صور', count=6),
+    ]},
+    'nour': {'mode': 'tap', 'prompt': 'ماذا يأتي أولًا؟', 'levels': [
+        lv('l1', L1, 3, 'صورتان', pool=['p1', 'p5']),
+        lv('l2', L2, 3, '3 صور', pool=['p1', 'p3', 'p5']),
+        lv('l3', L3, 3, '4 صور', pool=['p1', 'p3', 'p5', 'p6']),
+    ]},
+}
+
+meal_manners = {
+    'id': 'meal_manners', 'section': 'akhlaq', 'type': 'scenario',
+    'title': 'على مائدة الطعام', 'emoji': '🍽️',
+    'intro': 'هيا نتعلم آداب الطعام',
+    'goal': 'آداب الطعام: التسمية، الأكل باليمين، مما يلينا، الحمد، عدم الإسراف.',
+    'scenarios': [
+        sc('🍽️', 'سنبدأ الأكل. ماذا نقول؟', [('🤲', 'بسم الله'), ('🎵', 'نغني'), ('🤐', 'لا شيء')]),
+        sc('🫱', 'بأي يد نأكل؟', [('🫱', 'باليمين'), ('🫲', 'باليسار'), ('🦶', 'بالرجل')]),
+        sc('🥘', 'الطبق كبير. من أين نأكل؟', [('👇', 'من أمامي'), ('👉', 'من أمام أختي'), ('🙌', 'من كل مكان')]),
+        sc('🍞', 'شبعنا. ماذا نفعل بالطعام الباقي؟', [('🧺', 'نحفظه ولا نرميه'), ('🗑️', 'نرميه'), ('🦶', 'نلعب به')]),
+        sc('🥛', 'انتهينا من الأكل. ماذا نفعل؟', [('🤲', 'نحمد الله'), ('🏃', 'نجري فورًا'), ('😝', 'نتذمر')]),
+        sc('🧼', 'قبل الأكل وبعده. ماذا نفعل بأيدينا؟', [('🧼', 'نغسلها'), ('🪨', 'نلعب بالطين'), ('🙈', 'لا شيء')]),
+    ],
+    'fedaa': {'levels': [
+        lv('easy', EASY, 4, 'اختياران', options=2),
+        lv('mid', MID, 5, '3 اختيارات', options=3),
+        lv('adv', ADV, 6, 'كل المواقف', options=3),
+    ]},
+    'nour': {'levels': [
+        lv('l1', L1, 3, 'صورتان', options=2),
+        lv('l2', L2, 4, 'صورتان', options=2),
+        lv('l3', L3, 5, 'صورتان', options=2),
+    ]},
+}
+
+NIGHT = ['☁️', '🌌', '✨', '🪐', '🌠', '🦉', '🏠', '🌲']
+night_find = {
+    'id': 'night_sky', 'section': 'focus', 'type': 'find',
+    'title': 'سماء الليل', 'emoji': '🌙',
+    'intro': 'في سماء الليل أشياء جميلة. ابحثي عنها',
+    'goal': 'الملاحظة والتركيز.',
+    'items': [it('moon', '🌙', 'القمر'), it('star', '⭐', 'النجمة'), it('rocket', '🚀', 'الصاروخ'), it('owl', '🦉', 'البومة')],
+    'fedaa': {'levels': [
+        lv('easy', EASY, 4, 'شيئان', cells=12, targets=2, distractors=NIGHT),
+        lv('mid', MID, 4, '3 أشياء', cells=16, targets=3, distractors=NIGHT),
+        lv('adv', ADV, 5, '4 أشياء', cells=20, targets=4, distractors=NIGHT),
+    ]},
+    'nour': {'levels': [
+        lv('l1', L1, 4, 'بين 4', cells=4, targets=1, distractors=NIGHT[:3]),
+        lv('l2', L2, 4, 'بين 6', cells=6, targets=1, distractors=NIGHT[:5]),
+        lv('l3', L3, 5, 'بين 9', cells=9, targets=1, distractors=NIGHT),
+    ]},
+}
+
+islamic_memory = {
+    'id': 'memory_islamic', 'section': 'focus', 'type': 'memory',
+    'title': 'كروت ديني', 'emoji': '🕋',
+    'intro': 'اقلبي الكروت: صور من ديننا الجميل',
+    'goal': 'الذاكرة مع كلمات إسلامية (فداء: الصورة وكلمتها).',
+    'items': [
+        it('i1', '🕌', 'مسجد'), it('i2', '📖', 'مصحف'), it('i3', '🕋', 'الكعبة'), it('i4', '🌙', 'هلال'),
+        it('i5', '💧', 'وضوء'), it('i6', '📿', 'مسبحة'), it('i7', '🤲', 'دعاء'),
+    ],
+    'fedaa': {'mode': 'words', 'levels': [
+        lv('easy', EASY, 2, '3 أزواج', pairs=3),
+        lv('mid', MID, 2, '5 أزواج', pairs=5),
+        lv('adv', ADV, 2, '7 أزواج', pairs=7),
+    ]},
+    'nour': {'mode': 'same', 'levels': [
+        lv('l1', L1, 2, 'زوجان', pairs=2),
+        lv('l2', L2, 2, '3 أزواج', pairs=3),
+        lv('l3', L3, 2, '4 أزواج', pairs=4),
+    ]},
+}
+
+count_animals = {
+    'id': 'count_farm', 'section': 'numbers', 'type': 'count',
+    'title': 'عدّي في المزرعة', 'emoji': '🐔',
+    'intro': 'كم حيوانًا في المزرعة؟ هيا نعدّ',
+    'goal': 'العدّ وربط الكمية بالرقم.',
+    'items': [
+        it('c1', '🐔', 'دجاجة'), it('c2', '🐑', 'خروف'), it('c3', '🐄', 'بقرة'), it('c4', '🐤', 'كتكوت'), it('c5', '🐇', 'أرنب'),
+    ],
+    'fedaa': {'mode': 'choose', 'levels': [
+        lv('easy', EASY, 5, 'حتى 5', min=2, max=5),
+        lv('mid', MID, 6, 'حتى 7', min=3, max=7),
+        lv('adv', ADV, 6, 'حتى 10', min=6, max=10),
+    ]},
+    'nour': {'mode': 'tap', 'levels': [
+        lv('l1', L1, 4, 'حتى 2', min=1, max=2, extra=1),
+        lv('l2', L2, 4, 'حتى 4', min=2, max=4, extra=1),
+        lv('l3', L3, 5, 'حتى 5', min=3, max=5, extra=2),
+    ]},
+}
+
+GAMES += [prophets_listen, animals_game, food_names, food_sort, day_order, plant_order, meal_manners, night_find,
+          islamic_memory, count_animals]
+
 
 def main():
     ids = [g['id'] for g in GAMES]
