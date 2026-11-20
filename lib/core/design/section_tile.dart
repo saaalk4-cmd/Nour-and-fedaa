@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../theme/app_theme.dart';
 import 'pop_tap.dart';
+import 'emoji_art.dart';
 
 /// بطاقة قسم ملوّنة: تدرّج لوني، أيقونة كبيرة داخل دائرة مضيئة، دوائر زخرفية، وظل ناعم.
 class SectionTile extends StatelessWidget {
@@ -82,7 +83,7 @@ class SectionTile extends StatelessWidget {
                                 color: Colors.white.withValues(alpha: 0.28),
                                 shape: BoxShape.circle,
                               ),
-                              child: Text(emoji, style: TextStyle(fontSize: emojiSize)),
+                              child: EmojiPic(emoji, size: emojiSize),
                             ),
                             const SizedBox(height: 8),
                             Padding(

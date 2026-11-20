@@ -25,6 +25,7 @@ import 'celebration_view.dart';
 import 'milestone_dialog.dart';
 import 'kid_section_screen.dart' show spokenTitle;
 import 'toddler_lesson_screen.dart';
+import '../../core/design/emoji_art.dart';
 
 class LessonScreen extends ConsumerWidget {
   const LessonScreen({super.key, required this.lessonId});
@@ -611,7 +612,7 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
                 decoration: const BoxDecoration(color: Color(0xFFFFF1D0), shape: BoxShape.circle),
                 child: s.emoji.startsWith('art:')
                     ? ArtImage(s.emoji.substring(4), width: little ? 116 : 92, height: little ? 116 : 92)
-                    : Text(s.emoji, style: TextStyle(fontSize: little ? 96 : 76)),
+                    : EmojiPic(s.emoji, size: little ? 96 : 76),
               ),
               const SizedBox(height: 22),
               Text(
@@ -643,7 +644,7 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
       child: Column(
         children: [
           if (emoji != null)
-            Text(emoji, style: TextStyle(fontSize: little ? 88 : 64)),
+            EmojiPic(emoji, size: little ? 88 : 64),
           if (q.recite != null)
             IconButton(
               tooltip: 'استمعي للتلاوة',
@@ -742,7 +743,7 @@ extension _OrderUi on _LessonPlayerState {
     return SingleChildScrollView(
       child: Column(
         children: [
-          if (q.emoji != null) Text(q.emoji!, style: const TextStyle(fontSize: 56)),
+          if (q.emoji != null) EmojiPic(q.emoji!, size: 56),
           const SizedBox(height: 8),
           Text(
             q.prompt,
@@ -806,7 +807,7 @@ extension _OrderUi on _LessonPlayerState {
     return SingleChildScrollView(
       child: Column(
         children: [
-          if (q.emoji != null) Text(q.emoji!, style: const TextStyle(fontSize: 64)),
+          if (q.emoji != null) EmojiPic(q.emoji!, size: 64),
           const SizedBox(height: 10),
           Text(
             q.prompt,
@@ -952,15 +953,17 @@ class _OptionButton extends StatelessWidget {
               else
                 const SizedBox(width: 12),
               Expanded(
-                child: Text(
-                  label,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: little ? 32 : 24,
-                    fontWeight: FontWeight.w800,
-                    color: AppColors.ink,
-                  ),
-                ),
+                child: repeatedArt(label) != null
+                    ? Center(child: EmojiPic(label, size: little ? 48 : 40))
+                    : Text(
+                        label,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: little ? 32 : 24,
+                          fontWeight: FontWeight.w800,
+                          color: AppColors.ink,
+                        ),
+                      ),
               ),
               const SizedBox(width: 48),
             ],

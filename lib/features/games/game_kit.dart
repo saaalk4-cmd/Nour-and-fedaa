@@ -12,6 +12,7 @@ import '../../core/design/kit.dart';
 import '../../core/design/pop_tap.dart';
 import '../../core/theme/app_theme.dart';
 import '../../data/content/lesson.dart' show Recitation;
+import '../../core/design/emoji_art.dart';
 
 /// ما تحتاجه أي لعبة: الصوت والتشجيع والعمر. محركات الألعاب لا تعرف قاعدة البيانات.
 class GameKit {
@@ -154,7 +155,7 @@ class _PickCardState extends State<PickCard> with TickerProviderStateMixin {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           if (widget.emoji.isNotEmpty)
-            FittedBox(child: Text(widget.emoji, style: TextStyle(fontSize: widget.big ? 76 : 50, height: 1.1))),
+            FittedBox(child: EmojiPic(widget.emoji, size: widget.big ? 76 : 50)),
           if (label != null && label.isNotEmpty) ...[
             const SizedBox(height: 4),
             // نص مشكَّل (آية): خط النص العادي بحجم مريح وبلا قص؛ الكلمات القصيرة بخط العناوين.

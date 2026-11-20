@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../theme/app_theme.dart';
 import 'art.dart';
 import 'pop_tap.dart';
+import 'emoji_art.dart';
 
 /// عناصر «عالمنا السحري»: لافتات خشب، أزرار دائرية لامعة، ورقة تشجيع، شريط،
 /// وكارت المهمة. كلها مرسومة بالكود (واضحة على أي شاشة) والكلام نص حقيقي.
@@ -684,7 +685,7 @@ class WorldTile extends StatelessWidget {
                             opacity: locked ? 0.4 : 1,
                             child: art != null
                                 ? ArtImage(art!, width: emojiSize * 1.3, height: emojiSize * 1.3)
-                                : Text(emoji, style: TextStyle(fontSize: emojiSize, height: 1.1)),
+                                : EmojiPic(emoji, size: emojiSize),
                           ),
                         ),
                       ),

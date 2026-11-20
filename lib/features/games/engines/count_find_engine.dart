@@ -8,6 +8,7 @@ import '../../../core/design/pop_tap.dart';
 import '../../../core/theme/app_theme.dart';
 import '../game_content.dart';
 import '../game_kit.dart';
+import '../../../core/design/emoji_art.dart';
 
 const numberWords = ['صفر', 'واحد', 'اثنان', 'ثلاثة', 'أربعة', 'خمسة', 'ستة', 'سبعة', 'ثمانية', 'تسعة', 'عشرة'];
 
@@ -126,7 +127,7 @@ class _CountRoundState extends State<CountRound> {
                           child: Stack(
                             alignment: Alignment.center,
                             children: [
-                              Text(widget.thing.emoji, style: TextStyle(fontSize: kit.little ? 54 : 44)),
+                              EmojiPic(widget.thing.emoji, size: kit.little ? 54 : 44),
                               if (_tapped.contains(i))
                                 PositionedDirectional(
                                   bottom: 0,
@@ -232,7 +233,7 @@ class _FindRoundState extends State<FindRound> {
           children: [
             GamePrompt(text: _prompt, mood: _done ? Art.lamaaCheer : Art.lamaaThink, trailing: ListenButton(onTap: () => kit.sayWait(_prompt))),
             const SizedBox(height: 10),
-            Center(child: Text(widget.target.emoji, style: const TextStyle(fontSize: 48))),
+            Center(child: EmojiPic(widget.target.emoji, size: 48)),
             const SizedBox(height: 10),
             Container(
               padding: const EdgeInsets.all(10),

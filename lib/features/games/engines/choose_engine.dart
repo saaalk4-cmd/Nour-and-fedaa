@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import '../../../core/design/art.dart';
 import '../game_content.dart';
 import '../game_kit.dart';
+import '../../../core/design/emoji_art.dart';
 
 /// يملأ قالب نص مثل «أين {label}؟» من عنصر.
 String fillTemplate(String t, GameItem i) => t
@@ -271,7 +272,7 @@ class _ScenarioRoundState extends State<ScenarioRound> {
           children: [
             GamePrompt(text: s.text ?? s.say, mood: _solved ? Art.lamaaCheer : Art.lamaaThink, trailing: ListenButton(onTap: _play)),
             const SizedBox(height: 14),
-            Center(child: Text(s.emoji, style: const TextStyle(fontSize: 96, height: 1.1))),
+            Center(child: EmojiPic(s.emoji, size: 96)),
             const SizedBox(height: 14),
             PickGrid(columns: _order.length == 3 && kit.little ? 3 : 2, children: cards),
           ],

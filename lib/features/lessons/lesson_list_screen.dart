@@ -7,6 +7,7 @@ import '../../data/content/lesson.dart';
 import '../../data/content/lesson_progression.dart';
 import '../../data/models/child.dart';
 import '../../data/providers.dart';
+import '../../core/design/emoji_art.dart';
 
 /// قائمة دروس «أتعلم»: تُعرض للطفلة المختارة حسب عمرها فقط، بتدرّج مناسب لها.
 class LessonListScreen extends ConsumerWidget {
@@ -133,7 +134,7 @@ class _LessonCard extends StatelessWidget {
             children: [
               Opacity(
                 opacity: unlocked ? 1 : 0.35,
-                child: Text(lesson.emoji, style: TextStyle(fontSize: little ? 64 : 46)),
+                child: EmojiPic(lesson.emoji, size: little ? 64 : 46),
               ),
               const SizedBox(width: 16),
               Expanded(

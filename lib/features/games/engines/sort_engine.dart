@@ -7,6 +7,7 @@ import '../../../core/design/kit.dart';
 import '../../../core/theme/app_theme.dart';
 import '../game_content.dart';
 import '../game_kit.dart';
+import '../../../core/design/emoji_art.dart';
 
 /// الفرز في السلال (ألوان، أشكال، أنواع). نور: عنصر واحد تضغط سلّته (سلتان).
 /// فداء: تسحب كل العناصر إلى سلالها (حتى 3 سلال).
@@ -87,7 +88,7 @@ class _SortRoundState extends State<SortRound> {
                   for (final i in left)
                     Draggable<GameItem>(
                       data: i,
-                      feedback: Material(color: Colors.transparent, child: Text(i.emoji, style: const TextStyle(fontSize: 64))),
+                      feedback: Material(color: Colors.transparent, child: EmojiPic(i.emoji, size: 64)),
                       childWhenDragging: const SizedBox(width: 96, height: 96),
                       child: SizedBox(width: 96, child: _itemCard(i)),
                     ),
@@ -148,7 +149,7 @@ class _Bin extends StatelessWidget {
               Text(group.label, textAlign: TextAlign.center, style: AppText.display(20, color: Color.lerp(c, Colors.black, 0.55)!)),
               const SizedBox(height: 4),
               Wrap(spacing: 2, runSpacing: 2, alignment: WrapAlignment.center, children: [
-                for (final i in items) Text(i.emoji, style: const TextStyle(fontSize: 22)),
+                for (final i in items) EmojiPic(i.emoji, size: 22),
               ]),
             ],
           ),

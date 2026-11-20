@@ -19,6 +19,7 @@ import '../../data/providers.dart';
 import 'kid_section_screen.dart' show spokenTitle;
 import 'break_reminder.dart';
 import 'celebration_view.dart';
+import '../../core/design/emoji_art.dart';
 
 /// واجهة الصغيرات (3–4 سنوات): «صورة + صوت + كلمة قصيرة + لمس».
 /// لا فقرات ولا أحاديث ولا مصادر هنا أبدًا: المصدر والنص الكامل في لوحة ولي الأمر.
@@ -370,7 +371,7 @@ class _BigPicture extends StatelessWidget {
       // «art:اسم» = صورة مرسومة من assets/art (كروت حروف نور)، وإلا إيموجي.
       child: emoji.startsWith('art:')
           ? ArtImage(emoji.substring(4), width: size * 1.2, height: size * 1.2)
-          : Text(emoji, style: TextStyle(fontSize: size)),
+          : EmojiPic(emoji, size: size),
     );
   }
 }
@@ -452,15 +453,17 @@ class _PictureOption extends StatelessWidget {
           borderRadius: BorderRadius.circular(32),
           onTap: state == _OptState.tried ? null : onTap,
           child: Center(
-            child: Text(
-              label,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 32,
-                fontWeight: FontWeight.w900,
-                color: AppColors.ink,
-              ),
-            ),
+            child: repeatedArt(label) != null
+                ? Padding(padding: const EdgeInsets.all(8), child: EmojiPic(label, size: 64))
+                : Text(
+                    label,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      fontSize: 32,
+                      fontWeight: FontWeight.w900,
+                      color: AppColors.ink,
+                    ),
+                  ),
           ),
         ),
       ),
