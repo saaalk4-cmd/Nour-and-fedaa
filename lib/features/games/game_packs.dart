@@ -13,7 +13,7 @@ class GamePackService {
 
   /// ملف حزمة الألعاب الإضافية في مستودع المشروع (يُحدَّث بلا إصدار تطبيق جديد).
   static const kGamePackUrl =
-      'https://raw.githubusercontent.com/saaalk4-cmd/Nour-and-fedaa/main/assets/content/games_pack.json';
+      'https://raw.githubusercontent.com/saaalk4-cmd/Nour-and-fedaa/feature/kids-motivation-v1/assets/content/games_pack.json';
   static const _key = 'game_pack_json';
 
   final SettingsRepository _settings;
