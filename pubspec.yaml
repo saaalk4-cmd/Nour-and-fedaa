@@ -40,5 +40,6 @@ flutter:
     - assets/audio/
     - assets/audio/quran/
     - assets/audio/voice/
+    - assets/audio/song/
     - assets/videos/
     - assets/art/
