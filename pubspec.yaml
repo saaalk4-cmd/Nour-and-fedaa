@@ -20,6 +20,11 @@ dependencies:
   video_player: ^2.9.2
   flutter_tts: ^4.2.0
   intl: any
+  record: ^7.2.0
+  path_provider: ^2.1.6
+  archive: ^4.7.1
+  share_plus: ^13.3.1
+  file_picker: ^13.4.0
 
 dev_dependencies:
   flutter_test:

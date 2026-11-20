@@ -12,6 +12,7 @@
 الاستعمال:
   python3 tools/build_voice.py            # توليد (يحتاج pip install edge-tts)
   python3 tools/build_voice.py --list     # طباعة الجمل فقط
+  python3 tools/build_voice.py --catalog  # يكتب assets/content/voice_phrases.json (شاشة «صوتي» للأهل)
 """
 import asyncio
 import glob
@@ -259,7 +260,66 @@ async def _generate(items):
     return ok
 
 
+# جمل يُنصح الأهل بتسجيلها أولًا (ترحيب وتشجيع وأسماء الأقسام)
+ESSENTIAL_EXTRA = [
+    'من سيتعلم اليوم؟', 'أهلًا يا {n}! هيا نبدأ مهمتنا', 'أحسنتِ يا {n}! هيا نكمل', 'أحسنتِ يا {n}! أكملتِ اليوم',
+    'هديتك تنتظرك بعد مهمات اليوم', 'أنتِ مستكشفة صغيرة', 'مغامرة جديدة تنتظرك', 'أكملي المغامرة السابقة أولًا',
+    'وقت استراحة! اشربي ماء وتحركي قليلًا ثم نكمل', 'خريطة الأسبوع', 'الألعاب', 'اسمعي', 'يلا نلعب',
+]
+
+
+def hadith_catalog():
+    """كل نص حديث موثّق في التطبيق (لتسجّله الأم/الأب بصوتهما). النص كما في الدرس بالضبط."""
+    out = []
+    seen = set()
+    for f in sorted(glob.glob(os.path.join(ROOT, 'assets', 'content', '*_hadith.json'))):
+        with open(f, encoding='utf-8') as fh:
+            doc = json.load(fh)
+        for h in doc['hadiths']:
+            t = clean(h['text'])
+            if t in seen:
+                continue
+            seen.add(t)
+            out.append({'key': clip_key(t), 'text': h['text'], 'title': h['title'],
+                        'source': '%s (%s) — %s' % (h['book'], h['number'], h['grade']),
+                        'narrator': h['narrator']})
+    return out
+
+
+def write_catalog():
+    """assets/content/voice_phrases.json: ما يسجّله الأهل بصوتهم (الأساسي، الأحاديث، الباقي)."""
+    allp = phrases()  # key -> text (بلا آيات ولا أحاديث)
+    ess_texts = []
+    for n in NAMES:
+        ess_texts.append(n)
+    for t in sorted(cheer_phrases()) + [x.replace('{n}', n) for x in ESSENTIAL_EXTRA for n in (NAMES if '{n}' in x else [''])]:
+        ess_texts.append(t)
+    for t in sorted(section_phrases()):
+        ess_texts.append(t)
+    ess, seen = [], set()
+    for t in ess_texts:
+        c = clean(t)
+        if c and c not in seen and ARABIC.search(c):
+            seen.add(c)
+            ess.append({'key': clip_key(c), 'text': c})
+    ess_keys = {e['key'] for e in ess}
+    other = [{'key': k, 'text': t} for k, t in allp.items() if k not in ess_keys]
+    doc = {'schema': 1, 'groups': [
+        {'id': 'essential', 'title': 'الأساسية', 'phrases': ess},
+        {'id': 'hadith', 'title': 'الأحاديث', 'phrases': hadith_catalog()},
+        {'id': 'other', 'title': 'باقي الجمل', 'phrases': other},
+    ]}
+    path = os.path.join(ROOT, 'assets', 'content', 'voice_phrases.json')
+    with open(path, 'w', encoding='utf-8') as fh:
+        json.dump(doc, fh, ensure_ascii=False, indent=1)
+        fh.write('\n')
+    print('catalog: %d essential, %d hadith, %d other' % (len(ess), len(doc['groups'][1]['phrases']), len(other)))
+
+
 def main():
+    if '--catalog' in sys.argv:
+        write_catalog()
+        return 0
     items = list(phrases().items())[:MAX_CLIPS]
     if '--list' in sys.argv:
         for k, t in items:

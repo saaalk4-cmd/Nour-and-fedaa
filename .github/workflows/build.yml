@@ -53,6 +53,14 @@ jobs:
             sed -i 's#<application#<uses-permission android:name="android.permission.INTERNET"/>\n    <application#' "$f"
           fi
 
+      # «صوتي»: ولي الأمر يسجّل الجمل بصوته (الميكروفون لا يُفتح إلا حين يضغط «ابدئي التسجيل»)
+      - name: Declare microphone permission (parent voice)
+        run: |
+          f=android/app/src/main/AndroidManifest.xml
+          if ! grep -q "android.permission.RECORD_AUDIO" "$f"; then
+            sed -i 's#<application#<uses-permission android:name="android.permission.RECORD_AUDIO"/>\n    <application#' "$f"
+          fi
+
       # تلاوة الآيات للأطفال بلا ولي أمر (لا تُرفع إلى git)
       - name: Fetch Quran recitation audio
         run: python3 tools/fetch_quran_audio.py

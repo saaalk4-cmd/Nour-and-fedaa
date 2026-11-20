@@ -12,6 +12,7 @@ import '../../features/lessons/lesson_screen.dart';
 import '../../features/path/learning_path_screen.dart';
 import '../../features/parent/parent_dashboard_screen.dart';
 import '../../features/parent/parent_gate_screen.dart';
+import '../../features/parent/voice/voice_studio_screen.dart';
 import '../../features/today/today_screen.dart';
 import '../../features/games/game_play_screen.dart';
 import '../../features/games/games_home_screen.dart';
@@ -79,6 +80,7 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(path: '/lesson/:id', builder: (_, state) => LessonScreen(lessonId: state.pathParameters['id']!)),
       GoRoute(path: '/parent', builder: (_, __) => const ParentGateScreen()),
       GoRoute(path: '/parent/dashboard', builder: (_, __) => const ParentDashboardScreen()),
+      GoRoute(path: '/parent/voice', builder: (_, __) => const VoiceStudioScreen()),
     ],
   );
 });

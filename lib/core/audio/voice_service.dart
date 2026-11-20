@@ -209,9 +209,19 @@ class VoiceService {
       final gen = _gen;
       final key = clipKey(t);
       final user = _user;
-      if (user != null && await user.has(key)) {
-        await user.playAndWait(key);
-        return gen == _gen;
+      var mine = false;
+      try {
+        mine = user != null && await user.has(key);
+      } catch (_) {
+        // تعذّر قراءة تسجيلات الأهل: نكمل بالصوت المسجّل أو الآلي ولا نسكت.
+      }
+      if (mine) {
+        try {
+          await user!.playAndWait(key);
+          return gen == _gen;
+        } catch (_) {
+          // ملف تالف: نكمل بالصوت الآلي.
+        }
       }
       final clips = _clips;
       if (clips != null && await clips.has(key)) {

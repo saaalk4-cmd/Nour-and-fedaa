@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../core/audio/flutter_tts_engine.dart';
 import '../../core/theme/app_theme.dart';
@@ -62,6 +63,13 @@ class ParentDashboardScreen extends ConsumerWidget {
               await ref.read(voiceServiceProvider).setEnabled(v);
               ref.invalidate(voiceEnabledProvider);
             },
+          ),
+          ListTile(
+            leading: const Text('🎙️', style: TextStyle(fontSize: 28)),
+            title: const Text('صوتي', style: TextStyle(fontWeight: FontWeight.w800)),
+            subtitle: const Text('سجّلي الجمل والأحاديث بصوتكِ بدل الصوت الآلي'),
+            trailing: const Icon(Icons.chevron_left_rounded),
+            onTap: () => context.push('/parent/voice'),
           ),
           if (voiceOn) const _VoicePicker(),
           ]),

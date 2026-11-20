@@ -6,6 +6,7 @@ import '../core/audio/audioplayers_sound_player.dart';
 import '../core/audio/ayah_player.dart';
 import '../core/audio/flutter_tts_engine.dart';
 import '../core/audio/asset_clip_player.dart';
+import '../core/audio/user_voice_store.dart';
 import '../core/audio/voice_service.dart';
 import '../core/audio/sound_service.dart';
 import '../domain/gamification/quests.dart';
@@ -113,7 +114,7 @@ final voiceServiceProvider = Provider<VoiceService>((ref) {
 });
 
 /// تسجيلات صوت الأهل (تُنفَّذ في recorded_voice.dart).
-final userVoiceProvider = Provider<UserVoice?>((_) => null);
+final userVoiceProvider = Provider<UserVoice?>((_) => UserVoiceStore.instance);
 
 final voiceSettingsProvider = FutureProvider<VoiceSettings>(
   (ref) => ref.watch(settingsRepositoryProvider).voiceSettings(),
