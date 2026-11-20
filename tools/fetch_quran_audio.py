@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """ينزّل تلاوة الآيات (آية آية) للسور الموجودة في التطبيق إلى assets/audio/quran/.
 
-المصدر: Islamic Network CDN (قارئ: مشاري العفاسي). الترخيص حسب شروط alquran.cloud:
+المصدر: Islamic Network CDN (قارئ: محمد صديق المنشاوي، مرتّل — `ar.minshawi`؛ كان العفاسي قبل ذلك). الترخيص حسب شروط alquran.cloud:
 مجاني لإعادة التوزيع غير التجاري، وحقوق التلاوة تبقى للقارئ. التطبيق عائلي غير تجاري.
 يُشغَّل في CI قبل بناء الـAPK (لا تُرفع الملفات إلى git). إن تعذّر التنزيل لا يفشل البناء:
 التطبيق يعمل بدون تلاوة ويعرض رسالة لطيفة.
@@ -16,8 +16,8 @@ import urllib.request
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.join(HERE, '..')
 OUT = os.path.join(ROOT, 'assets', 'audio', 'quran')
-EDITION = 'ar.alafasy'
-BITRATE = 64  # kbps: صغير الحجم ومناسب لتلاوة الأطفال
+EDITION = 'ar.minshawi'  # المنشاوي مرتّل (اختيار المستخدمة)
+BITRATE = 128  # المتاح للمنشاوي على الـCDN؛ يُصغَّر بعد التنزيل لـ64 أحادي (shrink)
 URL = 'https://cdn.islamic.network/quran/audio/%d/%s/%d.mp3'
 
 counts = json.load(open(os.path.join(HERE, 'quran_verse_counts.json')))
@@ -59,6 +59,25 @@ def wanted():
     return sorted(refs)
 
 
+def shrink(path):
+    """يصغّر التلاوة لـ64 كيلوبت أحادي (نفس حجم العفاسي سابقًا) إن وُجد ffmpeg؛ أي فشل يترك الملف كما هو."""
+    import shutil  # noqa: PLC0415
+    import subprocess  # noqa: PLC0415
+    if not shutil.which('ffmpeg'):
+        return
+    tmp = path + '.small.mp3'
+    try:
+        subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', path, '-ac', '1', '-b:a', '64k', tmp],
+                       check=True, timeout=60)
+        if 1000 < os.path.getsize(tmp) < os.path.getsize(path):
+            os.replace(tmp, path)
+    except Exception:  # noqa: BLE001
+        pass
+    finally:
+        if os.path.exists(tmp):
+            os.remove(tmp)
+
+
 ok = fail = 0
 for n, i in wanted():
     path = os.path.join(OUT, '%d_%d.mp3' % (n, i))
@@ -72,6 +91,7 @@ for n, i in wanted():
             if len(data) < 1000:
                 raise ValueError('too small')
             open(path, 'wb').write(data)
+            shrink(path)
             ok += 1
             break
         except Exception as e:  # noqa: BLE001

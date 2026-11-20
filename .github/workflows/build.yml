@@ -63,7 +63,9 @@ jobs:
 
       # تلاوة الآيات للأطفال بلا ولي أمر (لا تُرفع إلى git)
       - name: Fetch Quran recitation audio
-        run: python3 tools/fetch_quran_audio.py
+        run: |
+          command -v ffmpeg >/dev/null || (sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends ffmpeg) || true
+          python3 tools/fetch_quran_audio.py
 
       # خطوط التطبيق (Tajawal + Lalezar) — لا تُرفع إلى git ولا يفشل البناء إن تعذّر تنزيلها
       - name: Fetch fonts
