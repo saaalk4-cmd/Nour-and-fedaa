@@ -11,7 +11,6 @@ import '../../data/content/curriculum.dart';
 import '../../data/content/lesson.dart';
 import '../../data/models/child.dart';
 import '../../data/providers.dart';
-import '../lessons/kid_section_screen.dart' show spokenTitle;
 import '../today/today_screen.dart' show curriculumProvider;
 
 const _palette = <Color>[
@@ -168,7 +167,7 @@ class _LearningPathScreenState extends ConsumerState<LearningPathScreen> {
     }
     _busy = true;
     try {
-      await voice.sayAndWait(spokenTitle(n.lesson.title));
+      await voice.stop(); // الدرس يقول اسمه أول ما يفتح
       if (mounted) await context.push('/lesson/${n.lesson.id}');
     } finally {
       _busy = false;

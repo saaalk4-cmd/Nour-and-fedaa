@@ -95,10 +95,9 @@ class _KidSectionScreenState extends ConsumerState<KidSectionScreen> {
   Future<void> _open(Lesson l) async {
     if (_busy) return;
     _busy = true;
-    final say = l.spokenText(spokenTitle(l.title), step: true);
     try {
-      // الاسم يُقال كاملًا ثم يفتح الدرس.
-      if (say != null) await ref.read(voiceServiceProvider).sayAndWait(say);
+      // الدرس نفسه يبدأ بقول اسمه كاملًا (في كل مكان)، فنفتحه مباشرة.
+      await ref.read(voiceServiceProvider).stop();
       if (mounted) await context.push('/lesson/${l.id}');
     } finally {
       _busy = false;

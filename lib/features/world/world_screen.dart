@@ -59,6 +59,18 @@ class _WorldScreenState extends ConsumerState<WorldScreen> {
     }
   }
 
+  /// الدرس يقول اسمه بنفسه أول ما يفتح (نفس الشيء في كل التطبيق).
+  Future<void> _openLesson(String id) async {
+    if (_busy) return;
+    _busy = true;
+    try {
+      await ref.read(voiceServiceProvider).stop();
+      if (mounted) await context.push('/lesson/$id');
+    } finally {
+      _busy = false;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final child = ref.watch(selectedChildProvider);
@@ -165,7 +177,7 @@ class _WorldScreenState extends ConsumerState<WorldScreen> {
                 MissionCard(
                   path: path,
                   child: c,
-                  onStart: (l) => _go(spokenTitle(l.title), '/lesson/${l.id}'),
+                  onStart: (l) => _openLesson(l.id),
                   onGift: (d) => _say(d.complete ? 'أحسنتِ يا ${c.name}! أكملتِ اليوم' : kWorldMissionLockedGiftSay),
                   onDone: () => _say('أحسنتِ يا ${c.name}! $kWorldDoneSay'),
                 ),

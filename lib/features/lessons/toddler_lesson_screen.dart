@@ -12,6 +12,7 @@ import '../../data/content/lesson.dart';
 import '../../data/models/child.dart';
 import '../../data/models/lesson_completion.dart';
 import '../../data/providers.dart';
+import 'kid_section_screen.dart' show spokenTitle;
 import 'break_reminder.dart';
 import 'celebration_view.dart';
 
@@ -51,7 +52,17 @@ class _ToddlerLessonPlayerState extends ConsumerState<ToddlerLessonPlayer> {
     super.initState();
     _voice = ref.read(voiceServiceProvider);
     _ayahPlayer = ref.read(ayahPlayerProvider);
-    WidgetsBinding.instance.addPostFrameCallback((_) => _listen());
+    WidgetsBinding.instance.addPostFrameCallback((_) => _start());
+  }
+
+  /// نور تسمع اسم الدرس أولًا (إلا لو أول بطاقة تقوله نفسه)، ثم أول بطاقة.
+  Future<void> _start() async {
+    if (!mounted || !await _voice.isEnabled()) return;
+    final title = _lesson.spokenText(spokenTitle(_lesson.title), step: true);
+    final first = _cards.isEmpty ? '' : (_cards.first.say ?? _cards.first.word).trim();
+    final repeats = first.isNotEmpty && title != null && (title.contains(first) || first.contains(title));
+    if (title != null && !repeats) await _voice.sayAndWait(title);
+    if (mounted && _page == 0) await _listen();
   }
 
   @override

@@ -9,6 +9,7 @@ import '../../core/audio/voice_service.dart';
 import '../../core/design/big_button.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/mascot.dart';
+import '../../data/content/ayah_index.dart';
 import '../../data/content/lesson.dart';
 import '../../data/models/child.dart';
 import '../../data/models/lesson_completion.dart';
@@ -18,6 +19,7 @@ import '../../domain/gamification/milestones.dart';
 import '../today/today_screen.dart' show curriculumProvider;
 import 'celebration_view.dart';
 import 'milestone_dialog.dart';
+import 'kid_section_screen.dart' show spokenTitle;
 import 'toddler_lesson_screen.dart';
 
 class LessonScreen extends ConsumerWidget {
@@ -100,21 +102,84 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
     _voice = ref.read(voiceServiceProvider);
     _ayahPlayer = ref.read(ayahPlayerProvider);
     // الطفلة قد تكون وحدها: نقرأ لها أول شاشة تلقائيًا.
-    WidgetsBinding.instance.addPostFrameCallback((_) => _narrate());
+    WidgetsBinding.instance.addPostFrameCallback((_) => _start());
   }
 
   @override
   void dispose() {
+    _gen++;
     _voice.stop();
     _ayahPlayer.stop();
     super.dispose();
   }
 
-  /// يقرأ الشاشة الحالية بصوت عالٍ: النطق الآلي للمحتوى التعليمي فقط،
-  /// وللقرآن تلاوة مسجّلة (لا نطق آلي للآيات أو الأحاديث أبدًا).
+  /// رقم جولة القراءة: كل صفحة جديدة تُلغي قراءة الصفحة السابقة إن لم تنتهِ.
+  int _gen = 0;
+  AyahIndex _ayat = AyahIndex.empty;
+
+  static const _ordinals = ['الأول', 'الثاني', 'الثالث', 'الرابع', 'الخامس'];
+
+  /// عبارة ثابتة بدل نص حديث لا يُقرأ آليًا (حتى لا يبقى جزء من السؤال صامتًا).
+  static const kHadithLineSay = 'تذكّري الحديث الذي سمعناه';
+
+  /// أول ما يفتح الدرس: يُقال اسمه (إن جاز نطقه) ثم تُقرأ الشاشة الأولى.
+  Future<void> _start() async {
+    final gen = ++_gen;
+    try {
+      _ayat = await ref.read(ayahIndexProvider.future);
+    } catch (_) {}
+    if (!mounted || gen != _gen) return;
+    final title = _lesson.spokenText(spokenTitle(_lesson.title), step: true);
+    if (title != null && await _voice.isEnabled()) {
+      await _voice.sayAndWait(title);
+    }
+    if (mounted && gen == _gen) await _narrate();
+  }
+
+  /// تلاوة مسجّلة لهذا السطر لو كان نص آية (من خطوة الدرس أو من فهرس القرآن).
+  Recitation? _reciteOf(String line) {
+    final t = line.trim();
+    if (t.isEmpty) return null;
+    for (final st in _lesson.steps) {
+      if (st.recite != null && st.text.trim() == t) return st.recite;
+    }
+    final surah = _surah;
+    if (surah != null) {
+      for (var i = 0; i < _lesson.steps.length; i++) {
+        if (_lesson.steps[i].text.trim() == t) return Recitation(surah, i + 1);
+      }
+    }
+    return _ayat.of(t);
+  }
+
+  Future<void> _recite(Recitation r) => _ayahPlayer.playRange(r.surah, r.ayah, r.toAyah);
+
+  /// يقرأ سطور النص بالترتيب: الآية بصوت الشيخ، والكلام التعليمي بالصوت، والحديث بعبارة ثابتة.
+  Future<bool> _readLines(String text, int gen) async {
+    for (final line in text.split('\n')) {
+      if (!mounted || gen != _gen) return false;
+      final t = line.trim();
+      if (t.isEmpty) continue;
+      final r = _reciteOf(t);
+      if (r != null) {
+        await _recite(r);
+      } else if (_lesson.isSpeakable(t, step: true)) {
+        await _voice.sayAndWait(t, max: const Duration(seconds: 10));
+      } else {
+        await _voice.sayAndWait(kHadithLineSay);
+      }
+    }
+    return mounted && gen == _gen;
+  }
+
+  /// يقرأ الشاشة الحالية بصوت عالٍ. كل شيء مسموع: الآيات بتلاوة الشيخ المسجّلة،
+  /// والتعليمات والاختيارات بالصوت، ولا نطق آلي لآية أو حديث أبدًا.
   Future<void> _narrate({bool manual = false}) async {
     if (!mounted || _done != null) return;
     if (!await _voice.isEnabled()) return;
+    final gen = ++_gen;
+    await _voice.stop();
+    await _ayahPlayer.stop();
     final surah = _surah;
     if (_isStep && surah != null) {
       final played = await _ayahPlayer.play(surah, _page + 1);
@@ -129,44 +194,61 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
       final st = _lesson.steps[_page];
       final t = _lesson.spokenText(st.text, say: st.say, step: true);
       if (t != null) {
-        await _voice.speak(t);
+        await _voice.sayAndWait(t, max: const Duration(seconds: 12));
       } else if (st.recite == null) {
         // نص منقول (حديث) لا يُقرأ آليًا: جملة ثابتة قصيرة حتى لا تبقى الشاشة صامتة.
-        await _voice.speak('هذا كلام جميل، هيا نعرف معناه');
+        await _voice.sayAndWait('هذا كلام جميل، هيا نعرف معناه');
       }
       final r = st.recite;
-      if (r != null) await _ayahPlayer.playRange(r.surah, r.ayah, r.toAyah);
-    } else {
-      final q = _lesson.questions[_page - _lesson.steps.length];
-      final r = q.recite;
-      if (r != null) {
-        // «استمعي ثم اختاري»: نقرأ التعليمات ثم نشغّل التلاوة المسجّلة.
-        final intro = _lesson.spokenText(q.prompt, say: q.say, step: true);
-        if (intro != null) {
-          await _voice.speak(intro);
-          await Future<void>.delayed(const Duration(milliseconds: 2500));
-        }
-        if (mounted && _page == _lesson.steps.length + _lesson.questions.indexOf(q)) {
-          await _ayahPlayer.playRange(r.surah, r.ayah, r.toAyah);
-        }
-        return;
-      }
-      if (q.isMatch) {
-        final intro = _lesson.spokenText(q.prompt, say: q.say, step: true);
-        if (intro != null) await _voice.speak(intro);
-        return;
-      }
-      final parts = <String>[];
-      final prompt = _lesson.spokenText(q.prompt, say: q.say, step: true);
-      if (prompt != null) parts.add(prompt);
-      // نقرأ الاختيارات المسموح بها فقط، ليسمعها الطفل دون الحاجة للقراءة.
-      final opts = [
-        for (final o in q.displayOptions)
-          if (_lesson.isSpeakable(o, step: true)) o,
-      ];
-      parts.addAll(opts);
-      if (parts.isNotEmpty) await _voice.speak(parts.join('. '));
+      if (r != null && mounted && gen == _gen) await _recite(r);
+      return;
     }
+    final q = _lesson.questions[_page - _lesson.steps.length];
+    final r = q.recite;
+    if (r != null) {
+      // «استمعي ثم اختاري»: نقرأ التعليمات ثم نشغّل التلاوة المسجّلة.
+      final intro = _lesson.spokenText(q.prompt, say: q.say, step: true);
+      if (intro != null) await _voice.sayAndWait(intro, max: const Duration(seconds: 8));
+      if (mounted && gen == _gen) await _recite(r);
+      return;
+    }
+    // السؤال نفسه (سطرًا سطرًا)، أو ما كُتب ليُقال بدلًا منه.
+    bool ok;
+    final say = q.say;
+    if (say != null && say.trim().isNotEmpty) {
+      await _voice.sayAndWait(say, max: const Duration(seconds: 10));
+      ok = mounted && gen == _gen;
+    } else {
+      ok = await _readLines(q.prompt, gen);
+    }
+    if (!ok || q.isMatch) return;
+    // ثم الاختيارات: آية → «الاختيار الأول» ثم الشيخ؛ كلام تعليمي → يُقال.
+    final opts = q.isOrder ? q.options : q.displayOptions;
+    for (var i = 0; i < opts.length; i++) {
+      if (!mounted || gen != _gen) return;
+      final o = opts[i];
+      final ar = _reciteOf(o);
+      if (ar != null) {
+        await _voice.sayAndWait('الاختيار ${_ordinals[i % _ordinals.length]}');
+        if (mounted && gen == _gen) await _recite(ar);
+      } else if (_lesson.isSpeakable(o, step: true)) {
+        await _voice.sayAndWait(o, max: const Duration(seconds: 8));
+      }
+    }
+  }
+
+  /// زر 🔊 بجانب الاختيار: الآية بصوت الشيخ، والكلام بالصوت.
+  VoidCallback? _hearOption(String o) {
+    final r = _reciteOf(o);
+    if (r != null) {
+      return () async {
+        _gen++;
+        await _voice.stop();
+        await _recite(r);
+      };
+    }
+    if (_lesson.isSpeakable(o, step: true)) return () => _voice.speak(o);
+    return null;
   }
 
   int get _total => _lesson.steps.length + _lesson.questions.length;
@@ -486,9 +568,7 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
                         ? _OptionState.tried
                         : _OptionState.neutral),
                 onTap: () => _pick(q, i),
-                onHear: _lesson.isSpeakable(q.options[i], step: true)
-                    ? () => _voice.speak(q.options[i])
-                    : null,
+                onHear: _hearOption(q.options[i]),
               ),
             ),
           if (_tried.isNotEmpty && !answered)

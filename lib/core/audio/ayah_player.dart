@@ -1,6 +1,8 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
+import 'asset_clip_player.dart' show waitUntilFinished;
+
 /// تشغيل تلاوة آية مسجّلة من assets/audio/quran/<سورة>_<آية>.mp3.
 /// الملفات تُنزَّل أثناء البناء (tools/fetch_quran_audio.py)؛ إن لم توجد يرجع false.
 class AyahPlayer {
@@ -41,12 +43,8 @@ class AyahPlayer {
       try {
         final p = _player ??= AudioPlayer()..setReleaseMode(ReleaseMode.stop);
         await p.stop();
-        final done = Future.any<void>([
-          p.onPlayerComplete.first,
-          p.onPlayerStateChanged.firstWhere((s) => s == PlayerState.stopped || s == PlayerState.disposed),
-        ]);
         await p.play(AssetSource(assetPath(surah, a)));
-        await done.timeout(const Duration(seconds: 90));
+        await waitUntilFinished(p).timeout(const Duration(seconds: 90));
       } catch (_) {
         return a > from;
       }

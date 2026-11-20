@@ -5,6 +5,21 @@ import 'package:flutter/services.dart' show rootBundle;
 
 import 'voice_service.dart';
 
+/// ينتظر حتى ينتهي المقطع الذي بدأ للتو، أو يُوقَف بعد أن بدأ فعلًا.
+/// (حالة «متوقف» القديمة قبل البدء لا تُحسب، وإلا تُفتح الشاشة التالية فورًا وتنقطع الجملة.)
+Future<void> waitUntilFinished(AudioPlayer p) async {
+  var started = p.state == PlayerState.playing;
+  await for (final s in p.onPlayerStateChanged) {
+    if (s == PlayerState.playing) {
+      started = true;
+    } else if (s == PlayerState.completed || s == PlayerState.disposed) {
+      return;
+    } else if (started && (s == PlayerState.stopped || s == PlayerState.paused)) {
+      return;
+    }
+  }
+}
+
 /// يشغّل المقاطع المسجّلة من assets/audio/voice/<key>.mp3.
 /// الفهرس index.json يُولَّد في CI؛ لو غير موجود يعمل التطبيق بصوت الجهاز فقط.
 class AssetClipPlayer implements ClipPlayer {
@@ -38,12 +53,8 @@ class AssetClipPlayer implements ClipPlayer {
     final p = _player ??= AudioPlayer()..setReleaseMode(ReleaseMode.stop);
     await p.stop();
     // ينتهي عند اكتمال المقطع أو عند إيقافه (ضغطة أخرى، أو الخروج).
-    final done = Future.any<void>([
-      p.onPlayerComplete.first,
-      p.onPlayerStateChanged.firstWhere((s) => s == PlayerState.stopped || s == PlayerState.disposed),
-    ]);
     await p.play(AssetSource('audio/voice/$key.mp3'));
-    await done;
+    await waitUntilFinished(p);
   }
 
   @override

@@ -8,6 +8,7 @@ import '../core/audio/voice_service.dart';
 import '../core/audio/sound_service.dart';
 import '../domain/gamification/quests.dart';
 import '../domain/gamification/streak.dart';
+import 'content/ayah_index.dart';
 import 'content/content_repository.dart';
 import 'content/lesson.dart';
 import 'models/child.dart';
@@ -124,6 +125,9 @@ final contentRepositoryProvider = Provider((_) => ContentRepository());
 final lessonsProvider = FutureProvider<List<Lesson>>(
   (ref) => ref.watch(contentRepositoryProvider).loadLessons(),
 );
+
+/// نص الآية → تلاوتها (للأسئلة والاختيارات المسموعة).
+final ayahIndexProvider = FutureProvider<AyahIndex>((_) => AyahIndex.load());
 
 final sectionStatesProvider = FutureProvider<Map<String, bool>>(
   (ref) => ref.watch(settingsRepositoryProvider).sectionStates(),

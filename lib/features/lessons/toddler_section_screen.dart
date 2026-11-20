@@ -78,14 +78,14 @@ class _PictureCard extends ConsumerStatefulWidget {
 class _PictureCardState extends ConsumerState<_PictureCard> {
   bool _busy = false;
 
-  /// نور تسمع اسم الدرس كاملًا (لو مسموح نطقه) ثم يفتح.
+  /// يفتح الدرس (والدرس يبدأ بقول اسمه).
   Future<void> _open() async {
     if (_busy) return;
     _busy = true;
     try {
       final l = widget.lesson;
-      final say = l.spokenText(spokenTitle(l.title), step: true);
-      if (say != null) await ref.read(voiceServiceProvider).sayAndWait(say);
+      // الدرس يبدأ بقول اسمه، فنفتحه مباشرة.
+      await ref.read(voiceServiceProvider).stop();
       if (mounted) await context.push('/lesson/${l.id}');
     } finally {
       _busy = false;

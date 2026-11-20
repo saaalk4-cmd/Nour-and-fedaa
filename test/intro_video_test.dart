@@ -120,10 +120,18 @@ void main() {
     expect(done, 1);
   });
 
-  testWidgets('default opener with no asset file present falls back without crashing', (tester) async {
+  test('the family film is bundled as the intro asset', () {
+    expect(File('assets/videos/cinematic_intro.mp4').existsSync(), isTrue);
+    expect(File('assets/videos/cinematic_intro.mp4').lengthSync(), lessThan(12 * 1024 * 1024));
+  });
+
+  testWidgets('default opener: if the film cannot play here, it falls back without crashing', (tester) async {
     await tester.pumpWidget(host(IntroExperience(onDone: () {}, onExit: (_) {})));
-    await tester.runAsync(() => Future<void>.delayed(const Duration(milliseconds: 300)));
-    await tester.pump();
+    // لا يوجد مشغّل فيديو في بيئة الاختبار: إما خطأ فوري أو مهلة التهيئة، وفي الحالتين المقدمة المرسومة.
+    for (var i = 0; i < 12; i++) {
+      await tester.runAsync(() => Future<void>.delayed(const Duration(milliseconds: 100)));
+      await tester.pump(const Duration(seconds: 1));
+    }
     expect(find.byType(IntroCinemaScreen), findsOneWidget);
     await tester.pumpWidget(const SizedBox());
   });
