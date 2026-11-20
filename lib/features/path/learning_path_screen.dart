@@ -5,12 +5,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/design/art.dart';
+import '../../core/design/kit.dart';
 import '../../core/design/pop_tap.dart';
 import '../../core/theme/app_theme.dart';
 import '../../data/content/curriculum.dart';
 import '../../data/content/lesson.dart';
 import '../../data/models/child.dart';
 import '../../data/providers.dart';
+import '../home/who_learns_screen.dart' show characterFor;
 import '../today/today_screen.dart' show curriculumProvider;
 
 const _palette = <Color>[
@@ -45,36 +47,37 @@ class _LearningPathScreenState extends ConsumerState<LearningPathScreen> {
   @override
   Widget build(BuildContext context) {
     final child = ref.watch(selectedChildProvider);
-    return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          tooltip: 'تغيير الطفلة',
-          icon: const Icon(Icons.swap_horiz_rounded, size: 30),
-          onPressed: () {
-            ref.read(selectedChildIdProvider.notifier).state = null;
-            context.go('/');
-          },
-        ),
-        title: const Text('رحلتي 🌟'),
-        actions: [
-          // «العب بحرية»: لافتة طريق بلا كلمات.
-          ArtButton(art: Art.signpost, label: 'العب بحرية', size: 64, onTap: () => context.canPop() ? context.pop() : context.go('/world')),
-        ],
-      ),
-      body: SafeArea(
-        child: child.when(
-          loading: () => const Center(child: CircularProgressIndicator()),
-          error: (_, __) => const Center(child: Text('حدث خطأ')),
-          data: (c) => c == null
-              ? Center(
-                  child: ElevatedButton(
-                    onPressed: () => context.go('/'),
-                    child: const Text('اختاري من سيتعلم'),
-                  ),
-                )
-              : _body(c),
-        ),
-      ),
+    return child.when(
+      loading: () => _frame(const Center(child: CircularProgressIndicator())),
+      error: (_, __) => _frame(const Center(child: Text('حدث خطأ'))),
+      data: (c) => c == null
+          ? _frame(Center(child: SunButton(label: 'من سيتعلم؟', onTap: () => context.go('/'))))
+          : _body(c),
+    );
+  }
+
+  /// نفس إطار العالم: خلفية مرسومة، صورة البنت للتبديل، ولافتة «العب بحرية» للرجوع.
+  Widget _frame(Widget body, {String bg = Art.bgSky, Child? c}) {
+    return KidScaffold(
+      background: bg,
+      veil: 0.22,
+      title: 'رحلتي',
+      leading: c == null
+          ? null
+          : PicButton(
+              characterFor(c),
+              size: 60,
+              label: 'تغيير الطفلة',
+              onTap: () {
+                ref.read(selectedChildIdProvider.notifier).state = null;
+                context.go('/');
+              },
+            ),
+      onBack: c == null ? () => context.go('/') : null,
+      actions: [
+        ArtButton(art: Art.signpost, label: 'العب بحرية', size: 64, onTap: () => context.canPop() ? context.pop() : context.go('/world')),
+      ],
+      body: body,
     );
   }
 
@@ -83,10 +86,10 @@ class _LearningPathScreenState extends ConsumerState<LearningPathScreen> {
     final lessons = ref.watch(lessonsProvider);
     final done = ref.watch(completedLessonIdsProvider(c.id));
     if (curriculum.isLoading || lessons.isLoading || done.isLoading) {
-      return const Center(child: CircularProgressIndicator());
+      return _frame(const Center(child: CircularProgressIndicator()), c: c);
     }
     if (curriculum.hasError || lessons.hasError || done.hasError) {
-      return const Center(child: Text('تعذر تحميل الرحلة'));
+      return _frame(const Center(child: Text('تعذر تحميل الرحلة')), c: c);
     }
     final path = curriculum.requireValue.pathFor(
       childAge: c.age,
@@ -120,7 +123,7 @@ class _LearningPathScreenState extends ConsumerState<LearningPathScreen> {
     }
 
     if (path.week == null) {
-      return const Center(child: Text('مغامرات جديدة قادمة قريبًا إن شاء الله'));
+      return _frame(const Center(child: Text('مغامرات جديدة قادمة قريبًا إن شاء الله')), c: c);
     }
 
     final items = <Widget>[
@@ -149,13 +152,7 @@ class _LearningPathScreenState extends ConsumerState<LearningPathScreen> {
         ? _EndNode(art: Art.medal, onTap: () => _say('أحسنتِ يا ${c.name}! أنتِ مستكشفة صغيرة'))
         : _EndNode(art: Art.gate, onTap: () => _say(kPathGateSay)));
     final bg = Art.weekBackgrounds[(path.week!.week - 1) % Art.weekBackgrounds.length];
-    return Stack(
-      fit: StackFit.expand,
-      children: [
-        Positioned.fill(child: _PathBackdrop(bg)),
-        ListView(padding: const EdgeInsets.fromLTRB(16, 8, 16, 40), children: items),
-      ],
-    );
+    return _frame(ListView(padding: const EdgeInsets.fromLTRB(16, 8, 16, 40), children: items), bg: bg, c: c);
   }
 
   Future<void> _onNode(PathNode n) async {
@@ -213,7 +210,7 @@ class _WeekHeader extends StatelessWidget {
               boxShadow: const [BoxShadow(color: Color(0x14000000), blurRadius: 10, offset: Offset(0, 4))],
             ),
             child: Text(
-              little ? 'الأسبوع ${week.week} 🌈' : 'الأسبوع ${week.week}: ${week.title}',
+              little ? 'الأسبوع ${week.week}' : 'الأسبوع ${week.week}: ${week.title}',
               style: AppText.display(little ? 26 : 21),
             ),
           ),
@@ -478,34 +475,6 @@ class _EndNode extends StatelessWidget {
 }
 
 /// خلفية المسار: صورة الأسبوع + طبقة بيضاء خفيفة ليبقى المسار واضحًا.
-class _PathBackdrop extends StatelessWidget {
-  const _PathBackdrop(this.art);
-
-  final String art;
-
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      fit: StackFit.expand,
-      children: [
-        ArtImage(art, fit: BoxFit.cover),
-        DecoratedBox(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-                Colors.white.withValues(alpha: 0.18),
-                Colors.white.withValues(alpha: 0.38),
-              ],
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
 /// نبض لطيف على العقدة الحالية.
 class _Pulse extends StatefulWidget {
   const _Pulse({required this.child});

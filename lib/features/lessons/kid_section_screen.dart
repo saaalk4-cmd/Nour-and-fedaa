@@ -109,7 +109,7 @@ class _KidSectionScreenState extends ConsumerState<KidSectionScreen> {
     final lessons = ref.watch(lessonsProvider);
     final done = ref.watch(completedLessonIdsProvider(widget.child.id)).valueOrNull ?? const <String>{};
     return KidScaffold(
-      title: widget.title,
+      title: spokenTitle(widget.title),
       background: SectionLook.of(widget.category).background,
       onBack: () => context.canPop() ? context.pop() : context.go('/world'),
       actions: [

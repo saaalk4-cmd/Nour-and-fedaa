@@ -181,10 +181,14 @@ class _SongScreenState extends ConsumerState<SongScreen> with SingleTickerProvid
           body: LayoutBuilder(
             builder: (context, box) {
               // البنتان ولَمعة بينهما (1 + 0.62 + 1 من عرض البنت) داخل الهوامش.
-              final girl = math.min((box.maxWidth - 40) / 2.7, box.maxHeight * 0.36);
+              final girl = math.min((box.maxWidth - 40) / 2.7, box.maxHeight * (widget.celebrate ? 0.4 : 0.48));
               return SingleChildScrollView(
                 padding: const EdgeInsets.fromLTRB(16, 4, 16, 24),
-                child: Column(
+                child: ConstrainedBox(
+                  // المشهد في منتصف الشاشة بدل أن يلتصق بالأعلى ويترك فراغًا.
+                  constraints: BoxConstraints(minHeight: math.max(0, box.maxHeight - 28)),
+                  child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     if (widget.celebrate) ...[
                       const RibbonBanner(text: 'أحسنتِ! أنهيتِ مغامرة اليوم', size: 24),
@@ -206,13 +210,16 @@ class _SongScreenState extends ConsumerState<SongScreen> with SingleTickerProvid
                       ),
                     ),
                     const SizedBox(height: 16),
-                    GlossyButton(
-                      color: _playing ? const Color(0xFFFF8FB1) : const Color(0xFF7ED36B),
-                      label: _playing ? 'إيقاف مؤقت' : 'تشغيل',
-                      icon: _playing ? Icons.pause_rounded : Icons.play_arrow_rounded,
-                      size: 96,
-                      onTap: _toggle,
-                    ),
+                    if (_playing)
+                      GlossyButton(
+                        color: const Color(0xFFFF8FB1),
+                        label: 'إيقاف مؤقت',
+                        icon: Icons.pause_rounded,
+                        size: 104,
+                        onTap: _toggle,
+                      )
+                    else
+                      PicButton(Art.icPlay, size: 112, label: 'تشغيل', pulse: true, onTap: _toggle),
                     const SizedBox(height: 18),
                     ClipRRect(
                       borderRadius: BorderRadius.circular(99),
@@ -224,6 +231,7 @@ class _SongScreenState extends ConsumerState<SongScreen> with SingleTickerProvid
                       ),
                     ),
                   ],
+                ),
                 ),
               );
             },

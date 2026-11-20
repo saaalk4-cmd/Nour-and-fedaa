@@ -33,7 +33,7 @@ class SectionScreen extends ConsumerWidget {
       final section = sectionById(sectionId);
       return ToddlerSectionScreen(
         category: sectionId,
-        title: '${section.title} ${section.emoji}',
+        title: section.title,
         child: c,
       );
     }
@@ -42,7 +42,7 @@ class SectionScreen extends ConsumerWidget {
       final section = sectionById(sectionId);
       return KidSectionScreen(
         category: sectionId,
-        title: '${section.title} ${section.emoji}',
+        title: section.title,
         child: c,
         parentView: (_) => _legacy(sectionId),
       );
@@ -63,7 +63,7 @@ class SectionScreen extends ConsumerWidget {
     if (hadithAsset != null) {
       final section = sectionById(sectionId);
       return HadithSectionScreen(
-        title: '${section.title} ${section.emoji}',
+        title: section.title,
         asset: hadithAsset,
         category: sectionId,
       );

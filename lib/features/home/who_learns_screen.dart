@@ -43,12 +43,20 @@ class WhoLearnsScreen extends ConsumerWidget {
                         const Expanded(
                           child: Center(child: LogoSign(title: 'نُور وفداء', subtitle: 'عالم من التعلم والمغامرة')),
                         ),
-                        GlossyButton(
-                          color: const Color(0xFF3D8BEA),
-                          label: 'لوحة ولي الأمر',
-                          icon: Icons.lock_rounded,
-                          size: 56,
-                          onTap: () => context.push('/parent'),
+                        // زر الأهل بكلمة واضحة تحته (البنات لا يقرأن، والقفل والرمز يحميانه).
+                        Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            GlossyButton(
+                              color: const Color(0xFF3D8BEA),
+                              label: 'لوحة ولي الأمر',
+                              icon: Icons.lock_rounded,
+                              size: 56,
+                              onTap: () => context.push('/parent'),
+                            ),
+                            const SizedBox(height: 2),
+                            const OutlineText('للأهل', size: 16, stroke: Color(0xFF1C5FA8), maxLines: 1),
+                          ],
                         ),
                       ],
                     ),

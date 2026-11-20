@@ -25,6 +25,15 @@ const Map<String, String> kEmojiArt = {
   '🦶': 'pic_foot', '🧹': 'pic_broom', '🍞': 'pic_bread', '🍅': 'pic_tomato', '📚': 'pic_books', '🍬': 'pic_candy',
   '🌊': 'pic_wave', '🕒': 'pic_clock', '🌅': 'pic_sunrise', '🚢': 'pic_ship', '👨': 'pic_dad', '🔥': 'pic_fire',
   '👁': 'pic_eye', '🪑': 'pic_chair', '🍊': 'pic_orange', '🪥': 'pic_toothbrush', '🐭': 'pic_mouse', '🔑': 'pic_key',
+  '🎧': 'pic_headphones',
+  '🧩': 'pic_puzzle',
+  '🃏': 'pic_cards',
+  '🌈': 'pic_rainbow',
+  '🔷': 'pic_shapes',
+  '🌞': 'let_13',
+  '💖': 'sec_akhlaq',
+  '💛': 'sec_akhlaq',
+  '🏡': 'pic_house',
 };
 
 /// يزيل محدّد الشكل ليطابق المفاتيح.

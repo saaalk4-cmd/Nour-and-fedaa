@@ -5,7 +5,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/audio/ayah_player.dart';
 import '../../core/audio/voice_service.dart';
+import '../../core/audio/cheers.dart';
+import '../../core/audio/sound_service.dart';
 import '../../core/design/art.dart';
+import '../../core/design/joy.dart';
 import '../../core/design/kit.dart';
 import '../../core/design/pop_tap.dart';
 import '../../core/theme/app_theme.dart';
@@ -48,6 +51,7 @@ class _QuranHomeScreenState extends ConsumerState<QuranHomeScreen> {
     ));
     final day = dayKey(DateTime.now());
     final repo = ref.read(hifzRepositoryProvider);
+    final wasDone = p.wirdFor(day, q).allDone;
     if (purpose == HifzPurpose.newPart && result == true) {
       p.completeNew(day, q);
     } else if (purpose == HifzPurpose.review && result != null) {
@@ -59,6 +63,18 @@ class _QuranHomeScreenState extends ConsumerState<QuranHomeScreen> {
     }
     await repo.save(c.id, p);
     ref.invalidate(hifzProvider(c));
+    if (!wasDone && p.wirdFor(day, q).allDone && mounted) unawaited(_celebrate(c));
+  }
+
+  /// أنهت ورد اليوم كله (الجديد والمراجعة): احتفال هادئ (قرآن) + صوت ومديح.
+  bool _joy = false;
+
+  Future<void> _celebrate(Child c) async {
+    setState(() => _joy = true);
+    ref.read(soundServiceProvider).play(SoundEffect.joy);
+    unawaited(ref.read(voiceServiceProvider).speak(Cheers.forPraise(c.name)));
+    await Future<void>.delayed(JoyBurst.duration);
+    if (mounted) setState(() => _joy = false);
   }
 
   @override
@@ -69,6 +85,14 @@ class _QuranHomeScreenState extends ConsumerState<QuranHomeScreen> {
       return const Scaffold(body: Center(child: CircularProgressIndicator()));
     }
     final progress = ref.watch(hifzProvider(child));
+    final still = ref.watch(reduceMotionProvider).valueOrNull ?? false;
+    return Stack(fit: StackFit.expand, children: [
+      _scaffold(child, content, progress),
+      if (_joy) IgnorePointer(child: JoyBurst(level: JoyLevel.big, calm: true, reduceMotion: still)),
+    ]);
+  }
+
+  Widget _scaffold(Child child, AsyncValue<QuranContent> content, AsyncValue<HifzProgress> progress) {
     return KidScaffold(
       title: 'قرآني',
       background: Art.bgCastle,

@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/design/art.dart';
+import '../../core/design/emoji_art.dart';
 import '../../core/design/kit.dart';
 import '../../core/design/pop_tap.dart';
 import '../../core/theme/app_theme.dart';
@@ -206,7 +207,7 @@ class GameLevelsScreen extends ConsumerWidget {
                 height: 92,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.white, border: Border.all(color: shelf.color, width: 5)),
-                child: Text(g.emoji, style: const TextStyle(fontSize: 52)),
+                child: EmojiPic(g.emoji, size: 52),
               ),
               const SizedBox(width: 10),
               Expanded(
@@ -222,7 +223,9 @@ class GameLevelsScreen extends ConsumerWidget {
               final lv = track.levels[i];
               final open = levelUnlocked(track, best, i);
               return WoodSign(
-                icon: Text(open ? const ['🌱', '🌿', '🌳', '🏆'][i.clamp(0, 3)] : '🔒'),
+                icon: open
+                    ? EmojiPic(const ['🌱', '🌿', '🌳', '🏆'][i.clamp(0, 3)], size: 30)
+                    : const ArtImage(Art.icLock, width: 36, height: 36),
                 title: lv.title,
                 subtitle: open ? (lv.sub ?? '${lv.rounds} جولات') : 'اجمعي نجوم المستوى السابق أولًا',
                 onTap: () async {
