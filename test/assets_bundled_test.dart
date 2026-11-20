@@ -20,7 +20,10 @@ void main() {
       final hasFiles = d.listSync().whereType<File>().any((f) => !f.path.split('/').last.startsWith('.'));
       final path = '${d.path.replaceAll('\\', '/')}/';
       // assets/icon: مصدر أيقونة الموبايل (flutter_launcher_icons)، مش محتاجة جوه التطبيق.
-      if (hasFiles && path != 'assets/' && path != 'assets/icon/' && !listed.contains(path)) missing.add(path);
+      // assets/fonts (يولّده CI): ملفاته مسجّلة تحت fonts: في pubspec، فوجود المسار في الملف يكفي.
+      if (hasFiles && path != 'assets/' && path != 'assets/icon/' && !listed.contains(path) && !pubspec.contains(path)) {
+        missing.add(path);
+      }
     }
     expect(missing, isEmpty, reason: 'add these to flutter.assets in pubspec.yaml');
   });
