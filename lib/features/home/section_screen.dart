@@ -12,7 +12,7 @@ import '../achievements/trophy_room_screen.dart';
 import '../hadith/hadith_section_screen.dart';
 import '../lessons/lesson_list_screen.dart';
 import '../prophets/prophets_screen.dart';
-import '../quran/quran_screen.dart';
+import '../quran/hifz_screens.dart';
 import 'sections.dart';
 
 /// شاشة مؤقتة لكل قسم إلى أن يُبنى محتواه في المراحل التالية.
@@ -67,7 +67,7 @@ class SectionScreen extends ConsumerWidget {
       );
     }
     if (sectionId == SectionIds.prophets) return const ProphetsScreen();
-    if (sectionId == SectionIds.quran) return const QuranScreen();
+    if (sectionId == SectionIds.quran) return const QuranHomeScreen();
     if (sectionId == SectionIds.achievements) return const TrophyRoomScreen();
     final s = sectionById(sectionId);
     return Scaffold(

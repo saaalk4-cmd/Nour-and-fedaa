@@ -172,6 +172,10 @@ class _WorldScreenState extends ConsumerState<WorldScreen> {
                 const SizedBox(height: 14),
                 _GamesBanner(onTap: () => _go('الألعاب', '/games')),
               ],
+              if (c.age >= 5) ...[
+                const SizedBox(height: 14),
+                QuranWirdBanner(onTap: () => _go('ورد اليوم', '/section/quran')),
+              ],
               if (songButton) ...[
                 const SizedBox(height: 14),
                 SongBanner(onTap: () => context.push('/song')),
@@ -427,6 +431,50 @@ class _GamesBanner extends StatelessWidget {
                 ),
               ),
               ArtImage(Art.lamaaCheer, width: 92, height: 92),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// «ورد اليوم» من القرآن (فداء): حفظ ثلاث آيات ومراجعة.
+class QuranWirdBanner extends StatelessWidget {
+  const QuranWirdBanner({super.key, required this.onTap});
+
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Semantics(
+      button: true,
+      label: 'ورد اليوم',
+      child: PopTap(
+        onTap: onTap,
+        child: Container(
+          height: 92,
+          padding: const EdgeInsetsDirectional.fromSTEB(16, 6, 12, 6),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(30),
+            gradient: const LinearGradient(colors: [Color(0xFF2A9D8F), Color(0xFF4FB3BF)], begin: Alignment.topRight, end: Alignment.bottomLeft),
+            border: Border.all(color: Colors.white, width: 4),
+            boxShadow: const [BoxShadow(color: Color(0x552A9D8F), blurRadius: 12, offset: Offset(0, 6))],
+          ),
+          child: const Row(
+            children: [
+              ArtImage(Art.secQuran, width: 70, height: 70),
+              SizedBox(width: 10),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    OutlineText('ورد اليوم', size: 28, stroke: Color(0xFF14625A), maxLines: 1),
+                    Text('حفظ جديد ومراجعة', maxLines: 1, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Colors.white)),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
