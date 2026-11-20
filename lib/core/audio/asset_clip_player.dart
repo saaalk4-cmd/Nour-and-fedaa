@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
+import '../packs/content_packs.dart';
 import 'voice_service.dart';
 
 /// ينتظر حتى ينتهي المقطع الذي بدأ للتو، أو يُوقَف بعد أن بدأ فعلًا.
@@ -23,6 +24,11 @@ Future<void> waitUntilFinished(AudioPlayer p) async {
 /// يشغّل المقاطع المسجّلة من assets/audio/voice/<key>.mp3.
 /// الفهرس index.json يُولَّد في CI؛ لو غير موجود يعمل التطبيق بصوت الجهاز فقط.
 class AssetClipPlayer implements ClipPlayer {
+  AssetClipPlayer({this.packs});
+
+  /// حزمة الأصوات المنزّلة (جمل الدروس الطويلة): يُبحث فيها لو المقطع ليس داخل التطبيق.
+  final PackStore? packs;
+
   static const String indexAsset = 'assets/audio/voice/index.json';
 
   Future<Set<String>>? _keys;
@@ -38,22 +44,35 @@ class AssetClipPlayer implements ClipPlayer {
     }
   }
 
+  Future<bool> _bundled(String key) async => (await (_keys ??= _load())).contains(key);
+
+  /// المصدر: داخل التطبيق، وإلا من حزمة الأصوات المنزّلة.
+  Future<Source?> _source(String key) async {
+    if (await _bundled(key)) return AssetSource('audio/voice/$key.mp3');
+    final path = await packs?.voicePath(key);
+    return path == null ? null : DeviceFileSource(path);
+  }
+
   @override
-  Future<bool> has(String key) async => (await (_keys ??= _load())).contains(key);
+  Future<bool> has(String key) async => await _source(key) != null;
 
   @override
   Future<void> play(String key) async {
+    final src = await _source(key);
+    if (src == null) return;
     final p = _player ??= AudioPlayer()..setReleaseMode(ReleaseMode.stop);
     await p.stop();
-    await p.play(AssetSource('audio/voice/$key.mp3'));
+    await p.play(src);
   }
 
   @override
   Future<void> playAndWait(String key) async {
+    final src = await _source(key);
+    if (src == null) return;
     final p = _player ??= AudioPlayer()..setReleaseMode(ReleaseMode.stop);
     await p.stop();
     // ينتهي عند اكتمال المقطع أو عند إيقافه (ضغطة أخرى، أو الخروج).
-    await p.play(AssetSource('audio/voice/$key.mp3'));
+    await p.play(src);
     await waitUntilFinished(p);
   }
 

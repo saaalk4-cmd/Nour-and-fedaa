@@ -193,6 +193,18 @@ class SettingsRepository {
 
   Future<void> setLastRemoteSync(DateTime t) => _set('remote_last', t.toIso8601String());
 
+  // ---------- حزم التنزيل (أصوات وتلاوة إضافية) ----------
+
+  /// تنزيل تلقائي عند فتح التطبيق (الافتراضي: نعم).
+  Future<bool> packAuto() async => (await _get('pack_auto')) != '0';
+
+  Future<void> setPackAuto(bool v) => _set('pack_auto', v ? '1' : '0');
+
+  /// على الواي فاي فقط (الافتراضي: نعم).
+  Future<bool> packWifiOnly() async => (await _get('pack_wifi_only')) != '0';
+
+  Future<void> setPackWifiOnly(bool v) => _set('pack_wifi_only', v ? '1' : '0');
+
   // ---------- الشكل والعرض ----------
 
   /// تقليل الحركة (بلا كونفيتي ولا رقص) للبنت التي تتشتت.

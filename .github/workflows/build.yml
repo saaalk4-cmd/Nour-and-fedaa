@@ -61,6 +61,15 @@ jobs:
             sed -i 's#<application#<uses-permission android:name="android.permission.RECORD_AUDIO"/>\n    <application#' "$f"
           fi
 
+      # تلاوة المنشاوي محفوظة بين البنايات (لا تُنزَّل كل مرة)
+      - name: Restore Quran recitation audio
+        uses: actions/cache@v4
+        with:
+          path: assets/audio/quran
+          key: quran-minshawi-v1-${{ github.run_id }}
+          restore-keys: |
+            quran-minshawi-v1-
+
       # تلاوة الآيات للأطفال بلا ولي أمر (لا تُرفع إلى git)
       - name: Fetch Quran recitation audio
         run: |
@@ -99,6 +108,10 @@ jobs:
           command -v ffmpeg >/dev/null || (sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends ffmpeg) || true
           python3 tools/fix_intro_audio.py
 
+      # حزم التنزيل: جمل الدروس الطويلة وتلاوة الأجزاء تخرج من الـAPK وتُنزَّل داخل التطبيق مرة واحدة
+      - name: Build content packs
+        run: python3 tools/build_packs.py
+
       - run: flutter pub get
       - name: Apply app icon
         run: dart run flutter_launcher_icons -f flutter_launcher_icons.yaml
@@ -106,12 +119,29 @@ jobs:
       # مكتبة SQLite لاختبارات قاعدة البيانات الحقيقية (sqflite_common_ffi)
       - run: sudo apt-get install -y --no-install-recommends libsqlite3-dev
       - run: flutter test
-      - run: flutter build apk --release
+      # APK لكل نوع معالج (أصغر بكثير): arm64 لمعظم الموبايلات، وarmv7 للقديمة
+      - run: flutter build apk --release --split-per-abi
+
+      # يعيد الأصوات والتلاوة إلى فولدرات الكاش (وإلا يُعاد توليدها ويُصرف الرصيد)
+      - name: Restore cached audio after build
+        if: always()
+        run: python3 tools/build_packs.py --restore
 
       - uses: actions/upload-artifact@v4
         with:
           name: nour-fedaa-apk
-          path: build/app/outputs/flutter-apk/app-release.apk
+          path: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
+
+      # الحزم في release ثابت «content-packs» (التطبيق يقرأ manifest.json منه): الملفات أولًا ثم manifest
+      - name: Publish content packs
+        if: github.event_name == 'push' && startsWith(github.ref, 'refs/heads/feature/')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view content-packs >/dev/null 2>&1 || gh release create content-packs --prerelease \
+            --title "حزم التنزيل" --notes "أصوات الدروس وتلاوة الأجزاء: يُنزّلها التطبيق مرة واحدة ويحفظها."
+          ls build/packs/*.zip >/dev/null 2>&1 && gh release upload content-packs build/packs/*.zip --clobber
+          gh release upload content-packs build/packs/manifest.json --clobber
 
       # رابط مباشر لتحميل الـ APK وتثبيته من المتصفح (بدون تسجيل دخول ولا فك ضغط).
       # يُحدَّث عند كل push على فرع الميزة: /releases/download/latest-apk/nour-fedaa.apk
@@ -120,9 +150,10 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          cp build/app/outputs/flutter-apk/app-release.apk nour-fedaa.apk
+          cp build/app/outputs/flutter-apk/app-arm64-v8a-release.apk nour-fedaa.apk
+          cp build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk nour-fedaa-armv7.apk
           gh release delete latest-apk --cleanup-tag --yes || true
-          gh release create latest-apk nour-fedaa.apk \
+          gh release create latest-apk nour-fedaa.apk nour-fedaa-armv7.apk \
             --prerelease \
             --title "نور وفداء — آخر نسخة" \
             --notes "نسخة تجريبية تُبنى تلقائيًا من الفرع ${GITHUB_REF_NAME} (commit ${GITHUB_SHA::7}). حمّلي الملف وثبّتيه على الأندرويد."

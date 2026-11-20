@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../core/audio/audioplayers_sound_player.dart';
@@ -21,6 +22,7 @@ import 'models/gamification.dart';
 import 'repositories/child_repository.dart';
 import 'repositories/gamification_repository.dart';
 import 'repositories/settings_repository.dart';
+import '../core/packs/content_packs.dart';
 
 final childRepositoryProvider = Provider((_) => ChildRepository());
 final settingsRepositoryProvider = Provider((_) => SettingsRepository());
@@ -106,7 +108,7 @@ final voiceServiceProvider = Provider<VoiceService>((ref) {
   final settings = ref.watch(settingsRepositoryProvider);
   return VoiceService(
     engine: ref.watch(ttsEngineProvider),
-    clips: AssetClipPlayer(),
+    clips: AssetClipPlayer(packs: ref.watch(packStoreProvider)),
     userVoice: ref.watch(userVoiceProvider),
     readSettings: settings.voiceSettings,
     readEnabled: settings.voiceEnabled,
@@ -154,7 +156,7 @@ final voiceEnabledProvider = FutureProvider<bool>(
 );
 
 final ayahPlayerProvider = Provider<AyahPlayer>((ref) {
-  final player = AyahPlayer();
+  final player = AyahPlayer(packFile: ref.watch(packStoreProvider).ayahPath);
   ref.onDispose(player.dispose);
   return player;
 });
@@ -175,3 +177,24 @@ final ayahIndexProvider = FutureProvider<AyahIndex>((_) => AyahIndex.load());
 final sectionStatesProvider = FutureProvider<Map<String, bool>>(
   (ref) => ref.watch(settingsRepositoryProvider).sectionStates(),
 );
+
+/// حزم التنزيل (أصوات الدروس الطويلة وتلاوة الأجزاء): تُحفظ على الجهاز وتعمل بلا نت.
+final packStoreProvider = Provider<PackStore>((ref) => PackStore(ref.watch(settingsRepositoryProvider)));
+
+Future<bool> _onWifi() async {
+  try {
+    final r = await Connectivity().checkConnectivity();
+    return r.contains(ConnectivityResult.wifi) || r.contains(ConnectivityResult.ethernet);
+  } catch (_) {
+    return false;
+  }
+}
+
+final packDownloaderProvider = StateNotifierProvider<PackDownloader, PackStatus>((ref) => PackDownloader(
+      store: ref.watch(packStoreProvider),
+      settings: ref.watch(settingsRepositoryProvider),
+      onWifi: _onWifi,
+    ));
+
+final packAutoProvider = FutureProvider<bool>((ref) => ref.watch(settingsRepositoryProvider).packAuto());
+final packWifiOnlyProvider = FutureProvider<bool>((ref) => ref.watch(settingsRepositoryProvider).packWifiOnly());

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io' show Platform;
 
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -7,6 +8,7 @@ import '../data/providers.dart';
 import '../features/lessons/break_reminder.dart';
 import '../domain/gamification/streak.dart';
 import '../features/remote/remote_sync.dart';
+import 'packs/pack_controls.dart';
 
 /// يسجّل وقت الاستخدام الفعلي لكل طفلة (لتقرير ولي الأمر):
 /// يعدّ فقط عندما يكون التطبيق ظاهرًا وهناك طفلة مختارة، كل 15 ثانية.
@@ -22,6 +24,7 @@ class UsageTrackerScope extends ConsumerStatefulWidget {
 
 class _UsageTrackerScopeState extends ConsumerState<UsageTrackerScope>
     with WidgetsBindingObserver {
+  static final bool _testMode = Platform.environment.containsKey('FLUTTER_TEST');
   static const Duration _tick = Duration(seconds: 15);
 
   Timer? _timer;
@@ -32,6 +35,8 @@ class _UsageTrackerScopeState extends ConsumerState<UsageTrackerScope>
     super.initState();
     WidgetsBinding.instance.addObserver(this);
     _timer = Timer.periodic(_tick, (_) => _record());
+    // حزم الأصوات والتلاوة الإضافية: تنزيل هادئ بعد فتح التطبيق بقليل.
+    if (!_testMode) unawaited(startPacksSoon(ref));
     // مدة الاستراحة من إعدادات ولي الأمر
     ref.read(settingsRepositoryProvider).timeSettings().then((t) {
       BreakReminder.interval = Duration(minutes: t.breakEveryMin.clamp(5, 60));
