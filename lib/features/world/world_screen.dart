@@ -16,6 +16,7 @@ import '../../data/repositories/settings_repository.dart';
 import '../home/sections.dart';
 import '../home/who_learns_screen.dart' show characterFor, colorFor;
 import '../lessons/kid_section_screen.dart' show spokenTitle;
+import '../song/song_screen.dart' show currentDayKey, dayJustCompleted;
 import '../today/today_screen.dart' show curriculumProvider;
 
 /// عبارات قصيرة تُنطق (تعليمية فقط، لا آيات ولا أحاديث).
@@ -44,6 +45,9 @@ class WorldScreen extends ConsumerStatefulWidget {
 class _WorldScreenState extends ConsumerState<WorldScreen> {
   String? _spokenKey;
   bool _busy = false;
+
+  /// يوم المغامرة الحالية عند آخر بناء (لمعرفة اللحظة التي تكتمل فيها مغامرة اليوم).
+  String? _dayKey;
 
   void _say(String text) => unawaited(ref.read(voiceServiceProvider).speak(text));
 
@@ -89,6 +93,8 @@ class _WorldScreenState extends ConsumerState<WorldScreen> {
     final done = ref.watch(completedLessonIdsProvider(c.id));
     final states = ref.watch(sectionStatesProvider).valueOrNull ?? const <String, bool>{};
     final stars = ref.watch(gamificationProfileProvider(c.id)).valueOrNull?.stars;
+    final songButton = ref.watch(songButtonProvider).valueOrNull ?? true;
+    final songAfter = ref.watch(songAfterAdventureProvider).valueOrNull ?? true;
 
     PathWeek? path;
     if (curriculum.hasValue && lessons.hasValue && done.hasValue) {
@@ -98,7 +104,16 @@ class _WorldScreenState extends ConsumerState<WorldScreen> {
         completed: done.requireValue,
       );
       final key = path.current?.id ?? 'all';
-      if (_spokenKey != key) {
+      final day = currentDayKey(path);
+      final justDone = dayJustCompleted(_dayKey, day);
+      _dayKey = day;
+      if (justDone && songAfter) {
+        // 🎉 أنهت مغامرة اليوم للتو: الأغنية احتفالًا (بدل الجملة، فلا يتداخل صوتان).
+        _spokenKey = key;
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (mounted) unawaited(context.push('/song?celebrate=1'));
+        });
+      } else if (_spokenKey != key) {
         final first = _spokenKey == null;
         _spokenKey = key;
         final text = path.finishedAll
@@ -156,6 +171,10 @@ class _WorldScreenState extends ConsumerState<WorldScreen> {
               if (ref.watch(gamesEnabledProvider).valueOrNull ?? true) ...[
                 const SizedBox(height: 14),
                 _GamesBanner(onTap: () => _go('الألعاب', '/games')),
+              ],
+              if (songButton) ...[
+                const SizedBox(height: 14),
+                SongBanner(onTap: () => context.push('/song')),
               ],
               const SizedBox(height: 18),
               const Align(alignment: AlignmentDirectional.centerStart, child: OutlineText('عالمي', size: 28, maxLines: 1)),
@@ -407,6 +426,52 @@ class _GamesBanner extends StatelessWidget {
                 ),
               ),
               ArtImage(Art.lamaaCheer, width: 92, height: 92),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// زر «أغنيتنا»: يفتح أغنية فداء ونور.
+class SongBanner extends StatelessWidget {
+  const SongBanner({super.key, required this.onTap});
+
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Semantics(
+      button: true,
+      label: 'أغنيتنا',
+      child: PopTap(
+        onTap: onTap,
+        child: Container(
+          height: 96,
+          padding: const EdgeInsetsDirectional.fromSTEB(16, 6, 8, 6),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(30),
+            gradient: const LinearGradient(colors: [Color(0xFFFF8FB1), Color(0xFFFFB347)], begin: Alignment.topRight, end: Alignment.bottomLeft),
+            border: Border.all(color: Colors.white, width: 4),
+            boxShadow: const [BoxShadow(color: Color(0x55FF8FB1), blurRadius: 12, offset: Offset(0, 6))],
+          ),
+          child: const Row(
+            children: [
+              Text('🎵', style: TextStyle(fontSize: 46)),
+              SizedBox(width: 10),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    OutlineText('أغنيتنا', size: 30, stroke: Color(0xFFB8457A), maxLines: 1),
+                    Text('أغنية فداء ونور', maxLines: 1, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Colors.white)),
+                  ],
+                ),
+              ),
+              ArtImage(Art.fedaaCheer, width: 64, height: 80),
+              ArtImage(Art.nourCheer, width: 64, height: 80),
             ],
           ),
         ),

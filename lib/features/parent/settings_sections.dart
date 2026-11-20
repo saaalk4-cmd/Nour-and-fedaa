@@ -297,8 +297,30 @@ class DisplayControls extends ConsumerWidget {
     final repo = ref.read(settingsRepositoryProvider);
     final reduce = ref.watch(reduceMotionProvider).valueOrNull ?? false;
     final scale = ref.watch(fontScaleProvider).valueOrNull ?? 1.0;
+    final songButton = ref.watch(songButtonProvider).valueOrNull ?? true;
+    final songAfter = ref.watch(songAfterAdventureProvider).valueOrNull ?? true;
     return Column(
       children: [
+        SwitchListTile(
+          secondary: const Text('🎵', style: TextStyle(fontSize: 26)),
+          title: const Text('زر «أغنيتنا» في الرئيسية'),
+          subtitle: const Text('البنت تسمع أغنية فداء ونور وقت ما تحب'),
+          value: songButton,
+          onChanged: (v) async {
+            await repo.setSongButton(v);
+            ref.invalidate(songButtonProvider);
+          },
+        ),
+        SwitchListTile(
+          secondary: const Text('🎉', style: TextStyle(fontSize: 26)),
+          title: const Text('الأغنية بعد مغامرة اليوم'),
+          subtitle: const Text('تشتغل وحدها مرة واحدة احتفالًا لما تنهي البنت مغامرة اليوم'),
+          value: songAfter,
+          onChanged: (v) async {
+            await repo.setSongAfterAdventure(v);
+            ref.invalidate(songAfterAdventureProvider);
+          },
+        ),
         SwitchListTile(
           title: const Text('تقليل الحركة'),
           subtitle: const Text('بلا كونفيتي ولا رقص، للبنت التي تتشتت من الحركة'),

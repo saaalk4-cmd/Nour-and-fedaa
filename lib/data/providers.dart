@@ -133,6 +133,14 @@ final packModeProvider = FutureProvider<String>(
   (ref) => ref.watch(settingsRepositoryProvider).packMode(),
 );
 
+final songButtonProvider = FutureProvider<bool>(
+  (ref) => ref.watch(settingsRepositoryProvider).songButton(),
+);
+
+final songAfterAdventureProvider = FutureProvider<bool>(
+  (ref) => ref.watch(settingsRepositoryProvider).songAfterAdventure(),
+);
+
 final reduceMotionProvider = FutureProvider<bool>(
   (ref) => ref.watch(settingsRepositoryProvider).reduceMotion(),
 );

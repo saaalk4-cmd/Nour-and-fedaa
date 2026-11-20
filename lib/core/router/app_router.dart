@@ -13,6 +13,7 @@ import '../../features/path/learning_path_screen.dart';
 import '../../features/parent/parent_dashboard_screen.dart';
 import '../../features/parent/parent_gate_screen.dart';
 import '../../features/parent/voice/voice_studio_screen.dart';
+import '../../features/song/song_screen.dart';
 import '../../features/today/today_screen.dart';
 import '../../features/games/game_play_screen.dart';
 import '../../features/games/games_home_screen.dart';
@@ -74,6 +75,7 @@ final routerProvider = Provider<GoRouter>((ref) {
       ),
       // المسار القديم «العب بحرية» صار جزءًا من «عالمنا».
       GoRoute(path: '/home', redirect: (_, __) => '/world'),
+      GoRoute(path: '/song', builder: (_, s) => SongScreen(celebrate: s.uri.queryParameters['celebrate'] == '1')),
       GoRoute(path: '/today', builder: (_, __) => const TodayScreen()),
       GoRoute(path: '/journey', builder: (_, __) => const JourneyScreen()),
       GoRoute(path: '/section/:id', builder: (_, state) => SectionScreen(sectionId: state.pathParameters['id']!)),

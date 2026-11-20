@@ -156,6 +156,18 @@ class SettingsRepository {
 
   Future<void> setPackMode(String v) => _set('pack_mode', v);
 
+  // ---------- أغنية فداء ونور ----------
+
+  /// زر «أغنيتنا» في الرئيسية.
+  Future<bool> songButton() async => (await _get('song_button')) != '0';
+
+  Future<void> setSongButton(bool v) => _set('song_button', v ? '1' : '0');
+
+  /// تشغيل الأغنية احتفالًا بعد إنهاء مغامرة اليوم.
+  Future<bool> songAfterAdventure() async => (await _get('song_after_adventure')) != '0';
+
+  Future<void> setSongAfterAdventure(bool v) => _set('song_after_adventure', v ? '1' : '0');
+
   // ---------- الشكل والعرض ----------
 
   /// تقليل الحركة (بلا كونفيتي ولا رقص) للبنت التي تتشتت.
