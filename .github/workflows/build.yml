@@ -9,6 +9,11 @@ on:
 permissions:
   contents: write
 
+# بناء جديد على نفس الفرع يلغي القديم الشغال (وإلا يخلص القديم بعده فيرفع نسخة أقدم على الرابط)
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
