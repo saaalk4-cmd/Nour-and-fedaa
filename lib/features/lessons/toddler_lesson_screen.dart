@@ -64,7 +64,7 @@ class _ToddlerLessonPlayerState extends ConsumerState<ToddlerLessonPlayer> {
     final title = _lesson.spokenText(spokenTitle(_lesson.title), step: true);
     final first = _cards.isEmpty ? '' : (_cards.first.say ?? _cards.first.word).trim();
     final repeats = first.isNotEmpty && title != null && (title.contains(first) || first.contains(title));
-    if (title != null && !repeats) await _voice.sayAndWait(title);
+    if (title != null && !repeats) await _voice.sayAndWait(title, max: const Duration(seconds: 8));
     if (mounted && _page == 0) await _listen();
   }
 
@@ -95,22 +95,23 @@ class _ToddlerLessonPlayerState extends ConsumerState<ToddlerLessonPlayer> {
       if (r != null) {
         // اسم قصير أولًا (إن وُجد) ثم تلاوة الشيخ. لا نطق آلي للآية أبدًا.
         final say = c.say;
-        if (say != null && say.isNotEmpty) await _voice.sayAndWait(say);
+        if (say != null && say.isNotEmpty) await _voice.sayAndWait(say, max: const Duration(seconds: 12));
         if (mounted && _isCard && identical(_cards[_page], c)) {
           await _ayahPlayer.playRange(r.surah, r.ayah, r.toAyah);
         }
         return;
       }
       final text = c.say ?? c.word;
-      if (text.isNotEmpty) await _voice.sayAndWait(text);
+      if (text.isNotEmpty) await _voice.sayAndWait(text, max: const Duration(seconds: 12));
     } else {
       final q = _question;
-      await _voice.sayAndWait(q.say ?? q.prompt);
+      // الجملة الطويلة لا تُقطع: تنتظر حتى 12 ثانية قبل أول اختيار.
+      await _voice.sayAndWait(q.say ?? q.prompt, max: const Duration(seconds: 12));
       // نور لا تقرأ: نقرأ لها كل اختيار (بوقفة بينها) لتعرف ماذا تضغط.
       for (final o in q.options) {
         if (!mounted || gen != _gen || _picked != null) return;
         final w = _wordOf(o);
-        if (w.isNotEmpty) await _voice.sayAndWait(w);
+        if (w.isNotEmpty) await _voice.sayAndWait(w, max: const Duration(seconds: 8));
       }
     }
   }

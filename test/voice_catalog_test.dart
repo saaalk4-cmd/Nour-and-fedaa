@@ -65,4 +65,29 @@ void main() {
       }
     }
   });
+
+  test('every sentence Nour hears in a lesson has a recorded clip (not only the phone voice)', () {
+    final known = {for (final g in cat.groups) ...g.phrases.map((p) => p.key)};
+    final lessons = [
+      for (final f in Directory('assets/content').listSync().whereType<File>())
+        if (f.path.endsWith('lessons.json')) ...ContentRepository.parseLessons(f.readAsStringSync()),
+    ];
+    final missing = <String>{};
+    var checked = 0;
+    for (final l in lessons.where((l) => l.fitsAge(3) || l.fitsAge(4))) {
+      if (l.surahNumber != null) continue; // آيات السورة بصوت الشيخ
+      final spoken = <String>[
+        for (final c in l.toddlerCards()) (c.recite != null ? c.say : (c.say ?? c.word)) ?? '',
+        for (final q in l.toddlerQuestions()) ...[q.say ?? q.prompt, ...q.options],
+      ];
+      for (final t in spoken) {
+        final c = VoiceService.clean(t);
+        if (c.isEmpty || !RegExp('[\u0600-\u06FF]').hasMatch(c)) continue;
+        checked++;
+        if (!known.contains(key(c))) missing.add('${l.id}: $c');
+      }
+    }
+    expect(checked, greaterThan(500));
+    expect(missing, isEmpty, reason: 'run: python3 tools/build_voice.py --catalog');
+  });
 }

@@ -234,6 +234,72 @@ def cheer_phrases():
     return out
 
 
+TASHKEEL = re.compile('[\u064B-\u0652\u0670]')
+QUOTE_KEYS = ('text', 'arabic', 'ayah', 'ayat', 'hadith', 'matn')
+
+
+def quote_texts():
+    """نصوص الآيات والأحاديث نفسها (قيم مفاتيح النص في ملفات القرآن والحديث)، بلا الأسئلة والكلمات
+    التي ألّفناها للصغيرات في نفس الملفات."""
+    out = set()
+
+    def walk(x, quote):
+        if isinstance(x, dict):
+            for k, v in x.items():
+                walk(v, quote or k in QUOTE_KEYS)
+        elif isinstance(x, list):
+            for v in x:
+                walk(v, quote)
+        elif isinstance(x, str) and quote and ARABIC.search(x):
+            out.add(clean(x))
+            for line in x.split('\n'):
+                if line.strip():
+                    out.add(clean(line))
+
+    for f in glob.glob(os.path.join(ROOT, 'assets', 'content', '*.json')):
+        name = os.path.basename(f)
+        if 'quran' in name or 'hadith' in name or 'ayat' in name:
+            with open(f, encoding='utf-8') as fh:
+                walk(json.load(fh), False)
+    return out
+
+
+def _short_word(text):
+    """يطابق Lesson._shortWord في Dart."""
+    first = re.split(r'[،.,:!؟?\n]', text)[0].strip()
+    n = len(first.split()) if first else 0
+    return first if 0 < n <= 3 else ''
+
+
+def nour_lesson_phrases():
+    """كل ما يقوله ToddlerLessonPlayer لنور (3–4 سنوات) داخل الدروس: البطاقات، والسؤال، وكل اختيار.
+    يطابق Lesson.toddlerCards و toddlerQuestions و _listen في toddler_lesson_screen.dart.
+    آيات السور يقرؤها الشيخ فلا تدخل هنا."""
+    out = set()
+    for f in sorted(glob.glob(os.path.join(ROOT, 'assets', 'content', '*lessons.json'))):
+        with open(f, encoding='utf-8') as fh:
+            d = json.load(fh)
+        for l in (d if isinstance(d, list) else d.get('lessons', [])):
+            if l.get('minAge', 99) > 4 or re.match(r'^quran_surah_\d+$', l.get('id', '')):
+                continue
+            edu = (l.get('source') or {}).get('type') == 'educational'
+            t = l.get('toddler')
+            if t:
+                for c in t.get('cards', []):
+                    out.add((c.get('say') or '') if c.get('recite') else (c.get('say') or c.get('word') or ''))
+                questions = [t['question']] if t.get('question') else []
+            elif edu or l.get('maxAge', 99) <= 4:
+                for st in l.get('steps', []):
+                    out.add(st.get('say') or (st['text'] if edu else None) or _short_word(st['text']))
+                questions = [q for q in l.get('questions', []) if q.get('kind', 'choice') not in ('order', 'match')]
+            else:
+                questions = []
+            for q in questions:
+                out.add(q.get('say') or q.get('prompt') or '')
+                out.update(q.get('options', []))
+    return {x for x in out if x}
+
+
 def phrases():
     protected = protected_texts()
     raw = dart_phrases() | content_phrases() | section_phrases() | game_phrases() | cheer_phrases()
@@ -241,6 +307,15 @@ def phrases():
     for r in raw:
         t = clean(r)
         if not t or not ARABIC.search(t) or t in protected or looks_religious(t):
+            continue
+        result[clip_key(t)] = t
+    # جمل دروس نور: كلها مسموعة. الحماية هنا بنص الآية/الحديث نفسه (لا بالملف كله)، وبالتشكيل.
+    # والجملة المشكَّلة من ملفات القرآن والحديث لا تُنطق (قد تكون آية أو حديثًا)؛ أما في الدروس التعليمية فتُنطق.
+    quotes = quote_texts()
+    for r in nour_lesson_phrases():
+        t = clean(r)
+        if (not t or not ARABIC.search(t) or t in quotes or looks_religious(t)
+                or (t in protected and len(TASHKEEL.findall(t)) >= 3)):
             continue
         result[clip_key(t)] = t
     return dict(sorted(result.items(), key=lambda kv: kv[1]))
