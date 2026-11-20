@@ -59,6 +59,10 @@ jobs:
           pip install --quiet edge-tts || true
           python3 tools/build_voice.py
 
+      # كلمة «الأرنب» في فيلم المقدمة تُنطق كاملة (لا يفشل البناء إن تعذّر)
+      - name: Fix intro narration
+        run: python3 tools/fix_intro_audio.py
+
       - run: flutter pub get
       - name: Apply app icon
         run: dart run flutter_launcher_icons -f flutter_launcher_icons.yaml
