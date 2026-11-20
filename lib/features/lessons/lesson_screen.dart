@@ -683,7 +683,7 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
           if (_tried.isNotEmpty && !answered)
             _FeedbackBubble(
               mood: MascotMood.encourage,
-              title: 'قريب جدًا ❤️',
+              title: 'قريب جدًا',
               body: little
                   ? (showHelp ? 'اضغطي على الإجابة التي تتحرك 👆' : 'جرّبي مرة ثانية')
                   : 'جرّبي مرة ثانية. تلميح: ${q.hint}',
@@ -691,7 +691,7 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
           if (answered)
             _FeedbackBubble(
               mood: MascotMood.cheer,
-              title: 'أحسنتِ! ✨',
+              title: 'أحسنتِ!',
               body: q.praise ?? 'إجابة صحيحة',
             ),
         ],
@@ -788,13 +788,13 @@ extension _OrderUi on _LessonPlayerState {
           if (_slips > 0 && !answered)
             const _FeedbackBubble(
               mood: MascotMood.encourage,
-              title: 'قريب جدًا ❤️',
+              title: 'قريب جدًا',
               body: 'اضغطي على صورة ثم على ما يناسبها',
             ),
           if (answered)
             _FeedbackBubble(
               mood: MascotMood.cheer,
-              title: 'أحسنتِ! ✨',
+              title: 'أحسنتِ!',
               body: q.praise ?? 'وصّلتِ كل شيء',
             ),
         ],
@@ -852,13 +852,13 @@ extension _OrderUi on _LessonPlayerState {
           if (_slips > 0 && !answered)
             const _FeedbackBubble(
               mood: MascotMood.encourage,
-              title: 'قريب جدًا ❤️',
+              title: 'قريب جدًا',
               body: 'جرّبي مرة ثانية',
             ),
           if (answered)
             _FeedbackBubble(
               mood: MascotMood.cheer,
-              title: 'أحسنتِ! ✨',
+              title: 'أحسنتِ!',
               body: q.praise ?? 'رتّبتِ كل شيء',
             ),
         ],
@@ -1022,25 +1022,34 @@ class _FeedbackBubble extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // البنت نفسها (فرحانة أو بتفكر) جنب لَمعة: الرد بالصورة قبل الكلام.
+    final st = context.findAncestorStateOfType<_LessonPlayerState>();
+    final cheer = mood == MascotMood.cheer;
+    final c = st?.widget.child;
+    final girl = c == null
+        ? null
+        : (c.age <= 4 ? (cheer ? Art.nourCheer : Art.nourThink) : (cheer ? Art.fedaaCheer : Art.fedaaThink));
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(22),
+        border: Border.all(color: cheer ? const Color(0xFF7ED36B) : const Color(0xFFFFC56B), width: 3),
       ),
       child: Row(
         children: [
-          Mascot(size: 64, mood: mood),
+          if (girl != null) ArtImage(girl, width: 76, height: 86),
+          Mascot(size: 60, mood: mood),
           const SizedBox(width: 10),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  title,
-                  style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
-                ),
+                Row(children: [
+                  Flexible(child: Text(title, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w900))),
+                  if (cheer) ...[const SizedBox(width: 4), const ArtImage(Art.starOn, width: 26, height: 26)],
+                ]),
                 const SizedBox(height: 2),
                 Text(body, style: const TextStyle(fontSize: 16)),
               ],
