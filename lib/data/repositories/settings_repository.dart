@@ -168,6 +168,31 @@ class SettingsRepository {
 
   Future<void> setSongAfterAdventure(bool v) => _set('song_after_adventure', v ? '1' : '0');
 
+  // ---------- المتابعة من تليفون الأهل ----------
+
+  /// دور هذا الجهاز: kids (تليفون البنات، الافتراضي) أو parent (تليفون الأهل: يفتح على المتابعة).
+  Future<String> deviceRole() async => (await _get('device_role')) ?? 'kids';
+
+  Future<void> setDeviceRole(String v) => _set('device_role', v);
+
+  /// كود الأسرة (على الجهازين). فارغ = غير مربوط.
+  Future<String?> familyCode() async {
+    final v = await _get('family_code');
+    return (v == null || v.isEmpty) ? null : v;
+  }
+
+  Future<void> setFamilyCode(String? v) => _set('family_code', v ?? '');
+
+  /// تليفون البنات يرسل التقدم (يطفئه الأهل وقتما شاؤوا).
+  Future<bool> remoteSyncOn() async => (await _get('remote_sync')) == '1';
+
+  Future<void> setRemoteSyncOn(bool v) => _set('remote_sync', v ? '1' : '0');
+
+  /// آخر إرسال ناجح (لعرضه في لوحة الأهل).
+  Future<DateTime?> lastRemoteSync() async => DateTime.tryParse(await _get('remote_last') ?? '');
+
+  Future<void> setLastRemoteSync(DateTime t) => _set('remote_last', t.toIso8601String());
+
   // ---------- الشكل والعرض ----------
 
   /// تقليل الحركة (بلا كونفيتي ولا رقص) للبنت التي تتشتت.

@@ -1,0 +1,21 @@
+rules_version = '2';
+// قواعد «المتابعة من تليفون الأهل» (تطبيق نور وفداء).
+// كل أسرة مستند واحد families/{code}: الكود 16 حرفًا عشوائيًا (≈ 80 بت) لا يعرفه غير تليفونات الأسرة.
+// - لا أحد يقدر يعرض قائمة الأسر أو يمسحها.
+// - القراءة والكتابة فقط لمن يعرف الكود، والمحتوى ملخص أرقام (أقل من 30 ألف حرف).
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /families/{code} {
+      allow get: if code.size() == 16;
+      allow create, update: if code.size() == 16
+        && request.resource.data.keys().hasOnly(['json', 'updatedAt', 'v'])
+        && request.resource.data.json is string
+        && request.resource.data.json.size() < 30000
+        && request.resource.data.updatedAt is timestamp;
+      allow list, delete: if false;
+    }
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

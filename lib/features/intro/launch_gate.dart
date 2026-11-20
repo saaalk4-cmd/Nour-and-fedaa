@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../data/providers.dart';
 import '../home/who_learns_screen.dart';
+import '../parent/parent_gate_screen.dart';
 import 'intro_audio_player.dart';
 import 'intro_experience.dart';
 
@@ -19,7 +20,7 @@ class LaunchGate extends ConsumerStatefulWidget {
   ConsumerState<LaunchGate> createState() => _LaunchGateState();
 }
 
-enum _Phase { loading, intro, main }
+enum _Phase { loading, intro, main, parentPhone }
 
 class _LaunchGateState extends ConsumerState<LaunchGate> {
   _Phase _phase = _Phase.loading;
@@ -33,11 +34,15 @@ class _LaunchGateState extends ConsumerState<LaunchGate> {
 
   Future<void> _decide() async {
     var seen = true; // عند أي عطل لا نعلّق التطبيق: ندخل مباشرة.
+    var parent = false;
     try {
-      seen = await ref.read(settingsRepositoryProvider).cinematicIntroSeen();
+      final repo = ref.read(settingsRepositoryProvider);
+      // تليفون الأهل: يفتح على المتابعة (بعد الـPIN) بلا فيلم ولا اختيار طفلة.
+      parent = await repo.deviceRole() == 'parent' && await repo.familyCode() != null;
+      seen = await repo.cinematicIntroSeen();
     } catch (_) {}
     if (!mounted) return;
-    setState(() => _phase = seen ? _Phase.main : _Phase.intro);
+    setState(() => _phase = parent ? _Phase.parentPhone : (seen ? _Phase.main : _Phase.intro));
   }
 
   Future<void> _finish({required bool markSeen}) async {
@@ -67,6 +72,7 @@ class _LaunchGateState extends ConsumerState<LaunchGate> {
             onExit: (s) => _finish(markSeen: s >= kIntroCountsAsSeenAfter),
           ),
         _Phase.main => const WhoLearnsScreen(key: ValueKey('main')),
+        _Phase.parentPhone => const ParentGateScreen(key: ValueKey('parentPhone'), next: '/remote'),
       },
     );
   }

@@ -9,7 +9,10 @@ import '../../data/providers.dart';
 
 /// بوابة لوحة ولي الأمر: إنشاء رمز PIN أول مرة (مع تأكيد)، ثم التحقق منه بلوحة أرقام كبيرة.
 class ParentGateScreen extends ConsumerStatefulWidget {
-  const ParentGateScreen({super.key});
+  const ParentGateScreen({super.key, this.next = '/parent/dashboard'});
+
+  /// أين نذهب بعد الرمز الصحيح (تليفون الأهل: '/remote').
+  final String next;
 
   @override
   ConsumerState<ParentGateScreen> createState() => _ParentGateScreenState();
@@ -58,7 +61,7 @@ class _ParentGateScreenState extends ConsumerState<ParentGateScreen> {
       final ok = await repo.verifyPin(pin);
       if (!mounted) return;
       if (ok) {
-        context.pushReplacement('/parent/dashboard');
+        context.pushReplacement(widget.next);
       } else {
         HapticFeedback.heavyImpact();
         setState(() {
@@ -85,7 +88,7 @@ class _ParentGateScreenState extends ConsumerState<ParentGateScreen> {
     }
     await repo.setPin(pin);
     if (!mounted) return;
-    context.pushReplacement('/parent/dashboard');
+    context.pushReplacement(widget.next);
   }
 
   @override

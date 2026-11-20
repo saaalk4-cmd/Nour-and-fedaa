@@ -10,6 +10,7 @@ import '../../domain/format.dart';
 import '../../domain/gamification/level_system.dart';
 import '../games/game_providers.dart';
 import 'settings_sections.dart';
+import '../remote/remote_controls.dart';
 import '../home/sections.dart';
 
 class ParentDashboardScreen extends ConsumerWidget {
@@ -75,6 +76,7 @@ class ParentDashboardScreen extends ConsumerWidget {
           if (voiceOn) const _VoicePicker(),
           if (voiceOn) const VoiceControls(),
           ]),
+          const SettingsGroup(title: 'المتابعة من تليفونك', children: [RemoteControls()]),
           const SettingsGroup(title: 'الوقت', children: [TimeControls()]),
           const SettingsGroup(title: 'الألعاب والإنترنت', children: [GamesControls()]),
           const SettingsGroup(title: 'الشكل والأمان', children: [DisplayControls()]),

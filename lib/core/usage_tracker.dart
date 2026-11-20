@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../data/providers.dart';
 import '../features/lessons/break_reminder.dart';
 import '../domain/gamification/streak.dart';
+import '../features/remote/remote_sync.dart';
 
 /// يسجّل وقت الاستخدام الفعلي لكل طفلة (لتقرير ولي الأمر):
 /// يعدّ فقط عندما يكون التطبيق ظاهرًا وهناك طفلة مختارة، كل 15 ثانية.
@@ -40,10 +41,14 @@ class _UsageTrackerScopeState extends ConsumerState<UsageTrackerScope>
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     _foreground = state == AppLifecycleState.resumed;
+    // ترك التطبيق: نرسل آخر تقدم لتليفون الأهل (لو المتابعة مشغّلة).
+    if (state == AppLifecycleState.paused) unawaited(ref.read(remoteSyncProvider).maybeSync(force: true));
   }
 
   Future<void> _record() async {
     if (!_foreground) return;
+    // كل 5 دقائق على الأكثر: ملخص التقدم لتليفون الأهل (بصمت، ولا شيء لو مطفأة).
+    unawaited(ref.read(remoteSyncProvider).maybeSync());
     final childId = ref.read(selectedChildIdProvider);
     if (childId == null) return;
     try {
