@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
@@ -11,7 +12,13 @@ void main() {
   test('quran asset declares a source and the right ayah counts', () {
     expect(content.sourceName, contains('Tanzil'));
     final counts = {for (final s in content.surahs) s.surahNumber: s.ayahs.length};
-    expect(counts, {1: 7, 103: 3, 106: 4, 108: 3, 110: 3, 112: 4, 113: 5, 114: 6});
+    // الفاتحة + الأجزاء 28–30 كاملة (من المجادلة 58 إلى الناس 114)، وعدد آيات كل سورة مطابق للمصحف.
+    final verse = (jsonDecode(File('tools/quran_verse_counts.json').readAsStringSync()) as List).cast<int>();
+    expect(counts.keys.toSet(), {1, for (var n = 58; n <= 114; n++) n});
+    for (final e in counts.entries) {
+      expect(e.value, verse[e.key - 1], reason: 'surah ${e.key}');
+    }
+    expect(counts.values.fold<int>(0, (a, b) => a + b), 1139);
   });
 
   test('ayahs are numbered consecutively and none is empty', () {

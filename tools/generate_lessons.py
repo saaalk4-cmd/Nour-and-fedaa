@@ -41,7 +41,10 @@ LEVELS = {112: (1, 3), 114: (1, 3), 108: (1, 3), 113: (2, 4), 110: (2, 4),
           103: (2, 4), 106: (2, 4), 1: (3, 5)}
 q_lessons = []
 for i, s in enumerate(surahs):
-    diff, min_age = LEVELS[s['surahNumber']]
+    # الأجزاء 28–30: جزء عمّ وتبارك لنور وفداء (من 3 سنوات)، وقد سمع لفداء (من 5). الصعوبة بطول السورة.
+    n_ayahs = len(s['ayahs'])
+    diff, min_age = LEVELS.get(s['surahNumber'], (1 if n_ayahs <= 8 else (2 if n_ayahs <= 20 else 3),
+                                                 5 if s.get('juz') == 28 else 3))
     others = [n for n in names if n != s['name']]
     rot = others[i % len(others):] + others[:i % len(others)]
     first = s['ayahs'][0]['text']
@@ -59,7 +62,7 @@ for i, s in enumerate(surahs):
         'emoji': '📖',
         'category': 'quran',
         'minAge': min_age,
-        'maxAge': 6,
+        'maxAge': 6 if s['surahNumber'] in LEVELS else 12,
         'difficulty': diff,
         'source': {'type': 'quran',
                    'reference': '%s — سورة %s' % (quran['source']['name'], s['name'])},
