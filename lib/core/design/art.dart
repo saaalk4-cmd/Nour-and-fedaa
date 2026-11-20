@@ -41,6 +41,11 @@ class Art {
   static const String icBack = 'ic_back';
   static const String icHome = 'ic_home';
   static const String icLock = 'ic_lock';
+  static const String icPlay = 'ic_play';
+  static const String icMic = 'ic_mic';
+  static const String icRepeat = 'ic_repeat';
+  static const String icDone = 'ic_done';
+  static const String icNext = 'ic_next';
   static const String starOn = 'star_on';
   static const String starOff = 'star_off';
 
@@ -103,12 +108,12 @@ class Art {
 
   /// كل الملفات (للاختبار).
   /// مكتبة الصور بدل الإيموجي (انظر emoji_art.dart).
-  static const List<String> pics = ['pic_tree', 'pic_plate', 'pic_water', 'pic_cow', 'pic_blossom', 'pic_bird', 'pic_dua', 'pic_milk', 'pic_soap', 'pic_car', 'pic_carrot', 'pic_tulip', 'pic_sprout', 'pic_ear', 'pic_chicken', 'pic_rain', 'pic_gem', 'pic_house', 'pic_butterfly', 'pic_nose', 'pic_ball', 'pic_balloon', 'pic_mom', 'pic_trash', 'pic_door', 'pic_strawberry', 'pic_snow', 'pic_grandma', 'pic_lion', 'pic_bed', 'pic_foot', 'pic_broom', 'pic_bread', 'pic_tomato', 'pic_books', 'pic_candy', 'pic_wave', 'pic_clock', 'pic_sunrise', 'pic_ship', 'pic_dad', 'pic_fire', 'pic_eye', 'pic_chair', 'pic_orange'];
+  static const List<String> pics = ['pic_tree', 'pic_plate', 'pic_water', 'pic_cow', 'pic_blossom', 'pic_bird', 'pic_dua', 'pic_milk', 'pic_soap', 'pic_car', 'pic_carrot', 'pic_tulip', 'pic_sprout', 'pic_ear', 'pic_chicken', 'pic_rain', 'pic_gem', 'pic_house', 'pic_butterfly', 'pic_nose', 'pic_ball', 'pic_balloon', 'pic_mom', 'pic_trash', 'pic_door', 'pic_strawberry', 'pic_snow', 'pic_grandma', 'pic_lion', 'pic_bed', 'pic_foot', 'pic_broom', 'pic_bread', 'pic_tomato', 'pic_books', 'pic_candy', 'pic_wave', 'pic_clock', 'pic_sunrise', 'pic_ship', 'pic_dad', 'pic_fire', 'pic_eye', 'pic_chair', 'pic_orange', 'pic_toothbrush', 'pic_mouse', 'pic_key'];
 
   static const List<String> all = [
     fedaaWelcome, fedaaThink, fedaaCheer, nourWelcome, nourThink, nourCheer,
     lamaaCalm, lamaaPoint, lamaaCheer, lamaaThink, lamaaWelcome,
-    icGift, icSound, icBack, icHome, icLock, starOn, starOff,
+    icGift, icSound, icBack, icHome, icLock, icPlay, icMic, icRepeat, icDone, icNext, starOn, starOff,
     gate, medal,
     bgSky, bgRiver, bgForest, bgHouse, bgCastle, bgPath,
     decorTree1, decorTree2, decorTree3, decorTree4, decorBush, decorFlowers1, decorFlowers2,

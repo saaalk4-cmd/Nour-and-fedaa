@@ -77,7 +77,7 @@ save(clean_png(src('nour_cheer')),'nour_cheer',900)
 for n,f in [('lamaa_calm','lamaa_calm'),('lamaa_point','lamaa_point'),('lamaa_cheer','lamaa_cheer'),('lamaa_think','lamaa_think'),('lamaa_welcome','lamaa_welcome')]:
     save(cutout_white(src(f)),n,440)
 # أيقونات
-for n,f in [('ic_gift','ic_gift'),('ic_sound','ic_sound'),('ic_back','ic_back'),('ic_home','ic_home'),('ic_lock','ic_lock')]:
+for n,f in [(x, x) for x in ['ic_gift','ic_sound','ic_back','ic_home','ic_lock','ic_play','ic_mic','ic_repeat','ic_done','ic_next']]:
     save(cutout_white(src(f)),n,220)
 star=cutout_white(src('star_on')); star=star.crop(star.getbbox()); star=star.resize((220,round(220*star.height/star.width)),Image.LANCZOS)
 star.save(OUT+'star_on.webp','WEBP',quality=86,method=6,exact=True); print('star_on',star.size)
