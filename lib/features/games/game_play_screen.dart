@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../core/audio/cheers.dart';
+import '../../core/audio/sound_service.dart';
 import '../../core/design/art.dart';
+import '../../core/design/joy.dart';
 import '../../core/design/kit.dart';
 import '../../core/theme/app_theme.dart';
 import '../../data/models/child.dart';
@@ -130,8 +133,30 @@ class _GamePlayScreenState extends ConsumerState<GamePlayScreen> {
     super.dispose();
   }
 
+  int _streak = 0;
+  JoyLevel? _joy;
+  int _joyN = 0;
+
+  void _showJoy(JoyLevel level, GameDef g) {
+    if (!g.respectful) ref.read(soundServiceProvider).play(SoundEffect.joy);
+    setState(() {
+      _joy = level;
+      _joyN++;
+    });
+    final n = _joyN;
+    Future<void>.delayed(JoyBurst.duration, () {
+      if (mounted && _joyN == n) setState(() => _joy = null);
+    });
+  }
+
   Future<void> _roundDone(int slips, GameDef g, GameLevel lv, Child c) async {
     if (slips <= 1) _stars++;
+    _streak = slips == 0 ? _streak + 1 : 0;
+    if (slips == 0 && _streak % 3 == 0 && _round + 1 < lv.rounds) {
+      // ثلاث جولات ورا بعض من أول مرة: احتفال أكبر وعبارة «ما شاء الله» (هادئ في ألعاب القرآن).
+      _showJoy(JoyLevel.medium, g);
+      await _kit?.sayWait(Cheers.forStreak(c.name));
+    }
     await Future<void>.delayed(const Duration(milliseconds: 500));
     if (!mounted) return;
     if (_round + 1 < lv.rounds) {
@@ -141,7 +166,10 @@ class _GamePlayScreenState extends ConsumerState<GamePlayScreen> {
     final res = await ref.read(gameRepositoryProvider).saveRound(childId: c.id, gameId: g.id, levelKey: lv.key, stars: _stars);
     ref.invalidate(gameProgressProvider(c.id));
     ref.invalidate(gamificationProfileProvider(c.id));
-    if (mounted) setState(() => _result = res);
+    if (mounted) {
+      setState(() => _result = res);
+      _showJoy(JoyLevel.big, g);
+    }
   }
 
   Future<void> _toggleMute() async {
@@ -180,15 +208,31 @@ class _GamePlayScreenState extends ConsumerState<GamePlayScreen> {
           onTap: _toggleMute,
         ),
       ],
-      body: result != null
-          ? _ResultView(game: g, track: track, levelIndex: li, stars: _stars, result: result, child: c)
-          : Column(
-              children: [
-                _Dots(total: lv.rounds, done: _round),
-                const SizedBox(height: 6),
-                Expanded(child: _factory!.build(_round, (s) => _roundDone(s, g, lv, c))),
-              ],
+      body: Stack(
+        children: [
+          Positioned.fill(
+            child: result != null
+                ? _ResultView(game: g, track: track, levelIndex: li, stars: _stars, result: result, child: c)
+                : Column(
+                    children: [
+                      _Dots(total: lv.rounds, done: _round),
+                      const SizedBox(height: 6),
+                      Expanded(child: _factory!.build(_round, (s) => _roundDone(s, g, lv, c))),
+                    ],
+                  ),
+          ),
+          if (_joy != null)
+            Positioned.fill(
+              child: JoyBurst(
+                key: ValueKey(_joyN),
+                level: _joy!,
+                text: g.respectful ? null : 'ما شاء الله!',
+                calm: g.respectful,
+                reduceMotion: ref.watch(reduceMotionProvider).valueOrNull ?? false,
+              ),
             ),
+        ],
+      ),
     );
   }
 }

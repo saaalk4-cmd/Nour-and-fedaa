@@ -93,6 +93,60 @@ void main() {
     expect(sw.elapsedMilliseconds, lessThan(1500));
   });
 
+  test('a pause follows each sentence, and stop cuts it short', () async {
+    final e = _FakeEngine();
+    final v = VoiceService(
+      engine: e,
+      readEnabled: () async => true,
+      writeEnabled: (_) async {},
+      readSettings: () async => const VoiceSettings(pauseMs: 400),
+    );
+    var sw = Stopwatch()..start();
+    await v.sayAndWait('جملة أولى');
+    expect(sw.elapsedMilliseconds, greaterThanOrEqualTo(380));
+    sw = Stopwatch()..start();
+    final f = v.sayAndWait('جملة ثانية');
+    await Future<void>.delayed(const Duration(milliseconds: 60));
+    await v.stop();
+    await f;
+    expect(sw.elapsedMilliseconds, lessThan(350));
+    expect(e.spoken, ['جملة أولى', 'جملة ثانية']);
+  });
+
+  test('the parent recording replaces the machine voice, and hadith are never machine-spoken', () async {
+    final e = _FakeEngine();
+    final user = _FakeUser({VoiceService.clipKey('أحسنتِ يا فداء!')});
+    final v = VoiceService(
+      engine: e,
+      readEnabled: () async => true,
+      writeEnabled: (_) async {},
+      userVoice: user,
+      readSettings: () async => const VoiceSettings(pauseMs: 0),
+    );
+    await v.sayAndWait('أحسنتِ يا فداء!');
+    expect(user.played, [VoiceService.clipKey('أحسنتِ يا فداء!')]);
+    expect(e.spoken, isEmpty);
+    await v.sayAndWait('جملة بلا تسجيل');
+    expect(e.spoken, ['جملة بلا تسجيل']);
+    // الحديث: لا يوجد تسجيل ← لا يُنطق شيء آليًا
+    expect(await v.playRecorded('إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ'), isFalse);
+    expect(e.spoken.length, 1);
+    expect(await v.hasRecorded('أحسنتِ يا فداء!'), isTrue);
+  });
+
+  test('speech speed and volume come from the settings', () async {
+    final e = _TuneEngine();
+    final v = VoiceService(
+      engine: e,
+      readEnabled: () async => true,
+      writeEnabled: (_) async {},
+      readSettings: () async => const VoiceSettings(rate: 0.35, voiceVolume: 0.6, pauseMs: 0),
+    );
+    await v.sayAndWait('مرحبًا');
+    expect(e.rate, 0.35);
+    expect(e.volume, 0.6);
+  });
+
   group('device voice choice', () {
     const voices = [
       TtsVoice(name: 'en-us-x', locale: 'en-US', quality: 500),
@@ -153,6 +207,42 @@ class _SlowEngine implements SpeechEngine {
     started.add(text);
     await Future<void>.delayed(const Duration(seconds: 30));
   }
+
+  @override
+  Future<void> stop() async {}
+}
+
+class _FakeUser implements UserVoice {
+  _FakeUser(this.keys);
+
+  final Set<String> keys;
+  final List<String> played = [];
+
+  @override
+  Future<bool> has(String key) async => keys.contains(key);
+
+  @override
+  Future<void> playAndWait(String key) async => played.add(key);
+
+  @override
+  Future<void> stop() async {}
+}
+
+class _TuneEngine implements SpeechEngine, TuneableSpeech {
+  double? rate;
+  double? volume;
+
+  @override
+  Future<void> tune({required double rate, required double volume}) async {
+    this.rate = rate;
+    this.volume = volume;
+  }
+
+  @override
+  Future<void> speak(String text) async {}
+
+  @override
+  Future<void> speakAndWait(String text) async {}
 
   @override
   Future<void> stop() async {}

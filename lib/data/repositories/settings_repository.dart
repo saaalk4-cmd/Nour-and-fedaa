@@ -2,6 +2,8 @@ import 'dart:convert';
 import 'dart:math';
 
 import 'package:crypto/crypto.dart';
+
+import '../../core/audio/voice_service.dart' show VoiceSettings;
 import 'package:sqflite/sqflite.dart';
 
 import '../db/app_database.dart';
@@ -91,6 +93,42 @@ class SettingsRepository {
 
   Future<void> setVoiceEnabled(bool enabled) =>
       _set('voice_enabled', enabled ? '1' : '0');
+
+  /// إعدادات الصوت (وقفة، سرعة، علو، قراءة تلقائية). القيم الافتراضية مناسبة للأطفال.
+  Future<VoiceSettings> voiceSettings() async {
+    final pause = int.tryParse(await _get('voice_pause_ms') ?? '') ?? 1000;
+    final rate = double.tryParse(await _get('voice_rate') ?? '') ?? VoiceSettings.normal;
+    final vv = double.tryParse(await _get('voice_volume') ?? '') ?? 1.0;
+    final ev = double.tryParse(await _get('effects_volume') ?? '') ?? 1.0;
+    final auto = (await _get('auto_read')) != '0';
+    return VoiceSettings(
+      pauseMs: pause.clamp(0, 4000),
+      rate: rate.clamp(0.25, 0.8),
+      voiceVolume: vv.clamp(0.0, 1.0),
+      effectsVolume: ev.clamp(0.0, 1.0),
+      autoRead: auto,
+    );
+  }
+
+  Future<void> saveVoiceSettings(VoiceSettings s) async {
+    await _set('voice_pause_ms', '${s.pauseMs}');
+    await _set('voice_rate', '${s.rate}');
+    await _set('voice_volume', '${s.voiceVolume}');
+    await _set('effects_volume', '${s.effectsVolume}');
+    await _set('auto_read', s.autoRead ? '1' : '0');
+  }
+
+  // ---------- الشكل والعرض ----------
+
+  /// تقليل الحركة (بلا كونفيتي ولا رقص) للبنت التي تتشتت.
+  Future<bool> reduceMotion() async => (await _get('reduce_motion')) == '1';
+
+  Future<void> setReduceMotion(bool v) => _set('reduce_motion', v ? '1' : '0');
+
+  /// حجم الخط: 1.0 عادي، 1.2 كبير.
+  Future<double> fontScale() async => (double.tryParse(await _get('font_scale') ?? '') ?? 1.0).clamp(0.9, 1.4);
+
+  Future<void> setFontScale(double v) => _set('font_scale', '$v');
 
   /// الصوت العربي الذي اختاره الأهل (null = تلقائي: أوضح صوت على الجهاز).
   Future<String?> ttsVoice() async {

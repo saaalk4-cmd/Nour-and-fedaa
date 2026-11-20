@@ -47,7 +47,7 @@ class TtsVoice {
 
 /// تنفيذ النطق بصوت النظام العربي (هادئ ولطيف للأطفال). يعمل بلا إنترنت
 /// إذا كان صوت عربي منزَّلًا على الجهاز. يختار تلقائيًا أوضح صوت متاح.
-class FlutterTtsEngine implements SpeechEngine {
+class FlutterTtsEngine implements SpeechEngine, TuneableSpeech {
   FlutterTtsEngine({this.preferredVoice});
 
   /// اسم الصوت الذي اختاره الأهل (من الإعدادات)، أو null للاختيار التلقائي.
@@ -88,6 +88,13 @@ class FlutterTtsEngine implements SpeechEngine {
     }();
     await _init;
     return tts;
+  }
+
+  @override
+  Future<void> tune({required double rate, required double volume}) async {
+    final tts = await _ready();
+    await tts.setSpeechRate(rate);
+    await tts.setVolume(volume);
   }
 
   @override

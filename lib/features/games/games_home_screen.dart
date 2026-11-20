@@ -6,6 +6,7 @@ import '../../core/design/art.dart';
 import '../../core/design/kit.dart';
 import '../../core/design/pop_tap.dart';
 import '../../core/theme/app_theme.dart';
+import '../../core/widgets/speak_on_open.dart';
 import '../../data/providers.dart';
 import 'game_providers.dart';
 
@@ -188,7 +189,9 @@ class GameLevelsScreen extends ConsumerWidget {
     final track = g.trackFor(child.age);
     final best = ref.watch(gameProgressProvider(child.id)).valueOrNull?[g.id] ?? const <String, int>{};
     final shelf = shelfOf(g.section);
-    return KidScaffold(
+    return SpeakOnOpen(
+      text: g.intro ?? g.title,
+      child: KidScaffold(
       title: g.title,
       background: Art.weekBackgrounds[g.title.length % Art.weekBackgrounds.length],
       onBack: () => context.canPop() ? context.pop() : context.go('/games'),
@@ -244,6 +247,6 @@ class GameLevelsScreen extends ConsumerWidget {
             ),
         ],
       ),
-    );
+    ));
   }
 }

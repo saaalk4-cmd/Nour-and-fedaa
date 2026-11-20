@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../data/providers.dart';
 import '../../features/home/journey_screen.dart';
 import '../../features/home/section_screen.dart';
 import '../../features/intro/intro_audio_player.dart';
@@ -24,8 +25,31 @@ void _backToMain(BuildContext context) {
   }
 }
 
+/// أي انتقال بين الشاشات يوقف الكلام والتلاوة الجارية فورًا (فلا تتداخل جملتان أبدًا).
+class _StopSpeechObserver extends NavigatorObserver {
+  _StopSpeechObserver(this._stop);
+
+  final void Function() _stop;
+
+  @override
+  void didPush(Route<dynamic> route, Route<dynamic>? previousRoute) {
+    if (route is PageRoute) _stop();
+  }
+
+  @override
+  void didPop(Route<dynamic> route, Route<dynamic>? previousRoute) {
+    if (route is PageRoute) _stop();
+  }
+}
+
 final routerProvider = Provider<GoRouter>((ref) {
   return GoRouter(
+    observers: [
+      _StopSpeechObserver(() {
+        ref.read(voiceServiceProvider).stop();
+        ref.read(ayahPlayerProvider).stop();
+      }),
+    ],
     initialLocation: '/',
     routes: [
       GoRoute(path: '/', builder: (_, __) => const LaunchGate()),

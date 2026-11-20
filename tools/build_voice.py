@@ -82,7 +82,7 @@ def looks_religious(t):
 # --------- جمع الجمل ---------
 
 LIT = re.compile(r"'((?:[^'\\]|\\.)*)'")
-SPEAK_LINE = re.compile(r"speak\(|Say\s*=|_say\(|_go\(|SpeakOnOpen|text:\s*'|praise|\?\s*'|:\s*'")
+SPEAK_LINE = re.compile(r"speak\(|sayAndWait\(|sayWait\(|Say\s*=|_say\(|_go\(|SpeakOnOpen|text:\s*'|praise|\?\s*'|:\s*'")
 NAME_VARS = re.compile(r"\$\{(?:c|child|widget\.child|kid)\.name\}|\$\{widget\.childName\}|\$name\b|\$\{name\}")
 
 
@@ -194,9 +194,30 @@ def game_phrases():
     return out
 
 
+def cheer_phrases():
+    """كل عبارات lib/core/audio/cheers.dart (مع اسم كل بنت) + عبارات ثابتة تُقال في الدروس والألعاب."""
+    out = set()
+    path = os.path.join(ROOT, 'lib', 'core', 'audio', 'cheers.dart')
+    if os.path.exists(path):
+        with open(path, encoding='utf-8') as fh:
+            for m in LIT.finditer(fh.read()):
+                s = m.group(1)
+                if not ARABIC.search(s):
+                    continue
+                for n in NAMES:
+                    out.add(s.replace('{n}', n))
+    out |= {
+        'ما شاء الله!', 'تذكّري الحديث الذي سمعناه', 'هذا كلام جميل، هيا نعرف معناه', 'ماذا تعلمتِ؟',
+        'اختاري لعبة', 'اسمعي الآية التالية',
+    } | {'الاختيار ' + o for o in ('الأول', 'الثاني', 'الثالث', 'الرابع', 'الخامس')}
+    for n in NAMES:
+        out.add('أحسنتِ يا %s!' % n)
+    return out
+
+
 def phrases():
     protected = protected_texts()
-    raw = dart_phrases() | content_phrases() | section_phrases() | game_phrases()
+    raw = dart_phrases() | content_phrases() | section_phrases() | game_phrases() | cheer_phrases()
     result = {}
     for r in raw:
         t = clean(r)

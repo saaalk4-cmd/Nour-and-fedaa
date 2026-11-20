@@ -14,7 +14,7 @@ OUT = Path(__file__).resolve().parent.parent / "assets" / "audio"
 
 NOTE = {
     "G4": 392.00, "C5": 523.25, "D5": 587.33, "E5": 659.25,
-    "G5": 783.99, "A5": 880.00, "C6": 1046.50,
+    "G5": 783.99, "A5": 880.00, "C6": 1046.50, "E6": 1318.51,
 }
 
 
@@ -42,6 +42,27 @@ def sequence(notes, step, note_dur):
     return mix
 
 
+def claps(count, start, gap, volume=0.12):
+    """تصفيق خفيف جدًا: دفعات ضوضاء قصيرة متتالية."""
+    import random
+
+    rnd = random.Random(7)
+    total = int(RATE * (start + gap * count + 0.1))
+    out = [0.0] * total
+    for k in range(count):
+        s0 = int(RATE * (start + gap * k))
+        for i in range(int(RATE * 0.05)):
+            env = math.exp(-i / (RATE * 0.012))
+            if s0 + i < total:
+                out[s0 + i] += volume * env * (rnd.random() * 2 - 1)
+    return out
+
+
+def mix_into(a, b):
+    n = max(len(a), len(b))
+    return [(a[i] if i < len(a) else 0.0) + (b[i] if i < len(b) else 0.0) for i in range(n)]
+
+
 def write(name, samples):
     OUT.mkdir(parents=True, exist_ok=True)
     peak = max(1e-9, max(abs(x) for x in samples))
@@ -61,4 +82,5 @@ if __name__ == "__main__":
     write("correct.wav", sequence(["C5", "E5"], 0.10, 0.28))
     write("success.wav", sequence(["C5", "E5", "G5", "C6"], 0.11, 0.40))
     write("levelup.wav", sequence(["G4", "C5", "E5", "G5", "C6"], 0.12, 0.45))
+    write("joy.wav", mix_into(sequence(["C5", "E5", "G5", "C6", "E6"], 0.09, 0.5), claps(7, 0.25, 0.07)))
     print("done:", sorted(p.name for p in OUT.glob("*.wav")))

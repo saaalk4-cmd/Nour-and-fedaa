@@ -4,13 +4,16 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/audio/ayah_player.dart';
+import '../../core/audio/cheers.dart';
 import '../../core/audio/sound_service.dart';
 import '../../core/audio/voice_service.dart';
+import '../../core/design/joy.dart';
 import '../../core/design/kit.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/mascot.dart';
 import '../../data/content/ayah_index.dart';
 import '../../data/content/lesson.dart';
+import '../../data/content/line_voice.dart';
 import '../../data/models/child.dart';
 import '../../data/models/lesson_completion.dart';
 import '../../data/providers.dart';
@@ -136,47 +139,41 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
     if (mounted && gen == _gen) await _narrate();
   }
 
-  /// تلاوة مسجّلة لهذا السطر لو كان نص آية (من خطوة الدرس أو من فهرس القرآن).
-  Recitation? _reciteOf(String line) {
-    final t = line.trim();
-    if (t.isEmpty) return null;
-    for (final st in _lesson.steps) {
-      if (st.recite != null && st.text.trim() == t) return st.recite;
-    }
-    final surah = _surah;
-    if (surah != null) {
-      for (var i = 0; i < _lesson.steps.length; i++) {
-        if (_lesson.steps[i].text.trim() == t) return Recitation(surah, i + 1);
-      }
-    }
-    return _ayat.of(t);
-  }
-
   Future<void> _recite(Recitation r) => _ayahPlayer.playRange(r.surah, r.ayah, r.toAyah);
 
-  /// يقرأ سطور النص بالترتيب: الآية بصوت الشيخ، والكلام التعليمي بالصوت، والحديث بعبارة ثابتة.
+  /// نص حديث: بصوت الأهل لو سجّلوه، وإلا عبارة ثابتة. لا نطق آلي لنص الحديث أبدًا.
+  Future<void> _hadithLine(String t) async {
+    if (!await _voice.playRecorded(t)) await _voice.sayAndWait(kHadithLineSay);
+  }
+
+  /// يقرأ سطور النص بالترتيب: الآية بصوت الشيخ، والكلام التعليمي بالصوت (مع وقفة بين السطور)،
+  /// ونص الحديث بصوت الأهل.
   Future<bool> _readLines(String text, int gen) async {
     for (final line in text.split('\n')) {
       if (!mounted || gen != _gen) return false;
       final t = line.trim();
       if (t.isEmpty) continue;
-      final r = _reciteOf(t);
-      if (r != null) {
-        await _recite(r);
-      } else if (_lesson.isSpeakable(t, step: true)) {
-        await _voice.sayAndWait(t, max: const Duration(seconds: 10));
-      } else {
-        await _voice.sayAndWait(kHadithLineSay);
+      final c = classifyLine(_lesson, t, _ayat, surah: _surah);
+      switch (c.kind) {
+        case LineKind.recite:
+          await _recite(c.recitation!);
+          await _voice.pause();
+        case LineKind.speak:
+          await _voice.sayAndWait(t, max: const Duration(seconds: 12));
+        case LineKind.hadith:
+          await _hadithLine(t);
       }
     }
     return mounted && gen == _gen;
   }
 
-  /// يقرأ الشاشة الحالية بصوت عالٍ. كل شيء مسموع: الآيات بتلاوة الشيخ المسجّلة،
-  /// والتعليمات والاختيارات بالصوت، ولا نطق آلي لآية أو حديث أبدًا.
+  /// يقرأ الشاشة الحالية بصوت عالٍ. كل شيء مسموع: الآيات بتلاوة الشيخ المسجّلة، ونص الحديث
+  /// بصوت الأهل، والتعليمات والاختيارات بالصوت؛ بين كل جملة وقفة. لا نطق آلي لآية أو حديث أبدًا.
+  /// [manual]: ضغطة 🔊 (تعمل دائمًا حتى لو القراءة التلقائية مطفأة).
   Future<void> _narrate({bool manual = false}) async {
     if (!mounted || _done != null) return;
     if (!await _voice.isEnabled()) return;
+    if (!manual && !(await _voice.settings()).autoRead) return;
     final gen = ++_gen;
     await _voice.stop();
     await _ayahPlayer.stop();
@@ -194,10 +191,15 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
       final st = _lesson.steps[_page];
       final t = _lesson.spokenText(st.text, say: st.say, step: true);
       if (t != null) {
-        await _voice.sayAndWait(t, max: const Duration(seconds: 12));
+        // شرح أو معنى: كل سطر يُقال على حدة بوقفة بينه وبين الذي بعده.
+        for (final line in t.split('\n')) {
+          if (!mounted || gen != _gen) return;
+          if (line.trim().isEmpty) continue;
+          await _voice.sayAndWait(line.trim(), max: const Duration(seconds: 12));
+        }
       } else if (st.recite == null) {
-        // نص منقول (حديث) لا يُقرأ آليًا: جملة ثابتة قصيرة حتى لا تبقى الشاشة صامتة.
-        await _voice.sayAndWait('هذا كلام جميل، هيا نعرف معناه');
+        // نص حديث: صوت الأهل إن سجّلوه، وإلا عبارة ثابتة (لا نطق آلي له).
+        if (!await _voice.playRecorded(st.text)) await _voice.sayAndWait('هذا كلام جميل، هيا نعرف معناه');
       }
       final r = st.recite;
       if (r != null && mounted && gen == _gen) await _recite(r);
@@ -221,34 +223,62 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
     } else {
       ok = await _readLines(q.prompt, gen);
     }
-    if (!ok || q.isMatch) return;
-    // ثم الاختيارات: آية → «الاختيار الأول» ثم الشيخ؛ كلام تعليمي → يُقال.
+    if (!ok) return;
+    if (q.isMatch) {
+      // التوصيل: نقرأ الطرف الأول كله ثم الثاني.
+      for (final side in [q.matchLeft, [for (final j in q.matchRightOrder) q.matchRight[j]]]) {
+        for (final o in side) {
+          if (!mounted || gen != _gen) return;
+          await _readOption(o, gen);
+        }
+      }
+      return;
+    }
+    // ثم الاختيارات واحدًا واحدًا.
     final opts = q.isOrder ? q.options : q.displayOptions;
     for (var i = 0; i < opts.length; i++) {
       if (!mounted || gen != _gen) return;
-      final o = opts[i];
-      final ar = _reciteOf(o);
-      if (ar != null) {
-        await _voice.sayAndWait('الاختيار ${_ordinals[i % _ordinals.length]}');
-        if (mounted && gen == _gen) await _recite(ar);
-      } else if (_lesson.isSpeakable(o, step: true)) {
-        await _voice.sayAndWait(o, max: const Duration(seconds: 8));
-      }
+      await _readOption(opts[i], gen, index: i);
     }
   }
 
-  /// زر 🔊 بجانب الاختيار: الآية بصوت الشيخ، والكلام بالصوت.
-  VoidCallback? _hearOption(String o) {
-    final r = _reciteOf(o);
-    if (r != null) {
-      return () async {
-        _gen++;
-        await _voice.stop();
-        await _recite(r);
-      };
+  /// اختيار واحد: آية → «الاختيار الأول» ثم الشيخ؛ نص حديث → صوت الأهل؛ كلام تعليمي → يُقال.
+  Future<void> _readOption(String o, int gen, {int index = 0}) async {
+    final c = classifyLine(_lesson, o, _ayat, surah: _surah);
+    switch (c.kind) {
+      case LineKind.recite:
+        await _voice.sayAndWait('الاختيار ${_ordinals[index % _ordinals.length]}');
+        if (mounted && gen == _gen) {
+          await _recite(c.recitation!);
+          await _voice.pause();
+        }
+      case LineKind.speak:
+        await _voice.sayAndWait(o, max: const Duration(seconds: 8));
+      case LineKind.hadith:
+        await _voice.sayAndWait('الاختيار ${_ordinals[index % _ordinals.length]}');
+        if (mounted && gen == _gen) await _hadithLine(o);
     }
-    if (_lesson.isSpeakable(o, step: true)) return () => _voice.speak(o);
-    return null;
+  }
+
+  /// زر 🔊 بجانب الاختيار: الآية بصوت الشيخ، والحديث بصوت الأهل، والكلام بالصوت.
+  VoidCallback? _hearOption(String o) {
+    final c = classifyLine(_lesson, o, _ayat, surah: _surah);
+    switch (c.kind) {
+      case LineKind.recite:
+        return () async {
+          _gen++;
+          await _voice.stop();
+          await _recite(c.recitation!);
+        };
+      case LineKind.speak:
+        return () => _voice.speak(o);
+      case LineKind.hadith:
+        return () async {
+          _gen++;
+          await _voice.stop();
+          await _hadithLine(o);
+        };
+    }
   }
 
   int get _total => _lesson.steps.length + _lesson.questions.length;
@@ -354,8 +384,7 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
         }
       });
       if (_matched.length == q.options.length) {
-        final praise = q.praise == null ? null : _lesson.spokenText(q.praise!, step: true);
-        _voice.speak(praise ?? 'أحسنتِ! وصّلتِ كل شيء');
+        _celebrate(q, 'وصّلتِ كل شيء');
       }
     } else {
       ref.read(soundServiceProvider).play(SoundEffect.tap);
@@ -363,7 +392,7 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
         _slips++;
         _leftSel = null;
       });
-      _voice.speak('قريب جدًا! جرّبي مرة ثانية');
+      _encourage();
     }
   }
 
@@ -382,15 +411,14 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
         }
       });
       if (done) {
-        final praise = q.praise == null ? null : _lesson.spokenText(q.praise!, step: true);
-        _voice.speak(praise ?? 'أحسنتِ! رتّبتِ كل شيء');
+        _celebrate(q, 'رتّبتِ كل شيء');
       } else if (_lesson.isSpeakable(q.options[item], step: true)) {
         _voice.speak(q.options[item]);
       }
     } else {
       ref.read(soundServiceProvider).play(SoundEffect.tap);
       setState(() => _slips++);
-      _voice.speak('قريب جدًا! جرّبي مرة ثانية');
+      _encourage();
     }
   }
 
@@ -404,16 +432,61 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
         // نحسب الإجابة الصحيحة من أول محاولة فقط (للمكافأة الإضافية).
         if (_tried.isEmpty) _firstTryCorrect++;
       });
-      final praise = q.praise == null ? null : _lesson.spokenText(q.praise!, step: true);
-      _voice.speak(praise ?? 'أحسنتِ!');
+      _celebrate(q, null);
     } else {
       ref.read(soundServiceProvider).play(SoundEffect.tap);
       setState(() => _tried.add(index));
+      _streak = 0;
       final hint = _tried.length >= 2 ? _lesson.spokenText(q.hint, step: true) : null;
-      _voice.speak(hint == null
-          ? 'قريب جدًا! جرّبي مرة ثانية'
-          : 'قريب جدًا! $hint');
+      _encourage(hint: hint);
     }
+  }
+
+  /// إجابات صحيحة متتالية من أول مرة (ثلاث = احتفال أكبر).
+  int _streak = 0;
+
+  /// تشجيع بعد الإجابة الصحيحة: عبارة متنوعة (أو الخاصة بالسؤال)، وبعد ثلاث ورا بعض «ما شاء الله».
+  Future<void> _celebrate(LessonQuestion q, String? what) async {
+    final perfect = _tried.isEmpty && _slips == 0;
+    _streak = perfect ? _streak + 1 : 0;
+    final name = widget.child.name;
+    final String line;
+    if (perfect && _streak > 0 && _streak % 3 == 0) {
+      line = Cheers.forStreak(name);
+    } else {
+      final special = q.praise == null ? null : _lesson.spokenText(q.praise!, step: true);
+      line = special ?? Cheers.forPraise(name);
+    }
+    _gen++;
+    final big = perfect && _streak > 0 && _streak % 3 == 0;
+    if (big) _showJoy(JoyLevel.medium, 'ما شاء الله!');
+    await _voice.sayAndWait(line);
+    if (what != null && mounted) await _voice.sayAndWait(what);
+  }
+
+  JoyLevel? _joy;
+  String? _joyText;
+  int _joyN = 0;
+
+  /// احتفال أكبر قليلًا بعد ثلاث إجابات صحيحة ورا بعض (هادئ في القرآن والأذكار).
+  void _showJoy(JoyLevel level, String text) {
+    final calm = const {'quran', 'adhkar', 'prayer'}.contains(_lesson.category);
+    if (!calm) ref.read(soundServiceProvider).play(SoundEffect.joy);
+    setState(() {
+      _joy = level;
+      _joyText = calm ? null : text;
+      _joyN++;
+    });
+    final n = _joyN;
+    Future<void>.delayed(JoyBurst.duration, () {
+      if (mounted && _joyN == n) setState(() => _joy = null);
+    });
+  }
+
+  Future<void> _encourage({String? hint}) async {
+    _gen++;
+    await _voice.sayAndWait(Cheers.forTryAgain(widget.child.name));
+    if (hint != null && mounted) await _voice.sayAndWait(hint);
   }
 
   @override
@@ -424,6 +497,7 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
         childName: widget.child.name,
         little: widget.child.ageGroup == AgeGroup.early,
         completion: done,
+        calm: const {'quran', 'adhkar', 'prayer'}.contains(_lesson.category),
         learned: _lesson.learned,
         onContinue: () async {
           await MilestoneDialog.show(
@@ -458,7 +532,26 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
           onTap: () => _narrate(manual: true),
         ),
       ],
-      body: SafeArea(
+      body: Stack(
+        children: [
+          Positioned.fill(child: _lessonBody(canContinue, little)),
+          if (_joy != null)
+            Positioned.fill(
+              child: JoyBurst(
+                key: ValueKey(_joyN),
+                level: _joy!,
+                text: _joyText,
+                calm: const {'quran', 'adhkar', 'prayer'}.contains(_lesson.category),
+                reduceMotion: ref.watch(reduceMotionProvider).valueOrNull ?? false,
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+
+  Widget _lessonBody(bool canContinue, bool little) {
+    return SafeArea(
         top: false,
         child: Padding(
           padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
@@ -494,8 +587,7 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
             ],
           ),
         ),
-      ),
-    );
+      );
   }
 
   Widget _stepView(LessonStep s, bool little) {

@@ -1,9 +1,12 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/audio/ayah_player.dart';
+import '../../core/audio/cheers.dart';
 import '../../core/audio/sound_service.dart';
 import '../../core/audio/voice_service.dart';
 import '../../core/theme/app_theme.dart';
@@ -67,15 +70,20 @@ class _ToddlerLessonPlayerState extends ConsumerState<ToddlerLessonPlayer> {
 
   @override
   void dispose() {
+    _gen++;
     _voice.stop();
     _ayahPlayer.stop();
     super.dispose();
   }
 
   /// يشغّل صوت الشاشة الحالية: تلاوة للقرآن، وكلمة/سؤال منطوق لغير ذلك.
-  Future<void> _listen() async {
+  Future<void> _listen({bool manual = false}) async {
     if (!mounted || _done != null) return;
     if (!await _voice.isEnabled()) return;
+    if (!manual && !(await _voice.settings()).autoRead) return;
+    final gen = ++_gen;
+    await _voice.stop();
+    await _ayahPlayer.stop();
     final surah = _lesson.surahNumber;
     if (_isCard) {
       if (surah != null) {
@@ -94,15 +102,21 @@ class _ToddlerLessonPlayerState extends ConsumerState<ToddlerLessonPlayer> {
         return;
       }
       final text = c.say ?? c.word;
-      if (text.isNotEmpty) await _voice.speak(text);
+      if (text.isNotEmpty) await _voice.sayAndWait(text);
     } else {
       final q = _question;
-      await _voice.speak(q.say ?? q.prompt);
+      await _voice.sayAndWait(q.say ?? q.prompt);
+      // نور لا تقرأ: نقرأ لها كل اختيار (بوقفة بينها) لتعرف ماذا تضغط.
+      for (final o in q.options) {
+        if (!mounted || gen != _gen || _picked != null) return;
+        final w = _wordOf(o);
+        if (w.isNotEmpty) await _voice.sayAndWait(w);
+      }
     }
   }
 
-  /// الخيار الذي تضغط عليه الطفلة يُنطق (هي لا تقرأ): نحذف الرموز فقط.
-  Future<void> _say(String label) => _voice.speak(label);
+  /// رقم جولة القراءة: أي ضغطة أو صفحة جديدة تُلغي القراءة الجارية.
+  int _gen = 0;
 
   Future<void> _next() async {
     if (!_isLast) {
@@ -111,7 +125,7 @@ class _ToddlerLessonPlayerState extends ConsumerState<ToddlerLessonPlayer> {
         _tried.clear();
         _picked = null;
       });
-      _listen();
+      unawaited(_listen());
       return;
     }
     await _finish();
@@ -141,7 +155,6 @@ class _ToddlerLessonPlayerState extends ConsumerState<ToddlerLessonPlayer> {
         _done = result;
         _saving = false;
       });
-      _voice.speak('أحسنتِ يا ${widget.child.name}!');
     } catch (_) {
       if (!mounted) return;
       setState(() => _saving = false);
@@ -151,9 +164,10 @@ class _ToddlerLessonPlayerState extends ConsumerState<ToddlerLessonPlayer> {
     }
   }
 
-  void _pick(LessonQuestion q, int i) {
+  Future<void> _pick(LessonQuestion q, int i) async {
     if (_picked != null) return;
-    _say(_wordOf(q.options[i]));
+    _gen++; // نوقف قراءة الاختيارات الجارية
+    final word = _wordOf(q.options[i]);
     if (i == q.answerIndex) {
       HapticFeedback.lightImpact();
       ref.read(soundServiceProvider).play(SoundEffect.correct);
@@ -161,12 +175,13 @@ class _ToddlerLessonPlayerState extends ConsumerState<ToddlerLessonPlayer> {
         _picked = i;
         if (_tried.isEmpty) _firstTryCorrect++;
       });
-      Future<void>.delayed(const Duration(milliseconds: 900), () {
-        if (mounted) _voice.speak('أحسنتِ يا ${widget.child.name}!');
-      });
+      if (word.isNotEmpty) await _voice.sayAndWait(word);
+      if (mounted) await _voice.sayAndWait(Cheers.forPraise(widget.child.name));
     } else {
       ref.read(soundServiceProvider).play(SoundEffect.tap);
       setState(() => _tried.add(i));
+      if (word.isNotEmpty) await _voice.sayAndWait(word);
+      if (mounted) await _voice.sayAndWait(Cheers.forTryAgain(widget.child.name));
     }
   }
 
@@ -180,6 +195,7 @@ class _ToddlerLessonPlayerState extends ConsumerState<ToddlerLessonPlayer> {
       return CelebrationView(
         childName: widget.child.name,
         little: true,
+        calm: const {'quran', 'adhkar', 'prayer'}.contains(_lesson.category),
         completion: done,
         onContinue: () async {
           await BreakReminder.maybeShow(context, ref.read(voiceServiceProvider));
@@ -250,7 +266,7 @@ class _ToddlerLessonPlayerState extends ConsumerState<ToddlerLessonPlayer> {
           icon: Icons.volume_up_rounded,
           tooltip: 'اسمعي',
           pulse: true,
-          onTap: _listen,
+          onTap: () => _listen(manual: true),
         ),
       ],
     );
@@ -270,7 +286,7 @@ class _ToddlerLessonPlayerState extends ConsumerState<ToddlerLessonPlayer> {
             icon: Icons.volume_up_rounded,
             tooltip: 'اسمعي السؤال',
             pulse: !answered && _tried.isEmpty,
-            onTap: _listen,
+            onTap: () => _listen(manual: true),
           ),
           const SizedBox(height: 18),
           for (var i = 0; i < q.options.length; i++)

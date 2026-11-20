@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../core/audio/ayah_player.dart';
+import '../../core/audio/cheers.dart';
 import '../../core/audio/sound_service.dart';
 import '../../core/audio/voice_service.dart';
 import '../../core/design/art.dart';
@@ -37,14 +38,10 @@ class GameKit {
   final int seed;
   final math.Random rng;
 
-  static const praises = ['أحسنتِ يا {n}!', 'رائعة يا {n}!', 'ممتاز!', 'نجمة اليوم'];
-  static const tryAgain = ['قريبة جدًا! جربي مرة ثانية', 'حاولي مرة أخرى', 'ممتاز، جربي مرة أخرى'];
 
-  int _p = 0;
-  int _t = 0;
 
-  String praise() => praises[(_p++ + seed) % praises.length].replaceAll('{n}', childName);
-  String encourage() => tryAgain[_t++ % tryAgain.length];
+  String praise() => Cheers.forPraise(childName);
+  String encourage() => Cheers.forTryAgain(childName);
 
   Future<void> say(String text) => voice.speak(text);
   Future<void> sayWait(String text) => voice.sayAndWait(text, max: const Duration(seconds: 8));

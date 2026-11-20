@@ -1,17 +1,22 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../core/audio/sound_service.dart';
+import '../../core/audio/voice_service.dart';
 import '../../core/design/art.dart';
+import '../../core/design/joy.dart';
 import '../../core/design/kit.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/mascot.dart';
 import '../../data/models/lesson_completion.dart';
+import '../../data/providers.dart';
 
 /// شاشة احتفال قصيرة بعد إكمال الدرس: البنت تحتفل مع لَمعة، نجوم الدرس، والشارات.
 /// لا XP ولا مستويات ولا سلاسل أيام أمام الطفلة (مكانها لوحة الأهل).
 /// خفيفة الأداء: متحكم حركة واحد + رسم بسيط بدون حزم خارجية.
-class CelebrationView extends StatefulWidget {
+class CelebrationView extends ConsumerStatefulWidget {
   const CelebrationView({
     super.key,
     required this.childName,
@@ -19,7 +24,11 @@ class CelebrationView extends StatefulWidget {
     required this.onContinue,
     this.little = false,
     this.learned,
+    this.calm = false,
   });
+
+  /// قرآن/أذكار/صلاة: احتفال هادئ (نجمة فقط) بلا كونفيتي ولا موسيقى.
+  final bool calm;
 
   final String childName;
 
@@ -32,12 +41,14 @@ class CelebrationView extends StatefulWidget {
   final String? learned;
 
   @override
-  State<CelebrationView> createState() => _CelebrationViewState();
+  ConsumerState<CelebrationView> createState() => _CelebrationViewState();
 }
 
-class _CelebrationViewState extends State<CelebrationView>
+class _CelebrationViewState extends ConsumerState<CelebrationView>
     with SingleTickerProviderStateMixin {
   late final AnimationController _controller;
+  late final VoiceService _voice = ref.read(voiceServiceProvider);
+  bool _joy = true;
 
   @override
   void initState() {
@@ -46,10 +57,27 @@ class _CelebrationViewState extends State<CelebrationView>
       vsync: this,
       duration: const Duration(milliseconds: 3600),
     )..forward();
+    if (!widget.calm) ref.read(soundServiceProvider).play(SoundEffect.joy);
+    Future<void>.delayed(JoyBurst.duration, () {
+      if (mounted) setState(() => _joy = false);
+    });
+    WidgetsBinding.instance.addPostFrameCallback((_) => _speak());
+  }
+
+  /// كل ما على الشاشة يُقال: التهنئة، ثم «ماذا تعلمتِ»، ثم الشارات الجديدة.
+  Future<void> _speak() async {
+    await _voice.sayAndWait(_message);
+    final learned = widget.learned;
+    if (learned != null && mounted) await _voice.sayAndWait('ماذا تعلمتِ؟ $learned', max: const Duration(seconds: 12));
+    for (final b in widget.completion.newBadges) {
+      if (!mounted) return;
+      await _voice.sayAndWait('شارة جديدة: ${b.title}');
+    }
   }
 
   @override
   void dispose() {
+    _voice.stop();
     _controller.dispose();
     super.dispose();
   }
@@ -58,7 +86,12 @@ class _CelebrationViewState extends State<CelebrationView>
     final name = widget.childName;
     final c = widget.completion;
     if (!c.reward.isFirstCompletion) return 'جميل أنكِ راجعتِ الدرس يا $name!';
-    final options = ['أحسنتِ يا $name!', 'رائع يا $name!', 'أنتِ تتقدمين يا $name!'];
+    final options = [
+      'أحسنتِ يا $name!',
+      'ما شاء الله عليكِ يا $name!',
+      'رائعة يا $name!',
+      'أنتِ تتقدمين يا $name!',
+    ];
     return options[c.totalXp % options.length];
   }
 
@@ -173,6 +206,15 @@ class _CelebrationViewState extends State<CelebrationView>
               ),
             ),
           ),
+          if (_joy)
+            Positioned.fill(
+              child: JoyBurst(
+                level: JoyLevel.big,
+                text: widget.calm ? null : 'ما شاء الله!',
+                calm: widget.calm,
+                reduceMotion: ref.watch(reduceMotionProvider).valueOrNull ?? false,
+              ),
+            ),
         ],
       ),
     );

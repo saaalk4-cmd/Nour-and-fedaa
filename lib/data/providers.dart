@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../core/audio/audioplayers_sound_player.dart';
@@ -83,11 +85,13 @@ final childReportProvider =
 
 final soundServiceProvider = Provider<SoundService>((ref) {
   final settings = ref.watch(settingsRepositoryProvider);
-  return SoundService(
+  final svc = SoundService(
     player: AudioplayersSoundPlayer(),
     readEnabled: settings.soundEnabled,
     writeEnabled: settings.setSoundEnabled,
   );
+  unawaited(settings.voiceSettings().then<void>((v) => svc.effectsVolume = v.effectsVolume).catchError((Object _) {}));
+  return svc;
 });
 
 /// محرك صوت الجهاز (مشترك لتعرض لوحة الأهل الأصوات المتاحة وتغيّرها).
@@ -101,10 +105,27 @@ final voiceServiceProvider = Provider<VoiceService>((ref) {
   return VoiceService(
     engine: ref.watch(ttsEngineProvider),
     clips: AssetClipPlayer(),
+    userVoice: ref.watch(userVoiceProvider),
+    readSettings: settings.voiceSettings,
     readEnabled: settings.voiceEnabled,
     writeEnabled: settings.setVoiceEnabled,
   );
 });
+
+/// تسجيلات صوت الأهل (تُنفَّذ في recorded_voice.dart).
+final userVoiceProvider = Provider<UserVoice?>((_) => null);
+
+final voiceSettingsProvider = FutureProvider<VoiceSettings>(
+  (ref) => ref.watch(settingsRepositoryProvider).voiceSettings(),
+);
+
+final reduceMotionProvider = FutureProvider<bool>(
+  (ref) => ref.watch(settingsRepositoryProvider).reduceMotion(),
+);
+
+final fontScaleProvider = FutureProvider<double>(
+  (ref) => ref.watch(settingsRepositoryProvider).fontScale(),
+);
 
 final voiceEnabledProvider = FutureProvider<bool>(
   (ref) => ref.watch(settingsRepositoryProvider).voiceEnabled(),
