@@ -120,7 +120,7 @@ class _GamesHomeScreenState extends ConsumerState<GamesHomeScreen> {
                     return WorldTile(
                       emoji: g.emoji,
                       title: g.title,
-                      subtitle: got == 0 ? shelfOf(g.section).title : '⭐ $got / $max',
+                      subtitle: got == 0 ? shelfOf(g.section).title : '⭐ $got من $max',
                       color: shelfOf(g.section).color,
                       badge: got >= max && max > 0,
                       onTap: () async {

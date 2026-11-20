@@ -6,7 +6,7 @@ import 'package:go_router/go_router.dart';
 import '../../core/audio/ayah_player.dart';
 import '../../core/audio/sound_service.dart';
 import '../../core/audio/voice_service.dart';
-import '../../core/design/big_button.dart';
+import '../../core/design/kit.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/mascot.dart';
 import '../../data/content/ayah_index.dart';
@@ -438,26 +438,30 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
     final little = widget.child.ageGroup == AgeGroup.early;
     final canContinue = _isStep || _picked != null;
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(_lesson.title),
-        leading: IconButton(
-          tooltip: 'إغلاق',
-          icon: const Icon(Icons.close),
-          onPressed: () => context.pop(),
-        ),
-        actions: [
-          IconButton(
-            tooltip: 'اسمعي',
-            iconSize: little ? 40 : 30,
-            icon: const Icon(Icons.volume_up),
-            onPressed: () => _narrate(manual: true),
-          ),
-        ],
+    return KidScaffold(
+      title: spokenTitle(_lesson.title),
+      background: SectionLook.of(_lesson.category).background,
+      veil: 0.35,
+      leading: GlossyButton(
+        color: const Color(0xFFE76F8B),
+        label: 'إغلاق',
+        icon: Icons.close_rounded,
+        size: 56,
+        onTap: () => context.pop(),
       ),
+      actions: [
+        GlossyButton(
+          color: const Color(0xFF2A9D8F),
+          label: 'اسمعي',
+          icon: Icons.volume_up_rounded,
+          size: little ? 64 : 56,
+          onTap: () => _narrate(manual: true),
+        ),
+      ],
       body: SafeArea(
+        top: false,
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(20, 4, 20, 20),
+          padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
           child: Column(
             children: [
               _ProgressBar(value: (_page + 1) / _total),
@@ -475,9 +479,17 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
                 ),
               ),
               const SizedBox(height: 12),
-              BigButton(
-                label: _isLast ? 'أنهيتُ الدرس 🎉' : 'التالي',
-                onPressed: canContinue && !_saving ? _next : null,
+              AnimatedOpacity(
+                opacity: canContinue && !_saving ? 1 : 0.45,
+                duration: const Duration(milliseconds: 200),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: SunButton(
+                    label: _isLast ? 'أنهيتُ الدرس' : 'التالي',
+                    height: little ? 70 : 62,
+                    onTap: canContinue && !_saving ? _next : () {},
+                  ),
+                ),
               ),
             ],
           ),
@@ -493,9 +505,10 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
           width: double.infinity,
           padding: const EdgeInsets.fromLTRB(20, 28, 20, 28),
           decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(40),
-            boxShadow: const [BoxShadow(color: Color(0x1A000000), blurRadius: 16, offset: Offset(0, 8))],
+            gradient: const LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [Colors.white, Wood.cream]),
+            borderRadius: BorderRadius.circular(36),
+            border: Border.all(color: Wood.dark, width: 3),
+            boxShadow: const [BoxShadow(color: Color(0x33000000), blurRadius: 14, offset: Offset(0, 7))],
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -811,24 +824,27 @@ class _OptionButton extends StatelessWidget {
     final Color bg;
     switch (state) {
       case _OptionState.neutral:
-        bg = Colors.white;
+        bg = Wood.cream;
       case _OptionState.tried:
         bg = const Color(0xFFFFE9C7); // برتقالي لطيف، وليس أحمر
       case _OptionState.correct:
         bg = const Color(0xFFCDEFC6);
     }
-    final button = SizedBox(
-      width: double.infinity,
-      height: little ? 96 : 72,
+    final button = ConstrainedBox(
+      constraints: BoxConstraints(minHeight: little ? 96 : 72),
       child: Material(
         color: bg,
-        elevation: state == _OptionState.neutral ? 2 : 0,
-        borderRadius: BorderRadius.circular(28),
-        shadowColor: Colors.black26,
+        elevation: 0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(26),
+          side: BorderSide(color: state == _OptionState.correct ? const Color(0xFF3F8F2F) : Wood.dark, width: 3),
+        ),
         child: InkWell(
-          borderRadius: BorderRadius.circular(28),
+          borderRadius: BorderRadius.circular(26),
           onTap: state == _OptionState.tried ? null : onTap,
-          child: Row(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8),
+            child: Row(
             children: [
               if (onHear != null)
                 IconButton(
@@ -853,6 +869,7 @@ class _OptionButton extends StatelessWidget {
               ),
               const SizedBox(width: 48),
             ],
+          ),
           ),
         ),
       ),

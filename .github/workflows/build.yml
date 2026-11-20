@@ -45,6 +45,14 @@ jobs:
             sed -i 's#<application#<queries><intent><action android:name="android.intent.action.TTS_SERVICE"/></intent></queries>\n    <application#' "$f"
           fi
 
+      # «نزّلي مرة والعبي على طول»: تنزيل حزمة الألعاب الإضافية من مستودعنا فقط
+      - name: Declare internet permission (game packs)
+        run: |
+          f=android/app/src/main/AndroidManifest.xml
+          if ! grep -q "android.permission.INTERNET" "$f"; then
+            sed -i 's#<application#<uses-permission android:name="android.permission.INTERNET"/>\n    <application#' "$f"
+          fi
+
       # تلاوة الآيات للأطفال بلا ولي أمر (لا تُرفع إلى git)
       - name: Fetch Quran recitation audio
         run: python3 tools/fetch_quran_audio.py

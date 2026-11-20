@@ -14,7 +14,7 @@ import '../../data/models/child.dart';
 import '../../data/providers.dart';
 import '../../data/repositories/settings_repository.dart';
 import '../home/sections.dart';
-import '../home/who_learns_screen.dart' show characterFor;
+import '../home/who_learns_screen.dart' show characterFor, colorFor;
 import '../lessons/kid_section_screen.dart' show spokenTitle;
 import '../today/today_screen.dart' show curriculumProvider;
 
@@ -22,7 +22,7 @@ import '../today/today_screen.dart' show curriculumProvider;
 const kWorldMissionLockedGiftSay = 'هديتك تنتظرك بعد مهمات اليوم';
 const kWorldDoneSay = 'أنتِ مستكشفة صغيرة';
 
-/// أقسام «الدين والأذكار» تحت لافتة واحدة.
+/// أقسام «الدين والأذكار» (شاشة قديمة باقية للروابط).
 const deenSectionIds = <String>[
   SectionIds.quran,
   SectionIds.prayer,
@@ -33,7 +33,7 @@ const deenSectionIds = <String>[
 ];
 
 /// «عالمنا»: الشاشة الرئيسية بعد اختيار الطفلة.
-/// كارت «مهمة جديدة» يفتح درس اليوم بالترتيب، وتحته لافتات خشب للعب الحر.
+/// من فوق لتحت: مغامرة اليوم (مضغوطة) ← الألعاب ← شبكة الأقسام. كل شيء بمكان واحد واضح.
 class WorldScreen extends ConsumerStatefulWidget {
   const WorldScreen({super.key});
 
@@ -51,7 +51,7 @@ class _WorldScreenState extends ConsumerState<WorldScreen> {
     if (_busy) return;
     _busy = true;
     try {
-      // ننتظر حتى تكتمل الجملة ثم نفتح (وإلا تنقطع عند فتح الدرس).
+      // ننتظر حتى تكتمل الجملة ثم نفتح (وإلا تنقطع).
       await ref.read(voiceServiceProvider).sayAndWait(say);
       if (mounted) await context.push(route);
     } finally {
@@ -74,19 +74,12 @@ class _WorldScreenState extends ConsumerState<WorldScreen> {
   @override
   Widget build(BuildContext context) {
     final child = ref.watch(selectedChildProvider);
-    return Scaffold(
-      body: child.when(
-        loading: () => const Center(child: CircularProgressIndicator()),
-        error: (_, __) => const Center(child: Text('حدث خطأ')),
-        data: (c) {
-          if (c == null) {
-            return Center(
-              child: SunButton(label: 'من سيتعلم؟', onTap: () => context.go('/')),
-            );
-          }
-          return _body(c);
-        },
-      ),
+    return child.when(
+      loading: () => const Scaffold(body: Center(child: CircularProgressIndicator())),
+      error: (_, __) => const Scaffold(body: Center(child: Text('حدث خطأ'))),
+      data: (c) => c == null
+          ? Scaffold(body: Center(child: SunButton(label: 'من سيتعلم؟', onTap: () => context.go('/'))))
+          : _body(c),
     );
   }
 
@@ -95,7 +88,7 @@ class _WorldScreenState extends ConsumerState<WorldScreen> {
     final lessons = ref.watch(lessonsProvider);
     final done = ref.watch(completedLessonIdsProvider(c.id));
     final states = ref.watch(sectionStatesProvider).valueOrNull ?? const <String, bool>{};
-    final little = c.ageGroup == AgeGroup.early;
+    final stars = ref.watch(gamificationProfileProvider(c.id)).valueOrNull?.stars;
 
     PathWeek? path;
     if (curriculum.hasValue && lessons.hasValue && done.hasValue) {
@@ -121,58 +114,37 @@ class _WorldScreenState extends ConsumerState<WorldScreen> {
     final bg = path?.week == null
         ? Art.bgSky
         : Art.weekBackgrounds[(path!.week!.week - 1) % Art.weekBackgrounds.length];
+    final sections = [for (final s in appSections) if (on(s.id)) s];
 
-    final signs = <Widget>[
-      if (on(SectionIds.learn))
-        WoodSign(
-          icon: const Text('📚'),
-          title: 'أتعلم',
-          subtitle: little ? null : 'حروف وأرقام واكتشاف',
-          onTap: () => _go('أتعلم', '/section/${SectionIds.learn}'),
+    return KidScaffold(
+      background: bg,
+      leading: _KidButton(
+        child: c,
+        onTap: () {
+          ref.read(selectedChildIdProvider.notifier).state = null;
+          context.go('/');
+        },
+      ),
+      title: 'أهلًا يا ${c.name}',
+      actions: [
+        if (stars != null) ...[_StarChip(stars: stars), const SizedBox(width: 6)],
+        GlossyButton(
+          color: const Color(0xFFA463E8),
+          label: 'خريطة الأسبوع',
+          icon: Icons.map_rounded,
+          size: 56,
+          onTap: () => _go('خريطة الأسبوع', '/path'),
         ),
-      if (deenSectionIds.any(on))
-        WoodSign(
-          icon: const Text('🕌'),
-          title: 'الدين والأذكار',
-          subtitle: little ? null : 'قرآن وصلاة وأنبياء',
-          onTap: () => _go('الدين والأذكار', '/world/deen'),
-        ),
-      if (on(SectionIds.akhlaq))
-        WoodSign(
-          icon: const Text('❤️'),
-          title: 'القيم والأخلاق',
-          onTap: () => _go('القيم والأخلاق', '/section/${SectionIds.akhlaq}'),
-        ),
-      if (on(SectionIds.achievements))
-        WoodSign(
-          icon: const ArtImage(Art.medal),
-          title: 'إنجازاتي',
-          onTap: () => _go('إنجازاتي', '/section/${SectionIds.achievements}'),
-        ),
-    ];
-
-    return Stack(
-      fit: StackFit.expand,
-      children: [
-        Positioned.fill(child: ArtImage(bg, fit: BoxFit.cover)),
-        SafeArea(
-          child: ListView(
-            padding: const EdgeInsets.fromLTRB(16, 8, 16, 32),
-            children: [
-              _TopBar(
-                onHome: () {
-                  ref.read(selectedChildIdProvider.notifier).state = null;
-                  context.go('/');
-                },
-                onMap: () => _go('خريطة الأسبوع', '/path'),
-              ),
-              const SizedBox(height: 10),
-              _Greeting(child: c, little: little),
-              const SizedBox(height: 14),
+      ],
+      body: CustomScrollView(
+        slivers: [
+          SliverPadding(
+            padding: const EdgeInsets.fromLTRB(16, 4, 16, 0),
+            sliver: SliverList.list(children: [
               if (path == null && (curriculum.hasError || lessons.hasError || done.hasError))
                 const ParchmentCard(child: Text('تعذر تحميل المهمة، جربي مرة ثانية', textAlign: TextAlign.center))
               else if (path == null)
-                const Padding(padding: EdgeInsets.all(32), child: Center(child: CircularProgressIndicator()))
+                const Padding(padding: EdgeInsets.all(24), child: Center(child: CircularProgressIndicator()))
               else
                 MissionCard(
                   path: path,
@@ -181,65 +153,38 @@ class _WorldScreenState extends ConsumerState<WorldScreen> {
                   onGift: (d) => _say(d.complete ? 'أحسنتِ يا ${c.name}! أكملتِ اليوم' : kWorldMissionLockedGiftSay),
                   onDone: () => _say('أحسنتِ يا ${c.name}! $kWorldDoneSay'),
                 ),
+              const SizedBox(height: 14),
+              _GamesBanner(onTap: () => _go('الألعاب', '/games')),
               const SizedBox(height: 18),
-              for (final s in signs) Padding(padding: const EdgeInsets.only(bottom: 12), child: s),
-            ],
+              const Align(alignment: AlignmentDirectional.centerStart, child: OutlineText('عالمي', size: 28, maxLines: 1)),
+              const SizedBox(height: 8),
+            ]),
           ),
-        ),
-      ],
-    );
-  }
-}
-
-class _TopBar extends StatelessWidget {
-  const _TopBar({required this.onHome, required this.onMap});
-
-  final VoidCallback onHome;
-  final VoidCallback onMap;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        GlossyButton(color: const Color(0xFF4CB944), label: 'تغيير الطفلة', icon: Icons.home_rounded, onTap: onHome),
-        const Spacer(),
-        GlossyButton(color: const Color(0xFFA463E8), label: 'خريطة الأسبوع', icon: Icons.map_rounded, onTap: onMap),
-      ],
-    );
-  }
-}
-
-class _Greeting extends StatelessWidget {
-  const _Greeting({required this.child, required this.little});
-
-  final Child child;
-  final bool little;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.end,
-      children: [
-        SizedBox(width: 110, height: 130, child: ArtImage(characterFor(child), fit: BoxFit.contain)),
-        const SizedBox(width: 8),
-        Expanded(
-          child: ParchmentCard(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
+          SliverPadding(
+            padding: const EdgeInsets.fromLTRB(16, 0, 16, 28),
+            sliver: SliverGrid.count(
+              crossAxisCount: 2,
+              mainAxisSpacing: 14,
+              crossAxisSpacing: 14,
+              childAspectRatio: 1.02,
               children: [
-                Text('أهلًا يا ${child.name}!', style: AppText.display(30, color: Wood.text)),
-                if (!little) const Text('مغامرتك اليوم جاهزة', style: TextStyle(fontSize: 17)),
+                for (final s in sections)
+                  WorldTile(
+                    emoji: s.emoji,
+                    title: s.title,
+                    color: SectionLook.of(s.id).color,
+                    onTap: () => _go(spokenTitle(s.title), '/section/${s.id}'),
+                  ),
               ],
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
 
-/// كارت «مهمة جديدة!»: درس اليوم الحالي + نجوم اليوم + زر «ابدأ الآن» + هدايا الأسبوع.
+/// كارت «مغامرة اليوم»: مضغوط وواضح — درس اليوم بالترتيب، نجوم اليوم، «ابدأ الآن»، وهدايا الأسبوع.
 class MissionCard extends StatelessWidget {
   const MissionCard({
     super.key,
@@ -269,68 +214,62 @@ class MissionCard extends StatelessWidget {
     final doneToday = today?.nodes.where((n) => n.state == PathState.done).length ?? 0;
     final totalToday = today?.nodes.length ?? 0;
 
-    final Widget inner;
-    if (current == null) {
-      inner = Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(kWorldDoneSay, textAlign: TextAlign.center, style: AppText.display(28, color: Wood.text)),
-          const SizedBox(height: 10),
-          SunButton(label: 'أحسنتِ!', onTap: onDone),
-        ],
-      );
-    } else {
-      inner = Column(
-        mainAxisSize: MainAxisSize.min,
+    return Container(
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(30),
+        gradient: const LinearGradient(
+          begin: Alignment.topRight,
+          end: Alignment.bottomLeft,
+          colors: [Color(0xFF8F6BFF), Color(0xFFC98BFF), Color(0xFFFF9EC7)],
+        ),
+        border: Border.all(color: Colors.white, width: 4),
+        boxShadow: const [BoxShadow(color: Color(0x557A4FD6), blurRadius: 14, offset: Offset(0, 7))],
+      ),
+      child: Column(
         children: [
           Row(
             children: [
-              Text(current.emoji, style: const TextStyle(fontSize: 44)),
-              const SizedBox(width: 10),
+              ArtImage(current == null ? Art.medal : Art.lamaaPoint, width: 74, height: 74),
+              const SizedBox(width: 8),
               Expanded(
-                child: Text(
-                  current.title,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: AppText.display(26, color: Wood.text),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    OutlineText(current == null ? 'أحسنتِ!' : 'مغامرة اليوم', size: 20, stroke: const Color(0xFF5B3BB5), maxLines: 1),
+                    const SizedBox(height: 2),
+                    Text(
+                      current == null ? kWorldDoneSay : '${current.emoji} ${current.title}',
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: AppText.display(23, color: Colors.white).copyWith(
+                        shadows: const [Shadow(color: Color(0xFF5B3BB5), blurRadius: 3, offset: Offset(0, 1.5))],
+                      ),
+                    ),
+                    if (totalToday > 0) ...[
+                      const SizedBox(height: 4),
+                      StarRow(filled: doneToday, total: totalToday, size: 22),
+                    ],
+                  ],
                 ),
               ),
             ],
           ),
-          if (totalToday > 0) ...[
-            const SizedBox(height: 8),
-            StarRow(filled: doneToday, total: totalToday, size: 34),
-          ],
-          const SizedBox(height: 12),
-          SunButton(label: 'ابدأ الآن', onTap: () => onStart(current)),
-        ],
-      );
-    }
-
-    return Container(
-      padding: const EdgeInsets.fromLTRB(14, 10, 14, 14),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(32),
-        gradient: const LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [Color(0xFF9F7BFF), Color(0xFFD9A6FF), Color(0xFFFFD1E8)],
-        ),
-        border: Border.all(color: Colors.white, width: 5),
-        boxShadow: const [BoxShadow(color: Color(0x557A4FD6), blurRadius: 16, offset: Offset(0, 8))],
-      ),
-      child: Column(
-        children: [
-          ArtImage(current == null ? Art.medal : Art.lamaaPoint, height: 110),
-          RibbonBanner(text: current == null ? 'أحسنتِ!' : 'مهمة جديدة!'),
           const SizedBox(height: 10),
-          ParchmentCard(child: inner),
+          SizedBox(
+            width: double.infinity,
+            child: SunButton(
+              label: current == null ? 'أحسنتِ!' : 'ابدأ الآن',
+              height: 58,
+              onTap: current == null ? onDone : () => onStart(current),
+            ),
+          ),
           if (path.days.isNotEmpty) ...[
-            const SizedBox(height: 12),
+            const SizedBox(height: 10),
             Wrap(
               alignment: WrapAlignment.center,
-              spacing: 6,
-              runSpacing: 6,
+              spacing: 4,
+              runSpacing: 4,
               children: [for (final d in path.days) _DayGift(day: d, onTap: () => onGift(d))],
             ),
           ],
@@ -355,13 +294,117 @@ class _DayGift extends StatelessWidget {
       child: PopTap(
         onTap: onTap,
         child: SizedBox(
-          width: 58,
-          height: 58,
+          width: 50,
+          height: 50,
           child: Stack(
             alignment: Alignment.center,
             children: [
-              Opacity(opacity: open ? 1 : 0.5, child: const ArtImage(Art.icGift, width: 56)),
-              if (!open) const ArtImage(Art.icLock, width: 24),
+              Opacity(opacity: open ? 1 : 0.5, child: const ArtImage(Art.icGift, width: 48)),
+              if (!open) const ArtImage(Art.icLock, width: 20),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// زر صورة الطفلة (يرجع لاختيار الطفلة).
+class _KidButton extends StatelessWidget {
+  const _KidButton({required this.child, required this.onTap});
+
+  final Child child;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Semantics(
+      button: true,
+      label: 'تغيير الطفلة',
+      child: PopTap(
+        onTap: onTap,
+        child: Container(
+          width: 60,
+          height: 60,
+          clipBehavior: Clip.antiAlias,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: Colors.white,
+            border: Border.all(color: colorFor(child), width: 4),
+            boxShadow: const [BoxShadow(color: Color(0x44000000), blurRadius: 6, offset: Offset(0, 3))],
+          ),
+          child: ArtImage(characterFor(child), fit: BoxFit.cover),
+        ),
+      ),
+    );
+  }
+}
+
+/// نجوم الطفلة (من الدروس والألعاب).
+class _StarChip extends StatelessWidget {
+  const _StarChip({required this.stars});
+
+  final int stars;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 44,
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(99),
+        border: Border.all(color: const Color(0xFFF2A93B), width: 3),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const ArtImage(Art.starOn, width: 26, height: 26),
+          const SizedBox(width: 4),
+          Text('$stars', style: AppText.display(22, color: Wood.text)),
+        ],
+      ),
+    );
+  }
+}
+
+/// لافتة الألعاب الكبيرة.
+class _GamesBanner extends StatelessWidget {
+  const _GamesBanner({required this.onTap});
+
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Semantics(
+      button: true,
+      label: 'الألعاب',
+      child: PopTap(
+        onTap: onTap,
+        child: Container(
+          height: 118,
+          padding: const EdgeInsetsDirectional.fromSTEB(16, 8, 8, 8),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(30),
+            gradient: const LinearGradient(colors: [Color(0xFF2EC4B6), Color(0xFF3D8BEA)], begin: Alignment.topRight, end: Alignment.bottomLeft),
+            border: Border.all(color: Colors.white, width: 4),
+            boxShadow: const [BoxShadow(color: Color(0x553D8BEA), blurRadius: 12, offset: Offset(0, 6))],
+          ),
+          child: const Row(
+            children: [
+              Text('🎮', style: TextStyle(fontSize: 54)),
+              SizedBox(width: 10),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    OutlineText('الألعاب', size: 34, stroke: Color(0xFF1C5FA8), maxLines: 1),
+                    Text('العبي واكتشفي', style: TextStyle(fontSize: 17, fontWeight: FontWeight.w900, color: Colors.white)),
+                  ],
+                ),
+              ),
+              ArtImage(Art.lamaaCheer, width: 92, height: 92),
             ],
           ),
         ),
@@ -378,44 +421,25 @@ class DeenScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final states = ref.watch(sectionStatesProvider).valueOrNull ?? const <String, bool>{};
     final visible = [for (final id in deenSectionIds) if (states[id] ?? true) sectionById(id)];
-    return Scaffold(
-      body: Stack(
-        fit: StackFit.expand,
+    return KidScaffold(
+      title: 'الدين والأذكار',
+      background: Art.bgHouse,
+      onBack: () => context.canPop() ? context.pop() : context.go('/world'),
+      body: ListView(
+        padding: const EdgeInsets.fromLTRB(16, 8, 16, 32),
         children: [
-          const Positioned.fill(child: ArtImage(Art.bgHouse, fit: BoxFit.cover)),
-          SafeArea(
-            child: ListView(
-              padding: const EdgeInsets.fromLTRB(16, 8, 16, 32),
-              children: [
-                Row(
-                  children: [
-                    GlossyButton(
-                      color: const Color(0xFFFFB300),
-                      label: 'رجوع',
-                      icon: Icons.arrow_forward_rounded,
-                      onTap: () => context.canPop() ? context.pop() : context.go('/world'),
-                    ),
-                    const SizedBox(width: 12),
-                    const Expanded(child: OutlineText('الدين والأذكار', size: 34, maxLines: 1)),
-                    const SizedBox(width: 64),
-                  ],
-                ),
-                const SizedBox(height: 16),
-                for (final s in visible)
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 12),
-                    child: WoodSign(
-                      icon: Text(s.emoji),
-                      title: s.title,
-                      onTap: () async {
-                        await ref.read(voiceServiceProvider).sayAndWait(spokenTitle(s.title));
-                        if (context.mounted) await context.push('/section/${s.id}');
-                      },
-                    ),
-                  ),
-              ],
+          for (final s in visible)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 12),
+              child: WoodSign(
+                icon: Text(s.emoji),
+                title: s.title,
+                onTap: () async {
+                  await ref.read(voiceServiceProvider).sayAndWait(spokenTitle(s.title));
+                  if (context.mounted) await context.push('/section/${s.id}');
+                },
+              ),
             ),
-          ),
         ],
       ),
     );

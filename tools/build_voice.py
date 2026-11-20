@@ -149,9 +149,54 @@ def section_phrases():
     return out
 
 
+def game_phrases():
+    """جمل الألعاب من assets/content/games.json (العناوين، التعليمات، الكلمات، المواقف).
+    عناصر القرآن (التي لها تلاوة) لا يُولَّد لها صوت: يقرأها الشيخ."""
+    out = set()
+    p = os.path.join(ROOT, 'assets', 'content', 'games.json')
+    if not os.path.exists(p):
+        return out
+    with open(p, encoding='utf-8') as fh:
+        doc = json.load(fh)
+
+    def fill(t, it):
+        return (t.replace('{label}', it.get('label', '')).replace('{say}', it.get('say', it.get('label', '')))
+                 .replace('{letter}', it.get('letter', '')).replace('{emoji}', ''))
+
+    for g in doc['games']:
+        out.add(g['title'])
+        if g.get('intro'):
+            out.add(g['intro'])
+        items = [i for i in g.get('items', []) if not i.get('recite')]
+        for i in items:
+            out.add(i.get('say') or i['label'])
+            if i.get('extra', {}).get('plural'):
+                out.add(i['extra']['plural'])
+        for grp in g.get('groups', []):
+            out.add(grp['label'])
+        for sc in g.get('scenarios', []):
+            out.add(sc['say'])
+            for o in sc['options']:
+                out.add(o['label'])
+        for track in (g.get('fedaa'), g.get('nour')):
+            if not track:
+                continue
+            for lv in track['levels']:
+                out.add(lv['title'])
+            prompts = [track.get('prompt')] + [lv.get('prompt') for lv in track['levels']]
+            afters = [track.get('after')] + [lv.get('after') for lv in track['levels']]
+            for t in [x for x in prompts + afters if x]:
+                if '{' in t:
+                    for i in g.get('items', []):
+                        out.add(fill(t, i))
+                else:
+                    out.add(t)
+    return out
+
+
 def phrases():
     protected = protected_texts()
-    raw = dart_phrases() | content_phrases() | section_phrases()
+    raw = dart_phrases() | content_phrases() | section_phrases() | game_phrases()
     result = {}
     for r in raw:
         t = clean(r)

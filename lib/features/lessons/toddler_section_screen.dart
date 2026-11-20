@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../core/design/section_tile.dart';
-import '../../core/widgets/speak_on_open.dart';
+import '../../core/design/kit.dart';
 import 'kid_section_screen.dart' show spokenTitle;
 import '../../data/content/lesson.dart';
 import '../../data/models/child.dart';
@@ -31,10 +30,11 @@ class ToddlerSectionScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final lessons = ref.watch(lessonsProvider);
     final done = ref.watch(completedLessonIdsProvider(child.id)).valueOrNull ?? const <String>{};
-    return SpeakOnOpen(
-      text: spokenTitle(title),
-      child: Scaffold(
-      appBar: AppBar(title: Text(title)),
+    // اسم القسم يُقال عند الضغط عليه قبل الفتح، فلا نكرره هنا.
+    return KidScaffold(
+      title: title,
+      background: SectionLook.of(category).background,
+      onBack: () => context.canPop() ? context.pop() : context.go('/world'),
       body: lessons.when(
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (_, __) => const Center(child: Text('تعذر تحميل الدروس')),
@@ -60,7 +60,7 @@ class ToddlerSectionScreen extends ConsumerWidget {
           );
         },
       ),
-    ));
+    );
   }
 }
 
@@ -94,12 +94,12 @@ class _PictureCardState extends ConsumerState<_PictureCard> {
 
   @override
   Widget build(BuildContext context) {
-    return SectionTile(
+    return WorldTile(
       emoji: widget.lesson.emoji,
-      title: widget.lesson.title,
+      title: spokenTitle(widget.lesson.title),
       color: widget.color,
       emojiSize: 60,
-      badge: widget.done ? '⭐' : null,
+      badge: widget.done,
       onTap: _open,
     );
   }

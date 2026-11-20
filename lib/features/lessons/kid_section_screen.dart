@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../core/design/section_tile.dart';
+import '../../core/design/kit.dart';
 import '../../data/content/lesson.dart';
 import '../../data/models/child.dart';
 import '../../data/providers.dart';
@@ -56,13 +56,7 @@ class KidSectionScreen extends ConsumerStatefulWidget {
 class _KidSectionScreenState extends ConsumerState<KidSectionScreen> {
   bool _busy = false;
 
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (mounted) ref.read(voiceServiceProvider).speak(spokenTitle(widget.title));
-    });
-  }
+  // اسم القسم يُقال عند الضغط عليه قبل الفتح (في كل مكان)، فلا نكرره هنا.
 
   /// شاشة الأهل محمية بنفس رمز PIN للوحة ولي الأمر (إن وُجد).
   Future<void> _parentView() async {
@@ -108,18 +102,14 @@ class _KidSectionScreenState extends ConsumerState<KidSectionScreen> {
   Widget build(BuildContext context) {
     final lessons = ref.watch(lessonsProvider);
     final done = ref.watch(completedLessonIdsProvider(widget.child.id)).valueOrNull ?? const <String>{};
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-        actions: [
-          if (widget.parentView != null)
-            IconButton(
-              tooltip: 'للأهل',
-              icon: const Text('📋', style: TextStyle(fontSize: 22)),
-              onPressed: _parentView,
-            ),
-        ],
-      ),
+    return KidScaffold(
+      title: widget.title,
+      background: SectionLook.of(widget.category).background,
+      onBack: () => context.canPop() ? context.pop() : context.go('/world'),
+      actions: [
+        if (widget.parentView != null)
+          GlossyButton(color: const Color(0xFF8D99AE), label: 'للأهل', icon: Icons.assignment_rounded, size: 52, onTap: _parentView),
+      ],
       body: lessons.when(
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (_, __) => const Center(child: Text('تعذر تحميل الدروس')),
@@ -141,12 +131,12 @@ class _KidSectionScreenState extends ConsumerState<KidSectionScreen> {
               childAspectRatio: 0.9,
             ),
             itemCount: mine.length,
-            itemBuilder: (_, i) => SectionTile(
+            itemBuilder: (_, i) => WorldTile(
               emoji: mine[i].emoji,
               title: spokenTitle(mine[i].title),
               color: _palette[i % _palette.length],
               emojiSize: 60,
-              badge: done.contains(mine[i].id) ? '⭐' : null,
+              badge: done.contains(mine[i].id),
               onTap: () => _open(mine[i]),
             ),
           );
@@ -176,15 +166,16 @@ class _KidSectionScreenState extends ConsumerState<KidSectionScreen> {
         final ls = byWeek[w]!;
         final all = ls.every((l) => done.contains(l.id));
         final name = w == 0 ? 'ألعاب' : 'الأسبوع $w';
-        return SectionTile(
+        return WorldTile(
           emoji: w == 0 ? '🎲' : '📚',
           title: name,
           color: _palette[i % _palette.length],
           emojiSize: 60,
-          badge: all ? '⭐' : null,
-          onTap: () {
-            ref.read(voiceServiceProvider).speak(name);
-            Navigator.of(context).push(MaterialPageRoute<void>(
+          badge: all,
+          onTap: () async {
+            await ref.read(voiceServiceProvider).sayAndWait(name);
+            if (!mounted) return;
+            await Navigator.of(context).push(MaterialPageRoute<void>(
               builder: (_) => KidSectionScreen(
                 category: widget.category,
                 title: name,
