@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../core/design/art.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -608,7 +609,9 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
               Container(
                 padding: const EdgeInsets.all(18),
                 decoration: const BoxDecoration(color: Color(0xFFFFF1D0), shape: BoxShape.circle),
-                child: Text(s.emoji, style: TextStyle(fontSize: little ? 96 : 76)),
+                child: s.emoji.startsWith('art:')
+                    ? ArtImage(s.emoji.substring(4), width: little ? 116 : 92, height: little ? 116 : 92)
+                    : Text(s.emoji, style: TextStyle(fontSize: little ? 96 : 76)),
               ),
               const SizedBox(height: 22),
               Text(

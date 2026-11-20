@@ -56,7 +56,7 @@ def letter(week, i):
     others = [LETTERS[(i + 5) % 28][2][0], LETTERS[(i + 11) % 28][3][0]]
     steps = [
         ('🔤', ch, 'هذا حرف %s' % name),
-        (a[0], a[1], '%s، %s' % (ch, a[1])),
+        ('art:let_%02d' % (i + 1), a[1], '%s، %s' % (ch, a[1])),  # كارت مرسوم من Canva (assets/art)
         (b[0], b[1], '%s، %s' % (ch, b[1])),
     ]
     o1, p1 = three(a[0], [b[0]] + others, i)

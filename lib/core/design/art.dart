@@ -98,6 +98,9 @@ class Art {
   static const String secLearn = 'sec_learn';
   static const String secAchievements = 'sec_achievements';
 
+  /// كروت حروف نور (Canva): صورة أول كلمة لكل حرف بترتيب الحروف (let_01 = أرنب ... let_28 = يد).
+  static const List<String> letters = ['let_01', 'let_02', 'let_03', 'let_04', 'let_05', 'let_06', 'let_07', 'let_08', 'let_09', 'let_10', 'let_11', 'let_12', 'let_13', 'let_14', 'let_15', 'let_16', 'let_17', 'let_18', 'let_19', 'let_20', 'let_21', 'let_22', 'let_23', 'let_24', 'let_25', 'let_26', 'let_27', 'let_28'];
+
   /// كل الملفات (للاختبار).
   static const List<String> all = [
     fedaaWelcome, fedaaThink, fedaaCheer, nourWelcome, nourThink, nourCheer,
@@ -108,6 +111,7 @@ class Art {
     decorTree1, decorTree2, decorTree3, decorTree4, decorBush, decorFlowers1, decorFlowers2,
     decorRock, decorSignpost,
     secQuran, secPrayer, secAdhkar, secAkhlaq, secSeerah, secFigures, secProphets, secLearn, secAchievements,
+    ...letters,
   ];
 
   static String path(String name) => 'assets/art/$name.webp';

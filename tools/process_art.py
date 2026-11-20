@@ -107,3 +107,6 @@ for nm,(y0,x0,lid,sl) in zip(names,top+bot):
 # أيقونات الأقسام (Canva، بنفس أسلوب واحد)
 for n in ['quran', 'prayer', 'adhkar', 'akhlaq', 'seerah', 'figures', 'prophets', 'learn', 'achievements']:
     save(cutout_white(src('sec_' + n)), 'sec_' + n, 200)
+# كروت حروف نور (Canva): صورة أول كلمة لكل حرف
+for i in range(1, 29):
+    save(cutout_white(src('let_%02d' % i)), 'let_%02d' % i, 200)

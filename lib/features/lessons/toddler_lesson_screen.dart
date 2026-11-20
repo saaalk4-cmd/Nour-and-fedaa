@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/audio/ayah_player.dart';
+import '../../core/design/art.dart';
 import '../../core/audio/cheers.dart';
 import '../../core/audio/sound_service.dart';
 import '../../core/audio/voice_service.dart';
@@ -366,7 +367,10 @@ class _BigPicture extends StatelessWidget {
         ),
         boxShadow: const [BoxShadow(color: Color(0x26000000), blurRadius: 18, offset: Offset(0, 10))],
       ),
-      child: Text(emoji, style: TextStyle(fontSize: size)),
+      // «art:اسم» = صورة مرسومة من assets/art (كروت حروف نور)، وإلا إيموجي.
+      child: emoji.startsWith('art:')
+          ? ArtImage(emoji.substring(4), width: size * 1.2, height: size * 1.2)
+          : Text(emoji, style: TextStyle(fontSize: size)),
     );
   }
 }
