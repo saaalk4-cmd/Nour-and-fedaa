@@ -536,3 +536,196 @@ class LogoSign extends StatelessWidget {
     );
   }
 }
+
+/// هيكل موحّد لشاشات الأطفال: خلفية مرسومة، وشريط علوي فيه زر دائري (رجوع أو غيره)
+/// وعنوان بإطار واضح، ثم المحتوى. يجعل كل الشاشات من نفس العالم.
+class KidScaffold extends StatelessWidget {
+  const KidScaffold({
+    super.key,
+    required this.body,
+    this.title,
+    this.background = Art.bgSky,
+    this.leading,
+    this.onBack,
+    this.actions = const [],
+    this.bottom,
+    this.veil = 0.0,
+  });
+
+  final Widget body;
+  final String? title;
+  final String background;
+
+  /// زر البداية (مثلًا صورة الطفلة). إن لم يُعطَ و[onBack] موجود يظهر زر الرجوع.
+  final Widget? leading;
+  final VoidCallback? onBack;
+  final List<Widget> actions;
+  final Widget? bottom;
+
+  /// طبقة بيضاء شفافة فوق الخلفية (0..1) لشاشات فيها نص كثير.
+  final double veil;
+
+  @override
+  Widget build(BuildContext context) {
+    final lead = leading ??
+        (onBack == null
+            ? const SizedBox(width: 60)
+            : GlossyButton(
+                color: const Color(0xFFFFB300),
+                label: 'رجوع',
+                icon: Icons.arrow_forward_rounded,
+                size: 60,
+                onTap: onBack!,
+              ));
+    return Scaffold(
+      body: Stack(
+        fit: StackFit.expand,
+        children: [
+          Positioned.fill(child: ArtImage(background, fit: BoxFit.cover)),
+          if (veil > 0) Positioned.fill(child: ColoredBox(color: Colors.white.withValues(alpha: veil))),
+          SafeArea(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(14, 8, 14, 6),
+                  child: Row(
+                    children: [
+                      lead,
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: title == null
+                            ? const SizedBox.shrink()
+                            : Center(
+                                child: FittedBox(
+                                  fit: BoxFit.scaleDown,
+                                  child: OutlineText(title!, size: 32, maxLines: 1),
+                                ),
+                              ),
+                      ),
+                      const SizedBox(width: 8),
+                      if (actions.isEmpty) const SizedBox(width: 60) else ...actions,
+                    ],
+                  ),
+                ),
+                Expanded(child: body),
+                if (bottom != null)
+                  Padding(padding: const EdgeInsets.fromLTRB(16, 6, 16, 14), child: bottom),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// بطاقة قسم أو درس بنفس أسلوب العالم: لون مشرق، دائرة بيضاء فيها الرمز، والعنوان بإطار.
+class WorldTile extends StatelessWidget {
+  const WorldTile({
+    super.key,
+    required this.emoji,
+    required this.title,
+    required this.color,
+    required this.onTap,
+    this.subtitle,
+    this.badge,
+    this.locked = false,
+    this.emojiSize = 54,
+  });
+
+  final String emoji;
+  final String title;
+  final String? subtitle;
+  final Color color;
+  final VoidCallback onTap;
+
+  /// نجمة صغيرة في الزاوية عند إتمام الدرس.
+  final bool? badge;
+  final bool locked;
+  final double emojiSize;
+
+  @override
+  Widget build(BuildContext context) {
+    final light = Color.lerp(color, Colors.white, 0.35)!;
+    final dark = Color.lerp(color, Colors.black, 0.28)!;
+    return Semantics(
+      button: true,
+      label: title,
+      child: PopTap(
+        onTap: onTap,
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(30),
+            gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [light, color]),
+            border: Border.all(color: Colors.white, width: 4),
+            boxShadow: [BoxShadow(color: dark.withValues(alpha: 0.45), blurRadius: 10, offset: const Offset(0, 6))],
+          ),
+          child: Stack(
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(8, 12, 8, 10),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Flexible(
+                      child: Container(
+                        padding: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.white.withValues(alpha: 0.92),
+                          boxShadow: [BoxShadow(color: dark.withValues(alpha: 0.35), blurRadius: 6, offset: const Offset(0, 3))],
+                        ),
+                        child: FittedBox(
+                          child: Opacity(
+                            opacity: locked ? 0.4 : 1,
+                            child: Text(emoji, style: TextStyle(fontSize: emojiSize, height: 1.1)),
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    OutlineText(title, size: 22, stroke: dark, maxLines: 2),
+                    if (subtitle != null)
+                      Text(
+                        subtitle!,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 14, fontWeight: FontWeight.w900, color: dark),
+                      ),
+                  ],
+                ),
+              ),
+              if (badge == true)
+                const PositionedDirectional(top: 6, end: 6, child: ArtImage(Art.starOn, width: 34, height: 34)),
+              if (locked)
+                const PositionedDirectional(top: 6, end: 6, child: ArtImage(Art.icLock, width: 32, height: 32)),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// لون وخلفية كل قسم (متناسقة في كل الشاشات).
+class SectionLook {
+  const SectionLook(this.color, this.background);
+
+  final Color color;
+  final String background;
+
+  static SectionLook of(String id) => switch (id) {
+        'quran' => const SectionLook(Color(0xFF2A9D8F), Art.bgCastle),
+        'prayer' => const SectionLook(Color(0xFF4CB944), Art.bgHouse),
+        'adhkar' => const SectionLook(Color(0xFF6C7BD9), Art.bgSky),
+        'akhlaq' => const SectionLook(Color(0xFFE76F8B), Art.bgHouse),
+        'seerah' => const SectionLook(Color(0xFFE08E45), Art.bgPath),
+        'figures' => const SectionLook(Color(0xFFF4B942), Art.bgForest),
+        'prophets' => const SectionLook(Color(0xFF3FAF8E), Art.bgRiver),
+        'learn' => const SectionLook(Color(0xFF58A6D8), Art.bgForest),
+        'games' => const SectionLook(Color(0xFFA463E8), Art.bgCastle),
+        'achievements' => const SectionLook(Color(0xFFB57EDC), Art.bgSky),
+        _ => const SectionLook(Color(0xFF58A6D8), Art.bgSky),
+      };
+}

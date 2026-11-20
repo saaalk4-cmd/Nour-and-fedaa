@@ -100,6 +100,11 @@ class SettingsRepository {
 
   Future<void> setTtsVoice(String? name) => _set('tts_voice', name ?? '');
 
+  /// قيمة عامة (لحزم المحتوى المنزّلة وما شابه).
+  Future<String?> getValue(String key) => _get(key);
+
+  Future<void> setValue(String key, String value) => _set(key, value);
+
   // ---------- الأقسام ----------
 
   Future<bool> isSectionEnabled(String id) async =>

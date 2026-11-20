@@ -27,7 +27,7 @@ class AppDatabase {
 
   Future<Database> _open() async {
     final dir = await getDatabasesPath();
-    return openDatabase(p.join(dir, 'nourfadaa.db'), version: 4, onCreate: _onCreate, onUpgrade: _onUpgrade);
+    return openDatabase(p.join(dir, 'nourfadaa.db'), version: 5, onCreate: _onCreate, onUpgrade: _onUpgrade);
   }
 
   Future<void> _onCreate(Database db, int version) async {
@@ -38,6 +38,7 @@ class AppDatabase {
     await db.execute('CREATE TABLE usage_log(child_id INTEGER NOT NULL,day TEXT NOT NULL,seconds INTEGER NOT NULL DEFAULT 0,PRIMARY KEY(child_id, day))');
     await db.execute('CREATE TABLE gamification(child_id INTEGER PRIMARY KEY,xp INTEGER NOT NULL DEFAULT 0,stars INTEGER NOT NULL DEFAULT 0,streak_days INTEGER NOT NULL DEFAULT 0,daily_quests_completed INTEGER NOT NULL DEFAULT 0,total_lessons INTEGER NOT NULL DEFAULT 0,last_active_day TEXT,best_streak INTEGER NOT NULL DEFAULT 0)');
     await db.execute(_dailyQuestsSql);
+    await db.execute(_gameProgressSql);
     await db.insert('children', {'name':'فداء','age':5});
     await db.insert('children', {'name':'نور','age':3});
   }
@@ -54,9 +55,16 @@ class AppDatabase {
     if (oldVersion < 4) {
       await db.execute(_dailyQuestsSql);
     }
+    if (oldVersion < 5) {
+      await db.execute(_gameProgressSql);
+    }
   }
 
   // مهام اليوم (صف لكل مهمة + صف _bonus للمكافأة اليومية).
   static const String _dailyQuestsSql =
       'CREATE TABLE IF NOT EXISTS daily_quests(child_id INTEGER NOT NULL,day TEXT NOT NULL,quest_id TEXT NOT NULL,progress INTEGER NOT NULL DEFAULT 0,target INTEGER NOT NULL,PRIMARY KEY(child_id, day, quest_id))';
+
+  // تقدم الألعاب: أفضل نجوم لكل مستوى، وعدد مرات اللعب، وآخر مرة.
+  static const String _gameProgressSql =
+      'CREATE TABLE IF NOT EXISTS game_progress(child_id INTEGER NOT NULL,game_id TEXT NOT NULL,level_key TEXT NOT NULL,best_stars INTEGER NOT NULL DEFAULT 0,plays INTEGER NOT NULL DEFAULT 0,last_played TEXT,PRIMARY KEY(child_id, game_id, level_key))';
 }

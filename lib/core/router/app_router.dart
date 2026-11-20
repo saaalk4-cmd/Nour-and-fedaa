@@ -12,6 +12,8 @@ import '../../features/path/learning_path_screen.dart';
 import '../../features/parent/parent_dashboard_screen.dart';
 import '../../features/parent/parent_gate_screen.dart';
 import '../../features/today/today_screen.dart';
+import '../../features/games/game_play_screen.dart';
+import '../../features/games/games_home_screen.dart';
 import '../../features/world/world_screen.dart';
 
 void _backToMain(BuildContext context) {
@@ -39,6 +41,12 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(path: '/path', builder: (_, __) => const LearningPathScreen()),
       GoRoute(path: '/world', builder: (_, __) => const WorldScreen()),
       GoRoute(path: '/world/deen', builder: (_, __) => const DeenScreen()),
+      GoRoute(path: '/games', builder: (_, __) => const GamesHomeScreen()),
+      GoRoute(path: '/games/:id', builder: (_, s) => GameLevelsScreen(gameId: s.pathParameters['id']!)),
+      GoRoute(
+        path: '/games/:id/play/:level',
+        builder: (_, s) => GamePlayScreen(gameId: s.pathParameters['id']!, levelKey: s.pathParameters['level']!),
+      ),
       // المسار القديم «العب بحرية» صار جزءًا من «عالمنا».
       GoRoute(path: '/home', redirect: (_, __) => '/world'),
       GoRoute(path: '/today', builder: (_, __) => const TodayScreen()),
