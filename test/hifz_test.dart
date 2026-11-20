@@ -77,4 +77,20 @@ void main() {
     expect([juzOfSurah(58), juzOfSurah(66), juzOfSurah(67), juzOfSurah(77), juzOfSurah(78), juzOfSurah(114), juzOfSurah(1)],
         [28, 28, 29, 29, 30, 30, null]);
   });
+
+  test('parents can correct what is memorized and where new memorization starts', () {
+    final p = HifzProgress.initialFor(name: 'فداء', age: 5);
+    p.setMemorized(58, true);
+    expect(p.currentSurah, 59, reason: 'marking the current surah memorized moves new work on');
+    expect(p.nextNew(q), const AyahRange(59, 1, 3));
+    p.setMemorized(65, false);
+    expect(p.statusOf(65), HifzStatus.fresh);
+    expect(p.nextReview(q), isNot(contains(65)));
+    p.setNewStart(61);
+    expect(p.nextNew(q), const AyahRange(61, 1, 3));
+    p.setNewStart(100); // ليست في ترتيب الجديد: لا تغيير
+    expect(p.currentSurah, 61);
+    final n = HifzProgress.initialFor(name: 'نور', age: 3)..setMemorized(112, true);
+    expect(n.nextReview(q), [112]);
+  });
 }

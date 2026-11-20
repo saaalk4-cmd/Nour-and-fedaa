@@ -168,7 +168,32 @@ class HifzProgress {
   }
 
   /// تعديل الأهل: هذه السورة محفوظة أو لا.
-  void setMemorized(int surah, bool yes) => yes ? memorized.add(surah) : memorized.remove(surah);
+  /// لو كانت هي سورة الحفظ الجديد الحالية، ينتقل الجديد لأول سورة غير محفوظة بعدها.
+  void setMemorized(int surah, bool yes) {
+    if (yes) {
+      memorized.add(surah);
+      if (surah == currentSurah) _skipMemorized(fromStart: true);
+    } else {
+      memorized.remove(surah);
+    }
+  }
+
+  /// تعديل الأهل: الحفظ الجديد يبدأ من هذه السورة (من أول آية).
+  void setNewStart(int surah) {
+    final i = newOrder.indexOf(surah);
+    if (i < 0) return;
+    nextSurahIdx = i;
+    nextAyah = 1;
+    memorized.remove(surah);
+  }
+
+  void _skipMemorized({bool fromStart = false}) {
+    if (fromStart) nextAyah = 1;
+    while (currentSurah != null && memorized.contains(currentSurah)) {
+      nextSurahIdx++;
+      nextAyah = 1;
+    }
+  }
 
   String encode() => jsonEncode({
         'v': 1,

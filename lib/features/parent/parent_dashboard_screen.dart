@@ -25,81 +25,107 @@ class ParentDashboardScreen extends ConsumerWidget {
     final soundOn = ref.watch(soundEnabledProvider).valueOrNull ?? true;
     final voiceOn = ref.watch(voiceEnabledProvider).valueOrNull ?? true;
 
-    return Scaffold(
-      appBar: AppBar(title: const Text('لوحة ولي الأمر')),
-      body: ListView(
-        padding: const EdgeInsets.all(20),
-        children: [
-          Text('تقدم الطفلتين', style: Theme.of(context).textTheme.titleLarge),
-          const SizedBox(height: 4),
-          const Text(
-            'كل طفلة تنافس نفسها فقط، فلا توجد مقارنة بينهما.',
-            style: TextStyle(fontSize: 14),
+    Widget tab(List<Widget> items) => ListView(padding: const EdgeInsets.all(20), children: items);
+
+    // ثلاث تبويبات بدل صفحة طويلة: التقدم، الصوت والمحتوى، الإعدادات.
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('لوحة ولي الأمر'),
+          bottom: const TabBar(
+            labelStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.w900),
+            tabs: [
+              Tab(icon: Icon(Icons.insights_rounded), text: 'التقدم'),
+              Tab(icon: Icon(Icons.record_voice_over_rounded), text: 'الصوت والمحتوى'),
+              Tab(icon: Icon(Icons.tune_rounded), text: 'الإعدادات'),
+            ],
           ),
-          const SizedBox(height: 12),
-          children.when(
-            loading: () => const Center(child: CircularProgressIndicator()),
-            error: (_, __) => const Text('تعذر تحميل البيانات'),
-            data: (list) => Column(
-              children: [for (final c in list) _ChildReportCard(childId: c.id)],
+        ),
+        body: TabBarView(children: [
+          tab([
+            const Text(
+              'كل طفلة تنافس نفسها فقط، فلا توجد مقارنة بينهما.',
+              style: TextStyle(fontSize: 14),
             ),
-          ),
-          const SizedBox(height: 24),
-          Text('الصوت', style: Theme.of(context).textTheme.titleLarge),
-          const SizedBox(height: 8),
-          _Group(children: [
-          SwitchListTile(
-            title: const Text('🔊  المؤثرات الصوتية'),
-            subtitle: const Text('أصوات النجاح والمكافآت'),
-            value: soundOn,
-            onChanged: (v) async {
-              await ref.read(soundServiceProvider).setEnabled(v);
-              ref.invalidate(soundEnabledProvider);
-            },
-          ),
-          SwitchListTile(
-            title: const Text('🗣️  قراءة الكلام بصوت عالٍ'),
-            subtitle: const Text(
-                'تقرأ التطبيق التعليمات والأسئلة للطفلة التي لا تقرأ بعد، وتشغّل تلاوة الآيات'),
-            value: voiceOn,
-            onChanged: (v) async {
-              await ref.read(voiceServiceProvider).setEnabled(v);
-              ref.invalidate(voiceEnabledProvider);
-            },
-          ),
-          ListTile(
-            leading: const Text('🎙️', style: TextStyle(fontSize: 28)),
-            title: const Text('صوتي', style: TextStyle(fontWeight: FontWeight.w800)),
-            subtitle: const Text('سجّلي الجمل والأحاديث بصوتكِ بدل الصوت الآلي'),
-            trailing: const Icon(Icons.chevron_left_rounded),
-            onTap: () => context.push('/parent/voice'),
-          ),
-          if (voiceOn) const _VoicePicker(),
-          if (voiceOn) const VoiceControls(),
+            const SizedBox(height: 12),
+            children.when(
+              loading: () => const Center(child: CircularProgressIndicator()),
+              error: (_, __) => const Text('تعذر تحميل البيانات'),
+              data: (list) => Column(
+                children: [for (final c in list) _ChildReportCard(childId: c.id)],
+              ),
+            ),
+            ...children.maybeWhen(
+              data: (list) => [
+                SettingsGroup(title: 'حفظ القرآن', children: [
+                  for (final c in list)
+                    ListTile(
+                      leading: const Icon(Icons.menu_book_rounded),
+                      title: Text('محفوظ ${c.name}', style: const TextStyle(fontWeight: FontWeight.w800)),
+                      subtitle: const Text('علّمي السور المحفوظة، واختاري من أين يبدأ الجديد'),
+                      trailing: const Icon(Icons.chevron_left_rounded),
+                      onTap: () => context.push('/parent/hifz/${c.id}'),
+                    ),
+                ]),
+              ],
+              orElse: () => const <Widget>[],
+            ),
+            const SettingsGroup(title: 'المتابعة من تليفونك', children: [RemoteControls()]),
           ]),
-          const SettingsGroup(title: 'المتابعة من تليفونك', children: [RemoteControls()]),
-          const SettingsGroup(title: 'الأصوات والقرآن الإضافية', children: [PackControls()]),
-          const SettingsGroup(title: 'الوقت', children: [TimeControls()]),
-          const SettingsGroup(title: 'الألعاب والإنترنت', children: [GamesControls()]),
-          const SettingsGroup(title: 'الشكل والأمان', children: [DisplayControls()]),
-          const SizedBox(height: 16),
-          Text('الأقسام الظاهرة للطفلتين',
-              style: Theme.of(context).textTheme.titleLarge),
-          const SizedBox(height: 8),
-          _Group(children: [
-            for (final s in appSections)
+          tab([
+            _Group(children: [
               SwitchListTile(
-                title: Text('${s.emoji}  ${s.title}'),
-                value: states[s.id] ?? true,
+                title: const Text('🔊  المؤثرات الصوتية'),
+                subtitle: const Text('أصوات النجاح والمكافآت'),
+                value: soundOn,
                 onChanged: (v) async {
-                  await ref
-                      .read(settingsRepositoryProvider)
-                      .setSectionEnabled(s.id, v);
-                  ref.invalidate(sectionStatesProvider);
+                  await ref.read(soundServiceProvider).setEnabled(v);
+                  ref.invalidate(soundEnabledProvider);
                 },
               ),
+              SwitchListTile(
+                title: const Text('🗣️  قراءة الكلام بصوت عالٍ'),
+                subtitle: const Text(
+                    'تقرأ التطبيق التعليمات والأسئلة للطفلة التي لا تقرأ بعد، وتشغّل تلاوة الآيات'),
+                value: voiceOn,
+                onChanged: (v) async {
+                  await ref.read(voiceServiceProvider).setEnabled(v);
+                  ref.invalidate(voiceEnabledProvider);
+                },
+              ),
+              ListTile(
+                leading: const Text('🎙️', style: TextStyle(fontSize: 28)),
+                title: const Text('صوتي', style: TextStyle(fontWeight: FontWeight.w800)),
+                subtitle: const Text('سجّلي الجمل والأحاديث بصوتكِ بدل الصوت الآلي'),
+                trailing: const Icon(Icons.chevron_left_rounded),
+                onTap: () => context.push('/parent/voice'),
+              ),
+              if (voiceOn) const _VoicePicker(),
+              if (voiceOn) const VoiceControls(),
+            ]),
+            const SettingsGroup(title: 'الأصوات والقرآن الإضافية', children: [PackControls()]),
           ]),
-        ],
+          tab([
+            const SettingsGroup(title: 'الوقت', children: [TimeControls()]),
+            const SettingsGroup(title: 'الألعاب والإنترنت', children: [GamesControls()]),
+            const SettingsGroup(title: 'الشكل والأمان', children: [DisplayControls()]),
+            const SizedBox(height: 16),
+            Text('الأقسام الظاهرة للطفلتين', style: Theme.of(context).textTheme.titleLarge),
+            const SizedBox(height: 8),
+            _Group(children: [
+              for (final s in appSections)
+                SwitchListTile(
+                  title: Text('${s.emoji}  ${s.title}'),
+                  value: states[s.id] ?? true,
+                  onChanged: (v) async {
+                    await ref.read(settingsRepositoryProvider).setSectionEnabled(s.id, v);
+                    ref.invalidate(sectionStatesProvider);
+                  },
+                ),
+            ]),
+          ]),
+        ]),
       ),
     );
   }

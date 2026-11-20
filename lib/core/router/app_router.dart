@@ -13,6 +13,7 @@ import '../../features/path/learning_path_screen.dart';
 import '../../features/parent/parent_dashboard_screen.dart';
 import '../../features/parent/parent_gate_screen.dart';
 import '../../features/parent/voice/voice_studio_screen.dart';
+import '../../features/parent/hifz_edit_screen.dart';
 import '../../features/remote/remote_view_screen.dart';
 import '../../features/song/song_screen.dart';
 import '../../features/today/today_screen.dart';
@@ -85,6 +86,7 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(path: '/remote', builder: (_, __) => const RemoteViewScreen()),
       GoRoute(path: '/parent/dashboard', builder: (_, __) => const ParentDashboardScreen()),
       GoRoute(path: '/parent/voice', builder: (_, __) => const VoiceStudioScreen()),
+      GoRoute(path: '/parent/hifz/:id', builder: (_, s) => HifzEditScreen(childId: int.parse(s.pathParameters['id']!))),
     ],
   );
 });
