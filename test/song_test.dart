@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:nourfadaa/core/audio/voice_service.dart';
+import 'package:nourfadaa/core/design/art.dart';
 import 'package:nourfadaa/core/theme/app_theme.dart';
 import 'package:nourfadaa/data/content/curriculum.dart';
 import 'package:nourfadaa/data/content/lesson.dart';
@@ -200,12 +201,12 @@ void main() {
       data: const MediaQueryData(size: Size(320, 640), textScaler: TextScaler.linear(1.3)),
       child: MaterialApp(
         theme: AppTheme.light(),
-        home: Scaffold(body: ListView(padding: const EdgeInsets.all(16), children: [SongBanner(onTap: () => taps++)])),
+        home: Scaffold(body: ListView(padding: const EdgeInsets.all(16), children: [HomeBubble(label: 'أغنيتنا', color: Colors.pink, art: const [Art.fedaaCheer, Art.nourCheer], onTap: () => taps++)])),
       ),
     ));
     await tester.pump(const Duration(milliseconds: 300));
     expect(tester.takeException(), isNull);
-    await tester.tap(find.byType(SongBanner));
+    await tester.tap(find.byType(HomeBubble));
     await tester.pump(const Duration(milliseconds: 300));
     expect(taps, 1);
   });

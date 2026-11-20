@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../core/audio/ayah_player.dart';
 import '../../core/design/art.dart';
+import '../../core/design/kit.dart';
 import '../../core/audio/cheers.dart';
 import '../../core/audio/sound_service.dart';
 import '../../core/audio/voice_service.dart';
@@ -208,43 +209,36 @@ class _ToddlerLessonPlayerState extends ConsumerState<ToddlerLessonPlayer> {
     }
     final answered = _isCard || _picked != null;
 
-    return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        leading: IconButton(
-          tooltip: 'إغلاق',
-          iconSize: 34,
-          icon: const Icon(Icons.close),
-          onPressed: () => context.pop(),
+    // نفس عالم نور (خلفية مرسومة)، وكل الزراير صور بلا كلام.
+    return KidScaffold(
+      background: Art.bgSky,
+      leading: PicButton(Art.icHome, size: 60, label: 'إغلاق', onTap: () => context.pop()),
+      bottom: Center(
+        child: PicButton(
+          _isLast ? Art.icDone : Art.icNext,
+          size: 96,
+          label: _isLast ? 'أنهيتُ' : 'التالي',
+          pulse: answered && !_saving,
+          onTap: answered && !_saving ? _next : null,
         ),
-        title: _Dots(total: _total, current: _page),
-        centerTitle: true,
       ),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(20, 8, 20, 20),
-          child: Column(
-            children: [
-              Expanded(
-                child: AnimatedSwitcher(
-                  duration: const Duration(milliseconds: 300),
-                  transitionBuilder: (c, a) => ScaleTransition(scale: a, child: c),
-                  child: KeyedSubtree(
-                    key: ValueKey<int>(_page),
-                    child: _isCard ? _cardView(_cards[_page]) : _questionView(_question),
-                  ),
+      body: Padding(
+        padding: const EdgeInsets.fromLTRB(18, 0, 18, 0),
+        child: Column(
+          children: [
+            _Dots(total: _total, current: _page),
+            const SizedBox(height: 10),
+            Expanded(
+              child: AnimatedSwitcher(
+                duration: const Duration(milliseconds: 300),
+                transitionBuilder: (c, a) => ScaleTransition(scale: a, child: c),
+                child: KeyedSubtree(
+                  key: ValueKey<int>(_page),
+                  child: _isCard ? _cardView(_cards[_page]) : _questionView(_question),
                 ),
               ),
-              const SizedBox(height: 12),
-              _RoundButton(
-                size: 92,
-                color: answered ? AppColors.leaf : Colors.black12,
-                icon: _isLast ? Icons.check_rounded : Icons.arrow_back_rounded,
-                tooltip: _isLast ? 'أنهيتُ' : 'التالي',
-                onTap: answered && !_saving ? _next : null,
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
@@ -254,23 +248,15 @@ class _ToddlerLessonPlayerState extends ConsumerState<ToddlerLessonPlayer> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        _BigPicture(emoji: c.emoji),
-        const SizedBox(height: 18),
+        Flexible(child: FittedBox(child: _BigPicture(emoji: c.emoji))),
+        const SizedBox(height: 14),
         if (c.word.isNotEmpty)
-          Text(
-            c.word,
-            textAlign: TextAlign.center,
-            style: AppText.display(54),
+          FittedBox(
+            fit: BoxFit.scaleDown,
+            child: OutlineText(c.word, size: 46, maxLines: 2),
           ),
-        const SizedBox(height: 22),
-        _RoundButton(
-          size: 96,
-          color: AppColors.sun,
-          icon: Icons.volume_up_rounded,
-          tooltip: 'اسمعي',
-          pulse: true,
-          onTap: () => _listen(manual: true),
-        ),
+        const SizedBox(height: 16),
+        PicButton(Art.icSound, size: 96, label: 'اسمعي', pulse: true, onTap: () => _listen(manual: true)),
       ],
     );
   }
@@ -278,44 +264,57 @@ class _ToddlerLessonPlayerState extends ConsumerState<ToddlerLessonPlayer> {
   Widget _questionView(LessonQuestion q) {
     final answered = _picked != null;
     final showHelp = !answered && _tried.length >= 2;
+    // كل الاختيارات صور؟ تظهر شبكة مربعات كبيرة، وإلا أزرار عريضة (وتُقرأ بصوت).
+    final pictures = q.options.every((o) => repeatedArt(o) != null);
+    Widget option(int i) => _PictureOption(
+          label: q.options[i],
+          square: pictures,
+          highlight: showHelp && i == q.answerIndex,
+          state: _picked == i ? _OptState.correct : (_tried.contains(i) ? _OptState.tried : _OptState.neutral),
+          onTap: () => _pick(q, i),
+        );
     return SingleChildScrollView(
       child: Column(
         children: [
-          if (q.emoji != null) _BigPicture(emoji: q.emoji!, size: 96),
-          const SizedBox(height: 8),
-          _RoundButton(
-            size: 76,
-            color: AppColors.sun,
-            icon: Icons.volume_up_rounded,
-            tooltip: 'اسمعي السؤال',
-            pulse: !answered && _tried.isEmpty,
-            onTap: () => _listen(manual: true),
-          ),
-          const SizedBox(height: 18),
-          for (var i = 0; i < q.options.length; i++)
-            Padding(
-              padding: const EdgeInsets.only(bottom: 14),
-              child: _PictureOption(
-                label: q.options[i],
-                highlight: showHelp && i == q.answerIndex,
-                state: _picked == i
-                    ? _OptState.correct
-                    : (_tried.contains(i) ? _OptState.tried : _OptState.neutral),
-                onTap: () => _pick(q, i),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              if (q.emoji != null) ...[_BigPicture(emoji: q.emoji!, size: 84), const SizedBox(width: 14)],
+              PicButton(
+                Art.icSound,
+                size: 80,
+                label: 'اسمعي السؤال',
+                pulse: !answered && _tried.isEmpty,
+                onTap: () => _listen(manual: true),
               ),
-            ),
-          if (answered) ...[
-            const SizedBox(height: 6),
-            const Mascot(size: 96, mood: MascotMood.cheer),
-            Text(
-              'أحسنتِ يا ${widget.child.name}! 🌟',
-              style: const TextStyle(fontSize: 28, fontWeight: FontWeight.w900),
-            ),
-          ] else if (_tried.isNotEmpty)
-            const Text(
-              'جرّبي مرة ثانية 🌸',
-              style: TextStyle(fontSize: 26, fontWeight: FontWeight.w800),
-            ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          if (pictures)
+            GridView.count(
+              crossAxisCount: 2,
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              mainAxisSpacing: 14,
+              crossAxisSpacing: 14,
+              children: [for (var i = 0; i < q.options.length; i++) option(i)],
+            )
+          else
+            for (var i = 0; i < q.options.length; i++)
+              Padding(padding: const EdgeInsets.only(bottom: 14), child: option(i)),
+          const SizedBox(height: 6),
+          // ردّ الفعل بالصورة: لمعة فرحانة، أو لمعة بتفكّر وتشجّع (بلا كلام مكتوب).
+          if (answered)
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ArtImage(Art.starOn, width: 54, height: 54),
+                Mascot(size: 110, mood: MascotMood.cheer),
+                ArtImage(Art.starOn, width: 54, height: 54),
+              ],
+            )
+          else if (_tried.isNotEmpty)
+            const Mascot(size: 100, mood: MascotMood.encourage),
         ],
       ),
     );
@@ -359,6 +358,8 @@ class _BigPicture extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(26),
+      constraints: BoxConstraints(minWidth: size * 1.2 + 52, minHeight: size * 1.2 + 52),
+      alignment: Alignment.center,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(56),
         gradient: const LinearGradient(
@@ -376,46 +377,6 @@ class _BigPicture extends StatelessWidget {
   }
 }
 
-class _RoundButton extends StatelessWidget {
-  const _RoundButton({
-    required this.size,
-    required this.color,
-    required this.icon,
-    required this.tooltip,
-    required this.onTap,
-    this.pulse = false,
-  });
-
-  final double size;
-  final Color color;
-  final IconData icon;
-  final String tooltip;
-  final VoidCallback? onTap;
-  final bool pulse;
-
-  @override
-  Widget build(BuildContext context) {
-    final btn = Tooltip(
-      message: tooltip,
-      child: Material(
-        color: color,
-        shape: const CircleBorder(),
-        elevation: onTap == null ? 0 : 4,
-        child: InkWell(
-          customBorder: const CircleBorder(),
-          onTap: onTap,
-          child: SizedBox(
-            width: size,
-            height: size,
-            child: Icon(icon, size: size * 0.55, color: Colors.white),
-          ),
-        ),
-      ),
-    );
-    return pulse ? _Pulse(child: btn) : btn;
-  }
-}
-
 enum _OptState { neutral, tried, correct }
 
 class _PictureOption extends StatelessWidget {
@@ -424,9 +385,11 @@ class _PictureOption extends StatelessWidget {
     required this.state,
     required this.onTap,
     required this.highlight,
+    this.square = false,
   });
 
   final String label;
+  final bool square;
   final _OptState state;
   final VoidCallback onTap;
   final bool highlight;
@@ -444,17 +407,23 @@ class _PictureOption extends StatelessWidget {
     }
     final button = SizedBox(
       width: double.infinity,
-      height: 112,
+      height: square ? null : 112,
       child: Material(
         color: bg,
         elevation: state == _OptState.neutral ? 3 : 0,
-        borderRadius: BorderRadius.circular(32),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(32),
+          side: BorderSide(
+            color: state == _OptState.correct ? AppColors.leaf : Colors.white,
+            width: 5,
+          ),
+        ),
         child: InkWell(
           borderRadius: BorderRadius.circular(32),
           onTap: state == _OptState.tried ? null : onTap,
           child: Center(
             child: repeatedArt(label) != null
-                ? Padding(padding: const EdgeInsets.all(8), child: EmojiPic(label, size: 64))
+                ? Padding(padding: const EdgeInsets.all(10), child: FittedBox(child: EmojiPic(label, size: square ? 80 : 64)))
                 : Text(
                     label,
                     textAlign: TextAlign.center,

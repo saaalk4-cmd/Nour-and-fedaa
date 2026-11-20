@@ -736,3 +736,78 @@ class SectionLook {
         _ => const SectionLook(Color(0xFF58A6D8), Art.bgSky),
       };
 }
+
+/// زر صورة بلا كلام (تشغيل، اسمعي، التالي، تم…): الصورة نفسها هي الزر، والاسم للقارئ الصوتي فقط.
+class PicButton extends StatefulWidget {
+  const PicButton(this.art, {super.key, required this.size, required this.label, required this.onTap, this.pulse = false});
+
+  final String art;
+  final double size;
+  final String label;
+  final VoidCallback? onTap;
+
+  /// نبض خفيف يلفت النظر للخطوة التالية.
+  final bool pulse;
+
+  @override
+  State<PicButton> createState() => _PicButtonState();
+}
+
+class _PicButtonState extends State<PicButton> with SingleTickerProviderStateMixin {
+  late final AnimationController _c = AnimationController(vsync: this, duration: const Duration(milliseconds: 800));
+
+  @override
+  void initState() {
+    super.initState();
+    _sync();
+  }
+
+  @override
+  void didUpdateWidget(PicButton old) {
+    super.didUpdateWidget(old);
+    _sync();
+  }
+
+  void _sync() {
+    final on = widget.pulse && widget.onTap != null;
+    if (on && !_c.isAnimating) {
+      _c.repeat(reverse: true);
+    } else if (!on && _c.isAnimating) {
+      _c
+        ..stop()
+        ..value = 0;
+    }
+  }
+
+  @override
+  void dispose() {
+    _c.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final enabled = widget.onTap != null;
+    return Semantics(
+      button: true,
+      enabled: enabled,
+      label: widget.label,
+      excludeSemantics: true,
+      child: PopTap(
+        onTap: widget.onTap,
+        child: ScaleTransition(
+          scale: Tween<double>(begin: 1, end: 1.08).animate(CurvedAnimation(parent: _c, curve: Curves.easeInOut)),
+          child: AnimatedOpacity(
+            duration: const Duration(milliseconds: 200),
+            opacity: enabled ? 1 : 0.35,
+            child: SizedBox(
+              width: widget.size,
+              height: widget.size,
+              child: ArtImage(widget.art, width: widget.size, height: widget.size),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

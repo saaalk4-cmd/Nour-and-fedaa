@@ -168,18 +168,36 @@ class _WorldScreenState extends ConsumerState<WorldScreen> {
                   onGift: (d) => _say(d.complete ? 'أحسنتِ يا ${c.name}! أكملتِ اليوم' : kWorldMissionLockedGiftSay),
                   onDone: () => _say('أحسنتِ يا ${c.name}! $kWorldDoneSay'),
                 ),
-              if (ref.watch(gamesEnabledProvider).valueOrNull ?? true) ...[
-                const SizedBox(height: 14),
-                _GamesBanner(onTap: () => _go('الألعاب', '/games')),
-              ],
-              if (c.age >= 5) ...[
-                const SizedBox(height: 14),
-                QuranWirdBanner(onTap: () => _go('ورد اليوم', '/section/quran')),
-              ],
-              if (songButton) ...[
-                const SizedBox(height: 14),
-                SongBanner(onTap: () => context.push('/song')),
-              ],
+              const SizedBox(height: 16),
+              // صف دوائر بالصور بدل اللافتات المكدسة: الألعاب، ورد اليوم، أغنيتنا.
+              Wrap(
+                alignment: WrapAlignment.spaceEvenly,
+                spacing: 10,
+                runSpacing: 10,
+                children: [
+                  if (ref.watch(gamesEnabledProvider).valueOrNull ?? true)
+                    HomeBubble(
+                      label: 'الألعاب',
+                      color: const Color(0xFF3D8BEA),
+                      art: const [Art.lamaaCheer],
+                      onTap: () => _go('الألعاب', '/games'),
+                    ),
+                  if (c.age >= 5)
+                    HomeBubble(
+                      label: 'ورد اليوم',
+                      color: const Color(0xFF2A9D8F),
+                      art: const [Art.secQuran],
+                      onTap: () => _go('ورد اليوم', '/section/quran'),
+                    ),
+                  if (songButton)
+                    HomeBubble(
+                      label: 'أغنيتنا',
+                      color: const Color(0xFFFF8FB1),
+                      art: const [Art.fedaaCheer, Art.nourCheer],
+                      onTap: () => context.push('/song'),
+                    ),
+                ],
+              ),
               const SizedBox(height: 18),
               const Align(alignment: AlignmentDirectional.centerStart, child: OutlineText('عالمي', size: 28, maxLines: 1)),
               const SizedBox(height: 8),
@@ -394,133 +412,49 @@ class _StarChip extends StatelessWidget {
   }
 }
 
-/// لافتة الألعاب الكبيرة.
-class _GamesBanner extends StatelessWidget {
-  const _GamesBanner({required this.onTap});
+/// دائرة كبيرة بالصورة وكلمة واحدة تحتها (للبنت اللي لسه مش بتقرأ: الصورة تكفي).
+class HomeBubble extends StatelessWidget {
+  const HomeBubble({super.key, required this.label, required this.color, required this.art, required this.onTap});
 
+  final String label;
+  final Color color;
+
+  /// صورة أو صورتان جنب بعض.
+  final List<String> art;
   final VoidCallback onTap;
+
+  static const double size = 104;
 
   @override
   Widget build(BuildContext context) {
+    final each = art.length == 1 ? size * 0.74 : size * 0.42;
     return Semantics(
       button: true,
-      label: 'الألعاب',
+      label: label,
       child: PopTap(
         onTap: onTap,
-        child: Container(
-          height: 118,
-          padding: const EdgeInsetsDirectional.fromSTEB(16, 8, 8, 8),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(30),
-            gradient: const LinearGradient(colors: [Color(0xFF2EC4B6), Color(0xFF3D8BEA)], begin: Alignment.topRight, end: Alignment.bottomLeft),
-            border: Border.all(color: Colors.white, width: 4),
-            boxShadow: const [BoxShadow(color: Color(0x553D8BEA), blurRadius: 12, offset: Offset(0, 6))],
-          ),
-          child: const Row(
+        child: SizedBox(
+          width: size + 8,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
-              Text('🎮', style: TextStyle(fontSize: 54)),
-              SizedBox(width: 10),
-              Expanded(
-                child: Column(
+              Container(
+                width: size,
+                height: size,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  gradient: RadialGradient(colors: [Color.lerp(color, Colors.white, 0.55)!, color]),
+                  border: Border.all(color: Colors.white, width: 5),
+                  boxShadow: [BoxShadow(color: color.withValues(alpha: 0.45), blurRadius: 12, offset: const Offset(0, 6))],
+                ),
+                alignment: Alignment.center,
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    OutlineText('الألعاب', size: 34, stroke: Color(0xFF1C5FA8), maxLines: 1),
-                    Text('العبي واكتشفي', style: TextStyle(fontSize: 17, fontWeight: FontWeight.w900, color: Colors.white)),
-                  ],
+                  children: [for (final a in art) ArtImage(a, width: each, height: each * 1.15)],
                 ),
               ),
-              ArtImage(Art.lamaaCheer, width: 92, height: 92),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-/// «ورد اليوم» من القرآن (فداء): حفظ ثلاث آيات ومراجعة.
-class QuranWirdBanner extends StatelessWidget {
-  const QuranWirdBanner({super.key, required this.onTap});
-
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return Semantics(
-      button: true,
-      label: 'ورد اليوم',
-      child: PopTap(
-        onTap: onTap,
-        child: Container(
-          height: 92,
-          padding: const EdgeInsetsDirectional.fromSTEB(16, 6, 12, 6),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(30),
-            gradient: const LinearGradient(colors: [Color(0xFF2A9D8F), Color(0xFF4FB3BF)], begin: Alignment.topRight, end: Alignment.bottomLeft),
-            border: Border.all(color: Colors.white, width: 4),
-            boxShadow: const [BoxShadow(color: Color(0x552A9D8F), blurRadius: 12, offset: Offset(0, 6))],
-          ),
-          child: const Row(
-            children: [
-              ArtImage(Art.secQuran, width: 70, height: 70),
-              SizedBox(width: 10),
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    OutlineText('ورد اليوم', size: 28, stroke: Color(0xFF14625A), maxLines: 1),
-                    Text('حفظ جديد ومراجعة', maxLines: 1, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Colors.white)),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-/// زر «أغنيتنا»: يفتح أغنية فداء ونور.
-class SongBanner extends StatelessWidget {
-  const SongBanner({super.key, required this.onTap});
-
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return Semantics(
-      button: true,
-      label: 'أغنيتنا',
-      child: PopTap(
-        onTap: onTap,
-        child: Container(
-          height: 96,
-          padding: const EdgeInsetsDirectional.fromSTEB(16, 6, 8, 6),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(30),
-            gradient: const LinearGradient(colors: [Color(0xFFFF8FB1), Color(0xFFFFB347)], begin: Alignment.topRight, end: Alignment.bottomLeft),
-            border: Border.all(color: Colors.white, width: 4),
-            boxShadow: const [BoxShadow(color: Color(0x55FF8FB1), blurRadius: 12, offset: Offset(0, 6))],
-          ),
-          child: const Row(
-            children: [
-              Text('🎵', style: TextStyle(fontSize: 46)),
-              SizedBox(width: 10),
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    OutlineText('أغنيتنا', size: 30, stroke: Color(0xFFB8457A), maxLines: 1),
-                    Text('أغنية فداء ونور', maxLines: 1, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Colors.white)),
-                  ],
-                ),
-              ),
-              ArtImage(Art.fedaaCheer, width: 64, height: 80),
-              ArtImage(Art.nourCheer, width: 64, height: 80),
+              const SizedBox(height: 4),
+              FittedBox(fit: BoxFit.scaleDown, child: OutlineText(label, size: 20, stroke: Color.lerp(color, Colors.black, 0.35)!, maxLines: 1)),
             ],
           ),
         ),
