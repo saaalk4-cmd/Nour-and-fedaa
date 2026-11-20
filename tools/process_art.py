@@ -110,3 +110,8 @@ for n in ['quran', 'prayer', 'adhkar', 'akhlaq', 'seerah', 'figures', 'prophets'
 # كروت حروف نور (Canva): صورة أول كلمة لكل حرف
 for i in range(1, 29):
     save(cutout_white(src('let_%02d' % i)), 'let_%02d' % i, 200)
+
+# مكتبة الصور (Canva، نفس الأسلوب): كل art_src/pic_*.png
+for f in sorted(glob.glob(os.path.join(ROOT, 'art_src', 'pic_*.png'))):
+    n = os.path.basename(f)[:-4]
+    save(cutout_white(f), n, 200)

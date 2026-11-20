@@ -102,6 +102,9 @@ class Art {
   static const List<String> letters = ['let_01', 'let_02', 'let_03', 'let_04', 'let_05', 'let_06', 'let_07', 'let_08', 'let_09', 'let_10', 'let_11', 'let_12', 'let_13', 'let_14', 'let_15', 'let_16', 'let_17', 'let_18', 'let_19', 'let_20', 'let_21', 'let_22', 'let_23', 'let_24', 'let_25', 'let_26', 'let_27', 'let_28'];
 
   /// كل الملفات (للاختبار).
+  /// مكتبة الصور بدل الإيموجي (انظر emoji_art.dart).
+  static const List<String> pics = ['pic_tree', 'pic_plate', 'pic_water', 'pic_cow', 'pic_blossom', 'pic_bird', 'pic_dua', 'pic_milk', 'pic_soap', 'pic_car', 'pic_carrot', 'pic_tulip', 'pic_sprout', 'pic_ear', 'pic_chicken', 'pic_rain', 'pic_gem', 'pic_house', 'pic_butterfly', 'pic_nose', 'pic_ball', 'pic_balloon', 'pic_mom', 'pic_trash', 'pic_door', 'pic_strawberry', 'pic_snow', 'pic_grandma', 'pic_lion', 'pic_bed', 'pic_foot', 'pic_broom', 'pic_bread', 'pic_tomato', 'pic_books', 'pic_candy', 'pic_wave', 'pic_clock', 'pic_sunrise', 'pic_ship', 'pic_dad', 'pic_fire', 'pic_eye', 'pic_chair', 'pic_orange'];
+
   static const List<String> all = [
     fedaaWelcome, fedaaThink, fedaaCheer, nourWelcome, nourThink, nourCheer,
     lamaaCalm, lamaaPoint, lamaaCheer, lamaaThink, lamaaWelcome,
@@ -112,6 +115,7 @@ class Art {
     decorRock, decorSignpost,
     secQuran, secPrayer, secAdhkar, secAkhlaq, secSeerah, secFigures, secProphets, secLearn, secAchievements,
     ...letters,
+    ...pics,
   ];
 
   static String path(String name) => 'assets/art/$name.webp';

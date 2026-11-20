@@ -17,7 +17,7 @@ void main() {
       total += f.lengthSync();
     }
     expect(Art.all.toSet().length, Art.all.length);
-    expect(total, lessThan(2 * 1024 * 1024), reason: 'art kit should stay under 2MB');
+    expect(total, lessThan(3 * 1024 * 1024), reason: 'art kit should stay under 3MB');
   });
 
   test('assets/art is declared in pubspec', () {

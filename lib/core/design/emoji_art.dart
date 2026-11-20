@@ -16,6 +16,15 @@ const Map<String, String> kEmojiArt = {
   // أيقونات الأقسام
   '📖': 'sec_quran', '🕌': 'sec_prayer', '🌙': 'sec_adhkar', '❤': 'sec_akhlaq', '📜': 'sec_seerah',
   '🏅': 'sec_figures', '🌴': 'sec_prophets', '🏆': 'sec_achievements', '⭐': 'star_on', '🌟': 'star_on',
+  // مكتبة الصور
+  '🌳': 'pic_tree', '🍽': 'pic_plate', '💧': 'pic_water', '🐄': 'pic_cow', '🌸': 'pic_blossom', '🐦': 'pic_bird',
+  '🤲': 'pic_dua', '🥛': 'pic_milk', '🧼': 'pic_soap', '🚗': 'pic_car', '🥕': 'pic_carrot', '🌷': 'pic_tulip',
+  '🌱': 'pic_sprout', '👂': 'pic_ear', '🐔': 'pic_chicken', '🌧': 'pic_rain', '💎': 'pic_gem', '🏠': 'pic_house',
+  '🦋': 'pic_butterfly', '👃': 'pic_nose', '⚽': 'pic_ball', '🎈': 'pic_balloon', '👩': 'pic_mom', '🗑': 'pic_trash',
+  '🚪': 'pic_door', '🍓': 'pic_strawberry', '❄': 'pic_snow', '👵': 'pic_grandma', '🦁': 'pic_lion', '🛏': 'pic_bed',
+  '🦶': 'pic_foot', '🧹': 'pic_broom', '🍞': 'pic_bread', '🍅': 'pic_tomato', '📚': 'pic_books', '🍬': 'pic_candy',
+  '🌊': 'pic_wave', '🕒': 'pic_clock', '🌅': 'pic_sunrise', '🚢': 'pic_ship', '👨': 'pic_dad', '🔥': 'pic_fire',
+  '👁': 'pic_eye', '🪑': 'pic_chair', '🍊': 'pic_orange',
 };
 
 /// يزيل محدّد الشكل ليطابق المفاتيح.
