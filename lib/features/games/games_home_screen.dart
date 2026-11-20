@@ -52,6 +52,7 @@ class _GamesHomeScreenState extends ConsumerState<GamesHomeScreen> {
       if (!mounted) return;
       await ref.read(voiceServiceProvider).sayAndWait(kGamesSay);
       // «نزّلي مرة والعبي على طول»: نحاول تحديث الحزمة الإضافية بهدوء.
+      if ((await ref.read(settingsRepositoryProvider).packMode()) != 'auto') return;
       final updated = await ref.read(gamePackServiceProvider).refresh();
       if (updated && mounted) ref.invalidate(gameCatalogProvider);
     });

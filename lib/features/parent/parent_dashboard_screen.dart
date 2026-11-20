@@ -9,6 +9,7 @@ import '../../data/providers.dart';
 import '../../domain/format.dart';
 import '../../domain/gamification/level_system.dart';
 import '../games/game_providers.dart';
+import 'settings_sections.dart';
 import '../home/sections.dart';
 
 class ParentDashboardScreen extends ConsumerWidget {
@@ -72,7 +73,11 @@ class ParentDashboardScreen extends ConsumerWidget {
             onTap: () => context.push('/parent/voice'),
           ),
           if (voiceOn) const _VoicePicker(),
+          if (voiceOn) const VoiceControls(),
           ]),
+          const SettingsGroup(title: 'الوقت', children: [TimeControls()]),
+          const SettingsGroup(title: 'الألعاب والإنترنت', children: [GamesControls()]),
+          const SettingsGroup(title: 'الشكل والأمان', children: [DisplayControls()]),
           const SizedBox(height: 16),
           Text('الأقسام الظاهرة للطفلتين',
               style: Theme.of(context).textTheme.titleLarge),
@@ -104,13 +109,12 @@ class _Group extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Material(
+      color: Colors.white,
+      elevation: 2,
+      shadowColor: const Color(0x33000000),
+      borderRadius: BorderRadius.circular(28),
       clipBehavior: Clip.antiAlias,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(28),
-        boxShadow: const [BoxShadow(color: Color(0x14000000), blurRadius: 10, offset: Offset(0, 4))],
-      ),
       child: Column(children: children),
     );
   }

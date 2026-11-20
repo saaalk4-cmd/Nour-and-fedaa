@@ -153,8 +153,10 @@ class _WorldScreenState extends ConsumerState<WorldScreen> {
                   onGift: (d) => _say(d.complete ? 'أحسنتِ يا ${c.name}! أكملتِ اليوم' : kWorldMissionLockedGiftSay),
                   onDone: () => _say('أحسنتِ يا ${c.name}! $kWorldDoneSay'),
                 ),
-              const SizedBox(height: 14),
-              _GamesBanner(onTap: () => _go('الألعاب', '/games')),
+              if (ref.watch(gamesEnabledProvider).valueOrNull ?? true) ...[
+                const SizedBox(height: 14),
+                _GamesBanner(onTap: () => _go('الألعاب', '/games')),
+              ],
               const SizedBox(height: 18),
               const Align(alignment: AlignmentDirectional.centerStart, child: OutlineText('عالمي', size: 28, maxLines: 1)),
               const SizedBox(height: 8),

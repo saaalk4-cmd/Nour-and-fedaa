@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:crypto/crypto.dart';
 
 import '../../core/audio/voice_service.dart' show VoiceSettings;
+import '../../domain/time_guard.dart';
 import 'package:sqflite/sqflite.dart';
 
 import '../db/app_database.dart';
@@ -117,6 +118,43 @@ class SettingsRepository {
     await _set('effects_volume', '${s.effectsVolume}');
     await _set('auto_read', s.autoRead ? '1' : '0');
   }
+
+  // ---------- الوقت ----------
+
+  Future<TimeSettings> timeSettings() async => TimeSettings(
+        dailyLimitMin: int.tryParse(await _get('daily_limit_min') ?? '') ?? 0,
+        quietFromMin: int.tryParse(await _get('quiet_from_min') ?? '') ?? -1,
+        quietToMin: int.tryParse(await _get('quiet_to_min') ?? '') ?? -1,
+        breakEveryMin: int.tryParse(await _get('break_every_min') ?? '') ?? 15,
+      );
+
+  Future<void> saveTimeSettings(TimeSettings s) async {
+    await _set('daily_limit_min', '${s.dailyLimitMin}');
+    await _set('quiet_from_min', '${s.quietFromMin}');
+    await _set('quiet_to_min', '${s.quietToMin}');
+    await _set('break_every_min', '${s.breakEveryMin}');
+  }
+
+  /// دقائق إضافية منحها ولي الأمر اليوم (بعد الحد).
+  Future<int> extraMinutes(String day) async => (await _get('extra_min_$day')) == null ? 0 : int.tryParse((await _get('extra_min_$day'))!) ?? 0;
+
+  Future<void> grantExtraMinutes(String day, int minutes) async => _set('extra_min_$day', '${await extraMinutes(day) + minutes}');
+
+  /// السماح لباقي اليوم (يوقف الحد وساعات المنع حتى الغد).
+  Future<bool> overriddenToday(String day) async => (await _get('time_override_day')) == day;
+
+  Future<void> overrideToday(String day) => _set('time_override_day', day);
+
+  // ---------- الألعاب والإنترنت ----------
+
+  Future<bool> gamesEnabled() async => (await _get('games_enabled')) != '0';
+
+  Future<void> setGamesEnabled(bool v) => _set('games_enabled', v ? '1' : '0');
+
+  /// تحديث الألعاب الجديدة: auto (تلقائيًا عند فتح الألعاب) | manual (بالزر فقط) | off (مقفول).
+  Future<String> packMode() async => (await _get('pack_mode')) ?? 'auto';
+
+  Future<void> setPackMode(String v) => _set('pack_mode', v);
 
   // ---------- الشكل والعرض ----------
 

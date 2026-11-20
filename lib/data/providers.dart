@@ -14,6 +14,7 @@ import '../domain/gamification/streak.dart';
 import 'content/ayah_index.dart';
 import 'content/content_repository.dart';
 import 'content/lesson.dart';
+import '../domain/time_guard.dart';
 import 'models/child.dart';
 import 'models/child_report.dart';
 import 'models/gamification.dart';
@@ -118,6 +119,18 @@ final userVoiceProvider = Provider<UserVoice?>((_) => UserVoiceStore.instance);
 
 final voiceSettingsProvider = FutureProvider<VoiceSettings>(
   (ref) => ref.watch(settingsRepositoryProvider).voiceSettings(),
+);
+
+final timeSettingsProvider = FutureProvider<TimeSettings>(
+  (ref) => ref.watch(settingsRepositoryProvider).timeSettings(),
+);
+
+final gamesEnabledProvider = FutureProvider<bool>(
+  (ref) => ref.watch(settingsRepositoryProvider).gamesEnabled(),
+);
+
+final packModeProvider = FutureProvider<String>(
+  (ref) => ref.watch(settingsRepositoryProvider).packMode(),
 );
 
 final reduceMotionProvider = FutureProvider<bool>(

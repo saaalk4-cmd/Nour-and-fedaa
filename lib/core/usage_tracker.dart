@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../data/providers.dart';
+import '../features/lessons/break_reminder.dart';
 import '../domain/gamification/streak.dart';
 
 /// يسجّل وقت الاستخدام الفعلي لكل طفلة (لتقرير ولي الأمر):
@@ -30,6 +31,10 @@ class _UsageTrackerScopeState extends ConsumerState<UsageTrackerScope>
     super.initState();
     WidgetsBinding.instance.addObserver(this);
     _timer = Timer.periodic(_tick, (_) => _record());
+    // مدة الاستراحة من إعدادات ولي الأمر
+    ref.read(settingsRepositoryProvider).timeSettings().then((t) {
+      BreakReminder.interval = Duration(minutes: t.breakEveryMin.clamp(5, 60));
+    }).catchError((Object _) {});
   }
 
   @override

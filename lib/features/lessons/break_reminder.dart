@@ -12,7 +12,7 @@ class BreakReminder {
   BreakReminder._();
 
   /// مدة اللعب المتواصل قبل الاقتراح.
-  static const Duration interval = Duration(minutes: 15);
+  static Duration interval = const Duration(minutes: 15);
 
   static DateTime _anchor = DateTime.now();
 

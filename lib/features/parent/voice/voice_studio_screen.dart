@@ -24,6 +24,7 @@ class VoiceStudioScreen extends ConsumerStatefulWidget {
 class _VoiceStudioScreenState extends ConsumerState<VoiceStudioScreen> with SingleTickerProviderStateMixin {
   late final TabController _tabs = TabController(length: 3, vsync: this);
   final _store = UserVoiceStore.instance;
+  late final _voice = ref.read(voiceServiceProvider);
   Set<String> _have = {};
   String _query = '';
 
@@ -38,13 +39,17 @@ class _VoiceStudioScreenState extends ConsumerState<VoiceStudioScreen> with Sing
   void dispose() {
     _store.revision.removeListener(_reload);
     _tabs.dispose();
-    ref.read(voiceServiceProvider).stop();
+    _voice.stop();
     super.dispose();
   }
 
   Future<void> _reload() async {
-    final k = await _store.keys();
-    if (mounted) setState(() => _have = {...k});
+    try {
+      final k = await _store.keys();
+      if (mounted) setState(() => _have = {...k});
+    } catch (_) {
+      // تعذّر قراءة المجلد: تبقى القائمة بلا علامات.
+    }
   }
 
   Future<void> _backup(VoiceCatalog cat) async {
@@ -218,7 +223,8 @@ class RecordSheet extends ConsumerStatefulWidget {
 
 class _RecordSheetState extends ConsumerState<RecordSheet> {
   final _store = UserVoiceStore.instance;
-  final AudioRecorder _rec = AudioRecorder();
+  AudioRecorder? _recorder;
+  AudioRecorder get _rec => _recorder ??= AudioRecorder();
   StreamSubscription<Amplitude>? _amp;
   _Phase _phase = _Phase.idle;
   String? _temp;
@@ -232,13 +238,13 @@ class _RecordSheetState extends ConsumerState<RecordSheet> {
     super.initState();
     _store.has(widget.phrase.key).then((v) {
       if (mounted) setState(() => _has = v);
-    });
+    }).catchError((Object _) {});
   }
 
   @override
   void dispose() {
     _amp?.cancel();
-    _rec.dispose();
+    _recorder?.dispose();
     _store.stop();
     super.dispose();
   }
