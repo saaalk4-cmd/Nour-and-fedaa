@@ -9,6 +9,7 @@ import 'package:nourfadaa/data/models/child.dart';
 import 'package:nourfadaa/data/providers.dart';
 import 'package:nourfadaa/features/quran/hifz.dart';
 import 'package:nourfadaa/features/quran/hifz_screens.dart';
+import 'package:nourfadaa/features/home/section_screen.dart';
 import 'package:nourfadaa/features/quran/quran_screen.dart';
 
 void main() {
@@ -66,4 +67,12 @@ void main() {
     await tester.pumpWidget(const SizedBox());
     await tester.pump(const Duration(seconds: 1));
   });
+
+  for (final c in const [Child(id: 1, name: 'فداء', age: 5), Child(id: 2, name: 'نور', age: 3)]) {
+    testWidgets('the Quran section opens the juz and wird screen for ${c.name}', (tester) async {
+      await pump(tester, c, const SectionScreen(sectionId: 'quran'));
+      expect(find.byType(QuranHomeScreen), findsOneWidget);
+      expect(find.text('جزء عمّ'), findsOneWidget);
+    });
+  }
 }

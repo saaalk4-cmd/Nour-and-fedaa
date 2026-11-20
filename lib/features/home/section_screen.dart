@@ -25,6 +25,8 @@ class SectionScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     // محرك المحتوى حسب العمر: الصغيرات (3–4) يرين بطاقات صور فقط في كل الأقسام التعليمية.
     final c = ref.watch(selectedChildProvider).valueOrNull;
+    // قرآني: شاشة الأجزاء والحفظ والمراجعة للبنتين (نور سماع فقط داخلها).
+    if (sectionId == SectionIds.quran) return const QuranHomeScreen();
     if (c != null &&
         ContentLevel.forAge(c.age).pictureOnly &&
         sectionId != SectionIds.achievements) {
