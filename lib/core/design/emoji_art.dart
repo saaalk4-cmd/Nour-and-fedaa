@@ -56,6 +56,7 @@ const Map<String, String> kEmojiArt = {
   '👕': 'pic_shirt',
   '🛍': 'pic_bag',
   '🙈': 'pic_monkey',
+  '⏳': 'pic_hourglass',
 };
 
 /// يزيل محدّد الشكل ليطابق المفاتيح.
