@@ -7,6 +7,7 @@ import '../../data/models/child_report.dart';
 import '../../data/providers.dart';
 import '../../domain/format.dart';
 import '../../domain/gamification/level_system.dart';
+import '../games/game_providers.dart';
 import '../home/sections.dart';
 
 class ParentDashboardScreen extends ConsumerWidget {
@@ -128,8 +129,40 @@ class _ChildReportCard extends ConsumerWidget {
             child: Center(child: CircularProgressIndicator()),
           ),
           error: (_, __) => const Text('تعذر تحميل تقرير الطفلة'),
-          data: (r) => _ReportBody(report: r),
+          data: (r) => Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [_ReportBody(report: r), _GamesLine(childId: childId)],
+          ),
         ),
+      ),
+    );
+  }
+}
+
+/// ملخص الألعاب للأهل: كم مرة لعبت، وكم مستوى أكملت.
+final _gamesSummaryProvider = FutureProvider.autoDispose.family<(int, int), int>((ref, childId) async {
+  final repo = ref.watch(gameRepositoryProvider);
+  final plays = await repo.totalPlays(childId);
+  final progress = await repo.progress(childId);
+  final levels = progress.values.fold<int>(0, (n, m) => n + m.values.where((v) => v > 0).length);
+  return (plays, levels);
+});
+
+class _GamesLine extends ConsumerWidget {
+  const _GamesLine({required this.childId});
+
+  final int childId;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final s = ref.watch(_gamesSummaryProvider(childId)).valueOrNull;
+    if (s == null) return const SizedBox.shrink();
+    final (plays, levels) = s;
+    return Padding(
+      padding: const EdgeInsets.only(top: 10),
+      child: Text(
+        plays == 0 ? '🎮 لم تلعب الألعاب بعد' : '🎮 لعبت $plays مرة، ولعبت $levels مستوى في الألعاب',
+        style: const TextStyle(fontSize: 15),
       ),
     );
   }
