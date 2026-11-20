@@ -34,6 +34,9 @@ const Map<String, String> kEmojiArt = {
   '💖': 'sec_akhlaq',
   '💛': 'sec_akhlaq',
   '🏡': 'pic_house',
+  '🎨': 'pic_palette',
+  '🔍': 'pic_magnifier',
+  '🧠': 'pic_brain',
 };
 
 /// يزيل محدّد الشكل ليطابق المفاتيح.

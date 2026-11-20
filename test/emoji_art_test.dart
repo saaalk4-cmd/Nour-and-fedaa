@@ -21,8 +21,8 @@ void main() {
   });
 
   testWidgets('EmojiPic shows a picture when it can and text otherwise', (t) async {
-    await t.pumpWidget(const MaterialApp(home: Column(children: [EmojiPic('🦁', size: 40), EmojiPic('🧩', size: 40)])));
+    await t.pumpWidget(const MaterialApp(home: Column(children: [EmojiPic('🦁', size: 40), EmojiPic('❓', size: 40)])));
     expect(find.byType(ArtImage), findsOneWidget);
-    expect(find.text('🧩'), findsOneWidget);
+    expect(find.text('❓'), findsOneWidget);
   });
 }

@@ -108,7 +108,7 @@ class Art {
 
   /// كل الملفات (للاختبار).
   /// مكتبة الصور بدل الإيموجي (انظر emoji_art.dart).
-  static const List<String> pics = ['pic_tree', 'pic_plate', 'pic_water', 'pic_cow', 'pic_blossom', 'pic_bird', 'pic_dua', 'pic_milk', 'pic_soap', 'pic_car', 'pic_carrot', 'pic_tulip', 'pic_sprout', 'pic_ear', 'pic_chicken', 'pic_rain', 'pic_gem', 'pic_house', 'pic_butterfly', 'pic_nose', 'pic_ball', 'pic_balloon', 'pic_mom', 'pic_trash', 'pic_door', 'pic_strawberry', 'pic_snow', 'pic_grandma', 'pic_lion', 'pic_bed', 'pic_foot', 'pic_broom', 'pic_bread', 'pic_tomato', 'pic_books', 'pic_candy', 'pic_wave', 'pic_clock', 'pic_sunrise', 'pic_ship', 'pic_dad', 'pic_fire', 'pic_eye', 'pic_chair', 'pic_orange', 'pic_toothbrush', 'pic_mouse', 'pic_key', 'pic_headphones', 'pic_puzzle', 'pic_cards', 'pic_rainbow', 'pic_shapes'];
+  static const List<String> pics = ['pic_tree', 'pic_plate', 'pic_water', 'pic_cow', 'pic_blossom', 'pic_bird', 'pic_dua', 'pic_milk', 'pic_soap', 'pic_car', 'pic_carrot', 'pic_tulip', 'pic_sprout', 'pic_ear', 'pic_chicken', 'pic_rain', 'pic_gem', 'pic_house', 'pic_butterfly', 'pic_nose', 'pic_ball', 'pic_balloon', 'pic_mom', 'pic_trash', 'pic_door', 'pic_strawberry', 'pic_snow', 'pic_grandma', 'pic_lion', 'pic_bed', 'pic_foot', 'pic_broom', 'pic_bread', 'pic_tomato', 'pic_books', 'pic_candy', 'pic_wave', 'pic_clock', 'pic_sunrise', 'pic_ship', 'pic_dad', 'pic_fire', 'pic_eye', 'pic_chair', 'pic_orange', 'pic_toothbrush', 'pic_mouse', 'pic_key', 'pic_headphones', 'pic_puzzle', 'pic_cards', 'pic_rainbow', 'pic_shapes', 'pic_palette', 'pic_magnifier', 'pic_brain'];
 
   static const List<String> all = [
     fedaaWelcome, fedaaThink, fedaaCheer, nourWelcome, nourThink, nourCheer,
