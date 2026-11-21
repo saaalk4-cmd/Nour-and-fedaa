@@ -1,0 +1,313 @@
+{
+  "schema": 1,
+  "lessons": [
+    {
+      "id": "w7e_count_9",
+      "title": "نعدّ حتى 9 🎈",
+      "emoji": "🎈",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعدّ حتى 9",
+      "learned": "أعدّ حتى تسعة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 7 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🎈🎈🎈🎈🎈🎈🎈🎈🎈",
+          "text": "تسع بالونات",
+          "say": "واحدة، اثنتان، ثلاث، أربع، خمس، ست، سبع، ثمان، تسع بالونات"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🎈🎈🎈🎈🎈🎈🎈🎈🎈",
+          "say": "اضغطي على تسع بالونات",
+          "options": [
+            "🎈🎈🎈🎈🎈🎈🎈🎈🎈",
+            "🎈🎈🎈",
+            "🎈🎈🎈🎈🎈"
+          ],
+          "answerIndex": 0,
+          "hint": "تسع",
+          "emoji": "🎈"
+        }
+      ]
+    },
+    {
+      "id": "w7e_greet",
+      "title": "أقول السلام 👋",
+      "emoji": "👋",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أسلّم على الناس",
+      "learned": "أسلّم على من ألقاه.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 7 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "👩‍👧",
+          "text": "جارتنا",
+          "say": "نرى جارتنا في الطريق"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "👩‍👧 ؟",
+          "say": "ماذا نفعل؟ نقول السلام عليكم، أم نمرّ بدون كلام؟",
+          "options": [
+            "👋",
+            "🤐"
+          ],
+          "answerIndex": 0,
+          "hint": "نقول السلام",
+          "emoji": "👋",
+          "praise": "أحسنتِ! السلام جميل."
+        }
+      ]
+    },
+    {
+      "id": "w7e_teeth",
+      "title": "أنظّف أسناني 🪥",
+      "emoji": "🪥",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أنظّف أسناني",
+      "learned": "أنظّف أسناني بالفرشاة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 7 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🪥",
+          "text": "فرشاة أسنان",
+          "say": "ننظّف أسناننا بالفرشاة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🪥 ؟",
+          "say": "ماذا نستعمل لتنظيف الأسنان؟",
+          "options": [
+            "🪥",
+            "🧸",
+            "🍬"
+          ],
+          "answerIndex": 0,
+          "hint": "فرشاة",
+          "emoji": "🪥",
+          "praise": "أحسنتِ! النظافة جميلة."
+        }
+      ]
+    },
+    {
+      "id": "w7e_share_food",
+      "title": "أُطعم صديقتي 🍎",
+      "emoji": "🍎",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أشارك طعامي",
+      "learned": "أشارك طعامي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 7 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🍎🍎",
+          "text": "تفاحتان",
+          "say": "معك تفاحتان، وصديقتك ليس معها طعام"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🍎🍎 ؟",
+          "say": "ماذا نفعل؟ نعطيها تفاحة، أم نأكل التفاحتين وحدنا؟",
+          "options": [
+            "🤝",
+            "🙅"
+          ],
+          "answerIndex": 0,
+          "hint": "نعطيها",
+          "emoji": "🍎",
+          "praise": "أحسنتِ! الكرم جميل."
+        }
+      ]
+    },
+    {
+      "id": "w7e_animal_food",
+      "title": "من يأكل ماذا؟ 🐰🥕",
+      "emoji": "🥕",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف طعام الحيوانات",
+      "learned": "الأرنب يحب الجزر.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 7 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🐰",
+          "text": "أرنب",
+          "say": "الأرنب يحب الجزر"
+        },
+        {
+          "emoji": "🐄",
+          "text": "بقرة",
+          "say": "والبقرة تأكل العشب"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🐰 ؟",
+          "say": "ماذا يحب الأرنب؟",
+          "options": [
+            "🥕",
+            "🍬",
+            "🧸"
+          ],
+          "answerIndex": 0,
+          "hint": "جزر",
+          "emoji": "🥕"
+        },
+        {
+          "prompt": "🐄 ؟",
+          "say": "ماذا تأكل البقرة؟",
+          "options": [
+            "🌿",
+            "🍬",
+            "🐟"
+          ],
+          "answerIndex": 0,
+          "hint": "عشب",
+          "emoji": "🌿"
+        }
+      ]
+    },
+    {
+      "id": "w7e_sun_moon",
+      "title": "شمس وقمر ☀️🌙",
+      "emoji": "🌙",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف الشمس والقمر",
+      "learned": "الشمس للنهار والقمر لليل.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 7 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "☀️",
+          "text": "شمس",
+          "say": "الشمس في النهار"
+        },
+        {
+          "emoji": "🌙",
+          "text": "قمر",
+          "say": "والقمر في الليل"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🌙 ؟",
+          "say": "متى نرى القمر؟",
+          "options": [
+            "☀️",
+            "🌙"
+          ],
+          "answerIndex": 1,
+          "hint": "في الليل",
+          "emoji": "🌙"
+        },
+        {
+          "prompt": "☀️ ؟",
+          "say": "أين الشمس؟",
+          "options": [
+            "☀️",
+            "🌙"
+          ],
+          "answerIndex": 0,
+          "hint": "في النهار",
+          "emoji": "☀️"
+        }
+      ]
+    },
+    {
+      "id": "w7e_review_game",
+      "title": "لعبة الأسبوع 🎮",
+      "emoji": "🎮",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أراجع ما تعلمته",
+      "learned": "أنا أتعلم وألعب!",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 7 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🎮",
+          "text": "هيا نلعب",
+          "say": "هيا نلعب بما تعلمنا!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🌙 ؟",
+          "say": "أين القمر؟",
+          "options": [
+            "☀️",
+            "🌙"
+          ],
+          "answerIndex": 1,
+          "hint": "في الليل",
+          "emoji": "🌙"
+        },
+        {
+          "prompt": "🐰 ؟",
+          "say": "ماذا يحب الأرنب؟",
+          "options": [
+            "🍬",
+            "🥕",
+            "🧸"
+          ],
+          "answerIndex": 1,
+          "hint": "جزر",
+          "emoji": "🥕"
+        },
+        {
+          "prompt": "🪥 ؟",
+          "say": "ماذا نستعمل لتنظيف الأسنان؟",
+          "options": [
+            "🪥",
+            "🧸",
+            "🍬"
+          ],
+          "answerIndex": 0,
+          "hint": "فرشاة",
+          "emoji": "🪥"
+        }
+      ]
+    }
+  ]
+}

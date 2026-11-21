@@ -1,0 +1,765 @@
+{
+  "schema": 1,
+  "lessons": [
+    {
+      "id": "w18_s1",
+      "title": "أساعد جارتي 👵",
+      "emoji": "👵",
+      "category": "akhlaq",
+      "minAge": 4,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أساعد جيراني.",
+      "learned": "أساعد جيراني.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 18"
+      },
+      "steps": [
+        {
+          "emoji": "👵",
+          "text": "جارة سلمى تحمل أكياسًا ثقيلة.",
+          "say": "جارة سلمى تحمل أكياسًا ثقيلة."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تفعل سلمى؟",
+          "options": [
+            "تساعدها 👵",
+            "تتجاهلها"
+          ],
+          "answerIndex": 0,
+          "hint": "نساعد الجيران 🌸",
+          "praise": "أحسنتِ! مساعدة الجيران جميلة.",
+          "emoji": "👵"
+        }
+      ]
+    },
+    {
+      "id": "w18_s2",
+      "title": "نتعاون في الترتيب 🧹",
+      "emoji": "🧹",
+      "category": "akhlaq",
+      "minAge": 4,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أتعاون مع أخواتي.",
+      "learned": "أتعاون مع أخواتي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 18"
+      },
+      "steps": [
+        {
+          "emoji": "🧹",
+          "text": "الغرفة مليئة بالألعاب ومعها أختها.",
+          "say": "الغرفة مليئة بالألعاب ومعها أختها."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا يفعلان؟",
+          "options": [
+            "كل واحدة تلعب وحدها",
+            "يرتّبان معًا 🧹"
+          ],
+          "answerIndex": 1,
+          "hint": "التعاون يسرّع العمل 🌸",
+          "praise": "أحسنتِ! التعاون جميل.",
+          "emoji": "🧹"
+        }
+      ]
+    },
+    {
+      "id": "w18_read_1",
+      "title": "أقرأ وأختار 📚",
+      "emoji": "📚",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أقرأ كلمة وأختار صورتها",
+      "learned": "أقرأ كلمات قصيرة وأعرف معناها.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 18"
+      },
+      "steps": [
+        {
+          "emoji": "📖",
+          "text": "كِتَاب",
+          "say": "كِتَاب"
+        },
+        {
+          "emoji": "🚗",
+          "text": "سَيَّارَة",
+          "say": "سَيَّارَة"
+        },
+        {
+          "emoji": "🌳",
+          "text": "شَجَرَة",
+          "say": "شَجَرَة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ما الكلمة المناسبة للصورة؟",
+          "options": [
+            "قَلَم",
+            "دَرَّاجَة",
+            "كِتَاب"
+          ],
+          "answerIndex": 2,
+          "hint": "اسمعي الكلمة ثم اختاري",
+          "emoji": "📖"
+        },
+        {
+          "prompt": "ما الكلمة المناسبة للصورة؟",
+          "options": [
+            "سَيَّارَة",
+            "مَاء",
+            "وَرْدَة"
+          ],
+          "answerIndex": 0,
+          "hint": "اسمعي الكلمة ثم اختاري",
+          "emoji": "🚗"
+        },
+        {
+          "prompt": "ما الكلمة المناسبة للصورة؟",
+          "options": [
+            "مِفْتَاح",
+            "شَجَرَة",
+            "تُفَّاحَة"
+          ],
+          "answerIndex": 1,
+          "hint": "اسمعي الكلمة ثم اختاري",
+          "emoji": "🌳"
+        },
+        {
+          "prompt": "ما الكلمة المناسبة للصورة؟",
+          "options": [
+            "دَجَاجَة",
+            "قَمَر",
+            "قِطَّة"
+          ],
+          "answerIndex": 2,
+          "hint": "اسمعي الكلمة ثم اختاري",
+          "emoji": "🐱"
+        }
+      ]
+    },
+    {
+      "id": "w18_build",
+      "title": "أكوّن كلمة 🧩",
+      "emoji": "🧩",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أكوّن كلمات بسيطة",
+      "learned": "أجمع الحروف لأكوّن كلمة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 18"
+      },
+      "steps": [
+        {
+          "emoji": "🧩",
+          "text": "نجمع الحروف لنصنع كلمة.",
+          "say": "نجمع الحروف لنصنع كلمة."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "رتّبي الحروف لتكوني كلمة 🌙",
+          "options": [
+            "ق",
+            "م",
+            "ر"
+          ],
+          "answerIndex": 0,
+          "hint": "ابدئي بأول صوت في الكلمة",
+          "kind": "order",
+          "emoji": "🌙",
+          "praise": "أحسنتِ! كوّنتِ كلمة قمر."
+        },
+        {
+          "prompt": "رتّبي الحروف لتكوني كلمة 💡",
+          "options": [
+            "ن",
+            "و",
+            "ر"
+          ],
+          "answerIndex": 0,
+          "hint": "ابدئي بأول صوت في الكلمة",
+          "kind": "order",
+          "emoji": "💡",
+          "praise": "أحسنتِ! كوّنتِ كلمة نور."
+        },
+        {
+          "prompt": "رتّبي الحروف لتكوني كلمة 🌹",
+          "options": [
+            "و",
+            "ر",
+            "د"
+          ],
+          "answerIndex": 0,
+          "hint": "ابدئي بأول صوت في الكلمة",
+          "kind": "order",
+          "emoji": "🌹",
+          "praise": "أحسنتِ! كوّنتِ كلمة ورد."
+        }
+      ]
+    },
+    {
+      "id": "w18_combo",
+      "title": "أدمج مهاراتي 🧠",
+      "emoji": "🧠",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أدمج العدّ والقراءة والحروف",
+      "learned": "أعدّ وأقرأ وأعرف الحروف معًا.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 18"
+      },
+      "steps": [
+        {
+          "emoji": "🚗🚗",
+          "text": "2 سَيَّارَة",
+          "say": "2 سَيَّارَة"
+        },
+        {
+          "emoji": "🌹🌹🌹🌹🌹",
+          "text": "5 وَرْدَة",
+          "say": "5 وَرْدَة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "كم عدد هذه؟ 🚗🚗",
+          "options": [
+            "2",
+            "3",
+            "1"
+          ],
+          "answerIndex": 0,
+          "hint": "عدّي ببطء",
+          "emoji": "🚗"
+        },
+        {
+          "prompt": "ما الكلمة المناسبة؟ 🚗",
+          "options": [
+            "حِصَان",
+            "سَيَّارَة",
+            "تُفَّاحَة"
+          ],
+          "answerIndex": 1,
+          "hint": "اسمعي الكلمة",
+          "emoji": "🚗"
+        },
+        {
+          "prompt": "بأي حرف تبدأ كلمة سَيَّارَة؟",
+          "options": [
+            "ل",
+            "ج",
+            "س"
+          ],
+          "answerIndex": 2,
+          "hint": "انطقي الكلمة ببطء",
+          "emoji": "🚗"
+        },
+        {
+          "prompt": "كم عدد هذه؟ 🌹🌹🌹🌹🌹",
+          "options": [
+            "6",
+            "5",
+            "4"
+          ],
+          "answerIndex": 1,
+          "hint": "عدّي ببطء",
+          "emoji": "🌹"
+        },
+        {
+          "prompt": "ما الكلمة المناسبة؟ 🌹",
+          "options": [
+            "سَاعَة",
+            "هَاتِف",
+            "وَرْدَة"
+          ],
+          "answerIndex": 2,
+          "hint": "اسمعي الكلمة",
+          "emoji": "🌹"
+        }
+      ]
+    },
+    {
+      "id": "w18_sub",
+      "title": "نطرح حتى 20 ➖",
+      "emoji": "➖",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أطرح حتى 5",
+      "learned": "أطرح عددًا صغيرًا من عدد.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 18"
+      },
+      "steps": [
+        {
+          "emoji": "➖",
+          "text": "20 - 8 = 12",
+          "say": "20 - 8 = 12"
+        },
+        {
+          "emoji": "➖",
+          "text": "18 - 9 = 9",
+          "say": "18 - 9 = 9"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "20 - 8 = ؟",
+          "options": [
+            "12",
+            "13",
+            "14"
+          ],
+          "answerIndex": 0,
+          "hint": "عدّي للخلف على أصابعك",
+          "emoji": "➖"
+        },
+        {
+          "prompt": "18 - 9 = ؟",
+          "options": [
+            "10",
+            "9",
+            "11"
+          ],
+          "answerIndex": 1,
+          "hint": "عدّي للخلف على أصابعك",
+          "emoji": "➖"
+        },
+        {
+          "prompt": "16 - 7 = ؟",
+          "options": [
+            "10",
+            "11",
+            "9"
+          ],
+          "answerIndex": 2,
+          "hint": "عدّي للخلف على أصابعك",
+          "emoji": "➖"
+        }
+      ]
+    },
+    {
+      "id": "w18_english",
+      "title": "Hello! 👋",
+      "emoji": "👋",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أتعلم كلمات إنجليزية جديدة",
+      "learned": "مثل: Hello = مرحبا.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 18"
+      },
+      "steps": [
+        {
+          "emoji": "👋",
+          "text": "Hello = مرحبا",
+          "say": "Hello = مرحبا"
+        },
+        {
+          "emoji": "🤗",
+          "text": "Goodbye = مع السلامة",
+          "say": "Goodbye = مع السلامة"
+        },
+        {
+          "emoji": "🙏",
+          "text": "Please = من فضلك",
+          "say": "Please = من فضلك"
+        },
+        {
+          "emoji": "🌷",
+          "text": "Thank you = شكرا",
+          "say": "Thank you = شكرا"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تعني Hello؟",
+          "options": [
+            "مرحبا",
+            "مع السلامة",
+            "من فضلك"
+          ],
+          "answerIndex": 0,
+          "hint": "تذكّري الصورة",
+          "emoji": "👋"
+        },
+        {
+          "prompt": "ماذا تعني Goodbye؟",
+          "options": [
+            "مرحبا",
+            "مع السلامة",
+            "من فضلك"
+          ],
+          "answerIndex": 1,
+          "hint": "تذكّري الصورة",
+          "emoji": "🤗"
+        },
+        {
+          "prompt": "ماذا تعني Please؟",
+          "options": [
+            "مرحبا",
+            "مع السلامة",
+            "من فضلك"
+          ],
+          "answerIndex": 2,
+          "hint": "تذكّري الصورة",
+          "emoji": "🙏"
+        }
+      ]
+    },
+    {
+      "id": "w18_daynight",
+      "title": "الليل والنهار 🌗",
+      "emoji": "🌗",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أفهم الليل والنهار",
+      "learned": "الأرض تدور فيتبدّل الليل والنهار.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 18"
+      },
+      "steps": [
+        {
+          "emoji": "☀️",
+          "text": "في النهار نرى الشمس.",
+          "say": "في النهار نرى الشمس."
+        },
+        {
+          "emoji": "🌙",
+          "text": "وفي الليل نرى القمر والنجوم.",
+          "say": "وفي الليل نرى القمر والنجوم."
+        },
+        {
+          "emoji": "🌍",
+          "text": "والأرض تدور فيتبدّل الليل والنهار.",
+          "say": "والأرض تدور فيتبدّل الليل والنهار."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "متى نرى النجوم؟",
+          "options": [
+            "في الليل 🌙",
+            "في النهار ☀️"
+          ],
+          "answerIndex": 0,
+          "hint": "عندما نامت الشمس",
+          "emoji": "🌗"
+        },
+        {
+          "prompt": "ماذا يتبدّل بدوران الأرض؟",
+          "options": [
+            "الفصول فقط",
+            "الليل والنهار 🌗"
+          ],
+          "answerIndex": 1,
+          "hint": "الشمس تظهر وتغيب",
+          "emoji": "🌗"
+        }
+      ]
+    },
+    {
+      "id": "w18_dua",
+      "title": "الدعاء 🤲",
+      "emoji": "🤲",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف أن الله يسمع الدعاء",
+      "learned": "أدعو الله بكلماتي الجميلة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 18"
+      },
+      "steps": [
+        {
+          "emoji": "🤲",
+          "text": "ندعو الله ونطلب منه ما نحب.",
+          "say": "ندعو الله ونطلب منه ما نحب."
+        },
+        {
+          "emoji": "💛",
+          "text": "والله يسمعنا ويحبنا.",
+          "say": "والله يسمعنا ويحبنا."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "من نطلب منه في الدعاء؟",
+          "options": [
+            "الله 🤲",
+            "أصدقاؤنا"
+          ],
+          "answerIndex": 0,
+          "hint": "ربنا الذي خلقنا",
+          "emoji": "🤲"
+        },
+        {
+          "prompt": "كيف نرفع أيدينا؟",
+          "options": [
+            "للّعب",
+            "للدعاء 🤲"
+          ],
+          "answerIndex": 1,
+          "hint": "نطلب بأدب",
+          "emoji": "🤲"
+        }
+      ]
+    },
+    {
+      "id": "w18_listen",
+      "title": "أستمع للقرآن 🎧",
+      "emoji": "🎧",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أتعرّف على السور من تلاوتها",
+      "learned": "أتعرّف على بعض السور من صوتها.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 18"
+      },
+      "steps": [
+        {
+          "emoji": "🎧",
+          "text": "استمعي لتلاوة سورة النصر 🎧",
+          "recite": [
+            110,
+            1
+          ],
+          "say": "استمعي لتلاوة سورة النصر 🎧"
+        },
+        {
+          "emoji": "🎧",
+          "text": "استمعي لتلاوة سورة العصر 🎧",
+          "recite": [
+            103,
+            1
+          ],
+          "say": "استمعي لتلاوة سورة العصر 🎧"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "استمعي ثم اختاري: أي سورة سمعتِ؟",
+          "options": [
+            "النصر",
+            "قريش",
+            "الفلق"
+          ],
+          "answerIndex": 0,
+          "hint": "اضغطي على 🎧 لتسمعي مرة أخرى",
+          "emoji": "🎧",
+          "recite": [
+            110,
+            1
+          ]
+        },
+        {
+          "prompt": "استمعي ثم اختاري: أي سورة سمعتِ؟",
+          "options": [
+            "الكوثر",
+            "العصر",
+            "النصر"
+          ],
+          "answerIndex": 1,
+          "hint": "اضغطي على 🎧 لتسمعي مرة أخرى",
+          "emoji": "🎧",
+          "recite": [
+            103,
+            1
+          ]
+        },
+        {
+          "prompt": "كم آية في سورة النصر؟",
+          "options": [
+            "4",
+            "3",
+            "5"
+          ],
+          "answerIndex": 1,
+          "hint": "عدّي الآيات التي سمعتِ",
+          "emoji": "📖"
+        }
+      ]
+    },
+    {
+      "id": "w18_match_words",
+      "title": "أوصّل الكلمة بصورتها 🔗",
+      "emoji": "🔗",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أقرأ الكلمة وأوصلها بصورتها",
+      "learned": "أقرأ كلمات قصيرة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 18"
+      },
+      "steps": [
+        {
+          "emoji": "🔗",
+          "text": "نقرأ ثم نوصّل.",
+          "say": "نقرأ ثم نوصّل."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "وصّلي الكلمة بصورتها",
+          "options": [
+            "قَمَر|🌙",
+            "بَيْت|🏠",
+            "كُرَة|⚽"
+          ],
+          "answerIndex": 0,
+          "hint": "اقرئي الكلمة ببطء",
+          "kind": "match",
+          "emoji": "🔗",
+          "praise": "أحسنتِ! وصّلتِ كل شيء."
+        }
+      ]
+    },
+    {
+      "id": "w18_review_game",
+      "title": "لعبة الأسبوع 🎮",
+      "emoji": "🎮",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أراجع ما تعلمته",
+      "learned": "أنا أتعلم وألعب!",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 18"
+      },
+      "steps": [
+        {
+          "emoji": "🎮",
+          "text": "هيا نلعب بما تعلمناه!",
+          "say": "هيا نلعب بما تعلمناه!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ما الكلمة؟ 🌙",
+          "options": [
+            "قَمَر",
+            "بَيْت",
+            "كُرَة"
+          ],
+          "answerIndex": 0,
+          "hint": "قَ مَ ر",
+          "emoji": "🌙"
+        },
+        {
+          "prompt": "20 - 8 = ؟",
+          "options": [
+            "11",
+            "12",
+            "13"
+          ],
+          "answerIndex": 1,
+          "hint": "اطرحي",
+          "emoji": "➖"
+        },
+        {
+          "prompt": "ماذا تعني Thank you؟",
+          "options": [
+            "مرحبًا",
+            "من فضلك",
+            "شكرًا"
+          ],
+          "answerIndex": 2,
+          "hint": "🌷",
+          "emoji": "🌷"
+        },
+        {
+          "prompt": "جارتنا تحمل أكياسًا، ماذا نفعل؟",
+          "options": [
+            "نساعدها 👵",
+            "نتجاهلها"
+          ],
+          "answerIndex": 0,
+          "hint": "مساعدة",
+          "emoji": "👵"
+        }
+      ]
+    },
+    {
+      "id": "w18_pattern",
+      "title": "ما التالي؟ 🔴🔵",
+      "emoji": "🧩",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أكمل النمط",
+      "learned": "الأنماط تتكرر.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 18"
+      },
+      "steps": [
+        {
+          "emoji": "🧩",
+          "text": "الأنماط تتكرر: 🔴🔵🔴🔵",
+          "say": "الأنماط تتكرر: 🔴🔵🔴🔵"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🔴🔵🔴🔵🔴 ؟",
+          "options": [
+            "🔵",
+            "🔴",
+            "🟢"
+          ],
+          "answerIndex": 0,
+          "hint": "الأحمر ثم الأزرق ثم الأحمر…",
+          "emoji": "🧩"
+        },
+        {
+          "prompt": "⭐🌙⭐🌙⭐ ؟",
+          "options": [
+            "⭐",
+            "🌙",
+            "☀️"
+          ],
+          "answerIndex": 1,
+          "hint": "نجمة ثم قمر ثم نجمة…",
+          "emoji": "🧩"
+        }
+      ]
+    }
+  ]
+}

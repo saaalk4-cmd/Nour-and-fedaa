@@ -1,0 +1,374 @@
+{
+  "schema": 1,
+  "lessons": [
+    {
+      "id": "w16e_food",
+      "title": "طعامي 🍞",
+      "emoji": "🍞",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 16 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🥛",
+          "text": "الحليب",
+          "say": "الحليب"
+        },
+        {
+          "emoji": "🍞",
+          "text": "الخبز",
+          "say": "الخبز"
+        },
+        {
+          "emoji": "🥚",
+          "text": "البيضة",
+          "say": "البيضة"
+        },
+        {
+          "emoji": "🧀",
+          "text": "الجبن",
+          "say": "الجبن"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الحليب؟",
+          "options": [
+            "🥛",
+            "🍞",
+            "🥚"
+          ],
+          "answerIndex": 0,
+          "hint": "الحليب",
+          "emoji": "🥛",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الجبن؟",
+          "options": [
+            "🥛",
+            "🧀",
+            "🍞"
+          ],
+          "answerIndex": 1,
+          "hint": "الجبن",
+          "emoji": "🧀",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الخبز؟",
+          "options": [
+            "🥛",
+            "🥚",
+            "🍞"
+          ],
+          "answerIndex": 2,
+          "hint": "الخبز",
+          "emoji": "🍞",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w16e_jobs",
+      "title": "مهن الناس 👨‍⚕️",
+      "emoji": "👨‍⚕️",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 16 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "👨‍⚕️",
+          "text": "الطبيب",
+          "say": "الطبيب"
+        },
+        {
+          "emoji": "👨‍🍳",
+          "text": "الطباخ",
+          "say": "الطباخ"
+        },
+        {
+          "emoji": "👮",
+          "text": "الشرطي",
+          "say": "الشرطي"
+        },
+        {
+          "emoji": "👨‍🏫",
+          "text": "المعلّم",
+          "say": "المعلّم"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الطبيب؟",
+          "options": [
+            "👨‍⚕️",
+            "👨‍🍳",
+            "👮"
+          ],
+          "answerIndex": 0,
+          "hint": "الطبيب",
+          "emoji": "👨‍⚕️",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين المعلّم؟",
+          "options": [
+            "👨‍⚕️",
+            "👨‍🏫",
+            "👨‍🍳"
+          ],
+          "answerIndex": 1,
+          "hint": "المعلّم",
+          "emoji": "👨‍🏫",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الطباخ؟",
+          "options": [
+            "👨‍⚕️",
+            "👮",
+            "👨‍🍳"
+          ],
+          "answerIndex": 2,
+          "hint": "الطباخ",
+          "emoji": "👨‍🍳",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w16e_colors3",
+      "title": "ألوان وألوان 🎨",
+      "emoji": "🎨",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 16 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "⚫",
+          "text": "الأسود",
+          "say": "الأسود"
+        },
+        {
+          "emoji": "⚪",
+          "text": "الأبيض",
+          "say": "الأبيض"
+        },
+        {
+          "emoji": "🔴",
+          "text": "الأحمر",
+          "say": "الأحمر"
+        },
+        {
+          "emoji": "🟡",
+          "text": "الأصفر",
+          "say": "الأصفر"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الأسود؟",
+          "options": [
+            "⚫",
+            "⚪",
+            "🔴"
+          ],
+          "answerIndex": 0,
+          "hint": "الأسود",
+          "emoji": "⚫",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الأصفر؟",
+          "options": [
+            "⚫",
+            "🟡",
+            "⚪"
+          ],
+          "answerIndex": 1,
+          "hint": "الأصفر",
+          "emoji": "🟡",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الأبيض؟",
+          "options": [
+            "⚫",
+            "🔴",
+            "⚪"
+          ],
+          "answerIndex": 2,
+          "hint": "الأبيض",
+          "emoji": "⚪",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w16e_bird",
+      "title": "أطعم العصفور 🐦",
+      "emoji": "🐦",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أطعم العصفور",
+      "learned": "أطعم العصفور.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 16 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🐦",
+          "text": "عصفور جائع",
+          "say": "عصفور جائع"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🐦 ؟",
+          "say": "ماذا نفعل؟ نضع له حبوبًا، أم نخيفه؟",
+          "options": [
+            "🌾",
+            "🙈"
+          ],
+          "answerIndex": 0,
+          "hint": "أطعم العصفور",
+          "emoji": "🌾",
+          "praise": "أحسنتِ! الرحمة جميلة."
+        }
+      ]
+    },
+    {
+      "id": "w16e_sorry",
+      "title": "أعتذر 🙏",
+      "emoji": "🙏",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعتذر",
+      "learned": "أعتذر.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 16 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "😢",
+          "text": "صديقتي حزينة منّي",
+          "say": "صديقتي حزينة منّي"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "😢 ؟",
+          "say": "ماذا نقول؟ آسفة، أم نبتعد؟",
+          "options": [
+            "🙈",
+            "🙏"
+          ],
+          "answerIndex": 1,
+          "hint": "أعتذر",
+          "emoji": "🙏",
+          "praise": "أحسنتِ! الاعتذار جميل."
+        }
+      ]
+    },
+    {
+      "id": "w16e_review_game",
+      "title": "لعبة الأسبوع 🎮",
+      "emoji": "🎮",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أراجع ما تعلمته",
+      "learned": "أنا أتعلم وألعب!",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 16 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🎮",
+          "text": "هيا نلعب",
+          "say": "هيا نلعب بما تعلمنا!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الحليب؟",
+          "options": [
+            "🥛",
+            "🍞",
+            "🥚"
+          ],
+          "answerIndex": 0,
+          "hint": "الحليب",
+          "emoji": "🥛",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الطبيب؟",
+          "options": [
+            "👨‍🍳",
+            "👨‍⚕️",
+            "👮"
+          ],
+          "answerIndex": 1,
+          "hint": "الطبيب",
+          "emoji": "👨‍⚕️",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الأسود؟",
+          "options": [
+            "⚪",
+            "🔴",
+            "⚫"
+          ],
+          "answerIndex": 2,
+          "hint": "الأسود",
+          "emoji": "⚫",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    }
+  ]
+}

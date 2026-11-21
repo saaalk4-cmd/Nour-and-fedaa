@@ -2,9 +2,17 @@ name: Build APK
 
 on:
   push:
-    branches: [main, master]
+    branches: [main, master, 'feature/**']
   pull_request:
   workflow_dispatch:
+
+permissions:
+  contents: write
+
+# بناء جديد على نفس الفرع يلغي القديم الشغال (وإلا يخلص القديم بعده فيرفع نسخة أقدم على الرابط)
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -20,6 +28,9 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           channel: stable
+          # مثبّت عمدًا: 3.50.0 اعتبر material.dart deprecated فكسر analyze.
+          # الترقية تتم لاحقًا بقرار مستقل (ترحيل الـ imports إلى material_ui).
+          flutter-version: "3.47.9"
           cache: true
 
       # مجلد android يُولَّد تلقائيًا إن لم يكن موجودًا في المستودع
@@ -31,12 +42,155 @@ jobs:
             sed -i 's/android:label="[^"]*"/android:label="نُور وفداء"/' android/app/src/main/AndroidManifest.xml
           fi
 
+      # Android 11+: يجب إعلان خدمة النطق ليراها التطبيق (flutter_tts)
+      - name: Declare TTS service query in manifest
+        run: |
+          f=android/app/src/main/AndroidManifest.xml
+          if ! grep -q "android.intent.action.TTS_SERVICE" "$f"; then
+            sed -i 's#<application#<queries><intent><action android:name="android.intent.action.TTS_SERVICE"/></intent></queries>\n    <application#' "$f"
+          fi
+
+      # «نزّلي مرة والعبي على طول»: تنزيل حزمة الألعاب الإضافية من مستودعنا فقط
+      - name: Declare internet permission (game packs)
+        run: |
+          f=android/app/src/main/AndroidManifest.xml
+          if ! grep -q "android.permission.INTERNET" "$f"; then
+            sed -i 's#<application#<uses-permission android:name="android.permission.INTERNET"/>\n    <application#' "$f"
+          fi
+
+      # «صوتي»: ولي الأمر يسجّل الجمل بصوته (الميكروفون لا يُفتح إلا حين يضغط «ابدئي التسجيل»)
+      - name: Declare microphone permission (parent voice)
+        run: |
+          f=android/app/src/main/AndroidManifest.xml
+          if ! grep -q "android.permission.RECORD_AUDIO" "$f"; then
+            sed -i 's#<application#<uses-permission android:name="android.permission.RECORD_AUDIO"/>\n    <application#' "$f"
+          fi
+
+      # تلاوة المنشاوي محفوظة بين البنايات (لا تُنزَّل كل مرة)
+      - name: Restore Quran recitation audio
+        uses: actions/cache@v4
+        with:
+          path: assets/audio/quran
+          key: quran-minshawi-v1-${{ github.run_id }}
+          restore-keys: |
+            quran-minshawi-v1-
+
+      # تلاوة الآيات للأطفال بلا ولي أمر (لا تُرفع إلى git)
+      - name: Fetch Quran recitation audio
+        run: |
+          command -v ffmpeg >/dev/null || (sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends ffmpeg) || true
+          python3 tools/fetch_quran_audio.py
+
+      # خطوط التطبيق (Tajawal + Lalezar) — لا تُرفع إلى git ولا يفشل البناء إن تعذّر تنزيلها
+      - name: Fetch fonts
+        run: python3 tools/fetch_fonts.py
+
+      # يُحفظ ما وُلِّد بين البنايات: كل جملة تُحسب مرة واحدة فقط من رصيد ElevenLabs
+      - name: Restore generated voice clips
+        uses: actions/cache@v4
+        with:
+          path: assets/audio/voice
+          key: voice-v1-${{ github.run_id }}
+          restore-keys: |
+            voice-v1-
+
+      # جمل التطبيق المتكررة بصوت عالي الجودة (لا تُرفع إلى git ولا يفشل البناء إن تعذّر توليدها).
+      # صوت «وئام» من ElevenLabs لو وُجد secret باسم ELEVENLABS_API_KEY (على الـpush فقط حتى لا يُصرف الرصيد مرتين)،
+      # وإلا edge-tts. اختياري: متغيرات ELEVENLABS_VOICE_ID و ELEVENLABS_MAX_CHARS في Variables.
+      - name: Build high-quality voice clips
+        env:
+          ELEVENLABS_API_KEY: ${{ github.event_name == 'push' && secrets.ELEVENLABS_API_KEY || '' }}
+          ELEVENLABS_VOICE_ID: ${{ vars.ELEVENLABS_VOICE_ID }}
+          ELEVENLABS_MAX_CHARS: ${{ vars.ELEVENLABS_MAX_CHARS }}
+        run: |
+          pip install --quiet edge-tts || true
+          command -v ffmpeg >/dev/null || (sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends ffmpeg) || true
+          python3 tools/build_voice.py
+
+      # كلمة «الأرنب» في فيلم المقدمة تُنطق كاملة (لا يفشل البناء إن تعذّر)
+      - name: Fix intro narration
+        run: |
+          command -v ffmpeg >/dev/null || (sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends ffmpeg) || true
+          python3 tools/fix_intro_audio.py
+
+      # حزم التنزيل: جمل الدروس الطويلة وتلاوة الأجزاء تخرج من الـAPK وتُنزَّل داخل التطبيق مرة واحدة
+      - name: Build content packs
+        run: python3 tools/build_packs.py
+
+      # حكايات فيديو من رسومات التطبيق بصوت التطبيق (tools/videos/stories.json): تُرفع أونلاين، لا داخل الـ APK.
+      - name: Build story videos
+        run: |
+          pip install -q pillow edge-tts arabic-reshaper python-bidi || true
+          python3 tools/build_videos.py || echo "videos skipped"
+
       - run: flutter pub get
+      - name: Apply app icon
+        run: dart run flutter_launcher_icons -f flutter_launcher_icons.yaml
       - run: flutter analyze
+      # مكتبة SQLite لاختبارات قاعدة البيانات الحقيقية (sqflite_common_ffi)
+      - run: sudo apt-get install -y --no-install-recommends libsqlite3-dev
       - run: flutter test
-      - run: flutter build apk --release
+      # APK لكل نوع معالج (أصغر بكثير): arm64 لمعظم الموبايلات، وarmv7 للقديمة
+      - run: flutter build apk --release --split-per-abi
+
+      # يعيد الأصوات والتلاوة إلى فولدرات الكاش (وإلا يُعاد توليدها ويُصرف الرصيد)
+      - name: Restore cached audio after build
+        if: always()
+        run: python3 tools/build_packs.py --restore
 
       - uses: actions/upload-artifact@v4
         with:
           name: nour-fedaa-apk
-          path: build/app/outputs/flutter-apk/app-release.apk
+          path: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
+
+      # الحزم في release ثابت «content-packs» (التطبيق يقرأ manifest.json منه): الملفات أولًا ثم manifest
+      - name: Publish content packs
+        if: github.event_name == 'push' && startsWith(github.ref, 'refs/heads/feature/')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view content-packs >/dev/null 2>&1 || gh release create content-packs --prerelease \
+            --title "حزم التنزيل" --notes "أصوات الدروس وتلاوة الأجزاء: يُنزّلها التطبيق مرة واحدة ويحفظها."
+          ls build/packs/*.zip >/dev/null 2>&1 && gh release upload content-packs build/packs/*.zip --clobber
+          gh release upload content-packs build/packs/manifest.json --clobber
+
+      # صفحة «العب مع لمعة» (games_web/): ألعاب وحكايات أونلاين على GitHub Pages (فرع gh-pages).
+      - name: Build web games site
+        if: github.event_name == 'push' && startsWith(github.ref, 'refs/heads/feature/')
+        run: python3 tools/build_web.py
+      - name: Publish web games site
+        if: github.event_name == 'push' && startsWith(github.ref, 'refs/heads/feature/')
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: build/site
+          force_orphan: true
+          commit_message: "صفحة العب مع لمعة"
+
+      # الحكايات في release ثابت «videos» (التطبيق يقرأ manifest.json منه).
+      - name: Publish story videos
+        if: github.event_name == 'push' && startsWith(github.ref, 'refs/heads/feature/')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ls build/videos/*.mp4 >/dev/null 2>&1 || exit 0
+          gh release view videos >/dev/null 2>&1 || gh release create videos --prerelease \
+            --title "حكايات نور وفداء" --notes "فيديوهات الحكايات: يشغّلها التطبيق أونلاين."
+          gh release upload videos build/videos/*.mp4 build/videos/*.jpg --clobber
+          gh release upload videos build/videos/manifest.json --clobber
+
+      # رابط مباشر لتحميل الـ APK وتثبيته من المتصفح (بدون تسجيل دخول ولا فك ضغط).
+      # يُحدَّث عند كل push على فرع الميزة: /releases/download/latest-apk/nour-fedaa.apk
+      - name: Publish APK as a direct-download release
+        if: github.event_name == 'push' && startsWith(github.ref, 'refs/heads/feature/')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cp build/app/outputs/flutter-apk/app-arm64-v8a-release.apk nour-fedaa.apk
+          cp build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk nour-fedaa-armv7.apk
+          gh release delete latest-apk --cleanup-tag --yes || true
+          gh release create latest-apk nour-fedaa.apk nour-fedaa-armv7.apk \
+            --prerelease \
+            --title "نور وفداء — آخر نسخة" \
+            --notes "نسخة تجريبية تُبنى تلقائيًا من الفرع ${GITHUB_REF_NAME} (commit ${GITHUB_SHA::7}). حمّلي الملف وثبّتيه على الأندرويد."

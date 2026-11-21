@@ -1,0 +1,351 @@
+{
+  "schema": 1,
+  "lessons": [
+    {
+      "id": "w21e_weather2",
+      "title": "الجو البارد ❄️",
+      "emoji": "❄️",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 21 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "❄️",
+          "text": "الثلج",
+          "say": "الثلج"
+        },
+        {
+          "emoji": "💨",
+          "text": "الريح",
+          "say": "الريح"
+        },
+        {
+          "emoji": "🌙",
+          "text": "القمر",
+          "say": "القمر"
+        },
+        {
+          "emoji": "⭐",
+          "text": "النجمة",
+          "say": "النجمة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الثلج؟",
+          "options": [
+            "❄️",
+            "💨",
+            "🌙"
+          ],
+          "answerIndex": 0,
+          "hint": "الثلج",
+          "emoji": "❄️",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين النجمة؟",
+          "options": [
+            "❄️",
+            "⭐",
+            "💨"
+          ],
+          "answerIndex": 1,
+          "hint": "النجمة",
+          "emoji": "⭐",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الريح؟",
+          "options": [
+            "❄️",
+            "🌙",
+            "💨"
+          ],
+          "answerIndex": 2,
+          "hint": "الريح",
+          "emoji": "💨",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w21e_jobs2",
+      "title": "مهن أخرى 🧑‍🚒",
+      "emoji": "🧑‍🚒",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 21 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "👨‍🌾",
+          "text": "المزارع",
+          "say": "المزارع"
+        },
+        {
+          "emoji": "🧑‍🚒",
+          "text": "رجل الإطفاء",
+          "say": "رجل الإطفاء"
+        },
+        {
+          "emoji": "👷",
+          "text": "العامل",
+          "say": "العامل"
+        },
+        {
+          "emoji": "🧑‍✈️",
+          "text": "الطيّار",
+          "say": "الطيّار"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين المزارع؟",
+          "options": [
+            "👨‍🌾",
+            "🧑‍🚒",
+            "👷"
+          ],
+          "answerIndex": 0,
+          "hint": "المزارع",
+          "emoji": "👨‍🌾",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الطيّار؟",
+          "options": [
+            "👨‍🌾",
+            "🧑‍✈️",
+            "🧑‍🚒"
+          ],
+          "answerIndex": 1,
+          "hint": "الطيّار",
+          "emoji": "🧑‍✈️",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين رجل الإطفاء؟",
+          "options": [
+            "👨‍🌾",
+            "👷",
+            "🧑‍🚒"
+          ],
+          "answerIndex": 2,
+          "hint": "رجل الإطفاء",
+          "emoji": "🧑‍🚒",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w21e_count_flowers",
+      "title": "نعدّ الزهور 🌸",
+      "emoji": "🌸",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعدّ أشياء صغيرة",
+      "learned": "أعدّ بأصابعي وأعرف العدد.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 21 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🌸🌸🌸🌸🌸🌸",
+          "text": "6",
+          "say": "واحدة، اثنتان، ثلاث، أربع، خمس، ست زهرات"
+        },
+        {
+          "emoji": "🌸🌸🌸🌸🌸🌸🌸",
+          "text": "7",
+          "say": "واحدة، اثنتان، ثلاث، أربع، خمس، ست، سبع زهرات"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🌸🌸🌸🌸🌸🌸",
+          "say": "اضغطي على ست زهرات",
+          "options": [
+            "🌸🌸🌸🌸🌸🌸",
+            "🌸🌸🌸🌸🌸",
+            "🌸🌸🌸🌸🌸🌸🌸"
+          ],
+          "answerIndex": 0,
+          "hint": "ست",
+          "emoji": "🌸",
+          "praise": "أحسنتِ! عددتِ صح."
+        },
+        {
+          "prompt": "🌸🌸🌸🌸🌸🌸🌸",
+          "say": "اضغطي على سبع زهرات",
+          "options": [
+            "🌸🌸🌸🌸🌸🌸",
+            "🌸🌸🌸🌸🌸🌸🌸",
+            "🌸🌸🌸🌸🌸🌸🌸🌸"
+          ],
+          "answerIndex": 1,
+          "hint": "سبع",
+          "emoji": "🌸",
+          "praise": "أحسنتِ! عددتِ صح."
+        },
+        {
+          "prompt": "🌸🌸🌸🌸🌸🌸🌸🌸🌸",
+          "say": "اضغطي على تسع زهرات",
+          "options": [
+            "🌸🌸🌸🌸🌸🌸🌸🌸",
+            "🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸",
+            "🌸🌸🌸🌸🌸🌸🌸🌸🌸"
+          ],
+          "answerIndex": 2,
+          "hint": "تسع",
+          "emoji": "🌸",
+          "praise": "أحسنتِ! عددتِ صح."
+        }
+      ]
+    },
+    {
+      "id": "w21e_trash",
+      "title": "أرمي القمامة في مكانها 🗑️",
+      "emoji": "🗑️",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أرمي القمامة في مكانها",
+      "learned": "أرمي القمامة في مكانها.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 21 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🗑️",
+          "text": "في يدي ورقة",
+          "say": "في يدي ورقة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🗑️ ؟",
+          "say": "أين نضعها؟ في السلة، أم في الأرض؟",
+          "options": [
+            "🌍",
+            "🗑️"
+          ],
+          "answerIndex": 1,
+          "hint": "أرمي القمامة في مكانها",
+          "emoji": "🗑️",
+          "praise": "أحسنتِ! نحب النظافة."
+        }
+      ]
+    },
+    {
+      "id": "w21e_smile",
+      "title": "أبتسم لصديقتي 😊",
+      "emoji": "😊",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أبتسم لصديقتي",
+      "learned": "أبتسم لصديقتي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 21 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "😊",
+          "text": "أرى صديقتي",
+          "say": "أرى صديقتي"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "😊 ؟",
+          "say": "ماذا نفعل؟ نبتسم لها، أم نعبس؟",
+          "options": [
+            "😊",
+            "😠"
+          ],
+          "answerIndex": 0,
+          "hint": "أبتسم لصديقتي",
+          "emoji": "😊",
+          "praise": "أحسنتِ! الابتسامة جميلة."
+        }
+      ]
+    },
+    {
+      "id": "w21e_review_game",
+      "title": "لعبة الأسبوع 🎮",
+      "emoji": "🎮",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أراجع ما تعلمته",
+      "learned": "أنا أتعلم وألعب!",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 21 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🎮",
+          "text": "هيا نلعب",
+          "say": "هيا نلعب بما تعلمنا!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الثلج؟",
+          "options": [
+            "❄️",
+            "💨",
+            "🌙"
+          ],
+          "answerIndex": 0,
+          "hint": "الثلج",
+          "emoji": "❄️",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين المزارع؟",
+          "options": [
+            "🧑‍🚒",
+            "👨‍🌾",
+            "👷"
+          ],
+          "answerIndex": 1,
+          "hint": "المزارع",
+          "emoji": "👨‍🌾",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    }
+  ]
+}

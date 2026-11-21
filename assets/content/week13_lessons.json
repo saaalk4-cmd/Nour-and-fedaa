@@ -1,0 +1,866 @@
+{
+  "schema": 1,
+  "lessons": [
+    {
+      "id": "w13_s1",
+      "title": "أعتذر بلطف 💛",
+      "emoji": "💛",
+      "category": "akhlaq",
+      "minAge": 4,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعتذر عندما أزعج أحدًا.",
+      "learned": "أعتذر عندما أزعج أحدًا.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 13"
+      },
+      "steps": [
+        {
+          "emoji": "💛",
+          "text": "سلمى دفعت صديقتها وهي تجري، فوقعت لعبتها.",
+          "say": "سلمى دفعت صديقتها وهي تجري، فوقعت لعبتها."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تفعل سلمى؟",
+          "options": [
+            "تقول: أنا آسفة 💛",
+            "تبتعد بدون كلام"
+          ],
+          "answerIndex": 0,
+          "hint": "الاعتذار يُصلح القلوب 🌸",
+          "praise": "أحسنتِ! الاعتذار جميل.",
+          "emoji": "💛"
+        }
+      ]
+    },
+    {
+      "id": "w13_s2",
+      "title": "أشارك ألعابي 🧸",
+      "emoji": "🧸",
+      "category": "akhlaq",
+      "minAge": 4,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أشارك ألعابي.",
+      "learned": "أشارك ألعابي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 13"
+      },
+      "steps": [
+        {
+          "emoji": "🧸",
+          "text": "جاءت صديقة سلمى لتلعب عندها.",
+          "say": "جاءت صديقة سلمى لتلعب عندها."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تفعل سلمى؟",
+          "options": [
+            "تخبّئ ألعابها",
+            "تشاركها ألعابها 🧸"
+          ],
+          "answerIndex": 1,
+          "hint": "المشاركة تفرّح الجميع 🌸",
+          "praise": "أحسنتِ! المشاركة جميلة.",
+          "emoji": "🧸"
+        }
+      ]
+    },
+    {
+      "id": "w13_syll_1",
+      "title": "مقاطع حرف الباء 🔤",
+      "emoji": "🔤",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أقرأ حرف الباء مع الحركات",
+      "learned": "أقرأ با وبو وبي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 13"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "الباء مع الفتحة: بَ تُقرأ با",
+          "say": "الباء مع الفتحة: بَ تُقرأ با"
+        },
+        {
+          "emoji": "🔤",
+          "text": "الباء مع الضمة: بُ تُقرأ بو",
+          "say": "الباء مع الضمة: بُ تُقرأ بو"
+        },
+        {
+          "emoji": "🔤",
+          "text": "الباء مع الكسرة: بِ تُقرأ بي",
+          "say": "الباء مع الكسرة: بِ تُقرأ بي"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "كيف نقرأ بَ؟",
+          "options": [
+            "بو",
+            "با",
+            "بي"
+          ],
+          "answerIndex": 1,
+          "hint": "اسمعي الصوت ثم اختاري",
+          "emoji": "🔤"
+        },
+        {
+          "prompt": "كيف نقرأ بُ؟",
+          "options": [
+            "با",
+            "بي",
+            "بو"
+          ],
+          "answerIndex": 2,
+          "hint": "اسمعي الصوت ثم اختاري",
+          "emoji": "🔤"
+        },
+        {
+          "prompt": "كيف نقرأ بِ؟",
+          "options": [
+            "بي",
+            "با",
+            "بو"
+          ],
+          "answerIndex": 0,
+          "hint": "اسمعي الصوت ثم اختاري",
+          "emoji": "🔤"
+        }
+      ]
+    },
+    {
+      "id": "w13_syll_2",
+      "title": "مقاطع حرف التاء 🔤",
+      "emoji": "🔤",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أقرأ حرف التاء مع الحركات",
+      "learned": "أقرأ تا وتو وتي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 13"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "التاء مع الفتحة: تَ تُقرأ تا",
+          "say": "التاء مع الفتحة: تَ تُقرأ تا"
+        },
+        {
+          "emoji": "🔤",
+          "text": "التاء مع الضمة: تُ تُقرأ تو",
+          "say": "التاء مع الضمة: تُ تُقرأ تو"
+        },
+        {
+          "emoji": "🔤",
+          "text": "التاء مع الكسرة: تِ تُقرأ تي",
+          "say": "التاء مع الكسرة: تِ تُقرأ تي"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "كيف نقرأ تَ؟",
+          "options": [
+            "تو",
+            "تا",
+            "تي"
+          ],
+          "answerIndex": 1,
+          "hint": "اسمعي الصوت ثم اختاري",
+          "emoji": "🔤"
+        },
+        {
+          "prompt": "كيف نقرأ تُ؟",
+          "options": [
+            "تا",
+            "تي",
+            "تو"
+          ],
+          "answerIndex": 2,
+          "hint": "اسمعي الصوت ثم اختاري",
+          "emoji": "🔤"
+        },
+        {
+          "prompt": "كيف نقرأ تِ؟",
+          "options": [
+            "تي",
+            "تا",
+            "تو"
+          ],
+          "answerIndex": 0,
+          "hint": "اسمعي الصوت ثم اختاري",
+          "emoji": "🔤"
+        }
+      ]
+    },
+    {
+      "id": "w13_syll_3",
+      "title": "مقاطع حرف الميم 🔤",
+      "emoji": "🔤",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أقرأ حرف الميم مع الحركات",
+      "learned": "أقرأ ما ومو ومي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 13"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "الميم مع الفتحة: مَ تُقرأ ما",
+          "say": "الميم مع الفتحة: مَ تُقرأ ما"
+        },
+        {
+          "emoji": "🔤",
+          "text": "الميم مع الضمة: مُ تُقرأ مو",
+          "say": "الميم مع الضمة: مُ تُقرأ مو"
+        },
+        {
+          "emoji": "🔤",
+          "text": "الميم مع الكسرة: مِ تُقرأ مي",
+          "say": "الميم مع الكسرة: مِ تُقرأ مي"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "كيف نقرأ مَ؟",
+          "options": [
+            "مو",
+            "ما",
+            "مي"
+          ],
+          "answerIndex": 1,
+          "hint": "اسمعي الصوت ثم اختاري",
+          "emoji": "🔤"
+        },
+        {
+          "prompt": "كيف نقرأ مُ؟",
+          "options": [
+            "ما",
+            "مي",
+            "مو"
+          ],
+          "answerIndex": 2,
+          "hint": "اسمعي الصوت ثم اختاري",
+          "emoji": "🔤"
+        },
+        {
+          "prompt": "كيف نقرأ مِ؟",
+          "options": [
+            "مي",
+            "ما",
+            "مو"
+          ],
+          "answerIndex": 0,
+          "hint": "اسمعي الصوت ثم اختاري",
+          "emoji": "🔤"
+        }
+      ]
+    },
+    {
+      "id": "w13_numbers",
+      "title": "الأعداد 1 إلى 20 🔢",
+      "emoji": "🔢",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف الأعداد الكبيرة",
+      "learned": "أعدّ حتى 20.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 13"
+      },
+      "steps": [
+        {
+          "emoji": "🔢",
+          "text": "10 = عشرة",
+          "say": "10 = عشرة"
+        },
+        {
+          "emoji": "🔢",
+          "text": "13 = ثلاثة عشر",
+          "say": "13 = ثلاثة عشر"
+        },
+        {
+          "emoji": "🔢",
+          "text": "15 = خمسة عشر",
+          "say": "15 = خمسة عشر"
+        },
+        {
+          "emoji": "🔢",
+          "text": "20 = عشرون",
+          "say": "20 = عشرون"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ما العدد عشرة؟",
+          "options": [
+            "10",
+            "13",
+            "15"
+          ],
+          "answerIndex": 0,
+          "hint": "اسمعي اسم العدد",
+          "emoji": "🔢"
+        },
+        {
+          "prompt": "ما العدد ثلاثة عشر؟",
+          "options": [
+            "10",
+            "13",
+            "15"
+          ],
+          "answerIndex": 1,
+          "hint": "اسمعي اسم العدد",
+          "emoji": "🔢"
+        },
+        {
+          "prompt": "ما العدد خمسة عشر؟",
+          "options": [
+            "10",
+            "13",
+            "15"
+          ],
+          "answerIndex": 2,
+          "hint": "اسمعي اسم العدد",
+          "emoji": "🔢"
+        }
+      ]
+    },
+    {
+      "id": "w13_add",
+      "title": "نجمع حتى 12 ➕",
+      "emoji": "➕",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أجمع حتى 5",
+      "learned": "أجمع عددين صغيرين.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 13"
+      },
+      "steps": [
+        {
+          "emoji": "➕",
+          "text": "7 + 4 = 11",
+          "say": "7 + 4 = 11"
+        },
+        {
+          "emoji": "➕",
+          "text": "6 + 5 = 11",
+          "say": "6 + 5 = 11"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "7 + 4 = ؟",
+          "options": [
+            "11",
+            "12",
+            "10"
+          ],
+          "answerIndex": 0,
+          "hint": "عدّي على أصابعك",
+          "emoji": "➕"
+        },
+        {
+          "prompt": "6 + 5 = ؟",
+          "options": [
+            "12",
+            "11",
+            "10"
+          ],
+          "answerIndex": 1,
+          "hint": "عدّي على أصابعك",
+          "emoji": "➕"
+        },
+        {
+          "prompt": "8 + 3 = ؟",
+          "options": [
+            "12",
+            "10",
+            "11"
+          ],
+          "answerIndex": 2,
+          "hint": "عدّي على أصابعك",
+          "emoji": "➕"
+        }
+      ]
+    },
+    {
+      "id": "w13_english",
+      "title": "Food 🍎",
+      "emoji": "🍎",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أتعلم كلمات إنجليزية جديدة",
+      "learned": "مثل: Apple = تفاحة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 13"
+      },
+      "steps": [
+        {
+          "emoji": "🍎",
+          "text": "Apple = تفاحة",
+          "say": "Apple = تفاحة"
+        },
+        {
+          "emoji": "🍌",
+          "text": "Banana = موزة",
+          "say": "Banana = موزة"
+        },
+        {
+          "emoji": "🥛",
+          "text": "Milk = حليب",
+          "say": "Milk = حليب"
+        },
+        {
+          "emoji": "🍞",
+          "text": "Bread = خبز",
+          "say": "Bread = خبز"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تعني Apple؟",
+          "options": [
+            "تفاحة",
+            "موزة",
+            "حليب"
+          ],
+          "answerIndex": 0,
+          "hint": "تذكّري الصورة",
+          "emoji": "🍎"
+        },
+        {
+          "prompt": "ماذا تعني Banana؟",
+          "options": [
+            "تفاحة",
+            "موزة",
+            "حليب"
+          ],
+          "answerIndex": 1,
+          "hint": "تذكّري الصورة",
+          "emoji": "🍌"
+        },
+        {
+          "prompt": "ماذا تعني Milk؟",
+          "options": [
+            "تفاحة",
+            "موزة",
+            "حليب"
+          ],
+          "answerIndex": 2,
+          "hint": "تذكّري الصورة",
+          "emoji": "🥛"
+        }
+      ]
+    },
+    {
+      "id": "w13_prayers",
+      "title": "كم صلاة نصلي؟ 🕌",
+      "emoji": "🕌",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف عدد الصلوات",
+      "learned": "خمس صلوات كل يوم.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 13"
+      },
+      "steps": [
+        {
+          "emoji": "🕌",
+          "text": "نصلي خمس صلوات كل يوم.",
+          "say": "نصلي خمس صلوات كل يوم."
+        },
+        {
+          "emoji": "🌅",
+          "text": "الفجر، الظهر، العصر، المغرب، العشاء.",
+          "say": "الفجر، الظهر، العصر، المغرب، العشاء."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "كم صلاة نصلي في اليوم؟",
+          "options": [
+            "3",
+            "5",
+            "7"
+          ],
+          "answerIndex": 1,
+          "hint": "خمس صلوات",
+          "emoji": "🕌"
+        },
+        {
+          "prompt": "أي صلاة في الصباح؟",
+          "options": [
+            "العشاء 🌙",
+            "المغرب 🌇",
+            "الفجر 🌅"
+          ],
+          "answerIndex": 2,
+          "hint": "عند بداية النهار",
+          "emoji": "🕌"
+        }
+      ]
+    },
+    {
+      "id": "w13_order_prayers",
+      "title": "أرتّب الصلوات 🕌",
+      "emoji": "🕌",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أرتّب الصلوات الخمس",
+      "learned": "الفجر ثم الظهر ثم العصر ثم المغرب ثم العشاء.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 13"
+      },
+      "steps": [
+        {
+          "emoji": "🕌",
+          "text": "تبدأ صلوات اليوم بالفجر وتنتهي بالعشاء.",
+          "say": "تبدأ صلوات اليوم بالفجر وتنتهي بالعشاء."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "رتّبي الصلوات من الصباح إلى الليل",
+          "options": [
+            "🌅 الفجر",
+            "☀️ الظهر",
+            "🌤️ العصر",
+            "🌇 المغرب",
+            "🌙 العشاء"
+          ],
+          "answerIndex": 0,
+          "hint": "نبدأ عند الفجر",
+          "kind": "order",
+          "emoji": "🕌",
+          "praise": "أحسنتِ! رتّبتِ كل شيء."
+        }
+      ]
+    },
+    {
+      "id": "w13_listen",
+      "title": "أستمع للقرآن 🎧",
+      "emoji": "🎧",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أتعرّف على السور من تلاوتها",
+      "learned": "أتعرّف على بعض السور من صوتها.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 13"
+      },
+      "steps": [
+        {
+          "emoji": "🎧",
+          "text": "استمعي لتلاوة سورة الإخلاص 🎧",
+          "recite": [
+            112,
+            1
+          ],
+          "say": "استمعي لتلاوة سورة الإخلاص 🎧"
+        },
+        {
+          "emoji": "🎧",
+          "text": "استمعي لتلاوة سورة الكوثر 🎧",
+          "recite": [
+            108,
+            1
+          ],
+          "say": "استمعي لتلاوة سورة الكوثر 🎧"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "استمعي ثم اختاري: أي سورة سمعتِ؟",
+          "options": [
+            "الإخلاص",
+            "الناس",
+            "النصر"
+          ],
+          "answerIndex": 0,
+          "hint": "اضغطي على 🎧 لتسمعي مرة أخرى",
+          "emoji": "🎧",
+          "recite": [
+            112,
+            1
+          ]
+        },
+        {
+          "prompt": "استمعي ثم اختاري: أي سورة سمعتِ؟",
+          "options": [
+            "الفلق",
+            "الكوثر",
+            "الإخلاص"
+          ],
+          "answerIndex": 1,
+          "hint": "اضغطي على 🎧 لتسمعي مرة أخرى",
+          "emoji": "🎧",
+          "recite": [
+            108,
+            1
+          ]
+        },
+        {
+          "prompt": "كم آية في سورة الإخلاص؟",
+          "options": [
+            "5",
+            "4",
+            "6"
+          ],
+          "answerIndex": 1,
+          "hint": "عدّي الآيات التي سمعتِ",
+          "emoji": "📖"
+        }
+      ]
+    },
+    {
+      "id": "w13_senses",
+      "title": "حواسّي الخمس ✋",
+      "emoji": "✋",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف حواسي الخمس",
+      "learned": "العين للرؤية والأذن للسمع والأنف للشم.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 13"
+      },
+      "steps": [
+        {
+          "emoji": "👀",
+          "text": "نرى بالعين.",
+          "say": "نرى بالعين."
+        },
+        {
+          "emoji": "👂",
+          "text": "ونسمع بالأذن.",
+          "say": "ونسمع بالأذن."
+        },
+        {
+          "emoji": "👃",
+          "text": "ونشمّ بالأنف.",
+          "say": "ونشمّ بالأنف."
+        },
+        {
+          "emoji": "👅",
+          "text": "ونتذوق باللسان.",
+          "say": "ونتذوق باللسان."
+        },
+        {
+          "emoji": "✋",
+          "text": "ونلمس باليد.",
+          "say": "ونلمس باليد."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا نفعل بالأذن؟",
+          "options": [
+            "نرى 👀",
+            "نسمع 👂",
+            "نشمّ 👃"
+          ],
+          "answerIndex": 1,
+          "hint": "نسمع الأصوات",
+          "emoji": "✋"
+        },
+        {
+          "prompt": "بماذا نتذوق الطعام؟",
+          "options": [
+            "الأذن 👂",
+            "العين 👀",
+            "اللسان 👅"
+          ],
+          "answerIndex": 2,
+          "hint": "في الفم",
+          "emoji": "✋"
+        }
+      ]
+    },
+    {
+      "id": "w13_match_senses",
+      "title": "أوصّل الحواس 🔗",
+      "emoji": "🔗",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أوصّل العضو بوظيفته",
+      "learned": "لكل عضو عمل.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 13"
+      },
+      "steps": [
+        {
+          "emoji": "🔗",
+          "text": "لكل عضو عمل.",
+          "say": "لكل عضو عمل."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "وصّلي كل عضو بما يفعله",
+          "options": [
+            "👀|نرى",
+            "👂|نسمع",
+            "👃|نشمّ"
+          ],
+          "answerIndex": 0,
+          "hint": "فكّري ماذا نفعل بكل عضو",
+          "kind": "match",
+          "emoji": "🔗",
+          "praise": "أحسنتِ! وصّلتِ كل شيء."
+        }
+      ]
+    },
+    {
+      "id": "w13_review_game",
+      "title": "لعبة الأسبوع 🎮",
+      "emoji": "🎮",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أراجع ما تعلمته",
+      "learned": "أنا أتعلم وألعب!",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 13"
+      },
+      "steps": [
+        {
+          "emoji": "🎮",
+          "text": "هيا نلعب بما تعلمناه!",
+          "say": "هيا نلعب بما تعلمناه!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "كم صلاة في اليوم؟",
+          "options": [
+            "5",
+            "3",
+            "4"
+          ],
+          "answerIndex": 0,
+          "hint": "خمس",
+          "emoji": "🕌"
+        },
+        {
+          "prompt": "كيف نقرأ بُ؟",
+          "options": [
+            "با",
+            "بو",
+            "بي"
+          ],
+          "answerIndex": 1,
+          "hint": "ضمة",
+          "emoji": "🔤"
+        },
+        {
+          "prompt": "ماذا تعني Milk؟",
+          "options": [
+            "خبز",
+            "موزة",
+            "حليب"
+          ],
+          "answerIndex": 2,
+          "hint": "🥛",
+          "emoji": "🥛"
+        },
+        {
+          "prompt": "أزعجنا صديقتنا، ماذا نقول؟",
+          "options": [
+            "أنا آسفة 💛",
+            "لا شيء"
+          ],
+          "answerIndex": 0,
+          "hint": "الاعتذار جميل",
+          "emoji": "💛"
+        }
+      ]
+    },
+    {
+      "id": "w13_pattern",
+      "title": "ما التالي؟ 🔴🔵",
+      "emoji": "🧩",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أكمل النمط",
+      "learned": "الأنماط تتكرر.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 13"
+      },
+      "steps": [
+        {
+          "emoji": "🧩",
+          "text": "الأنماط تتكرر: 🔴🔵🔴🔵",
+          "say": "الأنماط تتكرر: 🔴🔵🔴🔵"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🔴🔵🔴🔵🔴 ؟",
+          "options": [
+            "🔵",
+            "🔴",
+            "🟢"
+          ],
+          "answerIndex": 0,
+          "hint": "الأحمر ثم الأزرق ثم الأحمر…",
+          "emoji": "🧩"
+        },
+        {
+          "prompt": "⭐🌙⭐🌙⭐ ؟",
+          "options": [
+            "⭐",
+            "🌙",
+            "☀️"
+          ],
+          "answerIndex": 1,
+          "hint": "نجمة ثم قمر ثم نجمة…",
+          "emoji": "🧩"
+        }
+      ]
+    }
+  ]
+}

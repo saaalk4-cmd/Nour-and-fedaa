@@ -1,0 +1,627 @@
+{
+  "schema": 1,
+  "lessons": [
+    {
+      "id": "w11_read_1",
+      "title": "أقرأ كلمات 👀",
+      "emoji": "👀",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أقرأ كلمات بسيطة",
+      "learned": "أجمع الحروف لأقرأ كلمة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 11"
+      },
+      "steps": [
+        {
+          "emoji": "👨",
+          "text": "بابا هي: بَ + ا + بَ + ا",
+          "say": "بابا هي: بَ + ا + بَ + ا"
+        },
+        {
+          "emoji": "👩",
+          "text": "ماما هي: مَ + ا + مَ + ا",
+          "say": "ماما هي: مَ + ا + مَ + ا"
+        },
+        {
+          "emoji": "🚪",
+          "text": "باب هي: بَ + ا + ب",
+          "say": "باب هي: بَ + ا + ب"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أي كلمة تعني 👨؟",
+          "options": [
+            "بابا",
+            "ماما",
+            "باب"
+          ],
+          "answerIndex": 0,
+          "hint": "اسمعي الحروف ثم الكلمة",
+          "emoji": "👨"
+        },
+        {
+          "prompt": "أي كلمة تعني 👩؟",
+          "options": [
+            "بابا",
+            "ماما",
+            "باب"
+          ],
+          "answerIndex": 1,
+          "hint": "اسمعي الحروف ثم الكلمة",
+          "emoji": "👩"
+        },
+        {
+          "prompt": "أي كلمة تعني 🚪؟",
+          "options": [
+            "بابا",
+            "ماما",
+            "باب"
+          ],
+          "answerIndex": 2,
+          "hint": "اسمعي الحروف ثم الكلمة",
+          "emoji": "🚪"
+        }
+      ]
+    },
+    {
+      "id": "w11_read_2",
+      "title": "أقرأ كلمات جديدة 📚",
+      "emoji": "📚",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أقرأ كلمات بسيطة",
+      "learned": "أجمع الحروف لأقرأ كلمة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 11"
+      },
+      "steps": [
+        {
+          "emoji": "🌙",
+          "text": "قمر هي: قَ + مَ + ر",
+          "say": "قمر هي: قَ + مَ + ر"
+        },
+        {
+          "emoji": "🏠",
+          "text": "بيت هي: بَ + ي + ت",
+          "say": "بيت هي: بَ + ي + ت"
+        },
+        {
+          "emoji": "☀️",
+          "text": "شمس هي: شَ + مْ + س",
+          "say": "شمس هي: شَ + مْ + س"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أي كلمة تعني 🌙؟",
+          "options": [
+            "قمر",
+            "بيت",
+            "شمس"
+          ],
+          "answerIndex": 0,
+          "hint": "اسمعي الحروف ثم الكلمة",
+          "emoji": "🌙"
+        },
+        {
+          "prompt": "أي كلمة تعني 🏠؟",
+          "options": [
+            "قمر",
+            "بيت",
+            "شمس"
+          ],
+          "answerIndex": 1,
+          "hint": "اسمعي الحروف ثم الكلمة",
+          "emoji": "🏠"
+        },
+        {
+          "prompt": "أي كلمة تعني ☀️؟",
+          "options": [
+            "قمر",
+            "بيت",
+            "شمس"
+          ],
+          "answerIndex": 2,
+          "hint": "اسمعي الحروف ثم الكلمة",
+          "emoji": "☀️"
+        }
+      ]
+    },
+    {
+      "id": "w11_add",
+      "title": "أجمع بنفسي ➕",
+      "emoji": "➕",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أجمع حتى 5",
+      "learned": "أجمع عددين صغيرين.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 11"
+      },
+      "steps": [
+        {
+          "emoji": "➕",
+          "text": "6 + 4 = 10",
+          "say": "6 + 4 = 10"
+        },
+        {
+          "emoji": "➕",
+          "text": "7 + 2 = 9",
+          "say": "7 + 2 = 9"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "6 + 4 = ؟",
+          "options": [
+            "10",
+            "11",
+            "9"
+          ],
+          "answerIndex": 0,
+          "hint": "عدّي على أصابعك",
+          "emoji": "➕"
+        },
+        {
+          "prompt": "7 + 2 = ؟",
+          "options": [
+            "10",
+            "9",
+            "8"
+          ],
+          "answerIndex": 1,
+          "hint": "عدّي على أصابعك",
+          "emoji": "➕"
+        },
+        {
+          "prompt": "5 + 5 = ؟",
+          "options": [
+            "11",
+            "9",
+            "10"
+          ],
+          "answerIndex": 2,
+          "hint": "عدّي على أصابعك",
+          "emoji": "➕"
+        }
+      ]
+    },
+    {
+      "id": "w11_sub",
+      "title": "أطرح بنفسي ➖",
+      "emoji": "➖",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أطرح حتى 5",
+      "learned": "أطرح عددًا صغيرًا من عدد.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 11"
+      },
+      "steps": [
+        {
+          "emoji": "➖",
+          "text": "10 - 4 = 6",
+          "say": "10 - 4 = 6"
+        },
+        {
+          "emoji": "➖",
+          "text": "9 - 3 = 6",
+          "say": "9 - 3 = 6"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "10 - 4 = ؟",
+          "options": [
+            "6",
+            "7",
+            "8"
+          ],
+          "answerIndex": 0,
+          "hint": "عدّي للخلف على أصابعك",
+          "emoji": "➖"
+        },
+        {
+          "prompt": "9 - 3 = ؟",
+          "options": [
+            "7",
+            "6",
+            "8"
+          ],
+          "answerIndex": 1,
+          "hint": "عدّي للخلف على أصابعك",
+          "emoji": "➖"
+        },
+        {
+          "prompt": "7 - 2 = ؟",
+          "options": [
+            "6",
+            "7",
+            "5"
+          ],
+          "answerIndex": 2,
+          "hint": "عدّي للخلف على أصابعك",
+          "emoji": "➖"
+        }
+      ]
+    },
+    {
+      "id": "w11_numbers_16_20",
+      "title": "الأعداد 16 إلى 20 🔢",
+      "emoji": "🔢",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف الأعداد الكبيرة",
+      "learned": "أعدّ حتى 20.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 11"
+      },
+      "steps": [
+        {
+          "emoji": "🔢",
+          "text": "16 = ستة عشر",
+          "say": "16 = ستة عشر"
+        },
+        {
+          "emoji": "🔢",
+          "text": "17 = سبعة عشر",
+          "say": "17 = سبعة عشر"
+        },
+        {
+          "emoji": "🔢",
+          "text": "18 = ثمانية عشر",
+          "say": "18 = ثمانية عشر"
+        },
+        {
+          "emoji": "🔢",
+          "text": "19 = تسعة عشر",
+          "say": "19 = تسعة عشر"
+        },
+        {
+          "emoji": "🔢",
+          "text": "20 = عشرون",
+          "say": "20 = عشرون"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ما العدد ستة عشر؟",
+          "options": [
+            "16",
+            "17",
+            "18"
+          ],
+          "answerIndex": 0,
+          "hint": "اسمعي اسم العدد",
+          "emoji": "🔢"
+        },
+        {
+          "prompt": "ما العدد سبعة عشر؟",
+          "options": [
+            "16",
+            "17",
+            "18"
+          ],
+          "answerIndex": 1,
+          "hint": "اسمعي اسم العدد",
+          "emoji": "🔢"
+        },
+        {
+          "prompt": "ما العدد ثمانية عشر؟",
+          "options": [
+            "16",
+            "17",
+            "18"
+          ],
+          "answerIndex": 2,
+          "hint": "اسمعي اسم العدد",
+          "emoji": "🔢"
+        }
+      ]
+    },
+    {
+      "id": "w11_truth",
+      "title": "أقول الصدق 💎",
+      "emoji": "💎",
+      "category": "akhlaq",
+      "minAge": 4,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أقول الصدق دائمًا.",
+      "learned": "أقول الصدق دائمًا.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 11"
+      },
+      "steps": [
+        {
+          "emoji": "💎",
+          "text": "سلمى كسرت كوبًا وهي تلعب.",
+          "say": "سلمى كسرت كوبًا وهي تلعب."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تفعل سلمى؟",
+          "options": [
+            "تقول الصدق لأمها 💎",
+            "تخفي الكوب"
+          ],
+          "answerIndex": 0,
+          "hint": "الصدق جميل ويفرّح القلب 🌸",
+          "praise": "أحسنتِ! الصدق جميل.",
+          "emoji": "💎"
+        }
+      ]
+    },
+    {
+      "id": "w11_amanah",
+      "title": "أحفظ الأمانة 🧸",
+      "emoji": "🧸",
+      "category": "akhlaq",
+      "minAge": 4,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أرد الأشياء لأصحابها.",
+      "learned": "أرد الأشياء لأصحابها.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 11"
+      },
+      "steps": [
+        {
+          "emoji": "🧸",
+          "text": "سلمى وجدت لعبة صديقتها في الحديقة.",
+          "say": "سلمى وجدت لعبة صديقتها في الحديقة."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تفعل سلمى؟",
+          "options": [
+            "تردّها لصديقتها 🧸",
+            "تأخذها لنفسها"
+          ],
+          "answerIndex": 0,
+          "hint": "الأمانة أن نردّ ما ليس لنا 🌸",
+          "praise": "أحسنتِ! الأمانة جميلة.",
+          "emoji": "🧸"
+        }
+      ]
+    },
+    {
+      "id": "w11_float",
+      "title": "يطفو أم يغرق؟ 💧",
+      "emoji": "💧",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف ما يطفو وما يغرق",
+      "learned": "الحجر يغرق والخشب يطفو.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 11"
+      },
+      "steps": [
+        {
+          "emoji": "🪨",
+          "text": "الحجر يغرق في الماء.",
+          "say": "الحجر يغرق في الماء."
+        },
+        {
+          "emoji": "🪵",
+          "text": "والخشب يطفو فوق الماء.",
+          "say": "والخشب يطفو فوق الماء."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا يغرق في الماء؟",
+          "options": [
+            "الحجر 🪨",
+            "الخشب 🪵",
+            "الورقة 🍃"
+          ],
+          "answerIndex": 0,
+          "hint": "ثقيل",
+          "emoji": "🪨"
+        },
+        {
+          "prompt": "ماذا يطفو فوق الماء؟",
+          "options": [
+            "الحجر 🪨",
+            "الخشب 🪵",
+            "المفتاح 🔑"
+          ],
+          "answerIndex": 1,
+          "hint": "خفيف",
+          "emoji": "🪵"
+        }
+      ]
+    },
+    {
+      "id": "w11_seed",
+      "title": "من البذرة إلى الشجرة 🌱",
+      "emoji": "🌱",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف كيف تنمو النبتة",
+      "learned": "البذرة تصير نبتة ثم شجرة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 11"
+      },
+      "steps": [
+        {
+          "emoji": "🌰",
+          "text": "نضع البذرة في التراب.",
+          "say": "نضع البذرة في التراب."
+        },
+        {
+          "emoji": "💧",
+          "text": "نسقيها بالماء.",
+          "say": "نسقيها بالماء."
+        },
+        {
+          "emoji": "🌱",
+          "text": "فتنبت نبتة صغيرة.",
+          "say": "فتنبت نبتة صغيرة."
+        },
+        {
+          "emoji": "🌳",
+          "text": "ثم تكبر وتصير شجرة.",
+          "say": "ثم تكبر وتصير شجرة."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا نضع في التراب؟",
+          "options": [
+            "بذرة 🌰",
+            "حجرًا",
+            "لعبة"
+          ],
+          "answerIndex": 0,
+          "hint": "منها تنبت النبتة",
+          "emoji": "🌰"
+        },
+        {
+          "prompt": "ماذا تحتاج النبتة لتكبر؟",
+          "options": [
+            "حلوى",
+            "ماء وشمس 💧☀️",
+            "ظلام"
+          ],
+          "answerIndex": 1,
+          "hint": "نسقيها",
+          "emoji": "🌱"
+        }
+      ]
+    },
+    {
+      "id": "w11_order_seed",
+      "title": "رتّبي نموّ الشجرة 🌳",
+      "emoji": "🌳",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أرتّب مراحل نموّ الشجرة",
+      "learned": "بذرة ثم نبتة ثم شجرة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 11"
+      },
+      "steps": [
+        {
+          "emoji": "🌳",
+          "text": "هيا نرتب كيف تكبر الشجرة.",
+          "say": "هيا نرتب كيف تكبر الشجرة."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "رتّبي من البذرة إلى الشجرة",
+          "options": [
+            "🌰 بذرة",
+            "🌱 نبتة صغيرة",
+            "🌳 شجرة كبيرة"
+          ],
+          "answerIndex": 0,
+          "hint": "نبدأ بالبذرة",
+          "kind": "order",
+          "emoji": "🌳",
+          "praise": "أحسنتِ! رتّبتِ النموّ."
+        }
+      ]
+    },
+    {
+      "id": "w11_review_game",
+      "title": "لعبة الأسبوع 🎮",
+      "emoji": "🎮",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أراجع ما تعلمته",
+      "learned": "أنا أتعلم وألعب!",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 11"
+      },
+      "steps": [
+        {
+          "emoji": "🎮",
+          "text": "هيا نلعب بما تعلمناه!",
+          "say": "هيا نلعب بما تعلمناه!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أي كلمة تعني 🌙؟",
+          "options": [
+            "قمر",
+            "بيت",
+            "باب"
+          ],
+          "answerIndex": 0,
+          "hint": "قَ مَ ر",
+          "emoji": "🌙"
+        },
+        {
+          "prompt": "10 - 4 = ؟",
+          "options": [
+            "5",
+            "6",
+            "7"
+          ],
+          "answerIndex": 1,
+          "hint": "عدّي للخلف",
+          "emoji": "➖"
+        },
+        {
+          "prompt": "ما العدد عشرون؟",
+          "options": [
+            "19",
+            "12",
+            "20"
+          ],
+          "answerIndex": 2,
+          "hint": "عشرتان",
+          "emoji": "🔢"
+        },
+        {
+          "prompt": "وجدنا لعبة ليست لنا، ماذا نفعل؟",
+          "options": [
+            "نردّها 🧸",
+            "نأخذها"
+          ],
+          "answerIndex": 0,
+          "hint": "الأمانة",
+          "emoji": "🧸",
+          "praise": "أحسنتِ! الأمانة جميلة."
+        }
+      ]
+    }
+  ]
+}

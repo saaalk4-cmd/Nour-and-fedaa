@@ -2,6 +2,9 @@ import 'dart:convert';
 import 'dart:math';
 
 import 'package:crypto/crypto.dart';
+
+import '../../core/audio/voice_service.dart' show VoiceSettings;
+import '../../domain/time_guard.dart';
 import 'package:sqflite/sqflite.dart';
 
 import '../db/app_database.dart';
@@ -68,6 +71,164 @@ class SettingsRepository {
 
   String _hash(String pin, String salt) =>
       sha256.convert(utf8.encode('$salt:$pin')).toString();
+
+  // ---------- المقدمة السينمائية ----------
+
+  /// تُعدّ مشاهَدة فقط بعد وصولها للنهاية (أو تخطّيها بعد معظمها).
+  Future<bool> cinematicIntroSeen() async => (await _get('cinematic_intro_seen')) == '1';
+
+  Future<void> setCinematicIntroSeen(bool seen) => _set('cinematic_intro_seen', seen ? '1' : '0');
+
+  // ---------- الصوت ----------
+
+  /// الصوت مفعّل افتراضيًا، ويتحكم به ولي الأمر.
+  Future<bool> soundEnabled() async => (await _get('sound_enabled')) != '0';
+
+  Future<void> setSoundEnabled(bool enabled) =>
+      _set('sound_enabled', enabled ? '1' : '0');
+
+  // ---------- النطق (قراءة الكلام بصوت عالٍ) ----------
+
+  /// مفعّل افتراضيًا: الطفلة قد لا تقرأ ولا يوجد والد بجانبها.
+  Future<bool> voiceEnabled() async => (await _get('voice_enabled')) != '0';
+
+  Future<void> setVoiceEnabled(bool enabled) =>
+      _set('voice_enabled', enabled ? '1' : '0');
+
+  /// إعدادات الصوت (وقفة، سرعة، علو، قراءة تلقائية). القيم الافتراضية مناسبة للأطفال.
+  Future<VoiceSettings> voiceSettings() async {
+    final pause = int.tryParse(await _get('voice_pause_ms') ?? '') ?? 1000;
+    final rate = double.tryParse(await _get('voice_rate') ?? '') ?? VoiceSettings.normal;
+    final vv = double.tryParse(await _get('voice_volume') ?? '') ?? 1.0;
+    final ev = double.tryParse(await _get('effects_volume') ?? '') ?? 1.0;
+    final auto = (await _get('auto_read')) != '0';
+    return VoiceSettings(
+      pauseMs: pause.clamp(0, 4000),
+      rate: rate.clamp(0.25, 0.8),
+      voiceVolume: vv.clamp(0.0, 1.0),
+      effectsVolume: ev.clamp(0.0, 1.0),
+      autoRead: auto,
+    );
+  }
+
+  Future<void> saveVoiceSettings(VoiceSettings s) async {
+    await _set('voice_pause_ms', '${s.pauseMs}');
+    await _set('voice_rate', '${s.rate}');
+    await _set('voice_volume', '${s.voiceVolume}');
+    await _set('effects_volume', '${s.effectsVolume}');
+    await _set('auto_read', s.autoRead ? '1' : '0');
+  }
+
+  // ---------- الوقت ----------
+
+  Future<TimeSettings> timeSettings() async => TimeSettings(
+        dailyLimitMin: int.tryParse(await _get('daily_limit_min') ?? '') ?? 0,
+        quietFromMin: int.tryParse(await _get('quiet_from_min') ?? '') ?? -1,
+        quietToMin: int.tryParse(await _get('quiet_to_min') ?? '') ?? -1,
+        breakEveryMin: int.tryParse(await _get('break_every_min') ?? '') ?? 15,
+      );
+
+  Future<void> saveTimeSettings(TimeSettings s) async {
+    await _set('daily_limit_min', '${s.dailyLimitMin}');
+    await _set('quiet_from_min', '${s.quietFromMin}');
+    await _set('quiet_to_min', '${s.quietToMin}');
+    await _set('break_every_min', '${s.breakEveryMin}');
+  }
+
+  /// دقائق إضافية منحها ولي الأمر اليوم (بعد الحد).
+  Future<int> extraMinutes(String day) async => (await _get('extra_min_$day')) == null ? 0 : int.tryParse((await _get('extra_min_$day'))!) ?? 0;
+
+  Future<void> grantExtraMinutes(String day, int minutes) async => _set('extra_min_$day', '${await extraMinutes(day) + minutes}');
+
+  /// السماح لباقي اليوم (يوقف الحد وساعات المنع حتى الغد).
+  Future<bool> overriddenToday(String day) async => (await _get('time_override_day')) == day;
+
+  Future<void> overrideToday(String day) => _set('time_override_day', day);
+
+  // ---------- الألعاب والإنترنت ----------
+
+  Future<bool> gamesEnabled() async => (await _get('games_enabled')) != '0';
+
+  Future<void> setGamesEnabled(bool v) => _set('games_enabled', v ? '1' : '0');
+
+  /// تحديث الألعاب الجديدة: auto (تلقائيًا عند فتح الألعاب) | manual (بالزر فقط) | off (مقفول).
+  Future<String> packMode() async => (await _get('pack_mode')) ?? 'auto';
+
+  Future<void> setPackMode(String v) => _set('pack_mode', v);
+
+  // ---------- أغنية فداء ونور ----------
+
+  /// زر «أغنيتنا» في الرئيسية.
+  Future<bool> songButton() async => (await _get('song_button')) != '0';
+
+  Future<void> setSongButton(bool v) => _set('song_button', v ? '1' : '0');
+
+  /// تشغيل الأغنية احتفالًا بعد إنهاء مغامرة اليوم.
+  Future<bool> songAfterAdventure() async => (await _get('song_after_adventure')) != '0';
+
+  Future<void> setSongAfterAdventure(bool v) => _set('song_after_adventure', v ? '1' : '0');
+
+  // ---------- المتابعة من تليفون الأهل ----------
+
+  /// دور هذا الجهاز: kids (تليفون البنات، الافتراضي) أو parent (تليفون الأهل: يفتح على المتابعة).
+  Future<String> deviceRole() async => (await _get('device_role')) ?? 'kids';
+
+  Future<void> setDeviceRole(String v) => _set('device_role', v);
+
+  /// كود الأسرة (على الجهازين). فارغ = غير مربوط.
+  Future<String?> familyCode() async {
+    final v = await _get('family_code');
+    return (v == null || v.isEmpty) ? null : v;
+  }
+
+  Future<void> setFamilyCode(String? v) => _set('family_code', v ?? '');
+
+  /// تليفون البنات يرسل التقدم (يطفئه الأهل وقتما شاؤوا).
+  Future<bool> remoteSyncOn() async => (await _get('remote_sync')) == '1';
+
+  Future<void> setRemoteSyncOn(bool v) => _set('remote_sync', v ? '1' : '0');
+
+  /// آخر إرسال ناجح (لعرضه في لوحة الأهل).
+  Future<DateTime?> lastRemoteSync() async => DateTime.tryParse(await _get('remote_last') ?? '');
+
+  Future<void> setLastRemoteSync(DateTime t) => _set('remote_last', t.toIso8601String());
+
+  // ---------- حزم التنزيل (أصوات وتلاوة إضافية) ----------
+
+  /// تنزيل تلقائي عند فتح التطبيق (الافتراضي: نعم).
+  Future<bool> packAuto() async => (await _get('pack_auto')) != '0';
+
+  Future<void> setPackAuto(bool v) => _set('pack_auto', v ? '1' : '0');
+
+  /// على الواي فاي فقط (الافتراضي: نعم).
+  Future<bool> packWifiOnly() async => (await _get('pack_wifi_only')) != '0';
+
+  Future<void> setPackWifiOnly(bool v) => _set('pack_wifi_only', v ? '1' : '0');
+
+  // ---------- الشكل والعرض ----------
+
+  /// تقليل الحركة (بلا كونفيتي ولا رقص) للبنت التي تتشتت.
+  Future<bool> reduceMotion() async => (await _get('reduce_motion')) == '1';
+
+  Future<void> setReduceMotion(bool v) => _set('reduce_motion', v ? '1' : '0');
+
+  /// حجم الخط: 1.0 عادي، 1.2 كبير.
+  Future<double> fontScale() async => (double.tryParse(await _get('font_scale') ?? '') ?? 1.0).clamp(0.9, 1.4);
+
+  Future<void> setFontScale(double v) => _set('font_scale', '$v');
+
+  /// الصوت العربي الذي اختاره الأهل (null = تلقائي: أوضح صوت على الجهاز).
+  Future<String?> ttsVoice() async {
+    final v = await _get('tts_voice');
+    return (v == null || v.isEmpty) ? null : v;
+  }
+
+  Future<void> setTtsVoice(String? name) => _set('tts_voice', name ?? '');
+
+  /// قيمة عامة (لحزم المحتوى المنزّلة وما شابه).
+  Future<String?> getValue(String key) => _get(key);
+
+  Future<void> setValue(String key, String value) => _set(key, value);
 
   // ---------- الأقسام ----------
 

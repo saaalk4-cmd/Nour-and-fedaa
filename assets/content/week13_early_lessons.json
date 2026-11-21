@@ -1,0 +1,374 @@
+{
+  "schema": 1,
+  "lessons": [
+    {
+      "id": "w13e_clothes",
+      "title": "ملابسي 👕",
+      "emoji": "👕",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 13 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "👕",
+          "text": "القميص",
+          "say": "القميص"
+        },
+        {
+          "emoji": "👖",
+          "text": "البنطلون",
+          "say": "البنطلون"
+        },
+        {
+          "emoji": "👟",
+          "text": "الحذاء",
+          "say": "الحذاء"
+        },
+        {
+          "emoji": "🧢",
+          "text": "القبعة",
+          "say": "القبعة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين القميص؟",
+          "options": [
+            "👕",
+            "👖",
+            "👟"
+          ],
+          "answerIndex": 0,
+          "hint": "القميص",
+          "emoji": "👕",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين القبعة؟",
+          "options": [
+            "👕",
+            "🧢",
+            "👖"
+          ],
+          "answerIndex": 1,
+          "hint": "القبعة",
+          "emoji": "🧢",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين البنطلون؟",
+          "options": [
+            "👕",
+            "👟",
+            "👖"
+          ],
+          "answerIndex": 2,
+          "hint": "البنطلون",
+          "emoji": "👖",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w13e_wild",
+      "title": "حيوانات الغابة 🦁",
+      "emoji": "🦁",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 13 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🦁",
+          "text": "الأسد",
+          "say": "الأسد"
+        },
+        {
+          "emoji": "🐘",
+          "text": "الفيل",
+          "say": "الفيل"
+        },
+        {
+          "emoji": "🐒",
+          "text": "القرد",
+          "say": "القرد"
+        },
+        {
+          "emoji": "🦒",
+          "text": "الزرافة",
+          "say": "الزرافة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الأسد؟",
+          "options": [
+            "🦁",
+            "🐘",
+            "🐒"
+          ],
+          "answerIndex": 0,
+          "hint": "الأسد",
+          "emoji": "🦁",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الزرافة؟",
+          "options": [
+            "🦁",
+            "🦒",
+            "🐘"
+          ],
+          "answerIndex": 1,
+          "hint": "الزرافة",
+          "emoji": "🦒",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الفيل؟",
+          "options": [
+            "🦁",
+            "🐒",
+            "🐘"
+          ],
+          "answerIndex": 2,
+          "hint": "الفيل",
+          "emoji": "🐘",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w13e_sounds2",
+      "title": "أصوات جميلة 🦆",
+      "emoji": "🦆",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أسمع الأصوات وأربطها بصاحبها",
+      "learned": "أعرف صوت كل حيوان.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 13 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🦆",
+          "text": "البطة",
+          "say": "البطة يقول كواك"
+        },
+        {
+          "emoji": "🐔",
+          "text": "الدجاجة",
+          "say": "الدجاجة يقول قوقو"
+        },
+        {
+          "emoji": "🐸",
+          "text": "الضفدع",
+          "say": "الضفدع يقول نق نق"
+        },
+        {
+          "emoji": "🐦",
+          "text": "العصفور",
+          "say": "العصفور يقول زقزق"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🔊",
+          "say": "من يقول كواك؟",
+          "options": [
+            "🦆",
+            "🐔",
+            "🐸"
+          ],
+          "answerIndex": 0,
+          "hint": "كواك",
+          "emoji": "🦆",
+          "praise": "أحسنتِ! سمعتِ جيدًا."
+        },
+        {
+          "prompt": "🔊",
+          "say": "من يقول قوقو؟",
+          "options": [
+            "🦆",
+            "🐔",
+            "🐸"
+          ],
+          "answerIndex": 1,
+          "hint": "قوقو",
+          "emoji": "🐔",
+          "praise": "أحسنتِ! سمعتِ جيدًا."
+        },
+        {
+          "prompt": "🔊",
+          "say": "من يقول نق نق؟",
+          "options": [
+            "🦆",
+            "🐔",
+            "🐸"
+          ],
+          "answerIndex": 2,
+          "hint": "نق نق",
+          "emoji": "🐸",
+          "praise": "أحسنتِ! سمعتِ جيدًا."
+        }
+      ]
+    },
+    {
+      "id": "w13e_help_mom",
+      "title": "أساعد ماما 🛍️",
+      "emoji": "🛍️",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أساعد ماما",
+      "learned": "أساعد ماما.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 13 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🛍️",
+          "text": "ماما تحمل أكياسًا",
+          "say": "ماما تحمل أكياسًا"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🛍️ ؟",
+          "say": "ماذا نفعل؟ نساعد ماما، أم نتجاهلها؟",
+          "options": [
+            "🙈",
+            "🤝"
+          ],
+          "answerIndex": 1,
+          "hint": "أساعد ماما",
+          "emoji": "🤝",
+          "praise": "أحسنتِ! مساعدة ماما جميلة."
+        }
+      ]
+    },
+    {
+      "id": "w13e_listen",
+      "title": "أسمع الكلام 👂",
+      "emoji": "👂",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أسمع الكلام",
+      "learned": "أسمع الكلام.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 13 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "👩",
+          "text": "ماما تنادي",
+          "say": "ماما تنادي"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "👩 ؟",
+          "say": "ماذا نفعل؟ نسمع الكلام، أم نهرب؟",
+          "options": [
+            "👂",
+            "🏃"
+          ],
+          "answerIndex": 0,
+          "hint": "أسمع الكلام",
+          "emoji": "👂",
+          "praise": "أحسنتِ! الاستماع جميل."
+        }
+      ]
+    },
+    {
+      "id": "w13e_review_game",
+      "title": "لعبة الأسبوع 🎮",
+      "emoji": "🎮",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أراجع ما تعلمته",
+      "learned": "أنا أتعلم وألعب!",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 13 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🎮",
+          "text": "هيا نلعب",
+          "say": "هيا نلعب بما تعلمنا!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين القميص؟",
+          "options": [
+            "👕",
+            "👖",
+            "👟"
+          ],
+          "answerIndex": 0,
+          "hint": "القميص",
+          "emoji": "👕",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الأسد؟",
+          "options": [
+            "🐘",
+            "🦁",
+            "🐒"
+          ],
+          "answerIndex": 1,
+          "hint": "الأسد",
+          "emoji": "🦁",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الدجاجة؟",
+          "options": [
+            "🦆",
+            "🐸",
+            "🐔"
+          ],
+          "answerIndex": 2,
+          "hint": "الدجاجة",
+          "emoji": "🐔",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,825 @@
+{
+  "schema": 1,
+  "lessons": [
+    {
+      "id": "w15_s1",
+      "title": "لا أسخر من أحد 🤝",
+      "emoji": "🤝",
+      "category": "akhlaq",
+      "minAge": 4,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "لا أسخر من أحد، بل أساعده.",
+      "learned": "لا أسخر من أحد، بل أساعده.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 15"
+      },
+      "steps": [
+        {
+          "emoji": "🤝",
+          "text": "صديقة سلمى لم تستطع ربط حذائها.",
+          "say": "صديقة سلمى لم تستطع ربط حذائها."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تفعل سلمى؟",
+          "options": [
+            "تساعدها بلطف 🤝",
+            "تضحك عليها"
+          ],
+          "answerIndex": 0,
+          "hint": "لا نسخر من أحد 🌸",
+          "praise": "أحسنتِ! نحترم الجميع.",
+          "emoji": "🤝"
+        }
+      ]
+    },
+    {
+      "id": "w15_s2",
+      "title": "أصبر قليلًا ⏳",
+      "emoji": "⏳",
+      "category": "akhlaq",
+      "minAge": 4,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أصبر حتى يحين الوقت.",
+      "learned": "أصبر حتى يحين الوقت.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 15"
+      },
+      "steps": [
+        {
+          "emoji": "⏳",
+          "text": "سلمى تنتظر الكعك حتى ينضج.",
+          "say": "سلمى تنتظر الكعك حتى ينضج."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تفعل سلمى؟",
+          "options": [
+            "تصرخ وتأخذه فورًا",
+            "تنتظر بصبر ⏳"
+          ],
+          "answerIndex": 1,
+          "hint": "الصبر جميل 🌸",
+          "praise": "أحسنتِ! الصبر جميل.",
+          "emoji": "⏳"
+        }
+      ]
+    },
+    {
+      "id": "w15_syll_1",
+      "title": "مقاطع حرف السين 🔤",
+      "emoji": "🔤",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أقرأ حرف السين مع الحركات",
+      "learned": "أقرأ سا وسو وسي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 15"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "السين مع الفتحة: سَ تُقرأ سا",
+          "say": "السين مع الفتحة: سَ تُقرأ سا"
+        },
+        {
+          "emoji": "🔤",
+          "text": "السين مع الضمة: سُ تُقرأ سو",
+          "say": "السين مع الضمة: سُ تُقرأ سو"
+        },
+        {
+          "emoji": "🔤",
+          "text": "السين مع الكسرة: سِ تُقرأ سي",
+          "say": "السين مع الكسرة: سِ تُقرأ سي"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "كيف نقرأ سَ؟",
+          "options": [
+            "سا",
+            "سو",
+            "سي"
+          ],
+          "answerIndex": 0,
+          "hint": "اسمعي الصوت ثم اختاري",
+          "emoji": "🔤"
+        },
+        {
+          "prompt": "كيف نقرأ سُ؟",
+          "options": [
+            "سا",
+            "سو",
+            "سي"
+          ],
+          "answerIndex": 1,
+          "hint": "اسمعي الصوت ثم اختاري",
+          "emoji": "🔤"
+        },
+        {
+          "prompt": "كيف نقرأ سِ؟",
+          "options": [
+            "سا",
+            "سو",
+            "سي"
+          ],
+          "answerIndex": 2,
+          "hint": "اسمعي الصوت ثم اختاري",
+          "emoji": "🔤"
+        }
+      ]
+    },
+    {
+      "id": "w15_syll_2",
+      "title": "مقاطع حرف الدال 🔤",
+      "emoji": "🔤",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أقرأ حرف الدال مع الحركات",
+      "learned": "أقرأ دا ودو ودي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 15"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "الدال مع الفتحة: دَ تُقرأ دا",
+          "say": "الدال مع الفتحة: دَ تُقرأ دا"
+        },
+        {
+          "emoji": "🔤",
+          "text": "الدال مع الضمة: دُ تُقرأ دو",
+          "say": "الدال مع الضمة: دُ تُقرأ دو"
+        },
+        {
+          "emoji": "🔤",
+          "text": "الدال مع الكسرة: دِ تُقرأ دي",
+          "say": "الدال مع الكسرة: دِ تُقرأ دي"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "كيف نقرأ دَ؟",
+          "options": [
+            "دا",
+            "دو",
+            "دي"
+          ],
+          "answerIndex": 0,
+          "hint": "اسمعي الصوت ثم اختاري",
+          "emoji": "🔤"
+        },
+        {
+          "prompt": "كيف نقرأ دُ؟",
+          "options": [
+            "دا",
+            "دو",
+            "دي"
+          ],
+          "answerIndex": 1,
+          "hint": "اسمعي الصوت ثم اختاري",
+          "emoji": "🔤"
+        },
+        {
+          "prompt": "كيف نقرأ دِ؟",
+          "options": [
+            "دا",
+            "دو",
+            "دي"
+          ],
+          "answerIndex": 2,
+          "hint": "اسمعي الصوت ثم اختاري",
+          "emoji": "🔤"
+        }
+      ]
+    },
+    {
+      "id": "w15_syll_3",
+      "title": "مقاطع حرف الكاف 🔤",
+      "emoji": "🔤",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أقرأ حرف الكاف مع الحركات",
+      "learned": "أقرأ كا وكو وكي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 15"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "الكاف مع الفتحة: كَ تُقرأ كا",
+          "say": "الكاف مع الفتحة: كَ تُقرأ كا"
+        },
+        {
+          "emoji": "🔤",
+          "text": "الكاف مع الضمة: كُ تُقرأ كو",
+          "say": "الكاف مع الضمة: كُ تُقرأ كو"
+        },
+        {
+          "emoji": "🔤",
+          "text": "الكاف مع الكسرة: كِ تُقرأ كي",
+          "say": "الكاف مع الكسرة: كِ تُقرأ كي"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "كيف نقرأ كَ؟",
+          "options": [
+            "كا",
+            "كو",
+            "كي"
+          ],
+          "answerIndex": 0,
+          "hint": "اسمعي الصوت ثم اختاري",
+          "emoji": "🔤"
+        },
+        {
+          "prompt": "كيف نقرأ كُ؟",
+          "options": [
+            "كا",
+            "كو",
+            "كي"
+          ],
+          "answerIndex": 1,
+          "hint": "اسمعي الصوت ثم اختاري",
+          "emoji": "🔤"
+        },
+        {
+          "prompt": "كيف نقرأ كِ؟",
+          "options": [
+            "كا",
+            "كو",
+            "كي"
+          ],
+          "answerIndex": 2,
+          "hint": "اسمعي الصوت ثم اختاري",
+          "emoji": "🔤"
+        }
+      ]
+    },
+    {
+      "id": "w15_compare",
+      "title": "الأكبر والأصغر ⚖️",
+      "emoji": "⚖️",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أقارن بين الأعداد",
+      "learned": "أعرف الأكبر والأصغر.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 15"
+      },
+      "steps": [
+        {
+          "emoji": "⚖️",
+          "text": "نقارن بين الأعداد: الأكبر والأصغر.",
+          "say": "نقارن بين الأعداد: الأكبر والأصغر."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أيهما أكبر؟",
+          "options": [
+            "15",
+            "9"
+          ],
+          "answerIndex": 0,
+          "hint": "الأكبر عددًا",
+          "emoji": "🔢"
+        },
+        {
+          "prompt": "أيهما أصغر؟",
+          "options": [
+            "15",
+            "9"
+          ],
+          "answerIndex": 1,
+          "hint": "الأصغر عددًا",
+          "emoji": "🔢"
+        },
+        {
+          "prompt": "أيهما أكبر؟",
+          "options": [
+            "12",
+            "18"
+          ],
+          "answerIndex": 1,
+          "hint": "الأكبر عددًا",
+          "emoji": "🔢"
+        },
+        {
+          "prompt": "أيهما أصغر؟",
+          "options": [
+            "12",
+            "18"
+          ],
+          "answerIndex": 0,
+          "hint": "الأصغر عددًا",
+          "emoji": "🔢"
+        }
+      ]
+    },
+    {
+      "id": "w15_sub",
+      "title": "نطرح حتى 15 ➖",
+      "emoji": "➖",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أطرح حتى 5",
+      "learned": "أطرح عددًا صغيرًا من عدد.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 15"
+      },
+      "steps": [
+        {
+          "emoji": "➖",
+          "text": "15 - 6 = 9",
+          "say": "15 - 6 = 9"
+        },
+        {
+          "emoji": "➖",
+          "text": "14 - 7 = 7",
+          "say": "14 - 7 = 7"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "15 - 6 = ؟",
+          "options": [
+            "9",
+            "10",
+            "11"
+          ],
+          "answerIndex": 0,
+          "hint": "عدّي للخلف على أصابعك",
+          "emoji": "➖"
+        },
+        {
+          "prompt": "14 - 7 = ؟",
+          "options": [
+            "8",
+            "7",
+            "9"
+          ],
+          "answerIndex": 1,
+          "hint": "عدّي للخلف على أصابعك",
+          "emoji": "➖"
+        },
+        {
+          "prompt": "13 - 5 = ؟",
+          "options": [
+            "9",
+            "10",
+            "8"
+          ],
+          "answerIndex": 2,
+          "hint": "عدّي للخلف على أصابعك",
+          "emoji": "➖"
+        }
+      ]
+    },
+    {
+      "id": "w15_english",
+      "title": "House 🏠",
+      "emoji": "🏠",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أتعلم كلمات إنجليزية جديدة",
+      "learned": "مثل: Door = باب.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 15"
+      },
+      "steps": [
+        {
+          "emoji": "🚪",
+          "text": "Door = باب",
+          "say": "Door = باب"
+        },
+        {
+          "emoji": "🪟",
+          "text": "Window = نافذة",
+          "say": "Window = نافذة"
+        },
+        {
+          "emoji": "🛏️",
+          "text": "Bed = سرير",
+          "say": "Bed = سرير"
+        },
+        {
+          "emoji": "🪑",
+          "text": "Chair = كرسي",
+          "say": "Chair = كرسي"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تعني Door؟",
+          "options": [
+            "باب",
+            "نافذة",
+            "سرير"
+          ],
+          "answerIndex": 0,
+          "hint": "تذكّري الصورة",
+          "emoji": "🚪"
+        },
+        {
+          "prompt": "ماذا تعني Window؟",
+          "options": [
+            "باب",
+            "نافذة",
+            "سرير"
+          ],
+          "answerIndex": 1,
+          "hint": "تذكّري الصورة",
+          "emoji": "🪟"
+        },
+        {
+          "prompt": "ماذا تعني Bed؟",
+          "options": [
+            "باب",
+            "نافذة",
+            "سرير"
+          ],
+          "answerIndex": 2,
+          "hint": "تذكّري الصورة",
+          "emoji": "🛏️"
+        }
+      ]
+    },
+    {
+      "id": "w15_salah",
+      "title": "كيف نصلي؟ 🕌",
+      "emoji": "🕌",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف بعض حركات الصلاة",
+      "learned": "الصلاة فيها قيام وركوع وسجود وجلوس وسلام.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 15"
+      },
+      "steps": [
+        {
+          "emoji": "🧍",
+          "text": "نقف للصلاة.",
+          "say": "نقف للصلاة."
+        },
+        {
+          "emoji": "🙇",
+          "text": "ثم نركع.",
+          "say": "ثم نركع."
+        },
+        {
+          "emoji": "🧎",
+          "text": "ثم نسجد.",
+          "say": "ثم نسجد."
+        },
+        {
+          "emoji": "🪑",
+          "text": "ثم نجلس.",
+          "say": "ثم نجلس."
+        },
+        {
+          "emoji": "👋",
+          "text": "وننهي الصلاة بالسلام.",
+          "say": "وننهي الصلاة بالسلام."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أي حركة نضع فيها جبهتنا على الأرض؟",
+          "options": [
+            "السجود 🧎",
+            "الركوع 🙇",
+            "السلام 👋"
+          ],
+          "answerIndex": 0,
+          "hint": "نقترب من الأرض",
+          "emoji": "🕌"
+        },
+        {
+          "prompt": "بماذا ننهي الصلاة؟",
+          "options": [
+            "الركوع 🙇",
+            "السلام 👋",
+            "السجود 🧎"
+          ],
+          "answerIndex": 1,
+          "hint": "تحية جميلة",
+          "emoji": "🕌"
+        }
+      ]
+    },
+    {
+      "id": "w15_order_salah",
+      "title": "أرتّب حركات الصلاة 🕌",
+      "emoji": "🕌",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أرتّب حركات الصلاة",
+      "learned": "قيام ثم ركوع ثم سجود ثم جلوس ثم سلام.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 15"
+      },
+      "steps": [
+        {
+          "emoji": "🕌",
+          "text": "للصلاة حركات مرتبة.",
+          "say": "للصلاة حركات مرتبة."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "رتّبي حركات الصلاة",
+          "options": [
+            "🧍 نقف",
+            "🙇 نركع",
+            "🧎 نسجد",
+            "🪑 نجلس",
+            "👋 نسلّم"
+          ],
+          "answerIndex": 0,
+          "hint": "نبدأ بالوقوف",
+          "kind": "order",
+          "emoji": "🕌",
+          "praise": "أحسنتِ! رتّبتِ كل شيء."
+        }
+      ]
+    },
+    {
+      "id": "w15_listen",
+      "title": "أستمع للقرآن 🎧",
+      "emoji": "🎧",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أتعرّف على السور من تلاوتها",
+      "learned": "أتعرّف على بعض السور من صوتها.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 15"
+      },
+      "steps": [
+        {
+          "emoji": "🎧",
+          "text": "استمعي لتلاوة سورة العصر 🎧",
+          "recite": [
+            103,
+            1
+          ],
+          "say": "استمعي لتلاوة سورة العصر 🎧"
+        },
+        {
+          "emoji": "🎧",
+          "text": "استمعي لتلاوة سورة النصر 🎧",
+          "recite": [
+            110,
+            1
+          ],
+          "say": "استمعي لتلاوة سورة النصر 🎧"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "استمعي ثم اختاري: أي سورة سمعتِ؟",
+          "options": [
+            "العصر",
+            "قريش",
+            "النصر"
+          ],
+          "answerIndex": 0,
+          "hint": "اضغطي على 🎧 لتسمعي مرة أخرى",
+          "emoji": "🎧",
+          "recite": [
+            103,
+            1
+          ]
+        },
+        {
+          "prompt": "استمعي ثم اختاري: أي سورة سمعتِ؟",
+          "options": [
+            "العصر",
+            "النصر",
+            "الناس"
+          ],
+          "answerIndex": 1,
+          "hint": "اضغطي على 🎧 لتسمعي مرة أخرى",
+          "emoji": "🎧",
+          "recite": [
+            110,
+            1
+          ]
+        },
+        {
+          "prompt": "كم آية في سورة العصر؟",
+          "options": [
+            "4",
+            "3",
+            "5"
+          ],
+          "answerIndex": 1,
+          "hint": "عدّي الآيات التي سمعتِ",
+          "emoji": "📖"
+        }
+      ]
+    },
+    {
+      "id": "w15_plants",
+      "title": "أجزاء النبات 🌿",
+      "emoji": "🌿",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف أجزاء النبات",
+      "learned": "للنبات جذور وساق وأوراق.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 15"
+      },
+      "steps": [
+        {
+          "emoji": "🌱",
+          "text": "للنبات جذور تدخل التراب.",
+          "say": "للنبات جذور تدخل التراب."
+        },
+        {
+          "emoji": "🌿",
+          "text": "وله ساق وأوراق خضراء.",
+          "say": "وله ساق وأوراق خضراء."
+        },
+        {
+          "emoji": "🌸",
+          "text": "وبعضها له زهرة جميلة.",
+          "say": "وبعضها له زهرة جميلة."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أين تدخل الجذور؟",
+          "options": [
+            "في التراب 🌱",
+            "في الهواء",
+            "في السماء"
+          ],
+          "answerIndex": 0,
+          "hint": "تحت الأرض",
+          "emoji": "🌿"
+        },
+        {
+          "prompt": "ما لون الأوراق؟",
+          "options": [
+            "أزرق 🔵",
+            "أخضر 🟢",
+            "أحمر 🔴"
+          ],
+          "answerIndex": 1,
+          "hint": "لون الأشجار",
+          "emoji": "🌿"
+        }
+      ]
+    },
+    {
+      "id": "w15_review_game",
+      "title": "لعبة الأسبوع 🎮",
+      "emoji": "🎮",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أراجع ما تعلمته",
+      "learned": "أنا أتعلم وألعب!",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 15"
+      },
+      "steps": [
+        {
+          "emoji": "🎮",
+          "text": "هيا نلعب بما تعلمناه!",
+          "say": "هيا نلعب بما تعلمناه!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "بماذا ننهي الصلاة؟",
+          "options": [
+            "السلام 👋",
+            "السجود 🧎"
+          ],
+          "answerIndex": 0,
+          "hint": "تحية جميلة",
+          "emoji": "🕌"
+        },
+        {
+          "prompt": "كيف نقرأ سُ؟",
+          "options": [
+            "سا",
+            "سو",
+            "سي"
+          ],
+          "answerIndex": 1,
+          "hint": "ضمة",
+          "emoji": "🔤"
+        },
+        {
+          "prompt": "ماذا تعني Door؟",
+          "options": [
+            "نافذة",
+            "كرسي",
+            "باب"
+          ],
+          "answerIndex": 2,
+          "hint": "🚪",
+          "emoji": "🚪"
+        },
+        {
+          "prompt": "نسخر من صديقتنا؟",
+          "options": [
+            "لا، نساعدها 🤝",
+            "نعم"
+          ],
+          "answerIndex": 0,
+          "hint": "نحترم الجميع",
+          "emoji": "🤝"
+        }
+      ]
+    },
+    {
+      "id": "w15_pattern",
+      "title": "ما التالي؟ 🔴🔵",
+      "emoji": "🧩",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أكمل النمط",
+      "learned": "الأنماط تتكرر.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 15"
+      },
+      "steps": [
+        {
+          "emoji": "🧩",
+          "text": "الأنماط تتكرر: 🔴🔵🔴🔵",
+          "say": "الأنماط تتكرر: 🔴🔵🔴🔵"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🔴🔵🔴🔵🔴 ؟",
+          "options": [
+            "🔵",
+            "🔴",
+            "🟢"
+          ],
+          "answerIndex": 0,
+          "hint": "الأحمر ثم الأزرق ثم الأحمر…",
+          "emoji": "🧩"
+        },
+        {
+          "prompt": "⭐🌙⭐🌙⭐ ؟",
+          "options": [
+            "⭐",
+            "🌙",
+            "☀️"
+          ],
+          "answerIndex": 1,
+          "hint": "نجمة ثم قمر ثم نجمة…",
+          "emoji": "🧩"
+        }
+      ]
+    }
+  ]
+}

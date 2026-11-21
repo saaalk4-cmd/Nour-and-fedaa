@@ -1,0 +1,351 @@
+{
+  "schema": 1,
+  "lessons": [
+    {
+      "id": "w15e_weather",
+      "title": "الطقس ☀️",
+      "emoji": "☀️",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 15 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "☀️",
+          "text": "الشمس",
+          "say": "الشمس"
+        },
+        {
+          "emoji": "🌧️",
+          "text": "المطر",
+          "say": "المطر"
+        },
+        {
+          "emoji": "☁️",
+          "text": "السحاب",
+          "say": "السحاب"
+        },
+        {
+          "emoji": "🌈",
+          "text": "قوس قزح",
+          "say": "قوس قزح"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الشمس؟",
+          "options": [
+            "☀️",
+            "🌧️",
+            "☁️"
+          ],
+          "answerIndex": 0,
+          "hint": "الشمس",
+          "emoji": "☀️",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين قوس قزح؟",
+          "options": [
+            "☀️",
+            "🌈",
+            "🌧️"
+          ],
+          "answerIndex": 1,
+          "hint": "قوس قزح",
+          "emoji": "🌈",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين المطر؟",
+          "options": [
+            "☀️",
+            "☁️",
+            "🌧️"
+          ],
+          "answerIndex": 2,
+          "hint": "المطر",
+          "emoji": "🌧️",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w15e_nature",
+      "title": "الطبيعة 🌳",
+      "emoji": "🌳",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 15 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🌳",
+          "text": "الشجرة",
+          "say": "الشجرة"
+        },
+        {
+          "emoji": "🌸",
+          "text": "الزهرة",
+          "say": "الزهرة"
+        },
+        {
+          "emoji": "⛰️",
+          "text": "الجبل",
+          "say": "الجبل"
+        },
+        {
+          "emoji": "🌊",
+          "text": "البحر",
+          "say": "البحر"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الشجرة؟",
+          "options": [
+            "🌳",
+            "🌸",
+            "⛰️"
+          ],
+          "answerIndex": 0,
+          "hint": "الشجرة",
+          "emoji": "🌳",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين البحر؟",
+          "options": [
+            "🌳",
+            "🌊",
+            "🌸"
+          ],
+          "answerIndex": 1,
+          "hint": "البحر",
+          "emoji": "🌊",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الزهرة؟",
+          "options": [
+            "🌳",
+            "⛰️",
+            "🌸"
+          ],
+          "answerIndex": 2,
+          "hint": "الزهرة",
+          "emoji": "🌸",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w15e_count_stars",
+      "title": "نعدّ النجوم ⭐",
+      "emoji": "⭐",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعدّ أشياء صغيرة",
+      "learned": "أعدّ بأصابعي وأعرف العدد.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 15 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "⭐⭐⭐⭐",
+          "text": "4",
+          "say": "واحدة، اثنتان، ثلاث، أربع نجوم"
+        },
+        {
+          "emoji": "⭐⭐⭐⭐⭐⭐",
+          "text": "6",
+          "say": "واحدة، اثنتان، ثلاث، أربع، خمس، ست نجوم"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "⭐⭐⭐⭐",
+          "say": "اضغطي على أربع نجوم",
+          "options": [
+            "⭐⭐⭐⭐",
+            "⭐⭐⭐",
+            "⭐⭐⭐⭐⭐"
+          ],
+          "answerIndex": 0,
+          "hint": "أربع",
+          "emoji": "⭐",
+          "praise": "أحسنتِ! عددتِ صح."
+        },
+        {
+          "prompt": "⭐⭐⭐⭐⭐⭐",
+          "say": "اضغطي على ست نجوم",
+          "options": [
+            "⭐⭐⭐⭐⭐",
+            "⭐⭐⭐⭐⭐⭐",
+            "⭐⭐⭐⭐⭐⭐⭐"
+          ],
+          "answerIndex": 1,
+          "hint": "ست",
+          "emoji": "⭐",
+          "praise": "أحسنتِ! عددتِ صح."
+        },
+        {
+          "prompt": "⭐⭐⭐⭐⭐⭐⭐",
+          "say": "اضغطي على سبع نجوم",
+          "options": [
+            "⭐⭐⭐⭐⭐⭐",
+            "⭐⭐⭐⭐⭐⭐⭐⭐",
+            "⭐⭐⭐⭐⭐⭐⭐"
+          ],
+          "answerIndex": 2,
+          "hint": "سبع",
+          "emoji": "⭐",
+          "praise": "أحسنتِ! عددتِ صح."
+        }
+      ]
+    },
+    {
+      "id": "w15e_clean_place",
+      "title": "أحافظ على نظافة المكان 🗑️",
+      "emoji": "🗑️",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أحافظ على نظافة المكان",
+      "learned": "أحافظ على نظافة المكان.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 15 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🍬",
+          "text": "انتهيت من الحلوى",
+          "say": "انتهيت من الحلوى"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🍬 ؟",
+          "say": "أين نرمي الغلاف؟ في سلة القمامة، أم في الأرض؟",
+          "options": [
+            "🌍",
+            "🗑️"
+          ],
+          "answerIndex": 1,
+          "hint": "أحافظ على نظافة المكان",
+          "emoji": "🗑️",
+          "praise": "أحسنتِ! المكان النظيف جميل."
+        }
+      ]
+    },
+    {
+      "id": "w15e_cat",
+      "title": "أرفق بالقطة 🐱",
+      "emoji": "🐱",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أرفق بالقطة",
+      "learned": "أرفق بالقطة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 15 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🐱",
+          "text": "قطة جائعة",
+          "say": "قطة جائعة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🐱 ؟",
+          "say": "ماذا نفعل؟ نعطيها طعامًا، أم نبعدها؟",
+          "options": [
+            "🥛",
+            "🙈"
+          ],
+          "answerIndex": 0,
+          "hint": "أرفق بالقطة",
+          "emoji": "🥛",
+          "praise": "أحسنتِ! الرفق جميل."
+        }
+      ]
+    },
+    {
+      "id": "w15e_review_game",
+      "title": "لعبة الأسبوع 🎮",
+      "emoji": "🎮",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أراجع ما تعلمته",
+      "learned": "أنا أتعلم وألعب!",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 15 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🎮",
+          "text": "هيا نلعب",
+          "say": "هيا نلعب بما تعلمنا!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الشمس؟",
+          "options": [
+            "☀️",
+            "🌧️",
+            "☁️"
+          ],
+          "answerIndex": 0,
+          "hint": "الشمس",
+          "emoji": "☀️",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الشجرة؟",
+          "options": [
+            "🌸",
+            "🌳",
+            "⛰️"
+          ],
+          "answerIndex": 1,
+          "hint": "الشجرة",
+          "emoji": "🌳",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    }
+  ]
+}

@@ -28,3 +28,14 @@ secrets.*
 
 # OS
 .DS_Store
+
+# تلاوة القرآن تُنزَّل في CI (tools/fetch_quran_audio.py)
+assets/audio/quran/*.mp3
+__pycache__/
+assets/fonts/
+
+# أصوات عالية الجودة تُولَّد في CI (tools/build_voice.py)
+assets/audio/voice/*.mp3
+assets/audio/voice/index.json
+assets/audio/voice/_sources.json
+assets/audio/voice/_voice.txt

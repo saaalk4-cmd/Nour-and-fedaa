@@ -1,0 +1,358 @@
+{
+  "schema": 1,
+  "lessons": [
+    {
+      "id": "w11e_shapes",
+      "title": "أشكال حولنا ⭕",
+      "emoji": "⭕",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 11 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "⭕",
+          "text": "الدائرة",
+          "say": "الدائرة"
+        },
+        {
+          "emoji": "🟦",
+          "text": "المربع",
+          "say": "المربع"
+        },
+        {
+          "emoji": "🔺",
+          "text": "المثلث",
+          "say": "المثلث"
+        },
+        {
+          "emoji": "⭐",
+          "text": "النجمة",
+          "say": "النجمة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الدائرة؟",
+          "options": [
+            "⭕",
+            "🟦",
+            "🔺"
+          ],
+          "answerIndex": 0,
+          "hint": "الدائرة",
+          "emoji": "⭕",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين النجمة؟",
+          "options": [
+            "⭕",
+            "⭐",
+            "🟦"
+          ],
+          "answerIndex": 1,
+          "hint": "النجمة",
+          "emoji": "⭐",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين المربع؟",
+          "options": [
+            "⭕",
+            "🔺",
+            "🟦"
+          ],
+          "answerIndex": 2,
+          "hint": "المربع",
+          "emoji": "🟦",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w11e_veg",
+      "title": "خضار الحديقة 🥕",
+      "emoji": "🥕",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 11 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🥕",
+          "text": "الجزر",
+          "say": "الجزر"
+        },
+        {
+          "emoji": "🍅",
+          "text": "الطماطم",
+          "say": "الطماطم"
+        },
+        {
+          "emoji": "🥒",
+          "text": "الخيار",
+          "say": "الخيار"
+        },
+        {
+          "emoji": "🥔",
+          "text": "البطاطس",
+          "say": "البطاطس"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الجزر؟",
+          "options": [
+            "🥕",
+            "🍅",
+            "🥒"
+          ],
+          "answerIndex": 0,
+          "hint": "الجزر",
+          "emoji": "🥕",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين البطاطس؟",
+          "options": [
+            "🥕",
+            "🥔",
+            "🍅"
+          ],
+          "answerIndex": 1,
+          "hint": "البطاطس",
+          "emoji": "🥔",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الطماطم؟",
+          "options": [
+            "🥕",
+            "🥒",
+            "🍅"
+          ],
+          "answerIndex": 2,
+          "hint": "الطماطم",
+          "emoji": "🍅",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w11e_big_small",
+      "title": "كبير وصغير 🐘",
+      "emoji": "🐘",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف الأضداد",
+      "learned": "أعرف الكبير والصغير وأمثالهما.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 11 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🐘",
+          "text": "كبير",
+          "say": "كبير"
+        },
+        {
+          "emoji": "🐭",
+          "text": "صغير",
+          "say": "صغير"
+        },
+        {
+          "emoji": "🔥",
+          "text": "ساخن",
+          "say": "ساخن"
+        },
+        {
+          "emoji": "🧊",
+          "text": "بارد",
+          "say": "بارد"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين كبير؟",
+          "options": [
+            "🐘",
+            "🐭"
+          ],
+          "answerIndex": 0,
+          "hint": "كبير",
+          "emoji": "🐘",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين صغير؟",
+          "options": [
+            "🐘",
+            "🐭"
+          ],
+          "answerIndex": 1,
+          "hint": "صغير",
+          "emoji": "🐭",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين ساخن؟",
+          "options": [
+            "🔥",
+            "🧊"
+          ],
+          "answerIndex": 0,
+          "hint": "ساخن",
+          "emoji": "🔥",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w11e_wash",
+      "title": "أغسل يدي 🧼",
+      "emoji": "🧼",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أغسل يدي",
+      "learned": "أغسل يدي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 11 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🍽️",
+          "text": "سنأكل",
+          "say": "سنأكل"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🍽️ ؟",
+          "say": "قبل الأكل ماذا نفعل؟ نغسل أيدينا، أم نأكل مباشرة؟",
+          "options": [
+            "🍽️",
+            "🧼"
+          ],
+          "answerIndex": 1,
+          "hint": "أغسل يدي",
+          "emoji": "🧼",
+          "praise": "أحسنتِ! النظافة جميلة."
+        }
+      ]
+    },
+    {
+      "id": "w11e_tidy",
+      "title": "أرتّب ألعابي 🧺",
+      "emoji": "🧺",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أرتّب ألعابي",
+      "learned": "أرتّب ألعابي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 11 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🧺",
+          "text": "الألعاب مبعثرة",
+          "say": "الألعاب مبعثرة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🧺 ؟",
+          "say": "ماذا نفعل؟ نرتّب الألعاب، أم نتركها؟",
+          "options": [
+            "🧺",
+            "🌀"
+          ],
+          "answerIndex": 0,
+          "hint": "أرتّب ألعابي",
+          "emoji": "🧺",
+          "praise": "أحسنتِ! الترتيب جميل."
+        }
+      ]
+    },
+    {
+      "id": "w11e_review_game",
+      "title": "لعبة الأسبوع 🎮",
+      "emoji": "🎮",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أراجع ما تعلمته",
+      "learned": "أنا أتعلم وألعب!",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 11 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🎮",
+          "text": "هيا نلعب",
+          "say": "هيا نلعب بما تعلمنا!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الدائرة؟",
+          "options": [
+            "⭕",
+            "🟦",
+            "🔺"
+          ],
+          "answerIndex": 0,
+          "hint": "الدائرة",
+          "emoji": "⭕",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الجزر؟",
+          "options": [
+            "🍅",
+            "🥕",
+            "🥒"
+          ],
+          "answerIndex": 1,
+          "hint": "الجزر",
+          "emoji": "🥕",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,830 @@
+{
+  "schema": 1,
+  "lessons": [
+    {
+      "id": "w19_s1",
+      "title": "أطيع أمي بحب 💛",
+      "emoji": "💛",
+      "category": "akhlaq",
+      "minAge": 4,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أساعد أمي بحب.",
+      "learned": "أساعد أمي بحب.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 19"
+      },
+      "steps": [
+        {
+          "emoji": "💛",
+          "text": "طلبت أم سلمى منها أن تساعدها في ترتيب المائدة.",
+          "say": "طلبت أم سلمى منها أن تساعدها في ترتيب المائدة."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تفعل؟",
+          "options": [
+            "تتركها وتلعب",
+            "تساعدها بسرور 💛"
+          ],
+          "answerIndex": 1,
+          "hint": "نحب أهلنا ونساعدهم 🌸",
+          "praise": "أحسنتِ! بر الوالدين جميل.",
+          "emoji": "💛"
+        }
+      ]
+    },
+    {
+      "id": "w19_s2",
+      "title": "أسامح صديقتي 💛",
+      "emoji": "💛",
+      "category": "akhlaq",
+      "minAge": 4,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أسامح من يعتذر.",
+      "learned": "أسامح من يعتذر.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 19"
+      },
+      "steps": [
+        {
+          "emoji": "💛",
+          "text": "اعتذرت صديقة سلمى لأنها أخذت قلمها.",
+          "say": "اعتذرت صديقة سلمى لأنها أخذت قلمها."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تفعل سلمى؟",
+          "options": [
+            "تسامحها 💛",
+            "تغضب وتبتعد"
+          ],
+          "answerIndex": 0,
+          "hint": "المسامحة تفرّح القلب 🌸",
+          "praise": "أحسنتِ! المسامحة جميلة.",
+          "emoji": "💛"
+        }
+      ]
+    },
+    {
+      "id": "w19_read_1",
+      "title": "أقرأ كلمات أطول 📚",
+      "emoji": "📚",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أقرأ كلمة وأختار صورتها",
+      "learned": "أقرأ كلمات قصيرة وأعرف معناها.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 19"
+      },
+      "steps": [
+        {
+          "emoji": "🐔",
+          "text": "دَجَاجَة",
+          "say": "دَجَاجَة"
+        },
+        {
+          "emoji": "🚲",
+          "text": "دَرَّاجَة",
+          "say": "دَرَّاجَة"
+        },
+        {
+          "emoji": "🔑",
+          "text": "مِفْتَاح",
+          "say": "مِفْتَاح"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ما الكلمة المناسبة للصورة؟",
+          "options": [
+            "دَجَاجَة",
+            "حِصَان",
+            "كَلْب"
+          ],
+          "answerIndex": 0,
+          "hint": "اسمعي الكلمة ثم اختاري",
+          "emoji": "🐔"
+        },
+        {
+          "prompt": "ما الكلمة المناسبة للصورة؟",
+          "options": [
+            "بَيْت",
+            "دَرَّاجَة",
+            "كِتَاب"
+          ],
+          "answerIndex": 1,
+          "hint": "اسمعي الكلمة ثم اختاري",
+          "emoji": "🚲"
+        },
+        {
+          "prompt": "ما الكلمة المناسبة للصورة؟",
+          "options": [
+            "هَاتِف",
+            "وَرْدَة",
+            "مِفْتَاح"
+          ],
+          "answerIndex": 2,
+          "hint": "اسمعي الكلمة ثم اختاري",
+          "emoji": "🔑"
+        },
+        {
+          "prompt": "ما الكلمة المناسبة للصورة؟",
+          "options": [
+            "نَافِذَة",
+            "تُفَّاحَة",
+            "سَاعَة"
+          ],
+          "answerIndex": 0,
+          "hint": "اسمعي الكلمة ثم اختاري",
+          "emoji": "🪟"
+        }
+      ]
+    },
+    {
+      "id": "w19_letter_1",
+      "title": "الحرف الأول 🔠",
+      "emoji": "🔠",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أختار الحرف الأول",
+      "learned": "أعرف بأي حرف تبدأ الكلمة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 19"
+      },
+      "steps": [
+        {
+          "emoji": "🐘",
+          "text": "فِيل تبدأ بحرف ف",
+          "say": "فِيل تبدأ بحرف ف"
+        },
+        {
+          "emoji": "🐴",
+          "text": "حِصَان تبدأ بحرف ح",
+          "say": "حِصَان تبدأ بحرف ح"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "بأي حرف تبدأ كلمة 🐘؟",
+          "options": [
+            "ت",
+            "ج",
+            "ف"
+          ],
+          "answerIndex": 2,
+          "hint": "انطقي الكلمة ببطء",
+          "emoji": "🐘"
+        },
+        {
+          "prompt": "بأي حرف تبدأ كلمة 🐴؟",
+          "options": [
+            "ح",
+            "ق",
+            "ج"
+          ],
+          "answerIndex": 0,
+          "hint": "انطقي الكلمة ببطء",
+          "emoji": "🐴"
+        },
+        {
+          "prompt": "بأي حرف تبدأ كلمة 🍇؟",
+          "options": [
+            "ك",
+            "ع",
+            "ل"
+          ],
+          "answerIndex": 1,
+          "hint": "انطقي الكلمة ببطء",
+          "emoji": "🍇"
+        },
+        {
+          "prompt": "بأي حرف تبدأ كلمة 🐶؟",
+          "options": [
+            "ل",
+            "ي",
+            "ك"
+          ],
+          "answerIndex": 2,
+          "hint": "انطقي الكلمة ببطء",
+          "emoji": "🐶"
+        }
+      ]
+    },
+    {
+      "id": "w19_build",
+      "title": "أكوّن كلمة 🧩",
+      "emoji": "🧩",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أكوّن كلمات بسيطة",
+      "learned": "أجمع الحروف لأكوّن كلمة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 19"
+      },
+      "steps": [
+        {
+          "emoji": "🧩",
+          "text": "نجمع الحروف لنصنع كلمة.",
+          "say": "نجمع الحروف لنصنع كلمة."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "رتّبي الحروف لتكوني كلمة 🐪",
+          "options": [
+            "ج",
+            "م",
+            "ل"
+          ],
+          "answerIndex": 0,
+          "hint": "ابدئي بأول صوت في الكلمة",
+          "kind": "order",
+          "emoji": "🐪",
+          "praise": "أحسنتِ! كوّنتِ كلمة جمل."
+        },
+        {
+          "prompt": "رتّبي الحروف لتكوني كلمة 🐘",
+          "options": [
+            "ف",
+            "ي",
+            "ل"
+          ],
+          "answerIndex": 0,
+          "hint": "ابدئي بأول صوت في الكلمة",
+          "kind": "order",
+          "emoji": "🐘",
+          "praise": "أحسنتِ! كوّنتِ كلمة فيل."
+        },
+        {
+          "prompt": "رتّبي الحروف لتكوني كلمة 🏠",
+          "options": [
+            "ب",
+            "ي",
+            "ت"
+          ],
+          "answerIndex": 0,
+          "hint": "ابدئي بأول صوت في الكلمة",
+          "kind": "order",
+          "emoji": "🏠",
+          "praise": "أحسنتِ! كوّنتِ كلمة بيت."
+        }
+      ]
+    },
+    {
+      "id": "w19_stories",
+      "title": "قصص حساب 🧮",
+      "emoji": "🧮",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أحلّ مسائل صغيرة",
+      "learned": "أجمع وأطرح في قصص صغيرة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 19"
+      },
+      "steps": [
+        {
+          "emoji": "🧮",
+          "text": "نحلّ مسائل صغيرة بالصور.",
+          "say": "نحلّ مسائل صغيرة بالصور."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "مع سلمى 🍎🍎🍎🍎🍎 ثم أخذت 🍎🍎. كم بقي؟",
+          "options": [
+            "2",
+            "3",
+            "4"
+          ],
+          "answerIndex": 1,
+          "hint": "عدّي بالصور",
+          "emoji": "🧮"
+        },
+        {
+          "prompt": "عند سلمى 🌹🌹🌹 وأُعطيت 🌹🌹🌹🌹. كم صار؟",
+          "options": [
+            "6",
+            "8",
+            "7"
+          ],
+          "answerIndex": 2,
+          "hint": "عدّي بالصور",
+          "emoji": "🧮"
+        }
+      ]
+    },
+    {
+      "id": "w19_add",
+      "title": "نجمع بسرعة ➕",
+      "emoji": "➕",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أجمع حتى 5",
+      "learned": "أجمع عددين صغيرين.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 19"
+      },
+      "steps": [
+        {
+          "emoji": "➕",
+          "text": "14 + 5 = 19",
+          "say": "14 + 5 = 19"
+        },
+        {
+          "emoji": "➕",
+          "text": "10 + 9 = 19",
+          "say": "10 + 9 = 19"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "14 + 5 = ؟",
+          "options": [
+            "19",
+            "20",
+            "18"
+          ],
+          "answerIndex": 0,
+          "hint": "عدّي على أصابعك",
+          "emoji": "➕"
+        },
+        {
+          "prompt": "10 + 9 = ؟",
+          "options": [
+            "20",
+            "19",
+            "18"
+          ],
+          "answerIndex": 1,
+          "hint": "عدّي على أصابعك",
+          "emoji": "➕"
+        },
+        {
+          "prompt": "8 + 12 = ؟",
+          "options": [
+            "21",
+            "19",
+            "20"
+          ],
+          "answerIndex": 2,
+          "hint": "عدّي على أصابعك",
+          "emoji": "➕"
+        }
+      ]
+    },
+    {
+      "id": "w19_english",
+      "title": "Family 👪",
+      "emoji": "👪",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أتعلم كلمات إنجليزية جديدة",
+      "learned": "مثل: Mother = أم.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 19"
+      },
+      "steps": [
+        {
+          "emoji": "👩",
+          "text": "Mother = أم",
+          "say": "Mother = أم"
+        },
+        {
+          "emoji": "👨",
+          "text": "Father = أب",
+          "say": "Father = أب"
+        },
+        {
+          "emoji": "👦",
+          "text": "Brother = أخ",
+          "say": "Brother = أخ"
+        },
+        {
+          "emoji": "👧",
+          "text": "Sister = أخت",
+          "say": "Sister = أخت"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تعني Mother؟",
+          "options": [
+            "أم",
+            "أب",
+            "أخ"
+          ],
+          "answerIndex": 0,
+          "hint": "تذكّري الصورة",
+          "emoji": "👩"
+        },
+        {
+          "prompt": "ماذا تعني Father؟",
+          "options": [
+            "أم",
+            "أب",
+            "أخ"
+          ],
+          "answerIndex": 1,
+          "hint": "تذكّري الصورة",
+          "emoji": "👨"
+        },
+        {
+          "prompt": "ماذا تعني Brother؟",
+          "options": [
+            "أم",
+            "أب",
+            "أخ"
+          ],
+          "answerIndex": 2,
+          "hint": "تذكّري الصورة",
+          "emoji": "👦"
+        }
+      ]
+    },
+    {
+      "id": "w19_food",
+      "title": "غذاء صحي 🥕",
+      "emoji": "🥕",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف الغذاء الصحي",
+      "learned": "الخضار والفواكه والحليب تفيدنا.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 19"
+      },
+      "steps": [
+        {
+          "emoji": "🥕",
+          "text": "الخضار والفواكه تفيد جسمنا.",
+          "say": "الخضار والفواكه تفيد جسمنا."
+        },
+        {
+          "emoji": "🥛",
+          "text": "والحليب يقوّي العظام.",
+          "say": "والحليب يقوّي العظام."
+        },
+        {
+          "emoji": "🍬",
+          "text": "والحلوى نأكلها قليلًا.",
+          "say": "والحلوى نأكلها قليلًا."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ما الغذاء الصحي؟",
+          "options": [
+            "الحلوى فقط 🍬",
+            "الفواكه 🍎"
+          ],
+          "answerIndex": 1,
+          "hint": "من الأشجار",
+          "emoji": "🥕"
+        },
+        {
+          "prompt": "ماذا يقوّي العظام؟",
+          "options": [
+            "الحليب 🥛",
+            "الحلوى 🍬"
+          ],
+          "answerIndex": 0,
+          "hint": "أبيض",
+          "emoji": "🥕"
+        }
+      ]
+    },
+    {
+      "id": "w19_clean_mosque",
+      "title": "أنظّف مكاني 🧼",
+      "emoji": "🧼",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أحافظ على النظافة",
+      "learned": "النظافة جميلة في البيت والمسجد.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 19"
+      },
+      "steps": [
+        {
+          "emoji": "🧼",
+          "text": "نغسل أيدينا قبل الأكل.",
+          "say": "نغسل أيدينا قبل الأكل."
+        },
+        {
+          "emoji": "🗑️",
+          "text": "ونرمي الأوساخ في السلة.",
+          "say": "ونرمي الأوساخ في السلة."
+        },
+        {
+          "emoji": "🕌",
+          "text": "ونحافظ على نظافة المسجد والبيت.",
+          "say": "ونحافظ على نظافة المسجد والبيت."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "متى نغسل أيدينا؟",
+          "options": [
+            "بعد النوم فقط",
+            "قبل الأكل 🍽️"
+          ],
+          "answerIndex": 1,
+          "hint": "قبل أن نأكل",
+          "emoji": "🧼"
+        },
+        {
+          "prompt": "أين نرمي الأوساخ؟",
+          "options": [
+            "في السلة 🗑️",
+            "في الشارع"
+          ],
+          "answerIndex": 0,
+          "hint": "نحافظ على النظافة",
+          "emoji": "🧼"
+        }
+      ]
+    },
+    {
+      "id": "w19_listen",
+      "title": "أستمع للقرآن 🎧",
+      "emoji": "🎧",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أتعرّف على السور من تلاوتها",
+      "learned": "أتعرّف على بعض السور من صوتها.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 19"
+      },
+      "steps": [
+        {
+          "emoji": "🎧",
+          "text": "استمعي لتلاوة سورة قريش 🎧",
+          "recite": [
+            106,
+            1
+          ],
+          "say": "استمعي لتلاوة سورة قريش 🎧"
+        },
+        {
+          "emoji": "🎧",
+          "text": "استمعي لتلاوة سورة الكوثر 🎧",
+          "recite": [
+            108,
+            1
+          ],
+          "say": "استمعي لتلاوة سورة الكوثر 🎧"
+        },
+        {
+          "emoji": "🎧",
+          "text": "استمعي لتلاوة سورة الإخلاص 🎧",
+          "recite": [
+            112,
+            1
+          ],
+          "say": "استمعي لتلاوة سورة الإخلاص 🎧"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "استمعي ثم اختاري: أي سورة سمعتِ؟",
+          "options": [
+            "قريش",
+            "الكوثر",
+            "النصر"
+          ],
+          "answerIndex": 0,
+          "hint": "اضغطي على 🎧 لتسمعي مرة أخرى",
+          "emoji": "🎧",
+          "recite": [
+            106,
+            1
+          ]
+        },
+        {
+          "prompt": "استمعي ثم اختاري: أي سورة سمعتِ؟",
+          "options": [
+            "قريش",
+            "الكوثر",
+            "الفلق"
+          ],
+          "answerIndex": 1,
+          "hint": "اضغطي على 🎧 لتسمعي مرة أخرى",
+          "emoji": "🎧",
+          "recite": [
+            108,
+            1
+          ]
+        },
+        {
+          "prompt": "استمعي ثم اختاري: أي سورة سمعتِ؟",
+          "options": [
+            "النصر",
+            "الناس",
+            "الإخلاص"
+          ],
+          "answerIndex": 2,
+          "hint": "اضغطي على 🎧 لتسمعي مرة أخرى",
+          "emoji": "🎧",
+          "recite": [
+            112,
+            1
+          ]
+        },
+        {
+          "prompt": "كم آية في سورة قريش؟",
+          "options": [
+            "5",
+            "4",
+            "6"
+          ],
+          "answerIndex": 1,
+          "hint": "عدّي الآيات التي سمعتِ",
+          "emoji": "📖"
+        }
+      ]
+    },
+    {
+      "id": "w19_order_story",
+      "title": "أرتّب القصة 📖",
+      "emoji": "📖",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أرتّب أحداث قصة",
+      "learned": "الأحداث لها ترتيب.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 19"
+      },
+      "steps": [
+        {
+          "emoji": "📖",
+          "text": "للقصة بداية ووسط ونهاية.",
+          "say": "للقصة بداية ووسط ونهاية."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "رتّبي: زرعت سلمى بذرة",
+          "options": [
+            "🌰 وضعت البذرة في التراب",
+            "💧 سقتها بالماء",
+            "🌱 نبتت نبتة صغيرة",
+            "🌳 كبرت وصارت شجرة"
+          ],
+          "answerIndex": 0,
+          "hint": "نبدأ بالبذرة",
+          "kind": "order",
+          "emoji": "📖",
+          "praise": "أحسنتِ! رتّبتِ كل شيء."
+        }
+      ]
+    },
+    {
+      "id": "w19_review_game",
+      "title": "لعبة الأسبوع 🎮",
+      "emoji": "🎮",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أراجع ما تعلمته",
+      "learned": "أنا أتعلم وألعب!",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 19"
+      },
+      "steps": [
+        {
+          "emoji": "🎮",
+          "text": "هيا نلعب بما تعلمناه!",
+          "say": "هيا نلعب بما تعلمناه!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا نفعل لأمنا إذا طلبت المساعدة؟",
+          "options": [
+            "نساعدها 💛",
+            "نتجاهلها"
+          ],
+          "answerIndex": 0,
+          "hint": "نحبها",
+          "emoji": "💛"
+        },
+        {
+          "prompt": "بأي حرف تبدأ كلمة فِيل؟",
+          "options": [
+            "ق",
+            "ف",
+            "ك"
+          ],
+          "answerIndex": 1,
+          "hint": "فِ",
+          "emoji": "🐘"
+        },
+        {
+          "prompt": "ماذا تعني Brother؟",
+          "options": [
+            "أخت",
+            "أب",
+            "أخ"
+          ],
+          "answerIndex": 2,
+          "hint": "👦",
+          "emoji": "👦"
+        },
+        {
+          "prompt": "5 🍎 أُخذ منها 2، كم بقي؟",
+          "options": [
+            "3",
+            "2",
+            "4"
+          ],
+          "answerIndex": 0,
+          "hint": "اطرحي",
+          "emoji": "🍎"
+        }
+      ]
+    },
+    {
+      "id": "w19_pattern",
+      "title": "ما التالي؟ 🔴🔵",
+      "emoji": "🧩",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أكمل النمط",
+      "learned": "الأنماط تتكرر.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 19"
+      },
+      "steps": [
+        {
+          "emoji": "🧩",
+          "text": "الأنماط تتكرر: 🔴🔵🔴🔵",
+          "say": "الأنماط تتكرر: 🔴🔵🔴🔵"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🔴🔵🔴🔵🔴 ؟",
+          "options": [
+            "🔵",
+            "🔴",
+            "🟢"
+          ],
+          "answerIndex": 0,
+          "hint": "الأحمر ثم الأزرق ثم الأحمر…",
+          "emoji": "🧩"
+        },
+        {
+          "prompt": "⭐🌙⭐🌙⭐ ؟",
+          "options": [
+            "⭐",
+            "🌙",
+            "☀️"
+          ],
+          "answerIndex": 1,
+          "hint": "نجمة ثم قمر ثم نجمة…",
+          "emoji": "🧩"
+        }
+      ]
+    }
+  ]
+}

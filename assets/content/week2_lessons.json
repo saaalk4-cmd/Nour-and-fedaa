@@ -1,0 +1,661 @@
+{
+  "schema": 1,
+  "lessons": [
+    {
+      "id": "w2_help_mom",
+      "title": "أساعد ماما 🛍️",
+      "emoji": "🛍️",
+      "category": "akhlaq",
+      "minAge": 4,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أساعد أمي.",
+      "learned": "أساعد أمي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 2"
+      },
+      "steps": [
+        {
+          "emoji": "🛍️",
+          "text": "ماما تحمل أكياسًا ثقيلة."
+        },
+        {
+          "emoji": "🛍️",
+          "text": "سلمى ترى ماما متعبة."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تفعل سلمى؟",
+          "options": [
+            "تتجاهلها 🙈",
+            "تساعدها 🤝"
+          ],
+          "answerIndex": 1,
+          "hint": "ماما تحتاج مساعدة 🌸",
+          "praise": "أحسنتِ! مساعدة ماما جميلة.",
+          "emoji": "🛍️"
+        }
+      ]
+    },
+    {
+      "id": "w2_help_friend",
+      "title": "نلعب معًا 💛",
+      "emoji": "🧸",
+      "category": "akhlaq",
+      "minAge": 4,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أدعو من يجلس وحده للعب.",
+      "learned": "أدعو من يجلس وحده للعب.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 2"
+      },
+      "steps": [
+        {
+          "emoji": "🧸",
+          "text": "صديقة جديدة لا تجد من تلعب معها."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تفعل سلمى؟",
+          "options": [
+            "تدعوها للعب 💛",
+            "تتركها وحدها"
+          ],
+          "answerIndex": 0,
+          "hint": "الصديقة تحتاج صديقًا 🌸",
+          "praise": "أحسنتِ! نحب مساعدة الآخرين.",
+          "emoji": "🧸"
+        }
+      ]
+    },
+    {
+      "id": "w2_letter_1",
+      "title": "حرف الثاء 🦊",
+      "emoji": "🦊",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف حرف الثاء وصوته",
+      "learned": "حرف الثاء في أول: ثَعْلَب، ثَوْر، ثَلْج.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 2"
+      },
+      "steps": [
+        {
+          "emoji": "🦊",
+          "text": "ثَعْلَب — تبدأ بحرف الثاء."
+        },
+        {
+          "emoji": "🐂",
+          "text": "ثَوْر — تبدأ بحرف الثاء."
+        },
+        {
+          "emoji": "❄️",
+          "text": "ثَلْج — تبدأ بحرف الثاء."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أي كلمة تبدأ بحرف الثاء؟",
+          "options": [
+            "بَقَرَة",
+            "ثَعْلَب",
+            "تُفَّاحَة"
+          ],
+          "answerIndex": 1,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "🦊"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف الثاء؟",
+          "options": [
+            "جَبَل",
+            "حِصَان",
+            "ثَوْر"
+          ],
+          "answerIndex": 2,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "🐂"
+        }
+      ]
+    },
+    {
+      "id": "w2_letter_2",
+      "title": "حرف الجيم 🐪",
+      "emoji": "🐪",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف حرف الجيم وصوته",
+      "learned": "حرف الجيم في أول: جَمَل، جَزَر، جَبَل.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 2"
+      },
+      "steps": [
+        {
+          "emoji": "🐪",
+          "text": "جَمَل — تبدأ بحرف الجيم."
+        },
+        {
+          "emoji": "🥕",
+          "text": "جَزَر — تبدأ بحرف الجيم."
+        },
+        {
+          "emoji": "⛰️",
+          "text": "جَبَل — تبدأ بحرف الجيم."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أي كلمة تبدأ بحرف الجيم؟",
+          "options": [
+            "ثَعْلَب",
+            "ثَوْر",
+            "جَمَل"
+          ],
+          "answerIndex": 2,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "🐪"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف الجيم؟",
+          "options": [
+            "جَزَر",
+            "حُوت",
+            "خَرُوف"
+          ],
+          "answerIndex": 0,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "🥕"
+        }
+      ]
+    },
+    {
+      "id": "w2_letter_3",
+      "title": "حرف الحاء 🐴",
+      "emoji": "🐴",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف حرف الحاء وصوته",
+      "learned": "حرف الحاء في أول: حِصَان، حَلِيب، حُوت.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 2"
+      },
+      "steps": [
+        {
+          "emoji": "🐴",
+          "text": "حِصَان — تبدأ بحرف الحاء."
+        },
+        {
+          "emoji": "🥛",
+          "text": "حَلِيب — تبدأ بحرف الحاء."
+        },
+        {
+          "emoji": "🐋",
+          "text": "حُوت — تبدأ بحرف الحاء."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أي كلمة تبدأ بحرف الحاء؟",
+          "options": [
+            "حِصَان",
+            "جَمَل",
+            "جَزَر"
+          ],
+          "answerIndex": 0,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "🐴"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف الحاء؟",
+          "options": [
+            "خَوْخ",
+            "حَلِيب",
+            "دُبّ"
+          ],
+          "answerIndex": 1,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "🥛"
+        }
+      ]
+    },
+    {
+      "id": "w2_review_letters",
+      "title": "أراجع الحروف 🔤",
+      "emoji": "🔤",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أراجع حروف الأسبوع",
+      "learned": "أتذكّر حروفي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 2"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "هيا نراجع حروفنا!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أي كلمة تبدأ بحرف الثاء؟",
+          "options": [
+            "بَطَّة",
+            "بَقَرَة",
+            "ثَلْج"
+          ],
+          "answerIndex": 2,
+          "hint": "تذكّري الكلمات التي تعلمناها",
+          "emoji": "❄️"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف الجيم؟",
+          "options": [
+            "جَبَل",
+            "ثَعْلَب",
+            "ثَوْر"
+          ],
+          "answerIndex": 0,
+          "hint": "تذكّري الكلمات التي تعلمناها",
+          "emoji": "⛰️"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف الحاء؟",
+          "options": [
+            "جَزَر",
+            "حُوت",
+            "جَبَل"
+          ],
+          "answerIndex": 1,
+          "hint": "تذكّري الكلمات التي تعلمناها",
+          "emoji": "🐋"
+        }
+      ]
+    },
+    {
+      "id": "w2_count_6_7",
+      "title": "الأرقام 6 و 7 🎈",
+      "emoji": "🎈",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعدّ حتى 7",
+      "learned": "أعدّ حتى 7.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 2"
+      },
+      "steps": [
+        {
+          "emoji": "6️⃣",
+          "text": "ستة 🎈🎈🎈🎈🎈🎈"
+        },
+        {
+          "emoji": "7️⃣",
+          "text": "سبعة 🎈🎈🎈🎈🎈🎈🎈"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "كم بالونة؟ 🎈🎈🎈🎈🎈🎈",
+          "options": [
+            "6",
+            "5",
+            "7"
+          ],
+          "answerIndex": 0,
+          "hint": "عدّي ببطء بإصبعك",
+          "emoji": "🎈"
+        },
+        {
+          "prompt": "كم بالونة؟ 🎈🎈🎈🎈🎈🎈🎈",
+          "options": [
+            "6",
+            "7",
+            "8"
+          ],
+          "answerIndex": 1,
+          "hint": "عدّي ببطء بإصبعك",
+          "emoji": "🎈"
+        }
+      ]
+    },
+    {
+      "id": "w2_count_8",
+      "title": "الرقم 8 🐟",
+      "emoji": "🐟",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعدّ حتى 8",
+      "learned": "أعدّ حتى 8.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 2"
+      },
+      "steps": [
+        {
+          "emoji": "8️⃣",
+          "text": "ثمانية 🐟🐟🐟🐟🐟🐟🐟🐟"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "كم سمكة؟ 🐟🐟🐟🐟🐟🐟🐟🐟",
+          "options": [
+            "8",
+            "7",
+            "9"
+          ],
+          "answerIndex": 0,
+          "hint": "عدّي ببطء بإصبعك",
+          "emoji": "🐟"
+        }
+      ]
+    },
+    {
+      "id": "w2_count_9_10",
+      "title": "الأرقام 9 و 10 ⭐",
+      "emoji": "⭐",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعدّ حتى 10",
+      "learned": "أعدّ حتى 10.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 2"
+      },
+      "steps": [
+        {
+          "emoji": "9️⃣",
+          "text": "تسعة ⭐⭐⭐⭐⭐⭐⭐⭐⭐"
+        },
+        {
+          "emoji": "🔟",
+          "text": "عشرة ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "كم نجمة؟ ⭐⭐⭐⭐⭐⭐⭐⭐⭐",
+          "options": [
+            "9",
+            "8",
+            "10"
+          ],
+          "answerIndex": 0,
+          "hint": "عدّي ببطء بإصبعك",
+          "emoji": "⭐"
+        },
+        {
+          "prompt": "كم نجمة؟ ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐",
+          "options": [
+            "9",
+            "10",
+            "11"
+          ],
+          "answerIndex": 1,
+          "hint": "عدّي ببطء بإصبعك",
+          "emoji": "⭐"
+        }
+      ]
+    },
+    {
+      "id": "w2_water",
+      "title": "الماء 💧",
+      "emoji": "💧",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف فوائد الماء",
+      "learned": "الماء يعطينا الحياة والنظافة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 2"
+      },
+      "steps": [
+        {
+          "emoji": "💧",
+          "text": "الماء نشربه."
+        },
+        {
+          "emoji": "🚿",
+          "text": "نغسل أيدينا ونستحم بالماء."
+        },
+        {
+          "emoji": "🌱",
+          "text": "والنبات يحتاج إلى الماء ليكبر."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا نشرب؟",
+          "options": [
+            "ماء 💧",
+            "حجر 🪨",
+            "ورق 📄"
+          ],
+          "answerIndex": 0,
+          "hint": "نشربه عندما نعطش",
+          "emoji": "💧"
+        },
+        {
+          "prompt": "ماذا يحتاج النبات ليكبر؟",
+          "options": [
+            "حلوى 🍬",
+            "ماء 💧",
+            "لعبة 🧸"
+          ],
+          "answerIndex": 1,
+          "hint": "نسقيه كل يوم",
+          "emoji": "🌱"
+        }
+      ]
+    },
+    {
+      "id": "w2_english_numbers",
+      "title": "One Two Three 🔢",
+      "emoji": "🔢",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أتعلم كلمات إنجليزية جديدة",
+      "learned": "مثل: One = واحد.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 2"
+      },
+      "steps": [
+        {
+          "emoji": "1️⃣",
+          "text": "One = واحد"
+        },
+        {
+          "emoji": "2️⃣",
+          "text": "Two = اثنان"
+        },
+        {
+          "emoji": "3️⃣",
+          "text": "Three = ثلاثة"
+        },
+        {
+          "emoji": "4️⃣",
+          "text": "Four = أربعة"
+        },
+        {
+          "emoji": "5️⃣",
+          "text": "Five = خمسة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تعني One؟",
+          "options": [
+            "واحد",
+            "اثنان",
+            "ثلاثة"
+          ],
+          "answerIndex": 0,
+          "hint": "تذكّري الصورة",
+          "emoji": "1️⃣"
+        },
+        {
+          "prompt": "ماذا تعني Two؟",
+          "options": [
+            "واحد",
+            "اثنان",
+            "ثلاثة"
+          ],
+          "answerIndex": 1,
+          "hint": "تذكّري الصورة",
+          "emoji": "2️⃣"
+        },
+        {
+          "prompt": "ماذا تعني Three؟",
+          "options": [
+            "واحد",
+            "اثنان",
+            "ثلاثة"
+          ],
+          "answerIndex": 2,
+          "hint": "تذكّري الصورة",
+          "emoji": "3️⃣"
+        }
+      ]
+    },
+    {
+      "id": "w2_pattern",
+      "title": "ما التالي؟ 🔴🔵",
+      "emoji": "🧩",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أكمل النمط",
+      "learned": "الأنماط تتكرر.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 2"
+      },
+      "steps": [
+        {
+          "emoji": "🧩",
+          "text": "الأنماط تتكرر: 🔴🔵🔴🔵"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🔴🔵🔴🔵🔴 ؟",
+          "options": [
+            "🔵",
+            "🔴",
+            "🟢"
+          ],
+          "answerIndex": 0,
+          "hint": "الأحمر ثم الأزرق ثم الأحمر…",
+          "emoji": "🧩"
+        },
+        {
+          "prompt": "⭐🌙⭐🌙⭐ ؟",
+          "options": [
+            "⭐",
+            "🌙",
+            "☀️"
+          ],
+          "answerIndex": 1,
+          "hint": "نجمة ثم قمر ثم نجمة…",
+          "emoji": "🧩"
+        }
+      ]
+    },
+    {
+      "id": "w2_review_game",
+      "title": "لعبة الأسبوع 🎮",
+      "emoji": "🎮",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أراجع ما تعلمته",
+      "learned": "أنا أتعلم وألعب!",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 2"
+      },
+      "steps": [
+        {
+          "emoji": "🎮",
+          "text": "هيا نلعب بما تعلمناه هذا الأسبوع!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "كم بالونة؟ 🎈🎈🎈🎈🎈🎈🎈",
+          "options": [
+            "7",
+            "6",
+            "8"
+          ],
+          "answerIndex": 0,
+          "hint": "عدّي ببطء",
+          "emoji": "🎈"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف الجيم؟",
+          "options": [
+            "حِصَان",
+            "جَمَل",
+            "ثَعْلَب"
+          ],
+          "answerIndex": 1,
+          "hint": "جَ جَ جَمَل",
+          "emoji": "🐪"
+        },
+        {
+          "prompt": "ماذا تعني Two؟",
+          "options": [
+            "واحد",
+            "ثلاثة",
+            "اثنان"
+          ],
+          "answerIndex": 2,
+          "hint": "اثنان",
+          "emoji": "2️⃣"
+        },
+        {
+          "prompt": "صديقة جديدة تجلس وحدها، ماذا نفعل؟",
+          "options": [
+            "ندعوها للعب 💛",
+            "نتركها 🙈"
+          ],
+          "answerIndex": 0,
+          "hint": "نحب مساعدة الآخرين",
+          "emoji": "🧸",
+          "praise": "أحسنتِ! نحب مساعدة الآخرين."
+        }
+      ]
+    }
+  ]
+}

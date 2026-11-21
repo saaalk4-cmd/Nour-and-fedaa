@@ -1,0 +1,494 @@
+{
+  "schema": 1,
+  "lessons": [
+    {
+      "id": "w1e_welcome",
+      "title": "أنا لمعة ✨",
+      "emoji": "🌟",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرف على لمعة",
+      "learned": "لمعة صديقتي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي للمرحلة المبكرة — صور وصوت بلا قراءة (غير ديني)"
+      },
+      "steps": [
+        {
+          "emoji": "🌟",
+          "text": "مرحبًا!",
+          "say": "مرحبًا يا بطلة! أنا لمعة. سنلعب ونتعلم معًا"
+        },
+        {
+          "emoji": "👆",
+          "text": "اضغطي هنا",
+          "say": "اضغطي على الزر الكبير لنكمل"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "⭐ ؟",
+          "say": "أين النجمة؟ اضغطي على النجمة",
+          "options": [
+            "🌙",
+            "⭐",
+            "☀️"
+          ],
+          "answerIndex": 1,
+          "hint": "🌟",
+          "emoji": "⭐"
+        }
+      ]
+    },
+    {
+      "id": "w1e_count_1_2",
+      "title": "نعدّ النجوم ⭐",
+      "emoji": "⭐",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف واحد واثنين",
+      "learned": "واحد، اثنان.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي للمرحلة المبكرة — صور وصوت بلا قراءة (غير ديني)"
+      },
+      "steps": [
+        {
+          "emoji": "⭐",
+          "text": "واحدة",
+          "say": "هذه نجمة واحدة"
+        },
+        {
+          "emoji": "⭐⭐",
+          "text": "اثنتان",
+          "say": "وهاتان نجمتان"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "⭐⭐",
+          "say": "اضغطي على نجمتين",
+          "options": [
+            "⭐",
+            "⭐⭐",
+            "⭐⭐⭐"
+          ],
+          "answerIndex": 1,
+          "hint": "نجمتان",
+          "emoji": "⭐"
+        },
+        {
+          "prompt": "⭐",
+          "say": "اضغطي على نجمة واحدة",
+          "options": [
+            "⭐⭐",
+            "⭐",
+            "⭐⭐⭐"
+          ],
+          "answerIndex": 1,
+          "hint": "نجمة واحدة",
+          "emoji": "⭐"
+        }
+      ]
+    },
+    {
+      "id": "w1e_colors_red",
+      "title": "اللون الأحمر 🔴",
+      "emoji": "🔴",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف اللون الأحمر",
+      "learned": "الأحمر مثل التفاحة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي للمرحلة المبكرة — صور وصوت بلا قراءة (غير ديني)"
+      },
+      "steps": [
+        {
+          "emoji": "🍎",
+          "text": "حمراء",
+          "say": "التفاحة حمراء"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🔴",
+          "say": "اضغطي على اللون الأحمر",
+          "options": [
+            "🔵",
+            "🟡",
+            "🔴"
+          ],
+          "answerIndex": 2,
+          "hint": "🍎",
+          "emoji": "🍎"
+        },
+        {
+          "prompt": "🍓 ؟",
+          "say": "ما لون الفراولة؟ اضغطي على لونها",
+          "options": [
+            "🔴",
+            "🟢",
+            "🔵"
+          ],
+          "answerIndex": 0,
+          "hint": "🍓",
+          "emoji": "🍓"
+        }
+      ]
+    },
+    {
+      "id": "w1e_colors_yellow_blue",
+      "title": "الأصفر والأزرق 🟡🔵",
+      "emoji": "🌞",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف الأصفر والأزرق",
+      "learned": "الشمس صفراء والبحر أزرق.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي للمرحلة المبكرة — صور وصوت بلا قراءة (غير ديني)"
+      },
+      "steps": [
+        {
+          "emoji": "🌞",
+          "text": "صفراء",
+          "say": "الشمس صفراء"
+        },
+        {
+          "emoji": "🌊",
+          "text": "زرقاء",
+          "say": "والبحر أزرق"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🌞 ؟",
+          "say": "ما لون الشمس؟",
+          "options": [
+            "🔴",
+            "🟡",
+            "🔵"
+          ],
+          "answerIndex": 1,
+          "hint": "🌞",
+          "emoji": "🌞"
+        },
+        {
+          "prompt": "🌊 ؟",
+          "say": "ما لون البحر؟",
+          "options": [
+            "🔵",
+            "🟡",
+            "🔴"
+          ],
+          "answerIndex": 0,
+          "hint": "🌊",
+          "emoji": "🌊"
+        }
+      ]
+    },
+    {
+      "id": "w1e_count_3",
+      "title": "نعدّ التفاحات 🍎",
+      "emoji": "🍎",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعدّ حتى 3",
+      "learned": "واحد، اثنان، ثلاثة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي للمرحلة المبكرة — صور وصوت بلا قراءة (غير ديني)"
+      },
+      "steps": [
+        {
+          "emoji": "🍎🍎🍎",
+          "text": "ثلاث",
+          "say": "واحدة، اثنتان، ثلاث تفاحات"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🍎🍎🍎",
+          "say": "اضغطي على ثلاث تفاحات",
+          "options": [
+            "🍎",
+            "🍎🍎",
+            "🍎🍎🍎"
+          ],
+          "answerIndex": 2,
+          "hint": "ثلاث",
+          "emoji": "🍎"
+        }
+      ]
+    },
+    {
+      "id": "w1e_shapes_circle",
+      "title": "الدائرة ⭕",
+      "emoji": "⭕",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف الدائرة",
+      "learned": "الدائرة مدوّرة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي للمرحلة المبكرة — صور وصوت بلا قراءة (غير ديني)"
+      },
+      "steps": [
+        {
+          "emoji": "⭕",
+          "text": "دائرة",
+          "say": "هذه دائرة، مثل الكرة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "⭕ ؟",
+          "say": "أين الدائرة؟",
+          "options": [
+            "🟦",
+            "🔺",
+            "⭕"
+          ],
+          "answerIndex": 2,
+          "hint": "مدوّرة",
+          "emoji": "⭕"
+        }
+      ]
+    },
+    {
+      "id": "w1e_animals",
+      "title": "أين القطة؟ 🐱",
+      "emoji": "🐱",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف القطة والكلب",
+      "learned": "القطة تقول مياو، والكلب يقول هاو.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي للمرحلة المبكرة — صور وصوت بلا قراءة (غير ديني)"
+      },
+      "steps": [
+        {
+          "emoji": "🐱",
+          "text": "مياو",
+          "say": "القطة تقول مياو"
+        },
+        {
+          "emoji": "🐶",
+          "text": "هاو",
+          "say": "والكلب يقول هاو"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🐱 ؟",
+          "say": "أين القطة؟",
+          "options": [
+            "🐶",
+            "🐱",
+            "🐮"
+          ],
+          "answerIndex": 1,
+          "hint": "مياو",
+          "emoji": "🐱"
+        },
+        {
+          "prompt": "🐶 ؟",
+          "say": "أين الكلب؟",
+          "options": [
+            "🐶",
+            "🐮",
+            "🐱"
+          ],
+          "answerIndex": 0,
+          "hint": "هاو",
+          "emoji": "🐶"
+        }
+      ]
+    },
+    {
+      "id": "w1e_help",
+      "title": "أساعد صديقتي 🤗",
+      "emoji": "🧸",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أساعد من يحتاج مساعدة",
+      "learned": "أساعد صديقتي بحنان.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي للمرحلة المبكرة — صور وصوت بلا قراءة (غير ديني)"
+      },
+      "steps": [
+        {
+          "emoji": "🧸😢",
+          "text": "صديقتي حزينة",
+          "say": "وقعت لعبة صديقتك وهي تبكي"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🧸😢",
+          "say": "ماذا نفعل؟ هل نضحك عليها، أم نساعدها؟",
+          "options": [
+            "😝",
+            "🤗"
+          ],
+          "answerIndex": 1,
+          "hint": "نساعدها بحنان",
+          "emoji": "🧸",
+          "praise": "أحسنتِ! الرحمة شيء جميل."
+        }
+      ]
+    },
+    {
+      "id": "w1e_honesty",
+      "title": "أقول الحقيقة 💛",
+      "emoji": "🖍️",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعيد الشيء لصاحبه",
+      "learned": "أعيد ما ليس لي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي للمرحلة المبكرة — صور وصوت بلا قراءة (غير ديني)"
+      },
+      "steps": [
+        {
+          "emoji": "🖍️",
+          "text": "قلم",
+          "say": "وجدتِ قلمًا ليس لكِ"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🖍️ ؟",
+          "say": "ماذا نفعل؟ هل نعطيه لصاحبته، أم نخبّئه؟",
+          "options": [
+            "🤲",
+            "🙈"
+          ],
+          "answerIndex": 0,
+          "hint": "نعطيه لصاحبته",
+          "emoji": "🖍️",
+          "praise": "أحسنتِ! الصدق والأمانة جميلان."
+        }
+      ]
+    },
+    {
+      "id": "w1e_bismillah",
+      "title": "بسم الله 🍽️",
+      "emoji": "🍽️",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أقول بسم الله قبل الأكل",
+      "learned": "أقول بسم الله قبل الأكل.",
+      "source": {
+        "type": "sahih_sunnah",
+        "reference": "صحيح البخاري (5376) — صحيح (متفق عليه): «يا غلام، سمِّ الله…»"
+      },
+      "steps": [
+        {
+          "emoji": "🍽️",
+          "text": "بسم الله",
+          "say": "نقول: بسم الله، قبل الأكل"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🍽️ ؟",
+          "say": "ماذا نقول قبل الأكل؟",
+          "options": [
+            "😴",
+            "🗣️ بسم الله"
+          ],
+          "answerIndex": 1,
+          "hint": "قبل أن نأكل نقول بسم الله",
+          "emoji": "🍽️",
+          "praise": "أحسنتِ! نقول بسم الله قبل الأكل."
+        }
+      ],
+      "allowSpeech": true
+    },
+    {
+      "id": "w1e_review_game",
+      "title": "لعبة الأسبوع 🎮",
+      "emoji": "🎮",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أراجع ما تعلمته",
+      "learned": "أنا أتعلم وألعب!",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي للمرحلة المبكرة — صور وصوت بلا قراءة (غير ديني)"
+      },
+      "steps": [
+        {
+          "emoji": "🎮",
+          "text": "هيا نلعب",
+          "say": "هيا نلعب بما تعلّمنا!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🐱 ؟",
+          "say": "أين القطة؟",
+          "options": [
+            "🐱",
+            "🐶",
+            "🐮"
+          ],
+          "answerIndex": 0,
+          "hint": "مياو",
+          "emoji": "🐱"
+        },
+        {
+          "prompt": "🔴",
+          "say": "أين اللون الأحمر؟",
+          "options": [
+            "🔵",
+            "🔴",
+            "🟡"
+          ],
+          "answerIndex": 1,
+          "hint": "مثل التفاحة",
+          "emoji": "🍎"
+        },
+        {
+          "prompt": "⭐⭐",
+          "say": "أين نجمتان؟",
+          "options": [
+            "⭐⭐",
+            "⭐",
+            "⭐⭐⭐"
+          ],
+          "answerIndex": 0,
+          "hint": "اثنتان",
+          "emoji": "⭐"
+        }
+      ]
+    }
+  ]
+}
