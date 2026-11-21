@@ -1,0 +1,374 @@
+{
+  "schema": 1,
+  "lessons": [
+    {
+      "id": "w10e_colors2",
+      "title": "ألوان جميلة 🌈",
+      "emoji": "🌈",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 10 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🟠",
+          "text": "البرتقالي",
+          "say": "البرتقالي"
+        },
+        {
+          "emoji": "🟣",
+          "text": "البنفسجي",
+          "say": "البنفسجي"
+        },
+        {
+          "emoji": "💗",
+          "text": "الوردي",
+          "say": "الوردي"
+        },
+        {
+          "emoji": "🟤",
+          "text": "البني",
+          "say": "البني"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين البرتقالي؟",
+          "options": [
+            "🟠",
+            "🟣",
+            "💗"
+          ],
+          "answerIndex": 0,
+          "hint": "البرتقالي",
+          "emoji": "🟠",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين البني؟",
+          "options": [
+            "🟠",
+            "🟤",
+            "🟣"
+          ],
+          "answerIndex": 1,
+          "hint": "البني",
+          "emoji": "🟤",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين البنفسجي؟",
+          "options": [
+            "🟠",
+            "💗",
+            "🟣"
+          ],
+          "answerIndex": 2,
+          "hint": "البنفسجي",
+          "emoji": "🟣",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w10e_fruits",
+      "title": "فواكه لذيذة 🍎",
+      "emoji": "🍎",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 10 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🍎",
+          "text": "التفاحة",
+          "say": "التفاحة"
+        },
+        {
+          "emoji": "🍌",
+          "text": "الموزة",
+          "say": "الموزة"
+        },
+        {
+          "emoji": "🍇",
+          "text": "العنب",
+          "say": "العنب"
+        },
+        {
+          "emoji": "🍊",
+          "text": "البرتقالة",
+          "say": "البرتقالة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين التفاحة؟",
+          "options": [
+            "🍎",
+            "🍌",
+            "🍇"
+          ],
+          "answerIndex": 0,
+          "hint": "التفاحة",
+          "emoji": "🍎",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين البرتقالة؟",
+          "options": [
+            "🍎",
+            "🍊",
+            "🍌"
+          ],
+          "answerIndex": 1,
+          "hint": "البرتقالة",
+          "emoji": "🍊",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الموزة؟",
+          "options": [
+            "🍎",
+            "🍇",
+            "🍌"
+          ],
+          "answerIndex": 2,
+          "hint": "الموزة",
+          "emoji": "🍌",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w10e_sounds1",
+      "title": "من يقول؟ 🐶",
+      "emoji": "🐶",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أسمع الأصوات وأربطها بصاحبها",
+      "learned": "أعرف صوت كل حيوان.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 10 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🐶",
+          "text": "الكلب",
+          "say": "الكلب يقول هو هو"
+        },
+        {
+          "emoji": "🐱",
+          "text": "القطة",
+          "say": "القطة يقول ميو"
+        },
+        {
+          "emoji": "🐄",
+          "text": "البقرة",
+          "say": "البقرة يقول موو"
+        },
+        {
+          "emoji": "🐑",
+          "text": "الخروف",
+          "say": "الخروف يقول ماع"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🔊",
+          "say": "من يقول هو هو؟",
+          "options": [
+            "🐶",
+            "🐱",
+            "🐄"
+          ],
+          "answerIndex": 0,
+          "hint": "هو هو",
+          "emoji": "🐶",
+          "praise": "أحسنتِ! سمعتِ جيدًا."
+        },
+        {
+          "prompt": "🔊",
+          "say": "من يقول ميو؟",
+          "options": [
+            "🐶",
+            "🐱",
+            "🐄"
+          ],
+          "answerIndex": 1,
+          "hint": "ميو",
+          "emoji": "🐱",
+          "praise": "أحسنتِ! سمعتِ جيدًا."
+        },
+        {
+          "prompt": "🔊",
+          "say": "من يقول موو؟",
+          "options": [
+            "🐶",
+            "🐱",
+            "🐄"
+          ],
+          "answerIndex": 2,
+          "hint": "موو",
+          "emoji": "🐄",
+          "praise": "أحسنتِ! سمعتِ جيدًا."
+        }
+      ]
+    },
+    {
+      "id": "w10e_please",
+      "title": "أقول من فضلك 🌸",
+      "emoji": "🌸",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أقول من فضلك",
+      "learned": "أقول من فضلك.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 10 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🍪",
+          "text": "أريد البسكويت",
+          "say": "أريد البسكويت"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🍪 ؟",
+          "say": "ماذا نقول؟ من فضلك، أم نصرخ؟",
+          "options": [
+            "🌸",
+            "😠"
+          ],
+          "answerIndex": 0,
+          "hint": "أقول من فضلك",
+          "emoji": "🌸",
+          "praise": "أحسنتِ! الكلمة الطيبة جميلة."
+        }
+      ]
+    },
+    {
+      "id": "w10e_share",
+      "title": "أشارك لعبتي 🧸",
+      "emoji": "🧸",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أشارك لعبتي",
+      "learned": "أشارك لعبتي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 10 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🧸",
+          "text": "صديقتي تريد اللعب",
+          "say": "صديقتي تريد اللعب"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🧸 ؟",
+          "say": "ماذا نفعل؟ نشارك، أم نخبّئ اللعبة؟",
+          "options": [
+            "🙈",
+            "🤝"
+          ],
+          "answerIndex": 1,
+          "hint": "أشارك لعبتي",
+          "emoji": "🤝",
+          "praise": "أحسنتِ! المشاركة جميلة."
+        }
+      ]
+    },
+    {
+      "id": "w10e_review_game",
+      "title": "لعبة الأسبوع 🎮",
+      "emoji": "🎮",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أراجع ما تعلمته",
+      "learned": "أنا أتعلم وألعب!",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 10 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🎮",
+          "text": "هيا نلعب",
+          "say": "هيا نلعب بما تعلمنا!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين البرتقالي؟",
+          "options": [
+            "🟠",
+            "🟣",
+            "💗"
+          ],
+          "answerIndex": 0,
+          "hint": "البرتقالي",
+          "emoji": "🟠",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين التفاحة؟",
+          "options": [
+            "🍌",
+            "🍎",
+            "🍇"
+          ],
+          "answerIndex": 1,
+          "hint": "التفاحة",
+          "emoji": "🍎",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين القطة؟",
+          "options": [
+            "🐶",
+            "🐄",
+            "🐱"
+          ],
+          "answerIndex": 2,
+          "hint": "القطة",
+          "emoji": "🐱",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    }
+  ]
+}

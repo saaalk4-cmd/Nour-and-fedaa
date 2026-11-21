@@ -1,0 +1,374 @@
+{
+  "schema": 1,
+  "lessons": [
+    {
+      "id": "w22e_animals_mix",
+      "title": "أين أصدقائي؟ 🐘",
+      "emoji": "🐘",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 22 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🐄",
+          "text": "البقرة",
+          "say": "البقرة"
+        },
+        {
+          "emoji": "🐘",
+          "text": "الفيل",
+          "say": "الفيل"
+        },
+        {
+          "emoji": "🐟",
+          "text": "السمكة",
+          "say": "السمكة"
+        },
+        {
+          "emoji": "🦋",
+          "text": "الفراشة",
+          "say": "الفراشة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين البقرة؟",
+          "options": [
+            "🐄",
+            "🐘",
+            "🐟"
+          ],
+          "answerIndex": 0,
+          "hint": "البقرة",
+          "emoji": "🐄",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الفراشة؟",
+          "options": [
+            "🐄",
+            "🦋",
+            "🐘"
+          ],
+          "answerIndex": 1,
+          "hint": "الفراشة",
+          "emoji": "🦋",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الفيل؟",
+          "options": [
+            "🐄",
+            "🐟",
+            "🐘"
+          ],
+          "answerIndex": 2,
+          "hint": "الفيل",
+          "emoji": "🐘",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w22e_sounds_mix",
+      "title": "أسمع وأختار 🔊",
+      "emoji": "🔊",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أسمع الأصوات وأربطها بصاحبها",
+      "learned": "أعرف صوت كل حيوان.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 22 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🐶",
+          "text": "الكلب",
+          "say": "الكلب يقول هو هو"
+        },
+        {
+          "emoji": "🦆",
+          "text": "البطة",
+          "say": "البطة يقول كواك"
+        },
+        {
+          "emoji": "🐱",
+          "text": "القطة",
+          "say": "القطة يقول ميو"
+        },
+        {
+          "emoji": "🚗",
+          "text": "السيارة",
+          "say": "السيارة يقول بيب بيب"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🔊",
+          "say": "من يقول هو هو؟",
+          "options": [
+            "🐶",
+            "🦆",
+            "🐱"
+          ],
+          "answerIndex": 0,
+          "hint": "هو هو",
+          "emoji": "🐶",
+          "praise": "أحسنتِ! سمعتِ جيدًا."
+        },
+        {
+          "prompt": "🔊",
+          "say": "من يقول كواك؟",
+          "options": [
+            "🐶",
+            "🦆",
+            "🐱"
+          ],
+          "answerIndex": 1,
+          "hint": "كواك",
+          "emoji": "🦆",
+          "praise": "أحسنتِ! سمعتِ جيدًا."
+        },
+        {
+          "prompt": "🔊",
+          "say": "من يقول ميو؟",
+          "options": [
+            "🐶",
+            "🦆",
+            "🐱"
+          ],
+          "answerIndex": 2,
+          "hint": "ميو",
+          "emoji": "🐱",
+          "praise": "أحسنتِ! سمعتِ جيدًا."
+        }
+      ]
+    },
+    {
+      "id": "w22e_fruit_veg_mix",
+      "title": "فاكهة أم خضار؟ 🍅",
+      "emoji": "🍅",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 22 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🍎",
+          "text": "التفاحة",
+          "say": "التفاحة"
+        },
+        {
+          "emoji": "🥕",
+          "text": "الجزر",
+          "say": "الجزر"
+        },
+        {
+          "emoji": "🍓",
+          "text": "الفراولة",
+          "say": "الفراولة"
+        },
+        {
+          "emoji": "🍅",
+          "text": "الطماطم",
+          "say": "الطماطم"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين التفاحة؟",
+          "options": [
+            "🍎",
+            "🥕",
+            "🍓"
+          ],
+          "answerIndex": 0,
+          "hint": "التفاحة",
+          "emoji": "🍎",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الطماطم؟",
+          "options": [
+            "🍎",
+            "🍅",
+            "🥕"
+          ],
+          "answerIndex": 1,
+          "hint": "الطماطم",
+          "emoji": "🍅",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الجزر؟",
+          "options": [
+            "🍎",
+            "🍓",
+            "🥕"
+          ],
+          "answerIndex": 2,
+          "hint": "الجزر",
+          "emoji": "🥕",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w22e_hug",
+      "title": "أحضن ماما 🤗",
+      "emoji": "🤗",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أحضن ماما",
+      "learned": "أحضن ماما.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 22 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🤗",
+          "text": "ماما عادت",
+          "say": "ماما عادت"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🤗 ؟",
+          "say": "ماذا نفعل؟ نحضن ماما، أم نتجاهلها؟",
+          "options": [
+            "🤗",
+            "🙈"
+          ],
+          "answerIndex": 0,
+          "hint": "أحضن ماما",
+          "emoji": "🤗",
+          "praise": "أحسنتِ! نحب ماما."
+        }
+      ]
+    },
+    {
+      "id": "w22e_mind",
+      "title": "أسمع كلام بابا 👨",
+      "emoji": "👨",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أسمع كلام بابا",
+      "learned": "أسمع كلام بابا.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 22 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "👨",
+          "text": "بابا يناديني",
+          "say": "بابا يناديني"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "👨 ؟",
+          "say": "ماذا نفعل؟ نسمع كلامه، أم نرفض؟",
+          "options": [
+            "🙅",
+            "👂"
+          ],
+          "answerIndex": 1,
+          "hint": "أسمع كلام بابا",
+          "emoji": "👂",
+          "praise": "أحسنتِ! نحب بابا."
+        }
+      ]
+    },
+    {
+      "id": "w22e_review_game",
+      "title": "لعبة الأسبوع 🎮",
+      "emoji": "🎮",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أراجع ما تعلمته",
+      "learned": "أنا أتعلم وألعب!",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 22 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🎮",
+          "text": "هيا نلعب",
+          "say": "هيا نلعب بما تعلمنا!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين البقرة؟",
+          "options": [
+            "🐄",
+            "🐘",
+            "🐟"
+          ],
+          "answerIndex": 0,
+          "hint": "البقرة",
+          "emoji": "🐄",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين البطة؟",
+          "options": [
+            "🐶",
+            "🦆",
+            "🐱"
+          ],
+          "answerIndex": 1,
+          "hint": "البطة",
+          "emoji": "🦆",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين التفاحة؟",
+          "options": [
+            "🥕",
+            "🍓",
+            "🍎"
+          ],
+          "answerIndex": 2,
+          "hint": "التفاحة",
+          "emoji": "🍎",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    }
+  ]
+}

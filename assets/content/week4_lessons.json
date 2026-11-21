@@ -1,0 +1,686 @@
+{
+  "schema": 1,
+  "lessons": [
+    {
+      "id": "w4_kind_word",
+      "title": "كلمة طيبة 💬",
+      "emoji": "💬",
+      "category": "akhlaq",
+      "minAge": 4,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أقول كلامًا طيبًا.",
+      "learned": "أقول كلامًا طيبًا.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 4"
+      },
+      "steps": [
+        {
+          "emoji": "💬",
+          "text": "صديقة سلمى حزينة اليوم."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تقول سلمى؟",
+          "options": [
+            "تقول لها كلمة طيبة 💬",
+            "تسكت وتبتعد"
+          ],
+          "answerIndex": 0,
+          "hint": "كلمة طيبة تفرّح القلب 🌸",
+          "praise": "أحسنتِ! الكلمة الطيبة جميلة.",
+          "emoji": "💬"
+        }
+      ]
+    },
+    {
+      "id": "w4_no_mocking",
+      "title": "لا نضحك على أحد 💛",
+      "emoji": "💛",
+      "category": "akhlaq",
+      "minAge": 4,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "لا أسخر من أحد.",
+      "learned": "لا أسخر من أحد.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 4"
+      },
+      "steps": [
+        {
+          "emoji": "💛",
+          "text": "صديقة سلمى نطقت كلمة بشكل مختلف."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تفعل سلمى؟",
+          "options": [
+            "تضحك عليها 😝",
+            "تساعدها بلطف 💛"
+          ],
+          "answerIndex": 1,
+          "hint": "نحب صديقاتنا 🌸",
+          "praise": "أحسنتِ! نحترم الجميع.",
+          "emoji": "💛"
+        }
+      ]
+    },
+    {
+      "id": "w4_letter_7",
+      "title": "حرف الراء 🎨",
+      "emoji": "🎨",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف حرف الراء وصوته",
+      "learned": "حرف الراء في أول: رَسْم، رَادْيُو، رَمْل.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 4"
+      },
+      "steps": [
+        {
+          "emoji": "🎨",
+          "text": "رَسْم — تبدأ بحرف الراء."
+        },
+        {
+          "emoji": "📻",
+          "text": "رَادْيُو — تبدأ بحرف الراء."
+        },
+        {
+          "emoji": "🏖️",
+          "text": "رَمْل — تبدأ بحرف الراء."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أي كلمة تبدأ بحرف الراء؟",
+          "options": [
+            "ذُرَة",
+            "رَسْم",
+            "ذِئْب"
+          ],
+          "answerIndex": 1,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "🎨"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف الراء؟",
+          "options": [
+            "سَمَكَة",
+            "سَاعَة",
+            "رَادْيُو"
+          ],
+          "answerIndex": 2,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "📻"
+        }
+      ]
+    },
+    {
+      "id": "w4_letter_8",
+      "title": "حرف الزاي 🦒",
+      "emoji": "🦒",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف حرف الزاي وصوته",
+      "learned": "حرف الزاي في أول: زَرَافَة، زَهْرَة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 4"
+      },
+      "steps": [
+        {
+          "emoji": "🦒",
+          "text": "زَرَافَة — تبدأ بحرف الزاي."
+        },
+        {
+          "emoji": "🌸",
+          "text": "زَهْرَة — تبدأ بحرف الزاي."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أي كلمة تبدأ بحرف الزاي؟",
+          "options": [
+            "رَسْم",
+            "رَادْيُو",
+            "زَرَافَة"
+          ],
+          "answerIndex": 2,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "🦒"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف الزاي؟",
+          "options": [
+            "زَهْرَة",
+            "سَيَّارَة",
+            "أَرْنَب"
+          ],
+          "answerIndex": 0,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "🌸"
+        }
+      ]
+    },
+    {
+      "id": "w4_letter_9",
+      "title": "حرف السين 🐟",
+      "emoji": "🐟",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف حرف السين وصوته",
+      "learned": "حرف السين في أول: سَمَكَة، سَاعَة، سَيَّارَة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 4"
+      },
+      "steps": [
+        {
+          "emoji": "🐟",
+          "text": "سَمَكَة — تبدأ بحرف السين."
+        },
+        {
+          "emoji": "⏰",
+          "text": "سَاعَة — تبدأ بحرف السين."
+        },
+        {
+          "emoji": "🚗",
+          "text": "سَيَّارَة — تبدأ بحرف السين."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أي كلمة تبدأ بحرف السين؟",
+          "options": [
+            "سَمَكَة",
+            "زَرَافَة",
+            "زَهْرَة"
+          ],
+          "answerIndex": 0,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "🐟"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف السين؟",
+          "options": [
+            "بَقَرَة",
+            "سَاعَة",
+            "تُفَّاحَة"
+          ],
+          "answerIndex": 1,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "⏰"
+        }
+      ]
+    },
+    {
+      "id": "w4_review_letters",
+      "title": "أراجع الحروف 🔤",
+      "emoji": "🔤",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أراجع حروف الأسبوع",
+      "learned": "أتذكّر حروفي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 4"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "هيا نراجع حروفنا!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أي كلمة تبدأ بحرف الراء؟",
+          "options": [
+            "تُفَّاحَة",
+            "رَمْل",
+            "تِمْسَاح"
+          ],
+          "answerIndex": 1,
+          "hint": "تذكّري الكلمات التي تعلمناها",
+          "emoji": "🏖️"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف الزاي؟",
+          "options": [
+            "ثَلْج",
+            "جَمَل",
+            "زَهْرَة"
+          ],
+          "answerIndex": 2,
+          "hint": "تذكّري الكلمات التي تعلمناها",
+          "emoji": "🌸"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف السين؟",
+          "options": [
+            "سَيَّارَة",
+            "حِصَان",
+            "حَلِيب"
+          ],
+          "answerIndex": 0,
+          "hint": "تذكّري الكلمات التي تعلمناها",
+          "emoji": "🚗"
+        }
+      ]
+    },
+    {
+      "id": "w4_add_1",
+      "title": "نجمع حتى 3 ➕",
+      "emoji": "➕",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أجمع حتى 5",
+      "learned": "أجمع عددين صغيرين.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 4"
+      },
+      "steps": [
+        {
+          "emoji": "➕",
+          "text": "1 + 1 = 2"
+        },
+        {
+          "emoji": "➕",
+          "text": "2 + 1 = 3"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "1 + 1 = ؟",
+          "options": [
+            "2",
+            "3",
+            "1"
+          ],
+          "answerIndex": 0,
+          "hint": "عدّي على أصابعك",
+          "emoji": "➕"
+        },
+        {
+          "prompt": "2 + 1 = ؟",
+          "options": [
+            "4",
+            "3",
+            "2"
+          ],
+          "answerIndex": 1,
+          "hint": "عدّي على أصابعك",
+          "emoji": "➕"
+        }
+      ]
+    },
+    {
+      "id": "w4_add_2",
+      "title": "نجمع حتى 5 ➕",
+      "emoji": "➕",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أجمع حتى 5",
+      "learned": "أجمع عددين صغيرين.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 4"
+      },
+      "steps": [
+        {
+          "emoji": "➕",
+          "text": "2 + 2 = 4"
+        },
+        {
+          "emoji": "➕",
+          "text": "3 + 1 = 4"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "2 + 2 = ؟",
+          "options": [
+            "4",
+            "5",
+            "3"
+          ],
+          "answerIndex": 0,
+          "hint": "عدّي على أصابعك",
+          "emoji": "➕"
+        },
+        {
+          "prompt": "3 + 1 = ؟",
+          "options": [
+            "5",
+            "4",
+            "3"
+          ],
+          "answerIndex": 1,
+          "hint": "عدّي على أصابعك",
+          "emoji": "➕"
+        },
+        {
+          "prompt": "2 + 3 = ؟",
+          "options": [
+            "6",
+            "4",
+            "5"
+          ],
+          "answerIndex": 2,
+          "hint": "عدّي على أصابعك",
+          "emoji": "➕"
+        }
+      ]
+    },
+    {
+      "id": "w4_add_3",
+      "title": "أجمع بنفسي ➕",
+      "emoji": "➕",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أجمع حتى 5",
+      "learned": "أجمع عددين صغيرين.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 4"
+      },
+      "steps": [
+        {
+          "emoji": "➕",
+          "text": "1 + 3 = 4"
+        },
+        {
+          "emoji": "➕",
+          "text": "4 + 1 = 5"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "1 + 3 = ؟",
+          "options": [
+            "4",
+            "5",
+            "3"
+          ],
+          "answerIndex": 0,
+          "hint": "عدّي على أصابعك",
+          "emoji": "➕"
+        },
+        {
+          "prompt": "4 + 1 = ؟",
+          "options": [
+            "6",
+            "5",
+            "4"
+          ],
+          "answerIndex": 1,
+          "hint": "عدّي على أصابعك",
+          "emoji": "➕"
+        },
+        {
+          "prompt": "2 + 2 = ؟",
+          "options": [
+            "5",
+            "3",
+            "4"
+          ],
+          "answerIndex": 2,
+          "hint": "عدّي على أصابعك",
+          "emoji": "➕"
+        }
+      ]
+    },
+    {
+      "id": "w4_plants",
+      "title": "أجزاء النبات 🌱",
+      "emoji": "🌱",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف أجزاء النبات",
+      "learned": "الجذر يشرب الماء والأوراق تأخذ الشمس.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 4"
+      },
+      "steps": [
+        {
+          "emoji": "🌿",
+          "text": "الجذر تحت الأرض ويشرب الماء."
+        },
+        {
+          "emoji": "🍃",
+          "text": "الأوراق تأخذ ضوء الشمس."
+        },
+        {
+          "emoji": "🌸",
+          "text": "والزهرة جميلة وتصير ثمرة."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أي جزء يكون تحت الأرض؟",
+          "options": [
+            "الجذر",
+            "الزهرة",
+            "الورقة"
+          ],
+          "answerIndex": 0,
+          "hint": "يشرب الماء",
+          "emoji": "🌱"
+        },
+        {
+          "prompt": "ماذا تأخذ الأوراق؟",
+          "options": [
+            "حلوى 🍬",
+            "ضوء الشمس ☀️",
+            "ألعاب 🧸"
+          ],
+          "answerIndex": 1,
+          "hint": "النبات يحب الشمس",
+          "emoji": "🍃"
+        }
+      ]
+    },
+    {
+      "id": "w4_english_animals",
+      "title": "Cat Dog Bird 🐱",
+      "emoji": "🐱",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أتعلم كلمات إنجليزية جديدة",
+      "learned": "مثل: Cat = قطة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 4"
+      },
+      "steps": [
+        {
+          "emoji": "🐱",
+          "text": "Cat = قطة"
+        },
+        {
+          "emoji": "🐶",
+          "text": "Dog = كلب"
+        },
+        {
+          "emoji": "🐦",
+          "text": "Bird = عصفور"
+        },
+        {
+          "emoji": "🐟",
+          "text": "Fish = سمكة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تعني Cat؟",
+          "options": [
+            "قطة",
+            "كلب",
+            "عصفور"
+          ],
+          "answerIndex": 0,
+          "hint": "تذكّري الصورة",
+          "emoji": "🐱"
+        },
+        {
+          "prompt": "ماذا تعني Dog؟",
+          "options": [
+            "قطة",
+            "كلب",
+            "عصفور"
+          ],
+          "answerIndex": 1,
+          "hint": "تذكّري الصورة",
+          "emoji": "🐶"
+        },
+        {
+          "prompt": "ماذا تعني Bird؟",
+          "options": [
+            "قطة",
+            "كلب",
+            "عصفور"
+          ],
+          "answerIndex": 2,
+          "hint": "تذكّري الصورة",
+          "emoji": "🐦"
+        }
+      ]
+    },
+    {
+      "id": "w4_pattern",
+      "title": "ما التالي؟ 🔴🔵",
+      "emoji": "🧩",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أكمل النمط",
+      "learned": "الأنماط تتكرر.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 4"
+      },
+      "steps": [
+        {
+          "emoji": "🧩",
+          "text": "الأنماط تتكرر: 🔴🔵🔴🔵"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🔴🔵🔴🔵🔴 ؟",
+          "options": [
+            "🔵",
+            "🔴",
+            "🟢"
+          ],
+          "answerIndex": 0,
+          "hint": "الأحمر ثم الأزرق ثم الأحمر…",
+          "emoji": "🧩"
+        },
+        {
+          "prompt": "⭐🌙⭐🌙⭐ ؟",
+          "options": [
+            "⭐",
+            "🌙",
+            "☀️"
+          ],
+          "answerIndex": 1,
+          "hint": "نجمة ثم قمر ثم نجمة…",
+          "emoji": "🧩"
+        }
+      ]
+    },
+    {
+      "id": "w4_review_game",
+      "title": "لعبة الأسبوع 🎮",
+      "emoji": "🎮",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أراجع ما تعلمته",
+      "learned": "أنا أتعلم وألعب!",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 4"
+      },
+      "steps": [
+        {
+          "emoji": "🎮",
+          "text": "هيا نلعب بما تعلمناه!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "2 + 2 = ؟",
+          "options": [
+            "4",
+            "3",
+            "5"
+          ],
+          "answerIndex": 0,
+          "hint": "عدّي على أصابعك",
+          "emoji": "➕"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف السين؟",
+          "options": [
+            "رَسْم",
+            "سَمَكَة",
+            "زَهْرَة"
+          ],
+          "answerIndex": 1,
+          "hint": "سَ سَ سَمَكَة",
+          "emoji": "🐟"
+        },
+        {
+          "prompt": "ماذا تعني Cat؟",
+          "options": [
+            "كلب",
+            "عصفور",
+            "قطة"
+          ],
+          "answerIndex": 2,
+          "hint": "🐱",
+          "emoji": "🐱"
+        },
+        {
+          "prompt": "صديقتك حزينة، ماذا نقول لها؟",
+          "options": [
+            "كلمة طيبة 💬",
+            "لا شيء"
+          ],
+          "answerIndex": 0,
+          "hint": "الكلمة الطيبة تفرّح",
+          "emoji": "💬",
+          "praise": "أحسنتِ! الكلمة الطيبة جميلة."
+        }
+      ]
+    }
+  ]
+}

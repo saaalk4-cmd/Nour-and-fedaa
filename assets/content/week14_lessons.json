@@ -1,0 +1,794 @@
+{
+  "schema": 1,
+  "lessons": [
+    {
+      "id": "w14_s1",
+      "title": "أحترم الكبير 👵",
+      "emoji": "👵",
+      "category": "akhlaq",
+      "minAge": 4,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أحترم الكبار وأسلّم عليهم.",
+      "learned": "أحترم الكبار وأسلّم عليهم.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 14"
+      },
+      "steps": [
+        {
+          "emoji": "👵",
+          "text": "دخلت جدّة سلمى الغرفة.",
+          "say": "دخلت جدّة سلمى الغرفة."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تفعل سلمى؟",
+          "options": [
+            "تقف وتسلّم عليها 👵",
+            "تكمل لعبها دون أن تنظر"
+          ],
+          "answerIndex": 0,
+          "hint": "نحترم الكبار 🌸",
+          "praise": "أحسنتِ! احترام الكبير جميل.",
+          "emoji": "👵"
+        }
+      ]
+    },
+    {
+      "id": "w14_s2",
+      "title": "أحفظ لساني 🌷",
+      "emoji": "🌷",
+      "category": "akhlaq",
+      "minAge": 4,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أقول كلامًا لطيفًا ولو غضبت.",
+      "learned": "أقول كلامًا لطيفًا ولو غضبت.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 14"
+      },
+      "steps": [
+        {
+          "emoji": "🌷",
+          "text": "غضبت سلمى من صديقتها.",
+          "say": "غضبت سلمى من صديقتها."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تقول سلمى؟",
+          "options": [
+            "كلمة تجرح",
+            "كلمة لطيفة 🌷"
+          ],
+          "answerIndex": 1,
+          "hint": "الكلمة الطيبة تفرّح 🌸",
+          "praise": "أحسنتِ! نحفظ ألسنتنا.",
+          "emoji": "🌷"
+        }
+      ]
+    },
+    {
+      "id": "w14_syll_1",
+      "title": "مقاطع حرف النون 🔤",
+      "emoji": "🔤",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أقرأ حرف النون مع الحركات",
+      "learned": "أقرأ نا ونو وني.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 14"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "النون مع الفتحة: نَ تُقرأ نا",
+          "say": "النون مع الفتحة: نَ تُقرأ نا"
+        },
+        {
+          "emoji": "🔤",
+          "text": "النون مع الضمة: نُ تُقرأ نو",
+          "say": "النون مع الضمة: نُ تُقرأ نو"
+        },
+        {
+          "emoji": "🔤",
+          "text": "النون مع الكسرة: نِ تُقرأ ني",
+          "say": "النون مع الكسرة: نِ تُقرأ ني"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "كيف نقرأ نَ؟",
+          "options": [
+            "نو",
+            "ني",
+            "نا"
+          ],
+          "answerIndex": 2,
+          "hint": "اسمعي الصوت ثم اختاري",
+          "emoji": "🔤"
+        },
+        {
+          "prompt": "كيف نقرأ نُ؟",
+          "options": [
+            "نو",
+            "نا",
+            "ني"
+          ],
+          "answerIndex": 0,
+          "hint": "اسمعي الصوت ثم اختاري",
+          "emoji": "🔤"
+        },
+        {
+          "prompt": "كيف نقرأ نِ؟",
+          "options": [
+            "نا",
+            "ني",
+            "نو"
+          ],
+          "answerIndex": 1,
+          "hint": "اسمعي الصوت ثم اختاري",
+          "emoji": "🔤"
+        }
+      ]
+    },
+    {
+      "id": "w14_syll_2",
+      "title": "مقاطع حرف اللام 🔤",
+      "emoji": "🔤",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أقرأ حرف اللام مع الحركات",
+      "learned": "أقرأ لا ولو ولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 14"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "اللام مع الفتحة: لَ تُقرأ لا",
+          "say": "اللام مع الفتحة: لَ تُقرأ لا"
+        },
+        {
+          "emoji": "🔤",
+          "text": "اللام مع الضمة: لُ تُقرأ لو",
+          "say": "اللام مع الضمة: لُ تُقرأ لو"
+        },
+        {
+          "emoji": "🔤",
+          "text": "اللام مع الكسرة: لِ تُقرأ لي",
+          "say": "اللام مع الكسرة: لِ تُقرأ لي"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "كيف نقرأ لَ؟",
+          "options": [
+            "لو",
+            "لي",
+            "لا"
+          ],
+          "answerIndex": 2,
+          "hint": "اسمعي الصوت ثم اختاري",
+          "emoji": "🔤"
+        },
+        {
+          "prompt": "كيف نقرأ لُ؟",
+          "options": [
+            "لو",
+            "لا",
+            "لي"
+          ],
+          "answerIndex": 0,
+          "hint": "اسمعي الصوت ثم اختاري",
+          "emoji": "🔤"
+        },
+        {
+          "prompt": "كيف نقرأ لِ؟",
+          "options": [
+            "لا",
+            "لي",
+            "لو"
+          ],
+          "answerIndex": 1,
+          "hint": "اسمعي الصوت ثم اختاري",
+          "emoji": "🔤"
+        }
+      ]
+    },
+    {
+      "id": "w14_syll_3",
+      "title": "مقاطع حرف الراء 🔤",
+      "emoji": "🔤",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أقرأ حرف الراء مع الحركات",
+      "learned": "أقرأ را ورو وري.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 14"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "الراء مع الفتحة: رَ تُقرأ را",
+          "say": "الراء مع الفتحة: رَ تُقرأ را"
+        },
+        {
+          "emoji": "🔤",
+          "text": "الراء مع الضمة: رُ تُقرأ رو",
+          "say": "الراء مع الضمة: رُ تُقرأ رو"
+        },
+        {
+          "emoji": "🔤",
+          "text": "الراء مع الكسرة: رِ تُقرأ ري",
+          "say": "الراء مع الكسرة: رِ تُقرأ ري"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "كيف نقرأ رَ؟",
+          "options": [
+            "رو",
+            "ري",
+            "را"
+          ],
+          "answerIndex": 2,
+          "hint": "اسمعي الصوت ثم اختاري",
+          "emoji": "🔤"
+        },
+        {
+          "prompt": "كيف نقرأ رُ؟",
+          "options": [
+            "رو",
+            "را",
+            "ري"
+          ],
+          "answerIndex": 0,
+          "hint": "اسمعي الصوت ثم اختاري",
+          "emoji": "🔤"
+        },
+        {
+          "prompt": "كيف نقرأ رِ؟",
+          "options": [
+            "را",
+            "ري",
+            "رو"
+          ],
+          "answerIndex": 1,
+          "hint": "اسمعي الصوت ثم اختاري",
+          "emoji": "🔤"
+        }
+      ]
+    },
+    {
+      "id": "w14_add",
+      "title": "نجمع حتى 14 ➕",
+      "emoji": "➕",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أجمع حتى 5",
+      "learned": "أجمع عددين صغيرين.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 14"
+      },
+      "steps": [
+        {
+          "emoji": "➕",
+          "text": "9 + 4 = 13",
+          "say": "9 + 4 = 13"
+        },
+        {
+          "emoji": "➕",
+          "text": "8 + 5 = 13",
+          "say": "8 + 5 = 13"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "9 + 4 = ؟",
+          "options": [
+            "13",
+            "14",
+            "12"
+          ],
+          "answerIndex": 0,
+          "hint": "عدّي على أصابعك",
+          "emoji": "➕"
+        },
+        {
+          "prompt": "8 + 5 = ؟",
+          "options": [
+            "14",
+            "13",
+            "12"
+          ],
+          "answerIndex": 1,
+          "hint": "عدّي على أصابعك",
+          "emoji": "➕"
+        },
+        {
+          "prompt": "7 + 6 = ؟",
+          "options": [
+            "14",
+            "12",
+            "13"
+          ],
+          "answerIndex": 2,
+          "hint": "عدّي على أصابعك",
+          "emoji": "➕"
+        }
+      ]
+    },
+    {
+      "id": "w14_sub",
+      "title": "نطرح حتى 12 ➖",
+      "emoji": "➖",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أطرح حتى 5",
+      "learned": "أطرح عددًا صغيرًا من عدد.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 14"
+      },
+      "steps": [
+        {
+          "emoji": "➖",
+          "text": "12 - 5 = 7",
+          "say": "12 - 5 = 7"
+        },
+        {
+          "emoji": "➖",
+          "text": "11 - 4 = 7",
+          "say": "11 - 4 = 7"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "12 - 5 = ؟",
+          "options": [
+            "7",
+            "8",
+            "9"
+          ],
+          "answerIndex": 0,
+          "hint": "عدّي للخلف على أصابعك",
+          "emoji": "➖"
+        },
+        {
+          "prompt": "11 - 4 = ؟",
+          "options": [
+            "8",
+            "7",
+            "9"
+          ],
+          "answerIndex": 1,
+          "hint": "عدّي للخلف على أصابعك",
+          "emoji": "➖"
+        },
+        {
+          "prompt": "10 - 6 = ؟",
+          "options": [
+            "5",
+            "6",
+            "4"
+          ],
+          "answerIndex": 2,
+          "hint": "عدّي للخلف على أصابعك",
+          "emoji": "➖"
+        }
+      ]
+    },
+    {
+      "id": "w14_english",
+      "title": "Body 🖐️",
+      "emoji": "🖐️",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أتعلم كلمات إنجليزية جديدة",
+      "learned": "مثل: Head = رأس.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 14"
+      },
+      "steps": [
+        {
+          "emoji": "🙂",
+          "text": "Head = رأس",
+          "say": "Head = رأس"
+        },
+        {
+          "emoji": "✋",
+          "text": "Hand = يد",
+          "say": "Hand = يد"
+        },
+        {
+          "emoji": "🦶",
+          "text": "Foot = قدم",
+          "say": "Foot = قدم"
+        },
+        {
+          "emoji": "👄",
+          "text": "Mouth = فم",
+          "say": "Mouth = فم"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تعني Head؟",
+          "options": [
+            "رأس",
+            "يد",
+            "قدم"
+          ],
+          "answerIndex": 0,
+          "hint": "تذكّري الصورة",
+          "emoji": "🙂"
+        },
+        {
+          "prompt": "ماذا تعني Hand؟",
+          "options": [
+            "رأس",
+            "يد",
+            "قدم"
+          ],
+          "answerIndex": 1,
+          "hint": "تذكّري الصورة",
+          "emoji": "✋"
+        },
+        {
+          "prompt": "ماذا تعني Foot؟",
+          "options": [
+            "رأس",
+            "يد",
+            "قدم"
+          ],
+          "answerIndex": 2,
+          "hint": "تذكّري الصورة",
+          "emoji": "🦶"
+        }
+      ]
+    },
+    {
+      "id": "w14_order_wudu",
+      "title": "أرتّب وضوئي 💧",
+      "emoji": "💧",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أرتّب خطوات الوضوء",
+      "learned": "نتوضأ بالماء ونحافظ على نظافتنا.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 14"
+      },
+      "steps": [
+        {
+          "emoji": "💧",
+          "text": "نتوضأ بالماء بترتيب جميل.",
+          "say": "نتوضأ بالماء بترتيب جميل."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "رتّبي خطوات الوضوء",
+          "options": [
+            "👐 نغسل اليدين",
+            "👄 نتمضمض ونستنشق",
+            "😊 نغسل الوجه",
+            "💪 نغسل الذراعين",
+            "🦶 نمسح الرأس ونغسل الرجلين"
+          ],
+          "answerIndex": 0,
+          "hint": "نبدأ باليدين",
+          "kind": "order",
+          "emoji": "💧",
+          "praise": "أحسنتِ! رتّبتِ كل شيء."
+        }
+      ]
+    },
+    {
+      "id": "w14_listen",
+      "title": "أستمع للقرآن 🎧",
+      "emoji": "🎧",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أتعرّف على السور من تلاوتها",
+      "learned": "أتعرّف على بعض السور من صوتها.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 14"
+      },
+      "steps": [
+        {
+          "emoji": "🎧",
+          "text": "استمعي لتلاوة سورة الناس 🎧",
+          "recite": [
+            114,
+            1
+          ],
+          "say": "استمعي لتلاوة سورة الناس 🎧"
+        },
+        {
+          "emoji": "🎧",
+          "text": "استمعي لتلاوة سورة الفلق 🎧",
+          "recite": [
+            113,
+            1
+          ],
+          "say": "استمعي لتلاوة سورة الفلق 🎧"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "استمعي ثم اختاري: أي سورة سمعتِ؟",
+          "options": [
+            "الناس",
+            "العصر",
+            "الإخلاص"
+          ],
+          "answerIndex": 0,
+          "hint": "اضغطي على 🎧 لتسمعي مرة أخرى",
+          "emoji": "🎧",
+          "recite": [
+            114,
+            1
+          ]
+        },
+        {
+          "prompt": "استمعي ثم اختاري: أي سورة سمعتِ؟",
+          "options": [
+            "الناس",
+            "الفلق",
+            "النصر"
+          ],
+          "answerIndex": 1,
+          "hint": "اضغطي على 🎧 لتسمعي مرة أخرى",
+          "emoji": "🎧",
+          "recite": [
+            113,
+            1
+          ]
+        },
+        {
+          "prompt": "كم آية في سورة الناس؟",
+          "options": [
+            "7",
+            "6",
+            "8"
+          ],
+          "answerIndex": 1,
+          "hint": "عدّي الآيات التي سمعتِ",
+          "emoji": "📖"
+        }
+      ]
+    },
+    {
+      "id": "w14_body",
+      "title": "جسمي وأعضاؤه 🫀",
+      "emoji": "🫀",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف بعض أعضاء جسمي",
+      "learned": "القلب ينبض والرئتان تتنفسان.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 14"
+      },
+      "steps": [
+        {
+          "emoji": "🫀",
+          "text": "القلب ينبض ويدفع الدم.",
+          "say": "القلب ينبض ويدفع الدم."
+        },
+        {
+          "emoji": "🫁",
+          "text": "والرئتان نتنفس بهما الهواء.",
+          "say": "والرئتان نتنفس بهما الهواء."
+        },
+        {
+          "emoji": "🦴",
+          "text": "والعظام تحمل جسمنا.",
+          "say": "والعظام تحمل جسمنا."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا نتنفس بها؟",
+          "options": [
+            "القلب 🫀",
+            "العظام 🦴",
+            "الرئتان 🫁"
+          ],
+          "answerIndex": 2,
+          "hint": "نأخذ الهواء",
+          "emoji": "🫀"
+        },
+        {
+          "prompt": "ما الذي ينبض؟",
+          "options": [
+            "القلب 🫀",
+            "العظام 🦴",
+            "الرئتان 🫁"
+          ],
+          "answerIndex": 0,
+          "hint": "ضعي يدك على صدرك",
+          "emoji": "🫀"
+        }
+      ]
+    },
+    {
+      "id": "w14_match_body",
+      "title": "أين يقع؟ 🔗",
+      "emoji": "🔗",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف أسماء أعضاء الوجه",
+      "learned": "للوجه عين وأنف وفم.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 14"
+      },
+      "steps": [
+        {
+          "emoji": "🔗",
+          "text": "لكل عضو اسم.",
+          "say": "لكل عضو اسم."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "وصّلي الصورة باسمها",
+          "options": [
+            "👁️|عين",
+            "👃|أنف",
+            "👄|فم"
+          ],
+          "answerIndex": 0,
+          "hint": "انظري إلى الصورة",
+          "kind": "match",
+          "emoji": "🔗",
+          "praise": "أحسنتِ! وصّلتِ كل شيء."
+        }
+      ]
+    },
+    {
+      "id": "w14_review_game",
+      "title": "لعبة الأسبوع 🎮",
+      "emoji": "🎮",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أراجع ما تعلمته",
+      "learned": "أنا أتعلم وألعب!",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 14"
+      },
+      "steps": [
+        {
+          "emoji": "🎮",
+          "text": "هيا نلعب بما تعلمناه!",
+          "say": "هيا نلعب بما تعلمناه!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ما أول خطوة في الوضوء؟",
+          "options": [
+            "نغسل اليدين 👐",
+            "نغسل الرجلين 🦶"
+          ],
+          "answerIndex": 0,
+          "hint": "نبدأ باليدين",
+          "emoji": "💧"
+        },
+        {
+          "prompt": "كيف نقرأ لِ؟",
+          "options": [
+            "لا",
+            "لو",
+            "لي"
+          ],
+          "answerIndex": 2,
+          "hint": "كسرة",
+          "emoji": "🔤"
+        },
+        {
+          "prompt": "ماذا تعني Hand؟",
+          "options": [
+            "رأس",
+            "يد",
+            "فم"
+          ],
+          "answerIndex": 1,
+          "hint": "✋",
+          "emoji": "✋"
+        },
+        {
+          "prompt": "جدّتنا دخلت، ماذا نفعل؟",
+          "options": [
+            "نسلّم عليها 👵",
+            "نتجاهلها"
+          ],
+          "answerIndex": 0,
+          "hint": "نحترم الكبار",
+          "emoji": "👵"
+        }
+      ]
+    },
+    {
+      "id": "w14_pattern",
+      "title": "ما التالي؟ 🔴🔵",
+      "emoji": "🧩",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أكمل النمط",
+      "learned": "الأنماط تتكرر.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 14"
+      },
+      "steps": [
+        {
+          "emoji": "🧩",
+          "text": "الأنماط تتكرر: 🔴🔵🔴🔵",
+          "say": "الأنماط تتكرر: 🔴🔵🔴🔵"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🔴🔵🔴🔵🔴 ؟",
+          "options": [
+            "🔵",
+            "🔴",
+            "🟢"
+          ],
+          "answerIndex": 0,
+          "hint": "الأحمر ثم الأزرق ثم الأحمر…",
+          "emoji": "🧩"
+        },
+        {
+          "prompt": "⭐🌙⭐🌙⭐ ؟",
+          "options": [
+            "⭐",
+            "🌙",
+            "☀️"
+          ],
+          "answerIndex": 1,
+          "hint": "نجمة ثم قمر ثم نجمة…",
+          "emoji": "🧩"
+        }
+      ]
+    }
+  ]
+}

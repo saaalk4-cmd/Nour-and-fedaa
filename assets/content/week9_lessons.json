@@ -1,0 +1,729 @@
+{
+  "schema": 1,
+  "lessons": [
+    {
+      "id": "w9_family_help",
+      "title": "أحب أهلي وأساعدهم 💛",
+      "emoji": "💛",
+      "category": "akhlaq",
+      "minAge": 4,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أحب أهلي وأساعدهم.",
+      "learned": "أحب أهلي وأساعدهم.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 9"
+      },
+      "steps": [
+        {
+          "emoji": "💛",
+          "text": "بابا يحمل أغراض البيت.",
+          "say": "بابا يحمل أغراض البيت."
+        },
+        {
+          "emoji": "💛",
+          "text": "سلمى تراه متعبًا.",
+          "say": "سلمى تراه متعبًا."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تفعل سلمى؟",
+          "options": [
+            "تساعده بحب 💛",
+            "تتركه وتلعب"
+          ],
+          "answerIndex": 0,
+          "hint": "نحب أهلنا ونساعدهم 🌸",
+          "praise": "أحسنتِ! نحب أهلنا.",
+          "emoji": "💛"
+        }
+      ]
+    },
+    {
+      "id": "w9_thanks_food",
+      "title": "أشكر الله على الطعام 🍽️",
+      "emoji": "🍽️",
+      "category": "akhlaq",
+      "minAge": 4,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أشكر الله بعد الأكل.",
+      "learned": "أشكر الله بعد الأكل.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 9"
+      },
+      "steps": [
+        {
+          "emoji": "🍽️",
+          "text": "سلمى أنهت طعامها اللذيذ.",
+          "say": "سلمى أنهت طعامها اللذيذ."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تفعل سلمى؟",
+          "options": [
+            "تنسى وتذهب",
+            "تشكر الله على نعمة الطعام 🤲"
+          ],
+          "answerIndex": 1,
+          "hint": "نشكر الله على نعمه 🌸",
+          "praise": "أحسنتِ! نشكر الله.",
+          "emoji": "🍽️"
+        }
+      ]
+    },
+    {
+      "id": "w9_cooperate",
+      "title": "نتعاون معًا 🧱",
+      "emoji": "🧱",
+      "category": "akhlaq",
+      "minAge": 4,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أتعاون مع أصدقائي.",
+      "learned": "أتعاون مع أصدقائي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 9"
+      },
+      "steps": [
+        {
+          "emoji": "🧱",
+          "text": "سلمى وصديقتها تبنيان برجًا من المكعبات.",
+          "say": "سلمى وصديقتها تبنيان برجًا من المكعبات."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تفعلان؟",
+          "options": [
+            "تتعاونان على البناء 🧱",
+            "كل واحدة تهدم بناء الأخرى"
+          ],
+          "answerIndex": 0,
+          "hint": "العمل معًا أجمل 🌸",
+          "praise": "أحسنتِ! التعاون جميل.",
+          "emoji": "🧱"
+        }
+      ]
+    },
+    {
+      "id": "w9_letter_1",
+      "title": "حرف النون ⭐",
+      "emoji": "⭐",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف حرف النون وصوته",
+      "learned": "حرف النون في أول: نَجْمَة، نَحْلَة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 9"
+      },
+      "steps": [
+        {
+          "emoji": "⭐",
+          "text": "نَجْمَة — تبدأ بحرف النون.",
+          "say": "نَجْمَة — تبدأ بحرف النون."
+        },
+        {
+          "emoji": "🐝",
+          "text": "نَحْلَة — تبدأ بحرف النون.",
+          "say": "نَحْلَة — تبدأ بحرف النون."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أي كلمة تبدأ بحرف النون؟",
+          "options": [
+            "بَقَرَة",
+            "نَجْمَة",
+            "تُفَّاحَة"
+          ],
+          "answerIndex": 1,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "⭐"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف النون؟",
+          "options": [
+            "ثَلْج",
+            "جَمَل",
+            "نَحْلَة"
+          ],
+          "answerIndex": 2,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "🐝"
+        }
+      ]
+    },
+    {
+      "id": "w9_letter_2",
+      "title": "حرف الهاء 🌙",
+      "emoji": "🌙",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف حرف الهاء وصوته",
+      "learned": "حرف الهاء في أول: هِلَال، هُدْهُد.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 9"
+      },
+      "steps": [
+        {
+          "emoji": "🌙",
+          "text": "هِلَال — تبدأ بحرف الهاء.",
+          "say": "هِلَال — تبدأ بحرف الهاء."
+        },
+        {
+          "emoji": "🐦",
+          "text": "هُدْهُد — تبدأ بحرف الهاء.",
+          "say": "هُدْهُد — تبدأ بحرف الهاء."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أي كلمة تبدأ بحرف الهاء؟",
+          "options": [
+            "ثَعْلَب",
+            "ثَوْر",
+            "هِلَال"
+          ],
+          "answerIndex": 2,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "🌙"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف الهاء؟",
+          "options": [
+            "هُدْهُد",
+            "جَبَل",
+            "حِصَان"
+          ],
+          "answerIndex": 0,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "🐦"
+        }
+      ]
+    },
+    {
+      "id": "w9_letter_3",
+      "title": "حرف الواو 🌹",
+      "emoji": "🌹",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف حرف الواو وصوته",
+      "learned": "حرف الواو في أول: وَرْدَة، وَلَد.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 9"
+      },
+      "steps": [
+        {
+          "emoji": "🌹",
+          "text": "وَرْدَة — تبدأ بحرف الواو.",
+          "say": "وَرْدَة — تبدأ بحرف الواو."
+        },
+        {
+          "emoji": "👦",
+          "text": "وَلَد — تبدأ بحرف الواو.",
+          "say": "وَلَد — تبدأ بحرف الواو."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أي كلمة تبدأ بحرف الواو؟",
+          "options": [
+            "وَرْدَة",
+            "جَمَل",
+            "جَزَر"
+          ],
+          "answerIndex": 0,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "🌹"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف الواو؟",
+          "options": [
+            "حُوت",
+            "وَلَد",
+            "خَرُوف"
+          ],
+          "answerIndex": 1,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "👦"
+        }
+      ]
+    },
+    {
+      "id": "w9_review_letters",
+      "title": "أراجع الحروف 🔤",
+      "emoji": "🔤",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أراجع حروف الأسبوع",
+      "learned": "أتذكّر حروفي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 9"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "هيا نراجع حروفنا!",
+          "say": "هيا نراجع حروفنا!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أي كلمة تبدأ بحرف النون؟",
+          "options": [
+            "نَحْلَة",
+            "جَمَل",
+            "جَزَر"
+          ],
+          "answerIndex": 0,
+          "hint": "تذكّري الكلمات التي تعلمناها",
+          "emoji": "🐝"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف الهاء؟",
+          "options": [
+            "حَلِيب",
+            "هُدْهُد",
+            "حُوت"
+          ],
+          "answerIndex": 1,
+          "hint": "تذكّري الكلمات التي تعلمناها",
+          "emoji": "🐦"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف الواو؟",
+          "options": [
+            "خَوْخ",
+            "دُبّ",
+            "وَلَد"
+          ],
+          "answerIndex": 2,
+          "hint": "تذكّري الكلمات التي تعلمناها",
+          "emoji": "👦"
+        }
+      ]
+    },
+    {
+      "id": "w9_add",
+      "title": "نجمع حتى 10 ➕",
+      "emoji": "➕",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أجمع حتى 5",
+      "learned": "أجمع عددين صغيرين.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 9"
+      },
+      "steps": [
+        {
+          "emoji": "➕",
+          "text": "5 + 4 = 9",
+          "say": "5 + 4 = 9"
+        },
+        {
+          "emoji": "➕",
+          "text": "6 + 3 = 9",
+          "say": "6 + 3 = 9"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "5 + 4 = ؟",
+          "options": [
+            "9",
+            "10",
+            "8"
+          ],
+          "answerIndex": 0,
+          "hint": "عدّي على أصابعك",
+          "emoji": "➕"
+        },
+        {
+          "prompt": "6 + 3 = ؟",
+          "options": [
+            "10",
+            "9",
+            "8"
+          ],
+          "answerIndex": 1,
+          "hint": "عدّي على أصابعك",
+          "emoji": "➕"
+        },
+        {
+          "prompt": "7 + 3 = ؟",
+          "options": [
+            "11",
+            "9",
+            "10"
+          ],
+          "answerIndex": 2,
+          "hint": "عدّي على أصابعك",
+          "emoji": "➕"
+        }
+      ]
+    },
+    {
+      "id": "w9_sub",
+      "title": "نطرح حتى 10 ➖",
+      "emoji": "➖",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أطرح حتى 5",
+      "learned": "أطرح عددًا صغيرًا من عدد.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 9"
+      },
+      "steps": [
+        {
+          "emoji": "➖",
+          "text": "9 - 4 = 5",
+          "say": "9 - 4 = 5"
+        },
+        {
+          "emoji": "➖",
+          "text": "10 - 3 = 7",
+          "say": "10 - 3 = 7"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "9 - 4 = ؟",
+          "options": [
+            "5",
+            "6",
+            "7"
+          ],
+          "answerIndex": 0,
+          "hint": "عدّي للخلف على أصابعك",
+          "emoji": "➖"
+        },
+        {
+          "prompt": "10 - 3 = ؟",
+          "options": [
+            "8",
+            "7",
+            "9"
+          ],
+          "answerIndex": 1,
+          "hint": "عدّي للخلف على أصابعك",
+          "emoji": "➖"
+        },
+        {
+          "prompt": "8 - 6 = ؟",
+          "options": [
+            "3",
+            "4",
+            "2"
+          ],
+          "answerIndex": 2,
+          "hint": "عدّي للخلف على أصابعك",
+          "emoji": "➖"
+        }
+      ]
+    },
+    {
+      "id": "w9_environment",
+      "title": "أحافظ على بيئتي 🌳",
+      "emoji": "🌳",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف كيف أحافظ على بيئتي",
+      "learned": "أحافظ على النظافة وعلى الأشجار.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 9"
+      },
+      "steps": [
+        {
+          "emoji": "🗑️",
+          "text": "نضع الأوساخ في سلة المهملات.",
+          "say": "نضع الأوساخ في سلة المهملات."
+        },
+        {
+          "emoji": "🌳",
+          "text": "الشجرة تعطينا ظلًا وثمارًا.",
+          "say": "الشجرة تعطينا ظلًا وثمارًا."
+        },
+        {
+          "emoji": "💧",
+          "text": "ولا نسرف في الماء.",
+          "say": "ولا نسرف في الماء."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أين نضع الأوساخ؟",
+          "options": [
+            "في السلة 🗑️",
+            "في الشارع",
+            "في الماء"
+          ],
+          "answerIndex": 0,
+          "hint": "السلة تحفظ نظافة المكان",
+          "emoji": "🗑️"
+        },
+        {
+          "prompt": "ماذا تعطينا الشجرة؟",
+          "options": [
+            "ألعابًا",
+            "ظلًا وثمارًا 🌳",
+            "ملابس"
+          ],
+          "answerIndex": 1,
+          "hint": "نجلس تحتها",
+          "emoji": "🌳"
+        }
+      ]
+    },
+    {
+      "id": "w9_english_colors",
+      "title": "Red Blue Green 🎨",
+      "emoji": "🎨",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أتعلم كلمات إنجليزية جديدة",
+      "learned": "مثل: Red = أحمر.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 9"
+      },
+      "steps": [
+        {
+          "emoji": "🔴",
+          "text": "Red = أحمر",
+          "say": "Red = أحمر"
+        },
+        {
+          "emoji": "🔵",
+          "text": "Blue = أزرق",
+          "say": "Blue = أزرق"
+        },
+        {
+          "emoji": "🟢",
+          "text": "Green = أخضر",
+          "say": "Green = أخضر"
+        },
+        {
+          "emoji": "🟡",
+          "text": "Yellow = أصفر",
+          "say": "Yellow = أصفر"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تعني Red؟",
+          "options": [
+            "أحمر",
+            "أزرق",
+            "أخضر"
+          ],
+          "answerIndex": 0,
+          "hint": "تذكّري الصورة",
+          "emoji": "🔴"
+        },
+        {
+          "prompt": "ماذا تعني Blue؟",
+          "options": [
+            "أحمر",
+            "أزرق",
+            "أخضر"
+          ],
+          "answerIndex": 1,
+          "hint": "تذكّري الصورة",
+          "emoji": "🔵"
+        },
+        {
+          "prompt": "ماذا تعني Green؟",
+          "options": [
+            "أحمر",
+            "أزرق",
+            "أخضر"
+          ],
+          "answerIndex": 2,
+          "hint": "تذكّري الصورة",
+          "emoji": "🟢"
+        }
+      ]
+    },
+    {
+      "id": "w9_order_wash",
+      "title": "أغسل يدي بالترتيب 🧼",
+      "emoji": "🧼",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أرتّب خطوات غسل اليدين",
+      "learned": "أغسل يدي بالصابون والماء.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 9"
+      },
+      "steps": [
+        {
+          "emoji": "🧼",
+          "text": "نغسل أيدينا لتبقى نظيفة.",
+          "say": "نغسل أيدينا لتبقى نظيفة."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "رتّبي خطوات غسل اليدين",
+          "options": [
+            "💧 نبلّل يدينا",
+            "🧼 نضع الصابون",
+            "🚿 نشطف بالماء",
+            "🧻 ننشّف يدينا"
+          ],
+          "answerIndex": 0,
+          "hint": "نبدأ بالماء",
+          "kind": "order",
+          "emoji": "🧼",
+          "praise": "أحسنتِ! النظافة جميلة."
+        }
+      ]
+    },
+    {
+      "id": "w9_pattern",
+      "title": "ما التالي؟ 🔴🔵",
+      "emoji": "🧩",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أكمل النمط",
+      "learned": "الأنماط تتكرر.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 9"
+      },
+      "steps": [
+        {
+          "emoji": "🧩",
+          "text": "الأنماط تتكرر: 🔴🔵🔴🔵",
+          "say": "الأنماط تتكرر: 🔴🔵🔴🔵"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🔴🔵🔴🔵🔴 ؟",
+          "options": [
+            "🔵",
+            "🔴",
+            "🟢"
+          ],
+          "answerIndex": 0,
+          "hint": "الأحمر ثم الأزرق ثم الأحمر…",
+          "emoji": "🧩"
+        },
+        {
+          "prompt": "⭐🌙⭐🌙⭐ ؟",
+          "options": [
+            "⭐",
+            "🌙",
+            "☀️"
+          ],
+          "answerIndex": 1,
+          "hint": "نجمة ثم قمر ثم نجمة…",
+          "emoji": "🧩"
+        }
+      ]
+    },
+    {
+      "id": "w9_review_game",
+      "title": "لعبة الأسبوع 🎮",
+      "emoji": "🎮",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أراجع ما تعلمته",
+      "learned": "أنا أتعلم وألعب!",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 9"
+      },
+      "steps": [
+        {
+          "emoji": "🎮",
+          "text": "هيا نلعب بما تعلمناه!",
+          "say": "هيا نلعب بما تعلمناه!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "5 + 4 = ؟",
+          "options": [
+            "9",
+            "8",
+            "10"
+          ],
+          "answerIndex": 0,
+          "hint": "عدّي على أصابعك",
+          "emoji": "➕"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف الواو؟",
+          "options": [
+            "نَجْمَة",
+            "وَرْدَة",
+            "هِلَال"
+          ],
+          "answerIndex": 1,
+          "hint": "وَ وَ وَرْدَة",
+          "emoji": "🌹"
+        },
+        {
+          "prompt": "ماذا تعني Blue؟",
+          "options": [
+            "أحمر",
+            "أخضر",
+            "أزرق"
+          ],
+          "answerIndex": 2,
+          "hint": "🔵",
+          "emoji": "🔵"
+        },
+        {
+          "prompt": "نحب أهلنا، ماذا نفعل لهم؟",
+          "options": [
+            "نساعدهم 💛",
+            "نتجاهلهم"
+          ],
+          "answerIndex": 0,
+          "hint": "نحبهم",
+          "emoji": "💛",
+          "praise": "أحسنتِ! نحب أهلنا."
+        }
+      ]
+    }
+  ]
+}

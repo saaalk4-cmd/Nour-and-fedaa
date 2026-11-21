@@ -1,0 +1,360 @@
+{
+  "schema": 1,
+  "lessons": [
+    {
+      "id": "w3e_more",
+      "title": "أيهما أكثر؟ 🍎",
+      "emoji": "🍎",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف الأكثر",
+      "learned": "الكثير والقليل.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 3 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🍎🍎🍎",
+          "text": "كثير",
+          "say": "هنا تفاحات كثيرة. وهنا تفاحة واحدة فقط"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🍎🍎🍎🍎 / 🍎",
+          "say": "اضغطي على الأكثر",
+          "options": [
+            "🍎",
+            "🍎🍎🍎🍎"
+          ],
+          "answerIndex": 1,
+          "hint": "الأكثر",
+          "emoji": "🍎"
+        }
+      ]
+    },
+    {
+      "id": "w3e_colors_orange_purple",
+      "title": "البرتقالي والبنفسجي 🟠🟣",
+      "emoji": "🟠",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف ألوانًا جديدة",
+      "learned": "البرتقالي والبنفسجي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 3 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🟠",
+          "text": "برتقالي",
+          "say": "هذا اللون برتقالي مثل البرتقالة"
+        },
+        {
+          "emoji": "🟣",
+          "text": "بنفسجي",
+          "say": "وهذا بنفسجي مثل العنب"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🟠",
+          "say": "أين البرتقالي؟",
+          "options": [
+            "🟣",
+            "🟠",
+            "🔴"
+          ],
+          "answerIndex": 1,
+          "hint": "برتقالة",
+          "emoji": "🍊"
+        },
+        {
+          "prompt": "🟣",
+          "say": "أين البنفسجي؟",
+          "options": [
+            "🟣",
+            "🟠",
+            "🟢"
+          ],
+          "answerIndex": 0,
+          "hint": "عنب",
+          "emoji": "🍇"
+        }
+      ]
+    },
+    {
+      "id": "w3e_mercy",
+      "title": "أساعد أختي 🤗",
+      "emoji": "🧸",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أرحم من يحزن",
+      "learned": "أساعد أختي بحنان.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 3 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🧸😢",
+          "text": "أختي حزينة",
+          "say": "وقعت لعبة أختك وهي تبكي"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🧸😢",
+          "say": "ماذا نفعل؟ هل نساعدها، أم نضحك عليها؟",
+          "options": [
+            "🤗",
+            "😝"
+          ],
+          "answerIndex": 0,
+          "hint": "نساعدها",
+          "emoji": "🧸",
+          "praise": "أحسنتِ! الرحمة شيء جميل."
+        }
+      ]
+    },
+    {
+      "id": "w3e_share",
+      "title": "أتشارك لعبتي 🧸",
+      "emoji": "🧸",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتشارك",
+      "learned": "أتشارك ألعابي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 3 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🧸",
+          "text": "لعبة واحدة",
+          "say": "معك لعبة واحدة، وصديقتك ليس معها لعبة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🧸 ؟",
+          "say": "ماذا نفعل؟ هل نلعب معًا، أم نأخذها لنا وحدنا؟",
+          "options": [
+            "💛",
+            "🙅"
+          ],
+          "answerIndex": 0,
+          "hint": "نلعب معًا",
+          "emoji": "🧸",
+          "praise": "أحسنتِ! المشاركة جميلة."
+        }
+      ]
+    },
+    {
+      "id": "w3e_water_animals",
+      "title": "من يعيش في الماء؟ 🐟",
+      "emoji": "🐟",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف أين تعيش الحيوانات",
+      "learned": "السمكة في الماء.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 3 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🐟",
+          "text": "سمكة",
+          "say": "السمكة تعيش في الماء"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "💧 ؟",
+          "say": "من يعيش في الماء؟",
+          "options": [
+            "🐄",
+            "🐟",
+            "🐦"
+          ],
+          "answerIndex": 1,
+          "hint": "سمكة",
+          "emoji": "🐟"
+        },
+        {
+          "prompt": "🌳 ؟",
+          "say": "من يطير فوق الشجرة؟",
+          "options": [
+            "🐦",
+            "🐟",
+            "🐄"
+          ],
+          "answerIndex": 0,
+          "hint": "عصفور",
+          "emoji": "🐦"
+        }
+      ]
+    },
+    {
+      "id": "w3e_triangle",
+      "title": "المثلث 🔺",
+      "emoji": "🔺",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف المثلث",
+      "learned": "المثلث له ثلاثة أضلاع.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 3 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🔺",
+          "text": "مثلث",
+          "say": "هذا مثلث، له ثلاثة أضلاع"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🔺 ؟",
+          "say": "أين المثلث؟",
+          "options": [
+            "⭕",
+            "🟦",
+            "🔺"
+          ],
+          "answerIndex": 2,
+          "hint": "مثلث",
+          "emoji": "🔺"
+        }
+      ]
+    },
+    {
+      "id": "w3e_day_night",
+      "title": "نهار وليل ☀️🌙",
+      "emoji": "🌙",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف النهار والليل",
+      "learned": "ننام في الليل.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 3 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "☀️",
+          "text": "نهار",
+          "say": "في النهار نلعب"
+        },
+        {
+          "emoji": "🌙",
+          "text": "ليل",
+          "say": "وفي الليل ننام"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🌙 ؟",
+          "say": "متى ننام؟",
+          "options": [
+            "☀️",
+            "🌙"
+          ],
+          "answerIndex": 1,
+          "hint": "في الليل",
+          "emoji": "😴"
+        },
+        {
+          "prompt": "☀️ ؟",
+          "say": "متى نلعب في الحديقة؟",
+          "options": [
+            "☀️",
+            "🌙"
+          ],
+          "answerIndex": 0,
+          "hint": "في النهار",
+          "emoji": "🌳"
+        }
+      ]
+    },
+    {
+      "id": "w3e_review_game",
+      "title": "لعبة الأسبوع 🎮",
+      "emoji": "🎮",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أراجع ما تعلمته",
+      "learned": "أنا أتعلم وألعب!",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 3 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🎮",
+          "text": "هيا نلعب",
+          "say": "هيا نلعب بما تعلمنا!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🟠",
+          "say": "أين البرتقالي؟",
+          "options": [
+            "🟠",
+            "🟣",
+            "🔴"
+          ],
+          "answerIndex": 0,
+          "hint": "برتقالة",
+          "emoji": "🍊"
+        },
+        {
+          "prompt": "🔺 ؟",
+          "say": "أين المثلث؟",
+          "options": [
+            "⭕",
+            "🔺",
+            "🟦"
+          ],
+          "answerIndex": 1,
+          "hint": "مثلث",
+          "emoji": "🔺"
+        },
+        {
+          "prompt": "🐟 ؟",
+          "say": "أين السمكة؟",
+          "options": [
+            "🐄",
+            "🐦",
+            "🐟"
+          ],
+          "answerIndex": 2,
+          "hint": "تسبح",
+          "emoji": "🐟"
+        }
+      ]
+    }
+  ]
+}

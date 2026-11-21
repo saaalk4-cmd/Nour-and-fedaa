@@ -16,14 +16,32 @@ dependencies:
   sqflite: ^2.3.3
   path: ^1.9.0
   crypto: ^3.0.3
+  audioplayers: ^6.1.0
+  video_player: ^2.9.2
+  flutter_tts: ^4.2.0
   intl: any
+  record: ^7.2.0
+  path_provider: ^2.1.6
+  archive: ^4.7.1
+  share_plus: ^13.3.1
+  file_picker: ^13.4.0
+  connectivity_plus: ^7.3.2
+  webview_flutter: ^4.14.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^4.0.0
+  sqflite_common_ffi: ^2.3.3
+  flutter_launcher_icons: ^0.14.1
 
 flutter:
   uses-material-design: true
   assets:
     - assets/content/
+    - assets/audio/
+    - assets/audio/quran/
+    - assets/audio/voice/
+    - assets/audio/song/
+    - assets/videos/
+    - assets/art/

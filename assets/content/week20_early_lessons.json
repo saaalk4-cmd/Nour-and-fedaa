@@ -1,0 +1,374 @@
+{
+  "schema": 1,
+  "lessons": [
+    {
+      "id": "w20e_transport2",
+      "title": "في السماء والبحر ✈️",
+      "emoji": "✈️",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 20 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "✈️",
+          "text": "الطائرة",
+          "say": "الطائرة"
+        },
+        {
+          "emoji": "🚢",
+          "text": "السفينة",
+          "say": "السفينة"
+        },
+        {
+          "emoji": "🚁",
+          "text": "المروحية",
+          "say": "المروحية"
+        },
+        {
+          "emoji": "🚜",
+          "text": "الجرار",
+          "say": "الجرار"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الطائرة؟",
+          "options": [
+            "✈️",
+            "🚢",
+            "🚁"
+          ],
+          "answerIndex": 0,
+          "hint": "الطائرة",
+          "emoji": "✈️",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الجرار؟",
+          "options": [
+            "✈️",
+            "🚜",
+            "🚢"
+          ],
+          "answerIndex": 1,
+          "hint": "الجرار",
+          "emoji": "🚜",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين السفينة؟",
+          "options": [
+            "✈️",
+            "🚁",
+            "🚢"
+          ],
+          "answerIndex": 2,
+          "hint": "السفينة",
+          "emoji": "🚢",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w20e_farm2",
+      "title": "أصدقاء المزرعة 🐇",
+      "emoji": "🐇",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 20 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🐐",
+          "text": "الماعز",
+          "say": "الماعز"
+        },
+        {
+          "emoji": "🦆",
+          "text": "البطة",
+          "say": "البطة"
+        },
+        {
+          "emoji": "🐇",
+          "text": "الأرنب",
+          "say": "الأرنب"
+        },
+        {
+          "emoji": "🐖",
+          "text": "الخنزير",
+          "say": "الخنزير"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الماعز؟",
+          "options": [
+            "🐐",
+            "🦆",
+            "🐇"
+          ],
+          "answerIndex": 0,
+          "hint": "الماعز",
+          "emoji": "🐐",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الخنزير؟",
+          "options": [
+            "🐐",
+            "🐖",
+            "🦆"
+          ],
+          "answerIndex": 1,
+          "hint": "الخنزير",
+          "emoji": "🐖",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين البطة؟",
+          "options": [
+            "🐐",
+            "🐇",
+            "🦆"
+          ],
+          "answerIndex": 2,
+          "hint": "البطة",
+          "emoji": "🦆",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w20e_sounds3",
+      "title": "أصوات حولنا 🔔",
+      "emoji": "🔔",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أسمع الأصوات وأربطها بصاحبها",
+      "learned": "أعرف صوت كل حيوان.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 20 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🚗",
+          "text": "السيارة",
+          "say": "السيارة يقول بيب بيب"
+        },
+        {
+          "emoji": "🔔",
+          "text": "الجرس",
+          "say": "الجرس يقول دينغ دينغ"
+        },
+        {
+          "emoji": "🚂",
+          "text": "القطار",
+          "say": "القطار يقول توت توت"
+        },
+        {
+          "emoji": "🐝",
+          "text": "النحلة",
+          "say": "النحلة يقول زززز"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🔊",
+          "say": "من يقول بيب بيب؟",
+          "options": [
+            "🚗",
+            "🔔",
+            "🚂"
+          ],
+          "answerIndex": 0,
+          "hint": "بيب بيب",
+          "emoji": "🚗",
+          "praise": "أحسنتِ! سمعتِ جيدًا."
+        },
+        {
+          "prompt": "🔊",
+          "say": "من يقول دينغ دينغ؟",
+          "options": [
+            "🚗",
+            "🔔",
+            "🚂"
+          ],
+          "answerIndex": 1,
+          "hint": "دينغ دينغ",
+          "emoji": "🔔",
+          "praise": "أحسنتِ! سمعتِ جيدًا."
+        },
+        {
+          "prompt": "🔊",
+          "say": "من يقول توت توت؟",
+          "options": [
+            "🚗",
+            "🔔",
+            "🚂"
+          ],
+          "answerIndex": 2,
+          "hint": "توت توت",
+          "emoji": "🚂",
+          "praise": "أحسنتِ! سمعتِ جيدًا."
+        }
+      ]
+    },
+    {
+      "id": "w20e_keep",
+      "title": "أحافظ على أشيائي 🎒",
+      "emoji": "🎒",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أحافظ على أشيائي",
+      "learned": "أحافظ على أشيائي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 20 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🎒",
+          "text": "حقيبتي على الأرض",
+          "say": "حقيبتي على الأرض"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🎒 ؟",
+          "say": "ماذا نفعل؟ نضعها في مكانها، أم نتركها؟",
+          "options": [
+            "🎒",
+            "🌀"
+          ],
+          "answerIndex": 0,
+          "hint": "أحافظ على أشيائي",
+          "emoji": "🎒",
+          "praise": "أحسنتِ! الترتيب جميل."
+        }
+      ]
+    },
+    {
+      "id": "w20e_patience",
+      "title": "أصبر قليلًا ⏳",
+      "emoji": "⏳",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أصبر قليلًا",
+      "learned": "أصبر قليلًا.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 20 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "⏳",
+          "text": "الطعام لم ينضج",
+          "say": "الطعام لم ينضج"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "⏳ ؟",
+          "say": "ماذا نفعل؟ ننتظر قليلًا، أم نبكي؟",
+          "options": [
+            "😭",
+            "😊"
+          ],
+          "answerIndex": 1,
+          "hint": "أصبر قليلًا",
+          "emoji": "😊",
+          "praise": "أحسنتِ! الصبر جميل."
+        }
+      ]
+    },
+    {
+      "id": "w20e_review_game",
+      "title": "لعبة الأسبوع 🎮",
+      "emoji": "🎮",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أراجع ما تعلمته",
+      "learned": "أنا أتعلم وألعب!",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 20 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🎮",
+          "text": "هيا نلعب",
+          "say": "هيا نلعب بما تعلمنا!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الطائرة؟",
+          "options": [
+            "✈️",
+            "🚢",
+            "🚁"
+          ],
+          "answerIndex": 0,
+          "hint": "الطائرة",
+          "emoji": "✈️",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الماعز؟",
+          "options": [
+            "🦆",
+            "🐐",
+            "🐇"
+          ],
+          "answerIndex": 1,
+          "hint": "الماعز",
+          "emoji": "🐐",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الجرس؟",
+          "options": [
+            "🚗",
+            "🚂",
+            "🔔"
+          ],
+          "answerIndex": 2,
+          "hint": "الجرس",
+          "emoji": "🔔",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    }
+  ]
+}

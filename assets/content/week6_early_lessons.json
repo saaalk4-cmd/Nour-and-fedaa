@@ -1,0 +1,326 @@
+{
+  "schema": 1,
+  "lessons": [
+    {
+      "id": "w6e_count_8",
+      "title": "نعدّ حتى 8 🐟",
+      "emoji": "🐟",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعدّ حتى 8",
+      "learned": "أعدّ حتى ثمانية.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 6 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🐟🐟🐟🐟🐟🐟🐟🐟",
+          "text": "ثماني سمكات",
+          "say": "واحدة، اثنتان، ثلاث، أربع، خمس، ست، سبع، ثمان سمكات"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🐟🐟🐟🐟🐟🐟🐟🐟",
+          "say": "اضغطي على ثماني سمكات",
+          "options": [
+            "🐟🐟🐟",
+            "🐟🐟🐟🐟🐟",
+            "🐟🐟🐟🐟🐟🐟🐟🐟"
+          ],
+          "answerIndex": 2,
+          "hint": "ثمانية",
+          "emoji": "🐟"
+        }
+      ]
+    },
+    {
+      "id": "w6e_hot_cold",
+      "title": "ساخن وبارد 🔥🧊",
+      "emoji": "🧊",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف الساخن والبارد",
+      "learned": "النار ساخنة والثلج بارد.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 6 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🔥",
+          "text": "ساخن",
+          "say": "النار ساخنة، لا نلمسها"
+        },
+        {
+          "emoji": "🧊",
+          "text": "بارد",
+          "say": "والثلج بارد"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🧊 ؟",
+          "say": "أين البارد؟",
+          "options": [
+            "🔥",
+            "🧊"
+          ],
+          "answerIndex": 1,
+          "hint": "ثلج",
+          "emoji": "🧊"
+        },
+        {
+          "prompt": "🔥 ؟",
+          "say": "أين الساخن؟",
+          "options": [
+            "🔥",
+            "🧊"
+          ],
+          "answerIndex": 0,
+          "hint": "نار",
+          "emoji": "🔥"
+        }
+      ]
+    },
+    {
+      "id": "w6e_clean",
+      "title": "أغسل يديّ 🧼",
+      "emoji": "🧼",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أغسل يديّ قبل الأكل",
+      "learned": "أغسل يديّ.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 6 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🧼",
+          "text": "صابون",
+          "say": "نغسل أيدينا بالصابون"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🍽️ ؟",
+          "say": "قبل الأكل ماذا نفعل؟ نغسل أيدينا، أم نلعب بالطين؟",
+          "options": [
+            "🧼",
+            "🪨"
+          ],
+          "answerIndex": 0,
+          "hint": "نغسل",
+          "emoji": "🧼",
+          "praise": "أحسنتِ! النظافة جميلة."
+        }
+      ]
+    },
+    {
+      "id": "w6e_truth",
+      "title": "أقول الحقيقة 💎",
+      "emoji": "💎",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أقول الحقيقة",
+      "learned": "أقول الحقيقة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 6 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🥛",
+          "text": "كوب مكسور",
+          "say": "الكوب وقع وانكسر"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🥛 ؟",
+          "say": "ماما سألت من كسره. ماذا نقول؟ نقول الحقيقة، أم نخبّئ؟",
+          "options": [
+            "💎",
+            "🙈"
+          ],
+          "answerIndex": 0,
+          "hint": "الحقيقة",
+          "emoji": "💎",
+          "praise": "أحسنتِ! قول الحقيقة جميل."
+        }
+      ]
+    },
+    {
+      "id": "w6e_big_small",
+      "title": "كبير وصغير 🐘🐭",
+      "emoji": "🐘",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف الكبير والصغير",
+      "learned": "الفيل كبير والفأر صغير.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 6 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🐘",
+          "text": "كبير",
+          "say": "الفيل كبير"
+        },
+        {
+          "emoji": "🐭",
+          "text": "صغير",
+          "say": "والفأر صغير"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🐘 ؟",
+          "say": "أين الكبير؟",
+          "options": [
+            "🐭",
+            "🐘"
+          ],
+          "answerIndex": 1,
+          "hint": "فيل",
+          "emoji": "🐘"
+        },
+        {
+          "prompt": "🐭 ؟",
+          "say": "أين الصغير؟",
+          "options": [
+            "🐭",
+            "🐘"
+          ],
+          "answerIndex": 0,
+          "hint": "فأر",
+          "emoji": "🐭"
+        }
+      ]
+    },
+    {
+      "id": "w6e_shapes",
+      "title": "دائرة ومربع ⭕🟦",
+      "emoji": "⭕",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف الدائرة والمربع",
+      "learned": "الدائرة والمربع.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 6 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "⭕",
+          "text": "دائرة",
+          "say": "هذه دائرة"
+        },
+        {
+          "emoji": "🟦",
+          "text": "مربع",
+          "say": "وهذا مربع"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "⭕ ؟",
+          "say": "أين الدائرة؟",
+          "options": [
+            "🟦",
+            "⭕",
+            "🔺"
+          ],
+          "answerIndex": 1,
+          "hint": "دائرة",
+          "emoji": "⭕"
+        },
+        {
+          "prompt": "🟦 ؟",
+          "say": "أين المربع؟",
+          "options": [
+            "🟦",
+            "⭕",
+            "🔺"
+          ],
+          "answerIndex": 0,
+          "hint": "مربع",
+          "emoji": "🟦"
+        }
+      ]
+    },
+    {
+      "id": "w6e_review_game",
+      "title": "لعبة الأسبوع 🎮",
+      "emoji": "🎮",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أراجع ما تعلمته",
+      "learned": "أنا أتعلم وألعب!",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 6 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🎮",
+          "text": "هيا نلعب",
+          "say": "هيا نلعب بما تعلمنا!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🧊 ؟",
+          "say": "أين البارد؟",
+          "options": [
+            "🔥",
+            "🧊"
+          ],
+          "answerIndex": 1,
+          "hint": "ثلج",
+          "emoji": "🧊"
+        },
+        {
+          "prompt": "🐘 ؟",
+          "say": "أين الكبير؟",
+          "options": [
+            "🐘",
+            "🐭"
+          ],
+          "answerIndex": 0,
+          "hint": "فيل",
+          "emoji": "🐘"
+        },
+        {
+          "prompt": "⭕ ؟",
+          "say": "أين الدائرة؟",
+          "options": [
+            "🟦",
+            "🔺",
+            "⭕"
+          ],
+          "answerIndex": 2,
+          "hint": "دائرة",
+          "emoji": "⭕"
+        }
+      ]
+    }
+  ]
+}

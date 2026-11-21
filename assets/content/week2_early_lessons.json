@@ -1,0 +1,440 @@
+{
+  "schema": 1,
+  "lessons": [
+    {
+      "id": "w2e_count_4_5",
+      "title": "نعدّ حتى 5 🖐️",
+      "emoji": "🖐️",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعدّ حتى 5",
+      "learned": "واحد، اثنان، ثلاثة، أربعة، خمسة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 2 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🐟🐟🐟🐟",
+          "text": "أربع",
+          "say": "واحدة، اثنتان، ثلاث، أربع سمكات"
+        },
+        {
+          "emoji": "🖐️",
+          "text": "خمس",
+          "say": "وهذه يدي فيها خمسة أصابع"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🐟🐟🐟🐟",
+          "say": "اضغطي على أربع سمكات",
+          "options": [
+            "🐟🐟",
+            "🐟🐟🐟🐟",
+            "🐟🐟🐟"
+          ],
+          "answerIndex": 1,
+          "hint": "أربع",
+          "emoji": "🐟"
+        },
+        {
+          "prompt": "🖐️",
+          "say": "كم أصبعًا في يدي؟ اضغطي على خمسة",
+          "options": [
+            "🎈🎈🎈🎈🎈",
+            "🎈🎈",
+            "🎈"
+          ],
+          "answerIndex": 0,
+          "hint": "خمسة",
+          "emoji": "🖐️"
+        }
+      ]
+    },
+    {
+      "id": "w2e_colors_green",
+      "title": "اللون الأخضر 🟢",
+      "emoji": "🌳",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف اللون الأخضر",
+      "learned": "الأخضر مثل الشجرة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 2 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🌳",
+          "text": "خضراء",
+          "say": "الشجرة خضراء"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🟢",
+          "say": "اضغطي على اللون الأخضر",
+          "options": [
+            "🔴",
+            "🟡",
+            "🟢"
+          ],
+          "answerIndex": 2,
+          "hint": "🌳",
+          "emoji": "🌳"
+        },
+        {
+          "prompt": "🐸 ؟",
+          "say": "ما لون الضفدع؟",
+          "options": [
+            "🟢",
+            "🔵",
+            "🔴"
+          ],
+          "answerIndex": 0,
+          "hint": "🐸",
+          "emoji": "🐸"
+        }
+      ]
+    },
+    {
+      "id": "w2e_water",
+      "title": "الماء 💧",
+      "emoji": "💧",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف الماء",
+      "learned": "الماء مهم للجميع.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 2 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "💧",
+          "text": "ماء",
+          "say": "هذا ماء. نشرب الماء"
+        },
+        {
+          "emoji": "🌱",
+          "text": "نبات",
+          "say": "والنبات يحتاج الماء ليكبر"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "💧 ؟",
+          "say": "أين الماء؟",
+          "options": [
+            "🔥",
+            "💧",
+            "🪨"
+          ],
+          "answerIndex": 1,
+          "hint": "ماء",
+          "emoji": "💧"
+        },
+        {
+          "prompt": "🌱 ؟",
+          "say": "ماذا يحتاج النبات؟ اضغطي على الماء",
+          "options": [
+            "🍬",
+            "💧",
+            "🧸"
+          ],
+          "answerIndex": 1,
+          "hint": "ماء",
+          "emoji": "🌱"
+        }
+      ]
+    },
+    {
+      "id": "w2e_help_mom",
+      "title": "أساعد ماما 🤝",
+      "emoji": "🛍️",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أساعد أمي",
+      "learned": "أساعد أمي بحب.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 2 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🛍️👩",
+          "text": "ماما",
+          "say": "ماما تحمل أكياسًا ثقيلة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🛍️👩",
+          "say": "ماذا نفعل؟ هل نساعدها، أم نتركها؟",
+          "options": [
+            "🤝",
+            "🙈"
+          ],
+          "answerIndex": 0,
+          "hint": "نساعدها",
+          "emoji": "🛍️",
+          "praise": "أحسنتِ! مساعدة ماما جميلة."
+        }
+      ]
+    },
+    {
+      "id": "w2e_shapes_square",
+      "title": "المربع 🟦",
+      "emoji": "🟦",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف المربع",
+      "learned": "المربع له أربعة أضلاع.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 2 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🟦",
+          "text": "مربع",
+          "say": "هذا مربع، له أربعة أضلاع"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🟦 ؟",
+          "say": "أين المربع؟",
+          "options": [
+            "⭕",
+            "🟦",
+            "🔺"
+          ],
+          "answerIndex": 1,
+          "hint": "مربع",
+          "emoji": "🟦"
+        }
+      ]
+    },
+    {
+      "id": "w2e_fruits",
+      "title": "أين الموزة؟ 🍌",
+      "emoji": "🍌",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف بعض الفواكه",
+      "learned": "الموزة والتفاحة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 2 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🍌",
+          "text": "موزة",
+          "say": "هذه موزة"
+        },
+        {
+          "emoji": "🍎",
+          "text": "تفاحة",
+          "say": "وهذه تفاحة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🍌 ؟",
+          "say": "أين الموزة؟",
+          "options": [
+            "🍎",
+            "🍌",
+            "🍇"
+          ],
+          "answerIndex": 1,
+          "hint": "موزة",
+          "emoji": "🍌"
+        },
+        {
+          "prompt": "🍎 ؟",
+          "say": "أين التفاحة؟",
+          "options": [
+            "🍎",
+            "🍌",
+            "🍇"
+          ],
+          "answerIndex": 0,
+          "hint": "تفاحة",
+          "emoji": "🍎"
+        }
+      ]
+    },
+    {
+      "id": "w2e_prayer",
+      "title": "الصلاة في وقتها 🕌",
+      "emoji": "🕌",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أحب الصلاة",
+      "learned": "نصلي في وقتها.",
+      "source": {
+        "type": "sahih_sunnah",
+        "reference": "صحيح البخاري (527) — صحيح (متفق عليه): «الصلاة على وقتها»"
+      },
+      "steps": [
+        {
+          "emoji": "🕌",
+          "text": "نصلي",
+          "say": "نحب أن نصلي في وقت الصلاة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🕌 ؟",
+          "say": "أين المسجد؟",
+          "options": [
+            "🏠",
+            "🕌",
+            "🏫"
+          ],
+          "answerIndex": 1,
+          "hint": "المسجد",
+          "emoji": "🕌",
+          "praise": "أحسنتِ!"
+        }
+      ],
+      "allowSpeech": true
+    },
+    {
+      "id": "w2e_farm",
+      "title": "حيوانات المزرعة 🐄",
+      "emoji": "🐄",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف حيوانات المزرعة",
+      "learned": "البقرة والخروف.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 2 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🐄",
+          "text": "موو",
+          "say": "البقرة تقول موو"
+        },
+        {
+          "emoji": "🐑",
+          "text": "ماع",
+          "say": "والخروف يقول ماع"
+        },
+        {
+          "emoji": "🐔",
+          "text": "كاك",
+          "say": "والدجاجة تقول كاك"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🐄 ؟",
+          "say": "أين البقرة؟",
+          "options": [
+            "🐑",
+            "🐄",
+            "🐔"
+          ],
+          "answerIndex": 1,
+          "hint": "موو",
+          "emoji": "🐄"
+        },
+        {
+          "prompt": "🐑 ؟",
+          "say": "أين الخروف؟",
+          "options": [
+            "🐑",
+            "🐔",
+            "🐄"
+          ],
+          "answerIndex": 0,
+          "hint": "ماع",
+          "emoji": "🐑"
+        }
+      ]
+    },
+    {
+      "id": "w2e_review_game",
+      "title": "لعبة الأسبوع 🎮",
+      "emoji": "🎮",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أراجع ما تعلمته",
+      "learned": "أنا أتعلم وألعب!",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 2 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🎮",
+          "text": "هيا نلعب",
+          "say": "هيا نلعب بما تعلمنا!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🟢",
+          "say": "أين اللون الأخضر؟",
+          "options": [
+            "🔴",
+            "🟢",
+            "🔵"
+          ],
+          "answerIndex": 1,
+          "hint": "مثل الشجرة",
+          "emoji": "🌳"
+        },
+        {
+          "prompt": "🐄 ؟",
+          "say": "أين البقرة؟",
+          "options": [
+            "🐄",
+            "🐑",
+            "🐔"
+          ],
+          "answerIndex": 0,
+          "hint": "موو",
+          "emoji": "🐄"
+        },
+        {
+          "prompt": "🟦 ؟",
+          "say": "أين المربع؟",
+          "options": [
+            "⭕",
+            "🔺",
+            "🟦"
+          ],
+          "answerIndex": 2,
+          "hint": "مربع",
+          "emoji": "🟦"
+        }
+      ]
+    }
+  ]
+}

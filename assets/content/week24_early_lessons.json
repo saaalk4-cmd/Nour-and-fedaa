@@ -1,0 +1,374 @@
+{
+  "schema": 1,
+  "lessons": [
+    {
+      "id": "w24e_home_mix",
+      "title": "بيتي وأهلي 🏠",
+      "emoji": "🏠",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 24 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "👩",
+          "text": "ماما",
+          "say": "ماما"
+        },
+        {
+          "emoji": "🛏️",
+          "text": "السرير",
+          "say": "السرير"
+        },
+        {
+          "emoji": "🍽️",
+          "text": "الطبق",
+          "say": "الطبق"
+        },
+        {
+          "emoji": "👁️",
+          "text": "العين",
+          "say": "العين"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين ماما؟",
+          "options": [
+            "👩",
+            "🛏️",
+            "🍽️"
+          ],
+          "answerIndex": 0,
+          "hint": "ماما",
+          "emoji": "👩",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين العين؟",
+          "options": [
+            "👩",
+            "👁️",
+            "🛏️"
+          ],
+          "answerIndex": 1,
+          "hint": "العين",
+          "emoji": "👁️",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين السرير؟",
+          "options": [
+            "👩",
+            "🍽️",
+            "🛏️"
+          ],
+          "answerIndex": 2,
+          "hint": "السرير",
+          "emoji": "🛏️",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w24e_nature_mix",
+      "title": "عالمي الجميل 🌍",
+      "emoji": "🌍",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 24 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🌳",
+          "text": "الشجرة",
+          "say": "الشجرة"
+        },
+        {
+          "emoji": "☀️",
+          "text": "الشمس",
+          "say": "الشمس"
+        },
+        {
+          "emoji": "🐟",
+          "text": "السمكة",
+          "say": "السمكة"
+        },
+        {
+          "emoji": "🦋",
+          "text": "الفراشة",
+          "say": "الفراشة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الشجرة؟",
+          "options": [
+            "🌳",
+            "☀️",
+            "🐟"
+          ],
+          "answerIndex": 0,
+          "hint": "الشجرة",
+          "emoji": "🌳",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الفراشة؟",
+          "options": [
+            "🌳",
+            "🦋",
+            "☀️"
+          ],
+          "answerIndex": 1,
+          "hint": "الفراشة",
+          "emoji": "🦋",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الشمس؟",
+          "options": [
+            "🌳",
+            "🐟",
+            "☀️"
+          ],
+          "answerIndex": 2,
+          "hint": "الشمس",
+          "emoji": "☀️",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w24e_sounds_last",
+      "title": "أصدقائي يتكلمون 🐶",
+      "emoji": "🐶",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أسمع الأصوات وأربطها بصاحبها",
+      "learned": "أعرف صوت كل حيوان.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 24 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🐶",
+          "text": "الكلب",
+          "say": "الكلب يقول هو هو"
+        },
+        {
+          "emoji": "🐱",
+          "text": "القطة",
+          "say": "القطة يقول ميو"
+        },
+        {
+          "emoji": "🦆",
+          "text": "البطة",
+          "say": "البطة يقول كواك"
+        },
+        {
+          "emoji": "🐸",
+          "text": "الضفدع",
+          "say": "الضفدع يقول نق نق"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🔊",
+          "say": "من يقول هو هو؟",
+          "options": [
+            "🐶",
+            "🐱",
+            "🦆"
+          ],
+          "answerIndex": 0,
+          "hint": "هو هو",
+          "emoji": "🐶",
+          "praise": "أحسنتِ! سمعتِ جيدًا."
+        },
+        {
+          "prompt": "🔊",
+          "say": "من يقول ميو؟",
+          "options": [
+            "🐶",
+            "🐱",
+            "🦆"
+          ],
+          "answerIndex": 1,
+          "hint": "ميو",
+          "emoji": "🐱",
+          "praise": "أحسنتِ! سمعتِ جيدًا."
+        },
+        {
+          "prompt": "🔊",
+          "say": "من يقول كواك؟",
+          "options": [
+            "🐶",
+            "🐱",
+            "🦆"
+          ],
+          "answerIndex": 2,
+          "hint": "كواك",
+          "emoji": "🦆",
+          "praise": "أحسنتِ! سمعتِ جيدًا."
+        }
+      ]
+    },
+    {
+      "id": "w24e_proud",
+      "title": "أنا أتعلم كل يوم 🌟",
+      "emoji": "🌟",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعلم كل يوم",
+      "learned": "أتعلم كل يوم.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 24 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🌟",
+          "text": "تعلّمتُ شيئًا جديدًا",
+          "say": "تعلّمتُ شيئًا جديدًا"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🌟 ؟",
+          "say": "ماذا نفعل؟ نفرح ونكمل، أم نتوقف؟",
+          "options": [
+            "🌟",
+            "🛑"
+          ],
+          "answerIndex": 0,
+          "hint": "أتعلم كل يوم",
+          "emoji": "🌟",
+          "praise": "أحسنتِ! أنتِ تتعلمين وتكبرين."
+        }
+      ]
+    },
+    {
+      "id": "w24e_love",
+      "title": "أحب أهلي 💛",
+      "emoji": "💛",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أحب أهلي",
+      "learned": "أحب أهلي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 24 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "💛",
+          "text": "أهلي يحبوني",
+          "say": "أهلي يحبوني"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "💛 ؟",
+          "say": "ماذا نفعل؟ نحبهم، أم نبتعد؟",
+          "options": [
+            "🙈",
+            "💛"
+          ],
+          "answerIndex": 1,
+          "hint": "أحب أهلي",
+          "emoji": "💛",
+          "praise": "أحسنتِ! نحب أهلنا."
+        }
+      ]
+    },
+    {
+      "id": "w24e_review_game",
+      "title": "لعبة الأسبوع 🎮",
+      "emoji": "🎮",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أراجع ما تعلمته",
+      "learned": "أنا أتعلم وألعب!",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 24 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🎮",
+          "text": "هيا نلعب",
+          "say": "هيا نلعب بما تعلمنا!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين ماما؟",
+          "options": [
+            "👩",
+            "🛏️",
+            "🍽️"
+          ],
+          "answerIndex": 0,
+          "hint": "ماما",
+          "emoji": "👩",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الشجرة؟",
+          "options": [
+            "☀️",
+            "🌳",
+            "🐟"
+          ],
+          "answerIndex": 1,
+          "hint": "الشجرة",
+          "emoji": "🌳",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين القطة؟",
+          "options": [
+            "🐶",
+            "🦆",
+            "🐱"
+          ],
+          "answerIndex": 2,
+          "hint": "القطة",
+          "emoji": "🐱",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    }
+  ]
+}

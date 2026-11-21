@@ -1,0 +1,805 @@
+{
+  "schema": 1,
+  "lessons": [
+    {
+      "id": "w17_s1",
+      "title": "أحفظ الأمانة 🧸",
+      "emoji": "🧸",
+      "category": "akhlaq",
+      "minAge": 4,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أرد ما ليس لي.",
+      "learned": "أرد ما ليس لي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 17"
+      },
+      "steps": [
+        {
+          "emoji": "🧸",
+          "text": "سلمى وجدت لعبة صديقتها في الحديقة.",
+          "say": "سلمى وجدت لعبة صديقتها في الحديقة."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تفعل؟",
+          "options": [
+            "تردّها لها 🧸",
+            "تأخذها لنفسها"
+          ],
+          "answerIndex": 0,
+          "hint": "الأمانة جميلة 🌸",
+          "praise": "أحسنتِ! الأمانة جميلة.",
+          "emoji": "🧸"
+        }
+      ]
+    },
+    {
+      "id": "w17_s2",
+      "title": "أقول الصدق 💎",
+      "emoji": "💎",
+      "category": "akhlaq",
+      "minAge": 4,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أقول الصدق دائمًا.",
+      "learned": "أقول الصدق دائمًا.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 17"
+      },
+      "steps": [
+        {
+          "emoji": "💎",
+          "text": "نسيت سلمى أن ترتّب غرفتها.",
+          "say": "نسيت سلمى أن ترتّب غرفتها."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تقول لأمها؟",
+          "options": [
+            "لقد رتّبتها كلها",
+            "نسيت وسأرتّب الآن 💎"
+          ],
+          "answerIndex": 1,
+          "hint": "الصدق جميل 🌸",
+          "praise": "أحسنتِ! الصدق جميل.",
+          "emoji": "💎"
+        }
+      ]
+    },
+    {
+      "id": "w17_read_1",
+      "title": "أقرأ كلمات 📚",
+      "emoji": "📚",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أقرأ كلمة وأختار صورتها",
+      "learned": "أقرأ كلمات قصيرة وأعرف معناها.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 17"
+      },
+      "steps": [
+        {
+          "emoji": "🌙",
+          "text": "قَمَر",
+          "say": "قَمَر"
+        },
+        {
+          "emoji": "🏠",
+          "text": "بَيْت",
+          "say": "بَيْت"
+        },
+        {
+          "emoji": "⚽",
+          "text": "كُرَة",
+          "say": "كُرَة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ما الكلمة المناسبة للصورة؟",
+          "options": [
+            "وَرْدَة",
+            "قَمَر",
+            "هَاتِف"
+          ],
+          "answerIndex": 1,
+          "hint": "اسمعي الكلمة ثم اختاري",
+          "emoji": "🌙"
+        },
+        {
+          "prompt": "ما الكلمة المناسبة للصورة؟",
+          "options": [
+            "حِصَان",
+            "عِنَب",
+            "بَيْت"
+          ],
+          "answerIndex": 2,
+          "hint": "اسمعي الكلمة ثم اختاري",
+          "emoji": "🏠"
+        },
+        {
+          "prompt": "ما الكلمة المناسبة للصورة؟",
+          "options": [
+            "كُرَة",
+            "سَاعَة",
+            "بَيْت"
+          ],
+          "answerIndex": 0,
+          "hint": "اسمعي الكلمة ثم اختاري",
+          "emoji": "⚽"
+        },
+        {
+          "prompt": "ما الكلمة المناسبة للصورة؟",
+          "options": [
+            "سَاعَة",
+            "وَرْدَة",
+            "كُرَة"
+          ],
+          "answerIndex": 1,
+          "hint": "اسمعي الكلمة ثم اختاري",
+          "emoji": "🌹"
+        }
+      ]
+    },
+    {
+      "id": "w17_letter_1",
+      "title": "بأي حرف تبدأ؟ 🔠",
+      "emoji": "🔠",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أختار الحرف الأول",
+      "learned": "أعرف بأي حرف تبدأ الكلمة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 17"
+      },
+      "steps": [
+        {
+          "emoji": "☀️",
+          "text": "شَمْس تبدأ بحرف ش",
+          "say": "شَمْس تبدأ بحرف ش"
+        },
+        {
+          "emoji": "🐪",
+          "text": "جَمَل تبدأ بحرف ج",
+          "say": "جَمَل تبدأ بحرف ج"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "بأي حرف تبدأ كلمة ☀️؟",
+          "options": [
+            "ز",
+            "ش",
+            "ر"
+          ],
+          "answerIndex": 1,
+          "hint": "انطقي الكلمة ببطء",
+          "emoji": "☀️"
+        },
+        {
+          "prompt": "بأي حرف تبدأ كلمة 🐪؟",
+          "options": [
+            "ش",
+            "ا",
+            "ج"
+          ],
+          "answerIndex": 2,
+          "hint": "انطقي الكلمة ببطء",
+          "emoji": "🐪"
+        },
+        {
+          "prompt": "بأي حرف تبدأ كلمة ⭐؟",
+          "options": [
+            "ن",
+            "ك",
+            "ز"
+          ],
+          "answerIndex": 0,
+          "hint": "انطقي الكلمة ببطء",
+          "emoji": "⭐"
+        },
+        {
+          "prompt": "بأي حرف تبدأ كلمة 🐟؟",
+          "options": [
+            "ن",
+            "س",
+            "ك"
+          ],
+          "answerIndex": 1,
+          "hint": "انطقي الكلمة ببطء",
+          "emoji": "🐟"
+        }
+      ]
+    },
+    {
+      "id": "w17_combo",
+      "title": "أعدّ وأقرأ 🧠",
+      "emoji": "🧠",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أدمج العدّ والقراءة والحروف",
+      "learned": "أعدّ وأقرأ وأعرف الحروف معًا.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 17"
+      },
+      "steps": [
+        {
+          "emoji": "🍎🍎🍎",
+          "text": "3 تُفَّاحَة",
+          "say": "3 تُفَّاحَة"
+        },
+        {
+          "emoji": "⭐⭐⭐⭐⭐",
+          "text": "5 نَجْمَة",
+          "say": "5 نَجْمَة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "كم عدد هذه؟ 🍎🍎🍎",
+          "options": [
+            "4",
+            "2",
+            "3"
+          ],
+          "answerIndex": 2,
+          "hint": "عدّي ببطء",
+          "emoji": "🍎"
+        },
+        {
+          "prompt": "ما الكلمة المناسبة؟ 🍎",
+          "options": [
+            "مَاء",
+            "تُفَّاحَة",
+            "قِطَّة"
+          ],
+          "answerIndex": 1,
+          "hint": "اسمعي الكلمة",
+          "emoji": "🍎"
+        },
+        {
+          "prompt": "بأي حرف تبدأ كلمة تُفَّاحَة؟",
+          "options": [
+            "ا",
+            "ب",
+            "ت"
+          ],
+          "answerIndex": 2,
+          "hint": "انطقي الكلمة ببطء",
+          "emoji": "🍎"
+        },
+        {
+          "prompt": "كم عدد هذه؟ ⭐⭐⭐⭐⭐",
+          "options": [
+            "5",
+            "6",
+            "4"
+          ],
+          "answerIndex": 0,
+          "hint": "عدّي ببطء",
+          "emoji": "⭐"
+        },
+        {
+          "prompt": "ما الكلمة المناسبة؟ ⭐",
+          "options": [
+            "قَلَم",
+            "مِفْتَاح",
+            "نَجْمَة"
+          ],
+          "answerIndex": 2,
+          "hint": "اسمعي الكلمة",
+          "emoji": "⭐"
+        }
+      ]
+    },
+    {
+      "id": "w17_add",
+      "title": "نجمع حتى 20 ➕",
+      "emoji": "➕",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أجمع حتى 5",
+      "learned": "أجمع عددين صغيرين.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 17"
+      },
+      "steps": [
+        {
+          "emoji": "➕",
+          "text": "12 + 5 = 17",
+          "say": "12 + 5 = 17"
+        },
+        {
+          "emoji": "➕",
+          "text": "9 + 8 = 17",
+          "say": "9 + 8 = 17"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "12 + 5 = ؟",
+          "options": [
+            "17",
+            "18",
+            "16"
+          ],
+          "answerIndex": 0,
+          "hint": "عدّي على أصابعك",
+          "emoji": "➕"
+        },
+        {
+          "prompt": "9 + 8 = ؟",
+          "options": [
+            "18",
+            "17",
+            "16"
+          ],
+          "answerIndex": 1,
+          "hint": "عدّي على أصابعك",
+          "emoji": "➕"
+        },
+        {
+          "prompt": "11 + 7 = ؟",
+          "options": [
+            "19",
+            "17",
+            "18"
+          ],
+          "answerIndex": 2,
+          "hint": "عدّي على أصابعك",
+          "emoji": "➕"
+        }
+      ]
+    },
+    {
+      "id": "w17_english",
+      "title": "Numbers 6-10 🔢",
+      "emoji": "🔢",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أتعلم كلمات إنجليزية جديدة",
+      "learned": "مثل: Six = ستة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 17"
+      },
+      "steps": [
+        {
+          "emoji": "6️⃣",
+          "text": "Six = ستة",
+          "say": "Six = ستة"
+        },
+        {
+          "emoji": "7️⃣",
+          "text": "Seven = سبعة",
+          "say": "Seven = سبعة"
+        },
+        {
+          "emoji": "8️⃣",
+          "text": "Eight = ثمانية",
+          "say": "Eight = ثمانية"
+        },
+        {
+          "emoji": "9️⃣",
+          "text": "Nine = تسعة",
+          "say": "Nine = تسعة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تعني Six؟",
+          "options": [
+            "ستة",
+            "سبعة",
+            "ثمانية"
+          ],
+          "answerIndex": 0,
+          "hint": "تذكّري الصورة",
+          "emoji": "6️⃣"
+        },
+        {
+          "prompt": "ماذا تعني Seven؟",
+          "options": [
+            "ستة",
+            "سبعة",
+            "ثمانية"
+          ],
+          "answerIndex": 1,
+          "hint": "تذكّري الصورة",
+          "emoji": "7️⃣"
+        },
+        {
+          "prompt": "ماذا تعني Eight؟",
+          "options": [
+            "ستة",
+            "سبعة",
+            "ثمانية"
+          ],
+          "answerIndex": 2,
+          "hint": "تذكّري الصورة",
+          "emoji": "8️⃣"
+        }
+      ]
+    },
+    {
+      "id": "w17_living",
+      "title": "حيّ أم غير حيّ؟ 🌱",
+      "emoji": "🌱",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أميّز الحيّ من غير الحيّ",
+      "learned": "الحيّ يأكل ويكبر.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 17"
+      },
+      "steps": [
+        {
+          "emoji": "🐱",
+          "text": "القطة حيّة: تأكل وتكبر.",
+          "say": "القطة حيّة: تأكل وتكبر."
+        },
+        {
+          "emoji": "🌳",
+          "text": "والشجرة حيّة: تشرب وتنمو.",
+          "say": "والشجرة حيّة: تشرب وتنمو."
+        },
+        {
+          "emoji": "🪨",
+          "text": "أما الحجر فليس حيًّا.",
+          "say": "أما الحجر فليس حيًّا."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "من الحيّ؟",
+          "options": [
+            "الحجر 🪨",
+            "الكرسي 🪑",
+            "الشجرة 🌳"
+          ],
+          "answerIndex": 2,
+          "hint": "تكبر وتنمو",
+          "emoji": "🌱"
+        },
+        {
+          "prompt": "من ليس حيًّا؟",
+          "options": [
+            "الحجر 🪨",
+            "القطة 🐱",
+            "الشجرة 🌳"
+          ],
+          "answerIndex": 0,
+          "hint": "لا يأكل ولا يكبر",
+          "emoji": "🌱"
+        }
+      ]
+    },
+    {
+      "id": "w17_masjid",
+      "title": "آداب المسجد 🕌",
+      "emoji": "🕌",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف آداب المسجد",
+      "learned": "في المسجد: هدوء ونظافة واحترام.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 17"
+      },
+      "steps": [
+        {
+          "emoji": "🤫",
+          "text": "في المسجد نتكلم بهدوء.",
+          "say": "في المسجد نتكلم بهدوء."
+        },
+        {
+          "emoji": "🧹",
+          "text": "ونحافظ على نظافته.",
+          "say": "ونحافظ على نظافته."
+        },
+        {
+          "emoji": "🤝",
+          "text": "ونحترم من يصلي.",
+          "say": "ونحترم من يصلي."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "كيف نتكلم في المسجد؟",
+          "options": [
+            "بصوت عالٍ 📢",
+            "بهدوء 🤫"
+          ],
+          "answerIndex": 1,
+          "hint": "المصلون يحبون الهدوء",
+          "emoji": "🕌"
+        },
+        {
+          "prompt": "ماذا نفعل بنظافة المسجد؟",
+          "options": [
+            "نحافظ عليها 🧹",
+            "نرمي الأوساخ 🗑️"
+          ],
+          "answerIndex": 0,
+          "hint": "بيت الله نظيف",
+          "emoji": "🕌"
+        }
+      ]
+    },
+    {
+      "id": "w17_listen",
+      "title": "أستمع للقرآن 🎧",
+      "emoji": "🎧",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أتعرّف على السور من تلاوتها",
+      "learned": "أتعرّف على بعض السور من صوتها.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 17"
+      },
+      "steps": [
+        {
+          "emoji": "🎧",
+          "text": "استمعي لتلاوة سورة الإخلاص 🎧",
+          "recite": [
+            112,
+            1
+          ],
+          "say": "استمعي لتلاوة سورة الإخلاص 🎧"
+        },
+        {
+          "emoji": "🎧",
+          "text": "استمعي لتلاوة سورة الفلق 🎧",
+          "recite": [
+            113,
+            1
+          ],
+          "say": "استمعي لتلاوة سورة الفلق 🎧"
+        },
+        {
+          "emoji": "🎧",
+          "text": "استمعي لتلاوة سورة الناس 🎧",
+          "recite": [
+            114,
+            1
+          ],
+          "say": "استمعي لتلاوة سورة الناس 🎧"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "استمعي ثم اختاري: أي سورة سمعتِ؟",
+          "options": [
+            "الإخلاص",
+            "الكوثر",
+            "الفلق"
+          ],
+          "answerIndex": 0,
+          "hint": "اضغطي على 🎧 لتسمعي مرة أخرى",
+          "emoji": "🎧",
+          "recite": [
+            112,
+            1
+          ]
+        },
+        {
+          "prompt": "استمعي ثم اختاري: أي سورة سمعتِ؟",
+          "options": [
+            "الكوثر",
+            "الفلق",
+            "الإخلاص"
+          ],
+          "answerIndex": 1,
+          "hint": "اضغطي على 🎧 لتسمعي مرة أخرى",
+          "emoji": "🎧",
+          "recite": [
+            113,
+            1
+          ]
+        },
+        {
+          "prompt": "استمعي ثم اختاري: أي سورة سمعتِ؟",
+          "options": [
+            "النصر",
+            "قريش",
+            "الناس"
+          ],
+          "answerIndex": 2,
+          "hint": "اضغطي على 🎧 لتسمعي مرة أخرى",
+          "emoji": "🎧",
+          "recite": [
+            114,
+            1
+          ]
+        },
+        {
+          "prompt": "كم آية في سورة الإخلاص؟",
+          "options": [
+            "5",
+            "4",
+            "6"
+          ],
+          "answerIndex": 1,
+          "hint": "عدّي الآيات التي سمعتِ",
+          "emoji": "📖"
+        }
+      ]
+    },
+    {
+      "id": "w17_match_clean",
+      "title": "ماذا أضع أين؟ 🗑️",
+      "emoji": "🗑️",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أضع كل شيء في مكانه",
+      "learned": "لكل شيء مكانه.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 17"
+      },
+      "steps": [
+        {
+          "emoji": "🗑️",
+          "text": "نحافظ على نظافة المكان.",
+          "say": "نحافظ على نظافة المكان."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "وصّلي كل شيء بمكانه",
+          "options": [
+            "🧻|🗑️",
+            "🍎|🍽️",
+            "👕|🧺"
+          ],
+          "answerIndex": 0,
+          "hint": "فكّري أين نضعه",
+          "kind": "match",
+          "emoji": "🗑️",
+          "praise": "أحسنتِ! وصّلتِ كل شيء."
+        }
+      ]
+    },
+    {
+      "id": "w17_review_game",
+      "title": "لعبة الأسبوع 🎮",
+      "emoji": "🎮",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أراجع ما تعلمته",
+      "learned": "أنا أتعلم وألعب!",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 17"
+      },
+      "steps": [
+        {
+          "emoji": "🎮",
+          "text": "هيا نلعب بما تعلمناه!",
+          "say": "هيا نلعب بما تعلمناه!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "كيف نتكلم في المسجد؟",
+          "options": [
+            "بهدوء 🤫",
+            "بصوت عالٍ 📢"
+          ],
+          "answerIndex": 0,
+          "hint": "الهدوء",
+          "emoji": "🕌"
+        },
+        {
+          "prompt": "بأي حرف تبدأ كلمة 🌙 قَمَر؟",
+          "options": [
+            "ك",
+            "ق",
+            "ف"
+          ],
+          "answerIndex": 1,
+          "hint": "قَ",
+          "emoji": "🌙"
+        },
+        {
+          "prompt": "ماذا تعني Seven؟",
+          "options": [
+            "ستة",
+            "ثمانية",
+            "سبعة"
+          ],
+          "answerIndex": 2,
+          "hint": "7️⃣",
+          "emoji": "7️⃣"
+        },
+        {
+          "prompt": "وجدنا لعبة صديقتنا، ماذا نفعل؟",
+          "options": [
+            "نردّها 🧸",
+            "نأخذها"
+          ],
+          "answerIndex": 0,
+          "hint": "الأمانة",
+          "emoji": "🧸"
+        }
+      ]
+    },
+    {
+      "id": "w17_pattern",
+      "title": "ما التالي؟ 🔴🔵",
+      "emoji": "🧩",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أكمل النمط",
+      "learned": "الأنماط تتكرر.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 17"
+      },
+      "steps": [
+        {
+          "emoji": "🧩",
+          "text": "الأنماط تتكرر: 🔴🔵🔴🔵",
+          "say": "الأنماط تتكرر: 🔴🔵🔴🔵"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🔴🔵🔴🔵🔴 ؟",
+          "options": [
+            "🔵",
+            "🔴",
+            "🟢"
+          ],
+          "answerIndex": 0,
+          "hint": "الأحمر ثم الأزرق ثم الأحمر…",
+          "emoji": "🧩"
+        },
+        {
+          "prompt": "⭐🌙⭐🌙⭐ ؟",
+          "options": [
+            "⭐",
+            "🌙",
+            "☀️"
+          ],
+          "answerIndex": 1,
+          "hint": "نجمة ثم قمر ثم نجمة…",
+          "emoji": "🧩"
+        }
+      ]
+    }
+  ]
+}

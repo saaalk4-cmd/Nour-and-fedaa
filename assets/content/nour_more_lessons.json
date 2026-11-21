@@ -1,0 +1,5675 @@
+{
+  "schema": 1,
+  "lessons": [
+    {
+      "id": "w9e_more_letter_1",
+      "title": "حرف الألف 🐰",
+      "emoji": "🐰",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أسمع الحرف وأعرف صورًا تبدأ به",
+      "learned": "أعرف حرف الألف.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 9 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "أ",
+          "say": "هذا حرف الألف"
+        },
+        {
+          "emoji": "art:let_01",
+          "text": "أرنب",
+          "say": "أ، أرنب"
+        },
+        {
+          "emoji": "🦁",
+          "text": "أسد",
+          "say": "أ، أسد"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الأرنب؟",
+          "options": [
+            "🐰",
+            "🦁",
+            "🐴"
+          ],
+          "answerIndex": 0,
+          "hint": "أرنب",
+          "emoji": "🐰",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "🔤",
+          "say": "أي صورة تبدأ بحرف الألف؟",
+          "options": [
+            "🐴",
+            "🦁",
+            "⌚"
+          ],
+          "answerIndex": 1,
+          "hint": "أسد",
+          "emoji": "🦁",
+          "praise": "أحسنتِ! أسد تبدأ بحرف الألف."
+        }
+      ]
+    },
+    {
+      "id": "w9e_more_feelings",
+      "title": "مشاعري 😊",
+      "emoji": "😊",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 9 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "😊",
+          "text": "سعيدة",
+          "say": "سعيدة"
+        },
+        {
+          "emoji": "😢",
+          "text": "حزينة",
+          "say": "حزينة"
+        },
+        {
+          "emoji": "😠",
+          "text": "غاضبة",
+          "say": "غاضبة"
+        },
+        {
+          "emoji": "😮",
+          "text": "متفاجئة",
+          "say": "متفاجئة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين سعيدة؟",
+          "options": [
+            "😊",
+            "😢",
+            "😠"
+          ],
+          "answerIndex": 0,
+          "hint": "سعيدة",
+          "emoji": "😊",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين متفاجئة؟",
+          "options": [
+            "😊",
+            "😮",
+            "😢"
+          ],
+          "answerIndex": 1,
+          "hint": "متفاجئة",
+          "emoji": "😮",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين حزينة؟",
+          "options": [
+            "😊",
+            "😠",
+            "😢"
+          ],
+          "answerIndex": 2,
+          "hint": "حزينة",
+          "emoji": "😢",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w9e_more_bismillah_eat",
+      "title": "أقول بسم الله 🍽️",
+      "emoji": "🍽️",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أقول بسم الله",
+      "learned": "أقول بسم الله.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 9 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🍽️",
+          "text": "جاء الطعام",
+          "say": "جاء الطعام"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🍽️ ؟",
+          "say": "ماذا نقول قبل الأكل؟ بسم الله، أم نسكت؟",
+          "options": [
+            "🤲",
+            "😶"
+          ],
+          "answerIndex": 0,
+          "hint": "أقول بسم الله",
+          "emoji": "🤲",
+          "praise": "أحسنتِ! نبدأ ببسم الله."
+        }
+      ]
+    },
+    {
+      "id": "w9e_more_letter_2",
+      "title": "حرف الباء 🦆",
+      "emoji": "🦆",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أسمع الحرف وأعرف صورًا تبدأ به",
+      "learned": "أعرف حرف الباء.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 9 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "ب",
+          "say": "هذا حرف الباء"
+        },
+        {
+          "emoji": "art:let_02",
+          "text": "بطة",
+          "say": "ب، بطة"
+        },
+        {
+          "emoji": "🏠",
+          "text": "بيت",
+          "say": "ب، بيت"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين البطة؟",
+          "options": [
+            "🏠",
+            "🦆",
+            "🐑"
+          ],
+          "answerIndex": 1,
+          "hint": "بطة",
+          "emoji": "🦆",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "🔤",
+          "say": "أي صورة تبدأ بحرف الباء؟",
+          "options": [
+            "🐑",
+            "🌳",
+            "🏠"
+          ],
+          "answerIndex": 2,
+          "hint": "بيت",
+          "emoji": "🏠",
+          "praise": "أحسنتِ! بيت تبدأ بحرف الباء."
+        }
+      ]
+    },
+    {
+      "id": "w9e_more_ducks",
+      "title": "نعدّ البطّ 🦆",
+      "emoji": "🦆",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعدّ أشياء صغيرة",
+      "learned": "أعدّ بأصابعي وأعرف العدد.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 9 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🦆🦆",
+          "text": "2",
+          "say": "واحدة، اثنتان بطّات"
+        },
+        {
+          "emoji": "🦆🦆🦆",
+          "text": "3",
+          "say": "واحدة، اثنتان، ثلاث بطّات"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🦆🦆",
+          "say": "اضغطي على اثنتان بطّات",
+          "options": [
+            "🦆🦆",
+            "🦆",
+            "🦆🦆🦆"
+          ],
+          "answerIndex": 0,
+          "hint": "اثنتان",
+          "emoji": "🦆",
+          "praise": "أحسنتِ! عددتِ صح."
+        },
+        {
+          "prompt": "🦆🦆🦆",
+          "say": "اضغطي على ثلاث بطّات",
+          "options": [
+            "🦆🦆",
+            "🦆🦆🦆",
+            "🦆🦆🦆🦆"
+          ],
+          "answerIndex": 1,
+          "hint": "ثلاث",
+          "emoji": "🦆",
+          "praise": "أحسنتِ! عددتِ صح."
+        },
+        {
+          "prompt": "🦆🦆🦆🦆",
+          "say": "اضغطي على أربع بطّات",
+          "options": [
+            "🦆🦆🦆",
+            "🦆🦆🦆🦆🦆",
+            "🦆🦆🦆🦆"
+          ],
+          "answerIndex": 2,
+          "hint": "أربع",
+          "emoji": "🦆",
+          "praise": "أحسنتِ! عددتِ صح."
+        }
+      ]
+    },
+    {
+      "id": "w10e_more_right_hand",
+      "title": "آكل بيدي اليمنى ✋",
+      "emoji": "✋",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "آكل بيميني",
+      "learned": "آكل بيميني.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 10 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🍞",
+          "text": "نأكل الخبز",
+          "say": "نأكل الخبز"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🍞 ؟",
+          "say": "بأي يد نأكل؟ اليمنى، أم نرمي الطعام؟",
+          "options": [
+            "✋",
+            "🗑️"
+          ],
+          "answerIndex": 0,
+          "hint": "آكل بيميني",
+          "emoji": "✋",
+          "praise": "أحسنتِ! نأكل باليمين."
+        }
+      ]
+    },
+    {
+      "id": "w10e_more_letter_3",
+      "title": "حرف التاء 🍎",
+      "emoji": "🍎",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أسمع الحرف وأعرف صورًا تبدأ به",
+      "learned": "أعرف حرف التاء.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 10 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "ت",
+          "say": "هذا حرف التاء"
+        },
+        {
+          "emoji": "art:let_03",
+          "text": "تفاحة",
+          "say": "ت، تفاحة"
+        },
+        {
+          "emoji": "🐊",
+          "text": "تمساح",
+          "say": "ت، تمساح"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين التفاحة؟",
+          "options": [
+            "🐊",
+            "🐻",
+            "🍎"
+          ],
+          "answerIndex": 2,
+          "hint": "تفاحة",
+          "emoji": "🍎",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "🔤",
+          "say": "أي صورة تبدأ بحرف التاء؟",
+          "options": [
+            "🐊",
+            "🐻",
+            "📦"
+          ],
+          "answerIndex": 0,
+          "hint": "تمساح",
+          "emoji": "🐊",
+          "praise": "أحسنتِ! تمساح تبدأ بحرف التاء."
+        }
+      ]
+    },
+    {
+      "id": "w10e_more_color_red",
+      "title": "لون الأحمر 🍎",
+      "emoji": "🍎",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف الألوان في الأشياء حولي",
+      "learned": "أعرف لون الأحمر.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 10 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🍎",
+          "text": "التفاحة حمراء",
+          "say": "التفاحة حمراء"
+        },
+        {
+          "emoji": "🍓",
+          "text": "الفراولة حمراء",
+          "say": "الفراولة حمراء"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🎨",
+          "say": "أين الشيء الأحمر؟",
+          "options": [
+            "🍎",
+            "🍌",
+            "🍇"
+          ],
+          "answerIndex": 0,
+          "hint": "الأحمر",
+          "emoji": "🍎",
+          "praise": "أحسنتِ! هذا لونه الأحمر."
+        },
+        {
+          "prompt": "🎨",
+          "say": "أين الشيء الأحمر؟",
+          "options": [
+            "🍌",
+            "🍓",
+            "🍇"
+          ],
+          "answerIndex": 1,
+          "hint": "الأحمر",
+          "emoji": "🍓",
+          "praise": "أحسنتِ! هذا لونه الأحمر."
+        }
+      ]
+    },
+    {
+      "id": "w10e_more_gentle_pet",
+      "title": "ألمس القطة بلطف 🐱",
+      "emoji": "🐱",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "ألطف بالحيوان",
+      "learned": "ألطف بالحيوان.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 10 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🐱",
+          "text": "القطة نائمة",
+          "say": "القطة نائمة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🐱 ؟",
+          "say": "ماذا نفعل؟ نلمسها بلطف، أم نشد ذيلها؟",
+          "options": [
+            "🤲",
+            "✊"
+          ],
+          "answerIndex": 0,
+          "hint": "ألطف بالحيوان",
+          "emoji": "🤲",
+          "praise": "أحسنتِ! الرفق جميل."
+        }
+      ]
+    },
+    {
+      "id": "w10e_more_letter_4",
+      "title": "حرف الثاء 🦊",
+      "emoji": "🦊",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أسمع الحرف وأعرف صورًا تبدأ به",
+      "learned": "أعرف حرف الثاء.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 10 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "ث",
+          "say": "هذا حرف الثاء"
+        },
+        {
+          "emoji": "art:let_04",
+          "text": "ثعلب",
+          "say": "ث، ثعلب"
+        },
+        {
+          "emoji": "❄️",
+          "text": "ثلج",
+          "say": "ث، ثلج"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الثعلب؟",
+          "options": [
+            "🦊",
+            "❄️",
+            "🌽"
+          ],
+          "answerIndex": 0,
+          "hint": "ثعلب",
+          "emoji": "🦊",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "🔤",
+          "say": "أي صورة تبدأ بحرف الثاء؟",
+          "options": [
+            "🌽",
+            "❄️",
+            "💡"
+          ],
+          "answerIndex": 1,
+          "hint": "ثلج",
+          "emoji": "❄️",
+          "praise": "أحسنتِ! ثلج تبدأ بحرف الثاء."
+        }
+      ]
+    },
+    {
+      "id": "w10e_more_up_down",
+      "title": "فوق وتحت ⬆️",
+      "emoji": "⬆️",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف الأضداد",
+      "learned": "أعرف الكبير والصغير وأمثالهما.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 10 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "⬆️",
+          "text": "فوق",
+          "say": "فوق"
+        },
+        {
+          "emoji": "⬇️",
+          "text": "تحت",
+          "say": "تحت"
+        },
+        {
+          "emoji": "🦒",
+          "text": "طويل",
+          "say": "طويل"
+        },
+        {
+          "emoji": "🐁",
+          "text": "قصير",
+          "say": "قصير"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين فوق؟",
+          "options": [
+            "⬆️",
+            "⬇️"
+          ],
+          "answerIndex": 0,
+          "hint": "فوق",
+          "emoji": "⬆️",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين تحت؟",
+          "options": [
+            "⬆️",
+            "⬇️"
+          ],
+          "answerIndex": 1,
+          "hint": "تحت",
+          "emoji": "⬇️",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين طويل؟",
+          "options": [
+            "🦒",
+            "🐁"
+          ],
+          "answerIndex": 0,
+          "hint": "طويل",
+          "emoji": "🦒",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w11e_more_quiet_sleep",
+      "title": "أهدأ وأختي نائمة 🤫",
+      "emoji": "🤫",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أهدأ",
+      "learned": "أهدأ.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 11 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "😴",
+          "text": "أختي نائمة",
+          "say": "أختي نائمة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "😴 ؟",
+          "say": "ماذا نفعل؟ نتكلم بهدوء، أم نصرخ؟",
+          "options": [
+            "🤫",
+            "📢"
+          ],
+          "answerIndex": 0,
+          "hint": "أهدأ",
+          "emoji": "🤫",
+          "praise": "أحسنتِ! الهدوء جميل."
+        }
+      ]
+    },
+    {
+      "id": "w11e_more_letter_5",
+      "title": "حرف الجيم 🐫",
+      "emoji": "🐫",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أسمع الحرف وأعرف صورًا تبدأ به",
+      "learned": "أعرف حرف الجيم.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 11 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "ج",
+          "say": "هذا حرف الجيم"
+        },
+        {
+          "emoji": "art:let_05",
+          "text": "جمل",
+          "say": "ج، جمل"
+        },
+        {
+          "emoji": "🥕",
+          "text": "جزرة",
+          "say": "ج، جزرة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الجمل؟",
+          "options": [
+            "🥕",
+            "🐫",
+            "🪶"
+          ],
+          "answerIndex": 1,
+          "hint": "جمل",
+          "emoji": "🐫",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "🔤",
+          "say": "أي صورة تبدأ بحرف الجيم؟",
+          "options": [
+            "🪶",
+            "🍅",
+            "🥕"
+          ],
+          "answerIndex": 2,
+          "hint": "جزرة",
+          "emoji": "🥕",
+          "praise": "أحسنتِ! جزرة تبدأ بحرف الجيم."
+        }
+      ]
+    },
+    {
+      "id": "w11e_more_actions",
+      "title": "ماذا نفعل؟ 🏃",
+      "emoji": "🏃",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 11 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🍽️",
+          "text": "نأكل",
+          "say": "نأكل"
+        },
+        {
+          "emoji": "😴",
+          "text": "ننام",
+          "say": "ننام"
+        },
+        {
+          "emoji": "🏃",
+          "text": "نجري",
+          "say": "نجري"
+        },
+        {
+          "emoji": "🛁",
+          "text": "نستحم",
+          "say": "نستحم"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين نأكل؟",
+          "options": [
+            "🍽️",
+            "😴",
+            "🏃"
+          ],
+          "answerIndex": 0,
+          "hint": "نأكل",
+          "emoji": "🍽️",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين نستحم؟",
+          "options": [
+            "🍽️",
+            "🛁",
+            "😴"
+          ],
+          "answerIndex": 1,
+          "hint": "نستحم",
+          "emoji": "🛁",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين ننام؟",
+          "options": [
+            "🍽️",
+            "🏃",
+            "😴"
+          ],
+          "answerIndex": 2,
+          "hint": "ننام",
+          "emoji": "😴",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w11e_more_cover_cough",
+      "title": "أغطي فمي 🤧",
+      "emoji": "🤧",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أغطي فمي",
+      "learned": "أغطي فمي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 11 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🤧",
+          "text": "أنا أعطس",
+          "say": "أنا أعطس"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🤧 ؟",
+          "say": "ماذا نفعل؟ نغطي الفم، أم نعطس على الناس؟",
+          "options": [
+            "💪",
+            "😮"
+          ],
+          "answerIndex": 0,
+          "hint": "أغطي فمي",
+          "emoji": "💪",
+          "praise": "أحسنتِ! نحافظ على الناس."
+        }
+      ]
+    },
+    {
+      "id": "w11e_more_letter_6",
+      "title": "حرف الحاء 🐴",
+      "emoji": "🐴",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أسمع الحرف وأعرف صورًا تبدأ به",
+      "learned": "أعرف حرف الحاء.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 11 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "ح",
+          "say": "هذا حرف الحاء"
+        },
+        {
+          "emoji": "art:let_06",
+          "text": "حصان",
+          "say": "ح، حصان"
+        },
+        {
+          "emoji": "🥛",
+          "text": "حليب",
+          "say": "ح، حليب"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الحصان؟",
+          "options": [
+            "🥛",
+            "🦒",
+            "🐴"
+          ],
+          "answerIndex": 2,
+          "hint": "حصان",
+          "emoji": "🐴",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "🔤",
+          "say": "أي صورة تبدأ بحرف الحاء؟",
+          "options": [
+            "🥛",
+            "🦒",
+            "🦌"
+          ],
+          "answerIndex": 0,
+          "hint": "حليب",
+          "emoji": "🥛",
+          "praise": "أحسنتِ! حليب تبدأ بحرف الحاء."
+        }
+      ]
+    },
+    {
+      "id": "w11e_more_cars",
+      "title": "نعدّ السيارات 🚗",
+      "emoji": "🚗",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعدّ أشياء صغيرة",
+      "learned": "أعدّ بأصابعي وأعرف العدد.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 11 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🚗🚗🚗",
+          "text": "3",
+          "say": "واحدة، اثنتان، ثلاث سيارات"
+        },
+        {
+          "emoji": "🚗🚗🚗🚗",
+          "text": "4",
+          "say": "واحدة، اثنتان، ثلاث، أربع سيارات"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🚗🚗🚗",
+          "say": "اضغطي على ثلاث سيارات",
+          "options": [
+            "🚗🚗🚗",
+            "🚗🚗",
+            "🚗🚗🚗🚗"
+          ],
+          "answerIndex": 0,
+          "hint": "ثلاث",
+          "emoji": "🚗",
+          "praise": "أحسنتِ! عددتِ صح."
+        },
+        {
+          "prompt": "🚗🚗🚗🚗",
+          "say": "اضغطي على أربع سيارات",
+          "options": [
+            "🚗🚗🚗",
+            "🚗🚗🚗🚗",
+            "🚗🚗🚗🚗🚗"
+          ],
+          "answerIndex": 1,
+          "hint": "أربع",
+          "emoji": "🚗",
+          "praise": "أحسنتِ! عددتِ صح."
+        },
+        {
+          "prompt": "🚗🚗🚗🚗🚗",
+          "say": "اضغطي على خمس سيارات",
+          "options": [
+            "🚗🚗🚗🚗",
+            "🚗🚗🚗🚗🚗🚗",
+            "🚗🚗🚗🚗🚗"
+          ],
+          "answerIndex": 2,
+          "hint": "خمس",
+          "emoji": "🚗",
+          "praise": "أحسنتِ! عددتِ صح."
+        }
+      ]
+    },
+    {
+      "id": "w12e_more_shoes",
+      "title": "أضع حذائي في مكانه 👟",
+      "emoji": "👟",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أرتب حذائي",
+      "learned": "أرتب حذائي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 12 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "👟",
+          "text": "رجعنا البيت",
+          "say": "رجعنا البيت"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "👟 ؟",
+          "say": "أين نضع الحذاء؟ في مكانه، أم في الطريق؟",
+          "options": [
+            "🌀",
+            "👟"
+          ],
+          "answerIndex": 1,
+          "hint": "أرتب حذائي",
+          "emoji": "👟",
+          "praise": "أحسنتِ! الترتيب جميل."
+        }
+      ]
+    },
+    {
+      "id": "w12e_more_letter_7",
+      "title": "حرف الخاء 🐑",
+      "emoji": "🐑",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أسمع الحرف وأعرف صورًا تبدأ به",
+      "learned": "أعرف حرف الخاء.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 12 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "خ",
+          "say": "هذا حرف الخاء"
+        },
+        {
+          "emoji": "art:let_07",
+          "text": "خروف",
+          "say": "خ، خروف"
+        },
+        {
+          "emoji": "🍞",
+          "text": "خبز",
+          "say": "خ، خبز"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الخروف؟",
+          "options": [
+            "🐑",
+            "🍞",
+            "🐟"
+          ],
+          "answerIndex": 0,
+          "hint": "خروف",
+          "emoji": "🐑",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "🔤",
+          "say": "أي صورة تبدأ بحرف الخاء؟",
+          "options": [
+            "🐟",
+            "🍞",
+            "🐦"
+          ],
+          "answerIndex": 1,
+          "hint": "خبز",
+          "emoji": "🍞",
+          "praise": "أحسنتِ! خبز تبدأ بحرف الخاء."
+        }
+      ]
+    },
+    {
+      "id": "w12e_more_color_yellow",
+      "title": "لون الأصفر 🍌",
+      "emoji": "🍌",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف الألوان في الأشياء حولي",
+      "learned": "أعرف لون الأصفر.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 12 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🍌",
+          "text": "الموزة صفراء",
+          "say": "الموزة صفراء"
+        },
+        {
+          "emoji": "☀️",
+          "text": "الشمس صفراء",
+          "say": "الشمس صفراء"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🎨",
+          "say": "أين الشيء الأصفر؟",
+          "options": [
+            "🍌",
+            "🥒",
+            "🍇"
+          ],
+          "answerIndex": 0,
+          "hint": "الأصفر",
+          "emoji": "🍌",
+          "praise": "أحسنتِ! هذا لونه الأصفر."
+        },
+        {
+          "prompt": "🎨",
+          "say": "أين الشيء الأصفر؟",
+          "options": [
+            "🥒",
+            "☀️",
+            "🍇"
+          ],
+          "answerIndex": 1,
+          "hint": "الأصفر",
+          "emoji": "☀️",
+          "praise": "أحسنتِ! هذا لونه الأصفر."
+        }
+      ]
+    },
+    {
+      "id": "w12e_more_light_off",
+      "title": "أطفئ النور 💡",
+      "emoji": "💡",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أطفئ النور",
+      "learned": "أطفئ النور.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 12 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "💡",
+          "text": "خرجنا من الغرفة",
+          "say": "خرجنا من الغرفة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "💡 ؟",
+          "say": "ماذا نفعل؟ نطفئ النور، أم نتركه؟",
+          "options": [
+            "🌀",
+            "💡"
+          ],
+          "answerIndex": 1,
+          "hint": "أطفئ النور",
+          "emoji": "💡",
+          "praise": "أحسنتِ! نحافظ على الكهرباء."
+        }
+      ]
+    },
+    {
+      "id": "w12e_more_letter_8",
+      "title": "حرف الدال 🐻",
+      "emoji": "🐻",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أسمع الحرف وأعرف صورًا تبدأ به",
+      "learned": "أعرف حرف الدال.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 12 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "د",
+          "say": "هذا حرف الدال"
+        },
+        {
+          "emoji": "art:let_08",
+          "text": "دب",
+          "say": "د، دب"
+        },
+        {
+          "emoji": "🐔",
+          "text": "دجاجة",
+          "say": "د، دجاجة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الدب؟",
+          "options": [
+            "🐔",
+            "🐻",
+            "☀️"
+          ],
+          "answerIndex": 1,
+          "hint": "دب",
+          "emoji": "🐻",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "🔤",
+          "say": "أي صورة تبدأ بحرف الدال؟",
+          "options": [
+            "☀️",
+            "🦍",
+            "🐔"
+          ],
+          "answerIndex": 2,
+          "hint": "دجاجة",
+          "emoji": "🐔",
+          "praise": "أحسنتِ! دجاجة تبدأ بحرف الدال."
+        }
+      ]
+    },
+    {
+      "id": "w12e_more_heavy_light",
+      "title": "ثقيل وخفيف 🪶",
+      "emoji": "🪶",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف الأضداد",
+      "learned": "أعرف الكبير والصغير وأمثالهما.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 12 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🏋️",
+          "text": "ثقيل",
+          "say": "ثقيل"
+        },
+        {
+          "emoji": "🪶",
+          "text": "خفيف",
+          "say": "خفيف"
+        },
+        {
+          "emoji": "🍎🍎🍎🍎",
+          "text": "كثير",
+          "say": "كثير"
+        },
+        {
+          "emoji": "🍎",
+          "text": "قليل",
+          "say": "قليل"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين ثقيل؟",
+          "options": [
+            "🏋️",
+            "🪶"
+          ],
+          "answerIndex": 0,
+          "hint": "ثقيل",
+          "emoji": "🏋️",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين خفيف؟",
+          "options": [
+            "🏋️",
+            "🪶"
+          ],
+          "answerIndex": 1,
+          "hint": "خفيف",
+          "emoji": "🪶",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين كثير؟",
+          "options": [
+            "🍎🍎🍎🍎",
+            "🍎"
+          ],
+          "answerIndex": 0,
+          "hint": "كثير",
+          "emoji": "🍎🍎🍎🍎",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w13e_more_kind_words",
+      "title": "أقول كلامًا طيبًا 💬",
+      "emoji": "💬",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أقول كلامًا طيبًا",
+      "learned": "أقول كلامًا طيبًا.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 13 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "💬",
+          "text": "صديقتي رسمت",
+          "say": "صديقتي رسمت"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "💬 ؟",
+          "say": "ماذا نقول؟ رسمك جميل، أم نضحك عليها؟",
+          "options": [
+            "😝",
+            "💛"
+          ],
+          "answerIndex": 1,
+          "hint": "أقول كلامًا طيبًا",
+          "emoji": "💛",
+          "praise": "أحسنتِ! الكلمة الطيبة جميلة."
+        }
+      ]
+    },
+    {
+      "id": "w13e_more_letter_9",
+      "title": "حرف الذال 🌽",
+      "emoji": "🌽",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أسمع الحرف وأعرف صورًا تبدأ به",
+      "learned": "أعرف حرف الذال.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 13 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "ذ",
+          "say": "هذا حرف الذال"
+        },
+        {
+          "emoji": "art:let_09",
+          "text": "ذرة",
+          "say": "ذ، ذرة"
+        },
+        {
+          "emoji": "🐺",
+          "text": "ذئب",
+          "say": "ذ، ذئب"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الذرة؟",
+          "options": [
+            "🐺",
+            "🦅",
+            "🌽"
+          ],
+          "answerIndex": 2,
+          "hint": "ذرة",
+          "emoji": "🌽",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "🔤",
+          "say": "أي صورة تبدأ بحرف الذال؟",
+          "options": [
+            "🐺",
+            "🦅",
+            "🦋"
+          ],
+          "answerIndex": 0,
+          "hint": "ذئب",
+          "emoji": "🐺",
+          "praise": "أحسنتِ! ذئب تبدأ بحرف الذال."
+        }
+      ]
+    },
+    {
+      "id": "w13e_more_school",
+      "title": "أدوات المدرسة ✏️",
+      "emoji": "✏️",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 13 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "✏️",
+          "text": "القلم",
+          "say": "القلم"
+        },
+        {
+          "emoji": "📚",
+          "text": "الكتاب",
+          "say": "الكتاب"
+        },
+        {
+          "emoji": "🎒",
+          "text": "الحقيبة",
+          "say": "الحقيبة"
+        },
+        {
+          "emoji": "✂️",
+          "text": "المقص",
+          "say": "المقص"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين القلم؟",
+          "options": [
+            "✏️",
+            "📚",
+            "🎒"
+          ],
+          "answerIndex": 0,
+          "hint": "القلم",
+          "emoji": "✏️",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين المقص؟",
+          "options": [
+            "✏️",
+            "✂️",
+            "📚"
+          ],
+          "answerIndex": 1,
+          "hint": "المقص",
+          "emoji": "✂️",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الكتاب؟",
+          "options": [
+            "✏️",
+            "🎒",
+            "📚"
+          ],
+          "answerIndex": 2,
+          "hint": "الكتاب",
+          "emoji": "📚",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w13e_more_help_up",
+      "title": "أساعد من وقع 🤝",
+      "emoji": "🤝",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أساعد صديقتي",
+      "learned": "أساعد صديقتي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 13 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🧒",
+          "text": "صديقتي وقعت",
+          "say": "صديقتي وقعت"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🧒 ؟",
+          "say": "ماذا نفعل؟ نساعدها، أم نضحك؟",
+          "options": [
+            "🤝",
+            "😂"
+          ],
+          "answerIndex": 0,
+          "hint": "أساعد صديقتي",
+          "emoji": "🤝",
+          "praise": "أحسنتِ! المساعدة جميلة."
+        }
+      ]
+    },
+    {
+      "id": "w13e_more_letter_10",
+      "title": "حرف الراء 🪶",
+      "emoji": "🪶",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أسمع الحرف وأعرف صورًا تبدأ به",
+      "learned": "أعرف حرف الراء.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 13 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "ر",
+          "say": "هذا حرف الراء"
+        },
+        {
+          "emoji": "art:let_10",
+          "text": "ريشة",
+          "say": "ر، ريشة"
+        },
+        {
+          "emoji": "⛄",
+          "text": "رجل الثلج",
+          "say": "ر، رجل الثلج"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الريشة؟",
+          "options": [
+            "🪶",
+            "⛄",
+            "🐸"
+          ],
+          "answerIndex": 0,
+          "hint": "ريشة",
+          "emoji": "🪶",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "🔤",
+          "say": "أي صورة تبدأ بحرف الراء؟",
+          "options": [
+            "🐸",
+            "⛄",
+            "🌙"
+          ],
+          "answerIndex": 1,
+          "hint": "رجل الثلج",
+          "emoji": "⛄",
+          "praise": "أحسنتِ! رجل الثلج تبدأ بحرف الراء."
+        }
+      ]
+    },
+    {
+      "id": "w13e_more_bananas",
+      "title": "نعدّ الموز 🍌",
+      "emoji": "🍌",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعدّ أشياء صغيرة",
+      "learned": "أعدّ بأصابعي وأعرف العدد.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 13 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🍌",
+          "text": "1",
+          "say": "واحدة موزات"
+        },
+        {
+          "emoji": "🍌🍌",
+          "text": "2",
+          "say": "واحدة، اثنتان موزات"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🍌",
+          "say": "اضغطي على واحدة موزات",
+          "options": [
+            "🍌",
+            "🍌🍌",
+            "🍌🍌🍌"
+          ],
+          "answerIndex": 0,
+          "hint": "واحدة",
+          "emoji": "🍌",
+          "praise": "أحسنتِ! عددتِ صح."
+        },
+        {
+          "prompt": "🍌🍌",
+          "say": "اضغطي على اثنتان موزات",
+          "options": [
+            "🍌",
+            "🍌🍌",
+            "🍌🍌🍌"
+          ],
+          "answerIndex": 1,
+          "hint": "اثنتان",
+          "emoji": "🍌",
+          "praise": "أحسنتِ! عددتِ صح."
+        },
+        {
+          "prompt": "🍌🍌🍌",
+          "say": "اضغطي على ثلاث موزات",
+          "options": [
+            "🍌🍌",
+            "🍌🍌🍌🍌",
+            "🍌🍌🍌"
+          ],
+          "answerIndex": 2,
+          "hint": "ثلاث",
+          "emoji": "🍌",
+          "praise": "أحسنتِ! عددتِ صح."
+        }
+      ]
+    },
+    {
+      "id": "w14e_more_wash_after",
+      "title": "أغسل يدي بعد اللعب 🧼",
+      "emoji": "🧼",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أغسل يدي",
+      "learned": "أغسل يدي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 14 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "⚽",
+          "text": "انتهى اللعب",
+          "say": "انتهى اللعب"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "⚽ ؟",
+          "say": "ماذا نفعل؟ نغسل أيدينا، أم نأكل هكذا؟",
+          "options": [
+            "🧼",
+            "🍪"
+          ],
+          "answerIndex": 0,
+          "hint": "أغسل يدي",
+          "emoji": "🧼",
+          "praise": "أحسنتِ! النظافة جميلة."
+        }
+      ]
+    },
+    {
+      "id": "w14e_more_letter_11",
+      "title": "حرف الزاي 🦒",
+      "emoji": "🦒",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أسمع الحرف وأعرف صورًا تبدأ به",
+      "learned": "أعرف حرف الزاي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 14 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "ز",
+          "say": "هذا حرف الزاي"
+        },
+        {
+          "emoji": "art:let_11",
+          "text": "زرافة",
+          "say": "ز، زرافة"
+        },
+        {
+          "emoji": "🌸",
+          "text": "زهرة",
+          "say": "ز، زهرة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الزرافة؟",
+          "options": [
+            "🌸",
+            "🦒",
+            "✈️"
+          ],
+          "answerIndex": 1,
+          "hint": "زرافة",
+          "emoji": "🦒",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "🔤",
+          "say": "أي صورة تبدأ بحرف الزاي؟",
+          "options": [
+            "✈️",
+            "⚽",
+            "🌸"
+          ],
+          "answerIndex": 2,
+          "hint": "زهرة",
+          "emoji": "🌸",
+          "praise": "أحسنتِ! زهرة تبدأ بحرف الزاي."
+        }
+      ]
+    },
+    {
+      "id": "w14e_more_color_green",
+      "title": "لون الأخضر 🥒",
+      "emoji": "🥒",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف الألوان في الأشياء حولي",
+      "learned": "أعرف لون الأخضر.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 14 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🥒",
+          "text": "الخيارة خضراء",
+          "say": "الخيارة خضراء"
+        },
+        {
+          "emoji": "🌳",
+          "text": "الشجرة خضراء",
+          "say": "الشجرة خضراء"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🎨",
+          "say": "أين الشيء الأخضر؟",
+          "options": [
+            "🥒",
+            "🍊",
+            "🍇"
+          ],
+          "answerIndex": 0,
+          "hint": "الأخضر",
+          "emoji": "🥒",
+          "praise": "أحسنتِ! هذا لونه الأخضر."
+        },
+        {
+          "prompt": "🎨",
+          "say": "أين الشيء الأخضر؟",
+          "options": [
+            "🍊",
+            "🌳",
+            "🍇"
+          ],
+          "answerIndex": 1,
+          "hint": "الأخضر",
+          "emoji": "🌳",
+          "praise": "أحسنتِ! هذا لونه الأخضر."
+        }
+      ]
+    },
+    {
+      "id": "w14e_more_dress_self",
+      "title": "ألبس وحدي 👕",
+      "emoji": "👕",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أحاول وحدي",
+      "learned": "أحاول وحدي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 14 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "👕",
+          "text": "وقت اللبس",
+          "say": "وقت اللبس"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "👕 ؟",
+          "say": "ماذا نفعل؟ نحاول وحدنا، أم نبكي؟",
+          "options": [
+            "💪",
+            "😭"
+          ],
+          "answerIndex": 0,
+          "hint": "أحاول وحدي",
+          "emoji": "💪",
+          "praise": "أحسنتِ! أنتِ شاطرة."
+        }
+      ]
+    },
+    {
+      "id": "w14e_more_letter_12",
+      "title": "حرف السين 🐟",
+      "emoji": "🐟",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أسمع الحرف وأعرف صورًا تبدأ به",
+      "learned": "أعرف حرف السين.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 14 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "س",
+          "say": "هذا حرف السين"
+        },
+        {
+          "emoji": "art:let_12",
+          "text": "سمكة",
+          "say": "س، سمكة"
+        },
+        {
+          "emoji": "⌚",
+          "text": "ساعة",
+          "say": "س، ساعة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين السمكة؟",
+          "options": [
+            "⌚",
+            "✉️",
+            "🐟"
+          ],
+          "answerIndex": 2,
+          "hint": "سمكة",
+          "emoji": "🐟",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "🔤",
+          "say": "أي صورة تبدأ بحرف السين؟",
+          "options": [
+            "⌚",
+            "✉️",
+            "🧸"
+          ],
+          "answerIndex": 0,
+          "hint": "ساعة",
+          "emoji": "⌚",
+          "praise": "أحسنتِ! ساعة تبدأ بحرف السين."
+        }
+      ]
+    },
+    {
+      "id": "w14e_more_day_night",
+      "title": "نهار وليل ☀️",
+      "emoji": "☀️",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف الأضداد",
+      "learned": "أعرف الكبير والصغير وأمثالهما.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 14 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "☀️",
+          "text": "نهار",
+          "say": "نهار"
+        },
+        {
+          "emoji": "🌙",
+          "text": "ليل",
+          "say": "ليل"
+        },
+        {
+          "emoji": "🔥",
+          "text": "ساخن",
+          "say": "ساخن"
+        },
+        {
+          "emoji": "❄️",
+          "text": "بارد",
+          "say": "بارد"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين نهار؟",
+          "options": [
+            "☀️",
+            "🌙"
+          ],
+          "answerIndex": 0,
+          "hint": "نهار",
+          "emoji": "☀️",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين ليل؟",
+          "options": [
+            "☀️",
+            "🌙"
+          ],
+          "answerIndex": 1,
+          "hint": "ليل",
+          "emoji": "🌙",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين ساخن؟",
+          "options": [
+            "🔥",
+            "❄️"
+          ],
+          "answerIndex": 0,
+          "hint": "ساخن",
+          "emoji": "🔥",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w15e_more_carry_bag",
+      "title": "أحمل حقيبتي 🎒",
+      "emoji": "🎒",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أحمل حقيبتي",
+      "learned": "أحمل حقيبتي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 15 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🎒",
+          "text": "ذاهبون للخارج",
+          "say": "ذاهبون للخارج"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🎒 ؟",
+          "say": "ماذا نفعل؟ نحمل حقيبتنا، أم نتركها لماما؟",
+          "options": [
+            "🎒",
+            "🙅"
+          ],
+          "answerIndex": 0,
+          "hint": "أحمل حقيبتي",
+          "emoji": "🎒",
+          "praise": "أحسنتِ! أنتِ كبيرة."
+        }
+      ]
+    },
+    {
+      "id": "w15e_more_letter_13",
+      "title": "حرف الشين ☀️",
+      "emoji": "☀️",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أسمع الحرف وأعرف صورًا تبدأ به",
+      "learned": "أعرف حرف الشين.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 15 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "ش",
+          "say": "هذا حرف الشين"
+        },
+        {
+          "emoji": "art:let_13",
+          "text": "شمس",
+          "say": "ش، شمس"
+        },
+        {
+          "emoji": "🌳",
+          "text": "شجرة",
+          "say": "ش، شجرة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الشمس؟",
+          "options": [
+            "☀️",
+            "🌳",
+            "🍇"
+          ],
+          "answerIndex": 0,
+          "hint": "شمس",
+          "emoji": "☀️",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "🔤",
+          "say": "أي صورة تبدأ بحرف الشين؟",
+          "options": [
+            "🍇",
+            "🌳",
+            "🔑"
+          ],
+          "answerIndex": 1,
+          "hint": "شجرة",
+          "emoji": "🌳",
+          "praise": "أحسنتِ! شجرة تبدأ بحرف الشين."
+        }
+      ]
+    },
+    {
+      "id": "w15e_more_garden",
+      "title": "في الحديقة 🌻",
+      "emoji": "🌻",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 15 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🌻",
+          "text": "عباد الشمس",
+          "say": "عباد الشمس"
+        },
+        {
+          "emoji": "🍄",
+          "text": "الفطر",
+          "say": "الفطر"
+        },
+        {
+          "emoji": "🌵",
+          "text": "الصبار",
+          "say": "الصبار"
+        },
+        {
+          "emoji": "🍁",
+          "text": "الورقة",
+          "say": "الورقة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين عباد الشمس؟",
+          "options": [
+            "🌻",
+            "🍄",
+            "🌵"
+          ],
+          "answerIndex": 0,
+          "hint": "عباد الشمس",
+          "emoji": "🌻",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الورقة؟",
+          "options": [
+            "🌻",
+            "🍁",
+            "🍄"
+          ],
+          "answerIndex": 1,
+          "hint": "الورقة",
+          "emoji": "🍁",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الفطر؟",
+          "options": [
+            "🌻",
+            "🌵",
+            "🍄"
+          ],
+          "answerIndex": 2,
+          "hint": "الفطر",
+          "emoji": "🍄",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w15e_more_no_hit",
+      "title": "لا أضرب أحدًا ✋",
+      "emoji": "✋",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أهدأ ولا أضرب",
+      "learned": "أهدأ ولا أضرب.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 15 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "😠",
+          "text": "أنا غاضبة",
+          "say": "أنا غاضبة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "😠 ؟",
+          "say": "ماذا نفعل؟ نتنفس ونهدأ، أم نضرب؟",
+          "options": [
+            "👊",
+            "🌬️"
+          ],
+          "answerIndex": 1,
+          "hint": "أهدأ ولا أضرب",
+          "emoji": "🌬️",
+          "praise": "أحسنتِ! الهدوء أقوى."
+        }
+      ]
+    },
+    {
+      "id": "w15e_more_letter_14",
+      "title": "حرف الصاد 🦅",
+      "emoji": "🦅",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أسمع الحرف وأعرف صورًا تبدأ به",
+      "learned": "أعرف حرف الصاد.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 15 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "ص",
+          "say": "هذا حرف الصاد"
+        },
+        {
+          "emoji": "art:let_14",
+          "text": "صقر",
+          "say": "ص، صقر"
+        },
+        {
+          "emoji": "📦",
+          "text": "صندوق",
+          "say": "ص، صندوق"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الصقر؟",
+          "options": [
+            "📦",
+            "🦅",
+            "☁️"
+          ],
+          "answerIndex": 1,
+          "hint": "صقر",
+          "emoji": "🦅",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "🔤",
+          "say": "أي صورة تبدأ بحرف الصاد؟",
+          "options": [
+            "☁️",
+            "⭐",
+            "📦"
+          ],
+          "answerIndex": 2,
+          "hint": "صندوق",
+          "emoji": "📦",
+          "praise": "أحسنتِ! صندوق تبدأ بحرف الصاد."
+        }
+      ]
+    },
+    {
+      "id": "w15e_more_hearts",
+      "title": "نعدّ القلوب ❤️",
+      "emoji": "❤️",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعدّ أشياء صغيرة",
+      "learned": "أعدّ بأصابعي وأعرف العدد.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 15 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "❤️❤️❤️❤️",
+          "text": "4",
+          "say": "واحدة، اثنتان، ثلاث، أربع قلوب"
+        },
+        {
+          "emoji": "❤️❤️❤️❤️❤️",
+          "text": "5",
+          "say": "واحدة، اثنتان، ثلاث، أربع، خمس قلوب"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❤️❤️❤️❤️",
+          "say": "اضغطي على أربع قلوب",
+          "options": [
+            "❤️❤️❤️❤️",
+            "❤️❤️❤️",
+            "❤️❤️❤️❤️❤️"
+          ],
+          "answerIndex": 0,
+          "hint": "أربع",
+          "emoji": "❤️",
+          "praise": "أحسنتِ! عددتِ صح."
+        },
+        {
+          "prompt": "❤️❤️❤️❤️❤️",
+          "say": "اضغطي على خمس قلوب",
+          "options": [
+            "❤️❤️❤️❤️",
+            "❤️❤️❤️❤️❤️",
+            "❤️❤️❤️❤️❤️❤️"
+          ],
+          "answerIndex": 1,
+          "hint": "خمس",
+          "emoji": "❤️",
+          "praise": "أحسنتِ! عددتِ صح."
+        },
+        {
+          "prompt": "❤️❤️❤️❤️❤️❤️",
+          "say": "اضغطي على ست قلوب",
+          "options": [
+            "❤️❤️❤️❤️❤️",
+            "❤️❤️❤️❤️❤️❤️❤️",
+            "❤️❤️❤️❤️❤️❤️"
+          ],
+          "answerIndex": 2,
+          "hint": "ست",
+          "emoji": "❤️",
+          "praise": "أحسنتِ! عددتِ صح."
+        }
+      ]
+    },
+    {
+      "id": "w16e_more_veggies",
+      "title": "آكل الخضار 🥦",
+      "emoji": "🥦",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "آكل الخضار",
+      "learned": "آكل الخضار.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 16 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🥦",
+          "text": "في طبقي خضار",
+          "say": "في طبقي خضار"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🥦 ؟",
+          "say": "ماذا نفعل؟ نأكلها، أم نرميها؟",
+          "options": [
+            "🗑️",
+            "😋"
+          ],
+          "answerIndex": 1,
+          "hint": "آكل الخضار",
+          "emoji": "😋",
+          "praise": "أحسنتِ! الخضار تقوّي الجسم."
+        }
+      ]
+    },
+    {
+      "id": "w16e_more_letter_15",
+      "title": "حرف الضاد 🐸",
+      "emoji": "🐸",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أسمع الحرف وأعرف صورًا تبدأ به",
+      "learned": "أعرف حرف الضاد.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 16 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "ض",
+          "say": "هذا حرف الضاد"
+        },
+        {
+          "emoji": "art:let_15",
+          "text": "ضفدع",
+          "say": "ض، ضفدع"
+        },
+        {
+          "emoji": "💡",
+          "text": "ضوء",
+          "say": "ض، ضوء"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الضفدع؟",
+          "options": [
+            "💡",
+            "🐘",
+            "🐸"
+          ],
+          "answerIndex": 2,
+          "hint": "ضفدع",
+          "emoji": "🐸",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "🔤",
+          "say": "أي صورة تبدأ بحرف الضاد؟",
+          "options": [
+            "💡",
+            "🐘",
+            "📱"
+          ],
+          "answerIndex": 0,
+          "hint": "ضوء",
+          "emoji": "💡",
+          "praise": "أحسنتِ! ضوء تبدأ بحرف الضاد."
+        }
+      ]
+    },
+    {
+      "id": "w16e_more_color_blue",
+      "title": "لون الأزرق 🌊",
+      "emoji": "🌊",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف الألوان في الأشياء حولي",
+      "learned": "أعرف لون الأزرق.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 16 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🌊",
+          "text": "البحر أزرق",
+          "say": "البحر أزرق"
+        },
+        {
+          "emoji": "🐳",
+          "text": "الحوت أزرق",
+          "say": "الحوت أزرق"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🎨",
+          "say": "أين الشيء الأزرق؟",
+          "options": [
+            "🌊",
+            "🍎",
+            "🍇"
+          ],
+          "answerIndex": 0,
+          "hint": "الأزرق",
+          "emoji": "🌊",
+          "praise": "أحسنتِ! هذا لونه الأزرق."
+        },
+        {
+          "prompt": "🎨",
+          "say": "أين الشيء الأزرق؟",
+          "options": [
+            "🍎",
+            "🐳",
+            "🍇"
+          ],
+          "answerIndex": 1,
+          "hint": "الأزرق",
+          "emoji": "🐳",
+          "praise": "أحسنتِ! هذا لونه الأزرق."
+        }
+      ]
+    },
+    {
+      "id": "w16e_more_water_drink",
+      "title": "أشرب الماء 💧",
+      "emoji": "💧",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أشرب الماء",
+      "learned": "أشرب الماء.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 16 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "💧",
+          "text": "أنا عطشانة",
+          "say": "أنا عطشانة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "💧 ؟",
+          "say": "ماذا نشرب؟ الماء، أم الحلوى؟",
+          "options": [
+            "🍭",
+            "💧"
+          ],
+          "answerIndex": 1,
+          "hint": "أشرب الماء",
+          "emoji": "💧",
+          "praise": "أحسنتِ! الماء مفيد."
+        }
+      ]
+    },
+    {
+      "id": "w16e_more_letter_16",
+      "title": "حرف الطاء ✈️",
+      "emoji": "✈️",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أسمع الحرف وأعرف صورًا تبدأ به",
+      "learned": "أعرف حرف الطاء.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 16 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "ط",
+          "say": "هذا حرف الطاء"
+        },
+        {
+          "emoji": "art:let_16",
+          "text": "طائرة",
+          "say": "ط، طائرة"
+        },
+        {
+          "emoji": "🍅",
+          "text": "طماطم",
+          "say": "ط، طماطم"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الطائرة؟",
+          "options": [
+            "✈️",
+            "🍅",
+            "🐱"
+          ],
+          "answerIndex": 0,
+          "hint": "طائرة",
+          "emoji": "✈️",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "🔤",
+          "say": "أي صورة تبدأ بحرف الطاء؟",
+          "options": [
+            "🐱",
+            "🍅",
+            "👦"
+          ],
+          "answerIndex": 1,
+          "hint": "طماطم",
+          "emoji": "🍅",
+          "praise": "أحسنتِ! طماطم تبدأ بحرف الطاء."
+        }
+      ]
+    },
+    {
+      "id": "w16e_more_happy_sad",
+      "title": "سعيد وحزين 😊",
+      "emoji": "😊",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف الأضداد",
+      "learned": "أعرف الكبير والصغير وأمثالهما.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 16 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "😊",
+          "text": "سعيد",
+          "say": "سعيد"
+        },
+        {
+          "emoji": "😢",
+          "text": "حزين",
+          "say": "حزين"
+        },
+        {
+          "emoji": "🐘",
+          "text": "كبير",
+          "say": "كبير"
+        },
+        {
+          "emoji": "🐭",
+          "text": "صغير",
+          "say": "صغير"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين سعيد؟",
+          "options": [
+            "😊",
+            "😢"
+          ],
+          "answerIndex": 0,
+          "hint": "سعيد",
+          "emoji": "😊",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين حزين؟",
+          "options": [
+            "😊",
+            "😢"
+          ],
+          "answerIndex": 1,
+          "hint": "حزين",
+          "emoji": "😢",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين كبير؟",
+          "options": [
+            "🐘",
+            "🐭"
+          ],
+          "answerIndex": 0,
+          "hint": "كبير",
+          "emoji": "🐘",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w17e_more_greet_guest",
+      "title": "أرحّب بالضيف 🙋",
+      "emoji": "🙋",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أرحّب بالضيف",
+      "learned": "أرحّب بالضيف.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 17 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🚪",
+          "text": "جاء ضيف",
+          "say": "جاء ضيف"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🚪 ؟",
+          "say": "ماذا نفعل؟ نرحّب به، أم نختبئ؟",
+          "options": [
+            "👋",
+            "🙈"
+          ],
+          "answerIndex": 0,
+          "hint": "أرحّب بالضيف",
+          "emoji": "👋",
+          "praise": "أحسنتِ! الترحيب جميل."
+        }
+      ]
+    },
+    {
+      "id": "w17e_more_letter_17",
+      "title": "حرف الظاء ✉️",
+      "emoji": "✉️",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أسمع الحرف وأعرف صورًا تبدأ به",
+      "learned": "أعرف حرف الظاء.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 17 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "ظ",
+          "say": "هذا حرف الظاء"
+        },
+        {
+          "emoji": "art:let_17",
+          "text": "ظرف",
+          "say": "ظ، ظرف"
+        },
+        {
+          "emoji": "🦌",
+          "text": "ظبي",
+          "say": "ظ، ظبي"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الظرف؟",
+          "options": [
+            "🦌",
+            "✉️",
+            "🐶"
+          ],
+          "answerIndex": 1,
+          "hint": "ظرف",
+          "emoji": "✉️",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "🔤",
+          "say": "أي صورة تبدأ بحرف الظاء؟",
+          "options": [
+            "🐶",
+            "🎃",
+            "🦌"
+          ],
+          "answerIndex": 2,
+          "hint": "ظبي",
+          "emoji": "🦌",
+          "praise": "أحسنتِ! ظبي تبدأ بحرف الظاء."
+        }
+      ]
+    },
+    {
+      "id": "w17e_more_insects",
+      "title": "أصدقاء صغار 🐜",
+      "emoji": "🐜",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 17 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🐜",
+          "text": "النملة",
+          "say": "النملة"
+        },
+        {
+          "emoji": "🐛",
+          "text": "الدودة",
+          "say": "الدودة"
+        },
+        {
+          "emoji": "🐌",
+          "text": "الحلزون",
+          "say": "الحلزون"
+        },
+        {
+          "emoji": "🕷️",
+          "text": "العنكبوت",
+          "say": "العنكبوت"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين النملة؟",
+          "options": [
+            "🐜",
+            "🐛",
+            "🐌"
+          ],
+          "answerIndex": 0,
+          "hint": "النملة",
+          "emoji": "🐜",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين العنكبوت؟",
+          "options": [
+            "🐜",
+            "🕷️",
+            "🐛"
+          ],
+          "answerIndex": 1,
+          "hint": "العنكبوت",
+          "emoji": "🕷️",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الدودة؟",
+          "options": [
+            "🐜",
+            "🐌",
+            "🐛"
+          ],
+          "answerIndex": 2,
+          "hint": "الدودة",
+          "emoji": "🐛",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w17e_more_take_turns",
+      "title": "نتبادل الأدوار 🛝",
+      "emoji": "🛝",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "نتبادل الأدوار",
+      "learned": "نتبادل الأدوار.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 17 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🛝",
+          "text": "نلعب على الزحليقة",
+          "say": "نلعب على الزحليقة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🛝 ؟",
+          "say": "ماذا نفعل؟ نتبادل، أم نزاحم؟",
+          "options": [
+            "✋",
+            "🔁"
+          ],
+          "answerIndex": 1,
+          "hint": "نتبادل الأدوار",
+          "emoji": "🔁",
+          "praise": "أحسنتِ! اللعب معًا جميل."
+        }
+      ]
+    },
+    {
+      "id": "w17e_more_letter_18",
+      "title": "حرف العين 🍇",
+      "emoji": "🍇",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أسمع الحرف وأعرف صورًا تبدأ به",
+      "learned": "أعرف حرف العين.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 17 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "ع",
+          "say": "هذا حرف العين"
+        },
+        {
+          "emoji": "art:let_18",
+          "text": "عنب",
+          "say": "ع، عنب"
+        },
+        {
+          "emoji": "🐦",
+          "text": "عصفور",
+          "say": "ع، عصفور"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين العنب؟",
+          "options": [
+            "🐦",
+            "🍋",
+            "🍇"
+          ],
+          "answerIndex": 2,
+          "hint": "عنب",
+          "emoji": "🍇",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "🔤",
+          "say": "أي صورة تبدأ بحرف العين؟",
+          "options": [
+            "🐦",
+            "🍋",
+            "🦁"
+          ],
+          "answerIndex": 0,
+          "hint": "عصفور",
+          "emoji": "🐦",
+          "praise": "أحسنتِ! عصفور تبدأ بحرف العين."
+        }
+      ]
+    },
+    {
+      "id": "w17e_more_balls",
+      "title": "نعدّ الكرات ⚽",
+      "emoji": "⚽",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعدّ أشياء صغيرة",
+      "learned": "أعدّ بأصابعي وأعرف العدد.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 17 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "⚽⚽",
+          "text": "2",
+          "say": "واحدة، اثنتان كرات"
+        },
+        {
+          "emoji": "⚽⚽⚽⚽",
+          "text": "4",
+          "say": "واحدة، اثنتان، ثلاث، أربع كرات"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "⚽⚽",
+          "say": "اضغطي على اثنتان كرات",
+          "options": [
+            "⚽⚽",
+            "⚽",
+            "⚽⚽⚽"
+          ],
+          "answerIndex": 0,
+          "hint": "اثنتان",
+          "emoji": "⚽",
+          "praise": "أحسنتِ! عددتِ صح."
+        },
+        {
+          "prompt": "⚽⚽⚽⚽",
+          "say": "اضغطي على أربع كرات",
+          "options": [
+            "⚽⚽⚽",
+            "⚽⚽⚽⚽",
+            "⚽⚽⚽⚽⚽"
+          ],
+          "answerIndex": 1,
+          "hint": "أربع",
+          "emoji": "⚽",
+          "praise": "أحسنتِ! عددتِ صح."
+        },
+        {
+          "prompt": "⚽⚽⚽⚽⚽⚽",
+          "say": "اضغطي على ست كرات",
+          "options": [
+            "⚽⚽⚽⚽⚽",
+            "⚽⚽⚽⚽⚽⚽⚽",
+            "⚽⚽⚽⚽⚽⚽"
+          ],
+          "answerIndex": 2,
+          "hint": "ست",
+          "emoji": "⚽",
+          "praise": "أحسنتِ! عددتِ صح."
+        }
+      ]
+    },
+    {
+      "id": "w18e_more_dad_tired",
+      "title": "أريح بابا 👨",
+      "emoji": "👨",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أساعد بابا",
+      "learned": "أساعد بابا.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 18 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "👨",
+          "text": "بابا متعب",
+          "say": "بابا متعب"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "👨 ؟",
+          "say": "ماذا نفعل؟ نحضر له الماء، أم نزعجه؟",
+          "options": [
+            "📢",
+            "💧"
+          ],
+          "answerIndex": 1,
+          "hint": "أساعد بابا",
+          "emoji": "💧",
+          "praise": "أحسنتِ! نحب بابا."
+        }
+      ]
+    },
+    {
+      "id": "w18e_more_letter_19",
+      "title": "حرف الغين ☁️",
+      "emoji": "☁️",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أسمع الحرف وأعرف صورًا تبدأ به",
+      "learned": "أعرف حرف الغين.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 18 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "غ",
+          "say": "هذا حرف الغين"
+        },
+        {
+          "emoji": "art:let_19",
+          "text": "غيمة",
+          "say": "غ، غيمة"
+        },
+        {
+          "emoji": "🦍",
+          "text": "غوريلا",
+          "say": "غ، غوريلا"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الغيمة؟",
+          "options": [
+            "☁️",
+            "🦍",
+            "🍌"
+          ],
+          "answerIndex": 0,
+          "hint": "غيمة",
+          "emoji": "☁️",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "🔤",
+          "say": "أي صورة تبدأ بحرف الغين؟",
+          "options": [
+            "🍌",
+            "🦍",
+            "🏠"
+          ],
+          "answerIndex": 1,
+          "hint": "غوريلا",
+          "emoji": "🦍",
+          "praise": "أحسنتِ! غوريلا تبدأ بحرف الغين."
+        }
+      ]
+    },
+    {
+      "id": "w18e_more_color_orange",
+      "title": "لون البرتقالي 🍊",
+      "emoji": "🍊",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف الألوان في الأشياء حولي",
+      "learned": "أعرف لون البرتقالي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 18 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🍊",
+          "text": "البرتقالة برتقالية",
+          "say": "البرتقالة برتقالية"
+        },
+        {
+          "emoji": "🥕",
+          "text": "الجزرة برتقالية",
+          "say": "الجزرة برتقالية"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🎨",
+          "say": "أين الشيء البرتقالي؟",
+          "options": [
+            "🍊",
+            "🍇",
+            "🐶"
+          ],
+          "answerIndex": 0,
+          "hint": "البرتقالي",
+          "emoji": "🍊",
+          "praise": "أحسنتِ! هذا لونه البرتقالي."
+        },
+        {
+          "prompt": "🎨",
+          "say": "أين الشيء البرتقالي؟",
+          "options": [
+            "🍇",
+            "🥕",
+            "🐶"
+          ],
+          "answerIndex": 1,
+          "hint": "البرتقالي",
+          "emoji": "🥕",
+          "praise": "أحسنتِ! هذا لونه البرتقالي."
+        }
+      ]
+    },
+    {
+      "id": "w18e_more_book_care",
+      "title": "أحافظ على كتابي 📚",
+      "emoji": "📚",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أحافظ على كتابي",
+      "learned": "أحافظ على كتابي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 18 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "📚",
+          "text": "معي كتاب",
+          "say": "معي كتاب"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "📚 ؟",
+          "say": "ماذا نفعل؟ نقلّبه بلطف، أم نمزّقه؟",
+          "options": [
+            "✂️",
+            "📖"
+          ],
+          "answerIndex": 1,
+          "hint": "أحافظ على كتابي",
+          "emoji": "📖",
+          "praise": "أحسنتِ! الكتاب صديقنا."
+        }
+      ]
+    },
+    {
+      "id": "w18e_more_letter_20",
+      "title": "حرف الفاء 🐘",
+      "emoji": "🐘",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أسمع الحرف وأعرف صورًا تبدأ به",
+      "learned": "أعرف حرف الفاء.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 18 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "ف",
+          "say": "هذا حرف الفاء"
+        },
+        {
+          "emoji": "art:let_20",
+          "text": "فيل",
+          "say": "ف، فيل"
+        },
+        {
+          "emoji": "🦋",
+          "text": "فراشة",
+          "say": "ف، فراشة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الفيل؟",
+          "options": [
+            "🦋",
+            "🐘",
+            "🐝"
+          ],
+          "answerIndex": 1,
+          "hint": "فيل",
+          "emoji": "🐘",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "🔤",
+          "say": "أي صورة تبدأ بحرف الفاء؟",
+          "options": [
+            "🐝",
+            "🐊",
+            "🦋"
+          ],
+          "answerIndex": 2,
+          "hint": "فراشة",
+          "emoji": "🦋",
+          "praise": "أحسنتِ! فراشة تبدأ بحرف الفاء."
+        }
+      ]
+    },
+    {
+      "id": "w18e_more_bath",
+      "title": "في الحمّام 🛁",
+      "emoji": "🛁",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 18 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🧼",
+          "text": "الصابون",
+          "say": "الصابون"
+        },
+        {
+          "emoji": "🪥",
+          "text": "فرشاة الأسنان",
+          "say": "فرشاة الأسنان"
+        },
+        {
+          "emoji": "🛁",
+          "text": "حوض الاستحمام",
+          "say": "حوض الاستحمام"
+        },
+        {
+          "emoji": "🧴",
+          "text": "الشامبو",
+          "say": "الشامبو"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الصابون؟",
+          "options": [
+            "🧼",
+            "🪥",
+            "🛁"
+          ],
+          "answerIndex": 0,
+          "hint": "الصابون",
+          "emoji": "🧼",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الشامبو؟",
+          "options": [
+            "🧼",
+            "🧴",
+            "🪥"
+          ],
+          "answerIndex": 1,
+          "hint": "الشامبو",
+          "emoji": "🧴",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين فرشاة الأسنان؟",
+          "options": [
+            "🧼",
+            "🛁",
+            "🪥"
+          ],
+          "answerIndex": 2,
+          "hint": "فرشاة الأسنان",
+          "emoji": "🪥",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w19e_more_flowers",
+      "title": "لا أقطف الزهور 🌷",
+      "emoji": "🌷",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أحافظ على الزهور",
+      "learned": "أحافظ على الزهور.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 19 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🌷",
+          "text": "زهرة في الحديقة",
+          "say": "زهرة في الحديقة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🌷 ؟",
+          "say": "ماذا نفعل؟ نشمّها ونتركها، أم نقطفها؟",
+          "options": [
+            "👃",
+            "✂️"
+          ],
+          "answerIndex": 0,
+          "hint": "أحافظ على الزهور",
+          "emoji": "👃",
+          "praise": "أحسنتِ! الزهور جميلة في مكانها."
+        }
+      ]
+    },
+    {
+      "id": "w19e_more_letter_21",
+      "title": "حرف القاف 🐱",
+      "emoji": "🐱",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أسمع الحرف وأعرف صورًا تبدأ به",
+      "learned": "أعرف حرف القاف.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 19 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "ق",
+          "say": "هذا حرف القاف"
+        },
+        {
+          "emoji": "art:let_21",
+          "text": "قطة",
+          "say": "ق، قطة"
+        },
+        {
+          "emoji": "🌙",
+          "text": "قمر",
+          "say": "ق، قمر"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين القطة؟",
+          "options": [
+            "🌙",
+            "🎁",
+            "🐱"
+          ],
+          "answerIndex": 2,
+          "hint": "قطة",
+          "emoji": "🐱",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "🔤",
+          "say": "أي صورة تبدأ بحرف القاف؟",
+          "options": [
+            "🌙",
+            "🎁",
+            "❄️"
+          ],
+          "answerIndex": 0,
+          "hint": "قمر",
+          "emoji": "🌙",
+          "praise": "أحسنتِ! قمر تبدأ بحرف القاف."
+        }
+      ]
+    },
+    {
+      "id": "w19e_more_cats",
+      "title": "نعدّ القطط 🐱",
+      "emoji": "🐱",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعدّ أشياء صغيرة",
+      "learned": "أعدّ بأصابعي وأعرف العدد.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 19 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🐱🐱🐱",
+          "text": "3",
+          "say": "واحدة، اثنتان، ثلاث قطط"
+        },
+        {
+          "emoji": "🐱🐱🐱🐱🐱",
+          "text": "5",
+          "say": "واحدة، اثنتان، ثلاث، أربع، خمس قطط"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🐱🐱🐱",
+          "say": "اضغطي على ثلاث قطط",
+          "options": [
+            "🐱🐱🐱",
+            "🐱🐱",
+            "🐱🐱🐱🐱"
+          ],
+          "answerIndex": 0,
+          "hint": "ثلاث",
+          "emoji": "🐱",
+          "praise": "أحسنتِ! عددتِ صح."
+        },
+        {
+          "prompt": "🐱🐱🐱🐱🐱",
+          "say": "اضغطي على خمس قطط",
+          "options": [
+            "🐱🐱🐱🐱",
+            "🐱🐱🐱🐱🐱",
+            "🐱🐱🐱🐱🐱🐱"
+          ],
+          "answerIndex": 1,
+          "hint": "خمس",
+          "emoji": "🐱",
+          "praise": "أحسنتِ! عددتِ صح."
+        },
+        {
+          "prompt": "🐱🐱🐱🐱🐱🐱🐱",
+          "say": "اضغطي على سبع قطط",
+          "options": [
+            "🐱🐱🐱🐱🐱🐱",
+            "🐱🐱🐱🐱🐱🐱🐱🐱",
+            "🐱🐱🐱🐱🐱🐱🐱"
+          ],
+          "answerIndex": 2,
+          "hint": "سبع",
+          "emoji": "🐱",
+          "praise": "أحسنتِ! عددتِ صح."
+        }
+      ]
+    },
+    {
+      "id": "w19e_more_cross_road",
+      "title": "أمسك يد ماما 🚦",
+      "emoji": "🚦",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أمسك يد ماما",
+      "learned": "أمسك يد ماما.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 19 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🚦",
+          "text": "نعبر الشارع",
+          "say": "نعبر الشارع"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🚦 ؟",
+          "say": "ماذا نفعل؟ نمسك يد ماما، أم نجري وحدنا؟",
+          "options": [
+            "🏃",
+            "🤝"
+          ],
+          "answerIndex": 1,
+          "hint": "أمسك يد ماما",
+          "emoji": "🤝",
+          "praise": "أحسنتِ! السلامة أولًا."
+        }
+      ]
+    },
+    {
+      "id": "w19e_more_letter_22",
+      "title": "حرف الكاف 🐶",
+      "emoji": "🐶",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أسمع الحرف وأعرف صورًا تبدأ به",
+      "learned": "أعرف حرف الكاف.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 19 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "ك",
+          "say": "هذا حرف الكاف"
+        },
+        {
+          "emoji": "art:let_22",
+          "text": "كلب",
+          "say": "ك، كلب"
+        },
+        {
+          "emoji": "⚽",
+          "text": "كرة",
+          "say": "ك، كرة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الكلب؟",
+          "options": [
+            "🐶",
+            "⚽",
+            "🌹"
+          ],
+          "answerIndex": 0,
+          "hint": "كلب",
+          "emoji": "🐶",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "🔤",
+          "say": "أي صورة تبدأ بحرف الكاف؟",
+          "options": [
+            "🌹",
+            "⚽",
+            "🥕"
+          ],
+          "answerIndex": 1,
+          "hint": "كرة",
+          "emoji": "⚽",
+          "praise": "أحسنتِ! كرة تبدأ بحرف الكاف."
+        }
+      ]
+    },
+    {
+      "id": "w19e_more_color_white",
+      "title": "لون الأبيض ⛄",
+      "emoji": "⛄",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف الألوان في الأشياء حولي",
+      "learned": "أعرف لون الأبيض.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 19 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "⛄",
+          "text": "رجل الثلج أبيض",
+          "say": "رجل الثلج أبيض"
+        },
+        {
+          "emoji": "🥛",
+          "text": "الحليب أبيض",
+          "say": "الحليب أبيض"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🎨",
+          "say": "أين الشيء الأبيض؟",
+          "options": [
+            "⛄",
+            "🍫",
+            "🍇"
+          ],
+          "answerIndex": 0,
+          "hint": "الأبيض",
+          "emoji": "⛄",
+          "praise": "أحسنتِ! هذا لونه الأبيض."
+        },
+        {
+          "prompt": "🎨",
+          "say": "أين الشيء الأبيض؟",
+          "options": [
+            "🍫",
+            "🥛",
+            "🍇"
+          ],
+          "answerIndex": 1,
+          "hint": "الأبيض",
+          "emoji": "🥛",
+          "praise": "أحسنتِ! هذا لونه الأبيض."
+        }
+      ]
+    },
+    {
+      "id": "w19e_more_seatbelt",
+      "title": "أربط الحزام 🚗",
+      "emoji": "🚗",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أربط الحزام",
+      "learned": "أربط الحزام.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 19 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🚗",
+          "text": "ركبنا السيارة",
+          "say": "ركبنا السيارة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🚗 ؟",
+          "say": "ماذا نفعل؟ نربط الحزام، أم نقف؟",
+          "options": [
+            "🧍",
+            "🔒"
+          ],
+          "answerIndex": 1,
+          "hint": "أربط الحزام",
+          "emoji": "🔒",
+          "praise": "أحسنتِ! السلامة أولًا."
+        }
+      ]
+    },
+    {
+      "id": "w20e_more_letter_23",
+      "title": "حرف اللام 🍋",
+      "emoji": "🍋",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أسمع الحرف وأعرف صورًا تبدأ به",
+      "learned": "أعرف حرف اللام.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 20 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "ل",
+          "say": "هذا حرف اللام"
+        },
+        {
+          "emoji": "art:let_23",
+          "text": "ليمون",
+          "say": "ل، ليمون"
+        },
+        {
+          "emoji": "🧸",
+          "text": "لعبة",
+          "say": "ل، لعبة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الليمون؟",
+          "options": [
+            "🧸",
+            "🍋",
+            "✋"
+          ],
+          "answerIndex": 1,
+          "hint": "ليمون",
+          "emoji": "🍋",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "🔤",
+          "say": "أي صورة تبدأ بحرف اللام؟",
+          "options": [
+            "✋",
+            "🥛",
+            "🧸"
+          ],
+          "answerIndex": 2,
+          "hint": "لعبة",
+          "emoji": "🧸",
+          "praise": "أحسنتِ! لعبة تبدأ بحرف اللام."
+        }
+      ]
+    },
+    {
+      "id": "w20e_more_animals3",
+      "title": "حيوانات بعيدة 🐧",
+      "emoji": "🐧",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 20 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🐧",
+          "text": "البطريق",
+          "say": "البطريق"
+        },
+        {
+          "emoji": "🐨",
+          "text": "الكوالا",
+          "say": "الكوالا"
+        },
+        {
+          "emoji": "🦓",
+          "text": "الحمار الوحشي",
+          "say": "الحمار الوحشي"
+        },
+        {
+          "emoji": "🐻",
+          "text": "الدب",
+          "say": "الدب"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين البطريق؟",
+          "options": [
+            "🐧",
+            "🐨",
+            "🦓"
+          ],
+          "answerIndex": 0,
+          "hint": "البطريق",
+          "emoji": "🐧",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الدب؟",
+          "options": [
+            "🐧",
+            "🐻",
+            "🐨"
+          ],
+          "answerIndex": 1,
+          "hint": "الدب",
+          "emoji": "🐻",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الكوالا؟",
+          "options": [
+            "🐧",
+            "🦓",
+            "🐨"
+          ],
+          "answerIndex": 2,
+          "hint": "الكوالا",
+          "emoji": "🐨",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w20e_more_hot_stove",
+      "title": "أبتعد عن النار 🔥",
+      "emoji": "🔥",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أبتعد عن النار",
+      "learned": "أبتعد عن النار.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 20 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🔥",
+          "text": "ماما تطبخ",
+          "say": "ماما تطبخ"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🔥 ؟",
+          "say": "ماذا نفعل؟ نبتعد عن النار، أم نلمسها؟",
+          "options": [
+            "✋",
+            "🚶"
+          ],
+          "answerIndex": 1,
+          "hint": "أبتعد عن النار",
+          "emoji": "🚶",
+          "praise": "أحسنتِ! نحافظ على أنفسنا."
+        }
+      ]
+    },
+    {
+      "id": "w20e_more_letter_24",
+      "title": "حرف الميم 🍌",
+      "emoji": "🍌",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أسمع الحرف وأعرف صورًا تبدأ به",
+      "learned": "أعرف حرف الميم.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 20 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "م",
+          "say": "هذا حرف الميم"
+        },
+        {
+          "emoji": "art:let_24",
+          "text": "موز",
+          "say": "م، موز"
+        },
+        {
+          "emoji": "🔑",
+          "text": "مفتاح",
+          "say": "م، مفتاح"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الموز؟",
+          "options": [
+            "🔑",
+            "🐰",
+            "🍌"
+          ],
+          "answerIndex": 2,
+          "hint": "موز",
+          "emoji": "🍌",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "🔤",
+          "say": "أي صورة تبدأ بحرف الميم؟",
+          "options": [
+            "🔑",
+            "🐰",
+            "🍞"
+          ],
+          "answerIndex": 0,
+          "hint": "مفتاح",
+          "emoji": "🔑",
+          "praise": "أحسنتِ! مفتاح تبدأ بحرف الميم."
+        }
+      ]
+    },
+    {
+      "id": "w20e_more_trees",
+      "title": "نعدّ الأشجار 🌳",
+      "emoji": "🌳",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعدّ أشياء صغيرة",
+      "learned": "أعدّ بأصابعي وأعرف العدد.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 20 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🌳🌳🌳🌳🌳",
+          "text": "5",
+          "say": "واحدة، اثنتان، ثلاث، أربع، خمس أشجار"
+        },
+        {
+          "emoji": "🌳🌳🌳🌳🌳🌳",
+          "text": "6",
+          "say": "واحدة، اثنتان، ثلاث، أربع، خمس، ست أشجار"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🌳🌳🌳🌳🌳",
+          "say": "اضغطي على خمس أشجار",
+          "options": [
+            "🌳🌳🌳🌳🌳",
+            "🌳🌳🌳🌳",
+            "🌳🌳🌳🌳🌳🌳"
+          ],
+          "answerIndex": 0,
+          "hint": "خمس",
+          "emoji": "🌳",
+          "praise": "أحسنتِ! عددتِ صح."
+        },
+        {
+          "prompt": "🌳🌳🌳🌳🌳🌳",
+          "say": "اضغطي على ست أشجار",
+          "options": [
+            "🌳🌳🌳🌳🌳",
+            "🌳🌳🌳🌳🌳🌳",
+            "🌳🌳🌳🌳🌳🌳🌳"
+          ],
+          "answerIndex": 1,
+          "hint": "ست",
+          "emoji": "🌳",
+          "praise": "أحسنتِ! عددتِ صح."
+        },
+        {
+          "prompt": "🌳🌳🌳🌳🌳🌳🌳🌳",
+          "say": "اضغطي على ثمان أشجار",
+          "options": [
+            "🌳🌳🌳🌳🌳🌳🌳",
+            "🌳🌳🌳🌳🌳🌳🌳🌳🌳",
+            "🌳🌳🌳🌳🌳🌳🌳🌳"
+          ],
+          "answerIndex": 2,
+          "hint": "ثمان",
+          "emoji": "🌳",
+          "praise": "أحسنتِ! عددتِ صح."
+        }
+      ]
+    },
+    {
+      "id": "w20e_more_ask_help",
+      "title": "أطلب المساعدة 🙋",
+      "emoji": "🙋",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أطلب المساعدة",
+      "learned": "أطلب المساعدة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 20 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🧃",
+          "text": "العصير مغلق",
+          "say": "العصير مغلق"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🧃 ؟",
+          "say": "ماذا نفعل؟ نطلب المساعدة بلطف، أم نصرخ؟",
+          "options": [
+            "🙋",
+            "😡"
+          ],
+          "answerIndex": 0,
+          "hint": "أطلب المساعدة",
+          "emoji": "🙋",
+          "praise": "أحسنتِ! طلب المساعدة جميل."
+        }
+      ]
+    },
+    {
+      "id": "w20e_more_letter_25",
+      "title": "حرف النون 🐝",
+      "emoji": "🐝",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أسمع الحرف وأعرف صورًا تبدأ به",
+      "learned": "أعرف حرف النون.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 20 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "ن",
+          "say": "هذا حرف النون"
+        },
+        {
+          "emoji": "art:let_25",
+          "text": "نحلة",
+          "say": "ن، نحلة"
+        },
+        {
+          "emoji": "⭐",
+          "text": "نجمة",
+          "say": "ن، نجمة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين النحلة؟",
+          "options": [
+            "🐝",
+            "⭐",
+            "🦆"
+          ],
+          "answerIndex": 0,
+          "hint": "نحلة",
+          "emoji": "🐝",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "🔤",
+          "say": "أي صورة تبدأ بحرف النون؟",
+          "options": [
+            "🦆",
+            "⭐",
+            "🐔"
+          ],
+          "answerIndex": 1,
+          "hint": "نجمة",
+          "emoji": "⭐",
+          "praise": "أحسنتِ! نجمة تبدأ بحرف النون."
+        }
+      ]
+    },
+    {
+      "id": "w21e_more_veg2",
+      "title": "خضار أخرى 🌽",
+      "emoji": "🌽",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 21 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🌽",
+          "text": "الذرة",
+          "say": "الذرة"
+        },
+        {
+          "emoji": "🧅",
+          "text": "البصل",
+          "say": "البصل"
+        },
+        {
+          "emoji": "🥦",
+          "text": "البروكلي",
+          "say": "البروكلي"
+        },
+        {
+          "emoji": "🍆",
+          "text": "الباذنجان",
+          "say": "الباذنجان"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الذرة؟",
+          "options": [
+            "🌽",
+            "🧅",
+            "🥦"
+          ],
+          "answerIndex": 0,
+          "hint": "الذرة",
+          "emoji": "🌽",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الباذنجان؟",
+          "options": [
+            "🌽",
+            "🍆",
+            "🧅"
+          ],
+          "answerIndex": 1,
+          "hint": "الباذنجان",
+          "emoji": "🍆",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين البصل؟",
+          "options": [
+            "🌽",
+            "🥦",
+            "🧅"
+          ],
+          "answerIndex": 2,
+          "hint": "البصل",
+          "emoji": "🧅",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w21e_more_baby_gentle",
+      "title": "ألطف بالبيبي 👶",
+      "emoji": "👶",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "ألطف بالصغير",
+      "learned": "ألطف بالصغير.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 21 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "👶",
+          "text": "البيبي يبكي",
+          "say": "البيبي يبكي"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "👶 ؟",
+          "say": "ماذا نفعل؟ نهدهده بلطف، أم نصرخ؟",
+          "options": [
+            "🤗",
+            "📢"
+          ],
+          "answerIndex": 0,
+          "hint": "ألطف بالصغير",
+          "emoji": "🤗",
+          "praise": "أحسنتِ! الرحمة جميلة."
+        }
+      ]
+    },
+    {
+      "id": "w21e_more_letter_26",
+      "title": "حرف الهاء 🎁",
+      "emoji": "🎁",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أسمع الحرف وأعرف صورًا تبدأ به",
+      "learned": "أعرف حرف الهاء.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 21 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "هـ",
+          "say": "هذا حرف الهاء"
+        },
+        {
+          "emoji": "art:let_26",
+          "text": "هدية",
+          "say": "هـ، هدية"
+        },
+        {
+          "emoji": "📱",
+          "text": "هاتف",
+          "say": "هـ، هاتف"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الهدية؟",
+          "options": [
+            "📱",
+            "🎁",
+            "🍎"
+          ],
+          "answerIndex": 1,
+          "hint": "هدية",
+          "emoji": "🎁",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "🔤",
+          "say": "أي صورة تبدأ بحرف الهاء؟",
+          "options": [
+            "🍎",
+            "🐺",
+            "📱"
+          ],
+          "answerIndex": 2,
+          "hint": "هاتف",
+          "emoji": "📱",
+          "praise": "أحسنتِ! هاتف تبدأ بحرف الهاء."
+        }
+      ]
+    },
+    {
+      "id": "w21e_more_moons",
+      "title": "نعدّ الأقمار 🌙",
+      "emoji": "🌙",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعدّ أشياء صغيرة",
+      "learned": "أعدّ بأصابعي وأعرف العدد.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 21 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🌙🌙🌙🌙🌙🌙",
+          "text": "6",
+          "say": "واحدة، اثنتان، ثلاث، أربع، خمس، ست أقمار"
+        },
+        {
+          "emoji": "🌙🌙🌙🌙🌙🌙🌙",
+          "text": "7",
+          "say": "واحدة، اثنتان، ثلاث، أربع، خمس، ست، سبع أقمار"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🌙🌙🌙🌙🌙🌙",
+          "say": "اضغطي على ست أقمار",
+          "options": [
+            "🌙🌙🌙🌙🌙🌙",
+            "🌙🌙🌙🌙🌙",
+            "🌙🌙🌙🌙🌙🌙🌙"
+          ],
+          "answerIndex": 0,
+          "hint": "ست",
+          "emoji": "🌙",
+          "praise": "أحسنتِ! عددتِ صح."
+        },
+        {
+          "prompt": "🌙🌙🌙🌙🌙🌙🌙",
+          "say": "اضغطي على سبع أقمار",
+          "options": [
+            "🌙🌙🌙🌙🌙🌙",
+            "🌙🌙🌙🌙🌙🌙🌙",
+            "🌙🌙🌙🌙🌙🌙🌙🌙"
+          ],
+          "answerIndex": 1,
+          "hint": "سبع",
+          "emoji": "🌙",
+          "praise": "أحسنتِ! عددتِ صح."
+        },
+        {
+          "prompt": "🌙🌙🌙🌙🌙🌙🌙🌙🌙",
+          "say": "اضغطي على تسع أقمار",
+          "options": [
+            "🌙🌙🌙🌙🌙🌙🌙🌙",
+            "🌙🌙🌙🌙🌙🌙🌙🌙🌙🌙",
+            "🌙🌙🌙🌙🌙🌙🌙🌙🌙"
+          ],
+          "answerIndex": 2,
+          "hint": "تسع",
+          "emoji": "🌙",
+          "praise": "أحسنتِ! عددتِ صح."
+        }
+      ]
+    },
+    {
+      "id": "w21e_more_good_morning",
+      "title": "صباح الخير ☀️",
+      "emoji": "☀️",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أقول صباح الخير",
+      "learned": "أقول صباح الخير.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 21 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "☀️",
+          "text": "استيقظنا",
+          "say": "استيقظنا"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "☀️ ؟",
+          "say": "ماذا نقول لماما؟ صباح الخير، أم نسكت؟",
+          "options": [
+            "😶",
+            "👋"
+          ],
+          "answerIndex": 1,
+          "hint": "أقول صباح الخير",
+          "emoji": "👋",
+          "praise": "أحسنتِ! الكلمة الطيبة جميلة."
+        }
+      ]
+    },
+    {
+      "id": "w21e_more_letter_27",
+      "title": "حرف الواو 🌹",
+      "emoji": "🌹",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أسمع الحرف وأعرف صورًا تبدأ به",
+      "learned": "أعرف حرف الواو.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 21 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "و",
+          "say": "هذا حرف الواو"
+        },
+        {
+          "emoji": "art:let_27",
+          "text": "وردة",
+          "say": "و، وردة"
+        },
+        {
+          "emoji": "👦",
+          "text": "ولد",
+          "say": "و، ولد"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الوردة؟",
+          "options": [
+            "👦",
+            "🦊",
+            "🌹"
+          ],
+          "answerIndex": 2,
+          "hint": "وردة",
+          "emoji": "🌹",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "🔤",
+          "say": "أي صورة تبدأ بحرف الواو؟",
+          "options": [
+            "👦",
+            "🦊",
+            "⛄"
+          ],
+          "answerIndex": 0,
+          "hint": "ولد",
+          "emoji": "👦",
+          "praise": "أحسنتِ! ولد تبدأ بحرف الواو."
+        }
+      ]
+    },
+    {
+      "id": "w22e_more_fruits3",
+      "title": "فواكه ملوّنة 🍍",
+      "emoji": "🍍",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 22 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🍍",
+          "text": "الأناناس",
+          "say": "الأناناس"
+        },
+        {
+          "emoji": "🍑",
+          "text": "الخوخ",
+          "say": "الخوخ"
+        },
+        {
+          "emoji": "🍒",
+          "text": "الكرز",
+          "say": "الكرز"
+        },
+        {
+          "emoji": "🥝",
+          "text": "الكيوي",
+          "say": "الكيوي"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الأناناس؟",
+          "options": [
+            "🍍",
+            "🍑",
+            "🍒"
+          ],
+          "answerIndex": 0,
+          "hint": "الأناناس",
+          "emoji": "🍍",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الكيوي؟",
+          "options": [
+            "🍍",
+            "🥝",
+            "🍑"
+          ],
+          "answerIndex": 1,
+          "hint": "الكيوي",
+          "emoji": "🥝",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الخوخ؟",
+          "options": [
+            "🍍",
+            "🍒",
+            "🍑"
+          ],
+          "answerIndex": 2,
+          "hint": "الخوخ",
+          "emoji": "🍑",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w22e_more_share_food",
+      "title": "أشارك طعامي 🍪",
+      "emoji": "🍪",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أشارك طعامي",
+      "learned": "أشارك طعامي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 22 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🍪",
+          "text": "معي بسكويت",
+          "say": "معي بسكويت"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🍪 ؟",
+          "say": "ماذا نفعل؟ نعطي أختي، أم نأكله وحدنا؟",
+          "options": [
+            "🤝",
+            "🙈"
+          ],
+          "answerIndex": 0,
+          "hint": "أشارك طعامي",
+          "emoji": "🤝",
+          "praise": "أحسنتِ! المشاركة جميلة."
+        }
+      ]
+    },
+    {
+      "id": "w22e_more_letter_28",
+      "title": "حرف الياء ✋",
+      "emoji": "✋",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أسمع الحرف وأعرف صورًا تبدأ به",
+      "learned": "أعرف حرف الياء.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 22 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "ي",
+          "say": "هذا حرف الياء"
+        },
+        {
+          "emoji": "art:let_28",
+          "text": "يد",
+          "say": "ي، يد"
+        },
+        {
+          "emoji": "🎃",
+          "text": "يقطين",
+          "say": "ي، يقطين"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين اليد؟",
+          "options": [
+            "✋",
+            "🎃",
+            "🐫"
+          ],
+          "answerIndex": 0,
+          "hint": "يد",
+          "emoji": "✋",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "🔤",
+          "say": "أي صورة تبدأ بحرف الياء؟",
+          "options": [
+            "🐫",
+            "🎃",
+            "🌸"
+          ],
+          "answerIndex": 1,
+          "hint": "يقطين",
+          "emoji": "🎃",
+          "praise": "أحسنتِ! يقطين تبدأ بحرف الياء."
+        }
+      ]
+    },
+    {
+      "id": "w22e_more_bees",
+      "title": "نعدّ النحل 🐝",
+      "emoji": "🐝",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعدّ أشياء صغيرة",
+      "learned": "أعدّ بأصابعي وأعرف العدد.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 22 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🐝🐝🐝🐝🐝🐝🐝",
+          "text": "7",
+          "say": "واحدة، اثنتان، ثلاث، أربع، خمس، ست، سبع نحلات"
+        },
+        {
+          "emoji": "🐝🐝🐝🐝🐝🐝🐝🐝",
+          "text": "8",
+          "say": "واحدة، اثنتان، ثلاث، أربع، خمس، ست، سبع، ثمان نحلات"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🐝🐝🐝🐝🐝🐝🐝",
+          "say": "اضغطي على سبع نحلات",
+          "options": [
+            "🐝🐝🐝🐝🐝🐝🐝",
+            "🐝🐝🐝🐝🐝🐝",
+            "🐝🐝🐝🐝🐝🐝🐝🐝"
+          ],
+          "answerIndex": 0,
+          "hint": "سبع",
+          "emoji": "🐝",
+          "praise": "أحسنتِ! عددتِ صح."
+        },
+        {
+          "prompt": "🐝🐝🐝🐝🐝🐝🐝🐝",
+          "say": "اضغطي على ثمان نحلات",
+          "options": [
+            "🐝🐝🐝🐝🐝🐝🐝",
+            "🐝🐝🐝🐝🐝🐝🐝🐝",
+            "🐝🐝🐝🐝🐝🐝🐝🐝🐝"
+          ],
+          "answerIndex": 1,
+          "hint": "ثمان",
+          "emoji": "🐝",
+          "praise": "أحسنتِ! عددتِ صح."
+        },
+        {
+          "prompt": "🐝🐝🐝🐝🐝🐝🐝🐝🐝",
+          "say": "اضغطي على تسع نحلات",
+          "options": [
+            "🐝🐝🐝🐝🐝🐝🐝🐝",
+            "🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝",
+            "🐝🐝🐝🐝🐝🐝🐝🐝🐝"
+          ],
+          "answerIndex": 2,
+          "hint": "تسع",
+          "emoji": "🐝",
+          "praise": "أحسنتِ! عددتِ صح."
+        }
+      ]
+    },
+    {
+      "id": "w22e_more_toys_back",
+      "title": "أعيد اللعبة 🧸",
+      "emoji": "🧸",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعيد اللعبة",
+      "learned": "أعيد اللعبة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 22 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🧸",
+          "text": "لعبة صديقتي معي",
+          "say": "لعبة صديقتي معي"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🧸 ؟",
+          "say": "ماذا نفعل؟ نعيدها لها، أم نخبئها؟",
+          "options": [
+            "🙈",
+            "🤲"
+          ],
+          "answerIndex": 1,
+          "hint": "أعيد اللعبة",
+          "emoji": "🤲",
+          "praise": "أحسنتِ! الأمانة جميلة."
+        }
+      ]
+    },
+    {
+      "id": "w22e_more_drinks",
+      "title": "ماذا نشرب؟ 💧",
+      "emoji": "💧",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 22 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "💧",
+          "text": "الماء",
+          "say": "الماء"
+        },
+        {
+          "emoji": "🥛",
+          "text": "الحليب",
+          "say": "الحليب"
+        },
+        {
+          "emoji": "🧃",
+          "text": "العصير",
+          "say": "العصير"
+        },
+        {
+          "emoji": "🍵",
+          "text": "الشاي",
+          "say": "الشاي"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الماء؟",
+          "options": [
+            "💧",
+            "🥛",
+            "🧃"
+          ],
+          "answerIndex": 0,
+          "hint": "الماء",
+          "emoji": "💧",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الشاي؟",
+          "options": [
+            "💧",
+            "🍵",
+            "🥛"
+          ],
+          "answerIndex": 1,
+          "hint": "الشاي",
+          "emoji": "🍵",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الحليب؟",
+          "options": [
+            "💧",
+            "🧃",
+            "🥛"
+          ],
+          "answerIndex": 2,
+          "hint": "الحليب",
+          "emoji": "🥛",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w22e_more_finish_plate",
+      "title": "آكل ما في طبقي 🍽️",
+      "emoji": "🍽️",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "لا أرمي الطعام",
+      "learned": "لا أرمي الطعام.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 22 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🍽️",
+          "text": "شبعت قليلًا",
+          "say": "شبعت قليلًا"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🍽️ ؟",
+          "say": "ماذا نفعل؟ نأخذ قليلًا ولا نرمي، أم نرمي الأكل؟",
+          "options": [
+            "😋",
+            "🗑️"
+          ],
+          "answerIndex": 0,
+          "hint": "لا أرمي الطعام",
+          "emoji": "😋",
+          "praise": "أحسنتِ! الطعام نعمة."
+        }
+      ]
+    },
+    {
+      "id": "w23e_more_gifts",
+      "title": "نعدّ الهدايا 🎁",
+      "emoji": "🎁",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعدّ أشياء صغيرة",
+      "learned": "أعدّ بأصابعي وأعرف العدد.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 23 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🎁🎁🎁🎁🎁🎁",
+          "text": "6",
+          "say": "واحدة، اثنتان، ثلاث، أربع، خمس، ست هدايا"
+        },
+        {
+          "emoji": "🎁🎁🎁🎁🎁🎁🎁🎁",
+          "text": "8",
+          "say": "واحدة، اثنتان، ثلاث، أربع، خمس، ست، سبع، ثمان هدايا"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🎁🎁🎁🎁🎁🎁",
+          "say": "اضغطي على ست هدايا",
+          "options": [
+            "🎁🎁🎁🎁🎁🎁",
+            "🎁🎁🎁🎁🎁",
+            "🎁🎁🎁🎁🎁🎁🎁"
+          ],
+          "answerIndex": 0,
+          "hint": "ست",
+          "emoji": "🎁",
+          "praise": "أحسنتِ! عددتِ صح."
+        },
+        {
+          "prompt": "🎁🎁🎁🎁🎁🎁🎁🎁",
+          "say": "اضغطي على ثمان هدايا",
+          "options": [
+            "🎁🎁🎁🎁🎁🎁🎁",
+            "🎁🎁🎁🎁🎁🎁🎁🎁",
+            "🎁🎁🎁🎁🎁🎁🎁🎁🎁"
+          ],
+          "answerIndex": 1,
+          "hint": "ثمان",
+          "emoji": "🎁",
+          "praise": "أحسنتِ! عددتِ صح."
+        },
+        {
+          "prompt": "🎁🎁🎁🎁🎁🎁🎁🎁🎁",
+          "say": "اضغطي على تسع هدايا",
+          "options": [
+            "🎁🎁🎁🎁🎁🎁🎁🎁",
+            "🎁🎁🎁🎁🎁🎁🎁🎁🎁🎁",
+            "🎁🎁🎁🎁🎁🎁🎁🎁🎁"
+          ],
+          "answerIndex": 2,
+          "hint": "تسع",
+          "emoji": "🎁",
+          "praise": "أحسنتِ! عددتِ صح."
+        }
+      ]
+    },
+    {
+      "id": "w23e_more_nature_trash",
+      "title": "أحافظ على الحديقة 🌳",
+      "emoji": "🌳",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أحافظ على الحديقة",
+      "learned": "أحافظ على الحديقة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 23 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🌳",
+          "text": "نلعب في الحديقة",
+          "say": "نلعب في الحديقة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🌳 ؟",
+          "say": "أين نضع الأكياس؟ في السلة، أم على العشب؟",
+          "options": [
+            "🌱",
+            "🗑️"
+          ],
+          "answerIndex": 1,
+          "hint": "أحافظ على الحديقة",
+          "emoji": "🗑️",
+          "praise": "أحسنتِ! الحديقة نظيفة."
+        }
+      ]
+    },
+    {
+      "id": "w23e_more_tools",
+      "title": "أدوات البيت 🧹",
+      "emoji": "🧹",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 23 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🧹",
+          "text": "المكنسة",
+          "say": "المكنسة"
+        },
+        {
+          "emoji": "🪣",
+          "text": "الدلو",
+          "say": "الدلو"
+        },
+        {
+          "emoji": "🔨",
+          "text": "المطرقة",
+          "say": "المطرقة"
+        },
+        {
+          "emoji": "🔑",
+          "text": "المفتاح",
+          "say": "المفتاح"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين المكنسة؟",
+          "options": [
+            "🧹",
+            "🪣",
+            "🔨"
+          ],
+          "answerIndex": 0,
+          "hint": "المكنسة",
+          "emoji": "🧹",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين المفتاح؟",
+          "options": [
+            "🧹",
+            "🔑",
+            "🪣"
+          ],
+          "answerIndex": 1,
+          "hint": "المفتاح",
+          "emoji": "🔑",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الدلو؟",
+          "options": [
+            "🧹",
+            "🔨",
+            "🪣"
+          ],
+          "answerIndex": 2,
+          "hint": "الدلو",
+          "emoji": "🪣",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w23e_more_bedtime_tidy",
+      "title": "أرتّب سريري 🛏️",
+      "emoji": "🛏️",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أرتب سريري",
+      "learned": "أرتب سريري.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 23 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🛏️",
+          "text": "استيقظت",
+          "say": "استيقظت"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🛏️ ؟",
+          "say": "ماذا نفعل؟ نرتب السرير، أم نتركه؟",
+          "options": [
+            "🌀",
+            "🛏️"
+          ],
+          "answerIndex": 1,
+          "hint": "أرتب سريري",
+          "emoji": "🛏️",
+          "praise": "أحسنتِ! الترتيب جميل."
+        }
+      ]
+    },
+    {
+      "id": "w23e_more_butterflies",
+      "title": "نعدّ الفراشات 🦋",
+      "emoji": "🦋",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعدّ أشياء صغيرة",
+      "learned": "أعدّ بأصابعي وأعرف العدد.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 23 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🦋🦋🦋🦋",
+          "text": "4",
+          "say": "واحدة، اثنتان، ثلاث، أربع فراشات"
+        },
+        {
+          "emoji": "🦋🦋🦋🦋🦋🦋",
+          "text": "6",
+          "say": "واحدة، اثنتان، ثلاث، أربع، خمس، ست فراشات"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🦋🦋🦋🦋",
+          "say": "اضغطي على أربع فراشات",
+          "options": [
+            "🦋🦋🦋🦋",
+            "🦋🦋🦋",
+            "🦋🦋🦋🦋🦋"
+          ],
+          "answerIndex": 0,
+          "hint": "أربع",
+          "emoji": "🦋",
+          "praise": "أحسنتِ! عددتِ صح."
+        },
+        {
+          "prompt": "🦋🦋🦋🦋🦋🦋",
+          "say": "اضغطي على ست فراشات",
+          "options": [
+            "🦋🦋🦋🦋🦋",
+            "🦋🦋🦋🦋🦋🦋",
+            "🦋🦋🦋🦋🦋🦋🦋"
+          ],
+          "answerIndex": 1,
+          "hint": "ست",
+          "emoji": "🦋",
+          "praise": "أحسنتِ! عددتِ صح."
+        },
+        {
+          "prompt": "🦋🦋🦋🦋🦋🦋🦋🦋🦋",
+          "say": "اضغطي على تسع فراشات",
+          "options": [
+            "🦋🦋🦋🦋🦋🦋🦋🦋",
+            "🦋🦋🦋🦋🦋🦋🦋🦋🦋🦋",
+            "🦋🦋🦋🦋🦋🦋🦋🦋🦋"
+          ],
+          "answerIndex": 2,
+          "hint": "تسع",
+          "emoji": "🦋",
+          "praise": "أحسنتِ! عددتِ صح."
+        }
+      ]
+    },
+    {
+      "id": "w23e_more_thank_mom",
+      "title": "أشكر ماما على الأكل 💛",
+      "emoji": "💛",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أشكر ماما",
+      "learned": "أشكر ماما.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 23 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🍲",
+          "text": "ماما طبخت",
+          "say": "ماما طبخت"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🍲 ؟",
+          "say": "ماذا نقول؟ شكرًا يا ماما، أم نسكت؟",
+          "options": [
+            "💛",
+            "😶"
+          ],
+          "answerIndex": 0,
+          "hint": "أشكر ماما",
+          "emoji": "💛",
+          "praise": "أحسنتِ! الشكر جميل."
+        }
+      ]
+    },
+    {
+      "id": "w23e_more_helpers",
+      "title": "سيارات تساعدنا 🚑",
+      "emoji": "🚑",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 23 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🚑",
+          "text": "الإسعاف",
+          "say": "الإسعاف"
+        },
+        {
+          "emoji": "🚒",
+          "text": "سيارة الإطفاء",
+          "say": "سيارة الإطفاء"
+        },
+        {
+          "emoji": "🚓",
+          "text": "سيارة الشرطة",
+          "say": "سيارة الشرطة"
+        },
+        {
+          "emoji": "🚕",
+          "text": "التاكسي",
+          "say": "التاكسي"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الإسعاف؟",
+          "options": [
+            "🚑",
+            "🚒",
+            "🚓"
+          ],
+          "answerIndex": 0,
+          "hint": "الإسعاف",
+          "emoji": "🚑",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين التاكسي؟",
+          "options": [
+            "🚑",
+            "🚕",
+            "🚒"
+          ],
+          "answerIndex": 1,
+          "hint": "التاكسي",
+          "emoji": "🚕",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين سيارة الإطفاء؟",
+          "options": [
+            "🚑",
+            "🚓",
+            "🚒"
+          ],
+          "answerIndex": 2,
+          "hint": "سيارة الإطفاء",
+          "emoji": "🚒",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w24e_more_friend_alone",
+      "title": "أدعو صديقتي للعب 💛",
+      "emoji": "💛",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أدعوها للعب",
+      "learned": "أدعوها للعب.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 24 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🧒",
+          "text": "صديقة وحدها",
+          "say": "صديقة وحدها"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🧒 ؟",
+          "say": "ماذا نفعل؟ ندعوها للعب، أم نتركها؟",
+          "options": [
+            "🤝",
+            "🙈"
+          ],
+          "answerIndex": 0,
+          "hint": "أدعوها للعب",
+          "emoji": "🤝",
+          "praise": "أحسنتِ! نحب أصدقاءنا."
+        }
+      ]
+    },
+    {
+      "id": "w24e_more_teddies",
+      "title": "نعدّ الدببة 🧸",
+      "emoji": "🧸",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعدّ أشياء صغيرة",
+      "learned": "أعدّ بأصابعي وأعرف العدد.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 24 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🧸🧸🧸🧸🧸",
+          "text": "5",
+          "say": "واحدة، اثنتان، ثلاث، أربع، خمس دببة"
+        },
+        {
+          "emoji": "🧸🧸🧸🧸🧸🧸🧸",
+          "text": "7",
+          "say": "واحدة، اثنتان، ثلاث، أربع، خمس، ست، سبع دببة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🧸🧸🧸🧸🧸",
+          "say": "اضغطي على خمس دببة",
+          "options": [
+            "🧸🧸🧸🧸🧸",
+            "🧸🧸🧸🧸",
+            "🧸🧸🧸🧸🧸🧸"
+          ],
+          "answerIndex": 0,
+          "hint": "خمس",
+          "emoji": "🧸",
+          "praise": "أحسنتِ! عددتِ صح."
+        },
+        {
+          "prompt": "🧸🧸🧸🧸🧸🧸🧸",
+          "say": "اضغطي على سبع دببة",
+          "options": [
+            "🧸🧸🧸🧸🧸🧸",
+            "🧸🧸🧸🧸🧸🧸🧸",
+            "🧸🧸🧸🧸🧸🧸🧸🧸"
+          ],
+          "answerIndex": 1,
+          "hint": "سبع",
+          "emoji": "🧸",
+          "praise": "أحسنتِ! عددتِ صح."
+        },
+        {
+          "prompt": "🧸🧸🧸🧸🧸🧸🧸🧸🧸",
+          "say": "اضغطي على تسع دببة",
+          "options": [
+            "🧸🧸🧸🧸🧸🧸🧸🧸",
+            "🧸🧸🧸🧸🧸🧸🧸🧸🧸🧸",
+            "🧸🧸🧸🧸🧸🧸🧸🧸🧸"
+          ],
+          "answerIndex": 2,
+          "hint": "تسع",
+          "emoji": "🧸",
+          "praise": "أحسنتِ! عددتِ صح."
+        }
+      ]
+    },
+    {
+      "id": "w24e_more_honest",
+      "title": "أقول الحقيقة 🌟",
+      "emoji": "🌟",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أقول الحقيقة",
+      "learned": "أقول الحقيقة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 24 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🥛",
+          "text": "وقع الكوب مني",
+          "say": "وقع الكوب مني"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🥛 ؟",
+          "say": "ماذا نقول؟ أنا أوقعته، أم نختبئ؟",
+          "options": [
+            "🌟",
+            "🙈"
+          ],
+          "answerIndex": 0,
+          "hint": "أقول الحقيقة",
+          "emoji": "🌟",
+          "praise": "أحسنتِ! الصدق جميل."
+        }
+      ]
+    },
+    {
+      "id": "w24e_more_desert",
+      "title": "في الصحراء 🐫",
+      "emoji": "🐫",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 24 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🐫",
+          "text": "الجمل",
+          "say": "الجمل"
+        },
+        {
+          "emoji": "🌵",
+          "text": "الصبار",
+          "say": "الصبار"
+        },
+        {
+          "emoji": "🏜️",
+          "text": "الرمال",
+          "say": "الرمال"
+        },
+        {
+          "emoji": "🦎",
+          "text": "السحلية",
+          "say": "السحلية"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الجمل؟",
+          "options": [
+            "🐫",
+            "🌵",
+            "🏜️"
+          ],
+          "answerIndex": 0,
+          "hint": "الجمل",
+          "emoji": "🐫",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين السحلية؟",
+          "options": [
+            "🐫",
+            "🦎",
+            "🌵"
+          ],
+          "answerIndex": 1,
+          "hint": "السحلية",
+          "emoji": "🦎",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الصبار؟",
+          "options": [
+            "🐫",
+            "🏜️",
+            "🌵"
+          ],
+          "answerIndex": 2,
+          "hint": "الصبار",
+          "emoji": "🌵",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w24e_more_pray_with_dad",
+      "title": "أصلي مع بابا 🕌",
+      "emoji": "🕌",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أصلي مع بابا",
+      "learned": "أصلي مع بابا.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 24 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🕌",
+          "text": "بابا يصلي",
+          "say": "بابا يصلي"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🕌 ؟",
+          "say": "ماذا نفعل؟ نقف معه بهدوء، أم نلعب أمامه؟",
+          "options": [
+            "🎮",
+            "🤲"
+          ],
+          "answerIndex": 1,
+          "hint": "أصلي مع بابا",
+          "emoji": "🤲",
+          "praise": "أحسنتِ! نحب الصلاة."
+        }
+      ]
+    },
+    {
+      "id": "w24e_more_sky",
+      "title": "في السماء ☁️",
+      "emoji": "☁️",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 24 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "☁️",
+          "text": "السحابة",
+          "say": "السحابة"
+        },
+        {
+          "emoji": "🌙",
+          "text": "القمر",
+          "say": "القمر"
+        },
+        {
+          "emoji": "⭐",
+          "text": "النجمة",
+          "say": "النجمة"
+        },
+        {
+          "emoji": "🪁",
+          "text": "الطائرة الورقية",
+          "say": "الطائرة الورقية"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين السحابة؟",
+          "options": [
+            "☁️",
+            "🌙",
+            "⭐"
+          ],
+          "answerIndex": 0,
+          "hint": "السحابة",
+          "emoji": "☁️",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الطائرة الورقية؟",
+          "options": [
+            "☁️",
+            "🪁",
+            "🌙"
+          ],
+          "answerIndex": 1,
+          "hint": "الطائرة الورقية",
+          "emoji": "🪁",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين القمر؟",
+          "options": [
+            "☁️",
+            "⭐",
+            "🌙"
+          ],
+          "answerIndex": 2,
+          "hint": "القمر",
+          "emoji": "🌙",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w24e_more_visit_sick",
+      "title": "أزور جدتي المريضة 👵",
+      "emoji": "👵",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أزور جدتي",
+      "learned": "أزور جدتي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 24 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🤒",
+          "text": "جدتي مريضة",
+          "say": "جدتي مريضة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🤒 ؟",
+          "say": "ماذا نفعل؟ نزورها وندعو لها، أم ننساها؟",
+          "options": [
+            "💐",
+            "🙈"
+          ],
+          "answerIndex": 0,
+          "hint": "أزور جدتي",
+          "emoji": "💐",
+          "praise": "أحسنتِ! نحب جدتنا."
+        }
+      ]
+    },
+    {
+      "id": "w24e_more_kitchen2",
+      "title": "أدوات الأكل 🥄",
+      "emoji": "🥄",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 24 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🥄",
+          "text": "الملعقة",
+          "say": "الملعقة"
+        },
+        {
+          "emoji": "🍴",
+          "text": "الشوكة",
+          "say": "الشوكة"
+        },
+        {
+          "emoji": "🍽️",
+          "text": "الطبق",
+          "say": "الطبق"
+        },
+        {
+          "emoji": "🫖",
+          "text": "الإبريق",
+          "say": "الإبريق"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين الملعقة؟",
+          "options": [
+            "🥄",
+            "🍴",
+            "🍽️"
+          ],
+          "answerIndex": 0,
+          "hint": "الملعقة",
+          "emoji": "🥄",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الإبريق؟",
+          "options": [
+            "🥄",
+            "🫖",
+            "🍴"
+          ],
+          "answerIndex": 1,
+          "hint": "الإبريق",
+          "emoji": "🫖",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الشوكة؟",
+          "options": [
+            "🥄",
+            "🍽️",
+            "🍴"
+          ],
+          "answerIndex": 2,
+          "hint": "الشوكة",
+          "emoji": "🍴",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    },
+    {
+      "id": "w24e_more_face",
+      "title": "وجهي 🙂",
+      "emoji": "🙂",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أتعرّف على الصور وأسمّيها",
+      "learned": "أعرف أسماء الأشياء من حولي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 24 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "👁️",
+          "text": "العين",
+          "say": "العين"
+        },
+        {
+          "emoji": "👃",
+          "text": "الأنف",
+          "say": "الأنف"
+        },
+        {
+          "emoji": "👄",
+          "text": "الفم",
+          "say": "الفم"
+        },
+        {
+          "emoji": "🦷",
+          "text": "الأسنان",
+          "say": "الأسنان"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "❓",
+          "say": "أين العين؟",
+          "options": [
+            "👁️",
+            "👃",
+            "👄"
+          ],
+          "answerIndex": 0,
+          "hint": "العين",
+          "emoji": "👁️",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الأسنان؟",
+          "options": [
+            "👁️",
+            "🦷",
+            "👃"
+          ],
+          "answerIndex": 1,
+          "hint": "الأسنان",
+          "emoji": "🦷",
+          "praise": "أحسنتِ!"
+        },
+        {
+          "prompt": "❓",
+          "say": "أين الأنف؟",
+          "options": [
+            "👁️",
+            "👄",
+            "👃"
+          ],
+          "answerIndex": 2,
+          "hint": "الأنف",
+          "emoji": "👃",
+          "praise": "أحسنتِ!"
+        }
+      ]
+    }
+  ]
+}

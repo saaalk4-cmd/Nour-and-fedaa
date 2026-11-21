@@ -1,0 +1,261 @@
+{
+  "schema": 1,
+  "lessons": [
+    {
+      "id": "w8e_count_10",
+      "title": "نعدّ حتى 10 ⭐",
+      "emoji": "⭐",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعدّ حتى 10",
+      "learned": "أعدّ حتى عشرة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 8 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐",
+          "text": "عشر نجوم",
+          "say": "واحدة، اثنتان، ثلاث، أربع، خمس، ست، سبع، ثمان، تسع، عشر نجوم"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐",
+          "say": "اضغطي على عشر نجوم",
+          "options": [
+            "⭐⭐⭐⭐⭐",
+            "⭐⭐⭐",
+            "⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐"
+          ],
+          "answerIndex": 2,
+          "hint": "عشر",
+          "emoji": "⭐"
+        }
+      ]
+    },
+    {
+      "id": "w8e_promise",
+      "title": "أفي بوعدي 🤝",
+      "emoji": "🤝",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أفي بوعدي",
+      "learned": "أفي بوعدي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 8 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🧸",
+          "text": "وعدتُ صديقتي",
+          "say": "وعدتِ صديقتك أن تلعبي معها"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🧸 ؟",
+          "say": "ماذا نفعل؟ نلعب معها كما وعدنا، أم ننسى؟",
+          "options": [
+            "🤝",
+            "🤷"
+          ],
+          "answerIndex": 0,
+          "hint": "نفي بالوعد",
+          "emoji": "🤝",
+          "praise": "أحسنتِ! الوفاء جميل."
+        }
+      ]
+    },
+    {
+      "id": "w8e_ask",
+      "title": "أستأذن أولًا 🌷",
+      "emoji": "🌷",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أستأذن قبل أن آخذ",
+      "learned": "أسأل قبل أن آخذ.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 8 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🧸",
+          "text": "لعبة أختي",
+          "say": "تريدين لعبة أختك"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🧸 ؟",
+          "say": "ماذا نفعل؟ نسأل أولًا، أم نأخذها بدون سؤال؟",
+          "options": [
+            "🌷",
+            "🏃"
+          ],
+          "answerIndex": 0,
+          "hint": "نسأل أولًا",
+          "emoji": "🌷",
+          "praise": "أحسنتِ! الاستئذان جميل."
+        }
+      ]
+    },
+    {
+      "id": "w8e_vehicles",
+      "title": "من يطير؟ ✈️",
+      "emoji": "✈️",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف المواصلات",
+      "learned": "الطائرة تطير والسفينة في البحر.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 8 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "✈️",
+          "text": "طائرة",
+          "say": "الطائرة تطير"
+        },
+        {
+          "emoji": "🚗",
+          "text": "سيارة",
+          "say": "والسيارة تسير على الطريق"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "✈️ ؟",
+          "say": "من يطير في السماء؟",
+          "options": [
+            "🚗",
+            "✈️",
+            "🚢"
+          ],
+          "answerIndex": 1,
+          "hint": "طائرة",
+          "emoji": "✈️"
+        },
+        {
+          "prompt": "🚢 ؟",
+          "say": "من يسير في البحر؟",
+          "options": [
+            "🚢",
+            "✈️",
+            "🚗"
+          ],
+          "answerIndex": 0,
+          "hint": "سفينة",
+          "emoji": "🚢"
+        }
+      ]
+    },
+    {
+      "id": "w8e_rain",
+      "title": "المطر ☁️",
+      "emoji": "☁️",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف من أين ينزل المطر",
+      "learned": "المطر من السحاب.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 8 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "☁️",
+          "text": "سحاب",
+          "say": "المطر ينزل من السحاب"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "☁️ ؟",
+          "say": "من أين ينزل المطر؟",
+          "options": [
+            "☁️",
+            "🌙",
+            "🐟"
+          ],
+          "answerIndex": 0,
+          "hint": "سحاب",
+          "emoji": "🌧️"
+        }
+      ]
+    },
+    {
+      "id": "w8e_review_game",
+      "title": "لعبة الأسبوع 🎮",
+      "emoji": "🎮",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أراجع ما تعلمته",
+      "learned": "أنا أتعلم وألعب!",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 8 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🎮",
+          "text": "هيا نلعب",
+          "say": "هيا نلعب بما تعلمنا!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "✈️ ؟",
+          "say": "من يطير في السماء؟",
+          "options": [
+            "🚗",
+            "🚢",
+            "✈️"
+          ],
+          "answerIndex": 2,
+          "hint": "طائرة",
+          "emoji": "✈️"
+        },
+        {
+          "prompt": "☁️ ؟",
+          "say": "من أين ينزل المطر؟",
+          "options": [
+            "☁️",
+            "🌙",
+            "🐟"
+          ],
+          "answerIndex": 0,
+          "hint": "سحاب",
+          "emoji": "🌧️"
+        },
+        {
+          "prompt": "🌷",
+          "say": "نسأل أولًا قبل أن نأخذ؟ اضغطي على الزهرة",
+          "options": [
+            "🏃",
+            "🌷"
+          ],
+          "answerIndex": 1,
+          "hint": "نسأل",
+          "emoji": "🌷"
+        }
+      ]
+    }
+  ]
+}

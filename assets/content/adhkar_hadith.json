@@ -1,0 +1,134 @@
+{
+  "schema": 1,
+  "source": {
+    "type": "sahih_sunnah",
+    "name": "موسوعة الأحاديث النبوية (HadeethEnc)",
+    "url": "https://hadeethenc.com/ar/home",
+    "note": "نص الحديث والتخريج والدرجة كما هي مطبوعة في الموسوعة. لا يُضاف حديث بلا راوٍ وكتاب ورقم ودرجة."
+  },
+  "hadiths": [
+    {
+      "id": "hadith_sleep_dhikr",
+      "title": "قبل النوم",
+      "emoji": "🌙",
+      "text": "بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا",
+      "narrator": "حذيفة رضي الله عنه",
+      "book": "صحيح البخاري",
+      "number": "6324",
+      "grade": "صحيح",
+      "url": "https://hadeethenc.com/ar/browse/hadith/65913",
+      "kidMeaning": "نقول هذا الذكر قبل أن ننام، وننام باسم الله.",
+      "excerpt": false
+    },
+    {
+      "id": "hadith_eating_adhkar",
+      "title": "قبل الأكل",
+      "emoji": "🍽️",
+      "text": "يَا غُلَامُ، سَمِّ اللهَ، وَكُلْ بِيَمِينِكَ، وَكُلْ مِمَّا يَلِيكَ",
+      "narrator": "عُمر بن أبي سلمة رضي الله عنه",
+      "book": "صحيح البخاري",
+      "number": "5376",
+      "grade": "صحيح (متفق عليه)",
+      "url": "https://hadeethenc.com/en/browse/hadith/58120",
+      "kidMeaning": "نبدأ الأكل بقول «بسم الله»."
+    },
+    {
+      "id": "hadith_gratitude_food",
+      "title": "الحمد بعد الأكل",
+      "emoji": "🥛",
+      "text": "إن الله ليرضى عن العبد أن يأكل الأكلة، فيحمده عليها، أو يشرب الشربة، فيحمده عليها",
+      "narrator": "أنس بن مالك رضي الله عنه",
+      "book": "صحيح مسلم",
+      "number": "2734",
+      "grade": "صحيح",
+      "url": "https://hadeethenc.com/en/browse/hadith/5798",
+      "kidMeaning": "الله يرضى عنا عندما نشكره بعد الأكل والشرب.",
+      "excerpt": false
+    },
+    {
+      "id": "hadith_toilet_in",
+      "title": "دخول الحمّام",
+      "emoji": "🚽",
+      "text": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الخُبُثِ وَالخَبَائِثِ",
+      "narrator": "أنس رضي الله عنه",
+      "book": "صحيح البخاري",
+      "number": "142",
+      "grade": "صحيح",
+      "url": "https://hadeethenc.com/ar/browse/hadith/3150",
+      "kidMeaning": "قبل أن ندخل الحمّام ندعو الله أن يحمينا.",
+      "excerpt": false,
+      "verified": [
+        "HadeethEnc #3150 (متفق عليه)",
+        "نص مطابق في صحيح البخاري (hadith-json / sunnah.com)"
+      ]
+    },
+    {
+      "id": "hadith_toilet_out",
+      "title": "الخروج من الحمّام",
+      "emoji": "🚪",
+      "text": "غُفْرَانَكَ",
+      "narrator": "عائشة رضي الله عنها",
+      "book": "سنن أبي داود",
+      "number": "30",
+      "grade": "صحيح",
+      "url": "https://hadeethenc.com/ar/browse/hadith/10046",
+      "kidMeaning": "بعد أن نخرج من الحمّام نطلب من الله أن يغفر لنا.",
+      "excerpt": false,
+      "verified": [
+        "HadeethEnc #10046 (رواه أبو داود والترمذي وابن ماجه وأحمد)",
+        "نص مطابق في سنن أبي داود (hadith-json / sunnah.com)"
+      ]
+    },
+    {
+      "id": "hadith_home_in",
+      "title": "دخول البيت",
+      "emoji": "🏠",
+      "text": "إِذَا دَخَلَ الرَّجُلُ بَيْتَهُ، فَذَكَرَ اللهَ عِنْدَ دُخُولِهِ وَعِنْدَ طَعَامِهِ، قَالَ الشَّيْطَانُ: لَا مَبِيتَ لَكُمْ، وَلَا عَشَاءَ",
+      "narrator": "جابر بن عبد الله رضي الله عنهما",
+      "book": "صحيح مسلم",
+      "number": "2018",
+      "grade": "صحيح",
+      "url": "https://hadeethenc.com/ar/browse/hadith/3037",
+      "kidMeaning": "إذا دخلنا البيت وذكرنا الله، لا يبقى الشيطان معنا في البيت.",
+      "excerpt": true,
+      "verified": [
+        "HadeethEnc #3037 (رواه مسلم)",
+        "نص مطابق في صحيح مسلم (hadith-json / sunnah.com)"
+      ]
+    },
+    {
+      "id": "hadith_mosque",
+      "title": "دخول المسجد",
+      "emoji": "🕌",
+      "text": "إِذَا دَخَلَ أَحَدُكُمُ الْمَسْجِدَ فَلْيَقُلِ: اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ، وَإِذَا خَرَجَ فَلْيَقُلِ: اللَّهُمَّ إِنِّي أَسْأَلُكَ مِنْ فَضْلِكَ",
+      "narrator": "أبو حميد أو أبو أسيد رضي الله عنهما",
+      "book": "صحيح مسلم",
+      "number": "713",
+      "grade": "صحيح",
+      "url": "https://hadeethenc.com/ar/browse/hadith/65092",
+      "kidMeaning": "عند دخول المسجد نطلب من الله رحمته، وعند الخروج نطلب من فضله.",
+      "excerpt": false,
+      "verified": [
+        "HadeethEnc #65092 (رواه مسلم)",
+        "نص مطابق في صحيح مسلم (hadith-json / sunnah.com)"
+      ]
+    },
+    {
+      "id": "hadith_rain",
+      "title": "عند نزول المطر",
+      "emoji": "🌧️",
+      "text": "اللهم صَيِّبًا نافعًا",
+      "narrator": "عائشة رضي الله عنها",
+      "book": "صحيح البخاري",
+      "number": "1032",
+      "grade": "صحيح",
+      "url": "https://hadeethenc.com/ar/browse/hadith/65527",
+      "kidMeaning": "عندما ينزل المطر ندعو الله أن يجعله مطرًا نافعًا.",
+      "excerpt": false,
+      "verified": [
+        "HadeethEnc #65527 (رواه البخاري)",
+        "نص مطابق في صحيح البخاري (hadith-json / sunnah.com)"
+      ]
+    }
+  ]
+}

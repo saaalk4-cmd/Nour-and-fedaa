@@ -1,23 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
-import '../../data/models/child.dart';
+import '../../core/audio/flutter_tts_engine.dart';
+import '../../core/theme/app_theme.dart';
+import '../../data/models/child_report.dart';
 import '../../data/providers.dart';
+import '../../domain/format.dart';
+import '../../domain/gamification/level_system.dart';
+import '../games/game_providers.dart';
+import 'settings_sections.dart';
+import '../remote/remote_controls.dart';
+import '../../core/packs/pack_controls.dart';
 import '../home/sections.dart';
-
-class _ChildStats {
-  const _ChildStats(this.lessons, this.minutes);
-  final int lessons;
-  final int minutes;
-}
-
-final _childStatsProvider =
-    FutureProvider.family<_ChildStats, int>((ref, childId) async {
-  final repo = ref.watch(childRepositoryProvider);
-  final lessons = await repo.completedLessons(childId);
-  final seconds = await repo.totalSecondsUsed(childId);
-  return _ChildStats(lessons, seconds ~/ 60);
-});
 
 class ParentDashboardScreen extends ConsumerWidget {
   const ParentDashboardScreen({super.key});
@@ -27,74 +22,548 @@ class ParentDashboardScreen extends ConsumerWidget {
     final children = ref.watch(childrenProvider);
     final states = ref.watch(sectionStatesProvider).valueOrNull ??
         const <String, bool>{};
+    final soundOn = ref.watch(soundEnabledProvider).valueOrNull ?? true;
+    final voiceOn = ref.watch(voiceEnabledProvider).valueOrNull ?? true;
 
-    return Scaffold(
-      appBar: AppBar(title: const Text('لوحة ولي الأمر')),
-      body: ListView(
-        padding: const EdgeInsets.all(20),
-        children: [
-          Text('تقدم الطفلتين',
-              style: Theme.of(context).textTheme.titleLarge),
-          const SizedBox(height: 12),
-          children.when(
-            loading: () => const Center(child: CircularProgressIndicator()),
-            error: (_, __) => const Text('تعذر تحميل البيانات'),
-            data: (list) => Column(
-              children: [for (final c in list) _ChildCard(child: c)],
+    Widget tab(List<Widget> items) => ListView(padding: const EdgeInsets.all(20), children: items);
+
+    // ثلاث تبويبات بدل صفحة طويلة: التقدم، الصوت والمحتوى، الإعدادات.
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('لوحة ولي الأمر'),
+          bottom: const TabBar(
+            labelStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.w900),
+            tabs: [
+              Tab(icon: Icon(Icons.insights_rounded), text: 'التقدم'),
+              Tab(icon: Icon(Icons.record_voice_over_rounded), text: 'الصوت والمحتوى'),
+              Tab(icon: Icon(Icons.tune_rounded), text: 'الإعدادات'),
+            ],
+          ),
+        ),
+        body: TabBarView(children: [
+          tab([
+            const Text(
+              'كل طفلة تنافس نفسها فقط، فلا توجد مقارنة بينهما.',
+              style: TextStyle(fontSize: 14),
+            ),
+            const SizedBox(height: 12),
+            children.when(
+              loading: () => const Center(child: CircularProgressIndicator()),
+              error: (_, __) => const Text('تعذر تحميل البيانات'),
+              data: (list) => Column(
+                children: [for (final c in list) _ChildReportCard(childId: c.id)],
+              ),
+            ),
+            ...children.maybeWhen(
+              data: (list) => [
+                SettingsGroup(title: 'حفظ القرآن', children: [
+                  for (final c in list)
+                    ListTile(
+                      leading: const Icon(Icons.menu_book_rounded),
+                      title: Text('محفوظ ${c.name}', style: const TextStyle(fontWeight: FontWeight.w800)),
+                      subtitle: const Text('علّمي السور المحفوظة، واختاري من أين يبدأ الجديد'),
+                      trailing: const Icon(Icons.chevron_left_rounded),
+                      onTap: () => context.push('/parent/hifz/${c.id}'),
+                    ),
+                ]),
+              ],
+              orElse: () => const <Widget>[],
+            ),
+            const SettingsGroup(title: 'المتابعة من تليفونك', children: [RemoteControls()]),
+          ]),
+          tab([
+            _Group(children: [
+              SwitchListTile(
+                title: const Text('🔊  المؤثرات الصوتية'),
+                subtitle: const Text('أصوات النجاح والمكافآت'),
+                value: soundOn,
+                onChanged: (v) async {
+                  await ref.read(soundServiceProvider).setEnabled(v);
+                  ref.invalidate(soundEnabledProvider);
+                },
+              ),
+              SwitchListTile(
+                title: const Text('🗣️  قراءة الكلام بصوت عالٍ'),
+                subtitle: const Text(
+                    'تقرأ التطبيق التعليمات والأسئلة للطفلة التي لا تقرأ بعد، وتشغّل تلاوة الآيات'),
+                value: voiceOn,
+                onChanged: (v) async {
+                  await ref.read(voiceServiceProvider).setEnabled(v);
+                  ref.invalidate(voiceEnabledProvider);
+                },
+              ),
+              ListTile(
+                leading: const Text('🎙️', style: TextStyle(fontSize: 28)),
+                title: const Text('صوتي', style: TextStyle(fontWeight: FontWeight.w800)),
+                subtitle: const Text('سجّلي الجمل والأحاديث بصوتكِ بدل الصوت الآلي'),
+                trailing: const Icon(Icons.chevron_left_rounded),
+                onTap: () => context.push('/parent/voice'),
+              ),
+              if (voiceOn) const _VoicePicker(),
+              if (voiceOn) const VoiceControls(),
+            ]),
+            const SettingsGroup(title: 'الأصوات والقرآن الإضافية', children: [PackControls()]),
+          ]),
+          tab([
+            const SettingsGroup(title: 'الوقت', children: [TimeControls()]),
+            const SettingsGroup(title: 'الألعاب والإنترنت', children: [GamesControls()]),
+            const SettingsGroup(title: 'الشكل والأمان', children: [DisplayControls()]),
+            const SizedBox(height: 16),
+            Text('الأقسام الظاهرة للطفلتين', style: Theme.of(context).textTheme.titleLarge),
+            const SizedBox(height: 8),
+            _Group(children: [
+              for (final s in appSections)
+                SwitchListTile(
+                  title: Text('${s.emoji}  ${s.title}'),
+                  value: states[s.id] ?? true,
+                  onChanged: (v) async {
+                    await ref.read(settingsRepositoryProvider).setSectionEnabled(s.id, v);
+                    ref.invalidate(sectionStatesProvider);
+                  },
+                ),
+            ]),
+          ]),
+        ]),
+      ),
+    );
+  }
+}
+
+/// مجموعة إعدادات داخل بطاقة بيضاء مدوّرة.
+class _Group extends StatelessWidget {
+  const _Group({required this.children});
+
+  final List<Widget> children;
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: Colors.white,
+      elevation: 2,
+      shadowColor: const Color(0x33000000),
+      borderRadius: BorderRadius.circular(28),
+      clipBehavior: Clip.antiAlias,
+      child: Column(children: children),
+    );
+  }
+}
+
+class _ChildReportCard extends ConsumerWidget {
+  const _ChildReportCard({required this.childId});
+
+  final int childId;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final report = ref.watch(childReportProvider(childId));
+    return Card(
+      margin: const EdgeInsets.only(bottom: 14),
+      elevation: 3,
+      shadowColor: const Color(0x33000000),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: report.when(
+          loading: () => const SizedBox(
+            height: 80,
+            child: Center(child: CircularProgressIndicator()),
+          ),
+          error: (_, __) => const Text('تعذر تحميل تقرير الطفلة'),
+          data: (r) => Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [_ReportBody(report: r), _GamesLine(childId: childId)],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// ملخص الألعاب للأهل: كم مرة لعبت، وكم مستوى أكملت.
+final _gamesSummaryProvider = FutureProvider.autoDispose.family<(int, int), int>((ref, childId) async {
+  final repo = ref.watch(gameRepositoryProvider);
+  final plays = await repo.totalPlays(childId);
+  final progress = await repo.progress(childId);
+  final levels = progress.values.fold<int>(0, (n, m) => n + m.values.where((v) => v > 0).length);
+  return (plays, levels);
+});
+
+class _GamesLine extends ConsumerWidget {
+  const _GamesLine({required this.childId});
+
+  final int childId;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final s = ref.watch(_gamesSummaryProvider(childId)).valueOrNull;
+    if (s == null) return const SizedBox.shrink();
+    final (plays, levels) = s;
+    return Padding(
+      padding: const EdgeInsets.only(top: 10),
+      child: Text(
+        plays == 0 ? '🎮 لم تلعب الألعاب بعد' : '🎮 لعبت $plays مرة، ولعبت $levels مستوى في الألعاب',
+        style: const TextStyle(fontSize: 15),
+      ),
+    );
+  }
+}
+
+class _ReportBody extends ConsumerWidget {
+  const _ReportBody({required this.report});
+
+  final ChildReport report;
+
+  Future<void> _edit(BuildContext context, WidgetRef ref) async {
+    final id = report.child.id;
+    final result = await showDialog<(String, int)>(
+      context: context,
+      builder: (_) => _EditChildDialog(name: report.child.name, age: report.child.age),
+    );
+    if (result == null) return;
+    await ref.read(childRepositoryProvider).update(id, name: result.$1, age: result.$2);
+    ref.invalidate(childrenProvider);
+    ref.invalidate(selectedChildProvider);
+    ref.invalidate(childReportProvider(id));
+    ref.invalidate(dailyQuestsProvider(id));
+    ref.invalidate(completedLessonIdsProvider(id));
+  }
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final r = report;
+    final p = r.profile;
+    final level = LevelSystem.info(p.level);
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            Expanded(
+              child: Text(
+                '👧 ${r.child.name} — ${r.child.age} سنوات',
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
+            ),
+            IconButton(
+              tooltip: 'تعديل الاسم والعمر',
+              icon: const Icon(Icons.edit_outlined),
+              onPressed: () => _edit(context, ref),
+            ),
+          ],
+        ),
+        Text('${level.icon} ${level.name} — المستوى ${p.level}'),
+        const SizedBox(height: 12),
+        Wrap(
+          spacing: 8,
+          runSpacing: 8,
+          children: [
+            _StatTile(emoji: '⚡', value: '${p.xp}', label: 'XP'),
+            _StatTile(emoji: '⭐', value: '${p.stars}', label: 'نجوم'),
+            _StatTile(emoji: '🔥', value: '${r.activeStreak}', label: 'سلسلة أيام'),
+            _StatTile(emoji: '📚', value: '${r.completedInAge}/${r.lessonsTotal}', label: 'دروس'),
+            _StatTile(emoji: '🏅', value: '${r.badgesEarned}/${r.badgesTotal}', label: 'شارات'),
+            _StatTile(emoji: '⏱', value: formatUsage(r.usageTodaySeconds), label: 'اليوم'),
+          ],
+        ),
+        const SizedBox(height: 12),
+        Text('آخر نشاط: ${describeLastActivity(r.lastActivity, DateTime.now())}'),
+        Text('أفضل سلسلة أيام: ${p.bestStreak}'),
+        Text('إجمالي وقت الاستخدام: ${formatUsage(r.usageTotalSeconds)}'),
+        if (r.categories.isNotEmpty) ...[
+          const SizedBox(height: 14),
+          const Text('تقدم الأقسام', style: TextStyle(fontWeight: FontWeight.w800)),
+          const SizedBox(height: 6),
+          for (final c in r.categories) _CategoryBar(progress: c),
+        ],
+        if (r.needsReview.isNotEmpty) ...[
+          const SizedBox(height: 14),
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: const Color(0xFFFFF1D6),
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: Text(
+              '🔁 تحتاج مراجعة: ${r.needsReview.map((c) => c.lesson.title).join('، ')}\n'
+              'راجعوها معها بلطف وبدون ضغط.',
             ),
           ),
-          const SizedBox(height: 24),
-          Text('الأقسام الظاهرة للطفلتين',
-              style: Theme.of(context).textTheme.titleLarge),
-          const SizedBox(height: 8),
-          for (final s in appSections)
-            SwitchListTile(
-              title: Text('${s.emoji}  ${s.title}'),
-              value: states[s.id] ?? true,
-              onChanged: (v) async {
-                await ref
-                    .read(settingsRepositoryProvider)
-                    .setSectionEnabled(s.id, v);
-                ref.invalidate(sectionStatesProvider);
-              },
-            ),
+        ],
+        const SizedBox(height: 6),
+        ExpansionTile(
+          tilePadding: EdgeInsets.zero,
+          shape: const Border(),
+          collapsedShape: const Border(),
+          title: Text(
+            'ما تعلّمته (${r.completed.length})',
+            style: const TextStyle(fontWeight: FontWeight.w800),
+          ),
+          children: [
+            if (r.completed.isEmpty)
+              const Padding(
+                padding: EdgeInsets.all(8),
+                child: Text('لم تكمل أي درس بعد'),
+              ),
+            for (final c in r.completed)
+              ListTile(
+                dense: true,
+                contentPadding: EdgeInsets.zero,
+                leading: Text(c.lesson.emoji, style: const TextStyle(fontSize: 26)),
+                title: Text(c.lesson.title),
+                subtitle: Text('${c.score}/${c.totalQuestions} صحيحة من أول مرة'),
+                trailing: Text(c.mastered ? '✅ متقن' : '🔁 مراجعة'),
+                onTap: () => _showLessonDetails(context, c),
+              ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class _StatTile extends StatelessWidget {
+  const _StatTile({required this.emoji, required this.value, required this.label});
+
+  final String emoji;
+  final String value;
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 104,
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 6),
+      decoration: BoxDecoration(
+        color: AppColors.sky,
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Column(
+        children: [
+          Text(emoji, style: const TextStyle(fontSize: 22)),
+          Text(
+            value,
+            maxLines: 2,
+            textAlign: TextAlign.center,
+            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w900),
+          ),
+          Text(label, style: const TextStyle(fontSize: 12)),
         ],
       ),
     );
   }
 }
 
-class _ChildCard extends ConsumerWidget {
-  const _ChildCard({required this.child});
+class _CategoryBar extends StatelessWidget {
+  const _CategoryBar({required this.progress});
 
-  final Child child;
+  final CategoryProgress progress;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final stats = ref.watch(_childStatsProvider(child.id));
-    return Card(
-      margin: const EdgeInsets.only(bottom: 12),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      child: Padding(
-        padding: const EdgeInsets.all(16),
+  Widget build(BuildContext context) {
+    final match = appSections.where((s) => s.id == progress.category);
+    final title = match.isEmpty
+        ? progress.category
+        : '${match.first.emoji} ${match.first.title}';
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 4),
+      child: Row(
+        children: [
+          SizedBox(width: 110, child: Text(title)),
+          Expanded(
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: LinearProgressIndicator(
+                value: progress.fraction,
+                minHeight: 10,
+                backgroundColor: const Color(0xFFE7EBEF),
+                color: AppColors.leaf,
+              ),
+            ),
+          ),
+          const SizedBox(width: 8),
+          Text('${progress.done}/${progress.total}'),
+        ],
+      ),
+    );
+  }
+}
+
+class _EditChildDialog extends StatefulWidget {
+  const _EditChildDialog({required this.name, required this.age});
+
+  final String name;
+  final int age;
+
+  @override
+  State<_EditChildDialog> createState() => _EditChildDialogState();
+}
+
+class _EditChildDialogState extends State<_EditChildDialog> {
+  late final TextEditingController _name =
+      TextEditingController(text: widget.name);
+  late int _age = widget.age;
+
+  @override
+  void dispose() {
+    _name.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: const Text('تعديل بيانات الطفلة'),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          TextField(
+            controller: _name,
+            maxLength: 20,
+            decoration: const InputDecoration(labelText: 'الاسم'),
+          ),
+          const SizedBox(height: 8),
+          const Text('العمر'),
+          const SizedBox(height: 6),
+          SegmentedButton<int>(
+            segments: [
+              for (final a in const [3, 4, 5, 6])
+                ButtonSegment<int>(value: a, label: Text('$a')),
+            ],
+            selected: {_age},
+            onSelectionChanged: (s) => setState(() => _age = s.first),
+          ),
+          const SizedBox(height: 10),
+          const Text(
+            'تغيير العمر يغيّر الدروس والمهام المعروضة لها. التقدم السابق يبقى محفوظًا.',
+            style: TextStyle(fontSize: 13),
+          ),
+        ],
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.of(context).pop(),
+          child: const Text('إلغاء'),
+        ),
+        FilledButton(
+          onPressed: () {
+            final name = _name.text.trim();
+            if (name.isEmpty) return;
+            Navigator.of(context).pop((name, _age));
+          },
+          child: const Text('حفظ'),
+        ),
+      ],
+    );
+  }
+}
+
+
+/// تفاصيل الدرس للوالدين فقط: الهدف، ماذا تعلمت، المصدر، والنص الكامل. لا تظهر لواجهة الطفلة.
+void _showLessonDetails(BuildContext context, CompletedLessonInfo c) {
+  final l = c.lesson;
+  final fullText = l.steps.map((s) => s.text).join('\n');
+  showDialog<void>(
+    context: context,
+    builder: (_) => AlertDialog(
+      title: Text('${l.emoji} ${l.title}'),
+      content: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
           children: [
-            Text('👧 ${child.name} — ${child.age} سنوات',
-                style: Theme.of(context).textTheme.titleLarge),
+            if (l.objective != null) Text('الهدف: ${l.objective}'),
+            if (l.learned != null) Text('ماذا تعلمت: ${l.learned}'),
             const SizedBox(height: 8),
-            Text('المستوى ${child.level}   •   ⭐ ${child.stars}   •   '
-                'النقاط ${child.points}'),
-            const SizedBox(height: 4),
-            stats.when(
-              loading: () => const Text('...'),
-              error: (_, __) => const Text('—'),
-              data: (s) => Text(
-                  'دروس مكتملة: ${s.lessons}   •   مدة الاستخدام: ${s.minutes} دقيقة'),
-            ),
+            Text('المصدر: ${l.source.reference}',
+                style: const TextStyle(fontWeight: FontWeight.w800)),
+            const SizedBox(height: 8),
+            Text('${c.score}/${c.totalQuestions} صحيحة من أول مرة'),
+            if (l.source.type != 'educational') ...[
+              const SizedBox(height: 8),
+              const Text('النص الكامل:', style: TextStyle(fontWeight: FontWeight.w800)),
+              Text(fullText),
+            ],
           ],
         ),
       ),
+      actions: [
+        TextButton(onPressed: () => Navigator.of(context).pop(), child: const Text('إغلاق')),
+      ],
+    ),
+  );
+}
+
+/// أصوات الجهاز العربية: ولي الأمر يسمع ويختار الأوضح. الجمل المتكررة مسجّلة
+/// مسبقًا بصوت عالي الجودة، وهذا الاختيار للباقي.
+final _ttsVoicesProvider = FutureProvider<(List<TtsVoice>, String?)>((ref) async {
+  final voices = await ref.watch(ttsEngineProvider).arabicVoices();
+  final chosen = await ref.watch(settingsRepositoryProvider).ttsVoice();
+  return (voices, chosen);
+});
+
+class _VoicePicker extends ConsumerWidget {
+  const _VoicePicker();
+
+  static const _sample = 'أهلًا يا فداء، أهلًا يا نور. هيا نتعلم معًا';
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final data = ref.watch(_ttsVoicesProvider);
+    return data.when(
+      loading: () => const Padding(padding: EdgeInsets.all(12), child: LinearProgressIndicator()),
+      error: (_, __) => const SizedBox.shrink(),
+      data: (d) {
+        final (voices, chosen) = d;
+        if (voices.isEmpty) {
+          return const ListTile(
+            title: Text('لا يوجد صوت عربي على الجهاز'),
+            subtitle: Text('نزّلي «العربية» من إعدادات الموبايل: تحويل النص إلى كلام ← محرك Google'),
+          );
+        }
+        final auto = TtsVoice.pick(voices);
+        Future<void> choose(String? name) async {
+          await ref.read(settingsRepositoryProvider).setTtsVoice(name);
+          ref.read(ttsEngineProvider).reset();
+          ref.invalidate(_ttsVoicesProvider);
+          await ref.read(voiceServiceProvider).speak(_sample);
+        }
+
+        String label(TtsVoice v) =>
+            '${v.name}${v.needsNetwork ? ' (يحتاج إنترنت)' : ''}${v.quality >= 400 ? ' ★' : ''}';
+        return Padding(
+          padding: const EdgeInsets.fromLTRB(16, 4, 16, 12),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text('صوت القراءة', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w800)),
+              const SizedBox(height: 6),
+              DropdownButton<String?>(
+                isExpanded: true,
+                value: voices.any((v) => v.name == chosen) ? chosen : null,
+                items: [
+                  DropdownMenuItem<String?>(
+                    value: null,
+                    child: Text('تلقائي (الأوضح)${auto == null ? '' : ': ${auto.name}'}', overflow: TextOverflow.ellipsis),
+                  ),
+                  for (final v in voices)
+                    DropdownMenuItem<String?>(value: v.name, child: Text(label(v), overflow: TextOverflow.ellipsis)),
+                ],
+                onChanged: choose,
+              ),
+              TextButton.icon(
+                onPressed: () => ref.read(voiceServiceProvider).speak(_sample),
+                icon: const Icon(Icons.volume_up_rounded),
+                label: const Text('اسمعي الصوت'),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }

@@ -1,0 +1,373 @@
+{
+  "schema": 1,
+  "lessons": [
+    {
+      "id": "w5e_count_7",
+      "title": "نعدّ حتى 7 ⭐",
+      "emoji": "⭐",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعدّ حتى 7",
+      "learned": "أعدّ حتى سبعة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 5 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "⭐⭐⭐⭐⭐⭐⭐",
+          "text": "سبع نجوم",
+          "say": "واحدة، اثنتان، ثلاث، أربع، خمس، ست، سبع نجوم"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "⭐⭐⭐⭐⭐⭐⭐",
+          "say": "اضغطي على سبع نجوم",
+          "options": [
+            "⭐⭐⭐",
+            "⭐⭐⭐⭐⭐⭐⭐",
+            "⭐⭐⭐⭐⭐"
+          ],
+          "answerIndex": 1,
+          "hint": "سبع",
+          "emoji": "⭐"
+        }
+      ]
+    },
+    {
+      "id": "w5e_colors_brown_white",
+      "title": "البني والأبيض 🤎🤍",
+      "emoji": "🤎",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف ألوانًا جديدة",
+      "learned": "البني والأبيض.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 5 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🤎",
+          "text": "بني",
+          "say": "هذا اللون بني مثل الشوكولاتة"
+        },
+        {
+          "emoji": "🤍",
+          "text": "أبيض",
+          "say": "وهذا أبيض مثل الثلج"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🤎",
+          "say": "أين البني؟",
+          "options": [
+            "🤍",
+            "🤎",
+            "🔴"
+          ],
+          "answerIndex": 1,
+          "hint": "شوكولاتة",
+          "emoji": "🍫"
+        },
+        {
+          "prompt": "🤍",
+          "say": "أين الأبيض؟",
+          "options": [
+            "🤍",
+            "🤎",
+            "🟡"
+          ],
+          "answerIndex": 0,
+          "hint": "ثلج",
+          "emoji": "❄️"
+        }
+      ]
+    },
+    {
+      "id": "w5e_thanks",
+      "title": "أقول شكرًا 🌷",
+      "emoji": "🌷",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أشكر من يعطيني",
+      "learned": "أقول شكرًا.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 5 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🎁",
+          "text": "هدية",
+          "say": "صديقتك أعطتك هدية"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🎁 ؟",
+          "say": "ماذا نقول لها؟ هل نقول شكرًا، أم لا نقول شيئًا؟",
+          "options": [
+            "🌷",
+            "🤐"
+          ],
+          "answerIndex": 0,
+          "hint": "شكرًا",
+          "emoji": "🌷",
+          "praise": "أحسنتِ! الشكر جميل."
+        }
+      ]
+    },
+    {
+      "id": "w5e_turn",
+      "title": "أنتظر دوري ⏳",
+      "emoji": "⏳",
+      "category": "akhlaq",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أنتظر دوري",
+      "learned": "أنتظر دوري.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 5 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🎠",
+          "text": "الأرجوحة",
+          "say": "الأطفال ينتظرون دورهم في الأرجوحة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🎠 ؟",
+          "say": "ماذا نفعل؟ هل ننتظر دورنا، أم ندفع الجميع؟",
+          "options": [
+            "⏳",
+            "😠"
+          ],
+          "answerIndex": 0,
+          "hint": "ننتظر",
+          "emoji": "⏳",
+          "praise": "أحسنتِ! الانتظار جميل."
+        }
+      ]
+    },
+    {
+      "id": "w5e_senses",
+      "title": "حواسي 👃",
+      "emoji": "👃",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف حواسي",
+      "learned": "أشمّ بأنفي وأسمع بأذني.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 5 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "👃",
+          "text": "أنف",
+          "say": "نشمّ بأنفنا"
+        },
+        {
+          "emoji": "👂",
+          "text": "أذن",
+          "say": "ونسمع بأذننا"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🌸 ؟",
+          "say": "بماذا نشمّ الوردة؟",
+          "options": [
+            "👂",
+            "👃",
+            "👀"
+          ],
+          "answerIndex": 1,
+          "hint": "أنف",
+          "emoji": "🌸"
+        },
+        {
+          "prompt": "🎵 ؟",
+          "say": "بماذا نسمع الموسيقى؟",
+          "options": [
+            "👂",
+            "👃",
+            "👀"
+          ],
+          "answerIndex": 0,
+          "hint": "أذن",
+          "emoji": "🎵"
+        }
+      ]
+    },
+    {
+      "id": "w5e_fruits",
+      "title": "فاكهة لذيذة 🍌",
+      "emoji": "🍌",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف الفاكهة",
+      "learned": "الموز والتفاح لذيذان.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 5 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🍌",
+          "text": "موزة",
+          "say": "هذه موزة"
+        },
+        {
+          "emoji": "🍎",
+          "text": "تفاحة",
+          "say": "وهذه تفاحة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🍌 ؟",
+          "say": "أين الموزة؟",
+          "options": [
+            "🍎",
+            "🍌",
+            "🍇"
+          ],
+          "answerIndex": 1,
+          "hint": "موزة",
+          "emoji": "🍌"
+        },
+        {
+          "prompt": "🍎 ؟",
+          "say": "أين التفاحة؟",
+          "options": [
+            "🍎",
+            "🍌",
+            "🍇"
+          ],
+          "answerIndex": 0,
+          "hint": "تفاحة",
+          "emoji": "🍎"
+        }
+      ]
+    },
+    {
+      "id": "w5e_weather",
+      "title": "المطر ☔",
+      "emoji": "☔",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أعرف المطر",
+      "learned": "آخذ المظلة في المطر.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 5 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🌧️",
+          "text": "مطر",
+          "say": "ينزل المطر"
+        },
+        {
+          "emoji": "☂️",
+          "text": "مظلة",
+          "say": "نأخذ المظلة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🌧️ ؟",
+          "say": "ماذا نأخذ في المطر؟",
+          "options": [
+            "🕶️",
+            "☂️",
+            "👒"
+          ],
+          "answerIndex": 1,
+          "hint": "مظلة",
+          "emoji": "☂️"
+        }
+      ]
+    },
+    {
+      "id": "w5e_review_game",
+      "title": "لعبة الأسبوع 🎮",
+      "emoji": "🎮",
+      "category": "learn",
+      "minAge": 3,
+      "maxAge": 4,
+      "difficulty": 1,
+      "objective": "أراجع ما تعلمته",
+      "learned": "أنا أتعلم وألعب!",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 5 (صور وصوت بلا قراءة)"
+      },
+      "steps": [
+        {
+          "emoji": "🎮",
+          "text": "هيا نلعب",
+          "say": "هيا نلعب بما تعلمنا!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🤎",
+          "say": "أين البني؟",
+          "options": [
+            "🤍",
+            "🤎",
+            "🔴"
+          ],
+          "answerIndex": 1,
+          "hint": "شوكولاتة",
+          "emoji": "🍫"
+        },
+        {
+          "prompt": "🍌 ؟",
+          "say": "أين الموزة؟",
+          "options": [
+            "🍌",
+            "🍎",
+            "🍇"
+          ],
+          "answerIndex": 0,
+          "hint": "موزة",
+          "emoji": "🍌"
+        },
+        {
+          "prompt": "☔ ؟",
+          "say": "ماذا نأخذ في المطر؟",
+          "options": [
+            "🕶️",
+            "👒",
+            "☂️"
+          ],
+          "answerIndex": 2,
+          "hint": "مظلة",
+          "emoji": "☂️"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,245 @@
+Create one continuous 45-second vertical 9:16 cinematic animated intro for a premium Arabic children's educational app called "Nour & Fida".
+
+The entire result must feel like the opening of one beautiful animated adventure film, with seamless visual continuity from beginning to end. Even if the generation system internally creates multiple shots, they must look like parts of the SAME movie, with identical character designs, identical clothing, identical environment style, identical lighting language, and consistent colors.
+
+MAIN PURPOSE:
+When a child opens the app for the first time, this cinematic sequence should make them feel that they are entering a magical world of adventure and learning, not opening a normal educational app.
+
+VISUAL STYLE:
+High-end stylized 3D animated feature film, premium family-friendly children's animation, beautiful storybook fantasy, cinematic lighting, soft volumetric light, atmospheric depth, subtle magical particles, detailed environments, warm emotional storytelling, elegant Egyptian/Arabic-inspired environmental details, polished feature-animation quality.
+
+CHARACTER CONSISTENCY IS EXTREMELY IMPORTANT:
+
+FIDA:
+A fictional Egyptian/Arab girl, approximately 5 years old, cheerful, curious and brave, clearly the older sister. Child-friendly stylized 3D animation, warm expressive face, consistent hairstyle, consistent clothing, consistent proportions.
+
+NOUR:
+A fictional Egyptian/Arab girl, approximately 3 years old, gentle, playful and curious, clearly younger and smaller than Fida. Child-friendly stylized 3D animation, warm expressive face, consistent hairstyle, consistent clothing, consistent proportions.
+
+Use the SAME Fida and SAME Nour throughout the entire video. Never change their faces, hairstyles, clothes, proportions, age or colors.
+
+LAMAA:
+A small magical glowing light creature, not human. Warm golden glow, soft rounded shape, friendly personality, gentle glowing eyes, leaving tiny golden stars behind when flying. Lamaa must remain visually identical throughout the entire film.
+
+WORLD:
+One large magical world containing a peaceful village, lush green forest, flowing river, colorful gardens, distant mountains, beautiful storybook library, discovery areas and mysterious unexplored regions.
+
+COLOR LANGUAGE:
+Deep blue, emerald green, warm gold, soft sky blue and subtle pink accents.
+Warm golden magical light contrasts beautifully with the blue and green environment.
+
+STORY:
+
+0–5 SECONDS — THE FIRST LIGHT
+
+Begin in complete darkness.
+
+A tiny warm golden point of light appears in the distance.
+
+It slowly grows into a glowing star.
+
+One by one, hundreds of tiny stars appear around it.
+
+The camera slowly travels forward through the stars as if the viewer is entering another universe.
+
+Soft golden particles float through the darkness.
+
+The feeling is mysterious, peaceful, magical and hopeful.
+
+5–11 SECONDS — ENTERING THE WORLD
+
+The camera emerges from the stars and begins a breathtaking aerial descent.
+
+Reveal the enormous magical world below:
+
+a peaceful village,
+lush green forest,
+flowing river,
+colorful garden,
+distant mountains,
+beautiful storybook library,
+winding paths,
+mysterious unexplored regions.
+
+The world should feel enormous and full of things waiting to be discovered.
+
+The camera slowly descends toward the world.
+
+11–16 SECONDS — LAMAA
+
+A tiny golden light flies rapidly but gracefully across the scene.
+
+It is Lamaa.
+
+Lamaa leaves a trail of tiny sparkling stars behind it.
+
+The camera follows Lamaa as it flies over the village, river and forest.
+
+Lamaa guides the viewer deeper into the magical world.
+
+16–23 SECONDS — FIDA AND NOUR
+
+Lamaa reaches a beautiful elevated area overlooking the world.
+
+Fida and Nour are standing together.
+
+Fida looks toward distant mountains and mysterious adventure paths with curiosity and determination.
+
+Nour looks toward a colorful garden filled with gentle lights, shapes and playful discoveries.
+
+Lamaa gently circles around both sisters.
+
+The camera performs a slow cinematic orbit around them.
+
+Make it visually obvious that the sisters are together, but each is naturally attracted to a different part of the world.
+
+23–31 SECONDS — TWO DIFFERENT JOURNEYS
+
+The camera slowly rises above the sisters.
+
+The ground transforms naturally into a magnificent magical adventure map.
+
+Two different glowing paths appear.
+
+Fida's path becomes a deeper exploration journey containing:
+
+Forest of Letters,
+Valley of Numbers,
+Discovery Laboratory,
+Library of Stories,
+City of Values.
+
+Nour's path becomes a simpler, colorful and gentle journey containing:
+
+Garden of Colors,
+Valley of Shapes,
+Garden of Sounds,
+Little Discoveries.
+
+These must NOT look like the same path at different sizes.
+
+They are genuinely different worlds designed for two different ages, while remaining connected inside one shared universe.
+
+31–37 SECONDS — GROWING TOGETHER
+
+A golden star rises from Fida's adventure path.
+
+It travels through the sky toward Nour's side.
+
+Nour notices it and smiles.
+
+Then a smaller colorful star rises from Nour's world and travels back toward Fida.
+
+Fida looks toward the sky and smiles.
+
+The visual meaning is:
+
+They have different journeys, but they grow together.
+
+37–42 SECONDS — THE WORLD BECOMES THE MAP
+
+The camera rises higher.
+
+The entire magical world becomes visible.
+
+The village, forest, river, mountains and gardens gradually transform into the visual language of the application's adventure map.
+
+Real roads become glowing paths.
+
+Important locations become magical nodes.
+
+Stars become progress points.
+
+The transformation must be smooth and cinematic, not a sudden cut.
+
+The viewer must feel that the application map IS the magical world they just visited.
+
+42–45 SECONDS — THE ADVENTURE BEGINS
+
+One unexplored region begins glowing brightly.
+
+Lamaa flies toward it.
+
+Fida's path glows warmly.
+
+Nour's path glows softly.
+
+The camera slowly pushes toward the glowing entrance.
+
+End with a breathtaking wide shot of the magical world and the two connected paths.
+
+The emotional feeling must be:
+
+"This is only the beginning."
+
+The child should immediately want to discover what happens next.
+
+CAMERA:
+Smooth cinematic movement, aerial establishing shot, slow crane-down, gentle orbit, smooth tracking, slow dolly, controlled push-in, cinematic depth of field.
+
+No shaky camera.
+No sudden zoom.
+No chaotic movement.
+No random camera motion.
+
+AUDIO:
+If the video model supports native audio, create a gentle cinematic orchestral soundtrack.
+
+Start mysterious and quiet.
+Build warmth as the world appears.
+Add subtle magical chimes when Lamaa appears.
+Add a warm emotional musical theme when Fida and Nour appear.
+Add a gentle uplifting rise during the map transformation.
+End with a sense of wonder and anticipation.
+
+No scary sounds.
+No loud effects.
+
+IMPORTANT:
+No text inside the video.
+No subtitles.
+No captions.
+No logos.
+No watermark.
+No UI.
+No interface elements.
+No generated words.
+No random letters.
+
+Do not depict prophets, companions, or sacred religious figures.
+
+No violence.
+No danger.
+No horror.
+No frightening creatures.
+No inappropriate content.
+
+No character morphing.
+No face changes.
+No clothing changes.
+No hairstyle changes.
+No age changes.
+No extra children.
+No inconsistent environments.
+
+The final result must look like ONE coherent animated movie sequence, not unrelated AI-generated clips.
+
+FINAL EMOTIONAL IDEA:
+
+SAME WORLD.
+TWO DIFFERENT JOURNEYS.
+TWO DIFFERENT LEARNING EXPERIENCES.
+GROWING TOGETHER.
+
+The final video is intended to become the first-launch cinematic intro of an offline Flutter children's educational application and will ultimately be saved as:
+
+cinematic_intro.mp4
+
+Recommended output:
+Vertical 9:16
+Approximately 45 seconds
+High visual quality
+Smooth animation
+Consistent characters
+No text
+No watermark

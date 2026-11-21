@@ -1,0 +1,795 @@
+{
+  "schema": 1,
+  "lessons": [
+    {
+      "id": "w23_order_prayers",
+      "title": "أراجع الصلوات 🕌",
+      "emoji": "🕌",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أراجع ترتيب الصلوات",
+      "learned": "خمس صلوات كل يوم.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 23"
+      },
+      "steps": [
+        {
+          "emoji": "🕌",
+          "text": "نراجع الصلوات.",
+          "say": "نراجع الصلوات."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "رتّبي الصلوات من الصباح إلى الليل",
+          "options": [
+            "🌅 الفجر",
+            "☀️ الظهر",
+            "🌤️ العصر",
+            "🌇 المغرب",
+            "🌙 العشاء"
+          ],
+          "answerIndex": 0,
+          "hint": "نبدأ بالفجر",
+          "kind": "order",
+          "emoji": "🕌",
+          "praise": "أحسنتِ! رتّبتِ كل شيء."
+        }
+      ]
+    },
+    {
+      "id": "w23_order_wudu",
+      "title": "أراجع وضوئي 💧",
+      "emoji": "💧",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أراجع الوضوء",
+      "learned": "نتوضأ بترتيب جميل.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 23"
+      },
+      "steps": [
+        {
+          "emoji": "💧",
+          "text": "نراجع الوضوء.",
+          "say": "نراجع الوضوء."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "رتّبي خطوات الوضوء",
+          "options": [
+            "👐 نغسل اليدين",
+            "👄 نتمضمض ونستنشق",
+            "😊 نغسل الوجه",
+            "💪 نغسل الذراعين",
+            "🦶 نمسح الرأس ونغسل الرجلين"
+          ],
+          "answerIndex": 0,
+          "hint": "نبدأ باليدين",
+          "kind": "order",
+          "emoji": "💧",
+          "praise": "أحسنتِ! رتّبتِ كل شيء."
+        }
+      ]
+    },
+    {
+      "id": "w23_islam_review",
+      "title": "أراجع ديني 🌙",
+      "emoji": "🌙",
+      "category": "akhlaq",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أراجع ما تعلمته من ديني",
+      "learned": "أتذكّر آداب الصلاة والمسجد.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 23"
+      },
+      "steps": [
+        {
+          "emoji": "🌙",
+          "text": "هيا نراجع ما تعلمناه!",
+          "say": "هيا نراجع ما تعلمناه!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "قبل الأكل، ماذا نقول؟",
+          "options": [
+            "بسم الله 🍽️",
+            "لا شيء"
+          ],
+          "answerIndex": 0,
+          "hint": "نبدأ باسم الله",
+          "emoji": "🍽️"
+        },
+        {
+          "prompt": "كم صلاة في اليوم؟",
+          "options": [
+            "3",
+            "5",
+            "7"
+          ],
+          "answerIndex": 1,
+          "hint": "خمس",
+          "emoji": "🕌"
+        },
+        {
+          "prompt": "كيف نتكلم في المسجد؟",
+          "options": [
+            "بهدوء 🤫",
+            "بصوت عالٍ 📢"
+          ],
+          "answerIndex": 0,
+          "hint": "هدوء",
+          "emoji": "🕌"
+        },
+        {
+          "prompt": "إذا رأينا حجرًا في الطريق، ماذا نفعل؟",
+          "options": [
+            "نبعده 🪨",
+            "نتركه"
+          ],
+          "answerIndex": 0,
+          "hint": "عمل طيب",
+          "emoji": "🪨"
+        }
+      ]
+    },
+    {
+      "id": "w23_akhlaq_review",
+      "title": "أراجع أخلاقي 🌸",
+      "emoji": "🌸",
+      "category": "akhlaq",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أراجع أخلاقي",
+      "learned": "أتذكّر الأمانة والصدق والاحترام.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 23"
+      },
+      "steps": [
+        {
+          "emoji": "🌸",
+          "text": "هيا نراجع ما تعلمناه!",
+          "say": "هيا نراجع ما تعلمناه!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "وجدنا لعبة صديقتنا، ماذا نفعل؟",
+          "options": [
+            "نردّها 🧸",
+            "نأخذها"
+          ],
+          "answerIndex": 0,
+          "hint": "الأمانة",
+          "emoji": "🧸"
+        },
+        {
+          "prompt": "نسيت أن أرتّب، ماذا أقول لأمي؟",
+          "options": [
+            "أكذب",
+            "الصدق 💎"
+          ],
+          "answerIndex": 1,
+          "hint": "الصدق",
+          "emoji": "💎"
+        },
+        {
+          "prompt": "جدّتنا دخلت، ماذا نفعل؟",
+          "options": [
+            "نسلّم عليها 👵",
+            "نتجاهلها"
+          ],
+          "answerIndex": 0,
+          "hint": "احترام",
+          "emoji": "👵"
+        },
+        {
+          "prompt": "صديقتنا لا تربط حذاءها، ماذا نفعل؟",
+          "options": [
+            "نضحك",
+            "نساعدها 🤝"
+          ],
+          "answerIndex": 1,
+          "hint": "لا نسخر",
+          "emoji": "🤝"
+        }
+      ]
+    },
+    {
+      "id": "w23_s1",
+      "title": "أراجع: أرحم وأشكر 🐱",
+      "emoji": "🐱",
+      "category": "akhlaq",
+      "minAge": 4,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أرحم الحيوان.",
+      "learned": "أرحم الحيوان.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 23"
+      },
+      "steps": [
+        {
+          "emoji": "🐱",
+          "text": "قطة جائعة وطعام فائض عند سلمى.",
+          "say": "قطة جائعة وطعام فائض عند سلمى."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تفعل؟",
+          "options": [
+            "تطعم القطة 🐱",
+            "تطردها"
+          ],
+          "answerIndex": 0,
+          "hint": "الرحمة جميلة 🌸",
+          "praise": "أحسنتِ! الرحمة جميلة.",
+          "emoji": "🐱"
+        }
+      ]
+    },
+    {
+      "id": "w23_s2",
+      "title": "أراجع: أحبّ أهلي 💛",
+      "emoji": "💛",
+      "category": "akhlaq",
+      "minAge": 4,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أساعد أهلي.",
+      "learned": "أساعد أهلي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 23"
+      },
+      "steps": [
+        {
+          "emoji": "💛",
+          "text": "طلبت أم سلمى منها المساعدة.",
+          "say": "طلبت أم سلمى منها المساعدة."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تفعل؟",
+          "options": [
+            "تتجاهل",
+            "تساعدها بحب 💛"
+          ],
+          "answerIndex": 1,
+          "hint": "نحب أهلنا 🌸",
+          "praise": "أحسنتِ! نحب أهلنا.",
+          "emoji": "💛"
+        }
+      ]
+    },
+    {
+      "id": "w23_listen_1",
+      "title": "أستمع للقرآن 🎧",
+      "emoji": "🎧",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أتعرّف على السور من تلاوتها",
+      "learned": "أتعرّف على بعض السور من صوتها.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 23"
+      },
+      "steps": [
+        {
+          "emoji": "🎧",
+          "text": "استمعي لتلاوة سورة الإخلاص 🎧",
+          "recite": [
+            112,
+            1
+          ],
+          "say": "استمعي لتلاوة سورة الإخلاص 🎧"
+        },
+        {
+          "emoji": "🎧",
+          "text": "استمعي لتلاوة سورة الفلق 🎧",
+          "recite": [
+            113,
+            1
+          ],
+          "say": "استمعي لتلاوة سورة الفلق 🎧"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "استمعي ثم اختاري: أي سورة سمعتِ؟",
+          "options": [
+            "الإخلاص",
+            "النصر",
+            "الفلق"
+          ],
+          "answerIndex": 0,
+          "hint": "اضغطي على 🎧 لتسمعي مرة أخرى",
+          "emoji": "🎧",
+          "recite": [
+            112,
+            1
+          ]
+        },
+        {
+          "prompt": "استمعي ثم اختاري: أي سورة سمعتِ؟",
+          "options": [
+            "النصر",
+            "الفلق",
+            "قريش"
+          ],
+          "answerIndex": 1,
+          "hint": "اضغطي على 🎧 لتسمعي مرة أخرى",
+          "emoji": "🎧",
+          "recite": [
+            113,
+            1
+          ]
+        },
+        {
+          "prompt": "كم آية في سورة الإخلاص؟",
+          "options": [
+            "5",
+            "4",
+            "6"
+          ],
+          "answerIndex": 1,
+          "hint": "عدّي الآيات التي سمعتِ",
+          "emoji": "📖"
+        }
+      ]
+    },
+    {
+      "id": "w23_listen_2",
+      "title": "أستمع للقرآن 🎧",
+      "emoji": "🎧",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أتعرّف على السور من تلاوتها",
+      "learned": "أتعرّف على بعض السور من صوتها.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 23"
+      },
+      "steps": [
+        {
+          "emoji": "🎧",
+          "text": "استمعي لتلاوة سورة الناس 🎧",
+          "recite": [
+            114,
+            1
+          ],
+          "say": "استمعي لتلاوة سورة الناس 🎧"
+        },
+        {
+          "emoji": "🎧",
+          "text": "استمعي لتلاوة سورة الكوثر 🎧",
+          "recite": [
+            108,
+            1
+          ],
+          "say": "استمعي لتلاوة سورة الكوثر 🎧"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "استمعي ثم اختاري: أي سورة سمعتِ؟",
+          "options": [
+            "الناس",
+            "النصر",
+            "الإخلاص"
+          ],
+          "answerIndex": 0,
+          "hint": "اضغطي على 🎧 لتسمعي مرة أخرى",
+          "emoji": "🎧",
+          "recite": [
+            114,
+            1
+          ]
+        },
+        {
+          "prompt": "استمعي ثم اختاري: أي سورة سمعتِ؟",
+          "options": [
+            "النصر",
+            "الكوثر",
+            "قريش"
+          ],
+          "answerIndex": 1,
+          "hint": "اضغطي على 🎧 لتسمعي مرة أخرى",
+          "emoji": "🎧",
+          "recite": [
+            108,
+            1
+          ]
+        },
+        {
+          "prompt": "كم آية في سورة الناس؟",
+          "options": [
+            "7",
+            "6",
+            "8"
+          ],
+          "answerIndex": 1,
+          "hint": "عدّي الآيات التي سمعتِ",
+          "emoji": "📖"
+        }
+      ]
+    },
+    {
+      "id": "w23_listen_3",
+      "title": "أستمع للقرآن 🎧",
+      "emoji": "🎧",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أتعرّف على السور من تلاوتها",
+      "learned": "أتعرّف على بعض السور من صوتها.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 23"
+      },
+      "steps": [
+        {
+          "emoji": "🎧",
+          "text": "استمعي لتلاوة سورة العصر 🎧",
+          "recite": [
+            103,
+            1
+          ],
+          "say": "استمعي لتلاوة سورة العصر 🎧"
+        },
+        {
+          "emoji": "🎧",
+          "text": "استمعي لتلاوة سورة قريش 🎧",
+          "recite": [
+            106,
+            1
+          ],
+          "say": "استمعي لتلاوة سورة قريش 🎧"
+        },
+        {
+          "emoji": "🎧",
+          "text": "استمعي لتلاوة سورة النصر 🎧",
+          "recite": [
+            110,
+            1
+          ],
+          "say": "استمعي لتلاوة سورة النصر 🎧"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "استمعي ثم اختاري: أي سورة سمعتِ؟",
+          "options": [
+            "العصر",
+            "النصر",
+            "الإخلاص"
+          ],
+          "answerIndex": 0,
+          "hint": "اضغطي على 🎧 لتسمعي مرة أخرى",
+          "emoji": "🎧",
+          "recite": [
+            103,
+            1
+          ]
+        },
+        {
+          "prompt": "استمعي ثم اختاري: أي سورة سمعتِ؟",
+          "options": [
+            "العصر",
+            "قريش",
+            "النصر"
+          ],
+          "answerIndex": 1,
+          "hint": "اضغطي على 🎧 لتسمعي مرة أخرى",
+          "emoji": "🎧",
+          "recite": [
+            106,
+            1
+          ]
+        },
+        {
+          "prompt": "استمعي ثم اختاري: أي سورة سمعتِ؟",
+          "options": [
+            "العصر",
+            "الكوثر",
+            "النصر"
+          ],
+          "answerIndex": 2,
+          "hint": "اضغطي على 🎧 لتسمعي مرة أخرى",
+          "emoji": "🎧",
+          "recite": [
+            110,
+            1
+          ]
+        },
+        {
+          "prompt": "كم آية في سورة العصر؟",
+          "options": [
+            "4",
+            "3",
+            "5"
+          ],
+          "answerIndex": 1,
+          "hint": "عدّي الآيات التي سمعتِ",
+          "emoji": "📖"
+        }
+      ]
+    },
+    {
+      "id": "w23_match_prayer",
+      "title": "أوصّل الصلاة بوقتها 🔗",
+      "emoji": "🔗",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أراجع أوقات الصلاة",
+      "learned": "لكل صلاة وقتها.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 23"
+      },
+      "steps": [
+        {
+          "emoji": "🔗",
+          "text": "لكل صلاة وقت.",
+          "say": "لكل صلاة وقت."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "وصّلي الصلاة بوقتها",
+          "options": [
+            "الفجر|🌅",
+            "الظهر|☀️",
+            "المغرب|🌇",
+            "العشاء|🌙"
+          ],
+          "answerIndex": 0,
+          "hint": "فكّري في الشمس",
+          "kind": "match",
+          "emoji": "🔗",
+          "praise": "أحسنتِ! وصّلتِ كل شيء."
+        }
+      ]
+    },
+    {
+      "id": "w23_match_good",
+      "title": "ماذا أفعل؟ 🌸",
+      "emoji": "🌸",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أراجع الأخلاق",
+      "learned": "نواسي ونشارك ونشكر.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 23"
+      },
+      "steps": [
+        {
+          "emoji": "🌸",
+          "text": "نختار العمل الجميل.",
+          "say": "نختار العمل الجميل."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "وصّلي الموقف بما نفعله",
+          "options": [
+            "😢|نواسيه",
+            "🧸|نشارك",
+            "🙏|نشكر"
+          ],
+          "answerIndex": 0,
+          "hint": "فكّري في الأخلاق",
+          "kind": "match",
+          "emoji": "🌸",
+          "praise": "أحسنتِ! وصّلتِ كل شيء."
+        }
+      ]
+    },
+    {
+      "id": "w23_english_review",
+      "title": "أراجع الإنجليزي 🇬🇧",
+      "emoji": "🇬🇧",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أراجع كلمات إنجليزية",
+      "learned": "أتذكّر كلمات إنجليزية.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 23"
+      },
+      "steps": [
+        {
+          "emoji": "🇬🇧",
+          "text": "نراجع كلماتنا الإنجليزية.",
+          "say": "نراجع كلماتنا الإنجليزية."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تعني Mother؟",
+          "options": [
+            "سبعة",
+            "مطر",
+            "أم"
+          ],
+          "answerIndex": 2,
+          "hint": "تذكّري الصورة",
+          "emoji": "👩"
+        },
+        {
+          "prompt": "ماذا تعني Sun؟",
+          "options": [
+            "شمس",
+            "بقرة",
+            "قدم"
+          ],
+          "answerIndex": 0,
+          "hint": "تذكّري الصورة",
+          "emoji": "☀️"
+        },
+        {
+          "prompt": "ماذا تعني Goodbye؟",
+          "options": [
+            "يد",
+            "مع السلامة",
+            "موزة"
+          ],
+          "answerIndex": 1,
+          "hint": "تذكّري الصورة",
+          "emoji": "🤗"
+        },
+        {
+          "prompt": "ماذا تعني Eight؟",
+          "options": [
+            "مرحبا",
+            "نافذة",
+            "ثمانية"
+          ],
+          "answerIndex": 2,
+          "hint": "تذكّري الصورة",
+          "emoji": "8️⃣"
+        }
+      ]
+    },
+    {
+      "id": "w23_review_game",
+      "title": "تحدّي ديني 🏅",
+      "emoji": "🎮",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أراجع ما تعلمته",
+      "learned": "أنا أتعلم وألعب!",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 23"
+      },
+      "steps": [
+        {
+          "emoji": "🎮",
+          "text": "هيا نلعب بما تعلمناه!",
+          "say": "هيا نلعب بما تعلمناه!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "كم صلاة في اليوم؟",
+          "options": [
+            "5",
+            "3",
+            "4"
+          ],
+          "answerIndex": 0,
+          "hint": "خمس",
+          "emoji": "🕌"
+        },
+        {
+          "prompt": "ماذا نقول قبل الأكل؟",
+          "options": [
+            "لا شيء",
+            "بسم الله 🍽️"
+          ],
+          "answerIndex": 1,
+          "hint": "نبدأ باسم الله",
+          "emoji": "🍽️"
+        },
+        {
+          "prompt": "كم آية في سورة الكوثر؟",
+          "options": [
+            "4",
+            "5",
+            "3"
+          ],
+          "answerIndex": 2,
+          "hint": "قصيرة",
+          "emoji": "📖"
+        },
+        {
+          "prompt": "نواسي صديقتنا الحزينة؟",
+          "options": [
+            "نعم 💛",
+            "لا"
+          ],
+          "answerIndex": 0,
+          "hint": "لطف",
+          "emoji": "💛"
+        }
+      ]
+    },
+    {
+      "id": "w23_pattern",
+      "title": "ما التالي؟ 🔴🔵",
+      "emoji": "🧩",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أكمل النمط",
+      "learned": "الأنماط تتكرر.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 23"
+      },
+      "steps": [
+        {
+          "emoji": "🧩",
+          "text": "الأنماط تتكرر: 🔴🔵🔴🔵",
+          "say": "الأنماط تتكرر: 🔴🔵🔴🔵"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🔴🔵🔴🔵🔴 ؟",
+          "options": [
+            "🔵",
+            "🔴",
+            "🟢"
+          ],
+          "answerIndex": 0,
+          "hint": "الأحمر ثم الأزرق ثم الأحمر…",
+          "emoji": "🧩"
+        },
+        {
+          "prompt": "⭐🌙⭐🌙⭐ ؟",
+          "options": [
+            "⭐",
+            "🌙",
+            "☀️"
+          ],
+          "answerIndex": 1,
+          "hint": "نجمة ثم قمر ثم نجمة…",
+          "emoji": "🧩"
+        }
+      ]
+    }
+  ]
+}

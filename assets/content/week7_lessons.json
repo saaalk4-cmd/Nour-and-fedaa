@@ -1,0 +1,735 @@
+{
+  "schema": 1,
+  "lessons": [
+    {
+      "id": "w7_salam_greet",
+      "title": "أُسلّم على جارتي 👋",
+      "emoji": "👋",
+      "category": "akhlaq",
+      "minAge": 4,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أسلّم على من ألقاه.",
+      "learned": "أسلّم على من ألقاه.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 7"
+      },
+      "steps": [
+        {
+          "emoji": "👋",
+          "text": "سلمى تلتقي بجارتها في الطريق.",
+          "say": "سلمى تلتقي بجارتها في الطريق."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تفعل سلمى؟",
+          "options": [
+            "تقول السلام عليكم 👋",
+            "تمرّ بدون كلام"
+          ],
+          "answerIndex": 0,
+          "hint": "السلام تحية جميلة 🌸",
+          "praise": "أحسنتِ! نبدأ بالسلام.",
+          "emoji": "👋"
+        }
+      ]
+    },
+    {
+      "id": "w7_tidy",
+      "title": "أرتّب ألعابي 🧺",
+      "emoji": "🧺",
+      "category": "akhlaq",
+      "minAge": 4,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أرتّب ألعابي.",
+      "learned": "أرتّب ألعابي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 7"
+      },
+      "steps": [
+        {
+          "emoji": "🧺",
+          "text": "لعبت سلمى ثم حان وقت النوم، والألعاب في كل مكان.",
+          "say": "لعبت سلمى ثم حان وقت النوم، والألعاب في كل مكان."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تفعل سلمى؟",
+          "options": [
+            "تتركها في الأرض",
+            "تجمعها وترتبها 🧺"
+          ],
+          "answerIndex": 1,
+          "hint": "الترتيب يجعل البيت جميلًا 🌸",
+          "praise": "أحسنتِ! الترتيب جميل.",
+          "emoji": "🧺"
+        }
+      ]
+    },
+    {
+      "id": "w7_share_food",
+      "title": "أُطعم صديقتي 🍎",
+      "emoji": "🍎",
+      "category": "akhlaq",
+      "minAge": 4,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أشارك طعامي.",
+      "learned": "أشارك طعامي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 7"
+      },
+      "steps": [
+        {
+          "emoji": "🍎",
+          "text": "مع سلمى تفاحتان، وصديقتها ليس معها طعام.",
+          "say": "مع سلمى تفاحتان، وصديقتها ليس معها طعام."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تفعل سلمى؟",
+          "options": [
+            "تعطيها تفاحة 🍎",
+            "تأكل التفاحتين وحدها"
+          ],
+          "answerIndex": 0,
+          "hint": "نحب أن نُطعم من يحتاج 🌸",
+          "praise": "أحسنتِ! الكرم جميل.",
+          "emoji": "🍎"
+        }
+      ]
+    },
+    {
+      "id": "w7_letter_1",
+      "title": "حرف الغين ☁️",
+      "emoji": "☁️",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف حرف الغين وصوته",
+      "learned": "حرف الغين في أول: غَيْمَة، غَزَال.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 7"
+      },
+      "steps": [
+        {
+          "emoji": "☁️",
+          "text": "غَيْمَة — تبدأ بحرف الغين.",
+          "say": "غَيْمَة — تبدأ بحرف الغين."
+        },
+        {
+          "emoji": "🦌",
+          "text": "غَزَال — تبدأ بحرف الغين.",
+          "say": "غَزَال — تبدأ بحرف الغين."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أي كلمة تبدأ بحرف الغين؟",
+          "options": [
+            "بَقَرَة",
+            "غَيْمَة",
+            "تُفَّاحَة"
+          ],
+          "answerIndex": 1,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "☁️"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف الغين؟",
+          "options": [
+            "ثَلْج",
+            "جَمَل",
+            "غَزَال"
+          ],
+          "answerIndex": 2,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "🦌"
+        }
+      ]
+    },
+    {
+      "id": "w7_letter_2",
+      "title": "حرف الفاء 🐘",
+      "emoji": "🐘",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف حرف الفاء وصوته",
+      "learned": "حرف الفاء في أول: فِيل، فَرَاشَة.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 7"
+      },
+      "steps": [
+        {
+          "emoji": "🐘",
+          "text": "فِيل — تبدأ بحرف الفاء.",
+          "say": "فِيل — تبدأ بحرف الفاء."
+        },
+        {
+          "emoji": "🦋",
+          "text": "فَرَاشَة — تبدأ بحرف الفاء.",
+          "say": "فَرَاشَة — تبدأ بحرف الفاء."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أي كلمة تبدأ بحرف الفاء؟",
+          "options": [
+            "ثَعْلَب",
+            "ثَوْر",
+            "فِيل"
+          ],
+          "answerIndex": 2,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "🐘"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف الفاء؟",
+          "options": [
+            "فَرَاشَة",
+            "جَبَل",
+            "حِصَان"
+          ],
+          "answerIndex": 0,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "🦋"
+        }
+      ]
+    },
+    {
+      "id": "w7_letter_3",
+      "title": "حرف القاف 🐱",
+      "emoji": "🐱",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف حرف القاف وصوته",
+      "learned": "حرف القاف في أول: قِطَّة، قَمَر.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 7"
+      },
+      "steps": [
+        {
+          "emoji": "🐱",
+          "text": "قِطَّة — تبدأ بحرف القاف.",
+          "say": "قِطَّة — تبدأ بحرف القاف."
+        },
+        {
+          "emoji": "🌙",
+          "text": "قَمَر — تبدأ بحرف القاف.",
+          "say": "قَمَر — تبدأ بحرف القاف."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أي كلمة تبدأ بحرف القاف؟",
+          "options": [
+            "قِطَّة",
+            "جَمَل",
+            "جَزَر"
+          ],
+          "answerIndex": 0,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "🐱"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف القاف؟",
+          "options": [
+            "حُوت",
+            "قَمَر",
+            "خَرُوف"
+          ],
+          "answerIndex": 1,
+          "hint": "اسمعي أول الصوت في الكلمة",
+          "emoji": "🌙"
+        }
+      ]
+    },
+    {
+      "id": "w7_review_letters",
+      "title": "أراجع الحروف 🔤",
+      "emoji": "🔤",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أراجع حروف الأسبوع",
+      "learned": "أتذكّر حروفي.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 7"
+      },
+      "steps": [
+        {
+          "emoji": "🔤",
+          "text": "هيا نراجع حروفنا!",
+          "say": "هيا نراجع حروفنا!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "أي كلمة تبدأ بحرف الغين؟",
+          "options": [
+            "ثَوْر",
+            "غَزَال",
+            "ثَلْج"
+          ],
+          "answerIndex": 1,
+          "hint": "تذكّري الكلمات التي تعلمناها",
+          "emoji": "🦌"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف الفاء؟",
+          "options": [
+            "جَبَل",
+            "حِصَان",
+            "فَرَاشَة"
+          ],
+          "answerIndex": 2,
+          "hint": "تذكّري الكلمات التي تعلمناها",
+          "emoji": "🦋"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف القاف؟",
+          "options": [
+            "قَمَر",
+            "خَرُوف",
+            "خُبْز"
+          ],
+          "answerIndex": 0,
+          "hint": "تذكّري الكلمات التي تعلمناها",
+          "emoji": "🌙"
+        }
+      ]
+    },
+    {
+      "id": "w7_order",
+      "title": "ما قبل وما بعد؟ 🔢",
+      "emoji": "🔢",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف ما قبل وما بعد",
+      "learned": "أعرف الرقم قبل وبعد.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 7"
+      },
+      "steps": [
+        {
+          "emoji": "🔢",
+          "text": "بعد 4 يأتي 5، وقبل 4 يأتي 3.",
+          "say": "بعد 4 يأتي 5، وقبل 4 يأتي 3."
+        },
+        {
+          "emoji": "🔢",
+          "text": "بعد 7 يأتي 8.",
+          "say": "بعد 7 يأتي 8."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ما الرقم بعد 6؟",
+          "options": [
+            "7",
+            "5",
+            "9"
+          ],
+          "answerIndex": 0,
+          "hint": "عدّي: ... 6، 7",
+          "emoji": "🔢"
+        },
+        {
+          "prompt": "ما الرقم قبل 5؟",
+          "options": [
+            "6",
+            "4",
+            "3"
+          ],
+          "answerIndex": 1,
+          "hint": "عدّي للخلف",
+          "emoji": "🔢"
+        },
+        {
+          "prompt": "ما الرقم بعد 9؟",
+          "options": [
+            "8",
+            "11",
+            "10"
+          ],
+          "answerIndex": 2,
+          "hint": "عشرة",
+          "emoji": "🔟"
+        }
+      ]
+    },
+    {
+      "id": "w7_add_1",
+      "title": "نجمع حتى 8 ➕",
+      "emoji": "➕",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أجمع حتى 5",
+      "learned": "أجمع عددين صغيرين.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 7"
+      },
+      "steps": [
+        {
+          "emoji": "➕",
+          "text": "4 + 3 = 7",
+          "say": "4 + 3 = 7"
+        },
+        {
+          "emoji": "➕",
+          "text": "5 + 2 = 7",
+          "say": "5 + 2 = 7"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "4 + 3 = ؟",
+          "options": [
+            "7",
+            "8",
+            "6"
+          ],
+          "answerIndex": 0,
+          "hint": "عدّي على أصابعك",
+          "emoji": "➕"
+        },
+        {
+          "prompt": "5 + 2 = ؟",
+          "options": [
+            "8",
+            "7",
+            "6"
+          ],
+          "answerIndex": 1,
+          "hint": "عدّي على أصابعك",
+          "emoji": "➕"
+        },
+        {
+          "prompt": "6 + 2 = ؟",
+          "options": [
+            "9",
+            "7",
+            "8"
+          ],
+          "answerIndex": 2,
+          "hint": "عدّي على أصابعك",
+          "emoji": "➕"
+        }
+      ]
+    },
+    {
+      "id": "w7_eats",
+      "title": "ماذا تأكل الحيوانات؟ 🐄",
+      "emoji": "🐄",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف طعام بعض الحيوانات",
+      "learned": "البقرة تأكل العشب والأرنب يحب الجزر.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 7"
+      },
+      "steps": [
+        {
+          "emoji": "🐄",
+          "text": "البقرة تأكل العشب.",
+          "say": "البقرة تأكل العشب."
+        },
+        {
+          "emoji": "🦁",
+          "text": "والأسد يأكل اللحم.",
+          "say": "والأسد يأكل اللحم."
+        },
+        {
+          "emoji": "🐰",
+          "text": "والأرنب يحب الجزر.",
+          "say": "والأرنب يحب الجزر."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تأكل البقرة؟",
+          "options": [
+            "العشب 🌿",
+            "السمك 🐟",
+            "الحلوى 🍬"
+          ],
+          "answerIndex": 0,
+          "hint": "تأكل النبات",
+          "emoji": "🐄"
+        },
+        {
+          "prompt": "من يحب الجزر؟",
+          "options": [
+            "الأسد 🦁",
+            "الأرنب 🐰",
+            "السمكة 🐟"
+          ],
+          "answerIndex": 1,
+          "hint": "له أسنان أمامية طويلة",
+          "emoji": "🥕"
+        }
+      ]
+    },
+    {
+      "id": "w7_sun_moon",
+      "title": "الشمس والقمر ☀️🌙",
+      "emoji": "🌙",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أعرف الشمس والقمر",
+      "learned": "الشمس للنهار والقمر لليل.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 7"
+      },
+      "steps": [
+        {
+          "emoji": "☀️",
+          "text": "الشمس تعطينا الضوء والدفء في النهار.",
+          "say": "الشمس تعطينا الضوء والدفء في النهار."
+        },
+        {
+          "emoji": "🌙",
+          "text": "والقمر نراه في الليل.",
+          "say": "والقمر نراه في الليل."
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "متى نرى القمر؟",
+          "options": [
+            "في الليل 🌙",
+            "في النهار ☀️"
+          ],
+          "answerIndex": 0,
+          "hint": "عندما ننام",
+          "emoji": "🌙"
+        },
+        {
+          "prompt": "من يعطينا الدفء؟",
+          "options": [
+            "القمر 🌙",
+            "الشمس ☀️"
+          ],
+          "answerIndex": 1,
+          "hint": "نحس بها دافئة",
+          "emoji": "☀️"
+        }
+      ]
+    },
+    {
+      "id": "w7_english_numbers",
+      "title": "One Two Three 🔢",
+      "emoji": "🔢",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أتعلم كلمات إنجليزية جديدة",
+      "learned": "مثل: One = واحد.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 7"
+      },
+      "steps": [
+        {
+          "emoji": "1️⃣",
+          "text": "One = واحد",
+          "say": "One = واحد"
+        },
+        {
+          "emoji": "2️⃣",
+          "text": "Two = اثنان",
+          "say": "Two = اثنان"
+        },
+        {
+          "emoji": "3️⃣",
+          "text": "Three = ثلاثة",
+          "say": "Three = ثلاثة"
+        },
+        {
+          "emoji": "4️⃣",
+          "text": "Four = أربعة",
+          "say": "Four = أربعة"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ماذا تعني One؟",
+          "options": [
+            "واحد",
+            "اثنان",
+            "ثلاثة"
+          ],
+          "answerIndex": 0,
+          "hint": "تذكّري الصورة",
+          "emoji": "1️⃣"
+        },
+        {
+          "prompt": "ماذا تعني Two؟",
+          "options": [
+            "واحد",
+            "اثنان",
+            "ثلاثة"
+          ],
+          "answerIndex": 1,
+          "hint": "تذكّري الصورة",
+          "emoji": "2️⃣"
+        },
+        {
+          "prompt": "ماذا تعني Three؟",
+          "options": [
+            "واحد",
+            "اثنان",
+            "ثلاثة"
+          ],
+          "answerIndex": 2,
+          "hint": "تذكّري الصورة",
+          "emoji": "3️⃣"
+        }
+      ]
+    },
+    {
+      "id": "w7_pattern",
+      "title": "ما التالي؟ 🔴🔵",
+      "emoji": "🧩",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أكمل النمط",
+      "learned": "الأنماط تتكرر.",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 7"
+      },
+      "steps": [
+        {
+          "emoji": "🧩",
+          "text": "الأنماط تتكرر: 🔴🔵🔴🔵",
+          "say": "الأنماط تتكرر: 🔴🔵🔴🔵"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "🔴🔵🔴🔵🔴 ؟",
+          "options": [
+            "🔵",
+            "🔴",
+            "🟢"
+          ],
+          "answerIndex": 0,
+          "hint": "الأحمر ثم الأزرق ثم الأحمر…",
+          "emoji": "🧩"
+        },
+        {
+          "prompt": "⭐🌙⭐🌙⭐ ؟",
+          "options": [
+            "⭐",
+            "🌙",
+            "☀️"
+          ],
+          "answerIndex": 1,
+          "hint": "نجمة ثم قمر ثم نجمة…",
+          "emoji": "🧩"
+        }
+      ]
+    },
+    {
+      "id": "w7_review_game",
+      "title": "لعبة الأسبوع 🎮",
+      "emoji": "🎮",
+      "category": "learn",
+      "minAge": 5,
+      "maxAge": 6,
+      "difficulty": 1,
+      "objective": "أراجع ما تعلمته",
+      "learned": "أنا أتعلم وألعب!",
+      "source": {
+        "type": "educational",
+        "reference": "محتوى تعليمي أصلي — الأسبوع 7"
+      },
+      "steps": [
+        {
+          "emoji": "🎮",
+          "text": "هيا نلعب بما تعلمناه!",
+          "say": "هيا نلعب بما تعلمناه!"
+        }
+      ],
+      "questions": [
+        {
+          "prompt": "ما الرقم بعد 6؟",
+          "options": [
+            "7",
+            "5",
+            "9"
+          ],
+          "answerIndex": 0,
+          "hint": "عدّي",
+          "emoji": "🔢"
+        },
+        {
+          "prompt": "أي كلمة تبدأ بحرف القاف؟",
+          "options": [
+            "فِيل",
+            "قَمَر",
+            "غَيْمَة"
+          ],
+          "answerIndex": 1,
+          "hint": "قَ قَ قَمَر",
+          "emoji": "🌙"
+        },
+        {
+          "prompt": "ماذا تعني Two؟",
+          "options": [
+            "واحد",
+            "ثلاثة",
+            "اثنان"
+          ],
+          "answerIndex": 2,
+          "hint": "2️⃣",
+          "emoji": "2️⃣"
+        },
+        {
+          "prompt": "نلتقي بجارتنا، ماذا نقول؟",
+          "options": [
+            "السلام عليكم 👋",
+            "لا شيء"
+          ],
+          "answerIndex": 0,
+          "hint": "السلام تحية جميلة",
+          "emoji": "👋",
+          "praise": "أحسنتِ! نبدأ بالسلام."
+        }
+      ]
+    }
+  ]
+}
