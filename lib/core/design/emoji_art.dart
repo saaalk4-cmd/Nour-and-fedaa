@@ -60,6 +60,7 @@ const Map<String, String> kEmojiArt = {
   '🪨': 'pic_rock',
   '🧮': 'pic_abacus',
   '🏃': 'pic_running',
+  '🤗': 'pic_hug',
 };
 
 /// يزيل محدّد الشكل ليطابق المفاتيح.
