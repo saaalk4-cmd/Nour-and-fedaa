@@ -67,5 +67,16 @@ void main() {
     for (final s in list) {
       expect(ayat.of(s), isNull, reason: s);
     }
+    // ولا جملة راوٍ في الحكايات آية (القصص بالمعنى، لا بنص الآيات).
+    final stories = jsonDecode(File('tools/videos/stories.json').readAsStringSync()) as Map<String, dynamic>;
+    for (final st in stories['stories'] as List<dynamic>) {
+      for (final sc in (st as Map<String, dynamic>)['scenes'] as List<dynamic>) {
+        final say = (sc as Map<String, dynamic>)['say'] as String;
+        expect(ayat.of(say), isNull, reason: say);
+        for (final p in [...(sc['chars'] as List<dynamic>? ?? []), ...(sc['props'] as List<dynamic>? ?? [])]) {
+          expect(File('assets/art/${(p as List<dynamic>).first}.webp').existsSync(), isTrue, reason: '$p');
+        }
+      }
+    }
   });
 }

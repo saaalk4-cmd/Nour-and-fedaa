@@ -686,12 +686,21 @@ function renderVideos(app) {
     app.append($(`<div class="empty"><img src="${A('lamaa_think')}">الحكايات الجديدة في الطريق إن شاء الله</div>`));
     return;
   }
-  const grid = $('<div class="vgrid"></div>');
-  S.videos.forEach((v) => {
-    const c = $(`<button class="vcard"><div class="cover" style="background-image:url(videos/${esc(v.cover)})"></div><h3>${esc(v.title)}</h3></button>`);
-    c.onclick = () => openVideo(v); grid.append(c);
+  // مجموعات: قصص الأنبياء ثم حكايات الأخلاق (وأي قسم جديد بعدهم).
+  const groups = [['prophets', 'قصص الأنبياء'], ['akhlaq', 'حكايات الأخلاق']];
+  const known = new Set(groups.map(([id]) => id));
+  const extra = S.videos.filter((v) => !known.has(v.section));
+  [...groups.map(([id, title]) => [title, S.videos.filter((v) => v.section === id)]), ['حكايات أخرى', extra]].forEach(([title, list]) => {
+    if (!list.length) return;
+    app.append($(`<div class="section-title" style="padding-top:8px"><h2 style="font-size:24px">${title}</h2></div>`));
+    const grid = $('<div class="vgrid" style="padding-bottom:10px"></div>');
+    list.forEach((v) => {
+      const c = $(`<button class="vcard"><div class="cover" style="background-image:url(videos/${esc(v.cover)})"></div><h3>${esc(v.title)}</h3></button>`);
+      c.onclick = () => openVideo(v); grid.append(c);
+    });
+    app.append(grid);
   });
-  app.append(grid);
+  app.append($('<div style="height:110px"></div>'));
 }
 
 /* لمعة العائمة: تتسحب لأي مكان، وبالضغط تقول جملة. */

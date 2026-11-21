@@ -99,12 +99,14 @@ def render_scene(scene, dur, pipe, first, last):
             dy = int(abs(math.sin(t * 2.4 + k)) * 18)
             frame.alpha_composite(c, (int(W * fx - c.width / 2), int(H * 0.80 - c.height - dy)))
         # الصور: تظهر بحركة
-        for k, (name, fx, fy, motion) in enumerate(scene.get('props', [])):
+        for k, prop in enumerate(scene.get('props', [])):
+            name, fx, fy, motion = prop[:4]
+            scale = prop[4] if len(prop) > 4 else 1.0  # حجم إضافي (مثلًا السفينة أو الحوت كبار)
             im = art(name)
             p = ease((t - 0.25 * k) / 0.6)
             if p <= 0:
                 continue
-            size = int(W * (0.36 if name.startswith('pic_') else 0.22) * (0.4 + 0.6 * p))
+            size = int(W * (0.36 if name.startswith('pic_') else 0.22) * scale * (0.4 + 0.6 * p))
             s = size / max(im.width, im.height)
             c = im.resize((max(1, int(im.width * s)), max(1, int(im.height * s))), Image.LANCZOS)
             y = H * fy
