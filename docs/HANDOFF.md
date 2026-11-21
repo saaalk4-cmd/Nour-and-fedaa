@@ -148,3 +148,18 @@
 - في «قرآني» (لمن عندها محفوظ): «رتّبي الآيات» و«أكملي الآية»، 5 جولات من سور البنت المحفوظة فقط
   (`lib/features/quran/hifz_review.dart` + `hifz_review_screen.dart`). الآيات بصوت الشيخ، والتعليمات بمقاطع مسجّلة.
 - تعديل المحفوظ من لوحة الأهل ← التقدم ← «محفوظ فداء/نور».
+
+## صفحة «العب مع لمعة» (أونلاين)
+- المصدر: `games_web/` (index.html, style.css, app.js, phrases.json). يجمّعها `tools/build_web.py` في `build/site/`
+  (رسومات التطبيق، الخطوط، نص الأجزاء 28–30، ومقاطع صوت التطبيق لجمل الصفحة فقط) وCI يرفعها لفرع `gh-pages`.
+- الرابط: https://saaalk4-cmd.github.io/Nour-and-fedaa/ — يحتاج تفعيل GitHub Pages مرة واحدة
+  (Settings → Pages → Deploy from a branch → gh-pages / root).
+- 13 لعبة: رتّبي الآيات، أكملي الآية، الكلمة الناقصة، فرقعة البالونات، قطار الكلمات، البطاقات المقلوبة، صلي البداية بالنهاية،
+  خمّني السورة، ابني المسجد، اسمعي واجمعي النجوم (نور)، صيد الحروف، أين الصورة؟، عدّي معايا.
+- الآيات بصوت المنشاوي من cdn.islamic.network؛ كل جملة كلام لازم تكون في `games_web/phrases.json` (اختبار test/online_games_test.dart).
+- في التطبيق: دايرة «العب أونلاين» في الرئيسية → `/online` (WebView، `lib/features/online/online_games_screen.dart`).
+
+## حكايات الفيديو
+- `tools/videos/stories.json` (مشاهد: خلفية، شخصيات، صور، جملة راوٍ) → `tools/build_videos.py` يرسمها بـ Pillow ويسجّل الراوي
+  بـ edge-tts (نفس صوت التطبيق) → MP4 طولي 720×1280. CI يرفعها لـ release «videos» وتظهر في تبويب «الحكايات» في الصفحة.
+- لا رسم لنبي أو صحابي، ولا آية أو حديث بصوت آلي.
