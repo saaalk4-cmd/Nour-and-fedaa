@@ -357,7 +357,7 @@ game({
 
 /* 9) اسمعي واجمعي النجوم */
 game({
-  id: 'listen', title: 'اسمعي واجمعي النجوم', desc: 'اسمعي السورة من الشيخ وكل آية بنجمة', shelf: 'quran', color: 'c-sky', art: 'star_on', who: ['nour', 'fedaa'], rounds: 1,
+  id: 'listen', title: 'اسمعي واجمعي النجوم', desc: 'اسمعي السورة من الشيخ وكل آية بنجمة', shelf: 'quran', color: 'c-sky', art: 'star_on', who: ['nour'], rounds: 1,
   intro: 'اسمعي السورة واجمعي النجوم',
   round(ui) {
     const short = pool(1).filter((s) => s.ayahs.length <= 11);
@@ -382,7 +382,7 @@ game({
 
 /* 10) صيد الحروف */
 game({
-  id: 'letters', title: 'صيد الحروف', desc: 'اسمعي الكلمة واختاري صورتها', shelf: 'letters', color: 'c-green', art: 'let_01', who: ['nour', 'fedaa'], rounds: 6,
+  id: 'letters', title: 'صيد الحروف', desc: 'اسمعي الكلمة واختاري صورتها', shelf: 'letters', color: 'c-green', art: 'let_01', who: ['nour'], rounds: 6,
   intro: 'اسمعي الكلمة واختاري صورتها',
   round(ui) {
     const L = S.data.letters; const right = pick(L);
@@ -393,7 +393,7 @@ game({
 
 /* 11) أين الصورة؟ */
 game({
-  id: 'where', title: 'أين الصورة؟', desc: 'اسمعي واضغطي على الصورة', shelf: 'letters', color: 'c-purple', art: 'pic_lion', who: ['nour', 'fedaa'], rounds: 6,
+  id: 'where', title: 'أين الصورة؟', desc: 'اسمعي واضغطي على الصورة', shelf: 'letters', color: 'c-purple', art: 'pic_lion', who: ['nour'], rounds: 6,
   intro: 'اسمعي واضغطي على الصورة',
   round(ui) {
     const P = S.data.pics; const right = pick(P);
@@ -404,7 +404,7 @@ game({
 
 /* 12) عدّي معايا */
 game({
-  id: 'count', title: 'عدّي معايا', desc: 'عدّي الصور واختاري الرقم', shelf: 'letters', color: 'c-orange', art: 'pic_abacus', who: ['nour', 'fedaa'], rounds: 5,
+  id: 'count', title: 'عدّي معايا', desc: 'عدّي الصور واختاري الرقم', shelf: 'letters', color: 'c-orange', art: 'pic_abacus', who: ['nour'], rounds: 5,
   intro: 'عدّي الصور واختاري الرقم',
   round(ui) {
     const max = S.child === 'nour' ? 5 : 10; const n = 1 + rnd(max); const art = pick(['pic_strawberry', 'pic_orange', 'pic_balloon', 'pic_ball', 'pic_cookie', 'let_03', 'star_on']);
@@ -429,7 +429,7 @@ game({
 /* 13) الألوان */
 const COLORS = [['الأحمر', '#f44336'], ['الأزرق', '#2196f3'], ['الأصفر', '#ffd600'], ['الأخضر', '#4caf50'], ['البرتقالي', '#ff9800'], ['البنفسجي', '#9c27b0'], ['الوردي', '#ff6f9c']];
 game({
-  id: 'colors', title: 'الألوان', desc: 'اسمعي اللون واضغطي على البالونة', shelf: 'letters', color: 'c-pink', art: 'pic_rainbow', who: ['nour', 'fedaa'], rounds: 6,
+  id: 'colors', title: 'الألوان', desc: 'اسمعي اللون واضغطي على البالونة', shelf: 'letters', color: 'c-pink', art: 'pic_rainbow', who: ['nour'], rounds: 6,
   intro: 'اسمعي واضغطي على اللون',
   round(ui) {
     const right = pick(COLORS); const opts = shuffle([right, ...shuffle(COLORS.filter((c) => c !== right)).slice(0, S.child === 'nour' ? 2 : 3)]);
@@ -449,7 +449,7 @@ const SHAPES = [
   ['قلب', '<path d="M50 88 C10 60 4 30 26 18 C40 10 50 22 50 30 C50 22 60 10 74 18 C96 30 90 60 50 88 Z" fill="#f44336"/>'],
 ];
 game({
-  id: 'shapes', title: 'الأشكال', desc: 'دائرة، مربع، مثلث… أين هو؟', shelf: 'letters', color: 'c-sky', art: 'pic_shapes', who: ['nour', 'fedaa'], rounds: 6,
+  id: 'shapes', title: 'الأشكال', desc: 'دائرة، مربع، مثلث… أين هو؟', shelf: 'letters', color: 'c-sky', art: 'pic_shapes', who: ['nour'], rounds: 6,
   intro: 'اسمعي واضغطي على الشكل',
   round(ui) {
     const right = pick(SHAPES); const opts = shuffle([right, ...shuffle(SHAPES.filter((s) => s !== right)).slice(0, S.child === 'nour' ? 2 : 3)]);
@@ -459,7 +459,7 @@ game({
 
 /* 15) كبير وصغير */
 game({
-  id: 'size', title: 'كبير وصغير', desc: 'اضغطي على الأكبر أو الأصغر', shelf: 'letters', color: 'c-green', art: 'pic_lion', who: ['nour', 'fedaa'], rounds: 6,
+  id: 'size', title: 'كبير وصغير', desc: 'اضغطي على الأكبر أو الأصغر', shelf: 'letters', color: 'c-green', art: 'pic_lion', who: ['nour'], rounds: 6,
   intro: 'اسمعي، الأكبر أم الأصغر؟',
   round(ui) {
     const art = pick(S.data.pics).art; const big = Math.random() < 0.5; const ask = big ? 'اضغطي على الأكبر' : 'اضغطي على الأصغر';
@@ -470,7 +470,7 @@ game({
 
 /* 16) بطاقات الصور */
 game({
-  id: 'pairs', title: 'بطاقات الصور', desc: 'اقلبي بطاقتين متشابهتين', shelf: 'memory', color: 'c-purple', art: 'pic_cards', who: ['nour', 'fedaa'], rounds: 2,
+  id: 'pairs', title: 'بطاقات الصور', desc: 'اقلبي بطاقتين متشابهتين', shelf: 'memory', color: 'c-purple', art: 'pic_cards', who: ['nour'], rounds: 2,
   intro: 'اقلبي بطاقتين متشابهتين',
   round(ui) {
     const n = S.child === 'nour' ? 3 : 4; const arts = shuffle(S.data.pics).slice(0, n);
@@ -605,7 +605,7 @@ game({
 
 /* 22) صناديق المفاجآت */
 game({
-  id: 'boxes', title: 'صناديق المفاجآت', desc: 'افتحي الصناديق ولاقي الصورة', shelf: 'memory', color: 'c-orange', art: 'ic_gift', who: ['nour', 'fedaa'], rounds: 4,
+  id: 'boxes', title: 'صناديق المفاجآت', desc: 'افتحي الصناديق ولاقي الصورة', shelf: 'memory', color: 'c-orange', art: 'ic_gift', who: ['nour'], rounds: 4,
   intro: 'افتحي الصناديق وابحثي عن الصورة',
   round(ui) {
     const n = S.child === 'nour' ? 4 : 6; const items = shuffle(S.data.pics).slice(0, n); const target = pick(items);
@@ -631,7 +631,7 @@ game({
 
 /* 23) اضربي الخلد */
 game({
-  id: 'mole', title: 'اظهري يا صورة', desc: 'اضغطي على الصورة لما تطلع', shelf: 'move', color: 'c-green', art: 'pic_mouse', who: ['nour', 'fedaa'], rounds: 5,
+  id: 'mole', title: 'اظهري يا صورة', desc: 'اضغطي على الصورة لما تطلع', shelf: 'move', color: 'c-green', art: 'pic_mouse', who: ['nour'], rounds: 5,
   intro: 'اضغطي على الصورة عندما تظهر',
   round(ui) {
     const P = shuffle(S.data.pics).slice(0, 4); const target = P[0];
@@ -662,11 +662,15 @@ game({
 const PAT = [['#f44336', 'circle'], ['#2196f3', 'circle'], ['#ffd600', 'star'], ['#4caf50', 'tri']];
 const shapeSvg = ([c, k]) => `<svg viewBox="0 0 100 100" width="100%">${k === 'circle' ? `<circle cx="50" cy="50" r="40" fill="${c}"/>` : k === 'star' ? `<path d="M50 6 L62 38 L96 38 L68 58 L79 92 L50 72 L21 92 L32 58 L4 38 L38 38 Z" fill="${c}"/>` : `<path d="M50 8 L92 88 H8 Z" fill="${c}"/>`}</svg>`;
 game({
-  id: 'pattern', title: 'أكملي النمط', desc: 'أحمر، أزرق، أحمر… وبعده؟', shelf: 'letters', color: 'c-pink', art: 'pic_shapes', who: ['nour', 'fedaa'], rounds: 5,
+  id: 'pattern', title: 'أكملي النمط', desc: 'أحمر، أزرق، أحمر… وبعده؟', shelf: 'letters', color: 'c-pink', art: 'pic_shapes', who: ['nour'], rounds: 5,
   intro: 'ما الذي يأتي بعد ذلك؟',
-  round(ui) {
+  round(ui) { return patternRound(ui, false); },
+});
+
+/** جولة نمط: سهل (أ ب أ ب أ) لنور، أو ألغاز أصعب لفداء. */
+function patternRound(ui, hard) {
     const [a, b, c] = shuffle(PAT);
-    const seq = S.child === 'nour' ? [a, b, a, b, a] : pick([[a, b, a, b, a], [a, a, b, a, a], [a, b, c, a, b]]);
+    const seq = hard ? pick([[a, a, b, a, a], [a, b, c, a, b], [a, b, b, a, b], [a, a, b, b, a, a]]) : [a, b, a, b, a];
     // اللي بعده = العنصر اللي قبل بطول التكرار (أصغر طول يتكرر به النمط).
     let per = 1; while (per < seq.length && !seq.every((x, k) => k < per || x === seq[k - per])) per++;
     const rightAns = seq[seq.length - per];
@@ -688,8 +692,7 @@ game({
         btns.push(btn); grid.append(btn);
       });
     });
-  },
-});
+  }
 
 /* 25) الحرف الأول */
 game({
@@ -714,6 +717,136 @@ game({
         };
         btns.push(b); grid.append(b);
       });
+    });
+  },
+});
+
+/* ---------- فداء: أرقام وحروف وذكاء ---------- */
+const FRUITS = ['pic_strawberry', 'pic_orange', 'pic_cookie', 'let_03', 'pic_balloon', 'pic_ball'];
+const picsRow = (art, n, w = 46) => `<div class="count-row">${`<img src="${A(art)}" style="width:${w}px">`.repeat(n)}</div>`;
+/** أزرار أرقام (تُقال بالصوت عند الضغط). */
+function askNumber(ui, right, max) {
+  return new Promise((done) => {
+    const nums = new Set([right]); while (nums.size < 3) nums.add(1 + rnd(max));
+    const grid = $('<div class="nums"></div>'); ui.stage.append(grid);
+    let tries = 0; const btns = [];
+    [...nums].sort((a, b) => a - b).forEach((x) => {
+      const b = $(`<button class="num">${x.toLocaleString('ar-EG')}</button>`);
+      b.onclick = async () => {
+        if (b.classList.contains('tried') || b.classList.contains('right')) return;
+        stopAll(); await say(String(x));
+        if (x === right) { b.classList.add('right'); cheer(); await praise(); done(); } else {
+          b.classList.add('tried'); tries++; hmm(); tryAgain();
+          if (tries >= 2) btns.forEach((y) => { if (y.textContent === right.toLocaleString('ar-EG')) y.classList.add('hint'); });
+        }
+      };
+      btns.push(b); grid.append(b);
+    });
+  });
+}
+
+game({
+  id: 'add', title: 'اجمعي بالصور', desc: 'تفاحتين + تفاحة = كام؟', shelf: 'letters', color: 'c-orange', art: 'let_03', who: ['fedaa'], rounds: 5,
+  intro: 'اجمعي واختاري الرقم',
+  round(ui) {
+    const a = 1 + rnd(5); const b = 1 + rnd(Math.min(5, 10 - a)); const art = pick(FRUITS);
+    ui.stage.append($(`<div class="sum">${picsRow(art, a)}<div class="op">+</div>${picsRow(art, b)}</div>`));
+    return askNumber(ui, a + b, 10);
+  },
+});
+
+game({
+  id: 'more', title: 'أي مجموعة أكثر؟', desc: 'عدّي واختاري المجموعة الأكبر', shelf: 'letters', color: 'c-green', art: 'pic_basket', who: ['fedaa'], rounds: 5,
+  intro: 'أي مجموعة أكثر؟',
+  round(ui) {
+    const art = pick(FRUITS); let a = 1 + rnd(9); let b = 1 + rnd(9); while (a === b) b = 1 + rnd(9);
+    return askShapes(ui, 'أي مجموعة أكثر؟', [a, b].map((n) => ({ html: picsRow(art, n, 34), right: n === Math.max(a, b) })));
+  },
+});
+
+game({
+  id: 'spell', title: 'رتّبي حروف الكلمة', desc: 'اسمعي الكلمة ورتّبي حروفها', shelf: 'letters', color: 'c-purple', art: 'pic_books', who: ['fedaa'], rounds: 5,
+  intro: 'رتّبي حروف الكلمة',
+  round(ui) {
+    const items = S.data.letters.filter((x) => [...x.word].length >= 2 && [...x.word].length <= 5);
+    const it = pick(items); const letters = [...it.word];
+    return new Promise((done) => {
+      const row = $(`<div class="prompt-row"><button class="sound-btn pulse"><img src="${A('ic_sound')}"></button><img src="${A(it.art)}" style="width:96px"><div class="q" id="built" style="font-size:40px;letter-spacing:2px">…</div></div>`);
+      row.querySelector('.sound-btn').onclick = () => { stopAll(); say(it.word); };
+      ui.stage.append(row); say(it.word);
+      const box = $('<div class="words"></div>'); ui.stage.append(box);
+      let next = 0;
+      let tiles = shuffle(letters.map((ch, j) => ({ ch, j })));
+      while (tiles.length > 1 && tiles.every((x, k) => x.j === k)) tiles = shuffle(tiles);
+      tiles.forEach((tl) => {
+        const el = $(`<button class="word" style="font-size:38px;min-width:64px">${esc(tl.ch)}</button>`);
+        el.onclick = async () => {
+          if (el.classList.contains('used')) return;
+          // نفس الحرف مكرر في الكلمة: أي نسخة منه تنفع.
+          if (tl.ch === letters[next]) {
+            el.classList.add('used'); next++;
+            ui.stage.querySelector('#built').textContent = letters.slice(0, next).join('');
+            if (next === letters.length) { cheer(); stopAll(); await say(it.word); await praise(); done(); }
+          } else { hmm(); tryAgain(); }
+        };
+        box.append(el);
+      });
+    });
+  },
+});
+
+game({
+  id: 'pattern2', title: 'ألغاز الأنماط', desc: 'أنماط أصعب… ركّزي ولاقي اللي بعده', shelf: 'letters', color: 'c-pink', art: 'pic_puzzle', who: ['fedaa'], rounds: 5,
+  intro: 'ما الذي يأتي بعد ذلك؟',
+  round(ui) { return patternRound(ui, true); },
+});
+
+/* ---------- نور: لعب حر بالصور ---------- */
+game({
+  id: 'paint', title: 'الرسام الصغير', desc: 'لوّني الشكل بالألوان', shelf: 'letters', color: 'c-pink', art: 'pic_palette', who: ['nour'], rounds: 3,
+  intro: 'لوّني الشكل بالألوان',
+  round(ui) {
+    const [, path] = pick(SHAPES); const outline = path.replace(/fill="[^"]+"/, 'fill="#fff" stroke="#4a2c12" stroke-width="3"');
+    return new Promise((done) => {
+      const canvas = $(`<div class="paint-box"><svg viewBox="0 0 100 100" width="72%">${outline}</svg></div>`); ui.stage.append(canvas);
+      const pal = $('<div class="palette"></div>'); ui.stage.append(pal);
+      const used = new Set();
+      COLORS.forEach(([name, hex]) => {
+        const b = $(`<button class="swatch" style="background:${hex}"></button>`);
+        b.onclick = async () => {
+          canvas.querySelector('svg > *').setAttribute('fill', hex); stopAll(); say(name); confetti(8);
+          used.add(hex);
+          if (used.size === 3) { cheer(); await sleep(600); await praise(); done(); }
+        };
+        pal.append(b);
+      });
+    });
+  },
+});
+
+game({
+  id: 'bubbles', title: 'فرقعي الفقاعات', desc: 'فقاعات طايرة… فرقعيها كلها', shelf: 'move', color: 'c-sky', art: 'pic_water', who: ['nour'], rounds: 2,
+  intro: 'فرقعي الفقاعات',
+  round(ui) {
+    return new Promise((done) => {
+      const sky = $('<div class="sky"></div>'); ui.stage.append(sky);
+      const arts = shuffle(S.data.pics).slice(0, 8); let left = arts.length;
+      const bs = arts.map((p, n) => {
+        const el = $(`<div class="bubble"><img src="${A(p.art)}"></div>`);
+        const b = { el, x: 6 + (n % 4) * 23, y: 100 + n * 14, v: 0.08 + Math.random() * 0.05 };
+        el.onclick = async () => {
+          if (b.gone) return; b.gone = true; el.classList.add('pop'); stopAll(); say(p.word); confetti(6); left--;
+          if (!left) { cancelAnimationFrame(raf); cheer(); await sleep(500); await praise(); done(); }
+        };
+        sky.append(el); return b;
+      });
+      let raf; let last = performance.now();
+      const tick = (now) => {
+        const dt = Math.min(50, now - last); last = now;
+        bs.forEach((b) => { if (b.gone) return; b.y -= b.v * dt / 16; if (b.y < -25) b.y = 105; b.el.style.left = `${b.x}%`; b.el.style.top = `${b.y}%`; });
+        raf = requestAnimationFrame(tick);
+      };
+      raf = requestAnimationFrame(tick); ui.onLeave(() => cancelAnimationFrame(raf));
     });
   },
 });
