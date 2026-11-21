@@ -493,6 +493,231 @@ game({
   },
 });
 
+/* 17) صيد الكلمات */
+game({
+  id: 'fishing', title: 'صيد الكلمات', desc: 'اصطادي سمك كلمات الآية بالترتيب', shelf: 'move', color: 'c-sky', art: 'let_12', who: ['fedaa'], rounds: 3,
+  intro: 'اصطادي كلمات الآية بالترتيب',
+  round(ui) {
+    let s; let i; let ws;
+    for (let t = 0; t < 60; t++) { s = pick(pool(2)); i = rnd(s.ayahs.length); ws = words(s.ayahs[i]); if (ws.length >= 3 && ws.length <= 6) break; }
+    ws = ws.slice(0, 6);
+    return new Promise((done) => {
+      ui.stage.append($(`<div class="prompt-row"><button class="sound-btn"><img src="${A('ic_sound')}"></button><div class="q" id="built">…</div></div>`));
+      ui.stage.querySelector('.sound-btn').onclick = () => { stopAll(); recite(s.n, i + 1); };
+      recite(s.n, i + 1);
+      const sea = $('<div class="sky sea"></div>'); ui.stage.append(sea);
+      let next = 0; const built = [];
+      const fish = shuffle(ws.map((w, j) => ({ w, j }))).map((f, n) => {
+        const dir = n % 2 ? 1 : -1;
+        const el = $(`<div class="fish" style="flex-direction:${dir > 0 ? 'row' : 'row-reverse'}"><img src="${A('let_12')}" style="transform:scaleX(${dir > 0 ? -1 : 1})"><span>${esc(f.w)}</span></div>`);
+        f.el = el; f.dir = dir; f.x = Math.random() * 70; f.y = 8 + n * (80 / ws.length); f.v = 0.05 + Math.random() * 0.05;
+        el.onclick = async () => {
+          if (f.gone) return;
+          if (f.j === next) {
+            f.gone = true; el.classList.add('pop'); built.push(f.w); next++;
+            ui.stage.querySelector('#built').textContent = built.join(' ');
+            if (next === ws.length) { cancelAnimationFrame(raf); cheer(); await praise(); done(); }
+          } else { hmm(); el.animate([{ transform: 'translateY(-8px)' }, { transform: 'none' }], 300); tryAgain(); }
+        };
+        sea.append(el); return f;
+      });
+      let raf; let last = performance.now();
+      const tick = (now) => {
+        const dt = Math.min(50, now - last); last = now;
+        fish.forEach((f) => {
+          if (f.gone) return; f.x += f.dir * f.v * dt / 16;
+          if (f.x > 72) f.dir = -1; if (f.x < 0) f.dir = 1;
+          f.el.style.left = `${f.x}%`; f.el.style.top = `${f.y}%`;
+          f.el.style.flexDirection = f.dir > 0 ? 'row' : 'row-reverse'; f.el.querySelector('img').style.transform = `scaleX(${f.dir > 0 ? -1 : 1})`;
+        });
+        raf = requestAnimationFrame(tick);
+      };
+      raf = requestAnimationFrame(tick); ui.onLeave(() => cancelAnimationFrame(raf));
+    });
+  },
+});
+
+/* 18) أي آية أولًا؟ */
+game({
+  id: 'first', title: 'أي آية أولًا؟', desc: 'آيتان… اضغطي اللي قبل', shelf: 'quran', color: 'c-orange', art: 'pic_hourglass', who: ['fedaa'], rounds: 5,
+  intro: 'أي آية تأتي أولًا؟',
+  round(ui) {
+    const s = pick(pool(3)); const a = rnd(s.ayahs.length - 1); const b = a + 1 + rnd(Math.min(2, s.ayahs.length - a - 1));
+    const x = ref(s, a); const y = ref(s, b);
+    return askChoice(ui, {
+      head: `<div class="label">سورة ${esc(s.name)}</div>`,
+      promptHtml: 'أي آية أولًا؟', onPrompt: () => say('أي آية تأتي أولًا؟'), keep: true,
+      options: shuffle([x, y]).map((r) => ({ html: esc(r.text), right: r === x, hear: () => recite(r.s, r.a) })),
+    });
+  },
+});
+
+/* 19) ماذا اختفى؟ */
+game({
+  id: 'vanish', title: 'ماذا اختفى؟', desc: 'احفظي الآية… كلمة هتختفي، اعرفيها', shelf: 'memory', color: 'c-purple', art: 'pic_magnifier', who: ['fedaa'], rounds: 4,
+  intro: 'احفظي الآية، ثم اعرفي الكلمة التي اختفت',
+  async round(ui) {
+    let s; let i; let ws;
+    for (let t = 0; t < 60; t++) { s = pick(pool(2)); i = rnd(s.ayahs.length); ws = words(s.ayahs[i]); if (ws.length >= 3 && ws.length <= 8) break; }
+    const box = $(`<div class="prompt-row"><div class="q">${esc(ws.join(' '))}</div></div>`); ui.stage.append(box);
+    await recite(s.n, i + 1); await sleep(1200); if (!ui.alive()) return;
+    const k = rnd(ws.length); const answer = ws[k];
+    ui.stage.innerHTML = '';
+    const bag = new Set();
+    for (let t = 0; t < 60 && bag.size < 2; t++) { const o = pick(pool(2)); const w = pick(words(pick(o.ayahs))); if (w !== answer) bag.add(w); }
+    return askChoice(ui, {
+      promptHtml: ws.map((w, j) => (j === k ? '<span style="color:#ff6f9c">؟</span>' : esc(w))).join(' '), onPrompt: () => recite(s.n, i + 1),
+      options: shuffle([answer, ...bag]).map((w) => ({ html: esc(w), right: w === answer })),
+    });
+  },
+});
+
+/* 20) سباق لمعة */
+game({
+  id: 'race', title: 'سباق لمعة', desc: 'كل إجابة صح تقرّب لمعة من الكأس', shelf: 'quran', color: 'c-green', art: 'sec_achievements', who: ['fedaa'], rounds: 6,
+  intro: 'كل إجابة صحيحة تقرّبك من الكأس',
+  setup(ui) { ui.track = $(`<div class="track"><img class="cup" src="${A('sec_achievements')}"><img class="runner" src="${A('lamaa_cheer')}"></div>`); },
+  round(ui, n) {
+    ui.stage.append(ui.track);
+    ui.track.querySelector('.runner').style.right = `${(n / 6) * 78}%`;
+    const s = pick(pool(3)); const i = rnd(s.ayahs.length - 1); const heard = ref(s, i); const right = ref(s, i + 1);
+    let other = ref(s, (i + 2) % s.ayahs.length); if (other.a === heard.a) other = ref(s, 0);
+    return askChoice(ui, {
+      prompt: heard.text, onPrompt: () => recite(heard.s, heard.a), autoPrompt: true,
+      options: shuffle([right, other]).map((r) => ({ html: esc(r.text), right: r === right, hear: () => recite(r.s, r.a) })),
+    }).then(() => { ui.track.querySelector('.runner').style.right = `${((n + 1) / 6) * 78}%`; });
+  },
+});
+
+/* 21) ترتيب السور */
+game({
+  id: 'suraorder', title: 'ترتيب السور', desc: 'أي سورة قبل في المصحف؟', shelf: 'quran', color: 'c-teal', art: 'sec_quran', who: ['fedaa'], rounds: 5,
+  intro: 'أي سورة تأتي أولًا في المصحف؟',
+  round(ui) {
+    const ps = pool(1); const a = pick(ps); let b = pick(ps); while (b.n === a.n) b = pick(ps);
+    const first = a.n < b.n ? a : b;
+    return askChoice(ui, {
+      promptHtml: 'أي سورة قبل؟', onPrompt: () => say('أي سورة تأتي أولًا في المصحف؟'),
+      options: shuffle([a, b]).map((x) => ({ html: `سورة ${esc(x.name)}`, right: x === first, hear: () => recite(x.n, 1) })),
+    });
+  },
+});
+
+/* 22) صناديق المفاجآت */
+game({
+  id: 'boxes', title: 'صناديق المفاجآت', desc: 'افتحي الصناديق ولاقي الصورة', shelf: 'memory', color: 'c-orange', art: 'ic_gift', who: ['nour', 'fedaa'], rounds: 4,
+  intro: 'افتحي الصناديق وابحثي عن الصورة',
+  round(ui) {
+    const n = S.child === 'nour' ? 4 : 6; const items = shuffle(S.data.pics).slice(0, n); const target = pick(items);
+    return new Promise((done) => {
+      const row = $(`<div class="prompt-row"><button class="sound-btn pulse"><img src="${A('ic_sound')}"></button><div class="q">${S.child === 'fedaa' ? esc(target.word) : '👂'}</div></div>`);
+      row.querySelector('.sound-btn').onclick = () => { stopAll(); say(target.word); };
+      ui.stage.append(row); say(target.word);
+      const grid = $(`<div class="memory" style="grid-template-columns:repeat(${n === 4 ? 2 : 3},1fr)"></div>`); ui.stage.append(grid);
+      items.forEach((p) => {
+        const el = $(`<div class="mcard"><div class="in"><div class="f" style="background:linear-gradient(150deg,#ffc46b,#ff8f3a)"><img src="${A('ic_gift')}"></div><div class="b"><img src="${A(p.art)}" style="width:80%"></div></div></div>`);
+        el.onclick = async () => {
+          if (el.classList.contains('flip')) return;
+          el.classList.add('flip'); stopAll();
+          if (p === target) { el.classList.add('done'); cheer(); await praise(); done(); } else {
+            await say(p.word); hmm(); await sleep(700); el.classList.remove('flip'); say(target.word);
+          }
+        };
+        grid.append(el);
+      });
+    });
+  },
+});
+
+/* 23) اضربي الخلد */
+game({
+  id: 'mole', title: 'اظهري يا صورة', desc: 'اضغطي على الصورة لما تطلع', shelf: 'move', color: 'c-green', art: 'pic_mouse', who: ['nour', 'fedaa'], rounds: 5,
+  intro: 'اضغطي على الصورة عندما تظهر',
+  round(ui) {
+    const P = shuffle(S.data.pics).slice(0, 4); const target = P[0];
+    return new Promise((done) => {
+      const row = $(`<div class="prompt-row"><button class="sound-btn pulse"><img src="${A('ic_sound')}"></button><div class="q">${S.child === 'fedaa' ? esc(target.word) : '👂'}</div></div>`);
+      row.querySelector('.sound-btn').onclick = () => { stopAll(); say(target.word); };
+      ui.stage.append(row); say(target.word);
+      const field = $('<div class="holes"></div>'); ui.stage.append(field);
+      const holes = [0, 1, 2, 3, 4, 5].map(() => { const h = $('<div class="hole"><div class="pop-up"></div></div>'); field.append(h); return h; });
+      let finished = false; let timer;
+      const show = () => {
+        if (finished || !ui.alive()) return;
+        holes.forEach((h) => { h.classList.remove('up'); h.querySelector('.pop-up').innerHTML = ''; });
+        const k = rnd(6); const p = Math.random() < 0.45 ? target : pick(P);
+        const h = holes[k]; h.querySelector('.pop-up').innerHTML = `<img src="${A(p.art)}">`; h.classList.add('up');
+        h.onclick = async () => {
+          if (finished || !h.classList.contains('up')) return;
+          if (p === target) { finished = true; clearTimeout(timer); cheer(); stopAll(); await praise(); done(); } else { hmm(); stopAll(); say(target.word); }
+        };
+        timer = setTimeout(show, S.child === 'nour' ? 2200 : 1500);
+      };
+      show(); ui.onLeave(() => { finished = true; clearTimeout(timer); });
+    });
+  },
+});
+
+/* 24) أكملي النمط */
+const PAT = [['#f44336', 'circle'], ['#2196f3', 'circle'], ['#ffd600', 'star'], ['#4caf50', 'tri']];
+const shapeSvg = ([c, k]) => `<svg viewBox="0 0 100 100" width="100%">${k === 'circle' ? `<circle cx="50" cy="50" r="40" fill="${c}"/>` : k === 'star' ? `<path d="M50 6 L62 38 L96 38 L68 58 L79 92 L50 72 L21 92 L32 58 L4 38 L38 38 Z" fill="${c}"/>` : `<path d="M50 8 L92 88 H8 Z" fill="${c}"/>`}</svg>`;
+game({
+  id: 'pattern', title: 'أكملي النمط', desc: 'أحمر، أزرق، أحمر… وبعده؟', shelf: 'letters', color: 'c-pink', art: 'pic_shapes', who: ['nour', 'fedaa'], rounds: 5,
+  intro: 'ما الذي يأتي بعد ذلك؟',
+  round(ui) {
+    const [a, b, c] = shuffle(PAT);
+    const seq = S.child === 'nour' ? [a, b, a, b, a] : pick([[a, b, a, b, a], [a, a, b, a, a], [a, b, c, a, b]]);
+    // اللي بعده = العنصر اللي قبل بطول التكرار (أصغر طول يتكرر به النمط).
+    let per = 1; while (per < seq.length && !seq.every((x, k) => k < per || x === seq[k - per])) per++;
+    const rightAns = seq[seq.length - per];
+    const opts = shuffle([rightAns, ...shuffle(PAT.filter((x) => x !== rightAns)).slice(0, 2)]);
+    return new Promise((done) => {
+      const row = $(`<div class="pattern">${seq.map((x) => `<div>${shapeSvg(x)}</div>`).join('')}<div class="q-mark">؟</div></div>`);
+      ui.stage.append(row);
+      const grid = $('<div class="nums"></div>'); ui.stage.append(grid);
+      let tries = 0; const btns = [];
+      opts.forEach((o) => {
+        const btn = $(`<button class="num" style="padding:12px">${shapeSvg(o)}</button>`);
+        btn.onclick = async () => {
+          if (btn.classList.contains('tried') || btn.classList.contains('right')) return;
+          if (o === rightAns) { btn.classList.add('right'); row.querySelector('.q-mark').innerHTML = shapeSvg(o); cheer(); stopAll(); await praise(); done(); } else {
+            btn.classList.add('tried'); tries++; hmm(); stopAll(); tryAgain();
+            if (tries >= 2) btns.forEach((x, k) => { if (opts[k] === rightAns) x.classList.add('hint'); });
+          }
+        };
+        btns.push(btn); grid.append(btn);
+      });
+    });
+  },
+});
+
+/* 25) الحرف الأول */
+game({
+  id: 'firstletter', title: 'الحرف الأول', desc: 'بأي حرف تبدأ الصورة؟', shelf: 'letters', color: 'c-teal', art: 'let_20', who: ['fedaa'], rounds: 6,
+  intro: 'بأي حرف تبدأ هذه الصورة؟',
+  round(ui) {
+    const L = S.data.letters; const right = pick(L); const opts = shuffle([right, ...shuffle(L.filter((x) => x !== right)).slice(0, 2)]);
+    return new Promise((done) => {
+      const row = $(`<div class="prompt-row"><button class="sound-btn pulse"><img src="${A('ic_sound')}"></button><img src="${A(right.art)}" style="width:110px"><div class="q">${esc(right.word)}</div></div>`);
+      row.querySelector('.sound-btn').onclick = () => { stopAll(); say(right.word); };
+      ui.stage.append(row); say(right.word);
+      const grid = $('<div class="nums"></div>'); ui.stage.append(grid);
+      let tries = 0; const btns = [];
+      opts.forEach((o) => {
+        const b = $(`<button class="num">${esc(o.letter)}</button>`);
+        b.onclick = async () => {
+          if (b.classList.contains('tried') || b.classList.contains('right')) return;
+          if (o === right) { b.classList.add('right'); cheer(); stopAll(); await praise(); done(); } else {
+            b.classList.add('tried'); tries++; hmm(); stopAll(); tryAgain();
+            if (tries >= 2) btns.forEach((x, k) => { if (opts[k] === right) x.classList.add('hint'); });
+          }
+        };
+        btns.push(b); grid.append(b);
+      });
+    });
+  },
+});
+
 /* ---------------- أدوات الجولات ---------------- */
 /** سؤال بأشكال مرسومة: تسمع الاسم وتضغط شكله. */
 function askShapes(ui, word, options) {

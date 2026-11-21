@@ -203,3 +203,20 @@ img { -webkit-user-drag: none; }
 @keyframes popit { to { transform: scale(1.6); opacity: 0; } }
 @keyframes fall { to { transform: translateY(110vh) rotate(720deg); } }
 @media (min-width: 700px) { .grid, .vgrid { grid-template-columns: repeat(3, 1fr); } }
+
+/* ---------- ألعاب الدفعة الثانية ---------- */
+.sea { background: linear-gradient(#7fd0f7, #2a8fd6); }
+.fish { position: absolute; display: flex; align-items: center; gap: 2px; background: #ffffffd9; border-radius: 30px; padding: 2px 10px 2px 2px; font-size: 21px; font-weight: 800; line-height: 1.6; }
+.fish img { width: 52px; }
+.track { position: relative; height: 110px; background: #fffffff0; border-radius: 26px; overflow: hidden; box-shadow: 0 4px 0 #0001; }
+.track::before { content: ''; position: absolute; left: 20px; right: 20px; top: 70px; border-top: 6px dashed #e8a957; }
+.track .cup { position: absolute; left: 10px; top: 14px; width: 74px; }
+.track .runner { position: absolute; top: 18px; width: 70px; transition: right .8s; right: 0; }
+.holes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; background: #8bc34a; border-radius: 26px; padding: 18px 12px; }
+.hole { position: relative; height: 104px; border-radius: 50% 50% 18px 18px; background: radial-gradient(ellipse at 50% 85%, #4e342e 40%, #6d4c41 41%, transparent 70%); overflow: hidden; }
+.hole .pop-up { position: absolute; left: 0; right: 0; bottom: -100%; transition: bottom .25s; display: grid; place-items: center; }
+.hole.up .pop-up { bottom: 8px; }
+.hole .pop-up img { width: 80px; }
+.pattern { display: flex; gap: 6px; background: #fff; border-radius: 24px; padding: 12px; justify-content: center; }
+.pattern > div { width: 15%; }
+.pattern .q-mark { font-family: Lalezar; font-size: 40px; color: #ff6f9c; display: grid; place-items: center; }
