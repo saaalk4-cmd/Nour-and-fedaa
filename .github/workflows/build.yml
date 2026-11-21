@@ -120,7 +120,7 @@ jobs:
       # حكايات فيديو من رسومات التطبيق بصوت التطبيق (tools/videos/stories.json): تُرفع أونلاين، لا داخل الـ APK.
       - name: Build story videos
         run: |
-          pip install -q edge-tts arabic-reshaper python-bidi || true
+          pip install -q pillow edge-tts arabic-reshaper python-bidi || true
           python3 tools/build_videos.py || echo "videos skipped"
 
       - run: flutter pub get
@@ -153,6 +153,20 @@ jobs:
             --title "حزم التنزيل" --notes "أصوات الدروس وتلاوة الأجزاء: يُنزّلها التطبيق مرة واحدة ويحفظها."
           ls build/packs/*.zip >/dev/null 2>&1 && gh release upload content-packs build/packs/*.zip --clobber
           gh release upload content-packs build/packs/manifest.json --clobber
+
+      # صفحة «العب مع لمعة» (games_web/): ألعاب وحكايات أونلاين على GitHub Pages (فرع gh-pages).
+      - name: Build web games site
+        if: github.event_name == 'push' && startsWith(github.ref, 'refs/heads/feature/')
+        run: python3 tools/build_web.py
+      - name: Publish web games site
+        if: github.event_name == 'push' && startsWith(github.ref, 'refs/heads/feature/')
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: build/site
+          force_orphan: true
+          commit_message: "صفحة العب مع لمعة"
 
       # الحكايات في release ثابت «videos» (التطبيق يقرأ manifest.json منه).
       - name: Publish story videos

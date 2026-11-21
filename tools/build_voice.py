@@ -335,6 +335,15 @@ def phrases():
         t = clean(r)
         if t and (ARABIC.search(t) or t.isdigit()) and not looks_religious(t):
             result[clip_key(t)] = t
+    # جمل صفحة «العب مع لمعة» (games_web/phrases.json): بلا آيات أبدًا.
+    try:
+        with open(os.path.join(ROOT, 'games_web', 'phrases.json'), encoding='utf-8') as fh:
+            for r in json.load(fh)['phrases']:
+                t = clean(r)
+                if t and (ARABIC.search(t) or t.isdigit()) and not looks_religious(t):
+                    result[clip_key(t)] = t
+    except Exception:  # noqa: BLE001
+        pass
     return dict(sorted(result.items(), key=lambda kv: kv[1]))
 
 
