@@ -14,7 +14,6 @@ import '../../features/parent/parent_dashboard_screen.dart';
 import '../../features/parent/parent_gate_screen.dart';
 import '../../features/parent/voice/voice_studio_screen.dart';
 import '../../features/parent/hifz_edit_screen.dart';
-import '../../features/world/world_map.dart';
 import '../../features/remote/remote_view_screen.dart';
 import '../../features/song/song_screen.dart';
 import '../../features/today/today_screen.dart';
@@ -70,7 +69,6 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(path: '/path', builder: (_, __) => const LearningPathScreen()),
       GoRoute(path: '/world', builder: (_, __) => const WorldScreen()),
       GoRoute(path: '/world/deen', builder: (_, __) => const DeenScreen()),
-      GoRoute(path: '/world/map', builder: (_, __) => const WorldMapScreen()),
       GoRoute(path: '/games', builder: (_, __) => const GamesHomeScreen()),
       GoRoute(path: '/games/:id', builder: (_, s) => GameLevelsScreen(gameId: s.pathParameters['id']!)),
       GoRoute(

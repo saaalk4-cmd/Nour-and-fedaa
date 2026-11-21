@@ -189,12 +189,6 @@ class _WorldScreenState extends ConsumerState<WorldScreen> {
                       art: const [Art.secQuran],
                       onTap: () => _go('ورد اليوم', '/section/quran'),
                     ),
-                  HomeBubble(
-                    label: 'الخريطة',
-                    color: const Color(0xFF4FAF8E),
-                    art: const [Art.signpost],
-                    onTap: () => _go('الخريطة', '/world/map'),
-                  ),
                   if (songButton)
                     HomeBubble(
                       label: 'أغنيتنا',

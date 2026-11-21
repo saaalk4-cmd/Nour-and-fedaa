@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/design/art.dart';
+import '../../core/design/emoji_art.dart';
 import '../../core/design/kit.dart';
 import '../../core/design/pop_tap.dart';
 import '../../core/theme/app_theme.dart';
@@ -126,33 +127,56 @@ class _LearningPathScreenState extends ConsumerState<LearningPathScreen> {
       return _frame(const Center(child: Text('مغامرات جديدة قادمة قريبًا إن شاء الله')), c: c);
     }
 
-    final items = <Widget>[
-      _WeekHeader(week: path.week!, little: little, finishedAll: path.finishedAll, name: c.name),
-    ];
-    var i = 0; // رقم العقدة لتوزيع اللون والانحناء
+    // الطريق المرسوم (زي خريطة «عالمي»): الدروس وهدية كل يوم محطات على طريق متعرّج، وفي آخره البوابة.
+    final stops = <_Stop>[];
+    var i = 0; // رقم العقدة لتوزيع اللون
     for (final d in path.days) {
-      items.add(_DayBanner(day: d, little: little));
+      stops.add(_Stop.banner(_DayBanner(day: d, little: little)));
       for (final n in d.nodes) {
-        items.add(_Connector(color: _palette[i % _palette.length]));
-        items.add(_NodeRow(
-          key: n.state == PathState.current ? _currentKey : null,
-          node: n,
-          slot: i,
-          little: little,
-          onTap: () => _onNode(n),
+        final slot = i++;
+        final current = n.state == PathState.current;
+        final circle = (little ? 116.0 : 96.0) + (current ? 14 : 0);
+        stops.add(_Stop(
+          height: little ? 215 : 190,
+          anchor: circle / 2,
+          decor: !current,
+          build: (side) => _TrailNode(
+            key: current ? _currentKey : null,
+            node: n,
+            slot: slot,
+            little: little,
+            side: side,
+            onTap: () => _onNode(n),
+          ),
         ));
-        i++;
       }
-      items.add(const _Connector(color: Color(0xFFFFB84D)));
-      items.add(_GiftNode(open: d.complete, little: little, onTap: () => _onGift(d, c.name)));
-      items.add(const SizedBox(height: 18));
+      final gift = little ? 104.0 : 88.0;
+      stops.add(_Stop(
+        height: gift + 50,
+        anchor: gift / 2,
+        build: (_) => _GiftNode(open: d.complete, little: little, onTap: () => _onGift(d, c.name)),
+      ));
     }
-    items.add(const SizedBox(height: 8));
-    items.add(path.finishedAll
-        ? _EndNode(art: Art.medal, onTap: () => _say('أحسنتِ يا ${c.name}! أنتِ مستكشفة صغيرة'))
-        : _EndNode(art: Art.gate, onTap: () => _say(kPathGateSay)));
+    stops.add(_Stop(
+      height: 250,
+      anchor: 110,
+      build: (_) => path.finishedAll
+          ? _EndNode(art: Art.medal, onTap: () => _say('أحسنتِ يا ${c.name}! أنتِ مستكشفة صغيرة'))
+          : _EndNode(art: Art.gate, onTap: () => _say(kPathGateSay)),
+    ));
     final bg = Art.weekBackgrounds[(path.week!.week - 1) % Art.weekBackgrounds.length];
-    return _frame(ListView(padding: const EdgeInsets.fromLTRB(16, 8, 16, 40), children: items), bg: bg, c: c);
+    return _frame(
+      SingleChildScrollView(
+        padding: const EdgeInsets.fromLTRB(16, 8, 16, 40),
+        child: Column(children: [
+          _WeekHeader(week: path.week!, little: little, finishedAll: path.finishedAll, name: c.name),
+          const SizedBox(height: 8),
+          _Trail(stops: stops),
+        ]),
+      ),
+      bg: bg,
+      c: c,
+    );
   }
 
   Future<void> _onNode(PathNode n) async {
@@ -257,28 +281,6 @@ class _DayBanner extends StatelessWidget {
   }
 }
 
-/// خط منقّط بين عقدتين.
-class _Connector extends StatelessWidget {
-  const _Connector({required this.color});
-
-  final Color color;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        for (var k = 0; k < 3; k++)
-          Container(
-            width: 8,
-            height: 8,
-            margin: const EdgeInsets.symmetric(vertical: 4),
-            decoration: BoxDecoration(shape: BoxShape.circle, color: color.withValues(alpha: 0.45)),
-          ),
-      ],
-    );
-  }
-}
-
 String _emojiFor(Lesson l) {
   switch (l.category) {
     case 'quran':
@@ -294,21 +296,150 @@ String _emojiFor(Lesson l) {
   }
 }
 
-class _NodeRow extends StatelessWidget {
-  const _NodeRow({
+/// محطة على الطريق: لافتة يوم (بعرض الشاشة)، أو عقدة في مكان متعرّج.
+class _Stop {
+  _Stop({required this.height, required this.anchor, required this.build, this.decor = false}) : banner = null;
+  _Stop.banner(Widget this.banner)
+      : height = 70,
+        anchor = 0,
+        build = null,
+        decor = false;
+
+  final Widget? banner;
+  final double height;
+
+  /// مركز العقدة من أعلى المحطة (يمر به الطريق).
+  final double anchor;
+
+  /// يبني العقدة؛ side = -1 يسار، 0 وسط، 1 يمين.
+  final Widget Function(int side)? build;
+
+  /// زينة (شجرة/ورد) على الجهة المقابلة.
+  final bool decor;
+}
+
+/// الطريق المتعرّج: مكان كل محطة بالدور (وسط، يسار، وسط، يمين) والطريق مرسوم بينها.
+class _Trail extends StatelessWidget {
+  const _Trail({required this.stops});
+
+  final List<_Stop> stops;
+
+  static const _xs = <double>[0.5, 0.26, 0.5, 0.74];
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(builder: (context, box) {
+      final w = box.maxWidth;
+      final children = <Widget>[];
+      final centers = <Offset>[];
+      final decor = <Widget>[];
+      var y = 0.0;
+      var k = 0;
+      for (final s in stops) {
+        final b = s.banner;
+        if (b != null) {
+          children.add(Positioned(left: 0, right: 0, top: y, height: s.height, child: Center(child: b)));
+          y += s.height;
+          continue;
+        }
+        final fx = _xs[k % _xs.length];
+        final side = fx < 0.5 ? -1 : (fx > 0.5 ? 1 : 0);
+        final x = w * fx;
+        centers.add(Offset(x, y + s.anchor));
+        children.add(Positioned(
+          left: x - 110,
+          width: 220,
+          top: y,
+          height: s.height,
+          child: Align(alignment: Alignment.topCenter, child: s.build!(side)),
+        ));
+        if (s.decor && side != 0) {
+          final dw = w * 0.22;
+          decor.add(Positioned(
+            left: side < 0 ? w * 0.74 : w * 0.04,
+            top: y + s.anchor - dw * 0.6,
+            width: dw,
+            height: dw,
+            child: IgnorePointer(child: ArtImage(Art.decor[k % Art.decor.length], fit: BoxFit.contain)),
+          ));
+        }
+        k++;
+        y += s.height;
+      }
+      return SizedBox(
+        width: w,
+        height: y,
+        child: Stack(clipBehavior: Clip.none, children: [
+          ...decor,
+          Positioned.fill(child: IgnorePointer(child: CustomPaint(painter: _RoadPainter(centers)))),
+          ...children,
+        ]),
+      );
+    });
+  }
+}
+
+/// طريق رملي بحافة بنية ونقط بيضاء، يمر بمراكز المحطات.
+class _RoadPainter extends CustomPainter {
+  _RoadPainter(this.points);
+
+  final List<Offset> points;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    if (points.length < 2) return;
+    final path = Path()..moveTo(points.first.dx, points.first.dy);
+    for (var i = 1; i < points.length; i++) {
+      final a = points[i - 1];
+      final b = points[i];
+      final midY = (a.dy + b.dy) / 2;
+      path.cubicTo(a.dx, midY, b.dx, midY, b.dx, b.dy);
+    }
+    canvas.drawPath(
+      path,
+      Paint()
+        ..color = const Color(0xFFC98E4B)
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 40
+        ..strokeCap = StrokeCap.round,
+    );
+    canvas.drawPath(
+      path,
+      Paint()
+        ..color = const Color(0xFFF6E2B3)
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 32
+        ..strokeCap = StrokeCap.round,
+    );
+    final dot = Paint()..color = Colors.white;
+    for (final m in path.computeMetrics()) {
+      for (var d = 0.0; d < m.length; d += 28) {
+        final tg = m.getTangentForOffset(d);
+        if (tg != null) canvas.drawCircle(tg.position, 4, dot);
+      }
+    }
+  }
+
+  @override
+  bool shouldRepaint(_RoadPainter old) => old.points != points;
+}
+
+/// درس على الطريق: دائرة بصورته وحالته (تم بنجمة، الحالي ينبض ولَمعة تشير له، المقفول بقفل) واسمه تحته.
+class _TrailNode extends StatelessWidget {
+  const _TrailNode({
     super.key,
     required this.node,
     required this.slot,
     required this.little,
+    required this.side,
     required this.onTap,
   });
 
   final PathNode node;
   final int slot;
   final bool little;
+  final int side;
   final VoidCallback onTap;
-
-  static const _curve = <double>[0, -0.45, 0, 0.45];
 
   @override
   Widget build(BuildContext context) {
@@ -333,7 +464,7 @@ class _NodeRow extends StatelessWidget {
       ),
       child: Opacity(
         opacity: state == PathState.locked ? 0.45 : 1,
-        child: Text(_emojiFor(node.lesson), style: TextStyle(fontSize: size * 0.46)),
+        child: EmojiPic(_emojiFor(node.lesson), size: size * 0.46),
       ),
     );
     if (state == PathState.current) circle = _Pulse(child: circle);
@@ -343,78 +474,50 @@ class _NodeRow extends StatelessWidget {
       PathState.locked => Art.lock,
       PathState.current => '',
     };
+    // لَمعة تشير للدرس الحالي من الجهة الفاضية.
+    final lamaaLeft = side >= 0;
 
-    final cx = _curve[slot % _curve.length];
-    final nodeWidget = Align(
-      alignment: Alignment(cx, 0),
-      child: Semantics(
-        button: true,
-        label: state == PathState.locked ? 'مغلقة' : node.lesson.title,
-        child: PopTap(
-          onTap: onTap,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Stack(
-                clipBehavior: Clip.none,
-                children: [
-                  circle,
-                  if (badge.isNotEmpty)
-                    PositionedDirectional(
-                      end: -4,
-                      top: -4,
-                      child: ArtImage(badge, width: 42),
-                    ),
-                  if (state == PathState.current)
-                    Positioned(
-                      left: cx > 0 ? -84 : null,
-                      right: cx > 0 ? null : -84,
-                      bottom: 0,
-                      // لَمعة تشير إلى العقدة من الجهة المقابلة.
-                      child: Transform.flip(
-                        flipX: cx <= 0,
-                        child: const ArtImage(Art.lamaaPoint, width: 78),
-                      ),
-                    ),
-                ],
-              ),
-              if (state != PathState.locked)
-                Padding(
-                  padding: const EdgeInsets.only(top: 6),
-                  child: SizedBox(
-                    width: 170,
-                    child: Text(
-                      node.lesson.title,
-                      textAlign: TextAlign.center,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: AppText.display(little ? 20 : 17),
-                    ),
+    return Semantics(
+      button: true,
+      label: state == PathState.locked ? 'مغلقة' : node.lesson.title,
+      child: PopTap(
+        onTap: onTap,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Stack(
+              clipBehavior: Clip.none,
+              children: [
+                circle,
+                if (badge.isNotEmpty) PositionedDirectional(end: -4, top: -4, child: ArtImage(badge, width: 42)),
+                if (state == PathState.current)
+                  Positioned(
+                    left: lamaaLeft ? -84 : null,
+                    right: lamaaLeft ? null : -84,
+                    bottom: 0,
+                    child: Transform.flip(flipX: !lamaaLeft, child: const ArtImage(Art.lamaaPoint, width: 78)),
                   ),
-                ),
-            ],
-          ),
-        ),
-      ),
-    );
-
-    // زينة على الجهة المقابلة للعقدة (غير العقدة الحالية: مكان لَمعة).
-    final decorName = Art.decor[slot % Art.decor.length];
-    final decorLeft = cx > 0 || (cx == 0 && slot.isEven);
-    return SizedBox(
-      width: double.infinity,
-      child: Stack(
-        clipBehavior: Clip.none,
-        children: [
-          if (state != PathState.current)
-            Positioned(
-              left: decorLeft ? 6 : null,
-              right: decorLeft ? null : 6,
-              bottom: 0,
-              child: IgnorePointer(child: ArtImage(decorName, height: little ? 92 : 80)),
+              ],
             ),
-          nodeWidget,
-        ],
+            if (state != PathState.locked)
+              Container(
+                margin: const EdgeInsets.only(top: 6),
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
+                constraints: const BoxConstraints(maxWidth: 200),
+                decoration: BoxDecoration(
+                  color: Colors.white.withValues(alpha: 0.85),
+                  borderRadius: BorderRadius.circular(14),
+                ),
+                child: Text(
+                  node.lesson.title,
+                  textAlign: TextAlign.center,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: AppText.display(little ? 19 : 16),
+                ),
+              ),
+          ],
+        ),
       ),
     );
   }
