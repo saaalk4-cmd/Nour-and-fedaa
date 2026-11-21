@@ -272,6 +272,49 @@ game({
   },
 });
 
+/* 6ب) صلي البداية بالنهاية */
+game({
+  id: 'match', title: 'صلي البداية بالنهاية', desc: 'اضغطي بداية الآية ثم نهايتها', shelf: 'quran', color: 'c-teal', art: 'pic_handshake', who: ['fedaa'], rounds: 3,
+  intro: 'صلي بداية الآية بنهايتها',
+  round(ui) {
+    const pairs = []; const seen = new Set();
+    for (let t = 0; t < 80 && pairs.length < 3; t++) {
+      const s = pick(pool(2)); const i = rnd(s.ayahs.length); const ws = words(s.ayahs[i]);
+      if (ws.length < 4 || ws.length > 10 || seen.has(`${s.n}:${i}`)) continue;
+      seen.add(`${s.n}:${i}`); const h = Math.ceil(ws.length / 2);
+      pairs.push({ s: s.n, a: i + 1, start: ws.slice(0, h).join(' '), end: ws.slice(h).join(' ') });
+    }
+    return new Promise((done) => {
+      const wrap = $('<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"></div>');
+      const colA = $('<div style="display:flex;flex-direction:column;gap:10px"></div>');
+      const colB = $('<div style="display:flex;flex-direction:column;gap:10px"></div>');
+      wrap.append(colA, colB); ui.stage.append(wrap);
+      let chosen = null; let left = pairs.length;
+      const colors = ['#ff6f9c', '#4fb3e8', '#ffb300'];
+      pairs.forEach((p, k) => {
+        const a = $(`<button class="opt" style="font-size:20px">${esc(p.start)} …</button>`); p.a1 = a;
+        a.onclick = () => {
+          if (p.done) return;
+          pairs.forEach((x) => { x.a1.style.borderColor = '#fff'; });
+          chosen = p; a.style.borderColor = colors[k]; stopAll(); recite(p.s, p.a);
+        };
+        colA.append(a);
+      });
+      shuffle(pairs).forEach((p) => {
+        const b = $(`<button class="opt" style="font-size:20px">… ${esc(p.end)}</button>`);
+        b.onclick = async () => {
+          if (p.done || !chosen) { if (!chosen) say('صلي بداية الآية بنهايتها'); return; }
+          if (chosen === p) {
+            p.done = true; left--; [p.a1, b].forEach((x) => x.classList.add('right')); chosen = null; cheer();
+            if (!left) { await praise(); done(); }
+          } else { hmm(); tryAgain(); }
+        };
+        colB.append(b);
+      });
+    });
+  },
+});
+
 /* 7) خمّني السورة */
 game({
   id: 'which', title: 'خمّني السورة', desc: 'اسمعي الشيخ واعرفي اسم السورة', shelf: 'quran', color: 'c-green', art: 'sec_quran', who: ['fedaa'], rounds: 5,
