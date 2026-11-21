@@ -426,7 +426,95 @@ game({
   },
 });
 
+/* 13) الألوان */
+const COLORS = [['الأحمر', '#f44336'], ['الأزرق', '#2196f3'], ['الأصفر', '#ffd600'], ['الأخضر', '#4caf50'], ['البرتقالي', '#ff9800'], ['البنفسجي', '#9c27b0'], ['الوردي', '#ff6f9c']];
+game({
+  id: 'colors', title: 'الألوان', desc: 'اسمعي اللون واضغطي على البالونة', shelf: 'letters', color: 'c-pink', art: 'pic_rainbow', who: ['nour', 'fedaa'], rounds: 6,
+  intro: 'اسمعي واضغطي على اللون',
+  round(ui) {
+    const right = pick(COLORS); const opts = shuffle([right, ...shuffle(COLORS.filter((c) => c !== right)).slice(0, S.child === 'nour' ? 2 : 3)]);
+    return askShapes(ui, right[0], opts.map((c) => ({
+      html: `<svg viewBox="0 0 100 120" width="70%"><ellipse cx="50" cy="48" rx="38" ry="44" fill="${c[1]}"/><ellipse cx="36" cy="30" rx="9" ry="13" fill="#fff8"/><path d="M50 92 l-6 8 h12z" fill="${c[1]}"/><path d="M50 100 q6 10 0 20" stroke="#999" stroke-width="2" fill="none"/></svg>`,
+      right: c === right,
+    })));
+  },
+});
+
+/* 14) الأشكال */
+const SHAPES = [
+  ['دائرة', '<circle cx="50" cy="50" r="40" fill="#2196f3"/>'],
+  ['مربع', '<rect x="12" y="12" width="76" height="76" rx="8" fill="#4caf50"/>'],
+  ['مثلث', '<path d="M50 8 L92 88 H8 Z" fill="#ff9800"/>'],
+  ['نجمة', '<path d="M50 6 L62 38 L96 38 L68 58 L79 92 L50 72 L21 92 L32 58 L4 38 L38 38 Z" fill="#ffd600"/>'],
+  ['قلب', '<path d="M50 88 C10 60 4 30 26 18 C40 10 50 22 50 30 C50 22 60 10 74 18 C96 30 90 60 50 88 Z" fill="#f44336"/>'],
+];
+game({
+  id: 'shapes', title: 'الأشكال', desc: 'دائرة، مربع، مثلث… أين هو؟', shelf: 'letters', color: 'c-sky', art: 'pic_shapes', who: ['nour', 'fedaa'], rounds: 6,
+  intro: 'اسمعي واضغطي على الشكل',
+  round(ui) {
+    const right = pick(SHAPES); const opts = shuffle([right, ...shuffle(SHAPES.filter((s) => s !== right)).slice(0, S.child === 'nour' ? 2 : 3)]);
+    return askShapes(ui, right[0], opts.map((s) => ({ html: `<svg viewBox="0 0 100 100" width="70%">${s[1]}</svg>`, right: s === right })));
+  },
+});
+
+/* 15) كبير وصغير */
+game({
+  id: 'size', title: 'كبير وصغير', desc: 'اضغطي على الأكبر أو الأصغر', shelf: 'letters', color: 'c-green', art: 'pic_lion', who: ['nour', 'fedaa'], rounds: 6,
+  intro: 'اسمعي، الأكبر أم الأصغر؟',
+  round(ui) {
+    const art = pick(S.data.pics).art; const big = Math.random() < 0.5; const ask = big ? 'اضغطي على الأكبر' : 'اضغطي على الأصغر';
+    const sizes = shuffle([95, 45]);
+    return askShapes(ui, ask, sizes.map((sz) => ({ html: `<img src="${A(art)}" style="width:${sz}%">`, right: big ? sz === 95 : sz === 45 })));
+  },
+});
+
+/* 16) بطاقات الصور */
+game({
+  id: 'pairs', title: 'بطاقات الصور', desc: 'اقلبي بطاقتين متشابهتين', shelf: 'memory', color: 'c-purple', art: 'pic_cards', who: ['nour', 'fedaa'], rounds: 2,
+  intro: 'اقلبي بطاقتين متشابهتين',
+  round(ui) {
+    const n = S.child === 'nour' ? 3 : 4; const arts = shuffle(S.data.pics).slice(0, n);
+    const cards = shuffle(arts.flatMap((p) => [p, p]));
+    return new Promise((done) => {
+      const grid = $(`<div class="memory" style="grid-template-columns:repeat(${n === 3 ? 3 : 4},1fr)"></div>`); ui.stage.append(grid);
+      let open = []; let matched = 0;
+      cards.forEach((p) => {
+        const el = $(`<div class="mcard"><div class="in"><div class="f"><img src="${A('star_on')}"></div><div class="b"><img src="${A(p.art)}" style="width:80%"></div></div></div>`);
+        el.onclick = async () => {
+          if (el.classList.contains('flip') || open.length === 2) return;
+          el.classList.add('flip'); open.push({ p, el }); stopAll(); say(p.word);
+          if (open.length < 2) return;
+          const [x, y] = open;
+          if (x.p === y.p) { x.el.classList.add('done'); y.el.classList.add('done'); open = []; matched++; cheer(); if (matched === n) { await sleep(700); await praise(); done(); } } else { await sleep(1000); x.el.classList.remove('flip'); y.el.classList.remove('flip'); open = []; }
+        };
+        grid.append(el);
+      });
+    });
+  },
+});
+
 /* ---------------- أدوات الجولات ---------------- */
+/** سؤال بأشكال مرسومة: تسمع الاسم وتضغط شكله. */
+function askShapes(ui, word, options) {
+  return new Promise((done) => {
+    const row = $(`<div class="prompt-row"><button class="sound-btn pulse"><img src="${A('ic_sound')}"></button><div class="q">${S.child === 'fedaa' ? esc(word) : '👂'}</div></div>`);
+    row.querySelector('.sound-btn').onclick = () => { stopAll(); say(word); };
+    ui.stage.append(row); say(word);
+    const grid = $(`<div class="pics" style="grid-template-columns:repeat(${options.length > 2 ? 2 : 2},1fr)"></div>`); ui.stage.append(grid);
+    let tries = 0; const btns = [];
+    options.forEach((op) => {
+      const b = $(`<button class="pic">${op.html}</button>`);
+      b.onclick = async () => {
+        if (b.classList.contains('tried') || b.classList.contains('right')) return;
+        if (op.right) { b.classList.add('right'); cheer(); stopAll(); await praise(); done(); } else {
+          b.classList.add('tried'); tries++; hmm(); stopAll(); await tryAgain(); say(word);
+          if (tries >= 2) btns.forEach((x, k) => { if (options[k].right) x.classList.add('hint'); });
+        }
+      };
+      btns.push(b); grid.append(b);
+    });
+  });
+}
 /** سؤال باختيارات نصية: صح → مديح، غيره → «جرّبي مرة ثانية» (بلا خصم)، وبعد محاولتين يلمع الصح. */
 function askChoice(ui, o) {
   return new Promise((done) => {
@@ -502,6 +590,7 @@ async function openGame(g) {
   }
   if (!alive) return;
   store.set(starsKey(), store.get(starsKey(), 0) + g.rounds);
+  reportStars(g.id, g.rounds);
   store.set(gameKey(g.id), Math.min(3, store.get(gameKey(g.id), 0) + 1));
   ui.stage.innerHTML = '';
   const box = $(`<div class="done-box"><img class="m" src="${A('lamaa_cheer')}"><h2>أحسنتِ يا ${esc(kid().name)}!</h2>
@@ -513,6 +602,20 @@ async function openGame(g) {
   box.querySelector('.home').onclick = close;
   await say(g.finishSay || 'أحسنتِ! جمعتِ كل النجوم');
 }
+
+/* ---------------- ربط النجوم بالتطبيق ---------------- */
+// جوه التطبيق: الصفحة تبعت نجوم كل لعبة (قناة NourApp)، والتطبيق يحفظها مع نجوم البنت ويرد بالمجموع.
+const inApp = () => typeof window.NourApp !== 'undefined';
+function reportStars(id, n) {
+  if (!inApp()) return;
+  try { window.NourApp.postMessage(JSON.stringify({ type: 'stars', game: id, stars: n })); } catch (_) { /* */ }
+}
+const shownStars = () => (S.appStars != null ? S.appStars : store.get(starsKey(), 0));
+window.appStars = (total) => {
+  S.appStars = total;
+  const el = document.querySelector('.stars-chip span');
+  if (el) { el.textContent = total.toLocaleString('ar-EG'); el.parentElement.animate([{ transform: 'scale(1.3)' }, { transform: 'none' }], 500); }
+};
 
 /* ---------------- الحكايات ---------------- */
 function openVideo(v) {
@@ -527,7 +630,7 @@ function openVideo(v) {
 function render() {
   const app = document.getElementById('app');
   const k = kid();
-  const stars = store.get(starsKey(), 0);
+  const stars = shownStars();
   app.innerHTML = '';
   const hero = $(`<header class="hero">
     <div class="topbar">
@@ -545,7 +648,8 @@ function render() {
       <button class="tab ${S.tab === 'games' ? 'on' : ''}" data-t="games"><img src="${A('pic_gamepad')}">الألعاب</button>
       <button class="tab ${S.tab === 'videos' ? 'on' : ''}" data-t="videos"><img src="${A('ic_play')}">الحكايات</button>
     </div></header>`);
-  hero.querySelector('.kid-btn').onclick = () => chooseKid(true);
+  // جوه التطبيق البنت محددة من التطبيق (والنجوم بتتحسب لها).
+  hero.querySelector('.kid-btn').onclick = () => { if (!inApp()) chooseKid(true); };
   hero.querySelectorAll('.tab').forEach((t) => { t.onclick = () => { S.tab = t.dataset.t; render(); say(S.tab === 'games' ? 'اختاري لعبة' : 'حكايات نور وفداء'); }; });
   app.append(hero);
   if (S.tab === 'games') renderGames(app); else renderVideos(app);
@@ -631,7 +735,9 @@ async function boot() {
   if (!quran) { document.getElementById('app').innerHTML = `<div class="empty"><img src="${A('lamaa_think')}">لا يوجد إنترنت الآن</div>`; return; }
   S.data = { ...quran, letters: phrases.letters, pics: phrases.pics };
   S.voice = voice; S.videos = vids.videos || [];
-  const q = new URLSearchParams(location.search).get('child');
+  const params = new URLSearchParams(location.search);
+  const q = params.get('child');
+  if (params.get('stars') && /^\d+$/.test(params.get('stars'))) S.appStars = Number(params.get('stars'));
   S.child = KIDS[q] ? q : store.get('child', null);
   if (KIDS[q]) store.set('child', q);
   if (!S.child) { S.child = 'fedaa'; render(); chooseKid(true); return; }

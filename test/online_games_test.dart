@@ -14,6 +14,15 @@ void main() {
     expect(kOnlineGamesUrl, startsWith('https://'));
   });
 
+  test('stars from the page are read safely and capped', () {
+    expect(parseWebStars('{"type":"stars","game":"order","stars":4}'), ('web_order', 4));
+    expect(parseWebStars('{"type":"stars","game":"order","stars":99}'), ('web_order', 12));
+    expect(parseWebStars('{"type":"stars","game":"../x","stars":4}'), isNull);
+    expect(parseWebStars('{"type":"other"}'), isNull);
+    expect(parseWebStars('not json'), isNull);
+    expect(onlineGamesUri(const Child(id: 1, name: 'فداء', age: 5), stars: 30).queryParameters['stars'], '30');
+  });
+
   final phrases = (jsonDecode(File('games_web/phrases.json').readAsStringSync()) as Map<String, dynamic>);
   final list = (phrases['phrases'] as List<dynamic>).cast<String>().toSet();
 
@@ -24,6 +33,11 @@ void main() {
       for (final m in RegExp(r"'([^'$]*[؀-ۿ][^'$]*)'").allMatches(
           RegExp(r'pick\(\[([^\]]*)\]\)').allMatches(js).map((m) => m.group(1)!).join(' '))) m.group(1)!,
     };
+    // أسماء الألوان والأشكال وسؤال الكبير/الصغير بتتقال بالصوت.
+    literals.addAll([
+      for (final m in RegExp(r"\['([^'\]]+)', '[#<]").allMatches(js)) m.group(1)!,
+      for (final m in RegExp(r"\? '([^']+)' : '([^']+)'").allMatches(js)) ...[m.group(1)!, m.group(2)!],
+    ].where((s) => RegExp('[؀-ۿ]').hasMatch(s)));
     for (final s in literals) {
       expect(list, contains(s), reason: 'add to games_web/phrases.json: $s');
     }
