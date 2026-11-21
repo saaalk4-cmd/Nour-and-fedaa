@@ -1,0 +1,95 @@
+{
+ "schema": 1,
+ "videos": [
+  {
+   "id": "akhlaq_sidq",
+   "title": "نور وفداء والصدق",
+   "section": "akhlaq",
+   "seconds": 53,
+   "file": "akhlaq_sidq.mp4",
+   "cover": "akhlaq_sidq.jpg",
+   "voiced": true,
+   "size": 4808177
+  },
+  {
+   "id": "akhlaq_sharing",
+   "title": "البسكويت اللذيذ",
+   "section": "akhlaq",
+   "seconds": 42,
+   "file": "akhlaq_sharing.mp4",
+   "cover": "akhlaq_sharing.jpg",
+   "voiced": true,
+   "size": 3864204
+  },
+  {
+   "id": "akhlaq_help_mom",
+   "title": "نساعد ماما",
+   "section": "akhlaq",
+   "seconds": 38,
+   "file": "akhlaq_help_mom.mp4",
+   "cover": "akhlaq_help_mom.jpg",
+   "voiced": true,
+   "size": 3453529
+  },
+  {
+   "id": "akhlaq_clean",
+   "title": "نظيفة وجميلة",
+   "section": "akhlaq",
+   "seconds": 34,
+   "file": "akhlaq_clean.mp4",
+   "cover": "akhlaq_clean.jpg",
+   "voiced": true,
+   "size": 3132078
+  },
+  {
+   "id": "akhlaq_animals",
+   "title": "العصفور العطشان",
+   "section": "akhlaq",
+   "seconds": 33,
+   "file": "akhlaq_animals.mp4",
+   "cover": "akhlaq_animals.jpg",
+   "voiced": true,
+   "size": 2724347
+  },
+  {
+   "id": "prophet_nuh",
+   "title": "نوح والسفينة",
+   "section": "prophets",
+   "seconds": 51,
+   "file": "prophet_nuh.mp4",
+   "cover": "prophet_nuh.jpg",
+   "voiced": true,
+   "size": 3763354
+  },
+  {
+   "id": "prophet_ibrahim",
+   "title": "إبراهيم والنار",
+   "section": "prophets",
+   "seconds": 52,
+   "file": "prophet_ibrahim.mp4",
+   "cover": "prophet_ibrahim.jpg",
+   "voiced": true,
+   "size": 3252024
+  },
+  {
+   "id": "prophet_yunus",
+   "title": "يونس والحوت",
+   "section": "prophets",
+   "seconds": 46,
+   "file": "prophet_yunus.mp4",
+   "cover": "prophet_yunus.jpg",
+   "voiced": true,
+   "size": 3299566
+  },
+  {
+   "id": "prophet_sulayman",
+   "title": "سليمان والنملة",
+   "section": "prophets",
+   "seconds": 47,
+   "file": "prophet_sulayman.mp4",
+   "cover": "prophet_sulayman.jpg",
+   "voiced": true,
+   "size": 3100302
+  }
+ ]
+}
