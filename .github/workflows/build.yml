@@ -117,6 +117,12 @@ jobs:
       - name: Build content packs
         run: python3 tools/build_packs.py
 
+      # حكايات فيديو من رسومات التطبيق بصوت التطبيق (tools/videos/stories.json): تُرفع أونلاين، لا داخل الـ APK.
+      - name: Build story videos
+        run: |
+          pip install -q edge-tts arabic-reshaper python-bidi || true
+          python3 tools/build_videos.py || echo "videos skipped"
+
       - run: flutter pub get
       - name: Apply app icon
         run: dart run flutter_launcher_icons -f flutter_launcher_icons.yaml
@@ -147,6 +153,18 @@ jobs:
             --title "حزم التنزيل" --notes "أصوات الدروس وتلاوة الأجزاء: يُنزّلها التطبيق مرة واحدة ويحفظها."
           ls build/packs/*.zip >/dev/null 2>&1 && gh release upload content-packs build/packs/*.zip --clobber
           gh release upload content-packs build/packs/manifest.json --clobber
+
+      # الحكايات في release ثابت «videos» (التطبيق يقرأ manifest.json منه).
+      - name: Publish story videos
+        if: github.event_name == 'push' && startsWith(github.ref, 'refs/heads/feature/')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ls build/videos/*.mp4 >/dev/null 2>&1 || exit 0
+          gh release view videos >/dev/null 2>&1 || gh release create videos --prerelease \
+            --title "حكايات نور وفداء" --notes "فيديوهات الحكايات: يشغّلها التطبيق أونلاين."
+          gh release upload videos build/videos/*.mp4 build/videos/*.jpg --clobber
+          gh release upload videos build/videos/manifest.json --clobber
 
       # رابط مباشر لتحميل الـ APK وتثبيته من المتصفح (بدون تسجيل دخول ولا فك ضغط).
       # يُحدَّث عند كل push على فرع الميزة: /releases/download/latest-apk/nour-fedaa.apk
