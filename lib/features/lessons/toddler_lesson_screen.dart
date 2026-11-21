@@ -13,6 +13,7 @@ import '../../core/audio/sound_service.dart';
 import '../../core/audio/voice_service.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/mascot.dart';
+import '../../data/content/emoji_words.dart';
 import '../../data/content/lesson.dart';
 import '../../data/models/child.dart';
 import '../../data/models/lesson_completion.dart';
@@ -189,8 +190,11 @@ class _ToddlerLessonPlayerState extends ConsumerState<ToddlerLessonPlayer> {
     }
   }
 
-  /// يزيل الإيموجي من نص الخيار ليُنطق الكلام فقط.
-  static String _wordOf(String option) => VoiceService.clean(option);
+  /// ما يُقال للخيار: الكلام نفسه، أو اسم الصورة لو كان صورة فقط (🐘 «فيل»).
+  static String _wordOf(String option) {
+    final c = VoiceService.clean(option);
+    return c.isNotEmpty ? c : (emojiWord(option) ?? '');
+  }
 
   @override
   Widget build(BuildContext context) {

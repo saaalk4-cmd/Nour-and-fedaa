@@ -13,6 +13,7 @@ import '../../core/design/kit.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/mascot.dart';
 import '../../data/content/ayah_index.dart';
+import '../../data/content/emoji_words.dart';
 import '../../data/content/lesson.dart';
 import '../../data/content/line_voice.dart';
 import '../../data/models/child.dart';
@@ -246,6 +247,11 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
 
   /// اختيار واحد: آية → «الاختيار الأول» ثم الشيخ؛ نص حديث → صوت الأهل؛ كلام تعليمي → يُقال.
   Future<void> _readOption(String o, int gen, {int index = 0}) async {
+    // صورة فقط: اسمها (🐘 «فيل»)، أو «الاختيار الأول» للصور المكررة (العدّ مهارة السؤال).
+    if (VoiceService.clean(o).isEmpty) {
+      await _voice.sayAndWait(emojiWord(o) ?? 'الاختيار ${_ordinals[index % _ordinals.length]}');
+      return;
+    }
     final c = classifyLine(_lesson, o, _ayat, surah: _surah);
     switch (c.kind) {
       case LineKind.recite:
@@ -264,6 +270,10 @@ class _LessonPlayerState extends ConsumerState<_LessonPlayer> {
 
   /// زر 🔊 بجانب الاختيار: الآية بصوت الشيخ، والحديث بصوت الأهل، والكلام بالصوت.
   VoidCallback? _hearOption(String o) {
+    if (VoiceService.clean(o).isEmpty) {
+      final w = emojiWord(o);
+      return w == null ? null : () => _voice.speak(w);
+    }
     final c = classifyLine(_lesson, o, _ayat, surah: _surah);
     switch (c.kind) {
       case LineKind.recite:

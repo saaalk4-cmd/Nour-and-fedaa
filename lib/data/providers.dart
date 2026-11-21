@@ -135,10 +135,6 @@ final packModeProvider = FutureProvider<String>(
   (ref) => ref.watch(settingsRepositoryProvider).packMode(),
 );
 
-final homeMapProvider = FutureProvider<bool>(
-  (ref) => ref.watch(settingsRepositoryProvider).homeMap(),
-);
-
 final songButtonProvider = FutureProvider<bool>(
   (ref) => ref.watch(settingsRepositoryProvider).songButton(),
 );

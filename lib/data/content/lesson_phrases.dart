@@ -1,6 +1,7 @@
 import '../../core/audio/voice_service.dart' show VoiceService;
 import '../../features/lessons/kid_section_screen.dart' show spokenTitle;
 import 'ayah_index.dart';
+import 'emoji_words.dart';
 import 'lesson.dart';
 import 'line_voice.dart';
 
@@ -16,7 +17,8 @@ Set<String> lessonPhrases(List<Lesson> lessons, AyahIndex ayat) {
   void add(String? t) {
     if (t == null) return;
     final c = VoiceService.clean(t);
-    if (c.isNotEmpty && RegExp('[؀-ۿ]').hasMatch(c)) out.add(c);
+    // عربي أو أرقام (إجابات الحساب «4» و«12» تُقال أيضًا).
+    if (c.isNotEmpty && RegExp('[؀-ۿ0-9]').hasMatch(c)) out.add(c);
   }
 
   bool speak(Lesson l, String line) =>
@@ -48,7 +50,12 @@ Set<String> lessonPhrases(List<Lesson> lessons, AyahIndex ayat) {
         }
         final opts = q.isMatch ? [...q.matchLeft, ...q.matchRight] : q.options;
         for (final o in opts) {
-          if (speak(l, o)) add(o);
+          final w = emojiWord(o);
+          if (w != null) {
+            add(w);
+          } else if (speak(l, o)) {
+            add(o);
+          }
         }
         add(l.spokenText(q.hint, step: true));
         if (q.praise != null) add(l.spokenText(q.praise!, step: true));
@@ -64,7 +71,12 @@ Set<String> lessonPhrases(List<Lesson> lessons, AyahIndex ayat) {
       for (final q in l.toddlerQuestions()) {
         add(q.say ?? q.prompt);
         for (final o in q.options) {
-          if (speak(l, o)) add(o);
+          final w = emojiWord(o);
+          if (w != null) {
+            add(w);
+          } else if (speak(l, o)) {
+            add(o);
+          }
         }
       }
     }

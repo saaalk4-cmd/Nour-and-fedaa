@@ -333,7 +333,7 @@ def phrases():
     # كل جمل الدروس كما يصنّفها التطبيق نفسه.
     for r in lesson_file_phrases():
         t = clean(r)
-        if t and ARABIC.search(t) and not looks_religious(t):
+        if t and (ARABIC.search(t) or t.isdigit()) and not looks_religious(t):
             result[clip_key(t)] = t
     return dict(sorted(result.items(), key=lambda kv: kv[1]))
 
@@ -466,6 +466,25 @@ def edge_speak(text, path):
     return False
 
 
+_ONES = ['صفر', 'واحد', 'اثنان', 'ثلاثة', 'أربعة', 'خمسة', 'ستة', 'سبعة', 'ثمانية', 'تسعة', 'عشرة',
+         'أحد عشر', 'اثنا عشر', 'ثلاثة عشر', 'أربعة عشر', 'خمسة عشر', 'ستة عشر', 'سبعة عشر', 'ثمانية عشر', 'تسعة عشر']
+_TENS = {20: 'عشرون', 30: 'ثلاثون', 40: 'أربعون', 50: 'خمسون', 60: 'ستون', 70: 'سبعون', 80: 'ثمانون', 90: 'تسعون'}
+
+
+def number_words(n):
+    """0–100 بالكلمات (إجابات الحساب «4» تُسجَّل «أربعة» بصوت واضح، والمفتاح يبقى مفتاح «4»)."""
+    if n < 20:
+        return _ONES[n]
+    if n == 100:
+        return 'مئة'
+    t, o = n - n % 10, n % 10
+    return _TENS[t] if o == 0 else '%s و%s' % (_ONES[o], _TENS[t])
+
+
+def spoken(t):
+    return number_words(int(t)) if t.isdigit() and int(t) <= 100 else t
+
+
 def generate(items):
     """يولّد المقاطع الناقصة. يرجع (مفاتيح الجاهز، المصادر، ملخص)."""
     os.makedirs(OUT, exist_ok=True)
@@ -520,7 +539,7 @@ def generate(items):
                 summary['skipped'] += 1
                 continue
             tmp = path + '.part'
-            if eleven.speak(t, tmp):
+            if eleven.speak(spoken(t), tmp):
                 os.replace(tmp, path)
                 budget -= len(t)
                 src[k] = 'eleven'
@@ -541,7 +560,7 @@ def generate(items):
         if have and src.get(k) == 'edge':
             ready.append(k)
             continue
-        if FALLBACK == 'edge' and edge_speak(t, path):
+        if FALLBACK == 'edge' and edge_speak(spoken(t), path):
             src[k] = 'edge'
             ready.append(k)
             summary['edge'] += 1

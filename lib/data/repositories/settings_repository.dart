@@ -163,11 +163,6 @@ class SettingsRepository {
 
   Future<void> setSongButton(bool v) => _set('song_button', v ? '1' : '0');
 
-  /// «عالمي» في الرئيسية كخريطة مرسومة (بدل المربعات). مقفول افتراضيًا.
-  Future<bool> homeMap() async => (await _get('home_map')) == '1';
-
-  Future<void> setHomeMap(bool v) => _set('home_map', v ? '1' : '0');
-
   /// تشغيل الأغنية احتفالًا بعد إنهاء مغامرة اليوم.
   Future<bool> songAfterAdventure() async => (await _get('song_after_adventure')) != '0';
 

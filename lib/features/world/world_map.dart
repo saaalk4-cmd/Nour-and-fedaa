@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../core/design/art.dart';
 import '../../core/design/kit.dart';
 import '../../core/design/pop_tap.dart';
+import '../../data/providers.dart';
+import '../home/sections.dart';
+import '../lessons/kid_section_screen.dart' show spokenTitle;
 
 /// محطة على الخريطة: قسم بصورته واسمه.
 class MapStop {
@@ -146,3 +151,45 @@ class _TrailPainter extends CustomPainter {
   bool shouldRepaint(_TrailPainter old) => old.count != count;
 }
 
+
+/// شاشة «الخريطة»: تفتحها البنت من دايرة «الخريطة» في الرئيسية (فداء ونور).
+/// نفس أقسام «عالمي» الظاهرة، كمحطات على طريق. المربعات تفضل في الرئيسية.
+class WorldMapScreen extends ConsumerStatefulWidget {
+  const WorldMapScreen({super.key});
+
+  @override
+  ConsumerState<WorldMapScreen> createState() => _WorldMapScreenState();
+}
+
+class _WorldMapScreenState extends ConsumerState<WorldMapScreen> {
+  bool _busy = false;
+
+  Future<void> _open(AppSection s) async {
+    if (_busy) return;
+    _busy = true;
+    try {
+      await ref.read(voiceServiceProvider).sayAndWait(spokenTitle(s.title));
+      if (mounted) await context.push('/section/${s.id}');
+    } finally {
+      _busy = false;
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final states = ref.watch(sectionStatesProvider).valueOrNull ?? const <String, bool>{};
+    final sections = [for (final s in appSections) if (states[s.id] ?? true) s];
+    return KidScaffold(
+      title: 'الخريطة',
+      background: Art.bgSky,
+      onBack: () => context.canPop() ? context.pop() : context.go('/world'),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.fromLTRB(16, 4, 16, 28),
+        child: WorldMap(stops: [
+          for (final s in sections)
+            MapStop(art: s.art, title: spokenTitle(s.title), color: SectionLook.of(s.id).color, onTap: () => _open(s)),
+        ]),
+      ),
+    );
+  }
+}
