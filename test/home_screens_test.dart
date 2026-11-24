@@ -5,7 +5,9 @@ import 'package:buraq/features/home/kids_home.dart';
 import 'package:buraq/features/home/teen_home.dart';
 import 'package:buraq/features/home/toddler_home.dart';
 import 'package:buraq/features/home/tween_home.dart';
+import 'package:buraq/data/providers.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 Child _childBornYearsAgo(int years) => Child(
@@ -16,19 +18,36 @@ Child _childBornYearsAgo(int years) => Child(
       birthMonth: 1,
     );
 
-Future<void> _show(WidgetTester t, Widget home) async {
+Future<void> _show(WidgetTester t, Widget home,
+    {List<String> dueIds = const []}) async {
   t.view.physicalSize = const Size(1080, 2200);
   t.view.devicePixelRatio = 2.5;
   addTearDown(t.view.reset);
-  await t.pumpWidget(MaterialApp(
-    theme: AppTheme.light(),
-    locale: const Locale('ar'),
-    home: Directionality(textDirection: TextDirection.rtl, child: home),
+  await t.pumpWidget(ProviderScope(
+    overrides: [
+      dueReviewProvider.overrideWith((_) async => dueIds),
+    ],
+    child: MaterialApp(
+      theme: AppTheme.light(),
+      locale: const Locale('ar'),
+      home: Directionality(textDirection: TextDirection.rtl, child: home),
+    ),
   ));
   await t.pump();
 }
 
 void main() {
+  testWidgets('toddler review button shows only when something is due',
+      (t) async {
+    await _show(t, homeForBand(_childBornYearsAgo(3), const {}));
+    expect(find.byKey(const Key('review_button')), findsNothing);
+    await t.pumpWidget(const SizedBox());
+    await _show(t, homeForBand(_childBornYearsAgo(3), const {}),
+        dueIds: const ['t_adab_food']);
+    await t.pumpAndSettle();
+    expect(find.byKey(const Key('review_button')), findsOneWidget);
+  });
+
   testWidgets('age 3 gets the toddler home', (t) async {
     await _show(t, homeForBand(_childBornYearsAgo(3), const {}));
     expect(find.byType(ToddlerHome), findsOneWidget);

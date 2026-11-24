@@ -10,6 +10,7 @@ import 'repositories/child_repository.dart';
 import 'repositories/lesson_repository.dart';
 import 'repositories/placement_repository.dart';
 import 'repositories/progress_repository.dart';
+import 'repositories/review_repository.dart';
 import 'repositories/settings_repository.dart';
 import 'repositories/usage_repository.dart';
 
@@ -76,3 +77,12 @@ final sectionLessonsProvider =
     FutureProvider.autoDispose.family<List<Lesson>, ({String section, AgeBand band})>(
   (ref, k) => ref.watch(lessonRepositoryProvider).bySection(k.section, k.band),
 );
+
+final reviewRepositoryProvider = Provider((_) => ReviewRepository());
+
+/// الدروس المستحقة للمراجعة اليوم للطفل المختار.
+final dueReviewProvider = FutureProvider.autoDispose<List<String>>((ref) async {
+  final id = ref.watch(selectedChildIdProvider);
+  if (id == null) return const [];
+  return ref.watch(reviewRepositoryProvider).due(id);
+});

@@ -62,8 +62,10 @@ final routerProvider = Provider<GoRouter>((ref) {
       ),
       GoRoute(
         path: '/lesson/:id',
-        builder: (_, state) =>
-            LessonScreen(lessonId: state.pathParameters['id']!),
+        builder: (_, state) => LessonScreen(
+          lessonId: state.pathParameters['id']!,
+          review: state.uri.queryParameters['review'] == '1',
+        ),
       ),
       GoRoute(path: '/parent', builder: (_, __) => const ParentGateScreen()),
       GoRoute(

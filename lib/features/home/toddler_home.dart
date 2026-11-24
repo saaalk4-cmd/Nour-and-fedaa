@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/brand_mark.dart';
 import '../../data/models/child.dart';
+import '../../data/providers.dart';
 import '../../domain/arabic_digits.dart';
 import 'home_shared.dart';
 import 'sections.dart';
@@ -70,6 +72,7 @@ class ToddlerHome extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 10),
+              const _ReviewButton(),
               _Garden(stars: child.stars),
             ],
           ),
@@ -113,6 +116,36 @@ class _Garden extends StatelessWidget {
                   fontSize: 20,
                   fontWeight: FontWeight.w800)),
         ],
+      ),
+    );
+  }
+}
+
+/// زر «نراجع؟» يظهر فقط حين يوجد درس مستحق للمراجعة.
+class _ReviewButton extends ConsumerWidget {
+  const _ReviewButton();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final due = ref.watch(dueReviewProvider).valueOrNull ?? const [];
+    if (due.isEmpty) return const SizedBox.shrink();
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10),
+      child: SizedBox(
+        width: double.infinity,
+        height: 64,
+        child: FilledButton.icon(
+          key: const Key('review_button'),
+          style: FilledButton.styleFrom(
+            backgroundColor: AppColors.gold,
+            foregroundColor: AppColors.navy,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(22)),
+          ),
+          onPressed: () => context.push('/lesson/${due.first}?review=1'),
+          icon: const Text('🔁', style: TextStyle(fontSize: 26)),
+          label: const Text('نراجع؟',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.w800)),
+        ),
       ),
     );
   }

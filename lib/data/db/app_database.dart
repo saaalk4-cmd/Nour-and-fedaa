@@ -22,7 +22,7 @@ class AppDatabase {
     final dir = await getDatabasesPath();
     return openDatabase(
       p.join(dir, 'buraq.db'),
-      version: 3,
+      version: 4,
       onCreate: _onCreate,
       onUpgrade: _onUpgrade,
     );
@@ -49,6 +49,7 @@ class AppDatabase {
       )
     ''');
     await _createPlacement(db);
+    await _createReview(db);
     await db.execute('''
       CREATE TABLE settings(
         key TEXT PRIMARY KEY,
@@ -72,6 +73,18 @@ class AppDatabase {
         track TEXT NOT NULL,
         level INTEGER NOT NULL,
         PRIMARY KEY(child_id, track)
+      )
+    ''');
+  }
+
+  Future<void> _createReview(Database db) async {
+    await db.execute('''
+      CREATE TABLE review(
+        child_id INTEGER NOT NULL,
+        lesson_id TEXT NOT NULL,
+        box INTEGER NOT NULL DEFAULT 0,
+        due_day TEXT NOT NULL,
+        PRIMARY KEY(child_id, lesson_id)
       )
     ''');
   }
@@ -100,6 +113,9 @@ class AppDatabase {
     }
     if (oldVersion < 3) {
       await _createPlacement(db);
+    }
+    if (oldVersion < 4) {
+      await _createReview(db);
     }
   }
 }

@@ -11,9 +11,12 @@ import '../../domain/lesson.dart';
 
 /// شاشة الدرس: استماع ← ترديد ← مكافأة. بلا قراءة، أزرار كبيرة.
 class LessonScreen extends ConsumerWidget {
-  const LessonScreen({super.key, required this.lessonId});
+  const LessonScreen({super.key, required this.lessonId, this.review = false});
 
   final String lessonId;
+
+  /// مراجعة لدرس سبق إتمامه: لا نجوم جديدة، ويُجدول موعد المراجعة التالي.
+  final bool review;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -31,16 +34,17 @@ class LessonScreen extends ConsumerWidget {
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (_, __) =>
             const Center(child: Text('تعذّر تحميل الدرس، حاول لاحقًا')),
-        data: (l) => _LessonRunner(lesson: l),
+        data: (l) => _LessonRunner(lesson: l, review: review),
       ),
     );
   }
 }
 
 class _LessonRunner extends ConsumerStatefulWidget {
-  const _LessonRunner({required this.lesson});
+  const _LessonRunner({required this.lesson, required this.review});
 
   final Lesson lesson;
+  final bool review;
 
   @override
   ConsumerState<_LessonRunner> createState() => _LessonRunnerState();
@@ -69,6 +73,13 @@ class _LessonRunnerState extends ConsumerState<_LessonRunner> {
     _saved = true;
     final childId = ref.read(selectedChildIdProvider);
     if (childId == null) return;
+    if (widget.review) {
+      await ref
+          .read(reviewRepositoryProvider)
+          .recordReview(childId, widget.lesson.id, remembered: true);
+      ref.invalidate(dueReviewProvider);
+      return;
+    }
     final added = await ref.read(progressRepositoryProvider).complete(
           childId: childId,
           lessonId: widget.lesson.id,
@@ -76,6 +87,7 @@ class _LessonRunnerState extends ConsumerState<_LessonRunner> {
         );
     final fresh = await ref.read(badgeRepositoryProvider).evaluate(childId);
     ref.invalidate(selectedChildProvider);
+    ref.invalidate(dueReviewProvider);
     if (mounted) {
       setState(() {
         _earned = added;

@@ -1,6 +1,7 @@
 import 'package:sqflite/sqflite.dart';
 
 import '../db/app_database.dart';
+import 'review_repository.dart';
 
 class ProgressRepository {
   Future<bool> isDone(int childId, String lessonId) async {
@@ -44,6 +45,8 @@ class ProgressRepository {
         'UPDATE children SET stars = stars + ? WHERE id = ?',
         [stars, childId],
       );
+      await ReviewRepository.scheduleInTxn(
+          txn, childId, lessonId, now ?? DateTime.now());
       return stars;
     });
   }

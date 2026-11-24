@@ -60,7 +60,7 @@ class ChildRepository {
   Future<void> delete(int id) async {
     final db = await AppDatabase.instance.database;
     await db.transaction((txn) async {
-      for (final t in ['progress', 'badges', 'usage_log', 'placement']) {
+      for (final t in ['progress', 'badges', 'usage_log', 'placement', 'review']) {
         await txn.delete(t, where: 'child_id = ?', whereArgs: [id]);
       }
       await txn.delete('children', where: 'id = ?', whereArgs: [id]);
