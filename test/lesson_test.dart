@@ -135,6 +135,8 @@ void main() {
     ));
     await tester.pumpAndSettle();
 
+    // البراعم: لا عنوان مكتوب للطفل
+    expect(find.text('درس'), findsNothing);
     expect(find.byKey(const Key('next_button')), findsNothing);
     await tester.tap(find.byKey(const Key('listen_button')));
     await tester.pumpAndSettle();

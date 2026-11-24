@@ -26,7 +26,9 @@ class LessonScreen extends ConsumerWidget {
       appBar: AppBar(
         backgroundColor: AppColors.cream,
         title: lesson.maybeWhen(
-          data: (l) => Text(l.subtitle == null ? l.title : '${l.title} – ${l.subtitle}'),
+          data: (l) => l.textFreeForChild
+              ? const SizedBox.shrink()
+              : Text(l.subtitle == null ? l.title : '${l.title} – ${l.subtitle}'),
           orElse: () => const SizedBox.shrink(),
         ),
       ),
@@ -112,7 +114,7 @@ class _LessonRunnerState extends ConsumerState<_LessonRunner> {
     switch (_step.type) {
       case StepType.listen:
         return _page(
-          emoji: '🎧',
+          emoji: widget.lesson.icon ?? '🎧',
           button: _bigButton(
             key: const Key('listen_button'),
             icon: _playing ? Icons.graphic_eq : Icons.play_arrow_rounded,
@@ -123,7 +125,7 @@ class _LessonRunnerState extends ConsumerState<_LessonRunner> {
       case StepType.repeat:
         final times = _step.times;
         return _page(
-          emoji: '🗣️',
+          emoji: widget.lesson.icon ?? '🗣️',
           progress: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

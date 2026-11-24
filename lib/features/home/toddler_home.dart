@@ -134,7 +134,7 @@ class _ReviewButton extends ConsumerWidget {
       child: SizedBox(
         width: double.infinity,
         height: 64,
-        child: FilledButton.icon(
+        child: FilledButton(
           key: const Key('review_button'),
           style: FilledButton.styleFrom(
             backgroundColor: AppColors.gold,
@@ -142,9 +142,12 @@ class _ReviewButton extends ConsumerWidget {
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(22)),
           ),
           onPressed: () => context.push('/lesson/${due.first}?review=1'),
-          icon: const Text('🔁', style: TextStyle(fontSize: 26)),
-          label: const Text('نراجع؟',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.w800)),
+          child: Semantics(
+            label: 'نراجع',
+            child: ExcludeSemantics(
+              child: Text('🔁', style: TextStyle(fontSize: 32)),
+            ),
+          ),
         ),
       ),
     );

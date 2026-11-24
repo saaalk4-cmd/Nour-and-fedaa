@@ -38,6 +38,7 @@ class Lesson {
     required this.steps,
     this.subtitle,
     this.section,
+    this.icon,
     this.sourceNote,
     this.contentVerified = false,
   });
@@ -48,6 +49,12 @@ class Lesson {
 
   /// القسم/البلاطة التي يظهر فيها الدرس (مثل t_adab).
   final String? section;
+
+  /// أيقونة الدرس (إيموجي) تُعرض للبراعم بدل العنوان المكتوب.
+  final String? icon;
+
+  /// البراعم لا يقرؤون: لا نعرض لهم عنوانًا مكتوبًا (العنوان للأهل).
+  bool get textFreeForChild => band == AgeBand.buraem;
   final AgeBand band;
 
   /// quran | sahih_sunnah | seerah | scholars | educational
@@ -85,6 +92,7 @@ class Lesson {
       title: j['title'] as String,
       subtitle: j['subtitle'] as String?,
       section: j['section'] as String?,
+      icon: j['icon'] as String?,
       band: band,
       sourceType: source,
       sourceNote: j['source_note'] as String?,
