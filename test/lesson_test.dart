@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:buraq/data/lesson_audio.dart';
 import 'package:buraq/data/providers.dart';
 import 'package:buraq/domain/lesson.dart';
@@ -85,7 +86,8 @@ void main() {
     });
 
     setUp(() async {
-      await databaseFactory.setDatabasesPath(inMemoryDatabasePath);
+      await databaseFactory
+        .setDatabasesPath(Directory.systemTemp.createTempSync('buraq_test').path);
       await AppDatabase.instance.close();
     });
 

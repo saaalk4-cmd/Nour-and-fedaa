@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:convert';
 
 import 'package:buraq/data/db/app_database.dart';
@@ -92,7 +93,8 @@ void main() {
       databaseFactory = databaseFactoryFfi;
     });
     setUp(() async {
-      await databaseFactory.setDatabasesPath(inMemoryDatabasePath);
+      await databaseFactory
+          .setDatabasesPath(Directory.systemTemp.createTempSync('buraq_test').path);
       await AppDatabase.instance.close();
     });
 

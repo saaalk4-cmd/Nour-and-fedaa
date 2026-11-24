@@ -9,6 +9,7 @@ import 'repositories/lesson_repository.dart';
 import 'repositories/placement_repository.dart';
 import 'repositories/progress_repository.dart';
 import 'repositories/settings_repository.dart';
+import 'repositories/usage_repository.dart';
 
 final childRepositoryProvider = Provider((_) => ChildRepository());
 final settingsRepositoryProvider = Provider((_) => SettingsRepository());
@@ -47,3 +48,22 @@ final sectionStatesProvider = FutureProvider<Map<String, bool>>(
 
 /// بيانات الطفل أثناء رحلة التسجيل.
 final childDraftProvider = StateProvider<ChildDraft>((_) => const ChildDraft());
+
+final usageRepositoryProvider = Provider((_) => UsageRepository());
+
+final dailyLimitProvider = FutureProvider<int>(
+  (ref) => ref.watch(settingsRepositoryProvider).dailyLimitMinutes(),
+);
+
+/// ثواني استخدام الطفل المختار اليوم (يحدّثها UsageTracker).
+final todaySecondsProvider = StateProvider<int>((_) => 0);
+
+/// يوقف عدّ الوقت (مثلًا أثناء وجود ولي الأمر في لوحته).
+final usagePausedProvider = StateProvider<bool>((_) => false);
+
+/// هل بلغ الطفل المختار حده اليومي؟
+final limitReachedProvider = Provider<bool>((ref) {
+  final limit = ref.watch(dailyLimitProvider).valueOrNull ?? 0;
+  if (limit <= 0) return false;
+  return ref.watch(todaySecondsProvider) >= limit * 60;
+});

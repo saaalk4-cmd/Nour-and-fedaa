@@ -6,6 +6,7 @@ import '../../data/models/child.dart';
 import '../../data/providers.dart';
 import '../../domain/age_band.dart';
 import 'kids_home.dart';
+import 'time_up_screen.dart';
 import 'teen_home.dart';
 import 'toddler_home.dart';
 import 'tween_home.dart';
@@ -31,6 +32,7 @@ class HomeScreen extends ConsumerWidget {
           });
           return const Scaffold(body: SizedBox.shrink());
         }
+        if (ref.watch(limitReachedProvider)) return const TimeUpScreen();
         return homeForBand(c, states);
       },
     );

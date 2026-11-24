@@ -83,4 +83,18 @@ class SettingsRepository {
     }
     return result;
   }
+
+  // ---------- حد الاستخدام اليومي ----------
+
+  static const defaultDailyLimitMinutes = 30;
+  static const dailyLimitChoices = [15, 30, 45, 60, 0]; // 0 = بلا حد
+
+  /// الحد اليومي بالدقائق (٠ = بلا حد).
+  Future<int> dailyLimitMinutes() async {
+    final v = int.tryParse(await _get('daily_limit_min') ?? '');
+    return v ?? defaultDailyLimitMinutes;
+  }
+
+  Future<void> setDailyLimitMinutes(int minutes) =>
+      _set('daily_limit_min', minutes.toString());
 }

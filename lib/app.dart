@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'core/router/app_router.dart';
 import 'core/theme/app_theme.dart';
+import 'core/widgets/usage_tracker.dart';
 
 class BuraqApp extends ConsumerWidget {
   const BuraqApp({super.key});
@@ -21,6 +22,7 @@ class BuraqApp extends ConsumerWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
+      builder: (context, child) => UsageTracker(child: child ?? const SizedBox()),
       routerConfig: ref.watch(routerProvider),
     );
   }

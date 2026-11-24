@@ -55,4 +55,15 @@ class ChildRepository {
     );
     return (rows.first['s'] as int?) ?? 0;
   }
+
+  /// يحذف الطفل وكل بياناته المرتبطة.
+  Future<void> delete(int id) async {
+    final db = await AppDatabase.instance.database;
+    await db.transaction((txn) async {
+      for (final t in ['progress', 'badges', 'usage_log', 'placement']) {
+        await txn.delete(t, where: 'child_id = ?', whereArgs: [id]);
+      }
+      await txn.delete('children', where: 'id = ?', whereArgs: [id]);
+    });
+  }
 }

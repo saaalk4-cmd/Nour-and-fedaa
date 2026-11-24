@@ -1,39 +1,82 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../data/models/child.dart';
 import '../../data/providers.dart';
+import '../../data/repositories/settings_repository.dart';
+import '../../domain/age_band.dart';
+import '../../domain/arabic_digits.dart';
 import '../home/sections.dart';
 
 class _ChildStats {
-  const _ChildStats(this.lessons, this.minutes);
+  const _ChildStats(this.lessons, this.totalMinutes, this.todayMinutes, this.levels);
   final int lessons;
-  final int minutes;
+  final int totalMinutes;
+  final int todayMinutes;
+  final Map<String, int> levels;
 }
 
 final _childStatsProvider =
-    FutureProvider.family<_ChildStats, int>((ref, childId) async {
+    FutureProvider.autoDispose.family<_ChildStats, int>((ref, childId) async {
   final repo = ref.watch(childRepositoryProvider);
   final lessons = await repo.completedLessons(childId);
   final seconds = await repo.totalSecondsUsed(childId);
-  return _ChildStats(lessons, seconds ~/ 60);
+  final today =
+      await ref.watch(usageRepositoryProvider).secondsOn(childId, DateTime.now());
+  final levels = await ref.watch(placementRepositoryProvider).levels(childId);
+  return _ChildStats(lessons, seconds ~/ 60, today ~/ 60, levels);
 });
 
-class ParentDashboardScreen extends ConsumerWidget {
+const _trackNames = {
+  'quran': 'قرآني',
+  'salah': 'صلاتي',
+  'maa_la_yasa': 'ما لا يسع الطفل جهله',
+  'arabic': 'عربيتي',
+};
+
+String limitLabel(int m) => m == 0 ? 'بلا حد' : '${toArabicDigits(m)} دقيقة';
+
+class ParentDashboardScreen extends ConsumerStatefulWidget {
   const ParentDashboardScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<ParentDashboardScreen> createState() =>
+      _ParentDashboardScreenState();
+}
+
+class _ParentDashboardScreenState extends ConsumerState<ParentDashboardScreen> {
+  late final StateController<bool> _paused;
+
+  @override
+  void initState() {
+    super.initState();
+    // وقت ولي الأمر في لوحته لا يُحسب من وقت الطفل.
+    _paused = ref.read(usagePausedProvider.notifier);
+    Future.microtask(() => _paused.state = true);
+  }
+
+  @override
+  void dispose() {
+    _paused.state = false;
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final children = ref.watch(childrenProvider);
     final states =
         ref.watch(sectionStatesProvider).valueOrNull ?? const <String, bool>{};
+    final limit = ref.watch(dailyLimitProvider).valueOrNull ??
+        SettingsRepository.defaultDailyLimitMinutes;
+    final titleStyle = Theme.of(context).textTheme.titleLarge;
 
     return Scaffold(
       appBar: AppBar(title: const Text('لوحة ولي الأمر')),
       body: ListView(
         padding: const EdgeInsets.all(20),
         children: [
-          Text('تقدّم الأطفال', style: Theme.of(context).textTheme.titleLarge),
+          Text('الأطفال', style: titleStyle),
           const SizedBox(height: 12),
           children.when(
             loading: () => const Center(child: CircularProgressIndicator()),
@@ -42,9 +85,37 @@ class ParentDashboardScreen extends ConsumerWidget {
               children: [for (final c in list) _ChildCard(child: c)],
             ),
           ),
+          OutlinedButton.icon(
+            key: const Key('add_child'),
+            onPressed: () => context.push('/onboarding/child'),
+            icon: const Icon(Icons.add),
+            label: const Text('إضافة طفل'),
+          ),
           const SizedBox(height: 24),
-          Text('الأقسام الظاهرة للأطفال',
-              style: Theme.of(context).textTheme.titleLarge),
+          Text('الحد اليومي للاستخدام', style: titleStyle),
+          const SizedBox(height: 4),
+          const Text(
+              'الموصى به للصغار نصف ساعة أو أقل، والأفضل المشاركة مع الطفل'),
+          const SizedBox(height: 8),
+          Wrap(
+            spacing: 8,
+            children: [
+              for (final m in SettingsRepository.dailyLimitChoices)
+                ChoiceChip(
+                  key: Key('limit_$m'),
+                  label: Text(limitLabel(m)),
+                  selected: limit == m,
+                  onSelected: (_) async {
+                    await ref
+                        .read(settingsRepositoryProvider)
+                        .setDailyLimitMinutes(m);
+                    ref.invalidate(dailyLimitProvider);
+                  },
+                ),
+            ],
+          ),
+          const SizedBox(height: 24),
+          Text('الأقسام الظاهرة للأطفال', style: titleStyle),
           const SizedBox(height: 8),
           for (final s in appSections)
             SwitchListTile(
@@ -68,9 +139,42 @@ class _ChildCard extends ConsumerWidget {
 
   final Child child;
 
+  Future<void> _changeBand(BuildContext context, WidgetRef ref, AgeBand? b) async {
+    await ref.read(childRepositoryProvider).setBand(child.id, b);
+    ref.invalidate(childrenProvider);
+    ref.invalidate(selectedChildProvider);
+  }
+
+  Future<void> _delete(BuildContext context, WidgetRef ref) async {
+    final ok = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text('حذف ${child.nickname}؟'),
+        content: const Text('سيُحذف ملف الطفل وتقدّمه نهائيًا.'),
+        actions: [
+          TextButton(
+              onPressed: () => Navigator.pop(ctx, false),
+              child: const Text('تراجع')),
+          TextButton(
+              key: const Key('confirm_delete'),
+              onPressed: () => Navigator.pop(ctx, true),
+              child: const Text('حذف')),
+        ],
+      ),
+    );
+    if (ok != true) return;
+    await ref.read(childRepositoryProvider).delete(child.id);
+    if (ref.read(selectedChildIdProvider) == child.id) {
+      ref.read(selectedChildIdProvider.notifier).state = null;
+    }
+    ref.invalidate(childrenProvider);
+    ref.invalidate(selectedChildProvider);
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final stats = ref.watch(_childStatsProvider(child.id));
+    final auto = bandForAge(child.ageYears());
     return Card(
       margin: const EdgeInsets.only(bottom: 12),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
@@ -79,18 +183,64 @@ class _ChildCard extends ConsumerWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-                '${child.avatarEmoji} ${child.nickname} — ${child.band().label}',
-                style: Theme.of(context).textTheme.titleLarge),
+            Row(
+              children: [
+                Expanded(
+                  child: Text('${child.avatarEmoji} ${child.nickname}',
+                      style: Theme.of(context).textTheme.titleLarge),
+                ),
+                IconButton(
+                  key: Key('delete_${child.id}'),
+                  tooltip: 'حذف',
+                  onPressed: () => _delete(context, ref),
+                  icon: const Icon(Icons.delete_outline),
+                ),
+              ],
+            ),
+            Text('العمر ${toArabicDigits(child.ageYears())} سنة   •   '
+                'المستوى ${toArabicDigits(child.level)}   •   '
+                '⭐ ${toArabicDigits(child.stars)}'),
             const SizedBox(height: 8),
-            Text('المستوى ${child.level}   •   ⭐ ${child.stars}   •   '
-                'النقاط ${child.points}   •   العمر ${child.ageYears()} سنة'),
-            const SizedBox(height: 4),
             stats.when(
               loading: () => const Text('...'),
               error: (_, __) => const Text('—'),
-              data: (s) => Text(
-                  'دروس مكتملة: ${s.lessons}   •   مدة الاستخدام: ${s.minutes} دقيقة'),
+              data: (s) => Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('دروس مكتملة: ${toArabicDigits(s.lessons)}   •   '
+                      'اليوم: ${toArabicDigits(s.todayMinutes)} د   •   '
+                      'الإجمالي: ${toArabicDigits(s.totalMinutes)} د'),
+                  if (s.levels.isNotEmpty) ...[
+                    const SizedBox(height: 6),
+                    Text(
+                      'مستوى البداية: ${[
+                        for (final e in s.levels.entries)
+                          '${_trackNames[e.key] ?? e.key} ${toArabicDigits(e.value)}'
+                      ].join(' • ')}',
+                    ),
+                  ],
+                ],
+              ),
+            ),
+            const SizedBox(height: 10),
+            const Text('الفئة'),
+            Wrap(
+              spacing: 8,
+              children: [
+                ChoiceChip(
+                  key: Key('band_auto_${child.id}'),
+                  label: Text('تلقائي (${auto.label})'),
+                  selected: child.bandOverride == null,
+                  onSelected: (_) => _changeBand(context, ref, null),
+                ),
+                for (final b in AgeBand.values)
+                  ChoiceChip(
+                    key: Key('band_${b.name}_${child.id}'),
+                    label: Text(b.label),
+                    selected: child.bandOverride == b,
+                    onSelected: (_) => _changeBand(context, ref, b),
+                  ),
+              ],
             ),
           ],
         ),
