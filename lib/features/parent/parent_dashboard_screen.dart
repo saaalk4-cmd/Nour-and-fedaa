@@ -11,12 +11,13 @@ import '../../domain/badges.dart';
 import '../home/sections.dart';
 
 class _ChildStats {
-  const _ChildStats(this.lessons, this.totalMinutes, this.todayMinutes, this.levels, this.badges);
+  const _ChildStats(this.lessons, this.totalMinutes, this.todayMinutes, this.levels, this.badges, this.dueReviews);
   final int lessons;
   final int totalMinutes;
   final int todayMinutes;
   final Map<String, int> levels;
   final List<String> badges;
+  final int dueReviews;
 }
 
 final _childStatsProvider =
@@ -28,7 +29,8 @@ final _childStatsProvider =
       await ref.watch(usageRepositoryProvider).secondsOn(childId, DateTime.now());
   final levels = await ref.watch(placementRepositoryProvider).levels(childId);
   final badges = await ref.watch(badgeRepositoryProvider).earned(childId);
-  return _ChildStats(lessons, seconds ~/ 60, today ~/ 60, levels, badges);
+  final due = (await ref.watch(reviewRepositoryProvider).due(childId)).length;
+  return _ChildStats(lessons, seconds ~/ 60, today ~/ 60, levels, badges, due);
 });
 
 const _trackNames = {
@@ -223,6 +225,10 @@ class _ChildCard extends ConsumerWidget {
                   Text('دروس مكتملة: ${toArabicDigits(s.lessons)}   •   '
                       'اليوم: ${toArabicDigits(s.todayMinutes)} د   •   '
                       'الإجمالي: ${toArabicDigits(s.totalMinutes)} د'),
+                  if (s.dueReviews > 0) ...[
+                    const SizedBox(height: 6),
+                    Text('مراجعات مستحقة اليوم: ${toArabicDigits(s.dueReviews)}'),
+                  ],
                   if (s.badges.isNotEmpty) ...[
                     const SizedBox(height: 6),
                     Text('الشارات: ${[
