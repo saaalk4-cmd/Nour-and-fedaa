@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../data/providers.dart';
 import '../../data/repositories/content_catalog.dart';
 import '../../domain/age_band.dart';
 
