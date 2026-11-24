@@ -10,14 +10,14 @@ class SectionScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final s = sectionById(sectionId);
+    final s = findSection(sectionId);
     return Scaffold(
-      appBar: AppBar(title: Text(s.title)),
+      appBar: AppBar(title: Text(s?.title ?? 'براق')),
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(s.emoji, style: const TextStyle(fontSize: 80)),
+            Text(s?.emoji ?? '🌙', style: const TextStyle(fontSize: 80)),
             const SizedBox(height: 16),
             Text('قريبًا إن شاء الله',
                 style: Theme.of(context).textTheme.titleLarge),

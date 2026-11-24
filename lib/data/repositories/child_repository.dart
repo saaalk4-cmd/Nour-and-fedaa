@@ -1,10 +1,11 @@
 import '../db/app_database.dart';
 import '../models/child.dart';
+import '../../domain/age_band.dart';
 
 class ChildRepository {
   Future<List<Child>> all() async {
     final db = await AppDatabase.instance.database;
-    final rows = await db.query('children', orderBy: 'age DESC');
+    final rows = await db.query('children', orderBy: 'birth_year ASC, id ASC');
     return rows.map(Child.fromMap).toList();
   }
 
@@ -12,6 +13,29 @@ class ChildRepository {
     final db = await AppDatabase.instance.database;
     final rows = await db.query('children', where: 'id = ?', whereArgs: [id]);
     return rows.isEmpty ? null : Child.fromMap(rows.first);
+  }
+
+  /// يحفظ طفلًا جديدًا ويعيد معرّفه.
+  Future<int> add(ChildDraft draft, {AgeBand? bandOverride}) async {
+    assert(draft.isComplete);
+    final db = await AppDatabase.instance.database;
+    return db.insert('children', {
+      'nickname': draft.nickname.trim(),
+      'avatar': draft.avatar,
+      'birth_year': draft.birthYear,
+      'birth_month': draft.birthMonth,
+      'band_override': bandOverride?.name,
+    });
+  }
+
+  Future<void> setBand(int id, AgeBand? band) async {
+    final db = await AppDatabase.instance.database;
+    await db.update(
+      'children',
+      {'band_override': band?.name},
+      where: 'id = ?',
+      whereArgs: [id],
+    );
   }
 
   Future<int> completedLessons(int childId) async {

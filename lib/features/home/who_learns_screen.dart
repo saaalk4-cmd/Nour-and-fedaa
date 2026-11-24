@@ -18,8 +18,7 @@ class WhoLearnsScreen extends ConsumerWidget {
           child: Column(
             children: [
               const SizedBox(height: 16),
-              Text('براق',
-                  style: Theme.of(context).textTheme.headlineMedium),
+              Text('براق', style: Theme.of(context).textTheme.headlineMedium),
               const SizedBox(height: 8),
               Text('من سيتعلم اليوم؟',
                   style: Theme.of(context).textTheme.titleLarge),
@@ -34,8 +33,9 @@ class WhoLearnsScreen extends ConsumerWidget {
                     children: [
                       for (final c in list) ...[
                         _ChildButton(
-                          label: '👧 ${c.name} — ${c.age} سنوات',
-                          color: c.age >= 5 ? AppColors.rose : AppColors.teal,
+                          label:
+                              '${c.avatarEmoji} ${c.nickname} — ${c.band().label}',
+                          color: AppColors.navy,
                           onTap: () {
                             ref.read(selectedChildIdProvider.notifier).state =
                                 c.id;

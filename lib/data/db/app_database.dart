@@ -16,21 +16,14 @@ class AppDatabase {
     final dir = await getDatabasesPath();
     return openDatabase(
       p.join(dir, 'buraq.db'),
-      version: 1,
+      version: 2,
       onCreate: _onCreate,
+      onUpgrade: _onUpgrade,
     );
   }
 
   Future<void> _onCreate(Database db, int version) async {
-    await db.execute('''
-      CREATE TABLE children(
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT NOT NULL,
-        age INTEGER NOT NULL,
-        stars INTEGER NOT NULL DEFAULT 0,
-        points INTEGER NOT NULL DEFAULT 0
-      )
-    ''');
+    await _createChildren(db);
     await db.execute('''
       CREATE TABLE progress(
         child_id INTEGER NOT NULL,
@@ -63,9 +56,29 @@ class AppDatabase {
         PRIMARY KEY(child_id, day)
       )
     ''');
+  }
 
-    // ملفا الطفلتين
-    await db.insert('children', {'name': 'فداء', 'age': 5});
-    await db.insert('children', {'name': 'نور', 'age': 3});
+  Future<void> _createChildren(Database db) async {
+    await db.execute('''
+      CREATE TABLE children(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        nickname TEXT NOT NULL,
+        avatar TEXT NOT NULL DEFAULT 'star',
+        birth_year INTEGER NOT NULL,
+        birth_month INTEGER NOT NULL,
+        band_override TEXT,
+        stars INTEGER NOT NULL DEFAULT 0,
+        points INTEGER NOT NULL DEFAULT 0
+      )
+    ''');
+  }
+
+  /// v2: ملفات الأطفال بلقب وشهر/سنة ميلاد (بدل الاسم والعمر).
+  /// التطبيق لم يُنشر بعد، فنعيد إنشاء الجدول بلا ترحيل.
+  Future<void> _onUpgrade(Database db, int oldVersion, int newVersion) async {
+    if (oldVersion < 2) {
+      await db.execute('DROP TABLE IF EXISTS children');
+      await _createChildren(db);
+    }
   }
 }

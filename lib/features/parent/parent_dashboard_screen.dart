@@ -25,16 +25,15 @@ class ParentDashboardScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final children = ref.watch(childrenProvider);
-    final states = ref.watch(sectionStatesProvider).valueOrNull ??
-        const <String, bool>{};
+    final states =
+        ref.watch(sectionStatesProvider).valueOrNull ?? const <String, bool>{};
 
     return Scaffold(
       appBar: AppBar(title: const Text('لوحة ولي الأمر')),
       body: ListView(
         padding: const EdgeInsets.all(20),
         children: [
-          Text('تقدم الطفلتين',
-              style: Theme.of(context).textTheme.titleLarge),
+          Text('تقدّم الأطفال', style: Theme.of(context).textTheme.titleLarge),
           const SizedBox(height: 12),
           children.when(
             loading: () => const Center(child: CircularProgressIndicator()),
@@ -44,7 +43,7 @@ class ParentDashboardScreen extends ConsumerWidget {
             ),
           ),
           const SizedBox(height: 24),
-          Text('الأقسام الظاهرة للطفلتين',
+          Text('الأقسام الظاهرة للأطفال',
               style: Theme.of(context).textTheme.titleLarge),
           const SizedBox(height: 8),
           for (final s in appSections)
@@ -80,11 +79,12 @@ class _ChildCard extends ConsumerWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('👧 ${child.name} — ${child.age} سنوات',
+            Text(
+                '${child.avatarEmoji} ${child.nickname} — ${child.band().label}',
                 style: Theme.of(context).textTheme.titleLarge),
             const SizedBox(height: 8),
             Text('المستوى ${child.level}   •   ⭐ ${child.stars}   •   '
-                'النقاط ${child.points}'),
+                'النقاط ${child.points}   •   العمر ${child.ageYears()} سنة'),
             const SizedBox(height: 4),
             stats.when(
               loading: () => const Text('...'),

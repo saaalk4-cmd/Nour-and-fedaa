@@ -10,28 +10,27 @@ import '../db/app_database.dart';
 class SectionIds {
   static const quran = 'quran';
   static const prayer = 'prayer';
+  static const aqeedah = 'aqeedah';
+  static const arabic = 'arabic';
   static const adhkar = 'adhkar';
   static const akhlaq = 'akhlaq';
-  static const seerah = 'seerah';
-  static const figures = 'figures';
-  static const prophets = 'prophets';
-  static const learn = 'learn';
-  static const achievements = 'achievements';
 
-  static const all = [
-    quran,
-    prayer,
-    adhkar,
-    akhlaq,
-    seerah,
-    figures,
-    prophets,
-    learn,
-    achievements,
-  ];
+  static const all = [quran, prayer, aqeedah, arabic, adhkar, akhlaq];
+
+  /// أقسام تُبنى في مراحل لاحقة.
+  static const comingSoon = {adhkar, akhlaq};
 }
 
 class SettingsRepository {
+  Future<String?> read(String key) => _get(key);
+
+  Future<void> write(String key, String value) => _set(key, value);
+
+  Future<void> remove(String key) async {
+    final db = await AppDatabase.instance.database;
+    await db.delete('settings', where: 'key = ?', whereArgs: [key]);
+  }
+
   Future<String?> _get(String key) async {
     final db = await AppDatabase.instance.database;
     final rows = await db.query('settings', where: 'key = ?', whereArgs: [key]);
