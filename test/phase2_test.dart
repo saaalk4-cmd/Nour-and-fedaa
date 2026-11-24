@@ -25,7 +25,13 @@ void main() {
   test('adab lessons exist for toddlers with verified-source notes', () async {
     final repo = LessonRepository();
     final list = await repo.bySection('t_adab', AgeBand.buraem);
-    expect(list.map((l) => l.id), ['t_adab_food', 't_adab_sleep']);
+    expect(list.map((l) => l.id), [
+      't_adab_after_meal',
+      't_adab_food',
+      't_adab_greet',
+      't_adab_sleep',
+      't_adab_sneeze',
+    ]);
     for (final l in list) {
       expect(l.sourceType, 'sahih_sunnah');
       expect(l.sourceNote, contains('صحيح البخاري'));
