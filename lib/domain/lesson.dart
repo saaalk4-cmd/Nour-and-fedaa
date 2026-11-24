@@ -37,6 +37,7 @@ class Lesson {
     required this.sourceType,
     required this.steps,
     this.subtitle,
+    this.section,
     this.sourceNote,
     this.contentVerified = false,
   });
@@ -44,6 +45,9 @@ class Lesson {
   final String id;
   final String title;
   final String? subtitle;
+
+  /// القسم/البلاطة التي يظهر فيها الدرس (مثل t_adab).
+  final String? section;
   final AgeBand band;
 
   /// quran | sahih_sunnah | seerah | scholars | educational
@@ -80,6 +84,7 @@ class Lesson {
       id: j['id'] as String,
       title: j['title'] as String,
       subtitle: j['subtitle'] as String?,
+      section: j['section'] as String?,
       band: band,
       sourceType: source,
       sourceNote: j['source_note'] as String?,

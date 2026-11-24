@@ -62,11 +62,7 @@ class ToddlerHome extends StatelessWidget {
                             soon: t.soon,
                             emojiSize: t.emoji.length > 2 ? 34 : 52,
                             titleSize: 22,
-                            onTap: () => context.push(
-                              t.id == 't_listen'
-                                  ? '/lesson/t_listen_fatiha'
-                                  : '/section/${t.id}',
-                            ),
+                            onTap: () => context.push('/section/${t.id}'),
                           ),
                       ],
                     );

@@ -6,6 +6,7 @@ import '../../core/theme/app_theme.dart';
 import '../../data/lesson_audio.dart';
 import '../../data/providers.dart';
 import '../../domain/arabic_digits.dart';
+import '../../domain/badges.dart';
 import '../../domain/lesson.dart';
 
 /// شاشة الدرس: استماع ← ترديد ← مكافأة. بلا قراءة، أزرار كبيرة.
@@ -51,6 +52,7 @@ class _LessonRunnerState extends ConsumerState<_LessonRunner> {
   bool _playing = false;
   bool _heard = false;
   int _earned = 0;
+  List<BadgeDef> _newBadges = const [];
   bool _saved = false;
 
   LessonStep get _step => widget.lesson.steps[_index];
@@ -72,8 +74,14 @@ class _LessonRunnerState extends ConsumerState<_LessonRunner> {
           lessonId: widget.lesson.id,
           stars: _step.stars,
         );
+    final fresh = await ref.read(badgeRepositoryProvider).evaluate(childId);
     ref.invalidate(selectedChildProvider);
-    if (mounted) setState(() => _earned = added);
+    if (mounted) {
+      setState(() {
+        _earned = added;
+        _newBadges = fresh;
+      });
+    }
   }
 
   Future<void> _play() async {
@@ -135,9 +143,10 @@ class _LessonRunnerState extends ConsumerState<_LessonRunner> {
                 const Icon(Icons.star_rounded, size: 64, color: AppColors.gold),
             ],
           ),
-          caption: _earned > 0
-              ? 'أحسنت! +${toArabicDigits(_earned)}'
-              : 'أحسنت!',
+          caption: [
+            _earned > 0 ? 'أحسنت! +${toArabicDigits(_earned)}' : 'أحسنت!',
+            for (final b in _newBadges) '${b.emoji} ${b.title}',
+          ].join('\n'),
           next: FilledButton(
             key: const Key('finish_button'),
             style: _nextStyle,
@@ -202,7 +211,9 @@ class _LessonRunnerState extends ConsumerState<_LessonRunner> {
                 const SizedBox(height: 24),
                 if (progress != null) ...[progress, const SizedBox(height: 24)],
                 if (caption != null) ...[
-                  Text(caption, style: Theme.of(context).textTheme.headlineMedium),
+                  Text(caption,
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.headlineMedium),
                   const SizedBox(height: 24),
                 ],
                 if (button != null) ...[button, const SizedBox(height: 32)],

@@ -1,0 +1,22 @@
+{
+  "id": "t_adab_sleep",
+  "title": "قبل النوم",
+  "section": "t_adab",
+  "band": "buraem",
+  "source_type": "sahih_sunnah",
+  "source_note": "صحيح البخاري ٦٣٢٤ (حديث حذيفة). رواية واحدة مثبَّتة؛ للصوت والصورة فقط، لا نص مكتوب للطفل.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "listen"
+    },
+    {
+      "type": "repeat",
+      "times": 3
+    },
+    {
+      "type": "reward",
+      "stars": 2
+    }
+  ]
+}

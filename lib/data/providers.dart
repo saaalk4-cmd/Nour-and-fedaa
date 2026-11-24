@@ -3,7 +3,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'models/child.dart';
 import 'models/parent_account.dart';
 import 'repositories/account_repository.dart';
+import '../domain/age_band.dart';
 import '../domain/lesson.dart';
+import 'repositories/badge_repository.dart';
 import 'repositories/child_repository.dart';
 import 'repositories/lesson_repository.dart';
 import 'repositories/placement_repository.dart';
@@ -15,6 +17,7 @@ final childRepositoryProvider = Provider((_) => ChildRepository());
 final settingsRepositoryProvider = Provider((_) => SettingsRepository());
 final lessonRepositoryProvider = Provider((_) => LessonRepository());
 final placementRepositoryProvider = Provider((_) => PlacementRepository());
+final badgeRepositoryProvider = Provider((_) => BadgeRepository());
 final progressRepositoryProvider = Provider((_) => ProgressRepository());
 
 final lessonProvider = FutureProvider.family<Lesson, String>(
@@ -67,3 +70,9 @@ final limitReachedProvider = Provider<bool>((ref) {
   if (limit <= 0) return false;
   return ref.watch(todaySecondsProvider) >= limit * 60;
 });
+
+/// دروس قسم معيّن للفئة المحددة.
+final sectionLessonsProvider =
+    FutureProvider.autoDispose.family<List<Lesson>, ({String section, AgeBand band})>(
+  (ref, k) => ref.watch(lessonRepositoryProvider).bySection(k.section, k.band),
+);

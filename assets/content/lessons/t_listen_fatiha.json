@@ -7,8 +7,17 @@
   "source_note": "نص الآيات وصوت التلاوة يُستورَدان لاحقًا من مصدر مرخّص ومُتحقَّق منه. لا يوجد في هذا الملف أي نص قرآني.",
   "content_verified": false,
   "steps": [
-    { "type": "listen" },
-    { "type": "repeat", "times": 3 },
-    { "type": "reward", "stars": 3 }
-  ]
+    {
+      "type": "listen"
+    },
+    {
+      "type": "repeat",
+      "times": 3
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ],
+  "section": "t_listen"
 }
