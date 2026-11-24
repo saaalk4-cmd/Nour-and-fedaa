@@ -5,6 +5,7 @@ import '../../features/boot/boot_screen.dart';
 import '../../features/home/home_screen.dart';
 import '../../features/home/section_screen.dart';
 import '../../features/home/who_learns_screen.dart';
+import '../../features/lesson/lesson_screen.dart';
 import '../../features/onboarding/account_screen.dart';
 import '../../features/onboarding/add_child_screen.dart';
 import '../../features/onboarding/band_confirm_screen.dart';
@@ -51,6 +52,11 @@ final routerProvider = Provider<GoRouter>((ref) {
         path: '/section/:id',
         builder: (_, state) =>
             SectionScreen(sectionId: state.pathParameters['id']!),
+      ),
+      GoRoute(
+        path: '/lesson/:id',
+        builder: (_, state) =>
+            LessonScreen(lessonId: state.pathParameters['id']!),
       ),
       GoRoute(path: '/parent', builder: (_, __) => const ParentGateScreen()),
       GoRoute(

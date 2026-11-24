@@ -12,6 +12,12 @@ class AppDatabase {
     return _db ??= await _open();
   }
 
+  /// يغلق الاتصال (للاختبارات).
+  Future<void> close() async {
+    await _db?.close();
+    _db = null;
+  }
+
   Future<Database> _open() async {
     final dir = await getDatabasesPath();
     return openDatabase(

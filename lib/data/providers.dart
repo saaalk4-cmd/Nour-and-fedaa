@@ -3,11 +3,20 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'models/child.dart';
 import 'models/parent_account.dart';
 import 'repositories/account_repository.dart';
+import '../domain/lesson.dart';
 import 'repositories/child_repository.dart';
+import 'repositories/lesson_repository.dart';
+import 'repositories/progress_repository.dart';
 import 'repositories/settings_repository.dart';
 
 final childRepositoryProvider = Provider((_) => ChildRepository());
 final settingsRepositoryProvider = Provider((_) => SettingsRepository());
+final lessonRepositoryProvider = Provider((_) => LessonRepository());
+final progressRepositoryProvider = Provider((_) => ProgressRepository());
+
+final lessonProvider = FutureProvider.family<Lesson, String>(
+  (ref, id) => ref.watch(lessonRepositoryProvider).byId(id),
+);
 
 final accountRepositoryProvider = Provider<AccountRepository>(
   (ref) => LocalAccountRepository(ref.watch(settingsRepositoryProvider)),
