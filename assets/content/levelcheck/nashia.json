@@ -1,0 +1,162 @@
+{
+ "band": "nashia",
+ "content_verified": false,
+ "questions": [
+  {
+   "track": "salah",
+   "level": 1,
+   "text": "أي صلاة من الصلوات الخمس ركعتان؟",
+   "options": [
+    "الفجر",
+    "الظهر",
+    "العشاء"
+   ],
+   "answer": 0,
+   "source_type": "scholars",
+   "source": "تعليمي عام"
+  },
+  {
+   "track": "salah",
+   "level": 2,
+   "text": "أي هذه الصلوات جهرية؟",
+   "options": [
+    "الظهر",
+    "العصر",
+    "المغرب"
+   ],
+   "answer": 2,
+   "source_type": "scholars",
+   "source": "تعليمي عام"
+  },
+  {
+   "track": "salah",
+   "level": 3,
+   "text": "أي مما يلي ركن من أركان الصلاة؟",
+   "options": [
+    "الأذان",
+    "الركوع",
+    "الإقامة"
+   ],
+   "answer": 1,
+   "source_type": "scholars",
+   "source": "تعليمي عام"
+  },
+  {
+   "track": "maa_la_yasa",
+   "level": 1,
+   "text": "كم عدد أركان الإسلام؟",
+   "options": [
+    "أربعة",
+    "خمسة",
+    "ستة"
+   ],
+   "answer": 1,
+   "source_type": "sahih_sunnah",
+   "source": "صحيح البخاري ٨"
+  },
+  {
+   "track": "maa_la_yasa",
+   "level": 2,
+   "text": "كم عدد أركان الإيمان؟",
+   "options": [
+    "خمسة",
+    "ستة",
+    "سبعة"
+   ],
+   "answer": 1,
+   "source_type": "sahih_sunnah",
+   "source": "صحيح مسلم ٨ (حديث جبريل)"
+  },
+  {
+   "track": "maa_la_yasa",
+   "level": 3,
+   "text": "أي مما يلي من أركان الإيمان؟",
+   "options": [
+    "الحج",
+    "الصيام",
+    "الإيمان بالقدر"
+   ],
+   "answer": 2,
+   "source_type": "sahih_sunnah",
+   "source": "صحيح مسلم ٨ (حديث جبريل)"
+  },
+  {
+   "track": "arabic",
+   "level": 1,
+   "text": "ما ضد كلمة «كبير»؟",
+   "options": [
+    "طويل",
+    "صغير",
+    "كثير"
+   ],
+   "answer": 1,
+   "source_type": "educational",
+   "source": "تعليمي عام"
+  },
+  {
+   "track": "arabic",
+   "level": 2,
+   "text": "ما جمع كلمة «كتاب»؟",
+   "options": [
+    "كتابان",
+    "كتب",
+    "كاتب"
+   ],
+   "answer": 1,
+   "source_type": "educational",
+   "source": "تعليمي عام"
+  },
+  {
+   "track": "arabic",
+   "level": 3,
+   "text": "في الجملة: «ذهب الولد إلى المدرسة»، أيّ كلمة فعل؟",
+   "options": [
+    "ذهب",
+    "الولد",
+    "المدرسة"
+   ],
+   "answer": 0,
+   "source_type": "educational",
+   "source": "تعليمي عام"
+  },
+  {
+   "track": "quran",
+   "level": 1,
+   "text": "كم عدد سور القرآن الكريم؟",
+   "options": [
+    "١٠٠",
+    "١١٤",
+    "١٢٠"
+   ],
+   "answer": 1,
+   "source_type": "quran",
+   "source": "ترتيب المصحف"
+  },
+  {
+   "track": "quran",
+   "level": 2,
+   "text": "كم عدد آيات سورة الإخلاص؟",
+   "options": [
+    "ثلاث",
+    "أربع",
+    "خمس"
+   ],
+   "answer": 1,
+   "source_type": "quran",
+   "source": "المصحف (عدّ الكوفيين وحفص)"
+  },
+  {
+   "track": "quran",
+   "level": 3,
+   "text": "ما أطول سورة في القرآن؟",
+   "options": [
+    "آل عمران",
+    "النساء",
+    "البقرة"
+   ],
+   "answer": 2,
+   "source_type": "quran",
+   "source": "ترتيب المصحف"
+  }
+ ]
+}

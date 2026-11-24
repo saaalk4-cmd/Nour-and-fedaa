@@ -9,6 +9,7 @@ import '../../features/lesson/lesson_screen.dart';
 import '../../features/onboarding/account_screen.dart';
 import '../../features/onboarding/add_child_screen.dart';
 import '../../features/onboarding/band_confirm_screen.dart';
+import '../../features/onboarding/level_check_screen.dart';
 import '../../features/onboarding/level_intro_screen.dart';
 import '../../features/onboarding/pin_setup_screen.dart';
 import '../../features/onboarding/ready_screen.dart';
@@ -41,6 +42,10 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: '/onboarding/level',
         builder: (_, __) => const LevelIntroScreen(),
+      ),
+      GoRoute(
+        path: '/onboarding/check',
+        builder: (_, __) => const LevelCheckScreen(),
       ),
       GoRoute(
         path: '/onboarding/ready',

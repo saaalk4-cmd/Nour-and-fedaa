@@ -22,7 +22,7 @@ class AppDatabase {
     final dir = await getDatabasesPath();
     return openDatabase(
       p.join(dir, 'buraq.db'),
-      version: 2,
+      version: 3,
       onCreate: _onCreate,
       onUpgrade: _onUpgrade,
     );
@@ -48,6 +48,7 @@ class AppDatabase {
         PRIMARY KEY(child_id, badge_id)
       )
     ''');
+    await _createPlacement(db);
     await db.execute('''
       CREATE TABLE settings(
         key TEXT PRIMARY KEY,
@@ -60,6 +61,17 @@ class AppDatabase {
         day TEXT NOT NULL,
         seconds INTEGER NOT NULL DEFAULT 0,
         PRIMARY KEY(child_id, day)
+      )
+    ''');
+  }
+
+  Future<void> _createPlacement(Database db) async {
+    await db.execute('''
+      CREATE TABLE placement(
+        child_id INTEGER NOT NULL,
+        track TEXT NOT NULL,
+        level INTEGER NOT NULL,
+        PRIMARY KEY(child_id, track)
       )
     ''');
   }
@@ -85,6 +97,9 @@ class AppDatabase {
     if (oldVersion < 2) {
       await db.execute('DROP TABLE IF EXISTS children');
       await _createChildren(db);
+    }
+    if (oldVersion < 3) {
+      await _createPlacement(db);
     }
   }
 }

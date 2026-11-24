@@ -1,0 +1,162 @@
+{
+ "band": "atfal",
+ "content_verified": false,
+ "questions": [
+  {
+   "track": "salah",
+   "level": 1,
+   "text": "كم صلاة نصلّي في اليوم والليلة؟",
+   "options": [
+    "ثلاث",
+    "خمس",
+    "سبع"
+   ],
+   "answer": 1,
+   "source_type": "scholars",
+   "source": "أركان الإسلام: صحيح البخاري ٨"
+  },
+  {
+   "track": "salah",
+   "level": 2,
+   "text": "ما أول صلاة في اليوم؟",
+   "options": [
+    "الظهر",
+    "الفجر",
+    "العصر"
+   ],
+   "answer": 1,
+   "source_type": "scholars",
+   "source": "تعليمي عام"
+  },
+  {
+   "track": "salah",
+   "level": 3,
+   "text": "كم ركعة في صلاة المغرب؟",
+   "options": [
+    "ثلاث",
+    "اثنتان",
+    "أربع"
+   ],
+   "answer": 0,
+   "source_type": "scholars",
+   "source": "تعليمي عام"
+  },
+  {
+   "track": "maa_la_yasa",
+   "level": 1,
+   "text": "مَن خلقنا؟",
+   "options": [
+    "الله",
+    "الشمس",
+    "القمر"
+   ],
+   "answer": 0,
+   "source_type": "scholars",
+   "source": "تعليمي عام"
+  },
+  {
+   "track": "maa_la_yasa",
+   "level": 2,
+   "text": "مَن نبيّنا؟",
+   "options": [
+    "موسى عليه السلام",
+    "محمد ﷺ",
+    "نوح عليه السلام"
+   ],
+   "answer": 1,
+   "source_type": "scholars",
+   "source": "تعليمي عام"
+  },
+  {
+   "track": "maa_la_yasa",
+   "level": 3,
+   "text": "كم عدد أركان الإسلام؟",
+   "options": [
+    "ثلاثة",
+    "خمسة",
+    "سبعة"
+   ],
+   "answer": 1,
+   "source_type": "sahih_sunnah",
+   "source": "صحيح البخاري ٨"
+  },
+  {
+   "track": "arabic",
+   "level": 1,
+   "text": "كم حرفًا في الأبجدية العربية؟",
+   "options": [
+    "٢٦",
+    "٢٨",
+    "٣٠"
+   ],
+   "answer": 1,
+   "source_type": "educational",
+   "source": "تعليمي عام"
+  },
+  {
+   "track": "arabic",
+   "level": 2,
+   "text": "ما الحرف الأول في الأبجدية العربية؟",
+   "options": [
+    "ب",
+    "أ",
+    "ت"
+   ],
+   "answer": 1,
+   "source_type": "educational",
+   "source": "تعليمي عام"
+  },
+  {
+   "track": "arabic",
+   "level": 3,
+   "text": "أي حرف يأتي بعد الباء؟",
+   "options": [
+    "التاء",
+    "الألف",
+    "الجيم"
+   ],
+   "answer": 0,
+   "source_type": "educational",
+   "source": "تعليمي عام"
+  },
+  {
+   "track": "quran",
+   "level": 1,
+   "text": "ما أول سورة في المصحف؟",
+   "options": [
+    "الفاتحة",
+    "البقرة",
+    "الإخلاص"
+   ],
+   "answer": 0,
+   "source_type": "quran",
+   "source": "ترتيب المصحف"
+  },
+  {
+   "track": "quran",
+   "level": 2,
+   "text": "ما السورة التي تأتي بعد الفاتحة؟",
+   "options": [
+    "الناس",
+    "البقرة",
+    "الفلق"
+   ],
+   "answer": 1,
+   "source_type": "quran",
+   "source": "ترتيب المصحف"
+  },
+  {
+   "track": "quran",
+   "level": 3,
+   "text": "كم عدد سور القرآن الكريم؟",
+   "options": [
+    "١١٤",
+    "١٠٠",
+    "٩٩"
+   ],
+   "answer": 0,
+   "source_type": "quran",
+   "source": "ترتيب المصحف"
+  }
+ ]
+}

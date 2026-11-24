@@ -1,0 +1,162 @@
+{
+ "band": "murahiqun",
+ "content_verified": false,
+ "questions": [
+  {
+   "track": "salah",
+   "level": 1,
+   "text": "أي صلاة يبدأ وقتها بعد غروب الشمس؟",
+   "options": [
+    "المغرب",
+    "العصر",
+    "الظهر"
+   ],
+   "answer": 0,
+   "source_type": "scholars",
+   "source": "تعليمي عام"
+  },
+  {
+   "track": "salah",
+   "level": 2,
+   "text": "كم مجموع ركعات الصلوات الخمس المفروضة في اليوم والليلة؟",
+   "options": [
+    "١٥",
+    "١٧",
+    "١٩"
+   ],
+   "answer": 1,
+   "source_type": "scholars",
+   "source": "اتفاق العلماء"
+  },
+  {
+   "track": "salah",
+   "level": 3,
+   "text": "أي صلاة لا ركوع فيها ولا سجود؟",
+   "options": [
+    "الفجر",
+    "الجنازة",
+    "الوتر"
+   ],
+   "answer": 1,
+   "source_type": "scholars",
+   "source": "اتفاق العلماء"
+  },
+  {
+   "track": "maa_la_yasa",
+   "level": 1,
+   "text": "ما أول أركان الإسلام؟",
+   "options": [
+    "الصلاة",
+    "الشهادتان",
+    "الصيام"
+   ],
+   "answer": 1,
+   "source_type": "sahih_sunnah",
+   "source": "صحيح البخاري ٨"
+  },
+  {
+   "track": "maa_la_yasa",
+   "level": 2,
+   "text": "أي ركن من أركان الإسلام يُؤدّى مرة في العمر لمن استطاع؟",
+   "options": [
+    "الزكاة",
+    "الحج",
+    "الصيام"
+   ],
+   "answer": 1,
+   "source_type": "sahih_sunnah",
+   "source": "صحيح البخاري ٨"
+  },
+  {
+   "track": "maa_la_yasa",
+   "level": 3,
+   "text": "ما الإحسان كما في حديث جبريل؟",
+   "options": [
+    "أن تعبد الله كأنك تراه",
+    "أن تكثر من الصدقة",
+    "أن تحفظ القرآن"
+   ],
+   "answer": 0,
+   "source_type": "sahih_sunnah",
+   "source": "صحيح مسلم ٨ (حديث جبريل)"
+  },
+  {
+   "track": "arabic",
+   "level": 1,
+   "text": "أي كلمة مما يلي اسم؟",
+   "options": [
+    "يكتب",
+    "الطالب",
+    "في"
+   ],
+   "answer": 1,
+   "source_type": "educational",
+   "source": "تعليمي عام"
+  },
+  {
+   "track": "arabic",
+   "level": 2,
+   "text": "في جملة «جاء الطالبُ»، ما إعراب «الطالبُ»؟",
+   "options": [
+    "مفعول به",
+    "فاعل",
+    "مبتدأ"
+   ],
+   "answer": 1,
+   "source_type": "educational",
+   "source": "تعليمي عام"
+  },
+  {
+   "track": "arabic",
+   "level": 3,
+   "text": "أي كلمة مما يلي حرف جر؟",
+   "options": [
+    "قد",
+    "على",
+    "سوف"
+   ],
+   "answer": 1,
+   "source_type": "educational",
+   "source": "تعليمي عام"
+  },
+  {
+   "track": "quran",
+   "level": 1,
+   "text": "كم جزءًا في المصحف؟",
+   "options": [
+    "٢٠",
+    "٣٠",
+    "٤٠"
+   ],
+   "answer": 1,
+   "source_type": "quran",
+   "source": "ترتيب المصحف"
+  },
+  {
+   "track": "quran",
+   "level": 2,
+   "text": "أي سورة لا تبدأ بالبسملة؟",
+   "options": [
+    "التوبة",
+    "يوسف",
+    "الكهف"
+   ],
+   "answer": 0,
+   "source_type": "quran",
+   "source": "المصحف"
+  },
+  {
+   "track": "quran",
+   "level": 3,
+   "text": "كم عدد آيات سورة الفاتحة؟",
+   "options": [
+    "خمس",
+    "ست",
+    "سبع"
+   ],
+   "answer": 2,
+   "source_type": "quran",
+   "source": "المصحف (عدّ حفص)"
+  }
+ ]
+}

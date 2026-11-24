@@ -30,6 +30,7 @@ flutter:
   assets:
     - assets/content/
     - assets/content/lessons/
+    - assets/content/levelcheck/
     - assets/brand/
 
 flutter_launcher_icons:
