@@ -14,7 +14,9 @@ import '../../features/onboarding/level_intro_screen.dart';
 import '../../features/onboarding/pin_setup_screen.dart';
 import '../../features/onboarding/ready_screen.dart';
 import '../../features/onboarding/welcome_screen.dart';
+import '../../features/parent/change_pin_screen.dart';
 import '../../features/parent/parent_dashboard_screen.dart';
+import '../../features/parent/parents_corner_screen.dart';
 import '../../features/parent/parent_gate_screen.dart';
 
 final routerProvider = Provider<GoRouter>((ref) {
@@ -64,6 +66,14 @@ final routerProvider = Provider<GoRouter>((ref) {
             LessonScreen(lessonId: state.pathParameters['id']!),
       ),
       GoRoute(path: '/parent', builder: (_, __) => const ParentGateScreen()),
+      GoRoute(
+        path: '/parent/about',
+        builder: (_, __) => const ParentsCornerScreen(),
+      ),
+      GoRoute(
+        path: '/parent/pin',
+        builder: (_, __) => const ChangePinScreen(),
+      ),
       GoRoute(
         path: '/parent/dashboard',
         builder: (_, __) => const ParentDashboardScreen(),

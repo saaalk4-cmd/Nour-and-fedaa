@@ -76,6 +76,16 @@ class _ParentDashboardScreenState extends ConsumerState<ParentDashboardScreen> {
       body: ListView(
         padding: const EdgeInsets.all(20),
         children: [
+          ListTile(
+            key: const Key('parents_corner_tile'),
+            contentPadding: EdgeInsets.zero,
+            leading: const Icon(Icons.menu_book_outlined),
+            title: const Text('قسم الوالدين'),
+            subtitle: const Text('المنهج، المصادر وحالة المراجعة، الخصوصية، الرمز'),
+            trailing: const Icon(Icons.chevron_left),
+            onTap: () => context.push('/parent/about'),
+          ),
+          const Divider(),
           Text('الأطفال', style: titleStyle),
           const SizedBox(height: 12),
           children.when(
