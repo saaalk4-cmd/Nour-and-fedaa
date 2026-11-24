@@ -26,17 +26,19 @@ jobs:
       - name: Generate Android scaffold if missing
         run: |
           if [ ! -d android ]; then
-            flutter create --org com --project-name nourfadaa --platforms android "$RUNNER_TEMP/scaffold"
+            flutter create --org com.buraq --project-name buraq --platforms android "$RUNNER_TEMP/scaffold"
             cp -r "$RUNNER_TEMP/scaffold/android" ./android
-            sed -i 's/android:label="[^"]*"/android:label="نُور وفداء"/' android/app/src/main/AndroidManifest.xml
+            sed -i 's/android:label="[^"]*"/android:label="براق"/' android/app/src/main/AndroidManifest.xml
           fi
 
       - run: flutter pub get
-      - run: flutter analyze
+      - name: Generate launcher icons
+        run: dart run flutter_launcher_icons
+      - run: flutter analyze --no-fatal-infos
       - run: flutter test
       - run: flutter build apk --release
 
       - uses: actions/upload-artifact@v4
         with:
-          name: nour-fedaa-apk
+          name: buraq-apk
           path: build/app/outputs/flutter-apk/app-release.apk

@@ -18,7 +18,7 @@ class WhoLearnsScreen extends ConsumerWidget {
           child: Column(
             children: [
               const SizedBox(height: 16),
-              Text('نُور وفداء 🌟',
+              Text('براق',
                   style: Theme.of(context).textTheme.headlineMedium),
               const SizedBox(height: 8),
               Text('من سيتعلم اليوم؟',

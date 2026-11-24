@@ -23,7 +23,7 @@ class HomeScreen extends ConsumerWidget {
             context.go('/');
           },
         ),
-        title: const Text('نُور وفداء 🌟'),
+        title: const Text('براق'),
       ),
       body: SafeArea(
         child: child.when(

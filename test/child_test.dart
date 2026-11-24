@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:nourfadaa/data/models/child.dart';
+import 'package:buraq/data/models/child.dart';
 
 void main() {
   test('age groups separate 3-year-old and 5-year-old content', () {

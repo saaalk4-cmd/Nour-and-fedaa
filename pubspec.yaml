@@ -1,5 +1,5 @@
-name: nourfadaa
-description: "نُور وفداء - تطبيق تعليمي إسلامي للأطفال"
+name: buraq
+description: "براق - تطبيق تعليمي إسلامي من سنتين إلى 14 سنة"
 publish_to: "none"
 version: 0.1.0+1
 
@@ -22,8 +22,17 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^4.0.0
+  flutter_launcher_icons: ^0.14.1
 
 flutter:
   uses-material-design: true
   assets:
     - assets/content/
+    - assets/brand/
+
+flutter_launcher_icons:
+  android: true
+  ios: false
+  image_path: assets/brand/app_icon.png
+  adaptive_icon_background: "#0E1630"
+  adaptive_icon_foreground: assets/brand/icon_foreground.png

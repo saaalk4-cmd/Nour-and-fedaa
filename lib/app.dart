@@ -5,13 +5,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'core/router/app_router.dart';
 import 'core/theme/app_theme.dart';
 
-class NourFadaaApp extends ConsumerWidget {
-  const NourFadaaApp({super.key});
+class BuraqApp extends ConsumerWidget {
+  const BuraqApp({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp.router(
-      title: 'نُور وفداء',
+      title: 'براق',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light(),
       locale: const Locale('ar', 'EG'),
