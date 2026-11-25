@@ -107,6 +107,7 @@ class _SourceTile extends StatelessWidget {
             Text('النوع: $types${entry.note == null ? '' : ' • ${entry.note}'}'),
             if (entry.sources.isNotEmpty)
               Text('المصدر: ${entry.sources.join('، ')}'),
+            if (entry.audioStatus != null) Text('الصوت: ${entry.audioStatus}'),
           ],
         ),
       ),

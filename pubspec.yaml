@@ -17,6 +17,7 @@ dependencies:
   path: ^1.9.0
   crypto: ^3.0.3
   intl: any
+  audioplayers: ^6.8.1
 
 dev_dependencies:
   flutter_test:
@@ -31,6 +32,7 @@ flutter:
     - assets/content/
     - assets/content/lessons/
     - assets/content/levelcheck/
+    - assets/audio/
     - assets/brand/
 
 flutter_launcher_icons:

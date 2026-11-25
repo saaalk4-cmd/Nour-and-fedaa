@@ -17,11 +17,14 @@ import 'package:buraq/data/models/child.dart';
 
 class _FastAudio implements LessonAudio {
   @override
-  Future<void> play(String lessonId) async {}
+  Future<void> play(Lesson lesson) async {}
+  @override
+  Future<void> stop() async {}
 }
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+  audioTests();
 
   group('Lesson model', () {
     test('parses the bundled toddler lesson', () async {
@@ -51,6 +54,34 @@ void main() {
         }),
         throwsFormatException,
       );
+    });
+
+    test('audio requires a license', () {
+      Map<String, dynamic> base() => {
+            'id': 'x',
+            'title': 'x',
+            'band': 'buraem',
+            'source_type': 'quran',
+            'steps': [
+              {'type': 'listen'}
+            ],
+          };
+      expect(() => Lesson.fromJson({...base(), 'audio': 'assets/audio/x.mp3'}),
+          throwsFormatException);
+      expect(
+          () => Lesson.fromJson({
+                ...base(),
+                'audio': 'assets/audio/x.mp3',
+                'audio_license': '  ',
+              }),
+          throwsFormatException);
+      final ok = Lesson.fromJson({
+        ...base(),
+        'audio': 'assets/audio/x.mp3',
+        'audio_license': 'ترخيص تجريبي',
+      });
+      expect(ok.hasAudio, isTrue);
+      expect(Lesson.fromJson(base()).hasAudio, isFalse);
     });
 
     test('rejects empty steps and unknown band', () {
@@ -156,5 +187,23 @@ void main() {
     await tester.tap(find.byKey(const Key('finish_button')));
     await tester.pumpAndSettle();
     expect(find.text('home'), findsOneWidget);
+  });
+}
+
+void audioTests() {
+  test('lesson without audio completes via fallback and never builds a player',
+      () async {
+    final audio = AssetLessonAudio(fallbackDuration: Duration.zero);
+    final lesson = Lesson.fromJson({
+      'id': 'x',
+      'title': 'x',
+      'band': 'buraem',
+      'source_type': 'educational',
+      'steps': [
+        {'type': 'listen'}
+      ],
+    });
+    await audio.play(lesson);
+    await audio.stop();
   });
 }

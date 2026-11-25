@@ -50,6 +50,8 @@ void main() {
     expect(list.where((e) => e.title.startsWith('اختبار المستوى')).length, 3);
     expect(list.every((e) => e.sourceTypes.isNotEmpty), isTrue);
     expect(list.every((e) => !e.verified), isTrue);
+    final lessons = list.where((e) => e.title.startsWith('درس'));
+    expect(lessons.every((e) => e.audioStatus == 'لم يُسجَّل بعد'), isTrue);
   });
 
   testWidgets('parents corner shows sources with review status', (t) async {

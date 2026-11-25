@@ -101,7 +101,7 @@ class _LessonRunnerState extends ConsumerState<_LessonRunner> {
   Future<void> _play() async {
     if (_playing) return;
     setState(() => _playing = true);
-    await ref.read(lessonAudioProvider).play(widget.lesson.id);
+    await ref.read(lessonAudioProvider).play(widget.lesson);
     if (!mounted) return;
     setState(() {
       _playing = false;

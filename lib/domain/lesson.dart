@@ -39,6 +39,8 @@ class Lesson {
     this.subtitle,
     this.section,
     this.icon,
+    this.audio,
+    this.audioLicense,
     this.sourceNote,
     this.contentVerified = false,
   });
@@ -52,6 +54,14 @@ class Lesson {
 
   /// أيقونة الدرس (إيموجي) تُعرض للبراعم بدل العنوان المكتوب.
   final String? icon;
+
+  /// مسار ملف الصوت في assets (null = لم يُسجَّل بعد).
+  final String? audio;
+
+  /// مصدر ترخيص الصوت؛ إلزامي متى وُجد [audio].
+  final String? audioLicense;
+
+  bool get hasAudio => audio != null;
 
   /// البراعم لا يقرؤون: لا نعرض لهم عنوانًا مكتوبًا (العنوان للأهل).
   bool get textFreeForChild => band == AgeBand.buraem;
@@ -87,12 +97,19 @@ class Lesson {
         .map((e) => LessonStep.fromJson(e as Map<String, dynamic>))
         .toList();
     if (steps.isEmpty) throw const FormatException('الدرس بلا خطوات');
+    final audio = j['audio'] as String?;
+    final license = j['audio_license'] as String?;
+    if (audio != null && (license == null || license.trim().isEmpty)) {
+      throw const FormatException('الصوت بلا audio_license (الترخيص إلزامي)');
+    }
     return Lesson(
       id: j['id'] as String,
       title: j['title'] as String,
       subtitle: j['subtitle'] as String?,
       section: j['section'] as String?,
       icon: j['icon'] as String?,
+      audio: audio,
+      audioLicense: license,
       band: band,
       sourceType: source,
       sourceNote: j['source_note'] as String?,

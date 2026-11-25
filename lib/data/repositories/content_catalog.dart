@@ -13,6 +13,7 @@ class SourceEntry {
     required this.sources,
     required this.verified,
     this.note,
+    this.audioStatus,
   });
 
   final String title;
@@ -20,6 +21,9 @@ class SourceEntry {
   final Set<String> sources;
   final bool verified;
   final String? note;
+
+  /// حالة الصوت (للدروس فقط).
+  final String? audioStatus;
 }
 
 const sourceTypeLabels = {
@@ -49,6 +53,9 @@ class ContentCatalog {
           sourceTypes: {l.sourceType},
           sources: {if (l.sourceNote != null) l.sourceNote!},
           verified: l.contentVerified,
+          audioStatus: l.hasAudio
+              ? 'موجود • الترخيص: ${l.audioLicense}'
+              : 'لم يُسجَّل بعد',
         ));
       } else if (a.startsWith('assets/content/levelcheck/') &&
           a.endsWith('.json')) {
