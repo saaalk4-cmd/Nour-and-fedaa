@@ -41,6 +41,22 @@ void main() {
     expect((await repo.bySection('t_listen', AgeBand.buraem)).length, 1);
   });
 
+  test('akhlaq lessons: general educational content, no hadith attribution',
+      () async {
+    final list = await LessonRepository().bySection('t_akhlaq', AgeBand.buraem);
+    expect(list.map((l) => l.id), [
+      't_akhlaq_kind_word',
+      't_akhlaq_share',
+      't_akhlaq_thanks',
+      't_akhlaq_tidy',
+    ]);
+    for (final l in list) {
+      expect(l.sourceType, 'educational');
+      expect(l.icon, isNotNull);
+      expect(l.contentVerified, isFalse);
+    }
+  });
+
   test('badges are granted once, only when earned', () async {
     final childRepo = ChildRepository();
     final id = await childRepo.add(const ChildDraft(

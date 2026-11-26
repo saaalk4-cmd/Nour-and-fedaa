@@ -38,7 +38,7 @@ const toddlerTiles = <AppSection>[
   AppSection('t_adab', '🌷', 'آدابي', Color(0xFFFBDDD2)),
   AppSection('t_know', '🌙', 'أتعرّف على ربي', Color(0xFFFBEBC8)),
   AppSection('t_salah', '🕌', 'أتعلّم الصلاة', Color(0xFFD9E7F5)),
-  AppSection('t_akhlaq', '🌿', 'أخلاقي', Color(0xFFDDEBCF), soon: true),
+  AppSection('t_akhlaq', '🌿', 'أخلاقي', Color(0xFFDDEBCF)),
 ];
 
 AppSection? findSection(String id) {

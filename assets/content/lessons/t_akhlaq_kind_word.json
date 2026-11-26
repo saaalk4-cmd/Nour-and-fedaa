@@ -1,0 +1,23 @@
+{
+  "id": "t_akhlaq_kind_word",
+  "title": "الكلمة الطيبة",
+  "icon": "💬",
+  "section": "t_akhlaq",
+  "band": "buraem",
+  "source_type": "educational",
+  "source_note": "محتوى تربوي عام للأخلاق اليومية، بلا نسبة لنبي أو آية أو حديث. صوت وصورة فقط بلا نص مكتوب للطفل. يُراجَع نص الصوت قبل التسجيل.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "listen"
+    },
+    {
+      "type": "repeat",
+      "times": 3
+    },
+    {
+      "type": "reward",
+      "stars": 2
+    }
+  ]
+}
