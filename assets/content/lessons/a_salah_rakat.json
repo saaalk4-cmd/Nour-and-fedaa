@@ -1,0 +1,74 @@
+{
+  "id": "a_salah_rakat",
+  "title": "كم ركعة؟",
+  "icon": "🧎",
+  "section": "prayer",
+  "band": "atfal",
+  "source_type": "scholars",
+  "source_note": "صلوات الفريضة الخمس للمقيم، وهو مما أجمع عليه العلماء. أحكام السفر والقصر خارج هذا الدرس.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "listen"
+    },
+    {
+      "type": "choose",
+      "question": "كم ركعة في صلاة الفجر؟",
+      "options": [
+        "٢",
+        "٣",
+        "٤"
+      ],
+      "answer": 0,
+      "prompt": "🌅"
+    },
+    {
+      "type": "choose",
+      "question": "كم ركعة في صلاة الظهر؟",
+      "options": [
+        "٢",
+        "٤",
+        "٣"
+      ],
+      "answer": 1,
+      "prompt": "☀️"
+    },
+    {
+      "type": "choose",
+      "question": "كم ركعة في صلاة العصر؟",
+      "options": [
+        "٣",
+        "٢",
+        "٤"
+      ],
+      "answer": 2,
+      "prompt": "🌤️"
+    },
+    {
+      "type": "choose",
+      "question": "كم ركعة في صلاة المغرب؟",
+      "options": [
+        "٣",
+        "٤",
+        "٢"
+      ],
+      "answer": 0,
+      "prompt": "🌇"
+    },
+    {
+      "type": "choose",
+      "question": "كم ركعة في صلاة العشاء؟",
+      "options": [
+        "٢",
+        "٤",
+        "٣"
+      ],
+      "answer": 1,
+      "prompt": "🌙"
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

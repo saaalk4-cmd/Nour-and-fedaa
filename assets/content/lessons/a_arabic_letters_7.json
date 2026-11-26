@@ -1,0 +1,84 @@
+{
+  "id": "a_arabic_letters_7",
+  "title": "حروفي ٧",
+  "subtitle": "ن هـ و ي",
+  "icon": "ن",
+  "section": "arabic",
+  "band": "atfal",
+  "source_type": "educational",
+  "source_note": "محتوى تعليمي للحروف العربية: الحرف وكلمة تبدأ به وصورتها. بلا محتوى ديني.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "listen"
+    },
+    {
+      "type": "choose",
+      "prompt": "ن",
+      "question": "أيّ صورة تبدأ بهذا الحرف؟",
+      "options": [
+        "🐝",
+        "🎁",
+        "🌹"
+      ],
+      "option_labels": [
+        "نحلة",
+        "هدية",
+        "وردة"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "prompt": "هـ",
+      "question": "أيّ صورة تبدأ بهذا الحرف؟",
+      "options": [
+        "🌹",
+        "🎁",
+        "🐝"
+      ],
+      "option_labels": [
+        "وردة",
+        "هدية",
+        "نحلة"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "choose",
+      "prompt": "و",
+      "question": "أيّ صورة تبدأ بهذا الحرف؟",
+      "options": [
+        "🎁",
+        "✋",
+        "🌹"
+      ],
+      "option_labels": [
+        "هدية",
+        "يد",
+        "وردة"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "choose",
+      "prompt": "ي",
+      "question": "أيّ صورة تبدأ بهذا الحرف؟",
+      "options": [
+        "✋",
+        "🎁",
+        "🌹"
+      ],
+      "option_labels": [
+        "يد",
+        "هدية",
+        "وردة"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "id": "a_arabic_letters_2",
+  "title": "حروفي ٢",
+  "subtitle": "ج ح خ د",
+  "icon": "ج",
+  "section": "arabic",
+  "band": "atfal",
+  "source_type": "educational",
+  "source_note": "محتوى تعليمي للحروف العربية: الحرف وكلمة تبدأ به وصورتها. بلا محتوى ديني.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "listen"
+    },
+    {
+      "type": "choose",
+      "prompt": "ج",
+      "question": "أيّ صورة تبدأ بهذا الحرف؟",
+      "options": [
+        "🐑",
+        "🐪",
+        "🐎"
+      ],
+      "option_labels": [
+        "خروف",
+        "جمل",
+        "حصان"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "choose",
+      "prompt": "ح",
+      "question": "أيّ صورة تبدأ بهذا الحرف؟",
+      "options": [
+        "🐪",
+        "🐑",
+        "🐎"
+      ],
+      "option_labels": [
+        "جمل",
+        "خروف",
+        "حصان"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "choose",
+      "prompt": "خ",
+      "question": "أيّ صورة تبدأ بهذا الحرف؟",
+      "options": [
+        "🐑",
+        "🐎",
+        "🐻"
+      ],
+      "option_labels": [
+        "خروف",
+        "حصان",
+        "دب"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "prompt": "د",
+      "question": "أيّ صورة تبدأ بهذا الحرف؟",
+      "options": [
+        "🐑",
+        "🐻",
+        "🐎"
+      ],
+      "option_labels": [
+        "خروف",
+        "دب",
+        "حصان"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

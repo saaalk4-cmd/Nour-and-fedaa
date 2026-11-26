@@ -1,0 +1,73 @@
+{
+  "id": "a_salah_five",
+  "title": "صلواتي الخمس",
+  "icon": "🕌",
+  "section": "prayer",
+  "band": "atfal",
+  "source_type": "scholars",
+  "source_note": "صلوات الفريضة الخمس للمقيم، وهو مما أجمع عليه العلماء. أحكام السفر والقصر خارج هذا الدرس.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "listen"
+    },
+    {
+      "type": "choose",
+      "question": "كم صلاة نصلّي في اليوم والليلة؟",
+      "options": [
+        "٣",
+        "٥",
+        "٧"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "choose",
+      "question": "ما الصلاة التي نصليها عند الفجر قبل طلوع الشمس؟",
+      "options": [
+        "الفجر",
+        "الظهر",
+        "العصر"
+      ],
+      "answer": 0,
+      "prompt": "🌅"
+    },
+    {
+      "type": "choose",
+      "question": "ما الصلاة التي تأتي بعد صلاة الظهر؟",
+      "options": [
+        "المغرب",
+        "العصر",
+        "العشاء"
+      ],
+      "answer": 1,
+      "prompt": "☀️"
+    },
+    {
+      "type": "choose",
+      "question": "ما الصلاة التي نصليها بعد غروب الشمس؟",
+      "options": [
+        "العصر",
+        "الفجر",
+        "المغرب"
+      ],
+      "answer": 2,
+      "prompt": "🌇"
+    },
+    {
+      "type": "choose",
+      "question": "ما الصلاة التي نصليها في الليل بعد المغرب؟",
+      "options": [
+        "العشاء",
+        "الظهر",
+        "الفجر"
+      ],
+      "answer": 0,
+      "prompt": "🌙"
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

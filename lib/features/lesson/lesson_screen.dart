@@ -60,6 +60,8 @@ class _LessonRunnerState extends ConsumerState<_LessonRunner> {
   int _earned = 0;
   List<BadgeDef> _newBadges = const [];
   bool _saved = false;
+  final Set<int> _wrong = {};
+  bool _solved = false;
 
   LessonStep get _step => widget.lesson.steps[_index];
 
@@ -67,6 +69,8 @@ class _LessonRunnerState extends ConsumerState<_LessonRunner> {
         _index++;
         _repeats = 0;
         _heard = false;
+        _wrong.clear();
+        _solved = false;
         if (_step.type == StepType.reward) _complete();
       });
 
@@ -147,6 +151,8 @@ class _LessonRunnerState extends ConsumerState<_LessonRunner> {
           ),
           next: _repeats >= times ? _nextButton() : null,
         );
+      case StepType.choose:
+        return _choose(_step);
       case StepType.reward:
         return _page(
           emoji: '🌟',
@@ -237,4 +243,96 @@ class _LessonRunnerState extends ConsumerState<_LessonRunner> {
           ),
         ),
       );
+
+  /// سؤال اختيار: الخطأ يُعلَّم بلطف ويُعاد المحاولة بلا خصم، والصحيح يفتح «التالي».
+  Widget _choose(LessonStep step) {
+    final t = Theme.of(context).textTheme;
+    return SafeArea(
+      child: SingleChildScrollView(
+        padding: const EdgeInsets.all(24),
+        child: Column(
+          children: [
+            if (step.prompt != null)
+              Text(step.prompt!,
+                  key: const Key('choose_prompt'),
+                  style: const TextStyle(
+                      fontSize: 110,
+                      fontWeight: FontWeight.w800,
+                      color: AppColors.navy)),
+            Text(step.question!,
+                textAlign: TextAlign.center, style: t.headlineSmall),
+            const SizedBox(height: 24),
+            Wrap(
+              alignment: WrapAlignment.center,
+              spacing: 16,
+              runSpacing: 16,
+              children: [
+                for (var i = 0; i < step.options.length; i++)
+                  _optionTile(step, i),
+              ],
+            ),
+            const SizedBox(height: 16),
+            SizedBox(
+              height: 32,
+              child: _wrong.isNotEmpty && !_solved
+                  ? Text('حاول مرة أخرى', style: t.titleMedium)
+                  : null,
+            ),
+            const SizedBox(height: 16),
+            SizedBox(height: 72, child: _solved ? _nextButton() : null),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _optionTile(LessonStep step, int i) {
+    final isRight = _solved && i == step.answer;
+    final isWrong = _wrong.contains(i);
+    final bg = isRight
+        ? const Color(0xFFCFE8C9)
+        : isWrong
+            ? Colors.grey.shade300
+            : Colors.white;
+    return Material(
+      color: bg,
+      borderRadius: BorderRadius.circular(24),
+      child: InkWell(
+        key: Key('option_$i'),
+        borderRadius: BorderRadius.circular(24),
+        onTap: _solved || isWrong
+            ? null
+            : () => setState(() {
+                  if (i == step.answer) {
+                    _solved = true;
+                  } else {
+                    _wrong.add(i);
+                  }
+                }),
+        child: SizedBox(
+          width: 130,
+          height: 140,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(step.options[i],
+                      style: TextStyle(
+                          fontSize: step.options[i].runes.length <= 2 ? 52 : 30,
+                          fontWeight: FontWeight.w700)),
+                ),
+              ),
+              if (step.optionLabels.isNotEmpty)
+                Text(step.optionLabels[i],
+                    style: const TextStyle(
+                        fontSize: 22, fontWeight: FontWeight.w700)),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }

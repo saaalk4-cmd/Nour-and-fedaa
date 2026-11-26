@@ -1,0 +1,84 @@
+{
+  "id": "a_arabic_letters_3",
+  "title": "حروفي ٣",
+  "subtitle": "ذ ر ز س",
+  "icon": "ذ",
+  "section": "arabic",
+  "band": "atfal",
+  "source_type": "educational",
+  "source_note": "محتوى تعليمي للحروف العربية: الحرف وكلمة تبدأ به وصورتها. بلا محتوى ديني.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "listen"
+    },
+    {
+      "type": "choose",
+      "prompt": "ذ",
+      "question": "أيّ صورة تبدأ بهذا الحرف؟",
+      "options": [
+        "🪶",
+        "🦒",
+        "🌽"
+      ],
+      "option_labels": [
+        "ريشة",
+        "زرافة",
+        "ذرة"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "choose",
+      "prompt": "ر",
+      "question": "أيّ صورة تبدأ بهذا الحرف؟",
+      "options": [
+        "🪶",
+        "🌽",
+        "🦒"
+      ],
+      "option_labels": [
+        "ريشة",
+        "ذرة",
+        "زرافة"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "prompt": "ز",
+      "question": "أيّ صورة تبدأ بهذا الحرف؟",
+      "options": [
+        "🐟",
+        "🦒",
+        "🪶"
+      ],
+      "option_labels": [
+        "سمكة",
+        "زرافة",
+        "ريشة"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "choose",
+      "prompt": "س",
+      "question": "أيّ صورة تبدأ بهذا الحرف؟",
+      "options": [
+        "🪶",
+        "🦒",
+        "🐟"
+      ],
+      "option_labels": [
+        "ريشة",
+        "زرافة",
+        "سمكة"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

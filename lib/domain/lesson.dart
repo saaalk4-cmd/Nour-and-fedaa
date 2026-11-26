@@ -2,11 +2,20 @@ import 'dart:convert';
 
 import 'age_band.dart';
 
-enum StepType { listen, repeat, reward }
+enum StepType { listen, repeat, choose, reward }
 
-/// خطوة في الدرس: استماع، ثم ترديد، ثم مكافأة.
+/// خطوة في الدرس: استماع، ترديد، اختيار، أو مكافأة.
 class LessonStep {
-  const LessonStep(this.type, {this.times = 0, this.stars = 0});
+  const LessonStep(
+    this.type, {
+    this.times = 0,
+    this.stars = 0,
+    this.prompt,
+    this.question,
+    this.options = const [],
+    this.optionLabels = const [],
+    this.answer = 0,
+  });
 
   final StepType type;
 
@@ -16,15 +25,43 @@ class LessonStep {
   /// عدد النجوم الممنوحة (لخطوة reward).
   final int stars;
 
+  /// خطوة choose: رمز كبير يُعرض (حرف أو إيموجي)، والسؤال، والخيارات،
+  /// وتسميات اختيارية تحت كل خيار، وفهرس الإجابة الصحيحة.
+  final String? prompt;
+  final String? question;
+  final List<String> options;
+  final List<String> optionLabels;
+  final int answer;
+
   factory LessonStep.fromJson(Map<String, dynamic> j) {
     final type = StepType.values.firstWhere(
       (t) => t.name == j['type'],
       orElse: () => throw FormatException('نوع خطوة غير معروف: ${j['type']}'),
     );
+    final options = ((j['options'] as List<dynamic>?) ?? const []).cast<String>();
+    final labels =
+        ((j['option_labels'] as List<dynamic>?) ?? const []).cast<String>();
+    final answer = (j['answer'] as int?) ?? 0;
+    if (type == StepType.choose) {
+      if (j['question'] == null || options.length < 2) {
+        throw const FormatException('خطوة اختيار بلا سؤال أو خيارات كافية');
+      }
+      if (answer < 0 || answer >= options.length) {
+        throw const FormatException('فهرس الإجابة خارج الخيارات');
+      }
+      if (labels.isNotEmpty && labels.length != options.length) {
+        throw const FormatException('عدد التسميات لا يطابق الخيارات');
+      }
+    }
     return LessonStep(
       type,
       times: (j['times'] as int?) ?? 0,
       stars: (j['stars'] as int?) ?? 0,
+      prompt: j['prompt'] as String?,
+      question: j['question'] as String?,
+      options: options,
+      optionLabels: labels,
+      answer: answer,
     );
   }
 }

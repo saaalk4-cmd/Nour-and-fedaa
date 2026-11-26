@@ -25,6 +25,7 @@ class _FastAudio implements LessonAudio {
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   audioTests();
+  chooseTests();
 
   group('Lesson model', () {
     test('parses the bundled toddler lesson', () async {
@@ -205,5 +206,72 @@ void audioTests() {
     });
     await audio.play(lesson);
     await audio.stop();
+  });
+}
+
+void chooseTests() {
+  testWidgets('choose step: wrong answer allows retry, right answer unlocks next',
+      (tester) async {
+    final lesson = Lesson.fromJson({
+      'id': 'c',
+      'title': 'حروفي',
+      'band': 'atfal',
+      'source_type': 'educational',
+      'steps': [
+        {
+          'type': 'choose',
+          'prompt': 'ب',
+          'question': 'أيّ صورة تبدأ بهذا الحرف؟',
+          'options': ['🍎', '🦆'],
+          'option_labels': ['تفاحة', 'بطة'],
+          'answer': 1,
+        },
+        {'type': 'reward', 'stars': 3},
+      ],
+    });
+    final router = GoRouter(routes: [
+      GoRoute(path: '/', builder: (_, __) => const LessonScreen(lessonId: 'c')),
+    ]);
+    await tester.pumpWidget(ProviderScope(
+      overrides: [lessonProvider('c').overrideWith((_) async => lesson)],
+      child: MaterialApp.router(routerConfig: router),
+    ));
+    await tester.pumpAndSettle();
+    // الفئات الأكبر ترى العنوان
+    expect(find.text('حروفي'), findsOneWidget);
+    expect(find.text('ب'), findsOneWidget);
+
+    await tester.tap(find.byKey(const Key('option_0')));
+    await tester.pump();
+    expect(find.text('حاول مرة أخرى'), findsOneWidget);
+    expect(find.byKey(const Key('next_button')), findsNothing);
+
+    await tester.tap(find.byKey(const Key('option_1')));
+    await tester.pump();
+    expect(find.text('حاول مرة أخرى'), findsNothing);
+    await tester.tap(find.byKey(const Key('next_button')));
+    await tester.pumpAndSettle();
+    expect(find.byKey(const Key('finish_button')), findsOneWidget);
+  });
+
+  test('choose step validation', () {
+    Map<String, dynamic> step(Map<String, dynamic> extra) => {
+          'id': 'x',
+          'title': 'x',
+          'band': 'atfal',
+          'source_type': 'educational',
+          'steps': [
+            {'type': 'choose', 'question': 'q', ...extra}
+          ],
+        };
+    expect(() => Lesson.fromJson(step({'options': ['a']})), throwsFormatException);
+    expect(() => Lesson.fromJson(step({'options': ['a', 'b'], 'answer': 2})),
+        throwsFormatException);
+    expect(
+        () => Lesson.fromJson(step({
+              'options': ['a', 'b'],
+              'option_labels': ['x'],
+            })),
+        throwsFormatException);
   });
 }

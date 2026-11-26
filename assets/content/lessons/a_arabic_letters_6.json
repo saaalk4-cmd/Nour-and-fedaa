@@ -1,0 +1,84 @@
+{
+  "id": "a_arabic_letters_6",
+  "title": "حروفي ٦",
+  "subtitle": "ق ك ل م",
+  "icon": "ق",
+  "section": "arabic",
+  "band": "atfal",
+  "source_type": "educational",
+  "source_note": "محتوى تعليمي للحروف العربية: الحرف وكلمة تبدأ به وصورتها. بلا محتوى ديني.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "listen"
+    },
+    {
+      "type": "choose",
+      "prompt": "ق",
+      "question": "أيّ صورة تبدأ بهذا الحرف؟",
+      "options": [
+        "⚽",
+        "🍋",
+        "🌙"
+      ],
+      "option_labels": [
+        "كرة",
+        "ليمون",
+        "قمر"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "choose",
+      "prompt": "ك",
+      "question": "أيّ صورة تبدأ بهذا الحرف؟",
+      "options": [
+        "⚽",
+        "🌙",
+        "🍋"
+      ],
+      "option_labels": [
+        "كرة",
+        "قمر",
+        "ليمون"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "prompt": "ل",
+      "question": "أيّ صورة تبدأ بهذا الحرف؟",
+      "options": [
+        "🍌",
+        "🍋",
+        "⚽"
+      ],
+      "option_labels": [
+        "موز",
+        "ليمون",
+        "كرة"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "choose",
+      "prompt": "م",
+      "question": "أيّ صورة تبدأ بهذا الحرف؟",
+      "options": [
+        "⚽",
+        "🍋",
+        "🍌"
+      ],
+      "option_labels": [
+        "كرة",
+        "ليمون",
+        "موز"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

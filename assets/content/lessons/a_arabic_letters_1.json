@@ -1,0 +1,84 @@
+{
+  "id": "a_arabic_letters_1",
+  "title": "حروفي ١",
+  "subtitle": "أ ب ت ث",
+  "icon": "أ",
+  "section": "arabic",
+  "band": "atfal",
+  "source_type": "educational",
+  "source_note": "محتوى تعليمي للحروف العربية: الحرف وكلمة تبدأ به وصورتها. بلا محتوى ديني.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "listen"
+    },
+    {
+      "type": "choose",
+      "prompt": "أ",
+      "question": "أيّ صورة تبدأ بهذا الحرف؟",
+      "options": [
+        "🐇",
+        "🦆",
+        "🍎"
+      ],
+      "option_labels": [
+        "أرنب",
+        "بطة",
+        "تفاحة"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "prompt": "ب",
+      "question": "أيّ صورة تبدأ بهذا الحرف؟",
+      "options": [
+        "🍎",
+        "🦆",
+        "🐇"
+      ],
+      "option_labels": [
+        "تفاحة",
+        "بطة",
+        "أرنب"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "choose",
+      "prompt": "ت",
+      "question": "أيّ صورة تبدأ بهذا الحرف؟",
+      "options": [
+        "🦆",
+        "🦊",
+        "🍎"
+      ],
+      "option_labels": [
+        "بطة",
+        "ثعلب",
+        "تفاحة"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "choose",
+      "prompt": "ث",
+      "question": "أيّ صورة تبدأ بهذا الحرف؟",
+      "options": [
+        "🦊",
+        "🦆",
+        "🍎"
+      ],
+      "option_labels": [
+        "ثعلب",
+        "بطة",
+        "تفاحة"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

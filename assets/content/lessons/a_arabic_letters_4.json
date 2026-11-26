@@ -1,0 +1,84 @@
+{
+  "id": "a_arabic_letters_4",
+  "title": "حروفي ٤",
+  "subtitle": "ش ص ض ط",
+  "icon": "ش",
+  "section": "arabic",
+  "band": "atfal",
+  "source_type": "educational",
+  "source_note": "محتوى تعليمي للحروف العربية: الحرف وكلمة تبدأ به وصورتها. بلا محتوى ديني.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "listen"
+    },
+    {
+      "type": "choose",
+      "prompt": "ش",
+      "question": "أيّ صورة تبدأ بهذا الحرف؟",
+      "options": [
+        "☀️",
+        "🚀",
+        "🐸"
+      ],
+      "option_labels": [
+        "شمس",
+        "صاروخ",
+        "ضفدع"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "prompt": "ص",
+      "question": "أيّ صورة تبدأ بهذا الحرف؟",
+      "options": [
+        "🐸",
+        "🚀",
+        "☀️"
+      ],
+      "option_labels": [
+        "ضفدع",
+        "صاروخ",
+        "شمس"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "choose",
+      "prompt": "ض",
+      "question": "أيّ صورة تبدأ بهذا الحرف؟",
+      "options": [
+        "🚀",
+        "✈️",
+        "🐸"
+      ],
+      "option_labels": [
+        "صاروخ",
+        "طائرة",
+        "ضفدع"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "choose",
+      "prompt": "ط",
+      "question": "أيّ صورة تبدأ بهذا الحرف؟",
+      "options": [
+        "✈️",
+        "🚀",
+        "🐸"
+      ],
+      "option_labels": [
+        "طائرة",
+        "صاروخ",
+        "ضفدع"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "id": "a_arabic_letters_5",
+  "title": "حروفي ٥",
+  "subtitle": "ظ ع غ ف",
+  "icon": "ظ",
+  "section": "arabic",
+  "band": "atfal",
+  "source_type": "educational",
+  "source_note": "محتوى تعليمي للحروف العربية: الحرف وكلمة تبدأ به وصورتها. بلا محتوى ديني.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "listen"
+    },
+    {
+      "type": "choose",
+      "prompt": "ظ",
+      "question": "أيّ صورة تبدأ بهذا الحرف؟",
+      "options": [
+        "☁️",
+        "✉️",
+        "🍇"
+      ],
+      "option_labels": [
+        "غيمة",
+        "ظرف",
+        "عنب"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "choose",
+      "prompt": "ع",
+      "question": "أيّ صورة تبدأ بهذا الحرف؟",
+      "options": [
+        "✉️",
+        "☁️",
+        "🍇"
+      ],
+      "option_labels": [
+        "ظرف",
+        "غيمة",
+        "عنب"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "choose",
+      "prompt": "غ",
+      "question": "أيّ صورة تبدأ بهذا الحرف؟",
+      "options": [
+        "☁️",
+        "🍇",
+        "🐘"
+      ],
+      "option_labels": [
+        "غيمة",
+        "عنب",
+        "فيل"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "prompt": "ف",
+      "question": "أيّ صورة تبدأ بهذا الحرف؟",
+      "options": [
+        "☁️",
+        "🐘",
+        "🍇"
+      ],
+      "option_labels": [
+        "غيمة",
+        "فيل",
+        "عنب"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}
