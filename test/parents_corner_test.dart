@@ -46,12 +46,17 @@ void main() {
 
   test('catalog lists bundled lessons and level checks from assets', () async {
     final list = await ContentCatalog().entries();
-    expect(list.any((e) => e.title.contains('أسمع وأردد')), isTrue);
+    expect(list.any((e) => e.title.contains('الفاتحة')), isTrue);
     expect(list.where((e) => e.title.startsWith('اختبار المستوى')).length, 3);
     expect(list.every((e) => e.sourceTypes.isNotEmpty), isTrue);
     expect(list.every((e) => !e.verified), isTrue);
     final lessons = list.where((e) => e.title.startsWith('درس'));
-    expect(lessons.every((e) => e.audioStatus == 'لم يُسجَّل بعد'), isTrue);
+    expect(
+        lessons.every((e) =>
+            e.audioStatus == 'لم يُسجَّل بعد' ||
+            e.audioStatus!.startsWith('تلاوة أونلاين')),
+        isTrue);
+    expect(lessons.any((e) => e.audioStatus!.startsWith('تلاوة أونلاين')), isTrue);
   });
 
   testWidgets('parents corner shows sources with review status', (t) async {

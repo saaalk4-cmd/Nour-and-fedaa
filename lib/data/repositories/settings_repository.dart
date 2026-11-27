@@ -18,7 +18,7 @@ class SectionIds {
   static const all = [quran, prayer, aqeedah, arabic, adhkar, akhlaq];
 
   /// أقسام تُبنى في مراحل لاحقة.
-  static const comingSoon = {adhkar};
+  static const comingSoon = <String>{};
 }
 
 class SettingsRepository {

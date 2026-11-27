@@ -21,6 +21,8 @@ dependencies:
   firebase_core: ^5.2.0
   firebase_auth: ^7.1.0
   cloud_firestore: ^7.2.0
+  http: ^1.6.0
+  url_launcher: ^6.3.3
 
 dev_dependencies:
   flutter_test:
@@ -35,6 +37,7 @@ flutter:
     - assets/content/
     - assets/content/lessons/
     - assets/content/levelcheck/
+    - assets/content/hadith/
     - assets/audio/
     - assets/brand/
 

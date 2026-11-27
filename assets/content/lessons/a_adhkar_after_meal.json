@@ -1,0 +1,42 @@
+{
+  "id": "a_adhkar_after_meal",
+  "title": "بعد الطعام",
+  "icon": "🍽️",
+  "section": "adhkar",
+  "band": "atfal",
+  "source_type": "sahih_sunnah",
+  "source_note": "صحيح البخاري ٥٤٥٨؛ النص نُسخ من sunnah.com بيد صاحب المشروع، وأسئلة الفهم مأخوذة من نص الحديث نفسه.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "hadith",
+      "hadith": "bukhari_5458"
+    },
+    {
+      "type": "choose",
+      "question": "متى كان النبي ﷺ يقول هذا الدعاء؟",
+      "options": [
+        "قبل النوم",
+        "إذا رُفعت مائدته بعد الطعام",
+        "عند الاستيقاظ"
+      ],
+      "answer": 1,
+      "prompt": "🍽️"
+    },
+    {
+      "type": "choose",
+      "question": "بماذا يبدأ الدعاء؟",
+      "options": [
+        "الحمد لله",
+        "بسم الله",
+        "السلام عليكم"
+      ],
+      "answer": 0,
+      "prompt": "🤲"
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

@@ -13,6 +13,10 @@ import 'repositories/progress_repository.dart';
 import 'repositories/review_repository.dart';
 import 'repositories/settings_repository.dart';
 import 'repositories/usage_repository.dart';
+import '../domain/hadith.dart';
+import 'quran/quran_player.dart';
+import 'quran/quran_source.dart';
+import 'repositories/hadith_repository.dart';
 import 'sync/cloud_store.dart';
 import 'sync/sync_service.dart';
 
@@ -103,3 +107,21 @@ final syncServiceProvider = Provider<SyncService?>((ref) {
   return SyncService(uid: acc.uid!, store: ref.watch(cloudStoreProvider));
 });
 
+
+final quranSourceProvider = Provider<QuranSource>((_) => AlQuranCloudSource());
+
+final quranPlayerProvider = Provider<QuranPlayer>((ref) {
+  final p = AudioQuranPlayer();
+  ref.onDispose(p.stop);
+  return p;
+});
+
+final surahProvider = FutureProvider.family<Surah, int>(
+  (ref, n) => ref.watch(quranSourceProvider).surah(n),
+);
+
+final hadithRepositoryProvider = Provider((_) => HadithRepository());
+
+final hadithProvider = FutureProvider.family<Hadith, String>(
+  (ref, id) => ref.watch(hadithRepositoryProvider).byId(id),
+);

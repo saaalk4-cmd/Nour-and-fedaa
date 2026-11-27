@@ -1,0 +1,53 @@
+{
+  "id": "a_adhkar_sneeze",
+  "title": "أدب العطاس",
+  "icon": "🤧",
+  "section": "adhkar",
+  "band": "atfal",
+  "source_type": "sahih_sunnah",
+  "source_note": "صحيح البخاري ٦٢٢٤؛ النص نُسخ من sunnah.com بيد صاحب المشروع، وأسئلة الفهم مأخوذة من نص الحديث نفسه.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "hadith",
+      "hadith": "bukhari_6224"
+    },
+    {
+      "type": "choose",
+      "question": "ماذا يقول من عطس؟",
+      "options": [
+        "يرحمك الله",
+        "الحمد لله",
+        "يهديكم الله"
+      ],
+      "answer": 1,
+      "prompt": "🤧"
+    },
+    {
+      "type": "choose",
+      "question": "ماذا نقول لمن عطس وحمد الله؟",
+      "options": [
+        "يرحمك الله",
+        "الحمد لله",
+        "صباح الخير"
+      ],
+      "answer": 0,
+      "prompt": "🙂"
+    },
+    {
+      "type": "choose",
+      "question": "بماذا يردّ العاطس؟",
+      "options": [
+        "شكرًا",
+        "الحمد لله",
+        "يهديكم الله ويُصلح بالكم"
+      ],
+      "answer": 2,
+      "prompt": "🤝"
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

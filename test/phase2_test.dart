@@ -38,7 +38,7 @@ void main() {
       expect(l.contentVerified, isFalse);
     }
     expect(await repo.bySection('t_adab', AgeBand.atfal), isEmpty);
-    expect((await repo.bySection('t_listen', AgeBand.buraem)).length, 1);
+    expect((await repo.bySection('t_listen', AgeBand.buraem)).length, 4);
   });
 
   test('akhlaq lessons: general educational content, no hadith attribution',

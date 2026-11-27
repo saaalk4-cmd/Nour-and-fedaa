@@ -1,0 +1,26 @@
+{
+  "id": "q_n_02",
+  "title": "الشرح",
+  "icon": "💚",
+  "section": "quran",
+  "band": "nashia",
+  "source_type": "quran",
+  "source_note": "النص من مشروع تنزيل (Tanzil) عبر AlQuran Cloud، والتلاوة للشيخ المنشاوي (مرتّل). عدد الآيات يُطابَق آليًا مع جدول رواية حفص، والبسملة تؤخذ من المصدر نفسه. لا نص قرآني مكتوب يدويًا في التطبيق. ترخيص التلاوة للاستخدام التجاري لم يُحسم بعد.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "surah",
+      "surah": 94,
+      "repeat_each": 1
+    },
+    {
+      "type": "surah",
+      "surah": 94,
+      "repeat_each": 3
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

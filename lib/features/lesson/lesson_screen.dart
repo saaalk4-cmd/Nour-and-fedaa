@@ -8,6 +8,7 @@ import '../../data/providers.dart';
 import '../../domain/arabic_digits.dart';
 import '../../domain/badges.dart';
 import '../../domain/lesson.dart';
+import 'quran_hadith_steps.dart';
 
 /// شاشة الدرس: استماع ← ترديد ← مكافأة. بلا قراءة، أزرار كبيرة.
 class LessonScreen extends ConsumerWidget {
@@ -155,6 +156,17 @@ class _LessonRunnerState extends ConsumerState<_LessonRunner> {
         );
       case StepType.choose:
         return _choose(_step);
+      case StepType.surah:
+        return SurahStepView(
+          key: ValueKey('surah_$_index'),
+          step: _step,
+          textFree: widget.lesson.textFreeForChild,
+          icon: widget.lesson.icon ?? '🎧',
+          onDone: () => setState(() => _heard = true),
+          next: _heard ? _nextButton() : null,
+        );
+      case StepType.hadith:
+        return HadithStepView(step: _step, next: _nextButton());
       case StepType.reward:
         return _page(
           emoji: '🌟',
@@ -191,8 +203,8 @@ class _LessonRunnerState extends ConsumerState<_LessonRunner> {
         key: const Key('next_button'),
         style: _nextStyle,
         onPressed: _next,
-        // الاتجاه RTL: السهم للأمام يشير لليسار.
-        child: const Icon(Icons.arrow_back_rounded, size: 40),
+        // arrow_forward ينعكس تلقائيًا في RTL فيشير لليسار (للأمام).
+        child: const Icon(Icons.arrow_forward_rounded, size: 40),
       );
 
   Widget _bigButton({

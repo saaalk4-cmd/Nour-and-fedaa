@@ -61,7 +61,7 @@ void main() {
     expect(find.byType(KidsHome), findsOneWidget);
     expect(find.text('قرآني'), findsOneWidget);
     expect(find.text('ما لا يسع الطفل جهله'), findsOneWidget);
-    expect(find.text('قريبًا إن شاء الله', skipOffstage: false), findsOneWidget);
+    expect(find.text('قريبًا إن شاء الله', skipOffstage: false), findsNothing);
   });
 
   testWidgets('age 9 gets the tween home', (t) async {
@@ -75,6 +75,8 @@ void main() {
     await _show(t, homeForBand(_childBornYearsAgo(13), const {}));
     expect(find.byType(TeenHome), findsOneWidget);
     expect(find.text('درسك التالي'), findsOneWidget);
+    await t.scrollUntilVisible(find.text('اسأل ولي أمرك'), 300,
+        scrollable: find.byType(Scrollable).first);
     expect(find.text('اسأل ولي أمرك'), findsOneWidget);
   });
 

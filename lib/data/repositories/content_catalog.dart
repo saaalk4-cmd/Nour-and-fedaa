@@ -53,9 +53,11 @@ class ContentCatalog {
           sourceTypes: {l.sourceType},
           sources: {if (l.sourceNote != null) l.sourceNote!},
           verified: l.contentVerified,
-          audioStatus: l.hasAudio
-              ? 'موجود • الترخيص: ${l.audioLicense}'
-              : 'لم يُسجَّل بعد',
+          audioStatus: l.steps.any((s) => s.type == StepType.surah)
+              ? 'تلاوة أونلاين للمنشاوي • الترخيص التجاري لم يُحسم'
+              : l.hasAudio
+                  ? 'موجود • الترخيص: ${l.audioLicense}'
+                  : 'لم يُسجَّل بعد',
         ));
       } else if (a.startsWith('assets/content/levelcheck/') &&
           a.endsWith('.json')) {

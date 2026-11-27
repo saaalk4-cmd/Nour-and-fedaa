@@ -47,7 +47,7 @@ class OnboardingScaffold extends StatelessWidget {
                     IconButton(
                       tooltip: 'رجوع',
                       onPressed: () => Navigator.of(context).maybePop(),
-                      icon: Icon(Icons.arrow_forward, color: fg),
+                      icon: Icon(Icons.arrow_back, color: fg),
                     ),
                 ],
               ),

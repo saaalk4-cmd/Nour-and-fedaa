@@ -1,0 +1,42 @@
+{
+  "id": "a_adhkar_greet",
+  "title": "إفشاء السلام",
+  "icon": "👋",
+  "section": "adhkar",
+  "band": "atfal",
+  "source_type": "sahih_sunnah",
+  "source_note": "صحيح البخاري ٦٢٣٦؛ النص نُسخ من sunnah.com بيد صاحب المشروع، وأسئلة الفهم مأخوذة من نص الحديث نفسه.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "hadith",
+      "hadith": "bukhari_6236"
+    },
+    {
+      "type": "choose",
+      "question": "على مَن نُلقي السلام؟",
+      "options": [
+        "على من نعرف فقط",
+        "على من نعرف ومن لا نعرف",
+        "لا نُلقيه"
+      ],
+      "answer": 1,
+      "prompt": "👋"
+    },
+    {
+      "type": "choose",
+      "question": "ما الخصلتان المذكورتان في الحديث؟",
+      "options": [
+        "إطعام الطعام وإلقاء السلام",
+        "اللعب والنوم",
+        "الجري والقفز"
+      ],
+      "answer": 0,
+      "prompt": "🍲"
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

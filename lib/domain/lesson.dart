@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'age_band.dart';
 
-enum StepType { listen, repeat, choose, reward }
+enum StepType { listen, repeat, choose, surah, hadith, reward }
 
 /// خطوة في الدرس: استماع، ترديد، اختيار، أو مكافأة.
 class LessonStep {
@@ -15,6 +15,9 @@ class LessonStep {
     this.options = const [],
     this.optionLabels = const [],
     this.answer = 0,
+    this.surah = 0,
+    this.repeatEach = 1,
+    this.hadith,
   });
 
   final StepType type;
@@ -32,6 +35,13 @@ class LessonStep {
   final List<String> options;
   final List<String> optionLabels;
   final int answer;
+
+  /// خطوة surah: رقم السورة، وعدد مرات تكرار كل آية (١ استماع، ٣ حفظ).
+  final int surah;
+  final int repeatEach;
+
+  /// خطوة hadith: معرّف الحديث في assets/content/hadith.
+  final String? hadith;
 
   factory LessonStep.fromJson(Map<String, dynamic> j) {
     final type = StepType.values.firstWhere(
@@ -53,6 +63,13 @@ class LessonStep {
         throw const FormatException('عدد التسميات لا يطابق الخيارات');
       }
     }
+    final surah = (j['surah'] as int?) ?? 0;
+    if (type == StepType.surah && (surah < 1 || surah > 114)) {
+      throw const FormatException('رقم السورة غير صالح');
+    }
+    if (type == StepType.hadith && j['hadith'] is! String) {
+      throw const FormatException('خطوة حديث بلا معرّف');
+    }
     return LessonStep(
       type,
       times: (j['times'] as int?) ?? 0,
@@ -62,6 +79,9 @@ class LessonStep {
       options: options,
       optionLabels: labels,
       answer: answer,
+      surah: surah,
+      repeatEach: (j['repeat_each'] as int?) ?? 1,
+      hadith: j['hadith'] as String?,
     );
   }
 }

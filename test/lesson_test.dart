@@ -28,19 +28,19 @@ void main() {
   chooseTests();
 
   group('Lesson model', () {
-    test('parses the bundled toddler lesson', () async {
+    test('parses the bundled toddler Fatiha lesson (audio only, no typed text)',
+        () async {
       final raw = await rootBundle
           .loadString('assets/content/lessons/t_listen_fatiha.json');
       final l = Lesson.fromJsonString(raw);
       expect(l.id, 't_listen_fatiha');
       expect(l.band, AgeBand.buraem);
       expect(l.sourceType, 'quran');
-      expect(l.contentVerified, isFalse);
+      expect(l.textFreeForChild, isTrue);
       expect(l.rewardStars, 3);
-      expect(l.steps.map((s) => s.type),
-          [StepType.listen, StepType.repeat, StepType.reward]);
-      // لا نص قرآني في الملف
-      expect(raw.contains('بسم'), isFalse);
+      expect(l.steps.first.type, StepType.surah);
+      expect(l.steps.first.surah, 1);
+      expect(raw.contains('بِسْمِ'), isFalse);
     });
 
     test('rejects missing source_type', () {

@@ -1,24 +1,26 @@
 {
   "id": "t_listen_fatiha",
-  "title": "أسمع وأردد",
-  "subtitle": "الفاتحة",
+  "title": "الفاتحة",
+  "icon": "🌙",
+  "section": "t_listen",
   "band": "buraem",
   "source_type": "quran",
-  "source_note": "نص الآيات وصوت التلاوة يُستورَدان لاحقًا من مصدر مرخّص ومُتحقَّق منه. لا يوجد في هذا الملف أي نص قرآني.",
+  "source_note": "النص من مشروع تنزيل (Tanzil) عبر AlQuran Cloud، والتلاوة للشيخ المنشاوي (مرتّل). عدد الآيات يُطابَق آليًا مع جدول رواية حفص، والبسملة تؤخذ من المصدر نفسه. لا نص قرآني مكتوب يدويًا في التطبيق. ترخيص التلاوة للاستخدام التجاري لم يُحسم بعد.",
   "content_verified": false,
   "steps": [
     {
-      "type": "listen"
+      "type": "surah",
+      "surah": 1,
+      "repeat_each": 1
     },
     {
-      "type": "repeat",
-      "times": 3
+      "type": "surah",
+      "surah": 1,
+      "repeat_each": 3
     },
     {
       "type": "reward",
       "stars": 3
     }
-  ],
-  "section": "t_listen",
-  "icon": "🌙"
+  ]
 }
