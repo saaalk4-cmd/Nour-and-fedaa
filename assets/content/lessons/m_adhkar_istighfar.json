@@ -1,0 +1,50 @@
+{
+  "id": "m_adhkar_istighfar",
+  "title": "الاستغفار",
+  "icon": "🤍",
+  "section": "adhkar",
+  "band": "murahiqun",
+  "source_type": "sahih_sunnah",
+  "source_note": "صحيح البخاري ٦٣٠٧؛ النص من مجموعة hadith-api المفتوحة ومطابق لـ sunnah.com، وأسئلة الفهم مأخوذة من نص الحديث نفسه.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "hadith",
+      "hadith": "bukhari_6307"
+    },
+    {
+      "type": "choose",
+      "question": "كم كان النبي ﷺ يستغفر في اليوم؟",
+      "options": [
+        "أكثر من سبعين مرة",
+        "مرة واحدة",
+        "ثلاث مرات"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "ماذا كان يقول مع الاستغفار؟",
+      "options": [
+        "وأتوب إليه",
+        "وأنام",
+        "وأسافر"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "ما الذي نتعلّمه من الحديث؟",
+      "options": [
+        "الاستغفار للمخطئين فقط",
+        "الإكثار من الاستغفار كل يوم",
+        "الاستغفار في رمضان فقط"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

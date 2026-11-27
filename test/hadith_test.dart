@@ -14,7 +14,8 @@ import 'package:go_router/go_router.dart';
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  test('hadith texts are stored as pasted from sunnah.com, with sources', () async {
+  test('hadith texts are stored as pasted from sunnah.com, with sources',
+      () async {
     final repo = HadithRepository();
     final sneeze = await repo.byId('bukhari_6224');
     expect(sneeze.reference, 'صحيح البخاري ٦٢٢٤');
@@ -40,14 +41,35 @@ void main() {
     expect(jibril.url, 'https://sunnah.com/muslim:8a');
     expect(jibril.matn, contains('جِبْرِيلُ أَتَاكُمْ'));
     // لا علامات اتجاه خفية ولا علامات تنصيص غير مغلقة.
-    for (final h in [pillars, food, sleep, jibril]) {
+    final wudu = await repo.byId('bukhari_159');
+    expect(wudu.matn, contains('إِلَى الْمِرْفَقَيْنِ'));
+    final best = await repo.byId('bukhari_527');
+    expect(best.matn, contains('الصَّلاَةُ عَلَى وَقْتِهَا'));
+    final twoWords = await repo.byId('bukhari_6406');
+    expect(twoWords.matn, contains('سُبْحَانَ اللَّهِ الْعَظِيمِ'));
+    final tasbih = await repo.byId('bukhari_6405');
+    expect(tasbih.matn, contains('زَبَدِ الْبَحْرِ'));
+    final istighfar = await repo.byId('bukhari_6307');
+    expect(istighfar.matn, contains('أَكْثَرَ مِنْ سَبْعِينَ مَرَّةً'));
+    for (final h in [
+      pillars,
+      food,
+      sleep,
+      jibril,
+      wudu,
+      best,
+      twoWords,
+      tasbih,
+      istighfar
+    ]) {
       expect(h.matn.contains('\u200f'), isFalse, reason: h.id);
       expect('«'.allMatches(h.matn).length, '»'.allMatches(h.matn).length,
           reason: h.id);
     }
   });
 
-  test('every hadith step points to an existing hadith; every surah is verifiable',
+  test(
+      'every hadith step points to an existing hadith; every surah is verifiable',
       () async {
     final manifest = await AssetManifest.loadFromAssetBundle(rootBundle);
     final repo = LessonRepository();
@@ -87,6 +109,10 @@ void main() {
     expect((await repo.bySection('aqeedah', AgeBand.atfal)).length, 1);
     expect((await repo.bySection('aqeedah', AgeBand.nashia)).length, 1);
     expect((await repo.bySection('aqeedah', AgeBand.murahiqun)).length, 1);
+    expect((await repo.bySection('prayer', AgeBand.nashia)).length, 1);
+    expect((await repo.bySection('prayer', AgeBand.murahiqun)).length, 1);
+    expect((await repo.bySection('adhkar', AgeBand.nashia)).length, 1);
+    expect((await repo.bySection('adhkar', AgeBand.murahiqun)).length, 2);
   });
 
   testWidgets('hadith step shows the text, narrator and reference', (t) async {

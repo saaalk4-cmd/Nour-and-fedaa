@@ -1,0 +1,50 @@
+{
+  "id": "m_adhkar_tasbih",
+  "title": "التسبيح",
+  "icon": "📿",
+  "section": "adhkar",
+  "band": "murahiqun",
+  "source_type": "sahih_sunnah",
+  "source_note": "صحيح البخاري ٦٤٠٥؛ النص من مجموعة hadith-api المفتوحة ومطابق لـ sunnah.com، وأسئلة الفهم مأخوذة من نص الحديث نفسه.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "hadith",
+      "hadith": "bukhari_6405"
+    },
+    {
+      "type": "choose",
+      "question": "ما الذكر المذكور في الحديث؟",
+      "options": [
+        "سبحان الله وبحمده",
+        "الله أكبر",
+        "لا حول ولا قوة إلا بالله"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "كم مرة في اليوم؟",
+      "options": [
+        "عشر مرات",
+        "مائة مرة",
+        "مرة واحدة"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "choose",
+      "question": "ما جزاء ذلك في الحديث؟",
+      "options": [
+        "يكثر ماله",
+        "يطول عمره",
+        "حُطّت خطاياه وإن كانت مثل زبد البحر"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

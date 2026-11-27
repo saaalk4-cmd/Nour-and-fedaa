@@ -1,0 +1,75 @@
+{
+  "id": "n_salah_wudu",
+  "title": "صفة الوضوء",
+  "icon": "💧",
+  "section": "prayer",
+  "band": "nashia",
+  "source_type": "sahih_sunnah",
+  "source_note": "صحيح البخاري ١٥٩؛ النص من مجموعة hadith-api المفتوحة ومطابق لـ sunnah.com، وأسئلة الفهم مأخوذة من نص الحديث نفسه.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "hadith",
+      "hadith": "bukhari_159"
+    },
+    {
+      "type": "choose",
+      "question": "بماذا بدأ عثمان رضي الله عنه وضوءه؟",
+      "options": [
+        "غسل الوجه",
+        "غسل الكفّين ثلاثًا",
+        "مسح الرأس"
+      ],
+      "answer": 1,
+      "prompt": "🤲"
+    },
+    {
+      "type": "choose",
+      "question": "ماذا فعل بعد غسل الكفّين؟",
+      "options": [
+        "مضمض واستنشق",
+        "غسل رجليه",
+        "صلّى"
+      ],
+      "answer": 0,
+      "prompt": "💧"
+    },
+    {
+      "type": "choose",
+      "question": "إلى أين غسل يديه؟",
+      "options": [
+        "إلى الرسغين",
+        "إلى المرفقين",
+        "إلى الكتفين"
+      ],
+      "answer": 1,
+      "prompt": "💪"
+    },
+    {
+      "type": "choose",
+      "question": "ماذا فعل برأسه؟",
+      "options": [
+        "غسله ثلاثًا",
+        "تركه",
+        "مسح به"
+      ],
+      "answer": 2,
+      "prompt": "🙂"
+    },
+    {
+      "type": "choose",
+      "question": "ما آخر ما غسله؟",
+      "options": [
+        "رجليه إلى الكعبين",
+        "وجهه",
+        "كفّيه"
+      ],
+      "answer": 0,
+      "prompt": "🦶"
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

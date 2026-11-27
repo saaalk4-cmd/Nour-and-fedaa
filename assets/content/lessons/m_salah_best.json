@@ -1,0 +1,53 @@
+{
+  "id": "m_salah_best",
+  "title": "أحبّ الأعمال إلى الله",
+  "icon": "⏰",
+  "section": "prayer",
+  "band": "murahiqun",
+  "source_type": "sahih_sunnah",
+  "source_note": "صحيح البخاري ٥٢٧؛ النص من مجموعة hadith-api المفتوحة ومطابق لـ sunnah.com، وأسئلة الفهم مأخوذة من نص الحديث نفسه.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "hadith",
+      "hadith": "bukhari_527"
+    },
+    {
+      "type": "choose",
+      "question": "ما أحبّ العمل إلى الله في الحديث؟",
+      "options": [
+        "الصلاة على وقتها",
+        "كثرة الكلام",
+        "السفر"
+      ],
+      "answer": 0,
+      "prompt": "🕌"
+    },
+    {
+      "type": "choose",
+      "question": "ماذا جاء بعد الصلاة على وقتها؟",
+      "options": [
+        "الصدقة",
+        "برّ الوالدين",
+        "الصيام"
+      ],
+      "answer": 1,
+      "prompt": "👨‍👩‍👦"
+    },
+    {
+      "type": "choose",
+      "question": "من الذي سأل النبي ﷺ في الحديث؟",
+      "options": [
+        "أبو هريرة",
+        "أنس",
+        "عبد الله (صاحب الدار)"
+      ],
+      "answer": 2,
+      "prompt": "❓"
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

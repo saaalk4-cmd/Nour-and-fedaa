@@ -1,0 +1,53 @@
+{
+  "id": "n_adhkar_two_words",
+  "title": "كلمتان حبيبتان",
+  "icon": "⚖️",
+  "section": "adhkar",
+  "band": "nashia",
+  "source_type": "sahih_sunnah",
+  "source_note": "صحيح البخاري ٦٤٠٦؛ النص من مجموعة hadith-api المفتوحة ومطابق لـ sunnah.com، وأسئلة الفهم مأخوذة من نص الحديث نفسه.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "hadith",
+      "hadith": "bukhari_6406"
+    },
+    {
+      "type": "choose",
+      "question": "الكلمتان في الحديث: خفيفتان على...",
+      "options": [
+        "اللسان",
+        "القلب",
+        "اليد"
+      ],
+      "answer": 0,
+      "prompt": "👅"
+    },
+    {
+      "type": "choose",
+      "question": "وثقيلتان في...",
+      "options": [
+        "الحقيبة",
+        "الميزان",
+        "الطريق"
+      ],
+      "answer": 1,
+      "prompt": "⚖️"
+    },
+    {
+      "type": "choose",
+      "question": "ما الكلمتان؟",
+      "options": [
+        "الحمد لله، الله أكبر",
+        "لا إله إلا الله، أستغفر الله",
+        "سبحان الله العظيم، سبحان الله وبحمده"
+      ],
+      "answer": 2,
+      "prompt": "📿"
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}
