@@ -1,0 +1,49 @@
+{
+  "id": "n_akhlaq_neighbors",
+  "title": "حسن الجوار",
+  "icon": "🏘️",
+  "section": "akhlaq",
+  "band": "nashia",
+  "source_type": "educational",
+  "source_note": "محتوى تربوي عام لمواقف يومية، بلا نسبة لنبي أو آية أو حديث.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "choose",
+      "question": "جارك مريض. ماذا تفعل؟",
+      "options": [
+        "أزوره أو أسأل عنه",
+        "أتجاهله",
+        "أُعلي صوت الموسيقى"
+      ],
+      "answer": 0,
+      "prompt": "🤒"
+    },
+    {
+      "type": "choose",
+      "question": "الوقت متأخر والجيران نائمون. ماذا تفعل؟",
+      "options": [
+        "ألعب بصوت عالٍ",
+        "أخفض صوتي",
+        "أطرق بابهم"
+      ],
+      "answer": 1,
+      "prompt": "🌙"
+    },
+    {
+      "type": "choose",
+      "question": "سقطت أكياس جارك المسنّ. ماذا تفعل؟",
+      "options": [
+        "أمشي",
+        "أصوّره",
+        "أساعده في حملها"
+      ],
+      "answer": 2,
+      "prompt": "🛍️"
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

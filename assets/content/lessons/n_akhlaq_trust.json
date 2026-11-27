@@ -1,0 +1,60 @@
+{
+  "id": "n_akhlaq_trust",
+  "title": "الأمانة",
+  "icon": "🤝",
+  "section": "akhlaq",
+  "band": "nashia",
+  "source_type": "educational",
+  "source_note": "محتوى تربوي عام لمواقف يومية، بلا نسبة لنبي أو آية أو حديث.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "choose",
+      "question": "أعطاك البائع باقيًا أكثر من حقك. ماذا تفعل؟",
+      "options": [
+        "أعيد الزيادة",
+        "أحتفظ بها",
+        "أشتري بها حلوى"
+      ],
+      "answer": 0,
+      "prompt": "🪙"
+    },
+    {
+      "type": "choose",
+      "question": "ائتمنك صديقك على سرّ. ماذا تفعل؟",
+      "options": [
+        "أخبر الجميع",
+        "أحفظه",
+        "أكتبه على الإنترنت"
+      ],
+      "answer": 1,
+      "prompt": "🤫"
+    },
+    {
+      "type": "choose",
+      "question": "استعرت كتابًا من زميلك. متى تعيده؟",
+      "options": [
+        "لا أعيده",
+        "عندما يطلبه مرات",
+        "في الموعد سليمًا"
+      ],
+      "answer": 2,
+      "prompt": "📘"
+    },
+    {
+      "type": "choose",
+      "question": "وجدت محفظة في الشارع. ماذا تفعل؟",
+      "options": [
+        "أسلّمها لمن يوصلها لصاحبها",
+        "آخذ ما فيها",
+        "أتركها"
+      ],
+      "answer": 0,
+      "prompt": "👛"
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

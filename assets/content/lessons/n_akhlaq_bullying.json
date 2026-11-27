@@ -1,0 +1,60 @@
+{
+  "id": "n_akhlaq_bullying",
+  "title": "لا للتنمّر",
+  "icon": "🛡️",
+  "section": "akhlaq",
+  "band": "nashia",
+  "source_type": "educational",
+  "source_note": "محتوى تربوي عام لمواقف يومية، بلا نسبة لنبي أو آية أو حديث.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "choose",
+      "question": "زملاؤك يسخرون من طالب جديد. ماذا تفعل؟",
+      "options": [
+        "أضحك معهم",
+        "أقف معه وأخبر المعلّم",
+        "أصوّره"
+      ],
+      "answer": 1,
+      "prompt": "🏫"
+    },
+    {
+      "type": "choose",
+      "question": "أرسل لك أحدهم صورة محرجة لزميل. ماذا تفعل؟",
+      "options": [
+        "أنشرها",
+        "أعلّق عليها",
+        "لا أنشرها وأخبر شخصًا كبيرًا"
+      ],
+      "answer": 2,
+      "prompt": "📱"
+    },
+    {
+      "type": "choose",
+      "question": "أخطأ زميلك في القراءة أمام الصف. ماذا تفعل؟",
+      "options": [
+        "أشجّعه",
+        "أسخر منه",
+        "أقلّده"
+      ],
+      "answer": 0,
+      "prompt": "📖"
+    },
+    {
+      "type": "choose",
+      "question": "إن تعرّضتَ للتنمّر، ماذا تفعل؟",
+      "options": [
+        "أسكت دائمًا",
+        "أخبر والديّ أو معلّمي",
+        "أتنمّر على غيري"
+      ],
+      "answer": 1,
+      "prompt": "🗣️"
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

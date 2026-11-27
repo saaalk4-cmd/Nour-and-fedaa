@@ -10,6 +10,7 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   final repo = LessonRepository();
   moreContentTests();
+  olderAkhlaqTests();
 
   test('arabic letters: all 28 letters once, each answer word starts with its letter',
       () async {
@@ -94,5 +95,19 @@ void moreContentTests() {
   test('older bands now have Arabic lessons', () async {
     expect((await repo.bySection('arabic', AgeBand.nashia)).length, 3);
     expect((await repo.bySection('arabic', AgeBand.murahiqun)).length, 3);
+  });
+}
+
+void olderAkhlaqTests() {
+  test('akhlaq for 8-11 and 12-14: general educational scenarios', () async {
+    final repo = LessonRepository();
+    for (final band in [AgeBand.nashia, AgeBand.murahiqun]) {
+      final lessons = await repo.bySection('akhlaq', band);
+      expect(lessons.length, 3, reason: band.name);
+      for (final l in lessons) {
+        expect(l.sourceType, 'educational');
+        expect(_chooses(l).length, greaterThanOrEqualTo(3));
+      }
+    }
   });
 }

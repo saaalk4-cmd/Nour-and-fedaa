@@ -1,0 +1,49 @@
+{
+  "id": "m_akhlaq_parents",
+  "title": "برّ الوالدين",
+  "icon": "🏠",
+  "section": "akhlaq",
+  "band": "murahiqun",
+  "source_type": "educational",
+  "source_note": "محتوى تربوي عام لمواقف يومية، بلا نسبة لنبي أو آية أو حديث.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "choose",
+      "question": "طلبت منك أمك المساعدة وأنت مشغول بلعبة. ماذا تفعل؟",
+      "options": [
+        "أتجاهلها",
+        "أوقف اللعبة وأساعدها",
+        "أتذمّر بصوت عالٍ"
+      ],
+      "answer": 1,
+      "prompt": "🎮"
+    },
+    {
+      "type": "choose",
+      "question": "اختلفت مع والدك في رأي. كيف تعبّر؟",
+      "options": [
+        "بأدب وهدوء",
+        "بالصراخ",
+        "بالانسحاب غاضبًا"
+      ],
+      "answer": 0,
+      "prompt": "🗨️"
+    },
+    {
+      "type": "choose",
+      "question": "والداك متعبان بعد يوم طويل. ماذا تفعل؟",
+      "options": [
+        "أطلب طلبات كثيرة",
+        "أُحدث فوضى",
+        "أساعد في البيت"
+      ],
+      "answer": 2,
+      "prompt": "🧹"
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}
