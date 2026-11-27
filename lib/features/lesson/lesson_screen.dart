@@ -312,20 +312,14 @@ class _LessonRunnerState extends ConsumerState<_LessonRunner> {
                   }
                 }),
         child: SizedBox(
-          width: 130,
-          height: 140,
+          width: _isLong(step) ? 300 : 130,
+          height: _isLong(step) ? 96 : 140,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: FittedBox(
-                  fit: BoxFit.scaleDown,
-                  child: Text(step.options[i],
-                      style: TextStyle(
-                          fontSize: step.options[i].runes.length <= 2 ? 52 : 30,
-                          fontWeight: FontWeight.w700)),
-                ),
+                child: _optionText(step.options[i], long: _isLong(step)),
               ),
               if (step.optionLabels.isNotEmpty)
                 Text(step.optionLabels[i],
@@ -336,5 +330,29 @@ class _LessonRunnerState extends ConsumerState<_LessonRunner> {
         ),
       ),
     );
+  }
+
+  /// خيارات الجُمل الطويلة (مواقف الأخلاق) تُعرض صفًّا عريضًا يلتفّ نصّه.
+  static bool _isLong(LessonStep step) =>
+      step.options.any((o) => o.runes.length > 8);
+
+  static Widget _optionText(String o, {required bool long}) {
+    final n = o.runes.length;
+    if (!long && n <= 2) {
+      return Text(o,
+          style: const TextStyle(fontSize: 52, fontWeight: FontWeight.w700));
+    }
+    if (!long) {
+      return FittedBox(
+        fit: BoxFit.scaleDown,
+        child: Text(o,
+            style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w700)),
+      );
+    }
+    return Text(o,
+        textAlign: TextAlign.center,
+        maxLines: 3,
+        overflow: TextOverflow.ellipsis,
+        style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w700));
   }
 }
