@@ -1,0 +1,13 @@
+rules_version = '2';
+// مسودة قواعد Storage: ملفات الصوت للقراءة بعد تسجيل الدخول، ولا رفع من التطبيق.
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /audio/{file=**} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+    match /{all=**} {
+      allow read, write: if false;
+    }
+  }
+}

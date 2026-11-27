@@ -1,3 +1,19 @@
+# إعداد Firebase
+
+## الحالة (٢٧ نوفمبر ٢٠٢٦)
+- ✅ المشروع: `buraq-b5791`، تطبيق Android بالحزمة `com.buraq.buraq`.
+- ✅ التطبيق يتهيأ بإعدادات `lib/firebase_options.dart` (بلا ملف `google-services.json` في المستودع، فهو في `.gitignore`).
+- ✅ حساب ولي الأمر بالبريد وكلمة المرور عبر Firebase Auth.
+- ⏳ **مطلوب من صاحب المشروع في Firebase Console:**
+  1. Authentication > Sign-in method: فعّل **Email/Password**.
+  2. Firestore Database: أنشئ قاعدة (Production mode، أقرب منطقة مثل `europe-west`)، ثم الصق محتوى `firestore.rules` في تبويب Rules وانشر.
+  3. Storage: فعّله، ثم الصق `storage.rules` وانشر.
+  4. Google Cloud Console > APIs & Services > Credentials: قيّد مفتاح Android على الحزمة `com.buraq.buraq` (وأضف SHA-1 عند توفر مفتاح التوقيع).
+- ⏳ الدخول بجوجل: يحتاج مفتاح توقيع ثابتًا (البناء الحالي على GitHub يولّد مفتاحًا جديدًا كل مرة) ثم إضافة SHA-1 في إعدادات التطبيق.
+- ⏳ App Check وRemote Config ومزامنة Firestore: الخطوات التالية في الكود.
+
+---
+
 # إعداد Firebase لتطبيق براق
 
 هذه خطوات تحتاج حسابك على Google (لا يمكن تنفيذها آليًا). بعد إتمامها أكمل ربط الكود.

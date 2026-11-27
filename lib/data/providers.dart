@@ -25,9 +25,13 @@ final lessonProvider = FutureProvider.family<Lesson, String>(
   (ref, id) => ref.watch(lessonRepositoryProvider).byId(id),
 );
 
-final accountRepositoryProvider = Provider<AccountRepository>(
-  (ref) => LocalAccountRepository(ref.watch(settingsRepositoryProvider)),
-);
+/// هل نجحت تهيئة Firebase عند الإقلاع؟ (يُضبط في main).
+final firebaseReadyProvider = Provider<bool>((_) => false);
+
+final accountRepositoryProvider = Provider<AccountRepository>((ref) =>
+    ref.watch(firebaseReadyProvider)
+        ? FirebaseAccountRepository()
+        : LocalAccountRepository(ref.watch(settingsRepositoryProvider)));
 
 final accountProvider = FutureProvider<ParentAccount?>(
   (ref) => ref.watch(accountRepositoryProvider).current(),

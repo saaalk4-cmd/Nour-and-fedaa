@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../data/providers.dart';
 import '../../data/repositories/content_catalog.dart';
 import '../../domain/age_band.dart';
 
@@ -60,6 +61,44 @@ class ParentsCornerScreen extends ConsumerWidget {
               '• نحفظ لقب الطفل (لا اسمه الحقيقي) وشهر وسنة الميلاد فقط.\n'
               '• لا موقع دقيق ولا معرّفات جهاز.\n'
               '• حساب ولي الأمر هو الأساس، وإعدادات الطفل خلف رمزك السري.'),
+          const Divider(height: 32),
+          Text('الحساب', style: t.titleLarge),
+          const SizedBox(height: 8),
+          ref.watch(accountProvider).maybeWhen(
+                data: (a) => Text(a == null
+                    ? 'لا يوجد حساب'
+                    : a.isLocal
+                        ? 'وضع تجريبي على هذا الجهاز: ${a.email ?? ''}'
+                        : 'مسجّل الدخول: ${a.email ?? ''}'),
+                orElse: () => const SizedBox.shrink(),
+              ),
+          TextButton.icon(
+            key: const Key('sign_out'),
+            onPressed: () async {
+              final ok = await showDialog<bool>(
+                context: context,
+                builder: (ctx) => AlertDialog(
+                  title: const Text('تسجيل الخروج؟'),
+                  content: const Text(
+                      'ملفات الأطفال وتقدّمهم تبقى على هذا الجهاز.'),
+                  actions: [
+                    TextButton(
+                        onPressed: () => Navigator.pop(ctx, false),
+                        child: const Text('تراجع')),
+                    TextButton(
+                        onPressed: () => Navigator.pop(ctx, true),
+                        child: const Text('خروج')),
+                  ],
+                ),
+              );
+              if (ok != true) return;
+              await ref.read(accountRepositoryProvider).signOut();
+              ref.invalidate(accountProvider);
+              if (context.mounted) context.go('/');
+            },
+            icon: const Icon(Icons.logout),
+            label: const Text('تسجيل الخروج'),
+          ),
           const Divider(height: 32),
           ListTile(
             key: const Key('change_pin_tile'),

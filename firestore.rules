@@ -1,0 +1,18 @@
+rules_version = '2';
+// مسودة قواعد Firestore لبراق: كل ولي أمر يرى بياناته فقط.
+// تُنشر من Firebase Console > Firestore > Rules، أو عبر Firebase CLI.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /parents/{uid}/{document=**} {
+      allow read, write: if request.auth != null && request.auth.uid == uid;
+    }
+    // المحتوى العام (دروس) للقراءة فقط بعد تسجيل الدخول؛ الكتابة من لوحة الإدارة فقط.
+    match /content/{document=**} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
