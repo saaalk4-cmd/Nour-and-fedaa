@@ -1,0 +1,76 @@
+{
+  "id": "n_arabic_kinds",
+  "title": "اسم أم فعل أم حرف؟",
+  "icon": "📚",
+  "section": "arabic",
+  "band": "nashia",
+  "source_type": "educational",
+  "source_note": "محتوى تعليمي للحروف والكلمات العربية. بلا محتوى ديني.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "choose",
+      "question": "كلمة «يلعبُ»:",
+      "options": [
+        "اسم",
+        "فعل",
+        "حرف"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "choose",
+      "question": "كلمة «شجرة»:",
+      "options": [
+        "اسم",
+        "فعل",
+        "حرف"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "كلمة «في»:",
+      "options": [
+        "اسم",
+        "فعل",
+        "حرف"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "choose",
+      "question": "كلمة «ذهبَ»:",
+      "options": [
+        "اسم",
+        "فعل",
+        "حرف"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "choose",
+      "question": "كلمة «على»:",
+      "options": [
+        "اسم",
+        "فعل",
+        "حرف"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "choose",
+      "question": "كلمة «مدرسة»:",
+      "options": [
+        "اسم",
+        "فعل",
+        "حرف"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

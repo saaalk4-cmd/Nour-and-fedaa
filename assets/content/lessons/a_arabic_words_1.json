@@ -1,0 +1,74 @@
+{
+  "id": "a_arabic_words_1",
+  "title": "الحرف الأول ١",
+  "icon": "🔤",
+  "section": "arabic",
+  "band": "atfal",
+  "source_type": "educational",
+  "source_note": "محتوى تعليمي للحروف والكلمات العربية. بلا محتوى ديني.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "listen"
+    },
+    {
+      "type": "choose",
+      "question": "ما الحرف الأول في كلمة «باب»؟",
+      "options": [
+        "ب",
+        "ح",
+        "خ"
+      ],
+      "answer": 0,
+      "prompt": "باب"
+    },
+    {
+      "type": "choose",
+      "question": "ما الحرف الأول في كلمة «بيت»؟",
+      "options": [
+        "م",
+        "ب",
+        "ز"
+      ],
+      "answer": 1,
+      "prompt": "بيت"
+    },
+    {
+      "type": "choose",
+      "question": "ما الحرف الأول في كلمة «قلم»؟",
+      "options": [
+        "ش",
+        "ظ",
+        "ق"
+      ],
+      "answer": 2,
+      "prompt": "قلم"
+    },
+    {
+      "type": "choose",
+      "question": "ما الحرف الأول في كلمة «شمس»؟",
+      "options": [
+        "ش",
+        "ب",
+        "ز"
+      ],
+      "answer": 0,
+      "prompt": "شمس"
+    },
+    {
+      "type": "choose",
+      "question": "ما الحرف الأول في كلمة «كتاب»؟",
+      "options": [
+        "م",
+        "ك",
+        "ح"
+      ],
+      "answer": 1,
+      "prompt": "كتاب"
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

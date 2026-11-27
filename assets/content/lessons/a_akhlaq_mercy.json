@@ -1,0 +1,52 @@
+{
+  "id": "a_akhlaq_mercy",
+  "title": "الرحمة بالحيوان",
+  "icon": "🐱",
+  "section": "akhlaq",
+  "band": "atfal",
+  "source_type": "educational",
+  "source_note": "محتوى تربوي عام لمواقف يومية، بلا نسبة لنبي أو آية أو حديث.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "listen"
+    },
+    {
+      "type": "choose",
+      "question": "رأيتَ قطة جائعة. ماذا تفعل؟",
+      "options": [
+        "أطعمها",
+        "أخيفها",
+        "أتركها تجوع"
+      ],
+      "answer": 0,
+      "prompt": "🐱"
+    },
+    {
+      "type": "choose",
+      "question": "عصفور صغير وقع من عشّه. ماذا تفعل؟",
+      "options": [
+        "أطلب مساعدة الكبار",
+        "أرميه بحجر",
+        "ألعب به"
+      ],
+      "answer": 0,
+      "prompt": "🐦"
+    },
+    {
+      "type": "choose",
+      "question": "كيف نعامل الحيوانات؟",
+      "options": [
+        "نؤذيها",
+        "نرفق بها",
+        "نخيفها"
+      ],
+      "answer": 1,
+      "prompt": "🐶"
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

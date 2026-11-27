@@ -1,0 +1,66 @@
+{
+  "id": "n_arabic_number",
+  "title": "المفرد والمثنى والجمع",
+  "icon": "🔢",
+  "section": "arabic",
+  "band": "nashia",
+  "source_type": "educational",
+  "source_note": "محتوى تعليمي للحروف والكلمات العربية. بلا محتوى ديني.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "choose",
+      "question": "ما مثنى «قلم»؟",
+      "options": [
+        "أقلام",
+        "قلمان",
+        "قلمٌ"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "choose",
+      "question": "ما جمع «كتاب»؟",
+      "options": [
+        "كتابان",
+        "كاتب",
+        "كُتُب"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "choose",
+      "question": "ما جمع «معلّم»؟",
+      "options": [
+        "معلّمون",
+        "معلّمان",
+        "تعليم"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "ما مثنى «بنت»؟",
+      "options": [
+        "بنات",
+        "بنتان",
+        "بنيّة"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "choose",
+      "question": "ما جمع «شجرة»؟",
+      "options": [
+        "أشجار",
+        "شجرتان",
+        "شاجر"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "id": "m_arabic_jar",
+  "title": "حروف الجر",
+  "icon": "🔗",
+  "section": "arabic",
+  "band": "murahiqun",
+  "source_type": "educational",
+  "source_note": "محتوى تعليمي للحروف والكلمات العربية. بلا محتوى ديني.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "choose",
+      "question": "أي كلمة مما يلي حرف جر؟",
+      "options": [
+        "قد",
+        "على",
+        "سوف"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "choose",
+      "question": "في جملة «ذهبتُ إلى المدرسةِ»، ما الاسم المجرور؟",
+      "options": [
+        "ذهبتُ",
+        "إلى",
+        "المدرسةِ"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "choose",
+      "question": "ما علامة جرّ الاسم المفرد؟",
+      "options": [
+        "الكسرة",
+        "الضمة",
+        "الفتحة"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "أي مما يلي من حروف الجر؟",
+      "options": [
+        "لن",
+        "لم",
+        "من"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "choose",
+      "question": "في جملة «الكتابُ في الحقيبةِ»، ما حرف الجر؟",
+      "options": [
+        "الكتابُ",
+        "في",
+        "الحقيبةِ"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "id": "n_arabic_opposites",
+  "title": "الأضداد",
+  "icon": "↔️",
+  "section": "arabic",
+  "band": "nashia",
+  "source_type": "educational",
+  "source_note": "محتوى تعليمي للحروف والكلمات العربية. بلا محتوى ديني.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "choose",
+      "question": "ما ضد «طويل»؟",
+      "options": [
+        "قصير",
+        "عالٍ",
+        "كبير"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "ما ضد «سريع»؟",
+      "options": [
+        "قوي",
+        "بطيء",
+        "خفيف"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "choose",
+      "question": "ما ضد «نهار»؟",
+      "options": [
+        "صباح",
+        "ظهر",
+        "ليل"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "choose",
+      "question": "ما ضد «حارّ»؟",
+      "options": [
+        "بارد",
+        "دافئ",
+        "ساخن"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "ما ضد «نظيف»؟",
+      "options": [
+        "لامع",
+        "متّسخ",
+        "جميل"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

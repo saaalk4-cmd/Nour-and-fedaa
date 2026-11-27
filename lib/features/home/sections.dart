@@ -28,7 +28,7 @@ const appSections = <AppSection>[
       SectionIds.aqeedah, '🌙', 'ما لا يسع الطفل جهله', Color(0xFF4E7D6B)),
   AppSection(SectionIds.arabic, 'ع', 'عربيتي', Color(0xFF3F5F9E)),
   AppSection(SectionIds.adhkar, '🤲', 'أذكاري', Color(0xFF7A6BB0), soon: true),
-  AppSection(SectionIds.akhlaq, '🌿', 'أخلاقي', Color(0xFF5F8F4E), soon: true),
+  AppSection(SectionIds.akhlaq, '🌿', 'أخلاقي', Color(0xFF5F8F4E)),
 ];
 
 /// بلاطات البراعم (2–4): وحدات المنهج الصغيرة.

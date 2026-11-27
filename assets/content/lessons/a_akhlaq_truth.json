@@ -1,0 +1,52 @@
+{
+  "id": "a_akhlaq_truth",
+  "title": "الصدق",
+  "icon": "🗣️",
+  "section": "akhlaq",
+  "band": "atfal",
+  "source_type": "educational",
+  "source_note": "محتوى تربوي عام لمواقف يومية، بلا نسبة لنبي أو آية أو حديث.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "listen"
+    },
+    {
+      "type": "choose",
+      "question": "كسرتَ كوبًا بالخطأ. ماذا تفعل؟",
+      "options": [
+        "أقول الحقيقة",
+        "أخفي الكوب",
+        "ألوم أخي"
+      ],
+      "answer": 0,
+      "prompt": "🥛"
+    },
+    {
+      "type": "choose",
+      "question": "سألتك أمك: هل رتّبت سريرك؟ ولم تفعل. ماذا تقول؟",
+      "options": [
+        "نعم رتّبته",
+        "لا، سأرتّبه الآن",
+        "لا أجيب"
+      ],
+      "answer": 1,
+      "prompt": "🛏️"
+    },
+    {
+      "type": "choose",
+      "question": "وجدتَ لعبة صديقك في حقيبتك. ماذا تفعل؟",
+      "options": [
+        "أحتفظ بها",
+        "أرميها",
+        "أعيدها إليه"
+      ],
+      "answer": 2,
+      "prompt": "🧸"
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

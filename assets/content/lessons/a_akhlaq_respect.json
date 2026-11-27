@@ -1,0 +1,52 @@
+{
+  "id": "a_akhlaq_respect",
+  "title": "احترام الكبير",
+  "icon": "👴",
+  "section": "akhlaq",
+  "band": "atfal",
+  "source_type": "educational",
+  "source_note": "محتوى تربوي عام لمواقف يومية، بلا نسبة لنبي أو آية أو حديث.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "listen"
+    },
+    {
+      "type": "choose",
+      "question": "دخل جدّك الغرفة ولا يوجد مقعد. ماذا تفعل؟",
+      "options": [
+        "أبقى جالسًا",
+        "أقوم ليجلس",
+        "أخرج"
+      ],
+      "answer": 1,
+      "prompt": "🪑"
+    },
+    {
+      "type": "choose",
+      "question": "يتكلّم والدك معك. ماذا تفعل؟",
+      "options": [
+        "أنصت إليه",
+        "أقاطعه",
+        "ألعب بالهاتف"
+      ],
+      "answer": 0,
+      "prompt": "👂"
+    },
+    {
+      "type": "choose",
+      "question": "جدّتك تحمل حقيبة ثقيلة. ماذا تفعل؟",
+      "options": [
+        "أضحك",
+        "أنظر فقط",
+        "أساعدها"
+      ],
+      "answer": 2,
+      "prompt": "👜"
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

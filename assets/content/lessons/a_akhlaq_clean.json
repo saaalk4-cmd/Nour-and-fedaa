@@ -1,0 +1,52 @@
+{
+  "id": "a_akhlaq_clean",
+  "title": "النظافة",
+  "icon": "🧼",
+  "section": "akhlaq",
+  "band": "atfal",
+  "source_type": "educational",
+  "source_note": "محتوى تربوي عام لمواقف يومية، بلا نسبة لنبي أو آية أو حديث.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "listen"
+    },
+    {
+      "type": "choose",
+      "question": "ماذا تفعل قبل الأكل؟",
+      "options": [
+        "أغسل يديّ",
+        "ألعب بالتراب",
+        "أنام"
+      ],
+      "answer": 0,
+      "prompt": "🍽️"
+    },
+    {
+      "type": "choose",
+      "question": "أنهيت شرب العصير. أين تضع العلبة؟",
+      "options": [
+        "على الأرض",
+        "في سلة المهملات",
+        "تحت المقعد"
+      ],
+      "answer": 1,
+      "prompt": "🧃"
+    },
+    {
+      "type": "choose",
+      "question": "متى تنظّف أسنانك؟",
+      "options": [
+        "مرة في الشهر",
+        "لا أنظّفها",
+        "صباحًا ومساءً"
+      ],
+      "answer": 2,
+      "prompt": "🪥"
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

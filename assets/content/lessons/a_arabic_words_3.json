@@ -1,0 +1,74 @@
+{
+  "id": "a_arabic_words_3",
+  "title": "الحرف الأخير ١",
+  "icon": "🔡",
+  "section": "arabic",
+  "band": "atfal",
+  "source_type": "educational",
+  "source_note": "محتوى تعليمي للحروف والكلمات العربية. بلا محتوى ديني.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "listen"
+    },
+    {
+      "type": "choose",
+      "question": "ما الحرف الأخير في كلمة «باب»؟",
+      "options": [
+        "ب",
+        "ي",
+        "ف"
+      ],
+      "answer": 0,
+      "prompt": "باب"
+    },
+    {
+      "type": "choose",
+      "question": "ما الحرف الأخير في كلمة «بيت»؟",
+      "options": [
+        "ظ",
+        "ت",
+        "ل"
+      ],
+      "answer": 1,
+      "prompt": "بيت"
+    },
+    {
+      "type": "choose",
+      "question": "ما الحرف الأخير في كلمة «قلم»؟",
+      "options": [
+        "د",
+        "ف",
+        "م"
+      ],
+      "answer": 2,
+      "prompt": "قلم"
+    },
+    {
+      "type": "choose",
+      "question": "ما الحرف الأخير في كلمة «شمس»؟",
+      "options": [
+        "س",
+        "ذ",
+        "د"
+      ],
+      "answer": 0,
+      "prompt": "شمس"
+    },
+    {
+      "type": "choose",
+      "question": "ما الحرف الأخير في كلمة «ولد»؟",
+      "options": [
+        "س",
+        "د",
+        "ك"
+      ],
+      "answer": 1,
+      "prompt": "ولد"
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

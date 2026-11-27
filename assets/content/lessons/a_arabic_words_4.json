@@ -1,0 +1,74 @@
+{
+  "id": "a_arabic_words_4",
+  "title": "الحرف الأخير ٢",
+  "icon": "🔡",
+  "section": "arabic",
+  "band": "atfal",
+  "source_type": "educational",
+  "source_note": "محتوى تعليمي للحروف والكلمات العربية. بلا محتوى ديني.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "listen"
+    },
+    {
+      "type": "choose",
+      "question": "ما الحرف الأخير في كلمة «ورد»؟",
+      "options": [
+        "د",
+        "ي",
+        "ق"
+      ],
+      "answer": 0,
+      "prompt": "ورد"
+    },
+    {
+      "type": "choose",
+      "question": "ما الحرف الأخير في كلمة «قمر»؟",
+      "options": [
+        "غ",
+        "ر",
+        "ز"
+      ],
+      "answer": 1,
+      "prompt": "قمر"
+    },
+    {
+      "type": "choose",
+      "question": "ما الحرف الأخير في كلمة «نهر»؟",
+      "options": [
+        "و",
+        "ج",
+        "ر"
+      ],
+      "answer": 2,
+      "prompt": "نهر"
+    },
+    {
+      "type": "choose",
+      "question": "ما الحرف الأخير في كلمة «زيت»؟",
+      "options": [
+        "ت",
+        "ل",
+        "ج"
+      ],
+      "answer": 0,
+      "prompt": "زيت"
+    },
+    {
+      "type": "choose",
+      "question": "ما الحرف الأخير في كلمة «تمر»؟",
+      "options": [
+        "و",
+        "ر",
+        "ن"
+      ],
+      "answer": 1,
+      "prompt": "تمر"
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

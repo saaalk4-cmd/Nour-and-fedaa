@@ -1,0 +1,66 @@
+{
+  "id": "m_arabic_nominal",
+  "title": "المبتدأ والخبر",
+  "icon": "🧱",
+  "section": "arabic",
+  "band": "murahiqun",
+  "source_type": "educational",
+  "source_note": "محتوى تعليمي للحروف والكلمات العربية. بلا محتوى ديني.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "choose",
+      "question": "في جملة «السماءُ صافيةٌ»، ما المبتدأ؟",
+      "options": [
+        "السماءُ",
+        "صافيةٌ",
+        "لا يوجد"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "في جملة «العلمُ نورٌ»، ما الخبر؟",
+      "options": [
+        "العلمُ",
+        "نورٌ",
+        "لا يوجد"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "choose",
+      "question": "ما الحكم الإعرابي للمبتدأ والخبر؟",
+      "options": [
+        "منصوبان",
+        "مجروران",
+        "مرفوعان"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "choose",
+      "question": "الجملة الاسمية تبدأ في الأصل بـ:",
+      "options": [
+        "اسم",
+        "فعل",
+        "حرف جر"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "في جملة «الطقسُ جميلٌ اليومَ»، ما الخبر؟",
+      "options": [
+        "الطقسُ",
+        "جميلٌ",
+        "اليومَ"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

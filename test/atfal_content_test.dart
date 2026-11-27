@@ -9,13 +9,16 @@ Iterable<LessonStep> _chooses(Lesson l) =>
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   final repo = LessonRepository();
+  moreContentTests();
 
   test('arabic letters: all 28 letters once, each answer word starts with its letter',
       () async {
     final lessons = await repo.bySection('arabic', AgeBand.atfal);
-    expect(lessons.length, 7);
+    final letterLessons =
+        lessons.where((l) => l.id.startsWith('a_arabic_letters_')).toList();
+    expect(letterLessons.length, 7);
     final seen = <String>[];
-    for (final l in lessons) {
+    for (final l in letterLessons) {
       expect(l.sourceType, 'educational');
       for (final s in _chooses(l)) {
         final letter = s.prompt!.replaceAll('ـ', '');
@@ -57,5 +60,39 @@ void main() {
     final positions =
         lessons.expand(_chooses).map((s) => s.answer).toSet();
     expect(positions.length, greaterThan(1));
+  });
+}
+
+void moreContentTests() {
+  final repo = LessonRepository();
+
+  test('first/last letter questions: the right option is really the first/last letter',
+      () async {
+    final lessons = (await repo.bySection('arabic', AgeBand.atfal))
+        .where((l) => l.id.startsWith('a_arabic_words_'));
+    expect(lessons.length, 4);
+    for (final l in lessons) {
+      for (final s in _chooses(l)) {
+        final word = s.prompt!;
+        final isFirst = s.question!.contains('الأول');
+        final expected = isFirst ? word[0] : word[word.length - 1];
+        expect(s.options[s.answer], expected, reason: '${l.id}: $word');
+        expect(s.options.toSet().length, s.options.length);
+      }
+    }
+  });
+
+  test('akhlaq for 5-7 is general educational content', () async {
+    final lessons = await repo.bySection('akhlaq', AgeBand.atfal);
+    expect(lessons.length, 4);
+    for (final l in lessons) {
+      expect(l.sourceType, 'educational');
+      expect(_chooses(l).length, greaterThanOrEqualTo(3));
+    }
+  });
+
+  test('older bands now have Arabic lessons', () async {
+    expect((await repo.bySection('arabic', AgeBand.nashia)).length, 3);
+    expect((await repo.bySection('arabic', AgeBand.murahiqun)).length, 3);
   });
 }

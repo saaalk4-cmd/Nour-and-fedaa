@@ -61,7 +61,7 @@ void main() {
     expect(find.byType(KidsHome), findsOneWidget);
     expect(find.text('قرآني'), findsOneWidget);
     expect(find.text('ما لا يسع الطفل جهله'), findsOneWidget);
-    expect(find.text('قريبًا إن شاء الله'), findsNWidgets(2));
+    expect(find.text('قريبًا إن شاء الله', skipOffstage: false), findsOneWidget);
   });
 
   testWidgets('age 9 gets the tween home', (t) async {

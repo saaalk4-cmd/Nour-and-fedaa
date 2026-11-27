@@ -1,0 +1,66 @@
+{
+  "id": "m_arabic_fail",
+  "title": "الفاعل والمفعول به",
+  "icon": "✍️",
+  "section": "arabic",
+  "band": "murahiqun",
+  "source_type": "educational",
+  "source_note": "محتوى تعليمي للحروف والكلمات العربية. بلا محتوى ديني.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "choose",
+      "question": "في جملة «كتبَ الطالبُ الدرسَ»، ما الفاعل؟",
+      "options": [
+        "كتبَ",
+        "الطالبُ",
+        "الدرسَ"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "choose",
+      "question": "في جملة «قرأَ عليٌّ القصةَ»، ما المفعول به؟",
+      "options": [
+        "قرأَ",
+        "عليٌّ",
+        "القصةَ"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "choose",
+      "question": "في جملة «فازَ الفريقُ»، ما الفاعل؟",
+      "options": [
+        "الفريقُ",
+        "فازَ",
+        "لا يوجد"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "ما علامة رفع الفاعل المفرد؟",
+      "options": [
+        "الفتحة",
+        "الضمة",
+        "الكسرة"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "choose",
+      "question": "ما علامة نصب المفعول به المفرد؟",
+      "options": [
+        "الفتحة",
+        "الضمة",
+        "السكون"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "id": "a_arabic_words_2",
+  "title": "الحرف الأول ٢",
+  "icon": "🔤",
+  "section": "arabic",
+  "band": "atfal",
+  "source_type": "educational",
+  "source_note": "محتوى تعليمي للحروف والكلمات العربية. بلا محتوى ديني.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "listen"
+    },
+    {
+      "type": "choose",
+      "question": "ما الحرف الأول في كلمة «فيل»؟",
+      "options": [
+        "ف",
+        "ر",
+        "ز"
+      ],
+      "answer": 0,
+      "prompt": "فيل"
+    },
+    {
+      "type": "choose",
+      "question": "ما الحرف الأول في كلمة «ورد»؟",
+      "options": [
+        "ب",
+        "و",
+        "م"
+      ],
+      "answer": 1,
+      "prompt": "ورد"
+    },
+    {
+      "type": "choose",
+      "question": "ما الحرف الأول في كلمة «قمر»؟",
+      "options": [
+        "خ",
+        "و",
+        "ق"
+      ],
+      "answer": 2,
+      "prompt": "قمر"
+    },
+    {
+      "type": "choose",
+      "question": "ما الحرف الأول في كلمة «نهر»؟",
+      "options": [
+        "ن",
+        "ع",
+        "ح"
+      ],
+      "answer": 0,
+      "prompt": "نهر"
+    },
+    {
+      "type": "choose",
+      "question": "ما الحرف الأول في كلمة «زيت»؟",
+      "options": [
+        "د",
+        "ز",
+        "ب"
+      ],
+      "answer": 1,
+      "prompt": "زيت"
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}
