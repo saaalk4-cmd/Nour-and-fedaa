@@ -16,7 +16,10 @@ final _levelCheckProvider = FutureProvider.autoDispose<LevelCheck?>((ref) async 
 
 /// اختبار المستوى: سؤال واحد في كل شاشة، بلا إظهار صح أو خطأ ولا درجات.
 class LevelCheckScreen extends ConsumerStatefulWidget {
-  const LevelCheckScreen({super.key});
+  const LevelCheckScreen({super.key, this.returnTo});
+
+  /// إلى أين نعود بعد الانتهاء (null = إكمال رحلة التسجيل).
+  final String? returnTo;
 
   @override
   ConsumerState<LevelCheckScreen> createState() => _LevelCheckScreenState();
@@ -37,7 +40,7 @@ class _LevelCheckScreenState extends ConsumerState<LevelCheckScreen> {
           .save(id, check.placement(_answers));
       ref.read(syncServiceProvider)?.pushChildInBackground(id);
     }
-    if (mounted) context.go('/onboarding/ready');
+    if (mounted) context.go(widget.returnTo ?? '/onboarding/ready');
   }
 
   void _advance(LevelCheck check) {
@@ -63,7 +66,8 @@ class _LevelCheckScreenState extends ConsumerState<LevelCheckScreen> {
         child: Column(children: [
           const Spacer(),
           GoldButton(
-              label: 'متابعة', onPressed: () => context.go('/onboarding/ready')),
+              label: 'متابعة',
+              onPressed: () => context.go(widget.returnTo ?? '/onboarding/ready')),
         ]),
       );
 

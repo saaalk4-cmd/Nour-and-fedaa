@@ -25,4 +25,17 @@ class UsageRepository {
     );
     return rows.isEmpty ? 0 : rows.first['seconds']! as int;
   }
+
+  /// ثواني الاستخدام لكل يوم من آخر [days] يومًا، الأقدم أولًا (اليوم آخرها).
+  Future<List<(DateTime, int)>> lastDays(int childId, int days,
+      {DateTime? now}) async {
+    final today = now ?? DateTime.now();
+    final base = DateTime(today.year, today.month, today.day);
+    final out = <(DateTime, int)>[];
+    for (var i = days - 1; i >= 0; i--) {
+      final d = base.subtract(Duration(days: i));
+      out.add((d, await secondsOn(childId, d)));
+    }
+    return out;
+  }
 }

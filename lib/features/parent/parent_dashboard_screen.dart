@@ -212,6 +212,12 @@ class _ChildCard extends ConsumerWidget {
                       style: Theme.of(context).textTheme.titleLarge),
                 ),
                 IconButton(
+                  key: Key('report_${child.id}'),
+                  tooltip: 'تقرير الأسبوع',
+                  onPressed: () => context.push('/parent/report/${child.id}'),
+                  icon: const Icon(Icons.insights_outlined),
+                ),
+                IconButton(
                   key: Key('delete_${child.id}'),
                   tooltip: 'حذف',
                   onPressed: () => _delete(context, ref),

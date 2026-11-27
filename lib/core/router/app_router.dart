@@ -15,6 +15,7 @@ import '../../features/onboarding/pin_setup_screen.dart';
 import '../../features/onboarding/ready_screen.dart';
 import '../../features/onboarding/welcome_screen.dart';
 import '../../features/parent/change_pin_screen.dart';
+import '../../features/parent/child_report_screen.dart';
 import '../../features/parent/parent_dashboard_screen.dart';
 import '../../features/parent/parents_corner_screen.dart';
 import '../../features/parent/parent_gate_screen.dart';
@@ -47,7 +48,8 @@ final routerProvider = Provider<GoRouter>((ref) {
       ),
       GoRoute(
         path: '/onboarding/check',
-        builder: (_, __) => const LevelCheckScreen(),
+        builder: (_, state) => LevelCheckScreen(
+            returnTo: state.uri.queryParameters['return']),
       ),
       GoRoute(
         path: '/onboarding/ready',
@@ -75,6 +77,11 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: '/parent/pin',
         builder: (_, __) => const ChangePinScreen(),
+      ),
+      GoRoute(
+        path: '/parent/report/:id',
+        builder: (_, state) =>
+            ChildReportScreen(childId: int.parse(state.pathParameters['id']!)),
       ),
       GoRoute(
         path: '/parent/dashboard',

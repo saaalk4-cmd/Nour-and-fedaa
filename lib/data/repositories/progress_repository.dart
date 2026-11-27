@@ -4,6 +4,23 @@ import '../db/app_database.dart';
 import 'review_repository.dart';
 
 class ProgressRepository {
+  /// الدروس المكتملة مع وقت إتمامها، الأحدث أولًا.
+  Future<List<(String, DateTime?)>> completed(int childId) async {
+    final db = await AppDatabase.instance.database;
+    final rows = await db.query('progress',
+        columns: ['lesson_id', 'completed_at'],
+        where: "child_id = ? AND status = 'done'",
+        whereArgs: [childId],
+        orderBy: 'completed_at DESC');
+    return [
+      for (final r in rows)
+        (
+          r['lesson_id']! as String,
+          DateTime.tryParse((r['completed_at'] as String?) ?? '')
+        )
+    ];
+  }
+
   Future<bool> isDone(int childId, String lessonId) async {
     final db = await AppDatabase.instance.database;
     final rows = await db.query(
