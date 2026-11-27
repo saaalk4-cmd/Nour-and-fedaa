@@ -54,8 +54,12 @@ void main() {
     expect(
         lessons.every((e) =>
             e.audioStatus == 'لم يُسجَّل بعد' ||
-            e.audioStatus!.startsWith('تلاوة أونلاين')),
+            e.audioStatus!.startsWith('تلاوة أونلاين') ||
+            e.audioStatus!.startsWith('موجود • الترخيص:')),
         isTrue);
+    // الصوت التجريبي يظهر لولي الأمر مع تنبيه أنه غير صالح للنشر.
+    expect(
+        lessons.any((e) => e.audioStatus!.contains('نسخة تجريبية')), isTrue);
     expect(lessons.any((e) => e.audioStatus!.startsWith('تلاوة أونلاين')), isTrue);
   });
 

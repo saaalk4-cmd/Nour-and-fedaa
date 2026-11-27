@@ -97,6 +97,18 @@ void main() {
     expect((await repo.bySection('t_letters', AgeBand.buraem)).length, 8);
     expect((await repo.bySection('t_salah', AgeBand.buraem)).length, 3);
     expect((await repo.bySection('t_know', AgeBand.buraem)).length, 3);
+    // كل دروس البراعم المسجّلة لها ملف صوت موجود، ودروس «أتعرّف على ربي» بلا صوت قبل المراجعة.
+    final manifest = await AssetManifest.loadFromAssetBundle(rootBundle);
+    final assets = manifest.listAssets().toSet();
+    for (final sec in ['t_adab', 't_akhlaq', 't_letters', 't_salah']) {
+      for (final l in await repo.bySection(sec, AgeBand.buraem)) {
+        expect(l.audio, isNotNull, reason: l.id);
+        expect(assets.contains(l.audio), isTrue, reason: l.audio);
+      }
+    }
+    for (final l in await repo.bySection('t_know', AgeBand.buraem)) {
+      expect(l.audio, isNull, reason: l.id);
+    }
     expect((await repo.bySection('quran', AgeBand.atfal)).length, 13);
     expect((await repo.bySection('quran', AgeBand.nashia)).length, 11);
     expect((await repo.bySection('quran', AgeBand.murahiqun)).length, 10);
