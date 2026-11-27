@@ -40,9 +40,13 @@ class OnboardingScaffold extends StatelessWidget {
                   const BrandMark(width: 72),
                   const Spacer(),
                   if (step != null)
-                    Text(step!,
-                        style: TextStyle(
-                            color: fg.withValues(alpha: 0.75), fontSize: 16)),
+                    Flexible(
+                      child: Text(step!,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                              color: fg.withValues(alpha: 0.75), fontSize: 16)),
+                    ),
                   if (canGoBack && Navigator.of(context).canPop())
                     IconButton(
                       tooltip: 'رجوع',

@@ -89,6 +89,7 @@ class _AddChildScreenState extends ConsumerState<AddChildScreen> {
               Expanded(
                 child: DropdownButtonFormField<int>(
                   key: const ValueKey('birth_month'),
+                  isExpanded: true,
                   initialValue: draft.birthMonth,
                   decoration: _fieldDecoration('الشهر'),
                   items: [
@@ -102,6 +103,7 @@ class _AddChildScreenState extends ConsumerState<AddChildScreen> {
               Expanded(
                 child: DropdownButtonFormField<int>(
                   key: const ValueKey('birth_year'),
+                  isExpanded: true,
                   initialValue: draft.birthYear,
                   decoration: _fieldDecoration('السنة'),
                   items: [

@@ -9,6 +9,30 @@ import '../../domain/arabic_digits.dart';
 import 'home_shared.dart';
 import 'next_lesson.dart';
 import 'sections.dart';
+import '../../data/providers.dart';
+import '../../domain/badges.dart';
+import '../../domain/streak.dart';
+
+class ChildActivity {
+  const ChildActivity({this.today = 0, this.streak = 0, this.badges = const {}});
+  final int today;
+  final int streak;
+  final Set<String> badges;
+}
+
+/// نشاط الطفل المختار: دروس اليوم، الأيام المتتالية، والشارات المكتسبة.
+final childActivityProvider = FutureProvider.autoDispose<ChildActivity>((ref) async {
+  final id = ref.watch(selectedChildIdProvider);
+  if (id == null) return const ChildActivity();
+  final done = await ref.watch(progressRepositoryProvider).completed(id);
+  final dates = [for (final (_, at) in done) if (at != null) at];
+  final now = DateTime.now();
+  return ChildActivity(
+    today: lessonsOn(dates, now),
+    streak: streakDays(dates, now),
+    badges: (await ref.watch(badgeRepositoryProvider).earned(id)).toSet(),
+  );
+});
 
 /// رئيسية الناشئة (8–11): لوحة بهدف اليوم والتحدّيات والشارات.
 class TweenHome extends StatelessWidget {
@@ -17,7 +41,7 @@ class TweenHome extends StatelessWidget {
   final Child child;
   final Map<String, bool> enabled;
 
-  static const _dailyGoal = 5;
+  static const _dailyGoal = 3;
 
   @override
   Widget build(BuildContext context) {
@@ -46,62 +70,77 @@ class TweenHome extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 14),
-            Row(
-              children: [
-                Expanded(
-                  child: _StatCard(
-                    title: 'هدف اليوم',
-                    value:
-                        '${toArabicDigits(0)} من ${toArabicDigits(_dailyGoal)}',
-                    leading: const SizedBox(
-                      width: 56,
-                      height: 56,
-                      child: CircularProgressIndicator(
-                        value: 0,
-                        strokeWidth: 7,
-                        backgroundColor: Color(0x33DDAF68),
-                        color: AppColors.gold,
+            Consumer(builder: (context, ref, _) {
+              final a =
+                  ref.watch(childActivityProvider).valueOrNull ?? const ChildActivity();
+              final done = a.today > _dailyGoal ? _dailyGoal : a.today;
+              return Row(
+                children: [
+                  Expanded(
+                    child: _StatCard(
+                      title: 'هدف اليوم',
+                      value:
+                          '${toArabicDigits(done)} من ${toArabicDigits(_dailyGoal)}',
+                      leading: SizedBox(
+                        width: 56,
+                        height: 56,
+                        child: CircularProgressIndicator(
+                          value: done / _dailyGoal,
+                          strokeWidth: 7,
+                          backgroundColor: const Color(0x33DDAF68),
+                          color: AppColors.gold,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: _StatCard(
-                    title: 'أيام متتالية',
-                    value: toArabicDigits(0),
-                    leading: const Text('🔥', style: TextStyle(fontSize: 40)),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: _StatCard(
+                      title: 'أيام متتالية',
+                      value: toArabicDigits(a.streak),
+                      leading: const Text('🔥', style: TextStyle(fontSize: 40)),
+                    ),
                   ),
-                ),
-              ],
-            ),
+                ],
+              );
+            }),
             const SizedBox(height: 14),
             Consumer(
               builder: (context, ref, _) =>
                   _ChallengeCard(onTap: () => openNextLesson(context, ref)),
             ),
             const SizedBox(height: 14),
-            SizedBox(
-              height: 64,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  for (var i = 0; i < 5; i++)
-                    Container(
-                      width: 56,
-                      margin: const EdgeInsetsDirectional.only(end: 10),
-                      decoration: BoxDecoration(
-                        color: const Color(0xFF16204A),
-                        borderRadius: BorderRadius.circular(18),
-                        border: Border.all(
-                            color: AppColors.gold.withValues(alpha: 0.4)),
+            Consumer(builder: (context, ref, _) {
+              final earned =
+                  ref.watch(childActivityProvider).valueOrNull?.badges ?? const {};
+              return SizedBox(
+                height: 64,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    for (final b in badgeDefs)
+                      Tooltip(
+                        message: b.title,
+                        child: Container(
+                          key: Key('badge_${b.id}'),
+                          width: 56,
+                          margin: const EdgeInsetsDirectional.only(end: 10),
+                          decoration: BoxDecoration(
+                            color: const Color(0xFF16204A),
+                            borderRadius: BorderRadius.circular(18),
+                            border: Border.all(
+                                color: AppColors.gold.withValues(
+                                    alpha: earned.contains(b.id) ? 1 : 0.4)),
+                          ),
+                          alignment: Alignment.center,
+                          child: Text(earned.contains(b.id) ? b.emoji : '🔒',
+                              style: const TextStyle(fontSize: 22)),
+                        ),
                       ),
-                      alignment: Alignment.center,
-                      child: const Text('🔒', style: TextStyle(fontSize: 22)),
-                    ),
-                ],
-              ),
-            ),
+                  ],
+                ),
+              );
+            }),
             const SizedBox(height: 14),
             GridView.count(
               crossAxisCount: 2,
@@ -161,11 +200,16 @@ class _StatCard extends StatelessWidget {
                           color: AppColors.gold,
                           fontWeight: FontWeight.w700,
                           fontSize: 15)),
-                  Text(value,
-                      style: const TextStyle(
-                          color: AppColors.cream,
-                          fontWeight: FontWeight.w800,
-                          fontSize: 22)),
+                  FittedBox(
+                    fit: BoxFit.scaleDown,
+                    alignment: AlignmentDirectional.centerStart,
+                    child: Text(value,
+                        maxLines: 1,
+                        style: const TextStyle(
+                            color: AppColors.cream,
+                            fontWeight: FontWeight.w800,
+                            fontSize: 22)),
+                  ),
                 ],
               ),
             ),

@@ -50,15 +50,21 @@ class _BandConfirmScreenState extends ConsumerState<BandConfirmScreen> {
       subtitle: 'يمكنك اختيار مسار آخر',
       child: Column(
         children: [
-          for (final b in AgeBand.values) ...[
-            _BandCard(
-              band: b,
-              selected: b == current,
-              onTap: () => setState(() => _chosen = b),
+          Expanded(
+            child: ListView(
+              children: [
+                for (final b in AgeBand.values) ...[
+                  _BandCard(
+                    band: b,
+                    selected: b == current,
+                    onTap: () => setState(() => _chosen = b),
+                  ),
+                  const SizedBox(height: 12),
+                ],
+              ],
             ),
-            const SizedBox(height: 12),
-          ],
-          const Spacer(),
+          ),
+          const SizedBox(height: 8),
           SizedBox(
             width: double.infinity,
             child: GoldButton(

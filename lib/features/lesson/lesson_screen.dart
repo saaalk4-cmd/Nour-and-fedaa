@@ -323,9 +323,15 @@ class _LessonRunnerState extends ConsumerState<_LessonRunner> {
                     _wrong.add(i);
                   }
                 }),
-        child: SizedBox(
+        child: Container(
           width: _isLong(step) ? 300 : 130,
-          height: _isLong(step) ? 96 : 140,
+          height: _isLong(step) ? null : 140,
+          constraints: _isLong(step)
+              ? const BoxConstraints(minHeight: 96)
+              : null,
+          padding: _isLong(step)
+              ? const EdgeInsets.symmetric(vertical: 12)
+              : EdgeInsets.zero,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

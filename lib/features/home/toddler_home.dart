@@ -102,19 +102,30 @@ class _Garden extends StatelessWidget {
                   color: AppColors.navy,
                   fontSize: 20,
                   fontWeight: FontWeight.w800)),
-          const Spacer(),
-          for (var i = 0; i < 5; i++)
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 3),
-              child: Text(i < stars ? '🌟' : '🌱',
-                  style: const TextStyle(fontSize: 26)),
-            ),
           const SizedBox(width: 8),
-          Text(toArabicDigits(stars),
-              style: const TextStyle(
-                  color: AppColors.navy,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w800)),
+          Expanded(
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              alignment: AlignmentDirectional.centerEnd,
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  for (var i = 0; i < 5; i++)
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 3),
+                      child: Text(i < stars ? '🌟' : '🌱',
+                          style: const TextStyle(fontSize: 26)),
+                    ),
+                  const SizedBox(width: 8),
+                  Text(toArabicDigits(stars),
+                      style: const TextStyle(
+                          color: AppColors.navy,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w800)),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
