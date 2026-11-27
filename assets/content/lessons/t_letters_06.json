@@ -1,0 +1,23 @@
+{
+  "id": "t_letters_06",
+  "title": "صوت ف",
+  "icon": "🦋",
+  "section": "t_letters",
+  "band": "buraem",
+  "source_type": "educational",
+  "source_note": "محتوى لغوي: صوت الحرف مع صورة كلمة تبدأ به. صوت وصورة فقط بلا نص مكتوب للطفل. اختياري ولا يُقيَّم.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "listen"
+    },
+    {
+      "type": "repeat",
+      "times": 3
+    },
+    {
+      "type": "reward",
+      "stars": 2
+    }
+  ]
+}

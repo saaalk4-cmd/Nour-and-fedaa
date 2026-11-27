@@ -1,0 +1,23 @@
+{
+  "id": "t_know_1",
+  "title": "الله خلقني",
+  "icon": "🌍",
+  "section": "t_know",
+  "band": "buraem",
+  "source_type": "quran",
+  "source_note": "جملة مبسّطة للطفل مبنية على سورة الزمر ٦٢: «الله خالق كل شيء»، والنص القرآني مطابق لمصحف تنزيل عبر AlQuran Cloud. ليست اقتباسًا قرآنيًا. صوت وصورة فقط. ⚠️ تحتاج موافقة المراجع الشرعي على الصياغة.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "listen"
+    },
+    {
+      "type": "repeat",
+      "times": 3
+    },
+    {
+      "type": "reward",
+      "stars": 2
+    }
+  ]
+}

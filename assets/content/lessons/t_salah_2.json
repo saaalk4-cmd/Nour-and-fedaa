@@ -1,0 +1,23 @@
+{
+  "id": "t_salah_2",
+  "title": "الركوع",
+  "icon": "🙇",
+  "section": "t_salah",
+  "band": "buraem",
+  "source_type": "sahih_sunnah",
+  "source_note": "صحيح مسلم ٧٧٢ (حذيفة: «سبحان ربي العظيم» في الركوع)؛ النص من مجموعة hadith-api المفتوحة ومطابق لـ sunnah.com. محاكاة للحركة بلا تكليف ولا تصحيح فقهي، وبصور رمزية بلا تجسيد.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "listen"
+    },
+    {
+      "type": "repeat",
+      "times": 3
+    },
+    {
+      "type": "reward",
+      "stars": 2
+    }
+  ]
+}

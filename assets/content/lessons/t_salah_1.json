@@ -1,0 +1,23 @@
+{
+  "id": "t_salah_1",
+  "title": "الله أكبر",
+  "icon": "🙌",
+  "section": "t_salah",
+  "band": "buraem",
+  "source_type": "sahih_sunnah",
+  "source_note": "صحيح البخاري ٧٨٩ (التكبير عند القيام والركوع والسجود)؛ النص من مجموعة hadith-api المفتوحة ومطابق لـ sunnah.com. محاكاة للحركة بلا تكليف ولا تصحيح فقهي، وبصور رمزية بلا تجسيد.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "listen"
+    },
+    {
+      "type": "repeat",
+      "times": 3
+    },
+    {
+      "type": "reward",
+      "stars": 2
+    }
+  ]
+}

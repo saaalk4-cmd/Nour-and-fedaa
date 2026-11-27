@@ -94,6 +94,9 @@ void main() {
   test('Quran lessons exist for every band; adhkar for 5-7', () async {
     final repo = LessonRepository();
     expect((await repo.bySection('t_listen', AgeBand.buraem)).length, 4);
+    expect((await repo.bySection('t_letters', AgeBand.buraem)).length, 8);
+    expect((await repo.bySection('t_salah', AgeBand.buraem)).length, 3);
+    expect((await repo.bySection('t_know', AgeBand.buraem)).length, 3);
     expect((await repo.bySection('quran', AgeBand.atfal)).length, 13);
     expect((await repo.bySection('quran', AgeBand.nashia)).length, 11);
     expect((await repo.bySection('quran', AgeBand.murahiqun)).length, 10);
