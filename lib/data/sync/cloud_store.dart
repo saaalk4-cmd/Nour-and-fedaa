@@ -8,6 +8,9 @@ abstract class CloudStore {
   Future<void> deleteChild(String uid, String cloudId);
   Future<Map<String, dynamic>?> loadSettings(String uid);
   Future<void> saveSettings(String uid, Map<String, dynamic> data);
+
+  /// يحذف كل بيانات الأسرة من السحابة (عند حذف الحساب).
+  Future<void> deleteAll(String uid);
 }
 
 class FirestoreCloudStore implements CloudStore {
@@ -43,6 +46,17 @@ class FirestoreCloudStore implements CloudStore {
   @override
   Future<void> saveSettings(String uid, Map<String, dynamic> data) =>
       _parent(uid).set(data, SetOptions(merge: true));
+
+  @override
+  Future<void> deleteAll(String uid) async {
+    final kids = await _parent(uid).collection('children').get();
+    final batch = _db.batch();
+    for (final d in kids.docs) {
+      batch.delete(d.reference);
+    }
+    batch.delete(_parent(uid));
+    await batch.commit();
+  }
 }
 
 /// تخزين في الذاكرة (للاختبارات).
@@ -68,4 +82,10 @@ class MemoryCloudStore implements CloudStore {
   @override
   Future<void> saveSettings(String uid, Map<String, dynamic> data) async =>
       (settings[uid] ??= {}).addAll(data);
+
+  @override
+  Future<void> deleteAll(String uid) async {
+    children.remove(uid);
+    settings.remove(uid);
+  }
 }

@@ -21,6 +21,12 @@ abstract class AccountRepository {
   Future<ParentAccount> signInWithEmail(String email, String password);
   Future<void> sendPasswordReset(String email);
   Future<void> signOut();
+
+  /// يتحقق من كلمة المرور الحالية (مطلوب قبل حذف الحساب).
+  Future<void> confirmPassword(String password);
+
+  /// يحذف حساب الدخول نفسه (بعد حذف البيانات).
+  Future<void> deleteAccount();
 }
 
 /// حساب حقيقي عبر Firebase Auth (بريد وكلمة مرور).
@@ -64,6 +70,21 @@ class FirebaseAccountRepository implements AccountRepository {
   @override
   Future<void> signOut() => _auth.signOut();
 
+  @override
+  Future<void> confirmPassword(String password) => _guard(() async {
+        final u = _auth.currentUser;
+        if (u == null || u.email == null) {
+          throw const AccountException('لا يوجد حساب مسجّل');
+        }
+        await u.reauthenticateWithCredential(
+            EmailAuthProvider.credential(email: u.email!, password: password));
+      });
+
+  @override
+  Future<void> deleteAccount() => _guard(() async {
+        await _auth.currentUser?.delete();
+      });
+
   Future<T> _guard<T>(Future<T> Function() f) async {
     try {
       return await f();
@@ -86,6 +107,8 @@ String authErrorMessage(String code) => switch (code) {
       'too-many-requests' => 'محاولات كثيرة، حاول بعد قليل',
       'network-request-failed' => 'لا يوجد اتصال بالإنترنت',
       'operation-not-allowed' => 'الدخول بالبريد غير مفعّل في المشروع بعد',
+      'requires-recent-login' =>
+        'لأمان حسابك سجّل الخروج ثم ادخل من جديد وأعد المحاولة',
       _ => 'تعذّر إتمام العملية، حاول مرة أخرى',
     };
 
@@ -125,6 +148,12 @@ class LocalAccountRepository implements AccountRepository {
 
   @override
   Future<void> sendPasswordReset(String email) async {}
+
+  @override
+  Future<void> confirmPassword(String password) async {}
+
+  @override
+  Future<void> deleteAccount() => signOut();
 
   @override
   Future<void> signOut() async {

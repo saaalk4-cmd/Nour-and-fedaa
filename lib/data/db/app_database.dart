@@ -14,6 +14,19 @@ class AppDatabase {
     return _db ??= await _open();
   }
 
+  /// يمسح كل البيانات المحلية (عند حذف الحساب).
+  Future<void> wipe() async {
+    final db = await database;
+    await db.transaction((txn) async {
+      for (final t in [
+        'review', 'placement', 'usage_log', 'badges', 'progress',
+        'children', 'settings',
+      ]) {
+        await txn.delete(t);
+      }
+    });
+  }
+
   /// يغلق الاتصال (للاختبارات).
   Future<void> close() async {
     await _db?.close();

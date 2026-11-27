@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../data/account_deletion.dart';
 import '../../data/providers.dart';
+import '../../data/repositories/account_repository.dart';
 import '../../data/repositories/content_catalog.dart';
 import '../../domain/age_band.dart';
 
@@ -99,6 +101,12 @@ class ParentsCornerScreen extends ConsumerWidget {
             icon: const Icon(Icons.logout),
             label: const Text('تسجيل الخروج'),
           ),
+          TextButton.icon(
+            key: const Key('delete_account'),
+            onPressed: () => _deleteAccount(context, ref),
+            icon: const Icon(Icons.delete_forever_outlined),
+            label: const Text('حذف الحساب وكل البيانات'),
+          ),
           const Divider(height: 32),
           ListTile(
             key: const Key('change_pin_tile'),
@@ -111,6 +119,60 @@ class ParentsCornerScreen extends ConsumerWidget {
         ],
       ),
     );
+  }
+}
+
+Future<void> _deleteAccount(BuildContext context, WidgetRef ref) async {
+  final password = TextEditingController();
+  final ok = await showDialog<bool>(
+    context: context,
+    builder: (ctx) => AlertDialog(
+      title: const Text('حذف الحساب نهائيًا؟'),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const Text(
+              'سيُحذف حساب ولي الأمر، وملفات كل الأطفال وتقدّمهم من السحابة ومن هذا الجهاز. لا يمكن التراجع.'),
+          const SizedBox(height: 12),
+          TextField(
+            key: const Key('delete_password'),
+            controller: password,
+            obscureText: true,
+            textDirection: TextDirection.ltr,
+            decoration: const InputDecoration(labelText: 'كلمة المرور للتأكيد'),
+          ),
+        ],
+      ),
+      actions: [
+        TextButton(
+            onPressed: () => Navigator.pop(ctx, false),
+            child: const Text('تراجع')),
+        TextButton(
+            key: const Key('confirm_delete_account'),
+            onPressed: () => Navigator.pop(ctx, true),
+            child: const Text('حذف نهائي')),
+      ],
+    ),
+  );
+  final pw = password.text;
+  password.dispose();
+  if (ok != true || !context.mounted) return;
+  try {
+    final accounts = ref.read(accountRepositoryProvider);
+    await deleteFamilyAccount(
+      accounts: accounts,
+      store: accounts.isReal ? ref.read(cloudStoreProvider) : null,
+      password: pw,
+    );
+    ref.read(selectedChildIdProvider.notifier).state = null;
+    ref.invalidate(accountProvider);
+    ref.invalidate(childrenProvider);
+    if (context.mounted) context.go('/');
+  } on AccountException catch (e) {
+    if (context.mounted) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(e.message)));
+    }
   }
 }
 

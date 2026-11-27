@@ -34,6 +34,10 @@ class _FakeAccounts implements AccountRepository {
   Future<void> sendPasswordReset(String e) async => calls.add('reset:$e');
   @override
   Future<void> signOut() async {}
+  @override
+  Future<void> confirmPassword(String p) async {}
+  @override
+  Future<void> deleteAccount() async {}
 }
 
 Future<void> _show(WidgetTester t, _FakeAccounts repo) async {
