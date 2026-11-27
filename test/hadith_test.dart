@@ -51,9 +51,17 @@ void main() {
   test('Quran lessons exist for every band; adhkar for 5-7', () async {
     final repo = LessonRepository();
     expect((await repo.bySection('t_listen', AgeBand.buraem)).length, 4);
-    expect((await repo.bySection('quran', AgeBand.atfal)).length, 8);
-    expect((await repo.bySection('quran', AgeBand.nashia)).length, 7);
-    expect((await repo.bySection('quran', AgeBand.murahiqun)).length, 3);
+    expect((await repo.bySection('quran', AgeBand.atfal)).length, 13);
+    expect((await repo.bySection('quran', AgeBand.nashia)).length, 11);
+    expect((await repo.bySection('quran', AgeBand.murahiqun)).length, 10);
+    for (final band in AgeBand.values) {
+      for (final l in await repo.bySection('quran', band)) {
+        for (final s in l.steps.where((s) => s.type == StepType.surah)) {
+          expect(kKnownAyahCounts.containsKey(s.surah), isTrue,
+              reason: '${l.id}: سورة ${s.surah} بلا عدد آيات موثّق');
+        }
+      }
+    }
     expect((await repo.bySection('adhkar', AgeBand.atfal)).length, 3);
   });
 
