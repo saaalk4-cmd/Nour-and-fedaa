@@ -17,7 +17,7 @@ void main() {
   test('hadith texts are stored as pasted from sunnah.com, with sources', () async {
     final repo = HadithRepository();
     final sneeze = await repo.byId('bukhari_6224');
-    expect(sneeze.reference, 'صحيح البخاري 6224');
+    expect(sneeze.reference, 'صحيح البخاري ٦٢٢٤');
     expect(sneeze.url, 'https://sunnah.com/bukhari:6224');
     expect(sneeze.matn, contains('يَهْدِيكُمُ اللَّهُ وَيُصْلِحُ بَالَكُمْ'));
     final greet = await repo.byId('bukhari_6236');
@@ -84,7 +84,7 @@ void main() {
     ));
     await t.pumpAndSettle();
     expect(find.byKey(const Key('hadith_matn')), findsOneWidget);
-    expect(find.textContaining('صحيح البخاري 6224'), findsOneWidget);
+    expect(find.textContaining('صحيح البخاري ٦٢٢٤'), findsOneWidget);
     expect(find.text('عن أبو هريرة رضي الله عنه'), findsOneWidget);
     expect(find.byKey(const Key('hadith_source')), findsOneWidget);
     expect(find.byKey(const Key('next_button')), findsOneWidget);

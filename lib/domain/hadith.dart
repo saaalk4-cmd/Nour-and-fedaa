@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'arabic_digits.dart';
+
 /// حديث محفوظ نصّه في التطبيق كما نُسخ من مصدره، مع رابط المصدر للأهل.
 class Hadith {
   const Hadith({
@@ -23,7 +25,7 @@ class Hadith {
   final String? grade;
 
   /// مثل: «صحيح البخاري ٦٢٢٤».
-  String get reference => '$collection $number';
+  String get reference => '$collection ${toArabicDigits(number)}';
 
   factory Hadith.fromJson(Map<String, dynamic> j) {
     final url = j['url'] as String?;
