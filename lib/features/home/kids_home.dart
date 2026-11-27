@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/theme/app_theme.dart';
@@ -6,6 +7,7 @@ import '../../core/widgets/brand_mark.dart';
 import '../../data/models/child.dart';
 import '../../domain/arabic_digits.dart';
 import 'home_shared.dart';
+import 'next_lesson.dart';
 import 'sections.dart';
 
 /// رئيسية الأطفال (5–7): بطاقات ملوّنة وقصص، شريط تبويب، عدّاد نجوم.
@@ -47,7 +49,20 @@ class KidsHome extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 16),
-            _ContinueCard(onTap: () => context.push('/section/quran')),
+            Consumer(
+              builder: (context, ref, _) {
+                final next = ref.watch(nextLessonProvider).valueOrNull;
+                return _ContinueCard(
+                  title: next == null || next.done == 0
+                      ? 'ابدأ أول درس'
+                      : next.lesson == null
+                          ? 'أحسنت! أكملت كل الدروس'
+                          : 'أكمل: ${next.lesson!.title}',
+                  progress: next?.fraction ?? 0,
+                  onTap: () => openNextLesson(context, ref),
+                );
+              },
+            ),
             const SizedBox(height: 16),
             GridView.count(
               crossAxisCount: 2,
@@ -124,8 +139,14 @@ class _StarChip extends StatelessWidget {
 }
 
 class _ContinueCard extends StatelessWidget {
-  const _ContinueCard({required this.onTap});
+  const _ContinueCard({
+    required this.onTap,
+    required this.title,
+    required this.progress,
+  });
   final VoidCallback onTap;
+  final String title;
+  final double progress;
 
   @override
   Widget build(BuildContext context) {
@@ -141,20 +162,23 @@ class _ContinueCard extends StatelessWidget {
             children: [
               const Text('📖', style: TextStyle(fontSize: 46)),
               const SizedBox(width: 14),
-              const Expanded(
+              Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('ابدأ أول درس',
-                        style: TextStyle(
+                    Text(title,
+                        key: const Key('continue_title'),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
                             color: AppColors.navy,
                             fontSize: 24,
                             fontWeight: FontWeight.w800)),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     LinearProgressIndicator(
-                      value: 0,
+                      value: progress,
                       minHeight: 10,
-                      backgroundColor: Color(0xFFEBDDBE),
+                      backgroundColor: const Color(0xFFEBDDBE),
                       color: AppColors.gold,
                     ),
                   ],

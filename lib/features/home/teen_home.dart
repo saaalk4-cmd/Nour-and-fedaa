@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/theme/app_theme.dart';
@@ -6,6 +7,7 @@ import '../../core/widgets/brand_mark.dart';
 import '../../data/models/child.dart';
 import '../../domain/arabic_digits.dart';
 import 'home_shared.dart';
+import 'next_lesson.dart';
 import 'sections.dart';
 
 /// رئيسية المراهقين (12–14): بسيطة وراقية، قوائم ونسب بلا رسوم طفولية.
@@ -41,30 +43,39 @@ class TeenHome extends StatelessWidget {
                     fontSize: 28,
                     fontWeight: FontWeight.w800)),
             const SizedBox(height: 18),
-            _Card(
-              onTap: () => context.push('/section/quran'),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text('ورد اليوم',
-                      style: TextStyle(
-                          color: AppColors.navy,
-                          fontSize: 22,
-                          fontWeight: FontWeight.w800)),
-                  const SizedBox(height: 10),
-                  const LinearProgressIndicator(
-                    value: 0,
-                    minHeight: 8,
-                    backgroundColor: Color(0xFFEBDDBE),
-                    color: AppColors.gold,
-                  ),
-                  const SizedBox(height: 8),
-                  Text('لم تبدأ بعد',
-                      style: TextStyle(
-                          color: AppColors.navy.withValues(alpha: 0.7))),
-                ],
-              ),
-            ),
+            Consumer(builder: (context, ref, _) {
+              final next = ref.watch(nextLessonProvider).valueOrNull;
+              final status = next == null || next.done == 0
+                  ? 'لم تبدأ بعد'
+                  : next.lesson == null
+                      ? 'أكملت كل الدروس المتاحة'
+                      : 'التالي: ${next.lesson!.title}';
+              return _Card(
+                onTap: () => openNextLesson(context, ref),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text('درسك التالي',
+                        style: TextStyle(
+                            color: AppColors.navy,
+                            fontSize: 22,
+                            fontWeight: FontWeight.w800)),
+                    const SizedBox(height: 10),
+                    LinearProgressIndicator(
+                      value: next?.fraction ?? 0,
+                      minHeight: 8,
+                      backgroundColor: const Color(0xFFEBDDBE),
+                      color: AppColors.gold,
+                    ),
+                    const SizedBox(height: 8),
+                    Text(status,
+                        key: const Key('teen_next_status'),
+                        style: TextStyle(
+                            color: AppColors.navy.withValues(alpha: 0.7))),
+                  ],
+                ),
+              );
+            }),
             const SizedBox(height: 22),
             const Text('مساراتي',
                 style: TextStyle(

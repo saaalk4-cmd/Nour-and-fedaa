@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/theme/app_theme.dart';
@@ -6,6 +7,7 @@ import '../../core/widgets/brand_mark.dart';
 import '../../data/models/child.dart';
 import '../../domain/arabic_digits.dart';
 import 'home_shared.dart';
+import 'next_lesson.dart';
 import 'sections.dart';
 
 /// رئيسية الناشئة (8–11): لوحة بهدف اليوم والتحدّيات والشارات.
@@ -74,7 +76,10 @@ class TweenHome extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 14),
-            _ChallengeCard(onTap: () => context.push('/section/quran')),
+            Consumer(
+              builder: (context, ref, _) =>
+                  _ChallengeCard(onTap: () => openNextLesson(context, ref)),
+            ),
             const SizedBox(height: 14),
             SizedBox(
               height: 64,

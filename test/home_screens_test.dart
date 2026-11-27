@@ -74,7 +74,7 @@ void main() {
   testWidgets('age 13 gets the teen home', (t) async {
     await _show(t, homeForBand(_childBornYearsAgo(13), const {}));
     expect(find.byType(TeenHome), findsOneWidget);
-    expect(find.text('ورد اليوم'), findsOneWidget);
+    expect(find.text('درسك التالي'), findsOneWidget);
     expect(find.text('اسأل ولي أمرك'), findsOneWidget);
   });
 
