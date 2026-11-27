@@ -70,11 +70,15 @@ const kKnownAyahCounts = {
 };
 
 const kQuranTextAttribution = 'نص المصحف: مشروع تنزيل (Tanzil) عبر AlQuran Cloud';
-const kQuranAudioAttribution = 'التلاوة: الشيخ محمد صديق المنشاوي (مرتّل)';
+const kQuranAudioAttribution =
+    'التلاوة: الشيخ محمد أيوب (تسجيل مجمع الملك فهد لطباعة المصحف الشريف)';
 
-/// AlQuran Cloud: النص العثماني من مشروع تنزيل، وتلاوة المنشاوي لكل آية.
+/// معرّف التلاوة في AlQuran Cloud (آية آية). يُغيَّر هنا فقط عند تبديل القارئ.
+const kQuranReciter = 'ar.muhammadayyoub';
+
+/// AlQuran Cloud: النص العثماني من مشروع تنزيل، والتلاوة آية آية ([kQuranReciter]).
 class AlQuranCloudSource implements QuranSource {
-  AlQuranCloudSource({http.Client? client, this.reciter = 'ar.minshawi'})
+  AlQuranCloudSource({http.Client? client, this.reciter = kQuranReciter})
       : _client = client ?? http.Client();
 
   final http.Client _client;
@@ -199,7 +203,11 @@ class CachingQuranSource implements QuranSource {
     final hit = await cache.read(n);
     if (hit != null) {
       try {
-        return (jsonDecode(hit) as List).cast<Map<String, dynamic>>();
+        final eds = (jsonDecode(hit) as List).cast<Map<String, dynamic>>();
+        // المحفوظ بتلاوة قارئ آخر (قبل تبديل القارئ) يُعاد تحميله.
+        final sameReciter = eds.any(
+            (e) => (e['edition'] as Map)['identifier'] == remote.reciter);
+        if (sameReciter) return eds;
       } catch (_) {/* تالف: نعيد التحميل */}
     }
     final fresh = await remote.fetchEditions(n);

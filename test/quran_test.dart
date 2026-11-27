@@ -52,7 +52,7 @@ void main() {
       expect(s.basmala!.text, f.ayahs.first.text);
       expect(s.ayahs.first.text.startsWith(s.basmala!.text), isFalse);
       expect(s.basmala!.audioUrl, f.ayahs.first.audioUrl);
-      expect(s.ayahs.every((a) => a.audioUrl.contains('minshawi')), isTrue);
+      expect(s.ayahs.every((a) => a.audioUrl.contains(kQuranReciter)), isTrue);
     });
 
     test('Al-Fatiha: no separate basmala, invisible BOM removed', () {
@@ -177,6 +177,21 @@ void cacheTests() {
     final s = await offline.surah(112);
     expect(s.ayahs.length, 4);
     expect(s.basmala, isNotNull);
+  });
+
+  test('a copy cached with another reciter is refetched', () async {
+    final cache = _MemCache();
+    final old = _fixture(112);
+    for (final e in old) {
+      if ((e['edition'] as Map)['format'] == 'audio') {
+        (e['edition'] as Map)['identifier'] = 'ar.minshawi';
+      }
+    }
+    cache.data[112] = jsonEncode(old);
+    final calls = <String>[];
+    await CachingQuranSource(remote: remoteCounting(calls), cache: cache)
+        .surah(112);
+    expect(calls.any((c) => c.contains('/112/')), isTrue);
   });
 
   test('a corrupted cached copy is refetched and verified', () async {
