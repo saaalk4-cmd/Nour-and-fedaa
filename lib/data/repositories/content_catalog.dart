@@ -54,7 +54,7 @@ class ContentCatalog {
           sources: {if (l.sourceNote != null) l.sourceNote!},
           verified: l.contentVerified,
           audioStatus: l.steps.any((s) => s.type == StepType.surah)
-              ? 'تلاوة أونلاين للشيخ محمد أيوب (مجمع الملك فهد) • الترخيص لم يُؤكَّد بعد'
+              ? 'تلاوة أونلاين للشيخ محمد أيوب (مجمع الملك فهد) • الترخيص مؤكَّد'
               : l.hasAudio
                   ? 'موجود • الترخيص: ${l.audioLicense}'
                   : 'لم يُسجَّل بعد',
