@@ -1,0 +1,57 @@
+{
+  "id": "n_arabic_l2_gender",
+  "title": "المذكّر والمؤنّث",
+  "icon": "👫",
+  "section": "arabic",
+  "band": "nashia",
+  "level": 2,
+  "source_type": "educational",
+  "source_note": "محتوى تعليمي لغوي. بلا محتوى ديني.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "choose",
+      "question": "ما مؤنّث «معلّم»؟",
+      "options": [
+        "معلّمة",
+        "معلّمون",
+        "تعليم"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "ما مذكّر «طالبة»؟",
+      "options": [
+        "طالبات",
+        "طالب",
+        "طلّاب"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "choose",
+      "question": "أيّ كلمة مؤنّثة؟",
+      "options": [
+        "قلم",
+        "باب",
+        "شجرة"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "choose",
+      "question": "ما علامة التأنيث في «حديقة»؟",
+      "options": [
+        "التاء المربوطة",
+        "الألف",
+        "الواو"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

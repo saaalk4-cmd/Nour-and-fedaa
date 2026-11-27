@@ -1,0 +1,57 @@
+{
+  "id": "m_arabic_l2_kana",
+  "title": "كان وأخواتها",
+  "icon": "🕰️",
+  "section": "arabic",
+  "band": "murahiqun",
+  "level": 2,
+  "source_type": "educational",
+  "source_note": "محتوى تعليمي لغوي. بلا محتوى ديني.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "choose",
+      "question": "كان ترفع المبتدأ ويُسمّى اسمها، وتنصب الخبر ويُسمّى:",
+      "options": [
+        "فاعلها",
+        "خبرها",
+        "مفعولها"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "choose",
+      "question": "في جملة «كان الجوُّ جميلًا»، ما خبر كان؟",
+      "options": [
+        "الجوُّ",
+        "كان",
+        "جميلًا"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "choose",
+      "question": "أيّ مما يلي من أخوات كان؟",
+      "options": [
+        "أصبح",
+        "إنّ",
+        "ليت"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "في جملة «أصبح الطالبُ نشيطًا»، ما اسم أصبح؟",
+      "options": [
+        "نشيطًا",
+        "الطالبُ",
+        "أصبح"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

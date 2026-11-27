@@ -93,8 +93,11 @@ void moreContentTests() {
   });
 
   test('older bands now have Arabic lessons', () async {
-    expect((await repo.bySection('arabic', AgeBand.nashia)).length, 3);
-    expect((await repo.bySection('arabic', AgeBand.murahiqun)).length, 3);
+    for (final b in [AgeBand.nashia, AgeBand.murahiqun]) {
+      final ls = await repo.bySection('arabic', b);
+      expect(ls.where((l) => l.level == 1).length, 3, reason: b.name);
+      expect(ls.where((l) => l.level == 2).length, 3, reason: b.name);
+    }
   });
 }
 

@@ -1,0 +1,57 @@
+{
+  "id": "n_arabic_l2_questions",
+  "title": "أدوات الاستفهام",
+  "icon": "❓",
+  "section": "arabic",
+  "band": "nashia",
+  "level": 2,
+  "source_type": "educational",
+  "source_note": "محتوى تعليمي لغوي. بلا محتوى ديني.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "choose",
+      "question": "نسأل عن المكان بـ:",
+      "options": [
+        "أين",
+        "متى",
+        "كم"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "نسأل عن الزمان بـ:",
+      "options": [
+        "أين",
+        "مَن",
+        "متى"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "choose",
+      "question": "نسأل عن العدد بـ:",
+      "options": [
+        "ماذا",
+        "كم",
+        "أين"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "choose",
+      "question": "نسأل عن الشخص (العاقل) بـ:",
+      "options": [
+        "مَن",
+        "ما",
+        "أين"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

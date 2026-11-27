@@ -1,0 +1,57 @@
+{
+  "id": "m_arabic_l2_sentences",
+  "title": "أنواع الجملة",
+  "icon": "🧩",
+  "section": "arabic",
+  "band": "murahiqun",
+  "level": 2,
+  "source_type": "educational",
+  "source_note": "محتوى تعليمي لغوي. بلا محتوى ديني.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "choose",
+      "question": "«ذهبَ الولدُ» جملة:",
+      "options": [
+        "اسمية",
+        "فعلية",
+        "شبه جملة"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "choose",
+      "question": "«الولدُ ذاهبٌ» جملة:",
+      "options": [
+        "اسمية",
+        "فعلية",
+        "شبه جملة"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "الجملة الفعلية تبدأ في الأصل بـ:",
+      "options": [
+        "اسم",
+        "حرف",
+        "فعل"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "choose",
+      "question": "«في البيتِ» تُسمّى:",
+      "options": [
+        "شبه جملة",
+        "جملة اسمية",
+        "جملة فعلية"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

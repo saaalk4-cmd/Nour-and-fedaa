@@ -1,0 +1,57 @@
+{
+  "id": "n_arabic_l2_pronouns",
+  "title": "الضمائر",
+  "icon": "🙋",
+  "section": "arabic",
+  "band": "nashia",
+  "level": 2,
+  "source_type": "educational",
+  "source_note": "محتوى تعليمي لغوي. بلا محتوى ديني.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "choose",
+      "question": "نتكلّم عن أنفسنا جماعةً فنقول:",
+      "options": [
+        "هم",
+        "نحن",
+        "أنتم"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "choose",
+      "question": "ضمير المفرد المذكّر الغائب:",
+      "options": [
+        "هو",
+        "هي",
+        "أنا"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "«... ذهبتْ إلى المدرسة» (للمؤنّث الغائب):",
+      "options": [
+        "هو",
+        "نحن",
+        "هي"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "choose",
+      "question": "ضمير المتكلّم المفرد:",
+      "options": [
+        "أنت",
+        "أنا",
+        "هو"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

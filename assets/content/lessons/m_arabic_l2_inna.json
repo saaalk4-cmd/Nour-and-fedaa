@@ -1,0 +1,57 @@
+{
+  "id": "m_arabic_l2_inna",
+  "title": "إنّ وأخواتها",
+  "icon": "🔖",
+  "section": "arabic",
+  "band": "murahiqun",
+  "level": 2,
+  "source_type": "educational",
+  "source_note": "محتوى تعليمي لغوي. بلا محتوى ديني.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "choose",
+      "question": "في جملة «إنّ العلمَ نافعٌ»، ما اسم إنّ؟",
+      "options": [
+        "العلمَ",
+        "نافعٌ",
+        "إنّ"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "ما الحكم الإعرابي لاسم إنّ؟",
+      "options": [
+        "مرفوع",
+        "مجرور",
+        "منصوب"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "choose",
+      "question": "أيّ مما يلي من أخوات إنّ؟",
+      "options": [
+        "كان",
+        "لكنّ",
+        "ظلّ"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "choose",
+      "question": "في جملة «لعلّ الفرجَ قريبٌ»، ما خبر لعلّ؟",
+      "options": [
+        "قريبٌ",
+        "الفرجَ",
+        "لعلّ"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

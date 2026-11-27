@@ -4,6 +4,7 @@ import 'package:buraq/data/db/app_database.dart';
 import 'package:buraq/data/models/child.dart';
 import 'package:buraq/data/providers.dart';
 import 'package:buraq/data/repositories/child_repository.dart';
+import 'package:buraq/data/repositories/placement_repository.dart';
 import 'package:buraq/data/repositories/progress_repository.dart';
 import 'package:buraq/data/repositories/settings_repository.dart';
 import 'package:buraq/features/home/next_lesson.dart';
@@ -34,6 +35,8 @@ void main() {
     return (c, id);
   }
 
+  placementTests();
+
   test('5-7: starts with the first Arabic lesson, then moves on', () async {
     final (c, id) = await kid(6);
     addTearDown(c.dispose);
@@ -63,5 +66,37 @@ void main() {
     addTearDown(c.dispose);
     final next = await c.read(nextLessonProvider.future);
     expect(next.lesson!.id, startsWith('m_'));
+  });
+}
+
+void placementTests() {
+  test('the level test result skips to the child level in that track', () async {
+    final id = await ChildRepository().add(ChildDraft(
+        nickname: 'ن',
+        avatar: 'star',
+        birthYear: DateTime.now().year - 6,
+        birthMonth: 1));
+    await PlacementRepository().save(id, {'arabic': 2});
+    final c = ProviderContainer();
+    addTearDown(c.dispose);
+    c.read(selectedChildIdProvider.notifier).state = id;
+    final next = await c.read(nextLessonProvider.future);
+    expect(next.lesson!.id, 'a_arabic_words_1');
+    expect(next.lesson!.level, 2);
+  });
+
+  test('when no lesson matches the level, the first unfinished one is used',
+      () async {
+    final id = await ChildRepository().add(ChildDraft(
+        nickname: 'ن',
+        avatar: 'star',
+        birthYear: DateTime.now().year - 6,
+        birthMonth: 1));
+    await PlacementRepository().save(id, {'arabic': 3});
+    final c = ProviderContainer();
+    addTearDown(c.dispose);
+    c.read(selectedChildIdProvider.notifier).state = id;
+    final next = await c.read(nextLessonProvider.future);
+    expect(next.lesson!.id, 'a_arabic_letters_1');
   });
 }

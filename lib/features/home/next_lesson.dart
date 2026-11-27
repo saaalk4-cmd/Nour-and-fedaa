@@ -34,21 +34,33 @@ final nextLessonProvider = FutureProvider.autoDispose<NextLesson>((ref) async {
   final enabled = await ref.watch(sectionStatesProvider.future);
   final lessons = ref.watch(lessonRepositoryProvider);
   final progress = ref.watch(progressRepositoryProvider);
+  final placement = await ref.watch(placementRepositoryProvider).levels(child.id);
   Lesson? next;
   var done = 0, total = 0;
   for (final section in nextLessonSectionOrder) {
     if (enabled[section] == false) continue;
+    final pending = <Lesson>[];
     for (final l in await lessons.bySection(section, child.band())) {
       total++;
       if (await progress.isDone(child.id, l.id)) {
         done++;
       } else {
-        next ??= l;
+        pending.add(l);
       }
     }
+    if (next != null || pending.isEmpty) continue;
+    next = pickByPlacement(pending, placement);
   }
   return NextLesson(lesson: next, done: done, total: total);
 });
+
+/// من دروس القسم غير المكتملة: أول درس بمستوى ≥ مستوى الطفل في مساره
+/// (حسب اختبار المستوى)، وإلا أول درس غير مكتمل.
+Lesson pickByPlacement(List<Lesson> pending, Map<String, int> placement) {
+  final track = pending.first.placementTrack;
+  final start = track == null ? 1 : (placement[track] ?? 1);
+  return pending.firstWhere((l) => l.level >= start, orElse: () => pending.first);
+}
 
 /// يفتح الدرس التالي، أو قسم العربية إن اكتمل كل شيء.
 Future<void> openNextLesson(BuildContext context, WidgetRef ref) async {

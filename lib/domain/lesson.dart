@@ -98,6 +98,7 @@ class Lesson {
     this.icon,
     this.audio,
     this.audioLicense,
+    this.level = 1,
     this.sourceNote,
     this.contentVerified = false,
   });
@@ -119,6 +120,18 @@ class Lesson {
   final String? audioLicense;
 
   bool get hasAudio => audio != null;
+
+  /// مستوى الدرس داخل مساره (١–٣)، يُقارن بنتيجة اختبار المستوى.
+  final int level;
+
+  /// مسار اختبار المستوى الذي يتبعه قسم الدرس (null = قسم بلا اختبار).
+  String? get placementTrack => switch (section) {
+        'arabic' => 'arabic',
+        'prayer' => 'salah',
+        'aqeedah' => 'maa_la_yasa',
+        'quran' => 'quran',
+        _ => null,
+      };
 
   /// البراعم لا يقرؤون: لا نعرض لهم عنوانًا مكتوبًا (العنوان للأهل).
   bool get textFreeForChild => band == AgeBand.buraem;
@@ -167,6 +180,7 @@ class Lesson {
       icon: j['icon'] as String?,
       audio: audio,
       audioLicense: license,
+      level: _level(j['level']),
       band: band,
       sourceType: source,
       sourceNote: j['source_note'] as String?,
@@ -177,4 +191,10 @@ class Lesson {
 
   factory Lesson.fromJsonString(String s) =>
       Lesson.fromJson(jsonDecode(s) as Map<String, dynamic>);
+}
+
+int _level(Object? v) {
+  final l = (v as int?) ?? 1;
+  if (l < 1 || l > 3) throw FormatException('مستوى الدرس خارج ١–٣: $l');
+  return l;
 }
