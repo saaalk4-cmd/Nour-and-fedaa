@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'app.dart';
+import 'core/widgets/friendly_error.dart';
 import 'data/providers.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  installFriendlyErrors();
   var firebaseReady = false;
   final options = DefaultFirebaseOptions.currentPlatform;
   if (options != null) {

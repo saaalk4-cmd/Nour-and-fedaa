@@ -83,6 +83,9 @@ class AlQuranCloudSource implements QuranSource {
 
   static const _base = 'https://api.alquran.cloud/v1/surah';
 
+  /// الاستجابة الخام للسورة (النص والتلاوة) كما يرسلها المصدر.
+  Future<List<Map<String, dynamic>>> fetchEditions(int n) => _editions(n);
+
   Future<List<Map<String, dynamic>>> _editions(int n) async {
     final res = await _client
         .get(Uri.parse('$_base/$n/editions/quran-uthmani,$reciter'))
@@ -175,4 +178,54 @@ Surah parseSurah(
     ayahs: ayahs,
     basmala: basmala,
   );
+}
+
+/// يخزّن الاستجابة الخام لكل سورة على الجهاز بعد أول تحميل ناجح.
+abstract class QuranCacheStore {
+  Future<String?> read(int surah);
+  Future<void> write(int surah, String payload);
+}
+
+/// السورة من الجهاز إن سبق تحميلها، وإلا من الإنترنت ثم تُحفظ.
+/// المحفوظ يمرّ بالتحقق نفسه (عدد الآيات وترتيبها) في كل مرة؛ وإن فشل يُعاد التحميل.
+class CachingQuranSource implements QuranSource {
+  CachingQuranSource({required this.remote, required this.cache});
+
+  final AlQuranCloudSource remote;
+  final QuranCacheStore cache;
+  final Map<int, Surah> _memory = {};
+
+  Future<List<Map<String, dynamic>>> _editions(int n) async {
+    final hit = await cache.read(n);
+    if (hit != null) {
+      try {
+        return (jsonDecode(hit) as List).cast<Map<String, dynamic>>();
+      } catch (_) {/* تالف: نعيد التحميل */}
+    }
+    final fresh = await remote.fetchEditions(n);
+    await cache.write(n, jsonEncode(fresh));
+    return fresh;
+  }
+
+  @override
+  Future<Surah> surah(int number) async {
+    final m = _memory[number];
+    if (m != null) return m;
+    Surah build(List<Map<String, dynamic>> eds,
+            List<Map<String, dynamic>>? fatiha) =>
+        parseSurah(number, eds, fatiha: fatiha);
+    final needsFatiha = number != 1 && number != 9;
+    try {
+      return _memory[number] = build(
+          await _editions(number), needsFatiha ? await _editions(1) : null);
+    } on QuranDataException {
+      // ربما المحفوظ قديم أو تالف: تحميل جديد مرة واحدة.
+      final eds = await remote.fetchEditions(number);
+      final fat = needsFatiha ? await remote.fetchEditions(1) : null;
+      final s = build(eds, fat);
+      await cache.write(number, jsonEncode(eds));
+      if (fat != null) await cache.write(1, jsonEncode(fat));
+      return _memory[number] = s;
+    }
+  }
 }

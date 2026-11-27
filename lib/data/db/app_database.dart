@@ -37,7 +37,7 @@ class AppDatabase {
     final dir = await getDatabasesPath();
     return openDatabase(
       p.join(dir, 'buraq.db'),
-      version: 5,
+      version: 6,
       onCreate: _onCreate,
       onUpgrade: _onUpgrade,
     );
@@ -65,6 +65,7 @@ class AppDatabase {
     ''');
     await _createPlacement(db);
     await _createReview(db);
+    await _createQuranCache(db);
     await db.execute('''
       CREATE TABLE settings(
         key TEXT PRIMARY KEY,
@@ -88,6 +89,16 @@ class AppDatabase {
         track TEXT NOT NULL,
         level INTEGER NOT NULL,
         PRIMARY KEY(child_id, track)
+      )
+    ''');
+  }
+
+  Future<void> _createQuranCache(Database db) async {
+    await db.execute('''
+      CREATE TABLE quran_cache(
+        surah INTEGER PRIMARY KEY,
+        payload TEXT NOT NULL,
+        fetched_at TEXT NOT NULL
       )
     ''');
   }
@@ -145,6 +156,9 @@ class AppDatabase {
         await db.update('children', {'cloud_id': newCloudId()},
             where: 'id = ?', whereArgs: [r['id']]);
       }
+    }
+    if (oldVersion < 6) {
+      await _createQuranCache(db);
     }
   }
 }

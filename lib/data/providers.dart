@@ -16,6 +16,7 @@ import 'repositories/usage_repository.dart';
 import '../domain/hadith.dart';
 import 'quran/quran_player.dart';
 import 'quran/quran_source.dart';
+import 'quran/sqlite_quran_cache.dart';
 import 'repositories/hadith_repository.dart';
 import 'sync/cloud_store.dart';
 import 'sync/sync_service.dart';
@@ -108,7 +109,8 @@ final syncServiceProvider = Provider<SyncService?>((ref) {
 });
 
 
-final quranSourceProvider = Provider<QuranSource>((_) => AlQuranCloudSource());
+final quranSourceProvider = Provider<QuranSource>((_) =>
+    CachingQuranSource(remote: AlQuranCloudSource(), cache: SqliteQuranCache()));
 
 final quranPlayerProvider = Provider<QuranPlayer>((ref) {
   final p = AudioQuranPlayer();

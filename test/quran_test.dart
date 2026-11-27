@@ -42,6 +42,7 @@ class _FakePlayer implements QuranPlayer {
 }
 
 void main() {
+  cacheTests();
   group('parseSurah', () {
     test('Al-Ikhlas: basmala separated, taken from the source, 4 ayahs', () {
       final s = parseSurah(112, _fixture(112), fatiha: _fixture(1));
@@ -140,5 +141,53 @@ void main() {
     expect(find.byKey(const Key('basmala')), findsNothing);
     expect(find.byKey(const Key('ayahs')), findsNothing);
     expect(find.text('⭐'), findsOneWidget);
+  });
+}
+
+class _MemCache implements QuranCacheStore {
+  final data = <int, String>{};
+  @override
+  Future<String?> read(int surah) async => data[surah];
+  @override
+  Future<void> write(int surah, String payload) async => data[surah] = payload;
+}
+
+void cacheTests() {
+  AlQuranCloudSource remoteCounting(List<String> calls, {bool fail = false}) =>
+      AlQuranCloudSource(
+        client: MockClient((req) async {
+          if (fail) throw Exception('offline');
+          calls.add(req.url.path);
+          final n = int.parse(req.url.pathSegments[2]);
+          return http.Response.bytes(
+              utf8.encode(jsonEncode({'code': 200, 'data': _fixture(n)})), 200);
+        }),
+      );
+
+  test('a surah loaded once opens later without internet', () async {
+    final cache = _MemCache();
+    final calls = <String>[];
+    await CachingQuranSource(remote: remoteCounting(calls), cache: cache)
+        .surah(112);
+    expect(cache.data.keys.toSet(), {112, 1});
+
+    // تشغيل جديد للتطبيق بلا إنترنت
+    final offline = CachingQuranSource(
+        remote: remoteCounting(<String>[], fail: true), cache: cache);
+    final s = await offline.surah(112);
+    expect(s.ayahs.length, 4);
+    expect(s.basmala, isNotNull);
+  });
+
+  test('a corrupted cached copy is refetched and verified', () async {
+    final cache = _MemCache();
+    final bad = _fixture(112);
+    (bad.first['ayahs'] as List).removeLast();
+    cache.data[112] = jsonEncode(bad);
+    final calls = <String>[];
+    final s = await CachingQuranSource(remote: remoteCounting(calls), cache: cache)
+        .surah(112);
+    expect(s.ayahs.length, 4);
+    expect(calls, isNotEmpty);
   });
 }
