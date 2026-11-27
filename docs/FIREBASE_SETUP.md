@@ -10,7 +10,10 @@
   3. Storage: فعّله، ثم الصق `storage.rules` وانشر.
   4. Google Cloud Console > APIs & Services > Credentials: قيّد مفتاح Android على الحزمة `com.buraq.buraq` (وأضف SHA-1 عند توفر مفتاح التوقيع).
 - ⏳ الدخول بجوجل: يحتاج مفتاح توقيع ثابتًا (البناء الحالي على GitHub يولّد مفتاحًا جديدًا كل مرة) ثم إضافة SHA-1 في إعدادات التطبيق.
-- ⏳ App Check وRemote Config ومزامنة Firestore: الخطوات التالية في الكود.
+- ✅ Firestore منشأ وقواعده منشورة، والمزامنة مفعّلة في الكود.
+  - البنية: `parents/{uid}` (الحد اليومي والأقسام الموقوفة) و`parents/{uid}/children/{cloudId}` (ملف الطفل وتقدّمه ومستواه وشاراته ومراجعاته).
+  - رمز PIN ووقت الاستخدام اليومي يبقيان على الجهاز فقط.
+- ⏳ App Check وRemote Config: خطوات لاحقة.
 
 ---
 

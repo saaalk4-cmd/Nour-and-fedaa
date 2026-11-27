@@ -1,4 +1,5 @@
 import '../db/app_database.dart';
+import '../sync/cloud_id.dart';
 import '../models/child.dart';
 import '../../domain/age_band.dart';
 
@@ -25,6 +26,7 @@ class ChildRepository {
       'birth_year': draft.birthYear,
       'birth_month': draft.birthMonth,
       'band_override': bandOverride?.name,
+      'cloud_id': newCloudId(),
     });
   }
 

@@ -35,6 +35,7 @@ class _LevelCheckScreenState extends ConsumerState<LevelCheckScreen> {
       await ref
           .read(placementRepositoryProvider)
           .save(id, check.placement(_answers));
+      ref.read(syncServiceProvider)?.pushChildInBackground(id);
     }
     if (mounted) context.go('/onboarding/ready');
   }

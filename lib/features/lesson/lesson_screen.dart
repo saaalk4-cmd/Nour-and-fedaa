@@ -84,6 +84,7 @@ class _LessonRunnerState extends ConsumerState<_LessonRunner> {
           .read(reviewRepositoryProvider)
           .recordReview(childId, widget.lesson.id, remembered: true);
       ref.invalidate(dueReviewProvider);
+      ref.read(syncServiceProvider)?.pushChildInBackground(childId);
       return;
     }
     final added = await ref.read(progressRepositoryProvider).complete(
@@ -92,6 +93,7 @@ class _LessonRunnerState extends ConsumerState<_LessonRunner> {
           stars: _step.stars,
         );
     final fresh = await ref.read(badgeRepositoryProvider).evaluate(childId);
+    ref.read(syncServiceProvider)?.pushChildInBackground(childId);
     ref.invalidate(selectedChildProvider);
     ref.invalidate(dueReviewProvider);
     if (mounted) {

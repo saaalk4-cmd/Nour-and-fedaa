@@ -1,6 +1,8 @@
 import 'package:path/path.dart' as p;
 import 'package:sqflite/sqflite.dart';
 
+import '../sync/cloud_id.dart';
+
 /// قاعدة البيانات المحلية (تعمل بدون إنترنت).
 class AppDatabase {
   AppDatabase._();
@@ -22,7 +24,7 @@ class AppDatabase {
     final dir = await getDatabasesPath();
     return openDatabase(
       p.join(dir, 'buraq.db'),
-      version: 4,
+      version: 5,
       onCreate: _onCreate,
       onUpgrade: _onUpgrade,
     );
@@ -98,6 +100,7 @@ class AppDatabase {
         birth_year INTEGER NOT NULL,
         birth_month INTEGER NOT NULL,
         band_override TEXT,
+        cloud_id TEXT,
         stars INTEGER NOT NULL DEFAULT 0,
         points INTEGER NOT NULL DEFAULT 0
       )
@@ -116,6 +119,19 @@ class AppDatabase {
     }
     if (oldVersion < 4) {
       await _createReview(db);
+    }
+    if (oldVersion < 5) {
+      // v5: معرّف سحابي ثابت لكل طفل للمزامنة بين الأجهزة.
+      final cols = await db.rawQuery('PRAGMA table_info(children)');
+      if (!cols.any((c) => c['name'] == 'cloud_id')) {
+        await db.execute('ALTER TABLE children ADD COLUMN cloud_id TEXT');
+      }
+      final rows = await db.query('children',
+          columns: ['id'], where: 'cloud_id IS NULL');
+      for (final r in rows) {
+        await db.update('children', {'cloud_id': newCloudId()},
+            where: 'id = ?', whereArgs: [r['id']]);
+      }
     }
   }
 }

@@ -35,7 +35,8 @@ class _PinSetupScreenState extends ConsumerState<PinSetupScreen> {
       return;
     }
     await ref.read(settingsRepositoryProvider).setPin(pin);
-    if (mounted) context.go('/onboarding/child');
+    final restored = await ref.read(childRepositoryProvider).all();
+    if (mounted) context.go(restored.isEmpty ? '/onboarding/child' : '/who');
   }
 
   @override

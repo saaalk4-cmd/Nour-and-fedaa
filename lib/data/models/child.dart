@@ -24,6 +24,7 @@ class Child {
     this.bandOverride,
     this.stars = 0,
     this.points = 0,
+    this.cloudId,
   });
 
   final int id;
@@ -38,6 +39,9 @@ class Child {
   final AgeBand? bandOverride;
   final int stars;
   final int points;
+
+  /// معرّف النسخة السحابية (للمزامنة).
+  final String? cloudId;
 
   int ageYears({DateTime? now}) => ageInYears(birthYear, birthMonth, now: now);
 
@@ -59,6 +63,7 @@ class Child {
         bandOverride: AgeBand.byName(m['band_override'] as String?),
         stars: (m['stars'] as int?) ?? 0,
         points: (m['points'] as int?) ?? 0,
+        cloudId: m['cloud_id'] as String?,
       );
 }
 

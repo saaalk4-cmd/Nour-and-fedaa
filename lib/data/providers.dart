@@ -13,6 +13,8 @@ import 'repositories/progress_repository.dart';
 import 'repositories/review_repository.dart';
 import 'repositories/settings_repository.dart';
 import 'repositories/usage_repository.dart';
+import 'sync/cloud_store.dart';
+import 'sync/sync_service.dart';
 
 final childRepositoryProvider = Provider((_) => ChildRepository());
 final settingsRepositoryProvider = Provider((_) => SettingsRepository());
@@ -90,3 +92,14 @@ final dueReviewProvider = FutureProvider.autoDispose<List<String>>((ref) async {
   if (id == null) return const [];
   return ref.watch(reviewRepositoryProvider).due(id);
 });
+
+final cloudStoreProvider = Provider<CloudStore>((_) => FirestoreCloudStore());
+
+/// خدمة المزامنة للحساب الحقيقي الحالي، أو null (وضع محلي / لم يُسجَّل الدخول).
+final syncServiceProvider = Provider<SyncService?>((ref) {
+  if (!ref.watch(firebaseReadyProvider)) return null;
+  final acc = ref.watch(accountProvider).valueOrNull;
+  if (acc == null || acc.uid == null) return null;
+  return SyncService(uid: acc.uid!, store: ref.watch(cloudStoreProvider));
+});
+

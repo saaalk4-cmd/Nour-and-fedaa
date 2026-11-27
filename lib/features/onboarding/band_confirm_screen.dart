@@ -35,6 +35,7 @@ class _BandConfirmScreenState extends ConsumerState<BandConfirmScreen> {
       bandOverride: band == suggested ? null : band,
     );
     ref.read(selectedChildIdProvider.notifier).state = id;
+    ref.read(syncServiceProvider)?.pushChildInBackground(id);
     ref.invalidate(childrenProvider);
     ref.read(childDraftProvider.notifier).state = const ChildDraft();
     if (mounted) context.go('/onboarding/level');

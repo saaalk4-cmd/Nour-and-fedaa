@@ -125,6 +125,7 @@ class _ParentDashboardScreenState extends ConsumerState<ParentDashboardScreen> {
                         .read(settingsRepositoryProvider)
                         .setDailyLimitMinutes(m);
                     ref.invalidate(dailyLimitProvider);
+                    ref.read(syncServiceProvider)?.pushSettingsInBackground();
                   },
                 ),
             ],
@@ -141,6 +142,7 @@ class _ParentDashboardScreenState extends ConsumerState<ParentDashboardScreen> {
                     .read(settingsRepositoryProvider)
                     .setSectionEnabled(s.id, v);
                 ref.invalidate(sectionStatesProvider);
+                ref.read(syncServiceProvider)?.pushSettingsInBackground();
               },
             ),
         ],
@@ -156,6 +158,7 @@ class _ChildCard extends ConsumerWidget {
 
   Future<void> _changeBand(BuildContext context, WidgetRef ref, AgeBand? b) async {
     await ref.read(childRepositoryProvider).setBand(child.id, b);
+    ref.read(syncServiceProvider)?.pushChildInBackground(child.id);
     ref.invalidate(childrenProvider);
     ref.invalidate(selectedChildProvider);
   }
@@ -179,6 +182,10 @@ class _ChildCard extends ConsumerWidget {
     );
     if (ok != true) return;
     await ref.read(childRepositoryProvider).delete(child.id);
+    final cloudId = child.cloudId;
+    if (cloudId != null) {
+      ref.read(syncServiceProvider)?.deleteChildInBackground(cloudId);
+    }
     if (ref.read(selectedChildIdProvider) == child.id) {
       ref.read(selectedChildIdProvider.notifier).state = null;
     }

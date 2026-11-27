@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/brand_mark.dart';
 import '../../data/providers.dart';
+import '../../data/sync/sync_service.dart';
 
 /// شاشة البداية: تقرر أين يذهب المستخدم حسب ما أُنجز من التسجيل.
 class BootScreen extends ConsumerStatefulWidget {
@@ -22,7 +23,16 @@ class _BootScreenState extends ConsumerState<BootScreen> {
   }
 
   Future<void> _route() async {
-    final account = await ref.read(accountRepositoryProvider).current();
+    final account = await ref.read(accountProvider.future);
+    final sync = ref.read(syncServiceProvider);
+    if (sync != null) {
+      try {
+        await sync.pull().timeout(const Duration(seconds: 8));
+      } catch (_) {
+        // بلا إنترنت: نكمل بالبيانات المحلية.
+      }
+      SyncService.quietly(sync.pushAll);
+    }
     final hasPin = await ref.read(settingsRepositoryProvider).hasPin();
     final children = await ref.read(childRepositoryProvider).all();
     if (!mounted) return;

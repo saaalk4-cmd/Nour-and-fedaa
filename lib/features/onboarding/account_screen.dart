@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../core/theme/app_theme.dart';
 import '../../data/providers.dart';
 import '../../data/repositories/account_repository.dart';
+import '../../data/sync/sync_service.dart';
 import 'onboarding_scaffold.dart';
 
 /// تنبيه يظهر ما دام الحساب محليًا (حين لا يتوفر Firebase).
@@ -55,12 +56,22 @@ class _AccountScreenState extends ConsumerState<AccountScreen> {
     final repo = ref.read(accountRepositoryProvider);
     try {
       final email = _email.text.trim();
-      if (_newAccount) {
-        await repo.signUpWithEmail(email, _password.text);
-      } else {
-        await repo.signInWithEmail(email, _password.text);
-      }
+      final acc = _newAccount
+          ? await repo.signUpWithEmail(email, _password.text)
+          : await repo.signInWithEmail(email, _password.text);
       ref.invalidate(accountProvider);
+      await ref.read(accountProvider.future);
+      // جهاز جديد لحساب قديم: نستعيد ملفات الأطفال وتقدّمهم من السحابة.
+      if (acc.uid != null && ref.read(firebaseReadyProvider)) {
+        try {
+          await SyncService(uid: acc.uid!, store: ref.read(cloudStoreProvider))
+              .pull()
+              .timeout(const Duration(seconds: 10));
+          ref.invalidate(childrenProvider);
+        } catch (_) {
+          // بلا إنترنت أو خطأ مؤقت: نكمل محليًا، وتُعاد المحاولة عند التشغيل التالي.
+        }
+      }
       if (mounted) context.go('/onboarding/pin');
     } on AccountException catch (e) {
       if (mounted) setState(() => _error = e.message);
