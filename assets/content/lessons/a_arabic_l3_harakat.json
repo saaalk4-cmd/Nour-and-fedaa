@@ -1,0 +1,60 @@
+{
+  "id": "a_arabic_l3_harakat",
+  "title": "الحركات",
+  "icon": "🔤",
+  "section": "arabic",
+  "band": "atfal",
+  "level": 3,
+  "source_type": "educational",
+  "source_note": "محتوى تعليمي لغوي. بلا محتوى ديني.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "choose",
+      "question": "ما حركة الحرف «بَ»؟",
+      "options": [
+        "فتحة",
+        "ضمة",
+        "كسرة"
+      ],
+      "answer": 0,
+      "prompt": "بَ"
+    },
+    {
+      "type": "choose",
+      "question": "ما حركة الحرف «بُ»؟",
+      "options": [
+        "كسرة",
+        "ضمة",
+        "فتحة"
+      ],
+      "answer": 1,
+      "prompt": "بُ"
+    },
+    {
+      "type": "choose",
+      "question": "ما حركة الحرف «بِ»؟",
+      "options": [
+        "ضمة",
+        "فتحة",
+        "كسرة"
+      ],
+      "answer": 2,
+      "prompt": "بِ"
+    },
+    {
+      "type": "choose",
+      "question": "أيّ حرف عليه سكون؟",
+      "options": [
+        "بْ",
+        "بَ",
+        "بِ"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

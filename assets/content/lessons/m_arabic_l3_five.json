@@ -1,0 +1,57 @@
+{
+  "id": "m_arabic_l3_five",
+  "title": "الأفعال الخمسة",
+  "icon": "✋",
+  "section": "arabic",
+  "band": "murahiqun",
+  "level": 3,
+  "source_type": "educational",
+  "source_note": "محتوى تعليمي لغوي. بلا محتوى ديني.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "choose",
+      "question": "أيّ هذه من الأفعال الخمسة؟",
+      "options": [
+        "يكتبون",
+        "يكتبُ",
+        "كتبَ"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "علامة رفع الأفعال الخمسة:",
+      "options": [
+        "ثبوت النون",
+        "الضمة",
+        "الواو"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "الطلابُ لن ___",
+      "options": [
+        "يتأخرون",
+        "يتأخروا",
+        "يتأخرونَا"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "choose",
+      "question": "علامة نصبها وجزمها:",
+      "options": [
+        "الفتحة",
+        "السكون",
+        "حذف النون"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

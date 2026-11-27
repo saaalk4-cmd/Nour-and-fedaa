@@ -1,0 +1,57 @@
+{
+  "id": "n_arabic_l3_punct",
+  "title": "علامات الترقيم",
+  "icon": "✒️",
+  "section": "arabic",
+  "band": "nashia",
+  "level": 3,
+  "source_type": "educational",
+  "source_note": "محتوى تعليمي لغوي. بلا محتوى ديني.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "choose",
+      "question": "في آخر الجملة الخبرية نضع:",
+      "options": [
+        "النقطة (.)",
+        "علامة الاستفهام (؟)",
+        "علامة التعجب (!)"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "«أين تسكن» — نضع في آخرها:",
+      "options": [
+        "النقطة (.)",
+        "علامة الاستفهام (؟)",
+        "علامة التعجب (!)"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "choose",
+      "question": "«ما أجملَ السماءَ» — نضع في آخرها:",
+      "options": [
+        "النقطة (.)",
+        "علامة الاستفهام (؟)",
+        "علامة التعجب (!)"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "choose",
+      "question": "نفصل بين الكلمات المعطوفة بـ:",
+      "options": [
+        "الفاصلة (،)",
+        "النقطة (.)",
+        "علامة التعجب (!)"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

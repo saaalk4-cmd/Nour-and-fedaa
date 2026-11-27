@@ -1,0 +1,57 @@
+{
+  "id": "m_arabic_l3_hal",
+  "title": "الحال",
+  "icon": "🙂",
+  "section": "arabic",
+  "band": "murahiqun",
+  "level": 3,
+  "source_type": "educational",
+  "source_note": "محتوى تعليمي لغوي. بلا محتوى ديني.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "choose",
+      "question": "في «جاء الولدُ مبتسمًا» الحال هو:",
+      "options": [
+        "جاء",
+        "الولدُ",
+        "مبتسمًا"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "choose",
+      "question": "الحال يجيب عن سؤال:",
+      "options": [
+        "كيف؟",
+        "متى؟",
+        "أين؟"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "الحال في الغالب:",
+      "options": [
+        "مرفوع",
+        "منصوب",
+        "مجرور"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "choose",
+      "question": "عاد الجنديُّ ___",
+      "options": [
+        "منتصرٌ",
+        "منتصرٍ",
+        "منتصرًا"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

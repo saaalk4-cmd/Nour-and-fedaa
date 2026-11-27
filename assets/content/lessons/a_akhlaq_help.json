@@ -1,0 +1,61 @@
+{
+  "id": "a_akhlaq_help",
+  "title": "التعاون",
+  "icon": "🤲",
+  "section": "akhlaq",
+  "band": "atfal",
+  "level": 2,
+  "source_type": "educational",
+  "source_note": "محتوى تربوي عام لمواقف يومية، بلا نسبة لنبي أو آية أو حديث.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "choose",
+      "question": "أمي تحمل أكياسًا كثيرة. ماذا أفعل؟",
+      "options": [
+        "أساعدها",
+        "أكمل اللعب",
+        "أختبئ"
+      ],
+      "answer": 0,
+      "prompt": "🛍️"
+    },
+    {
+      "type": "choose",
+      "question": "انتهينا من اللعب في الصف. ماذا نفعل؟",
+      "options": [
+        "نترك الألعاب",
+        "نرتّبها معًا",
+        "نرميها"
+      ],
+      "answer": 1,
+      "prompt": "🧸"
+    },
+    {
+      "type": "choose",
+      "question": "صديقي لم يفهم الرسم. ماذا أفعل؟",
+      "options": [
+        "أضحك عليه",
+        "أتركه",
+        "أشرح له"
+      ],
+      "answer": 2,
+      "prompt": "🎨"
+    },
+    {
+      "type": "choose",
+      "question": "أخي الصغير وقع. ماذا أفعل؟",
+      "options": [
+        "أساعده ليقوم",
+        "أصوّره",
+        "أبتعد"
+      ],
+      "answer": 0,
+      "prompt": "🧒"
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

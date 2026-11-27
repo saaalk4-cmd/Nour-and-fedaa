@@ -1,0 +1,57 @@
+{
+  "id": "n_arabic_l3_shamsi",
+  "title": "اللام الشمسية والقمرية",
+  "icon": "🌞",
+  "section": "arabic",
+  "band": "nashia",
+  "level": 3,
+  "source_type": "educational",
+  "source_note": "محتوى تعليمي لغوي. بلا محتوى ديني.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "choose",
+      "question": "في «الشَّمس» اللام:",
+      "options": [
+        "تُكتب ولا تُنطق (شمسية)",
+        "تُكتب وتُنطق (قمرية)"
+      ],
+      "answer": 0,
+      "prompt": "☀️"
+    },
+    {
+      "type": "choose",
+      "question": "في «القَمَر» اللام:",
+      "options": [
+        "تُكتب ولا تُنطق (شمسية)",
+        "تُكتب وتُنطق (قمرية)"
+      ],
+      "answer": 1,
+      "prompt": "🌙"
+    },
+    {
+      "type": "choose",
+      "question": "أيّ كلمة لامها شمسية؟",
+      "options": [
+        "الكتاب",
+        "الشجرة",
+        "البيت"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "choose",
+      "question": "أيّ كلمة لامها قمرية؟",
+      "options": [
+        "النور",
+        "السماء",
+        "القلم"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

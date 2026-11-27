@@ -18,7 +18,7 @@ class LessonRepository {
     return _cache[id] = Lesson.fromJsonString(raw);
   }
 
-  /// دروس القسم للفئة المحددة، مرتبة بالمعرّف.
+  /// دروس القسم للفئة المحددة، مرتبة بالمستوى ثم بالمعرّف (الترتيب مستقر).
   Future<List<Lesson>> bySection(String section, AgeBand band) async {
     final manifest = await AssetManifest.loadFromAssetBundle(_bundle);
     final paths = manifest
@@ -32,6 +32,12 @@ class LessonRepository {
       final l = await byId(id);
       if (l.section == section && l.band == band) out.add(l);
     }
-    return out;
+    // ترتيب مستقر: المستوى أولًا، ويبقى ترتيب المعرّف داخل المستوى.
+    final indexed = out.asMap().entries.toList()
+      ..sort((a, b) {
+        final c = a.value.level.compareTo(b.value.level);
+        return c != 0 ? c : a.key.compareTo(b.key);
+      });
+    return [for (final e in indexed) e.value];
   }
 }

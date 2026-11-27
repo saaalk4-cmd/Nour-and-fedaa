@@ -1,0 +1,61 @@
+{
+  "id": "a_arabic_l3_build",
+  "title": "أركّب كلمة",
+  "icon": "🧩",
+  "section": "arabic",
+  "band": "atfal",
+  "level": 3,
+  "source_type": "educational",
+  "source_note": "محتوى تعليمي لغوي. بلا محتوى ديني.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "choose",
+      "question": "بـ + ا + ب =",
+      "options": [
+        "باب",
+        "بيت",
+        "نار"
+      ],
+      "answer": 0,
+      "prompt": "🚪"
+    },
+    {
+      "type": "choose",
+      "question": "ق + لـ + م =",
+      "options": [
+        "علم",
+        "قلم",
+        "قمر"
+      ],
+      "answer": 1,
+      "prompt": "✏️"
+    },
+    {
+      "type": "choose",
+      "question": "ش + مـ + س =",
+      "options": [
+        "شمع",
+        "سمك",
+        "شمس"
+      ],
+      "answer": 2,
+      "prompt": "☀️"
+    },
+    {
+      "type": "choose",
+      "question": "و + ر + د =",
+      "options": [
+        "ورد",
+        "ولد",
+        "برد"
+      ],
+      "answer": 0,
+      "prompt": "🌹"
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

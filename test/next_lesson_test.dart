@@ -4,9 +4,11 @@ import 'package:buraq/data/db/app_database.dart';
 import 'package:buraq/data/models/child.dart';
 import 'package:buraq/data/providers.dart';
 import 'package:buraq/data/repositories/child_repository.dart';
+import 'package:buraq/data/repositories/lesson_repository.dart';
 import 'package:buraq/data/repositories/placement_repository.dart';
 import 'package:buraq/data/repositories/progress_repository.dart';
 import 'package:buraq/data/repositories/settings_repository.dart';
+import 'package:buraq/domain/age_band.dart';
 import 'package:buraq/features/home/next_lesson.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -85,8 +87,7 @@ void placementTests() {
     expect(next.lesson!.level, 2);
   });
 
-  test('when no lesson matches the level, the first unfinished one is used',
-      () async {
+  test('a level-3 placement starts at the first level-3 lesson', () async {
     final id = await ChildRepository().add(ChildDraft(
         nickname: 'ن',
         avatar: 'star',
@@ -97,6 +98,13 @@ void placementTests() {
     addTearDown(c.dispose);
     c.read(selectedChildIdProvider.notifier).state = id;
     final next = await c.read(nextLessonProvider.future);
-    expect(next.lesson!.id, 'a_arabic_letters_1');
+    expect(next.lesson!.id, 'a_arabic_l3_build');
+  });
+
+  test('when no lesson matches the level, the first unfinished one is used',
+      () async {
+    final all = await LessonRepository().bySection('arabic', AgeBand.atfal);
+    final pending = all.where((l) => l.level < 3).toList();
+    expect(pickByPlacement(pending, {'arabic': 3}).id, 'a_arabic_letters_1');
   });
 }

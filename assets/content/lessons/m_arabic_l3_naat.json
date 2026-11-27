@@ -1,0 +1,57 @@
+{
+  "id": "m_arabic_l3_naat",
+  "title": "النعت",
+  "icon": "🏷️",
+  "section": "arabic",
+  "band": "murahiqun",
+  "level": 3,
+  "source_type": "educational",
+  "source_note": "محتوى تعليمي لغوي. بلا محتوى ديني.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "choose",
+      "question": "في «جاء الطالبُ المجتهدُ» النعت هو:",
+      "options": [
+        "جاء",
+        "الطالبُ",
+        "المجتهدُ"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "choose",
+      "question": "النعت الحقيقي يتبع منعوته في:",
+      "options": [
+        "الإعراب والتعريف والتنكير والعدد والنوع",
+        "الإعراب فقط",
+        "لا يتبعه في شيء"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "رأيتُ بيتًا ___",
+      "options": [
+        "كبيرًا",
+        "كبيرٌ",
+        "الكبيرَ"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "مررتُ بالحديقةِ ___",
+      "options": [
+        "الجميلةُ",
+        "الجميلةِ",
+        "جميلةً"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

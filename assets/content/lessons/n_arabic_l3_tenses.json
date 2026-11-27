@@ -1,0 +1,57 @@
+{
+  "id": "n_arabic_l3_tenses",
+  "title": "الماضي والمضارع والأمر",
+  "icon": "⏳",
+  "section": "arabic",
+  "band": "nashia",
+  "level": 3,
+  "source_type": "educational",
+  "source_note": "محتوى تعليمي لغوي. بلا محتوى ديني.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "choose",
+      "question": "«كَتَبَ» فعل:",
+      "options": [
+        "ماضٍ",
+        "مضارع",
+        "أمر"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "«يَلْعَبُ» فعل:",
+      "options": [
+        "ماضٍ",
+        "مضارع",
+        "أمر"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "choose",
+      "question": "«اُكْتُبْ» فعل:",
+      "options": [
+        "ماضٍ",
+        "مضارع",
+        "أمر"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "choose",
+      "question": "أيّ فعل يدلّ على حدث مضى؟",
+      "options": [
+        "ذَهَبَ",
+        "يَذْهَبُ",
+        "اِذْهَبْ"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

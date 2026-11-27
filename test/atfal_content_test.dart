@@ -85,7 +85,7 @@ void moreContentTests() {
 
   test('akhlaq for 5-7 is general educational content', () async {
     final lessons = await repo.bySection('akhlaq', AgeBand.atfal);
-    expect(lessons.length, 4);
+    expect(lessons.length, 5);
     for (final l in lessons) {
       expect(l.sourceType, 'educational');
       expect(_chooses(l).length, greaterThanOrEqualTo(3));
@@ -97,6 +97,27 @@ void moreContentTests() {
       final ls = await repo.bySection('arabic', b);
       expect(ls.where((l) => l.level == 1).length, 3, reason: b.name);
       expect(ls.where((l) => l.level == 2).length, 3, reason: b.name);
+      expect(ls.where((l) => l.level == 3).length, 3, reason: b.name);
+      // الترتيب: كل مستوى بعد الذي قبله.
+      final levels = [for (final l in ls) l.level];
+      expect(levels, [...levels]..sort(), reason: b.name);
+    }
+  });
+
+  test('atfal Arabic level 3: harakat and word building, correct answers', () async {
+    final ls = (await repo.bySection('arabic', AgeBand.atfal))
+        .where((l) => l.level == 3)
+        .toList();
+    expect(ls.map((l) => l.id), ['a_arabic_l3_build', 'a_arabic_l3_harakat']);
+    final build = ls.first;
+    for (final s in _chooses(build)) {
+      // الحروف المركّبة (بلا علامة الوصل) تساوي الإجابة الصحيحة.
+      final letters = s.question!
+          .replaceAll('=', '')
+          .split('+')
+          .map((p) => p.replaceAll('ـ', '').trim())
+          .join();
+      expect(s.options[s.answer], letters, reason: s.question);
     }
   });
 }
@@ -106,7 +127,7 @@ void olderAkhlaqTests() {
     final repo = LessonRepository();
     for (final band in [AgeBand.nashia, AgeBand.murahiqun]) {
       final lessons = await repo.bySection('akhlaq', band);
-      expect(lessons.length, 3, reason: band.name);
+      expect(lessons.length, 4, reason: band.name);
       for (final l in lessons) {
         expect(l.sourceType, 'educational');
         expect(_chooses(l).length, greaterThanOrEqualTo(3));

@@ -1,0 +1,61 @@
+{
+  "id": "n_akhlaq_sport",
+  "title": "الروح الرياضية",
+  "icon": "⚽",
+  "section": "akhlaq",
+  "band": "nashia",
+  "level": 2,
+  "source_type": "educational",
+  "source_note": "محتوى تربوي عام لمواقف يومية، بلا نسبة لنبي أو آية أو حديث.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "choose",
+      "question": "خسر فريقك المباراة. ماذا تفعل؟",
+      "options": [
+        "أصافح الفريق الآخر",
+        "أغضب وأصرخ",
+        "أكسر الكرة"
+      ],
+      "answer": 0,
+      "prompt": "🤝"
+    },
+    {
+      "type": "choose",
+      "question": "فاز فريقك. كيف تتصرف؟",
+      "options": [
+        "أسخر من الخاسر",
+        "أفرح بأدب",
+        "أتباهى كثيرًا"
+      ],
+      "answer": 1,
+      "prompt": "🏆"
+    },
+    {
+      "type": "choose",
+      "question": "زميلك أخطأ في اللعب. ماذا تقول؟",
+      "options": [
+        "أنت السبب!",
+        "لن ألعب معك",
+        "لا بأس، المرة القادمة"
+      ],
+      "answer": 2,
+      "prompt": "💬"
+    },
+    {
+      "type": "choose",
+      "question": "الحكم أخذ قرارًا لم يعجبك. ماذا تفعل؟",
+      "options": [
+        "أحترم القرار",
+        "أشتمه",
+        "أترك الملعب"
+      ],
+      "answer": 0,
+      "prompt": "🟨"
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}
