@@ -26,6 +26,27 @@ void main() {
     expect(meal.matn, contains('غَيْرَ مَكْفِيٍّ'));
   });
 
+  test('hadith texts from the open hadith-api set, with references', () async {
+    final repo = HadithRepository();
+    final pillars = await repo.byId('bukhari_8');
+    expect(pillars.reference, 'صحيح البخاري ٨');
+    expect(pillars.matn, contains('بُنِيَ الإِسْلاَمُ عَلَى خَمْسٍ'));
+    final food = await repo.byId('bukhari_5376');
+    expect(food.matn, contains('وَكُلْ بِيَمِينِكَ'));
+    final sleep = await repo.byId('bukhari_6324');
+    expect(sleep.matn, contains('أَمُوتُ وَأَحْيَا'));
+    final jibril = await repo.byId('muslim_8');
+    expect(jibril.reference, 'صحيح مسلم ٨');
+    expect(jibril.url, 'https://sunnah.com/muslim:8a');
+    expect(jibril.matn, contains('جِبْرِيلُ أَتَاكُمْ'));
+    // لا علامات اتجاه خفية ولا علامات تنصيص غير مغلقة.
+    for (final h in [pillars, food, sleep, jibril]) {
+      expect(h.matn.contains('\u200f'), isFalse, reason: h.id);
+      expect('«'.allMatches(h.matn).length, '»'.allMatches(h.matn).length,
+          reason: h.id);
+    }
+  });
+
   test('every hadith step points to an existing hadith; every surah is verifiable',
       () async {
     final manifest = await AssetManifest.loadFromAssetBundle(rootBundle);
@@ -62,7 +83,10 @@ void main() {
         }
       }
     }
-    expect((await repo.bySection('adhkar', AgeBand.atfal)).length, 3);
+    expect((await repo.bySection('adhkar', AgeBand.atfal)).length, 5);
+    expect((await repo.bySection('aqeedah', AgeBand.atfal)).length, 1);
+    expect((await repo.bySection('aqeedah', AgeBand.nashia)).length, 1);
+    expect((await repo.bySection('aqeedah', AgeBand.murahiqun)).length, 1);
   });
 
   testWidgets('hadith step shows the text, narrator and reference', (t) async {

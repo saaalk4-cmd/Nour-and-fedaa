@@ -1,0 +1,53 @@
+{
+  "id": "a_adhkar_food",
+  "title": "آداب الطعام",
+  "icon": "🍽️",
+  "section": "adhkar",
+  "band": "atfal",
+  "source_type": "sahih_sunnah",
+  "source_note": "صحيح البخاري ٥٣٧٦؛ النص من مجموعة hadith-api المفتوحة ومطابق لـ sunnah.com، وأسئلة الفهم مأخوذة من نص الحديث نفسه.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "hadith",
+      "hadith": "bukhari_5376"
+    },
+    {
+      "type": "choose",
+      "question": "ماذا نقول قبل أن نأكل؟",
+      "options": [
+        "بسم الله",
+        "الحمد لله",
+        "صباح الخير"
+      ],
+      "answer": 0,
+      "prompt": "🍽️"
+    },
+    {
+      "type": "choose",
+      "question": "بأيّ يد نأكل؟",
+      "options": [
+        "اليسرى",
+        "اليمنى",
+        "بالاثنتين"
+      ],
+      "answer": 1,
+      "prompt": "✋"
+    },
+    {
+      "type": "choose",
+      "question": "من أين نأكل في الطبق؟",
+      "options": [
+        "من أمام غيري",
+        "من وسط الطبق",
+        "مما يليني"
+      ],
+      "answer": 2,
+      "prompt": "🥣"
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

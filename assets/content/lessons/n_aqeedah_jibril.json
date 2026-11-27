@@ -1,0 +1,64 @@
+{
+  "id": "n_aqeedah_jibril",
+  "title": "الإسلام والإيمان والإحسان",
+  "icon": "🌟",
+  "section": "aqeedah",
+  "band": "nashia",
+  "source_type": "sahih_sunnah",
+  "source_note": "صحيح مسلم ٨؛ النص من مجموعة hadith-api المفتوحة ومطابق لـ sunnah.com، وأسئلة الفهم مأخوذة من نص الحديث نفسه.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "hadith",
+      "hadith": "muslim_8"
+    },
+    {
+      "type": "choose",
+      "question": "من السائل الذي جاء إلى النبي ﷺ؟",
+      "options": [
+        "رجل من الصحابة",
+        "جبريل",
+        "أعرابي"
+      ],
+      "answer": 1,
+      "prompt": "❓"
+    },
+    {
+      "type": "choose",
+      "question": "لماذا جاء؟ كما في آخر الحديث:",
+      "options": [
+        "ليعلّمنا ديننا",
+        "ليسأل عن الطريق",
+        "ليبيع شيئًا"
+      ],
+      "answer": 0,
+      "prompt": "📚"
+    },
+    {
+      "type": "choose",
+      "question": "كم شيئًا ذُكر في جواب «الإيمان»؟",
+      "options": [
+        "أربعة",
+        "خمسة",
+        "ستة"
+      ],
+      "answer": 2,
+      "prompt": "🔢"
+    },
+    {
+      "type": "choose",
+      "question": "الإحسان أن تعبد الله:",
+      "options": [
+        "كأنك تراه",
+        "مرة في الأسبوع",
+        "أمام الناس فقط"
+      ],
+      "answer": 0,
+      "prompt": "💡"
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

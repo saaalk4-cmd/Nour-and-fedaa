@@ -1,0 +1,64 @@
+{
+  "id": "a_aqeedah_pillars",
+  "title": "أركان الإسلام",
+  "icon": "🕋",
+  "section": "aqeedah",
+  "band": "atfal",
+  "source_type": "sahih_sunnah",
+  "source_note": "صحيح البخاري ٨؛ النص من مجموعة hadith-api المفتوحة ومطابق لـ sunnah.com، وأسئلة الفهم مأخوذة من نص الحديث نفسه.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "hadith",
+      "hadith": "bukhari_8"
+    },
+    {
+      "type": "choose",
+      "question": "على كم بُني الإسلام؟",
+      "options": [
+        "ثلاث",
+        "خمس",
+        "سبع"
+      ],
+      "answer": 1,
+      "prompt": "🖐️"
+    },
+    {
+      "type": "choose",
+      "question": "أيّ هذه من أركان الإسلام؟",
+      "options": [
+        "إقام الصلاة",
+        "اللعب",
+        "النوم"
+      ],
+      "answer": 0,
+      "prompt": "🕌"
+    },
+    {
+      "type": "choose",
+      "question": "في أيّ شهر نصوم؟",
+      "options": [
+        "شعبان",
+        "شوال",
+        "رمضان"
+      ],
+      "answer": 2,
+      "prompt": "🌙"
+    },
+    {
+      "type": "choose",
+      "question": "ما أول أركان الإسلام في الحديث؟",
+      "options": [
+        "الحج",
+        "شهادة أن لا إله إلا الله وأن محمدًا رسول الله",
+        "الزكاة"
+      ],
+      "answer": 1,
+      "prompt": "☝️"
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

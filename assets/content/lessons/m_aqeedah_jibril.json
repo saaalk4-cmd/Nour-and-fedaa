@@ -1,0 +1,60 @@
+{
+  "id": "m_aqeedah_jibril",
+  "title": "مراتب الدين",
+  "icon": "🌟",
+  "section": "aqeedah",
+  "band": "murahiqun",
+  "source_type": "sahih_sunnah",
+  "source_note": "صحيح مسلم ٨؛ النص من مجموعة hadith-api المفتوحة ومطابق لـ sunnah.com، وأسئلة الفهم مأخوذة من نص الحديث نفسه.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "hadith",
+      "hadith": "muslim_8"
+    },
+    {
+      "type": "choose",
+      "question": "ما المراتب الثلاث التي سأل عنها جبريل؟",
+      "options": [
+        "الإسلام والإيمان والإحسان",
+        "الصلاة والصوم والحج",
+        "العلم والعمل والصبر"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "بماذا أجاب النبي ﷺ عن موعد الساعة؟",
+      "options": [
+        "بعد ألف سنة",
+        "ما المسؤول عنها بأعلم من السائل",
+        "لم يجب"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "choose",
+      "question": "«فإن لم تكن تراه فإنه...»",
+      "options": [
+        "يغفر لك",
+        "يحبك",
+        "يراك"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "choose",
+      "question": "ما الذي فعله الصحابة لما سأل جبريل وصدّق؟",
+      "options": [
+        "عجبوا له",
+        "ضحكوا",
+        "خرجوا"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

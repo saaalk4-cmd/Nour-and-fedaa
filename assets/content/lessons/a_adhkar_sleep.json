@@ -1,0 +1,42 @@
+{
+  "id": "a_adhkar_sleep",
+  "title": "أذكار النوم والاستيقاظ",
+  "icon": "🛏️",
+  "section": "adhkar",
+  "band": "atfal",
+  "source_type": "sahih_sunnah",
+  "source_note": "صحيح البخاري ٦٣٢٤؛ النص من مجموعة hadith-api المفتوحة ومطابق لـ sunnah.com، وأسئلة الفهم مأخوذة من نص الحديث نفسه.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "hadith",
+      "hadith": "bukhari_6324"
+    },
+    {
+      "type": "choose",
+      "question": "ماذا نقول قبل النوم؟",
+      "options": [
+        "باسمك اللهم أموت وأحيا",
+        "يرحمك الله",
+        "بسم الله"
+      ],
+      "answer": 0,
+      "prompt": "🌙"
+    },
+    {
+      "type": "choose",
+      "question": "ماذا نقول إذا استيقظنا؟",
+      "options": [
+        "تصبح على خير",
+        "الحمد لله الذي أحيانا بعد ما أماتنا وإليه النشور",
+        "يهديكم الله"
+      ],
+      "answer": 1,
+      "prompt": "☀️"
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}
