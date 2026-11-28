@@ -1,0 +1,55 @@
+{
+  "id": "by_s063_t",
+  "title": "صوت غ",
+  "icon": "☁️",
+  "section": "course",
+  "band": "buraem",
+  "source_type": "educational",
+  "source_note": "محتوى لغوي: صوت الحرف وكلمة تبدأ به.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "listen",
+      "prompt": "☁️"
+    },
+    {
+      "type": "repeat",
+      "times": 3,
+      "prompt": "☁️"
+    },
+    {
+      "type": "choose",
+      "question": "أيّ صورة تبدأ بصوت غَ؟",
+      "options": [
+        "🐟",
+        "☁️",
+        "☀️"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "choose",
+      "question": "أيّ صورة تبدأ بصوت عَ؟",
+      "options": [
+        "🐟",
+        "🍇",
+        "🦒"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "choose",
+      "question": "أيّ صورة تبدأ بصوت غَ؟",
+      "options": [
+        "☁️",
+        "🪶",
+        "🐑"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "reward",
+      "stars": 2
+    }
+  ]
+}

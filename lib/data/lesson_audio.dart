@@ -7,6 +7,9 @@ import '../domain/lesson.dart';
 /// تشغيل صوت الدرس؛ يكتمل الـFuture عند انتهاء الصوت.
 abstract class LessonAudio {
   Future<void> play(Lesson lesson);
+
+  /// يشغّل ملف صوت من assets (مثل صوت سؤال)؛ يكتمل عند انتهائه.
+  Future<void> playAsset(String path);
   Future<void> stop();
 }
 
@@ -29,6 +32,11 @@ class AssetLessonAudio implements LessonAudio {
       await Future<void>.delayed(fallbackDuration);
       return;
     }
+    await playAsset(path);
+  }
+
+  @override
+  Future<void> playAsset(String path) async {
     try {
       // AssetSource يتوقع المسار بلا بادئة assets/
       final rel = path.startsWith('assets/') ? path.substring(7) : path;

@@ -1,0 +1,55 @@
+{
+  "id": "by_s035_t",
+  "title": "صوت ش",
+  "icon": "☀️",
+  "section": "course",
+  "band": "buraem",
+  "source_type": "educational",
+  "source_note": "محتوى لغوي: صوت الحرف وكلمة تبدأ به.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "listen",
+      "prompt": "☀️"
+    },
+    {
+      "type": "repeat",
+      "times": 3,
+      "prompt": "☀️"
+    },
+    {
+      "type": "choose",
+      "question": "أيّ صورة تبدأ بصوت شَ؟",
+      "options": [
+        "✉️",
+        "🍎",
+        "☀️"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "choose",
+      "question": "أيّ صورة تبدأ بصوت جَ؟",
+      "options": [
+        "✉️",
+        "🐝",
+        "🐪"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "choose",
+      "question": "أيّ صورة تبدأ بصوت شَ؟",
+      "options": [
+        "☁️",
+        "☀️",
+        "🍋"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "reward",
+      "stars": 2
+    }
+  ]
+}

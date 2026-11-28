@@ -1,0 +1,34 @@
+{
+  "id": "by_s054_t",
+  "title": "مراجعة",
+  "icon": "🔁",
+  "section": "course",
+  "band": "buraem",
+  "source_type": "sahih_sunnah",
+  "source_note": "مبني على نصوص البراعم التي روجعت شرعيًا (٢٨ نوفمبر ٢٠٢٦)؛ أسئلة اللعبة وجمل الربط جديدة وتحتاج مراجعة.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "choose",
+      "question": "نَقُولُ لِأَصْحَابِنَا: السَّلَامُ عَلَيْكُمْ؟",
+      "options": [
+        "👍",
+        "👎"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "أَعْطَتْكَ أُمُّكَ هَدِيَّةً، تَقُولُ: شُكْرًا؟",
+      "options": [
+        "👍",
+        "👎"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "reward",
+      "stars": 2
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "id": "by_s020_t",
+  "title": "احتفال وحدة «طعامي»",
+  "icon": "🎉",
+  "section": "course",
+  "band": "buraem",
+  "source_type": "educational",
+  "source_note": "مبني على نصوص البراعم التي روجعت شرعيًا (٢٨ نوفمبر ٢٠٢٦)؛ أسئلة اللعبة وجمل الربط جديدة وتحتاج مراجعة.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "choose",
+      "question": "أيّ صورة تبدأ بصوت نَ؟",
+      "options": [
+        "☀️",
+        "✉️",
+        "🐝"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "choose",
+      "question": "أيّ صورة تبدأ بصوت سَ؟",
+      "options": [
+        "🐎",
+        "🦊",
+        "🐟"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "choose",
+      "question": "نَأْكُلُ بِاليَدِ اليُمْنَى؟",
+      "options": [
+        "👍",
+        "👎"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "اللَّهُ وَاحِدٌ. المِسْ إِصْبَعًا وَاحِدًا.",
+      "options": [
+        "✌️",
+        "☝️",
+        "🖐️"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "reward",
+      "stars": 2
+    }
+  ]
+}

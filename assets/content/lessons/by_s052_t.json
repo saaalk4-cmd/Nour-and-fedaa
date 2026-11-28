@@ -1,0 +1,43 @@
+{
+  "id": "by_s052_t",
+  "title": "احترام الكبير",
+  "icon": "🤝",
+  "section": "course",
+  "band": "buraem",
+  "source_type": "educational",
+  "source_note": "محتوى تربوي عام. مبني على نصوص البراعم التي روجعت شرعيًا (٢٨ نوفمبر ٢٠٢٦)؛ أسئلة اللعبة وجمل الربط جديدة وتحتاج مراجعة.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "listen",
+      "prompt": "🤝"
+    },
+    {
+      "type": "repeat",
+      "times": 3,
+      "prompt": "🤝"
+    },
+    {
+      "type": "choose",
+      "question": "جَدَّتِي تَحْمِلُ حَقِيبَةً ثَقِيلَةً، أُسَاعِدُهَا؟",
+      "options": [
+        "👍",
+        "👎"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "أُقَاطِعُ جَدِّي وَهُوَ يَتَكَلَّمُ؟",
+      "options": [
+        "👍",
+        "👎"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "reward",
+      "stars": 2
+    }
+  ]
+}

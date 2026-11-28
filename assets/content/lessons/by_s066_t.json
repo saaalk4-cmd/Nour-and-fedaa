@@ -1,0 +1,50 @@
+{
+  "id": "by_s066_t",
+  "title": "مراجعة",
+  "icon": "🔁",
+  "section": "course",
+  "band": "buraem",
+  "source_type": "sahih_sunnah",
+  "source_note": "مبني على نصوص البراعم التي روجعت شرعيًا (٢٨ نوفمبر ٢٠٢٦)؛ أسئلة اللعبة وجمل الربط جديدة وتحتاج مراجعة.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "listen",
+      "prompt": "🕌"
+    },
+    {
+      "type": "choose",
+      "question": "أَيْنَ: اللَّهُ أَكْبَرُ؟",
+      "options": [
+        "🙌",
+        "🙇",
+        "🧎"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "أَيْنَ الرُّكُوعُ؟",
+      "options": [
+        "🧎",
+        "🙇",
+        "🙌"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "choose",
+      "question": "أَيْنَ السُّجُودُ؟",
+      "options": [
+        "🙌",
+        "🙇",
+        "🧎"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "reward",
+      "stars": 2
+    }
+  ]
+}

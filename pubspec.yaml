@@ -38,7 +38,9 @@ flutter:
     - assets/content/lessons/
     - assets/content/levelcheck/
     - assets/content/hadith/
+    - assets/content/sessions/
     - assets/audio/
+    - assets/audio/by/
     - assets/brand/
 
 flutter_launcher_icons:

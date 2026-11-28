@@ -1,0 +1,55 @@
+{
+  "id": "by_s057_t",
+  "title": "صوت ظ",
+  "icon": "✉️",
+  "section": "course",
+  "band": "buraem",
+  "source_type": "educational",
+  "source_note": "محتوى لغوي: صوت الحرف وكلمة تبدأ به.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "listen",
+      "prompt": "✉️"
+    },
+    {
+      "type": "repeat",
+      "times": 3,
+      "prompt": "✉️"
+    },
+    {
+      "type": "choose",
+      "question": "أيّ صورة تبدأ بصوت ظَ؟",
+      "options": [
+        "🐝",
+        "✋",
+        "✉️"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "choose",
+      "question": "أيّ صورة تبدأ بصوت طَ؟",
+      "options": [
+        "🐝",
+        "🐪",
+        "✈️"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "choose",
+      "question": "أيّ صورة تبدأ بصوت ظَ؟",
+      "options": [
+        "🐟",
+        "✉️",
+        "🐇"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "reward",
+      "stars": 2
+    }
+  ]
+}

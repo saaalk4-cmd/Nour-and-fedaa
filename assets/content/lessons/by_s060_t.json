@@ -1,0 +1,54 @@
+{
+  "id": "by_s060_t",
+  "title": "احتفال وحدة «نبيي»",
+  "icon": "🎉",
+  "section": "course",
+  "band": "buraem",
+  "source_type": "educational",
+  "source_note": "مبني على نصوص البراعم التي روجعت شرعيًا (٢٨ نوفمبر ٢٠٢٦)؛ أسئلة اللعبة وجمل الربط جديدة وتحتاج مراجعة.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "choose",
+      "question": "أيّ صورة تبدأ بصوت صَ؟",
+      "options": [
+        "🚀",
+        "🐻",
+        "🌹"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "أيّ صورة تبدأ بصوت طَ؟",
+      "options": [
+        "✈️",
+        "🦋",
+        "🦒"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "جَدَّتِي تَحْمِلُ حَقِيبَةً ثَقِيلَةً، أُسَاعِدُهَا؟",
+      "options": [
+        "👍",
+        "👎"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "نُحِبُّ نَبِيَّنَا مُحَمَّدًا، صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ؟",
+      "options": [
+        "👍",
+        "👎"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "reward",
+      "stars": 2
+    }
+  ]
+}

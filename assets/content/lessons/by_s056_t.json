@@ -1,0 +1,36 @@
+{
+  "id": "by_s056_t",
+  "title": "نبيّنا محمد ﷺ",
+  "icon": "🌙",
+  "section": "course",
+  "band": "buraem",
+  "source_type": "quran",
+  "source_note": "مبني على سورة الفتح ٢٩ «محمد رسول الله». مبني على نصوص البراعم التي روجعت شرعيًا (٢٨ نوفمبر ٢٠٢٦)؛ أسئلة اللعبة وجمل الربط جديدة وتحتاج مراجعة.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "listen",
+      "prompt": "🌙",
+      "audio": "assets/audio/t_know_3.mp3"
+    },
+    {
+      "type": "repeat",
+      "times": 3,
+      "prompt": "🌙"
+    },
+    {
+      "type": "choose",
+      "question": "نُحِبُّ نَبِيَّنَا مُحَمَّدًا، صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ؟",
+      "options": [
+        "👍",
+        "👎"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "reward",
+      "stars": 2
+    }
+  ],
+  "audio_license": "مولَّد بـ ElevenLabs (صوت «Abu Hassan»، الخطة المجانية) — نسخة تجريبية للاختبار فقط؛ الخطة المجانية لا تسمح بالاستخدام التجاري، فيُستبدل بتسجيل مرخّص قبل النشر."
+}

@@ -18,6 +18,7 @@ class LessonStep {
     this.surah = 0,
     this.repeatEach = 1,
     this.hadith,
+    this.audio,
   });
 
   final StepType type;
@@ -42,6 +43,9 @@ class LessonStep {
 
   /// خطوة hadith: معرّف الحديث في assets/content/hadith.
   final String? hadith;
+
+  /// خطوة choose: صوت يقرأ السؤال وخياراته (زر سماعة). ترخيصه هو audio_license للدرس.
+  final String? audio;
 
   factory LessonStep.fromJson(Map<String, dynamic> j) {
     final type = StepType.values.firstWhere(
@@ -82,6 +86,7 @@ class LessonStep {
       surah: surah,
       repeatEach: (j['repeat_each'] as int?) ?? 1,
       hadith: j['hadith'] as String?,
+      audio: j['audio'] as String?,
     );
   }
 }
@@ -169,7 +174,8 @@ class Lesson {
     if (steps.isEmpty) throw const FormatException('الدرس بلا خطوات');
     final audio = j['audio'] as String?;
     final license = j['audio_license'] as String?;
-    if (audio != null && (license == null || license.trim().isEmpty)) {
+    final anyAudio = audio != null || steps.any((s) => s.audio != null);
+    if (anyAudio && (license == null || license.trim().isEmpty)) {
       throw const FormatException('الصوت بلا audio_license (الترخيص إلزامي)');
     }
     return Lesson(

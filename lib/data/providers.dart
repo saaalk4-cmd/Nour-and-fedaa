@@ -11,7 +11,9 @@ import 'repositories/lesson_repository.dart';
 import 'repositories/placement_repository.dart';
 import 'repositories/progress_repository.dart';
 import 'repositories/review_repository.dart';
+import 'repositories/session_repository.dart';
 import 'repositories/settings_repository.dart';
+import '../domain/course_session.dart';
 import 'repositories/usage_repository.dart';
 import '../domain/hadith.dart';
 import 'quran/quran_player.dart';
@@ -127,3 +129,32 @@ final hadithRepositoryProvider = Provider((_) => HadithRepository());
 final hadithProvider = FutureProvider.family<Hadith, String>(
   (ref, id) => ref.watch(hadithRepositoryProvider).byId(id),
 );
+
+final sessionRepositoryProvider = Provider((_) => SessionRepository());
+
+/// حصة اليوم للطفل المختار مع الدروس التي أتمّها (null = لا منهج لفئته بعد).
+final todaySessionProvider = FutureProvider.autoDispose<
+    ({CourseSession session, Set<String> done, int total})?>((ref) async {
+  final child = await ref.watch(selectedChildProvider.future);
+  if (child == null) return null;
+  final all = await ref.watch(sessionRepositoryProvider).forBand(child.band());
+  final done = {
+    for (final (id, _) in await ref.watch(progressRepositoryProvider).completed(child.id)) id
+  };
+  final today = pickTodaySession(all, done);
+  if (today == null) return null;
+  return (session: today, done: done, total: all.length);
+});
+
+/// حصة بعينها برقمها.
+final sessionByNumberProvider = FutureProvider.autoDispose
+    .family<({CourseSession session, Set<String> done})?, int>((ref, n) async {
+  final child = await ref.watch(selectedChildProvider.future);
+  if (child == null) return null;
+  final all = await ref.watch(sessionRepositoryProvider).forBand(child.band());
+  if (n < 1 || n > all.length) return null;
+  final done = {
+    for (final (id, _) in await ref.watch(progressRepositoryProvider).completed(child.id)) id
+  };
+  return (session: all[n - 1], done: done);
+});

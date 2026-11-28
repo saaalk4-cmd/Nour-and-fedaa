@@ -1,0 +1,55 @@
+{
+  "id": "by_s023_t",
+  "title": "صوت ك",
+  "icon": "⚽",
+  "section": "course",
+  "band": "buraem",
+  "source_type": "educational",
+  "source_note": "محتوى لغوي: صوت الحرف وكلمة تبدأ به.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "listen",
+      "prompt": "⚽"
+    },
+    {
+      "type": "repeat",
+      "times": 3,
+      "prompt": "⚽"
+    },
+    {
+      "type": "choose",
+      "question": "أيّ صورة تبدأ بصوت كَ؟",
+      "options": [
+        "⚽",
+        "🐑",
+        "🌙"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "أيّ صورة تبدأ بصوت رَ؟",
+      "options": [
+        "🪶",
+        "🐑",
+        "🦊"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "أيّ صورة تبدأ بصوت كَ؟",
+      "options": [
+        "🚀",
+        "🐻",
+        "⚽"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "reward",
+      "stars": 2
+    }
+  ]
+}

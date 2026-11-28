@@ -1,0 +1,45 @@
+{
+  "id": "by_s012_t",
+  "title": "قبل الأكل",
+  "icon": "🍽️",
+  "section": "course",
+  "band": "buraem",
+  "source_type": "sahih_sunnah",
+  "source_note": "صحيح البخاري ٥٣٧٦. مبني على نصوص البراعم التي روجعت شرعيًا (٢٨ نوفمبر ٢٠٢٦)؛ أسئلة اللعبة وجمل الربط جديدة وتحتاج مراجعة.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "listen",
+      "prompt": "🍽️",
+      "audio": "assets/audio/t_adab_food.mp3"
+    },
+    {
+      "type": "repeat",
+      "times": 3,
+      "prompt": "🍽️"
+    },
+    {
+      "type": "choose",
+      "question": "نَأْكُلُ بِاليَدِ اليُمْنَى؟",
+      "options": [
+        "👍",
+        "👎"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "نَأْكُلُ وَلَا نَقُولُ: بِسْمِ اللَّهِ؟",
+      "options": [
+        "👍",
+        "👎"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "reward",
+      "stars": 2
+    }
+  ],
+  "audio_license": "مولَّد بـ ElevenLabs (صوت «Abu Hassan»، الخطة المجانية) — نسخة تجريبية للاختبار فقط؛ الخطة المجانية لا تسمح بالاستخدام التجاري، فيُستبدل بتسجيل مرخّص قبل النشر."
+}

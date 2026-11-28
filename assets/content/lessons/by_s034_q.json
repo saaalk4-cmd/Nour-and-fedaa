@@ -1,0 +1,25 @@
+{
+  "id": "by_s034_q",
+  "title": "سورة الناس",
+  "icon": "📖",
+  "section": "course",
+  "band": "buraem",
+  "source_type": "quran",
+  "source_note": "النص من مشروع تنزيل عبر AlQuran Cloud، والتلاوة للشيخ محمد أيوب (مجمع الملك فهد) أونلاين. ترخيص التلاوة مؤكَّد بقرار صاحب المشروع (٢٧ نوفمبر ٢٠٢٦). جملة التحية جديدة وتحتاج مراجعة.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "listen",
+      "prompt": "📖"
+    },
+    {
+      "type": "surah",
+      "surah": 114,
+      "repeat_each": 3
+    },
+    {
+      "type": "reward",
+      "stars": 2
+    }
+  ]
+}

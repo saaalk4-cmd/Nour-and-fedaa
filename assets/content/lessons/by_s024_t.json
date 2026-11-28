@@ -1,0 +1,35 @@
+{
+  "id": "by_s024_t",
+  "title": "إذا استيقظنا",
+  "icon": "🌅",
+  "section": "course",
+  "band": "buraem",
+  "source_type": "sahih_sunnah",
+  "source_note": "صحيح البخاري ٦٣٢٤. مبني على نصوص البراعم التي روجعت شرعيًا (٢٨ نوفمبر ٢٠٢٦)؛ أسئلة اللعبة وجمل الربط جديدة وتحتاج مراجعة.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "listen",
+      "prompt": "🌅"
+    },
+    {
+      "type": "repeat",
+      "times": 3,
+      "prompt": "🌅"
+    },
+    {
+      "type": "choose",
+      "question": "مَتَى نَقُولُ: الحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا؟",
+      "options": [
+        "🌅",
+        "🍽️",
+        "🛏️"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "reward",
+      "stars": 2
+    }
+  ]
+}

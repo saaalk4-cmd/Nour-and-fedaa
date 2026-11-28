@@ -1,0 +1,57 @@
+{
+  "id": "by_s007_t",
+  "title": "صوت ت",
+  "icon": "🍎",
+  "section": "course",
+  "band": "buraem",
+  "source_type": "educational",
+  "source_note": "محتوى لغوي: صوت الحرف وكلمة تبدأ به.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "listen",
+      "prompt": "🍎",
+      "audio": "assets/audio/t_letters_04.mp3"
+    },
+    {
+      "type": "repeat",
+      "times": 3,
+      "prompt": "🍎"
+    },
+    {
+      "type": "choose",
+      "question": "أيّ صورة تبدأ بصوت تَ؟",
+      "options": [
+        "🍎",
+        "✋",
+        "🚀"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "أيّ صورة تبدأ بصوت دَ؟",
+      "options": [
+        "🐻",
+        "✋",
+        "🐸"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "أيّ صورة تبدأ بصوت تَ؟",
+      "options": [
+        "☀️",
+        "🍇",
+        "🍎"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "reward",
+      "stars": 2
+    }
+  ],
+  "audio_license": "مولَّد بـ ElevenLabs (صوت «Abu Hassan»، الخطة المجانية) — نسخة تجريبية للاختبار فقط؛ الخطة المجانية لا تسمح بالاستخدام التجاري، فيُستبدل بتسجيل مرخّص قبل النشر."
+}

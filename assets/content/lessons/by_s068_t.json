@@ -1,0 +1,52 @@
+{
+  "id": "by_s068_t",
+  "title": "مراجعة",
+  "icon": "🔁",
+  "section": "course",
+  "band": "buraem",
+  "source_type": "educational",
+  "source_note": "مبني على نصوص البراعم التي روجعت شرعيًا (٢٨ نوفمبر ٢٠٢٦)؛ أسئلة اللعبة وجمل الربط جديدة وتحتاج مراجعة.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "choose",
+      "question": "أَعْطَتْكَ أُمُّكَ هَدِيَّةً، تَقُولُ: شُكْرًا؟",
+      "options": [
+        "👍",
+        "👎"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "نَلْعَبُ مَعَ أَصْحَابِنَا وَنَتَشَارَكُ الأَلْعَابَ؟",
+      "options": [
+        "👍",
+        "👎"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "بَعْدَ اللَّعِبِ نُرَتِّبُ أَلْعَابَنَا؟",
+      "options": [
+        "👍",
+        "👎"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "نَقُولُ: مِنْ فَضْلِكَ، وَشُكْرًا؟",
+      "options": [
+        "👍",
+        "👎"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "reward",
+      "stars": 2
+    }
+  ]
+}

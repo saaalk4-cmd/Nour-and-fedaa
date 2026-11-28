@@ -1,0 +1,36 @@
+{
+  "id": "by_s026_t",
+  "title": "مراجعة",
+  "icon": "🔁",
+  "section": "course",
+  "band": "buraem",
+  "source_type": "quran",
+  "source_note": "مبني على نصوص البراعم التي روجعت شرعيًا (٢٨ نوفمبر ٢٠٢٦)؛ أسئلة اللعبة وجمل الربط جديدة وتحتاج مراجعة.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "choose",
+      "question": "اللَّهُ خَلَقَ الشَّمْسَ. أَيْنَ الشَّمْسُ؟",
+      "options": [
+        "🚗",
+        "☀️",
+        "⚽"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "choose",
+      "question": "اللَّهُ وَاحِدٌ. المِسْ إِصْبَعًا وَاحِدًا.",
+      "options": [
+        "✌️",
+        "☝️",
+        "🖐️"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "reward",
+      "stars": 2
+    }
+  ]
+}

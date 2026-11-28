@@ -1,0 +1,56 @@
+{
+  "id": "by_s030_t",
+  "title": "احتفال وحدة «يومي ونومي»",
+  "icon": "🎉",
+  "section": "course",
+  "band": "buraem",
+  "source_type": "educational",
+  "source_note": "مبني على نصوص البراعم التي روجعت شرعيًا (٢٨ نوفمبر ٢٠٢٦)؛ أسئلة اللعبة وجمل الربط جديدة وتحتاج مراجعة.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "choose",
+      "question": "أيّ صورة تبدأ بصوت رَ؟",
+      "options": [
+        "🪶",
+        "🐑",
+        "🦊"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "أيّ صورة تبدأ بصوت هَ؟",
+      "options": [
+        "🎁",
+        "🐸",
+        "🍎"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "مَتَى نَقُولُ: بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا؟",
+      "options": [
+        "🍽️",
+        "⚽",
+        "🛏️"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "choose",
+      "question": "اللَّهُ خَلَقَ الشَّمْسَ. أَيْنَ الشَّمْسُ؟",
+      "options": [
+        "🚗",
+        "☀️",
+        "⚽"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "reward",
+      "stars": 2
+    }
+  ]
+}

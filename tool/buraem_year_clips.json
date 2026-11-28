@@ -1,0 +1,597 @@
+{
+ "letter_00": {
+  "path": "assets/audio/t_letters_01.mp3",
+  "text": "مَوْزٌ... مَ، مَ، مَ. مَوْزٌ!",
+  "exists": true
+ },
+ "letterq_00": {
+  "path": "assets/audio/by/letterq_00.mp3",
+  "text": "أَيُّ صُورَةٍ تَبْدَأُ بِصَوْتِ مَ؟ مَ، مَ.",
+  "exists": false
+ },
+ "letter_01": {
+  "path": "assets/audio/t_letters_02.mp3",
+  "text": "بَطَّةٌ... بَ، بَ، بَ. بَطَّةٌ!",
+  "exists": true
+ },
+ "letterq_01": {
+  "path": "assets/audio/by/letterq_01.mp3",
+  "text": "أَيُّ صُورَةٍ تَبْدَأُ بِصَوْتِ بَ؟ بَ، بَ.",
+  "exists": false
+ },
+ "letter_02": {
+  "path": "assets/audio/t_letters_03.mp3",
+  "text": "دُبٌّ... دَ، دَ، دَ. دُبٌّ!",
+  "exists": true
+ },
+ "letterq_02": {
+  "path": "assets/audio/by/letterq_02.mp3",
+  "text": "أَيُّ صُورَةٍ تَبْدَأُ بِصَوْتِ دَ؟ دَ، دَ.",
+  "exists": false
+ },
+ "letter_03": {
+  "path": "assets/audio/t_letters_04.mp3",
+  "text": "تُفَّاحٌ... تَ، تَ، تَ. تُفَّاحٌ!",
+  "exists": true
+ },
+ "letterq_03": {
+  "path": "assets/audio/by/letterq_03.mp3",
+  "text": "أَيُّ صُورَةٍ تَبْدَأُ بِصَوْتِ تَ؟ تَ، تَ.",
+  "exists": false
+ },
+ "letter_04": {
+  "path": "assets/audio/t_letters_05.mp3",
+  "text": "نَحْلَةٌ... نَ، نَ، نَ. نَحْلَةٌ!",
+  "exists": true
+ },
+ "letterq_04": {
+  "path": "assets/audio/by/letterq_04.mp3",
+  "text": "أَيُّ صُورَةٍ تَبْدَأُ بِصَوْتِ نَ؟ نَ، نَ.",
+  "exists": false
+ },
+ "letter_05": {
+  "path": "assets/audio/t_letters_06.mp3",
+  "text": "فَرَاشَةٌ... فَ، فَ، فَ. فَرَاشَةٌ!",
+  "exists": true
+ },
+ "letterq_05": {
+  "path": "assets/audio/by/letterq_05.mp3",
+  "text": "أَيُّ صُورَةٍ تَبْدَأُ بِصَوْتِ فَ؟ فَ، فَ.",
+  "exists": false
+ },
+ "letter_06": {
+  "path": "assets/audio/t_letters_07.mp3",
+  "text": "سَمَكَةٌ... سَ، سَ، سَ. سَمَكَةٌ!",
+  "exists": true
+ },
+ "letterq_06": {
+  "path": "assets/audio/by/letterq_06.mp3",
+  "text": "أَيُّ صُورَةٍ تَبْدَأُ بِصَوْتِ سَ؟ سَ، سَ.",
+  "exists": false
+ },
+ "letter_07": {
+  "path": "assets/audio/t_letters_08.mp3",
+  "text": "لَيْمُونٌ... لَ، لَ، لَ. لَيْمُونٌ!",
+  "exists": true
+ },
+ "letterq_07": {
+  "path": "assets/audio/by/letterq_07.mp3",
+  "text": "أَيُّ صُورَةٍ تَبْدَأُ بِصَوْتِ لَ؟ لَ، لَ.",
+  "exists": false
+ },
+ "letter_08": {
+  "path": "assets/audio/by/letter_08.mp3",
+  "text": "رِيشَةٌ... رَ، رَ، رَ. رِيشَةٌ!",
+  "exists": false
+ },
+ "letterq_08": {
+  "path": "assets/audio/by/letterq_08.mp3",
+  "text": "أَيُّ صُورَةٍ تَبْدَأُ بِصَوْتِ رَ؟ رَ، رَ.",
+  "exists": false
+ },
+ "letter_09": {
+  "path": "assets/audio/by/letter_09.mp3",
+  "text": "كُرَةٌ... كَ، كَ، كَ. كُرَةٌ!",
+  "exists": false
+ },
+ "letterq_09": {
+  "path": "assets/audio/by/letterq_09.mp3",
+  "text": "أَيُّ صُورَةٍ تَبْدَأُ بِصَوْتِ كَ؟ كَ، كَ.",
+  "exists": false
+ },
+ "letter_10": {
+  "path": "assets/audio/by/letter_10.mp3",
+  "text": "هَدِيَّةٌ... هَ، هَ، هَ. هَدِيَّةٌ!",
+  "exists": false
+ },
+ "letterq_10": {
+  "path": "assets/audio/by/letterq_10.mp3",
+  "text": "أَيُّ صُورَةٍ تَبْدَأُ بِصَوْتِ هَ؟ هَ، هَ.",
+  "exists": false
+ },
+ "letter_11": {
+  "path": "assets/audio/by/letter_11.mp3",
+  "text": "وَرْدَةٌ... وَ، وَ، وَ. وَرْدَةٌ!",
+  "exists": false
+ },
+ "letterq_11": {
+  "path": "assets/audio/by/letterq_11.mp3",
+  "text": "أَيُّ صُورَةٍ تَبْدَأُ بِصَوْتِ وَ؟ وَ، وَ.",
+  "exists": false
+ },
+ "letter_12": {
+  "path": "assets/audio/by/letter_12.mp3",
+  "text": "يَدٌ... يَ، يَ، يَ. يَدٌ!",
+  "exists": false
+ },
+ "letterq_12": {
+  "path": "assets/audio/by/letterq_12.mp3",
+  "text": "أَيُّ صُورَةٍ تَبْدَأُ بِصَوْتِ يَ؟ يَ، يَ.",
+  "exists": false
+ },
+ "letter_13": {
+  "path": "assets/audio/by/letter_13.mp3",
+  "text": "جَمَلٌ... جَ، جَ، جَ. جَمَلٌ!",
+  "exists": false
+ },
+ "letterq_13": {
+  "path": "assets/audio/by/letterq_13.mp3",
+  "text": "أَيُّ صُورَةٍ تَبْدَأُ بِصَوْتِ جَ؟ جَ، جَ.",
+  "exists": false
+ },
+ "letter_14": {
+  "path": "assets/audio/by/letter_14.mp3",
+  "text": "شَمْسٌ... شَ، شَ، شَ. شَمْسٌ!",
+  "exists": false
+ },
+ "letterq_14": {
+  "path": "assets/audio/by/letterq_14.mp3",
+  "text": "أَيُّ صُورَةٍ تَبْدَأُ بِصَوْتِ شَ؟ شَ، شَ.",
+  "exists": false
+ },
+ "letter_15": {
+  "path": "assets/audio/by/letter_15.mp3",
+  "text": "زَرَافَةٌ... زَ، زَ، زَ. زَرَافَةٌ!",
+  "exists": false
+ },
+ "letterq_15": {
+  "path": "assets/audio/by/letterq_15.mp3",
+  "text": "أَيُّ صُورَةٍ تَبْدَأُ بِصَوْتِ زَ؟ زَ، زَ.",
+  "exists": false
+ },
+ "letter_16": {
+  "path": "assets/audio/by/letter_16.mp3",
+  "text": "أَرْنَبٌ... أَ، أَ، أَ. أَرْنَبٌ!",
+  "exists": false
+ },
+ "letterq_16": {
+  "path": "assets/audio/by/letterq_16.mp3",
+  "text": "أَيُّ صُورَةٍ تَبْدَأُ بِصَوْتِ أَ؟ أَ، أَ.",
+  "exists": false
+ },
+ "letter_17": {
+  "path": "assets/audio/by/letter_17.mp3",
+  "text": "حِصَانٌ... حَ، حَ، حَ. حِصَانٌ!",
+  "exists": false
+ },
+ "letterq_17": {
+  "path": "assets/audio/by/letterq_17.mp3",
+  "text": "أَيُّ صُورَةٍ تَبْدَأُ بِصَوْتِ حَ؟ حَ، حَ.",
+  "exists": false
+ },
+ "letter_18": {
+  "path": "assets/audio/by/letter_18.mp3",
+  "text": "خَرُوفٌ... خَ، خَ، خَ. خَرُوفٌ!",
+  "exists": false
+ },
+ "letterq_18": {
+  "path": "assets/audio/by/letterq_18.mp3",
+  "text": "أَيُّ صُورَةٍ تَبْدَأُ بِصَوْتِ خَ؟ خَ، خَ.",
+  "exists": false
+ },
+ "letter_19": {
+  "path": "assets/audio/by/letter_19.mp3",
+  "text": "ذُرَةٌ... ذَ، ذَ، ذَ. ذُرَةٌ!",
+  "exists": false
+ },
+ "letterq_19": {
+  "path": "assets/audio/by/letterq_19.mp3",
+  "text": "أَيُّ صُورَةٍ تَبْدَأُ بِصَوْتِ ذَ؟ ذَ، ذَ.",
+  "exists": false
+ },
+ "letter_20": {
+  "path": "assets/audio/by/letter_20.mp3",
+  "text": "صَارُوخٌ... صَ، صَ، صَ. صَارُوخٌ!",
+  "exists": false
+ },
+ "letterq_20": {
+  "path": "assets/audio/by/letterq_20.mp3",
+  "text": "أَيُّ صُورَةٍ تَبْدَأُ بِصَوْتِ صَ؟ صَ، صَ.",
+  "exists": false
+ },
+ "letter_21": {
+  "path": "assets/audio/by/letter_21.mp3",
+  "text": "ضِفْدَعٌ... ضَ، ضَ، ضَ. ضِفْدَعٌ!",
+  "exists": false
+ },
+ "letterq_21": {
+  "path": "assets/audio/by/letterq_21.mp3",
+  "text": "أَيُّ صُورَةٍ تَبْدَأُ بِصَوْتِ ضَ؟ ضَ، ضَ.",
+  "exists": false
+ },
+ "letter_22": {
+  "path": "assets/audio/by/letter_22.mp3",
+  "text": "طَائِرَةٌ... طَ، طَ، طَ. طَائِرَةٌ!",
+  "exists": false
+ },
+ "letterq_22": {
+  "path": "assets/audio/by/letterq_22.mp3",
+  "text": "أَيُّ صُورَةٍ تَبْدَأُ بِصَوْتِ طَ؟ طَ، طَ.",
+  "exists": false
+ },
+ "letter_23": {
+  "path": "assets/audio/by/letter_23.mp3",
+  "text": "ظَرْفٌ... ظَ، ظَ، ظَ. ظَرْفٌ!",
+  "exists": false
+ },
+ "letterq_23": {
+  "path": "assets/audio/by/letterq_23.mp3",
+  "text": "أَيُّ صُورَةٍ تَبْدَأُ بِصَوْتِ ظَ؟ ظَ، ظَ.",
+  "exists": false
+ },
+ "letter_24": {
+  "path": "assets/audio/by/letter_24.mp3",
+  "text": "عِنَبٌ... عَ، عَ، عَ. عِنَبٌ!",
+  "exists": false
+ },
+ "letterq_24": {
+  "path": "assets/audio/by/letterq_24.mp3",
+  "text": "أَيُّ صُورَةٍ تَبْدَأُ بِصَوْتِ عَ؟ عَ، عَ.",
+  "exists": false
+ },
+ "letter_25": {
+  "path": "assets/audio/by/letter_25.mp3",
+  "text": "غَيْمَةٌ... غَ، غَ، غَ. غَيْمَةٌ!",
+  "exists": false
+ },
+ "letterq_25": {
+  "path": "assets/audio/by/letterq_25.mp3",
+  "text": "أَيُّ صُورَةٍ تَبْدَأُ بِصَوْتِ غَ؟ غَ، غَ.",
+  "exists": false
+ },
+ "letter_26": {
+  "path": "assets/audio/by/letter_26.mp3",
+  "text": "قَمَرٌ... قَ، قَ، قَ. قَمَرٌ!",
+  "exists": false
+ },
+ "letterq_26": {
+  "path": "assets/audio/by/letterq_26.mp3",
+  "text": "أَيُّ صُورَةٍ تَبْدَأُ بِصَوْتِ قَ؟ قَ، قَ.",
+  "exists": false
+ },
+ "letter_27": {
+  "path": "assets/audio/by/letter_27.mp3",
+  "text": "ثَعْلَبٌ... ثَ، ثَ، ثَ. ثَعْلَبٌ!",
+  "exists": false
+ },
+ "letterq_27": {
+  "path": "assets/audio/by/letterq_27.mp3",
+  "text": "أَيُّ صُورَةٍ تَبْدَأُ بِصَوْتِ ثَ؟ ثَ، ثَ.",
+  "exists": false
+ },
+ "greet": {
+  "path": "assets/audio/t_adab_greet.mp3",
+  "text": "السلامُ عليكم. نُسلّمُ على مَن نعرفُ ومَن لا نعرف.",
+  "exists": true
+ },
+ "thanks": {
+  "path": "assets/audio/t_akhlaq_thanks.mp3",
+  "text": "إذا أعطاني أحدٌ شيئًا أقول: شكرًا.",
+  "exists": true
+ },
+ "khalaq": {
+  "path": "assets/audio/t_know_1.mp3",
+  "text": "اللهُ خلقني، وخلقَ الشمسَ والقمرَ والشجر.",
+  "exists": true
+ },
+ "food": {
+  "path": "assets/audio/t_adab_food.mp3",
+  "text": "قبلَ الأكل نقول: بسمِ الله، ونأكلُ باليمين، ومما يلينا.",
+  "exists": true
+ },
+ "after_meal": {
+  "path": "assets/audio/t_adab_after_meal.mp3",
+  "text": "بعدَ الأكل نقول: الحمدُ لله.",
+  "exists": true
+ },
+ "share": {
+  "path": "assets/audio/t_akhlaq_share.mp3",
+  "text": "ألعبُ مع أصحابي، ونتشاركُ الألعاب.",
+  "exists": true
+ },
+ "wahid": {
+  "path": "assets/audio/t_know_2.mp3",
+  "text": "اللهُ واحدٌ أحد.",
+  "exists": true
+ },
+ "sleep": {
+  "path": "assets/audio/t_adab_sleep.mp3",
+  "text": "قبلَ النوم نقول: باسمِكَ اللهمَّ أموتُ وأحيا.",
+  "exists": true
+ },
+ "tidy": {
+  "path": "assets/audio/t_akhlaq_tidy.mp3",
+  "text": "بعدَ اللعب أرتّبُ ألعابي في مكانها.",
+  "exists": true
+ },
+ "takbir": {
+  "path": "assets/audio/t_salah_1.mp3",
+  "text": "نرفعُ أيديَنا ونقول: اللهُ أكبر.",
+  "exists": true
+ },
+ "ruku": {
+  "path": "assets/audio/t_salah_2.mp3",
+  "text": "نركعُ ونقول: سُبحانَ ربّيَ العظيم.",
+  "exists": true
+ },
+ "sujud": {
+  "path": "assets/audio/t_salah_3.mp3",
+  "text": "نسجدُ ونقول: سُبحانَ ربّيَ الأعلى.",
+  "exists": true
+ },
+ "kind_word": {
+  "path": "assets/audio/t_akhlaq_kind_word.mp3",
+  "text": "أقولُ كلامًا طيبًا: من فضلك، وشكرًا.",
+  "exists": true
+ },
+ "sneeze": {
+  "path": "assets/audio/t_adab_sneeze.mp3",
+  "text": "إذا عطسنا نقول: الحمدُ لله. ويقولُ لنا أخونا: يرحمُكَ الله. فنقول: يهديكمُ اللهُ ويُصلحُ بالَكم.",
+  "exists": true
+ },
+ "nabi": {
+  "path": "assets/audio/t_know_3.mp3",
+  "text": "نبيُّنا محمدٌ، صلّى اللهُ عليه وسلّم، رسولُ الله.",
+  "exists": true
+ },
+ "wake": {
+  "path": "assets/audio/by/wake.mp3",
+  "text": "إِذَا اسْتَيْقَظْنَا نَقُولُ: الحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا، وَإِلَيْهِ النُّشُورُ.",
+  "exists": false
+ },
+ "salah_all": {
+  "path": "assets/audio/by/salah_all.mp3",
+  "text": "نُصَلِّي: نَقُولُ اللَّهُ أَكْبَرُ، ثُمَّ نَرْكَعُ، ثُمَّ نَسْجُدُ.",
+  "exists": false
+ },
+ "mercy": {
+  "path": "assets/audio/by/mercy.mp3",
+  "text": "نَرْحَمُ الحَيَوَانَاتِ: نُطْعِمُهَا، وَلَا نُؤْذِيهَا.",
+  "exists": false
+ },
+ "respect": {
+  "path": "assets/audio/by/respect.mp3",
+  "text": "نَحْتَرِمُ الكَبِيرَ: نُسَلِّمُ عَلَيْهِ، وَنُسَاعِدُهُ.",
+  "exists": false
+ },
+ "q_greet_0": {
+  "path": "assets/audio/by/q_greet_0.mp3",
+  "text": "نَقُولُ لِأَصْحَابِنَا: السَّلَامُ عَلَيْكُمْ؟",
+  "exists": false
+ },
+ "q_greet_1": {
+  "path": "assets/audio/by/q_greet_1.mp3",
+  "text": "نَدْخُلُ البَيْتَ وَلَا نُسَلِّمُ؟",
+  "exists": false
+ },
+ "q_thanks_0": {
+  "path": "assets/audio/by/q_thanks_0.mp3",
+  "text": "أَعْطَتْكَ أُمُّكَ هَدِيَّةً، تَقُولُ: شُكْرًا؟",
+  "exists": false
+ },
+ "q_thanks_1": {
+  "path": "assets/audio/by/q_thanks_1.mp3",
+  "text": "نَأْخُذُ الهَدِيَّةَ وَلَا نَقُولُ شَيْئًا؟",
+  "exists": false
+ },
+ "q_khalaq_0": {
+  "path": "assets/audio/by/q_khalaq_0.mp3",
+  "text": "اللَّهُ خَلَقَ الشَّمْسَ. أَيْنَ الشَّمْسُ؟",
+  "exists": false
+ },
+ "q_khalaq_1": {
+  "path": "assets/audio/by/q_khalaq_1.mp3",
+  "text": "اللَّهُ خَلَقَ الشَّجَرَ. أَيْنَ الشَّجَرَةُ؟",
+  "exists": false
+ },
+ "q_food_0": {
+  "path": "assets/audio/by/q_food_0.mp3",
+  "text": "نَأْكُلُ بِاليَدِ اليُمْنَى؟",
+  "exists": false
+ },
+ "q_food_1": {
+  "path": "assets/audio/by/q_food_1.mp3",
+  "text": "نَأْكُلُ وَلَا نَقُولُ: بِسْمِ اللَّهِ؟",
+  "exists": false
+ },
+ "q_after_meal_0": {
+  "path": "assets/audio/by/q_after_meal_0.mp3",
+  "text": "بَعْدَ الأَكْلِ نَقُولُ: الحَمْدُ لِلَّهِ؟",
+  "exists": false
+ },
+ "q_after_meal_1": {
+  "path": "assets/audio/by/q_after_meal_1.mp3",
+  "text": "نَقُومُ مِنَ الأَكْلِ وَلَا نَحْمَدُ اللَّهَ؟",
+  "exists": false
+ },
+ "q_share_0": {
+  "path": "assets/audio/by/q_share_0.mp3",
+  "text": "نَلْعَبُ مَعَ أَصْحَابِنَا وَنَتَشَارَكُ الأَلْعَابَ؟",
+  "exists": false
+ },
+ "q_share_1": {
+  "path": "assets/audio/by/q_share_1.mp3",
+  "text": "آخُذُ كُلَّ الأَلْعَابِ لِنَفْسِي؟",
+  "exists": false
+ },
+ "q_wahid_0": {
+  "path": "assets/audio/by/q_wahid_0.mp3",
+  "text": "اللَّهُ وَاحِدٌ. المِسْ إِصْبَعًا وَاحِدًا.",
+  "exists": false
+ },
+ "q_sleep_0": {
+  "path": "assets/audio/by/q_sleep_0.mp3",
+  "text": "مَتَى نَقُولُ: بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا؟",
+  "exists": false
+ },
+ "q_sleep_1": {
+  "path": "assets/audio/by/q_sleep_1.mp3",
+  "text": "قَبْلَ النَّوْمِ نَقُولُ: بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا؟",
+  "exists": false
+ },
+ "q_wake_0": {
+  "path": "assets/audio/by/q_wake_0.mp3",
+  "text": "مَتَى نَقُولُ: الحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا؟",
+  "exists": false
+ },
+ "q_tidy_0": {
+  "path": "assets/audio/by/q_tidy_0.mp3",
+  "text": "بَعْدَ اللَّعِبِ نُرَتِّبُ أَلْعَابَنَا؟",
+  "exists": false
+ },
+ "q_tidy_1": {
+  "path": "assets/audio/by/q_tidy_1.mp3",
+  "text": "نَتْرُكُ الأَلْعَابَ عَلَى الأَرْضِ؟",
+  "exists": false
+ },
+ "q_takbir_0": {
+  "path": "assets/audio/by/q_takbir_0.mp3",
+  "text": "أَيْنَ: اللَّهُ أَكْبَرُ؟",
+  "exists": false
+ },
+ "q_ruku_0": {
+  "path": "assets/audio/by/q_ruku_0.mp3",
+  "text": "أَيْنَ الرُّكُوعُ؟",
+  "exists": false
+ },
+ "q_sujud_0": {
+  "path": "assets/audio/by/q_sujud_0.mp3",
+  "text": "أَيْنَ السُّجُودُ؟",
+  "exists": false
+ },
+ "q_kind_word_0": {
+  "path": "assets/audio/by/q_kind_word_0.mp3",
+  "text": "نَقُولُ: مِنْ فَضْلِكَ، وَشُكْرًا؟",
+  "exists": false
+ },
+ "q_kind_word_1": {
+  "path": "assets/audio/by/q_kind_word_1.mp3",
+  "text": "نَصْرُخُ عَلَى أَصْحَابِنَا؟",
+  "exists": false
+ },
+ "q_sneeze_0": {
+  "path": "assets/audio/by/q_sneeze_0.mp3",
+  "text": "إِذَا عَطَسْنَا نَقُولُ: الحَمْدُ لِلَّهِ؟",
+  "exists": false
+ },
+ "q_sneeze_1": {
+  "path": "assets/audio/by/q_sneeze_1.mp3",
+  "text": "مَتَى نَقُولُ: يَرْحَمُكَ اللَّهُ؟",
+  "exists": false
+ },
+ "q_mercy_0": {
+  "path": "assets/audio/by/q_mercy_0.mp3",
+  "text": "نُطْعِمُ القِطَّةَ الجَائِعَةَ؟",
+  "exists": false
+ },
+ "q_mercy_1": {
+  "path": "assets/audio/by/q_mercy_1.mp3",
+  "text": "نَضْرِبُ العُصْفُورَ؟",
+  "exists": false
+ },
+ "q_respect_0": {
+  "path": "assets/audio/by/q_respect_0.mp3",
+  "text": "جَدَّتِي تَحْمِلُ حَقِيبَةً ثَقِيلَةً، أُسَاعِدُهَا؟",
+  "exists": false
+ },
+ "q_respect_1": {
+  "path": "assets/audio/by/q_respect_1.mp3",
+  "text": "أُقَاطِعُ جَدِّي وَهُوَ يَتَكَلَّمُ؟",
+  "exists": false
+ },
+ "q_nabi_0": {
+  "path": "assets/audio/by/q_nabi_0.mp3",
+  "text": "نُحِبُّ نَبِيَّنَا مُحَمَّدًا، صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ؟",
+  "exists": false
+ },
+ "surah_listen_1": {
+  "path": "assets/audio/by/surah_listen_1.mp3",
+  "text": "هَيَّا نَسْمَعُ سُورَةَ الفَاتِحَةِ.",
+  "exists": false
+ },
+ "surah_repeat_1": {
+  "path": "assets/audio/by/surah_repeat_1.mp3",
+  "text": "هَيَّا نُرَدِّدُ سُورَةَ الفَاتِحَةِ.",
+  "exists": false
+ },
+ "surah_listen_112": {
+  "path": "assets/audio/by/surah_listen_112.mp3",
+  "text": "هَيَّا نَسْمَعُ سُورَةَ الإِخْلَاصِ.",
+  "exists": false
+ },
+ "surah_repeat_112": {
+  "path": "assets/audio/by/surah_repeat_112.mp3",
+  "text": "هَيَّا نُرَدِّدُ سُورَةَ الإِخْلَاصِ.",
+  "exists": false
+ },
+ "surah_listen_113": {
+  "path": "assets/audio/by/surah_listen_113.mp3",
+  "text": "هَيَّا نَسْمَعُ سُورَةَ الفَلَقِ.",
+  "exists": false
+ },
+ "surah_repeat_113": {
+  "path": "assets/audio/by/surah_repeat_113.mp3",
+  "text": "هَيَّا نُرَدِّدُ سُورَةَ الفَلَقِ.",
+  "exists": false
+ },
+ "surah_listen_114": {
+  "path": "assets/audio/by/surah_listen_114.mp3",
+  "text": "هَيَّا نَسْمَعُ سُورَةَ النَّاسِ.",
+  "exists": false
+ },
+ "surah_repeat_114": {
+  "path": "assets/audio/by/surah_repeat_114.mp3",
+  "text": "هَيَّا نُرَدِّدُ سُورَةَ النَّاسِ.",
+  "exists": false
+ },
+ "surah_listen_108": {
+  "path": "assets/audio/by/surah_listen_108.mp3",
+  "text": "هَيَّا نَسْمَعُ سُورَةَ الكَوْثَرِ.",
+  "exists": false
+ },
+ "surah_repeat_108": {
+  "path": "assets/audio/by/surah_repeat_108.mp3",
+  "text": "هَيَّا نُرَدِّدُ سُورَةَ الكَوْثَرِ.",
+  "exists": false
+ },
+ "surah_listen_103": {
+  "path": "assets/audio/by/surah_listen_103.mp3",
+  "text": "هَيَّا نَسْمَعُ سُورَةَ العَصْرِ.",
+  "exists": false
+ },
+ "surah_repeat_103": {
+  "path": "assets/audio/by/surah_repeat_103.mp3",
+  "text": "هَيَّا نُرَدِّدُ سُورَةَ العَصْرِ.",
+  "exists": false
+ },
+ "surah_listen_110": {
+  "path": "assets/audio/by/surah_listen_110.mp3",
+  "text": "هَيَّا نَسْمَعُ سُورَةَ النَّصْرِ.",
+  "exists": false
+ },
+ "surah_repeat_110": {
+  "path": "assets/audio/by/surah_repeat_110.mp3",
+  "text": "هَيَّا نُرَدِّدُ سُورَةَ النَّصْرِ.",
+  "exists": false
+ }
+}

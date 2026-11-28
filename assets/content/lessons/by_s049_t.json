@@ -1,0 +1,56 @@
+{
+  "id": "by_s049_t",
+  "title": "مراجعة الحروف",
+  "icon": "🔤",
+  "section": "course",
+  "band": "buraem",
+  "source_type": "educational",
+  "source_note": "مراجعة حروف الوحدة.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "choose",
+      "question": "أيّ صورة تبدأ بصوت أَ؟",
+      "options": [
+        "☁️",
+        "🐇",
+        "🦋"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "choose",
+      "question": "أيّ صورة تبدأ بصوت حَ؟",
+      "options": [
+        "🐎",
+        "🦊",
+        "🪶"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "أيّ صورة تبدأ بصوت خَ؟",
+      "options": [
+        "🦆",
+        "🌹",
+        "🐑"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "choose",
+      "question": "أيّ صورة تبدأ بصوت ذَ؟",
+      "options": [
+        "🍎",
+        "🌽",
+        "☀️"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "reward",
+      "stars": 2
+    }
+  ]
+}

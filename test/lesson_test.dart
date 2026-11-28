@@ -16,8 +16,11 @@ import 'package:buraq/domain/age_band.dart';
 import 'package:buraq/data/models/child.dart';
 
 class _FastAudio implements LessonAudio {
+  final played = <String>[];
   @override
   Future<void> play(Lesson lesson) async {}
+  @override
+  Future<void> playAsset(String path) async => played.add(path);
   @override
   Future<void> stop() async {}
 }
@@ -210,6 +213,115 @@ void audioTests() {
 }
 
 void chooseTests() {
+  test('question audio needs the lesson audio_license', () {
+    final step = {
+      'type': 'choose',
+      'question': 'س؟',
+      'options': ['أ', 'ب'],
+      'answer': 0,
+      'audio': 'assets/audio/atfal/x_0.mp3',
+    };
+    expect(
+        () => Lesson.fromJson({
+              'id': 'x',
+              'title': 't',
+              'band': 'atfal',
+              'source_type': 'educational',
+              'steps': [step],
+            }),
+        throwsFormatException);
+    final ok = Lesson.fromJson({
+      'id': 'x',
+      'title': 't',
+      'band': 'atfal',
+      'source_type': 'educational',
+      'audio_license': 'ترخيص',
+      'steps': [step],
+    });
+    expect(ok.steps.first.audio, 'assets/audio/atfal/x_0.mp3');
+  });
+
+  testWidgets('choose step with audio shows a speaker that plays the question',
+      (tester) async {
+    final lesson = Lesson.fromJson({
+      'id': 'qa',
+      'title': 'حروفي',
+      'band': 'atfal',
+      'source_type': 'educational',
+      'audio_license': 'ترخيص',
+      'steps': [
+        {
+          'type': 'choose',
+          'question': 'أيّ صورة تبدأ بحرف الباء؟',
+          'options': ['🍎', '🦆'],
+          'answer': 1,
+          'audio': 'assets/audio/atfal/qa_0.mp3',
+        },
+        {'type': 'reward', 'stars': 3},
+      ],
+    });
+    final audio = _FastAudio();
+    final router = GoRouter(routes: [
+      GoRoute(path: '/', builder: (_, __) => const LessonScreen(lessonId: 'qa')),
+    ]);
+    await tester.pumpWidget(ProviderScope(
+      overrides: [
+        lessonProvider('qa').overrideWith((_) async => lesson),
+        lessonAudioProvider.overrideWithValue(audio),
+      ],
+      child: MaterialApp.router(routerConfig: router),
+    ));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const Key('question_audio')));
+    await tester.pump();
+    expect(audio.played, ['assets/audio/atfal/qa_0.mp3']);
+  });
+
+  testWidgets('toddler game: no text, question plays by itself, step audio for listen',
+      (tester) async {
+    final lesson = Lesson.fromJson({
+      'id': 'tg',
+      'title': 'لعبة',
+      'band': 'buraem',
+      'source_type': 'educational',
+      'audio_license': 'ترخيص',
+      'steps': [
+        {'type': 'listen', 'prompt': '🦆', 'audio': 'assets/audio/b/tg_1.mp3'},
+        {
+          'type': 'choose',
+          'question': 'أيّ صورة تبدأ بحرف الباء؟',
+          'options': ['🍎', '🦆'],
+          'option_labels': ['تفاحة', 'بطة'],
+          'answer': 1,
+          'audio': 'assets/audio/b/tg_2.mp3',
+        },
+        {'type': 'reward', 'stars': 2},
+      ],
+    });
+    final audio = _FastAudio();
+    final router = GoRouter(routes: [
+      GoRoute(path: '/', builder: (_, __) => const LessonScreen(lessonId: 'tg')),
+    ]);
+    await tester.pumpWidget(ProviderScope(
+      overrides: [
+        lessonProvider('tg').overrideWith((_) async => lesson),
+        lessonAudioProvider.overrideWithValue(audio),
+      ],
+      child: MaterialApp.router(routerConfig: router),
+    ));
+    await tester.pumpAndSettle();
+    expect(find.text('🦆'), findsOneWidget);
+    await tester.tap(find.byKey(const Key('listen_button')));
+    await tester.pumpAndSettle();
+    expect(audio.played, ['assets/audio/b/tg_1.mp3']);
+    await tester.tap(find.byKey(const Key('next_button')));
+    await tester.pumpAndSettle();
+    expect(audio.played.last, 'assets/audio/b/tg_2.mp3');
+    expect(find.text('أيّ صورة تبدأ بحرف الباء؟'), findsNothing);
+    expect(find.text('بطة'), findsNothing);
+    expect(find.byKey(const Key('question_audio')), findsOneWidget);
+  });
+
   testWidgets('choose step: wrong answer allows retry, right answer unlocks next',
       (tester) async {
     final lesson = Lesson.fromJson({
@@ -240,6 +352,7 @@ void chooseTests() {
     // الفئات الأكبر ترى العنوان
     expect(find.text('حروفي'), findsOneWidget);
     expect(find.text('ب'), findsOneWidget);
+    expect(find.byKey(const Key('question_audio')), findsNothing);
 
     await tester.tap(find.byKey(const Key('option_0')));
     await tester.pump();

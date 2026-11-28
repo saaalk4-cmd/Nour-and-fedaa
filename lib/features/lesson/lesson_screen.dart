@@ -66,14 +66,35 @@ class _LessonRunnerState extends ConsumerState<_LessonRunner> {
 
   LessonStep get _step => widget.lesson.steps[_index];
 
-  void _next() => setState(() {
-        _index++;
-        _repeats = 0;
-        _heard = false;
-        _wrong.clear();
-        _solved = false;
-        if (_step.type == StepType.reward) _complete();
+  bool get _textFree => widget.lesson.textFreeForChild;
+
+  @override
+  void initState() {
+    super.initState();
+    _autoPlayQuestion();
+  }
+
+  void _next() {
+    setState(() {
+      _index++;
+      _repeats = 0;
+      _heard = false;
+      _wrong.clear();
+      _solved = false;
+      if (_step.type == StepType.reward) _complete();
+    });
+    _autoPlayQuestion();
+  }
+
+  /// البراعم لا يقرؤون: سؤال اللعبة يُقرأ تلقائيًا عند ظهوره.
+  void _autoPlayQuestion() {
+    final s = _step;
+    if (_textFree && s.type == StepType.choose && s.audio != null) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) ref.read(lessonAudioProvider).playAsset(s.audio!);
       });
+    }
+  }
 
   Future<void> _complete() async {
     if (_saved) return;
@@ -108,7 +129,10 @@ class _LessonRunnerState extends ConsumerState<_LessonRunner> {
   Future<void> _play() async {
     if (_playing) return;
     setState(() => _playing = true);
-    await ref.read(lessonAudioProvider).play(widget.lesson);
+    final audio = ref.read(lessonAudioProvider);
+    final stepAudio = _step.audio;
+    // صوت الخطوة إن وُجد (درس طويل بعدة مقاطع)، وإلا صوت الدرس.
+    await (stepAudio != null ? audio.playAsset(stepAudio) : audio.play(widget.lesson));
     if (!mounted) return;
     setState(() {
       _playing = false;
@@ -121,7 +145,7 @@ class _LessonRunnerState extends ConsumerState<_LessonRunner> {
     switch (_step.type) {
       case StepType.listen:
         return _page(
-          emoji: widget.lesson.icon ?? '🎧',
+          emoji: _step.prompt ?? widget.lesson.icon ?? '🎧',
           button: _bigButton(
             key: const Key('listen_button'),
             icon: _playing ? Icons.graphic_eq : Icons.play_arrow_rounded,
@@ -132,7 +156,7 @@ class _LessonRunnerState extends ConsumerState<_LessonRunner> {
       case StepType.repeat:
         final times = _step.times;
         return _page(
-          emoji: widget.lesson.icon ?? '🗣️',
+          emoji: _step.prompt ?? widget.lesson.icon ?? '🗣️',
           progress: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -273,8 +297,19 @@ class _LessonRunnerState extends ConsumerState<_LessonRunner> {
                       fontSize: 110,
                       fontWeight: FontWeight.w800,
                       color: AppColors.navy)),
-            Text(step.question!,
-                textAlign: TextAlign.center, style: t.headlineSmall),
+            if (!_textFree)
+              Text(step.question!,
+                  textAlign: TextAlign.center, style: t.headlineSmall),
+            if (step.audio != null)
+              IconButton(
+                key: const Key('question_audio'),
+                tooltip: 'اسمع السؤال',
+                iconSize: _textFree ? 72 : 44,
+                color: AppColors.navy,
+                icon: const Icon(Icons.volume_up_rounded),
+                onPressed: () =>
+                    ref.read(lessonAudioProvider).playAsset(step.audio!),
+              ),
             const SizedBox(height: 24),
             Wrap(
               alignment: WrapAlignment.center,
@@ -289,7 +324,9 @@ class _LessonRunnerState extends ConsumerState<_LessonRunner> {
             SizedBox(
               height: 32,
               child: _wrong.isNotEmpty && !_solved
-                  ? Text('حاول مرة أخرى', style: t.titleMedium)
+                  ? (_textFree
+                      ? const Text('🔁', style: TextStyle(fontSize: 32))
+                      : Text('حاول مرة أخرى', style: t.titleMedium))
                   : null,
             ),
             const SizedBox(height: 16),
@@ -339,7 +376,7 @@ class _LessonRunnerState extends ConsumerState<_LessonRunner> {
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: _optionText(step.options[i], long: _isLong(step)),
               ),
-              if (step.optionLabels.isNotEmpty)
+              if (step.optionLabels.isNotEmpty && !_textFree)
                 Text(step.optionLabels[i],
                     style: const TextStyle(
                         fontSize: 22, fontWeight: FontWeight.w700)),

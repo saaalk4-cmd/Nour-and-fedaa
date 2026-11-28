@@ -72,6 +72,7 @@ class ToddlerHome extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 10),
+              const _TodaySessionButton(),
               const _ReviewButton(),
               _Garden(stars: child.stars),
             ],
@@ -157,6 +158,53 @@ class _ReviewButton extends ConsumerWidget {
             label: 'نراجع',
             child: ExcludeSemantics(
               child: Text('🔁', style: TextStyle(fontSize: 32)),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// زر «حصة اليوم»: يظهر حين يوجد منهج سنة لفئة الطفل.
+class _TodaySessionButton extends ConsumerWidget {
+  const _TodaySessionButton();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final today = ref.watch(todaySessionProvider).valueOrNull;
+    if (today == null) return const SizedBox.shrink();
+    final s = today.session;
+    final doneCount = s.lessons.where(today.done.contains).length;
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10),
+      child: SizedBox(
+        width: double.infinity,
+        height: 72,
+        child: FilledButton(
+          key: const Key('today_session_button'),
+          style: FilledButton.styleFrom(
+            backgroundColor: AppColors.terracotta,
+            foregroundColor: Colors.white,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+          ),
+          onPressed: () => context.push('/session/${s.n}'),
+          child: Semantics(
+            label: 'حصة اليوم',
+            child: ExcludeSemantics(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text('▶️', style: TextStyle(fontSize: 34)),
+                  const SizedBox(width: 16),
+                  for (var i = 0; i < s.lessons.length; i++)
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 4),
+                      child: Text(i < doneCount ? '🌸' : '⚪',
+                          style: const TextStyle(fontSize: 28)),
+                    ),
+                ],
+              ),
             ),
           ),
         ),

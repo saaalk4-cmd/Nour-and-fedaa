@@ -1,0 +1,55 @@
+{
+  "id": "by_s010_t",
+  "title": "احتفال وحدة «أنا وربي»",
+  "icon": "🎉",
+  "section": "course",
+  "band": "buraem",
+  "source_type": "educational",
+  "source_note": "مبني على نصوص البراعم التي روجعت شرعيًا (٢٨ نوفمبر ٢٠٢٦)؛ أسئلة اللعبة وجمل الربط جديدة وتحتاج مراجعة.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "choose",
+      "question": "أيّ صورة تبدأ بصوت مَ؟",
+      "options": [
+        "🎁",
+        "🍌",
+        "🌽"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "choose",
+      "question": "أيّ صورة تبدأ بصوت دَ؟",
+      "options": [
+        "🐪",
+        "🐻",
+        "✉️"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "choose",
+      "question": "نَقُولُ لِأَصْحَابِنَا: السَّلَامُ عَلَيْكُمْ؟",
+      "options": [
+        "👍",
+        "👎"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choose",
+      "question": "اللَّهُ خَلَقَ الشَّمْسَ. أَيْنَ الشَّمْسُ؟",
+      "options": [
+        "🚗",
+        "☀️",
+        "⚽"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "reward",
+      "stars": 2
+    }
+  ]
+}

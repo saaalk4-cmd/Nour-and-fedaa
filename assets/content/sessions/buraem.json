@@ -1,0 +1,635 @@
+{
+ "band": "buraem",
+ "sessions": [
+  {
+   "n": 1,
+   "unit": 1,
+   "unit_title": "أنا وربي",
+   "lessons": [
+    "by_s001_q",
+    "by_s001_t"
+   ]
+  },
+  {
+   "n": 2,
+   "unit": 1,
+   "unit_title": "أنا وربي",
+   "lessons": [
+    "by_s002_q",
+    "by_s002_t"
+   ]
+  },
+  {
+   "n": 3,
+   "unit": 1,
+   "unit_title": "أنا وربي",
+   "lessons": [
+    "by_s003_q",
+    "by_s003_t"
+   ]
+  },
+  {
+   "n": 4,
+   "unit": 1,
+   "unit_title": "أنا وربي",
+   "lessons": [
+    "by_s004_q",
+    "by_s004_t"
+   ]
+  },
+  {
+   "n": 5,
+   "unit": 1,
+   "unit_title": "أنا وربي",
+   "lessons": [
+    "by_s005_q",
+    "by_s005_t"
+   ]
+  },
+  {
+   "n": 6,
+   "unit": 1,
+   "unit_title": "أنا وربي",
+   "lessons": [
+    "by_s006_q",
+    "by_s006_t"
+   ]
+  },
+  {
+   "n": 7,
+   "unit": 1,
+   "unit_title": "أنا وربي",
+   "lessons": [
+    "by_s007_q",
+    "by_s007_t"
+   ]
+  },
+  {
+   "n": 8,
+   "unit": 1,
+   "unit_title": "أنا وربي",
+   "lessons": [
+    "by_s008_q",
+    "by_s008_t"
+   ]
+  },
+  {
+   "n": 9,
+   "unit": 1,
+   "unit_title": "أنا وربي",
+   "lessons": [
+    "by_s009_q",
+    "by_s009_t"
+   ]
+  },
+  {
+   "n": 10,
+   "unit": 1,
+   "unit_title": "أنا وربي",
+   "lessons": [
+    "by_s010_q",
+    "by_s010_t"
+   ]
+  },
+  {
+   "n": 11,
+   "unit": 2,
+   "unit_title": "طعامي",
+   "lessons": [
+    "by_s011_q",
+    "by_s011_t"
+   ]
+  },
+  {
+   "n": 12,
+   "unit": 2,
+   "unit_title": "طعامي",
+   "lessons": [
+    "by_s012_q",
+    "by_s012_t"
+   ]
+  },
+  {
+   "n": 13,
+   "unit": 2,
+   "unit_title": "طعامي",
+   "lessons": [
+    "by_s013_q",
+    "by_s013_t"
+   ]
+  },
+  {
+   "n": 14,
+   "unit": 2,
+   "unit_title": "طعامي",
+   "lessons": [
+    "by_s014_q",
+    "by_s014_t"
+   ]
+  },
+  {
+   "n": 15,
+   "unit": 2,
+   "unit_title": "طعامي",
+   "lessons": [
+    "by_s015_q",
+    "by_s015_t"
+   ]
+  },
+  {
+   "n": 16,
+   "unit": 2,
+   "unit_title": "طعامي",
+   "lessons": [
+    "by_s016_q",
+    "by_s016_t"
+   ]
+  },
+  {
+   "n": 17,
+   "unit": 2,
+   "unit_title": "طعامي",
+   "lessons": [
+    "by_s017_q",
+    "by_s017_t"
+   ]
+  },
+  {
+   "n": 18,
+   "unit": 2,
+   "unit_title": "طعامي",
+   "lessons": [
+    "by_s018_q",
+    "by_s018_t"
+   ]
+  },
+  {
+   "n": 19,
+   "unit": 2,
+   "unit_title": "طعامي",
+   "lessons": [
+    "by_s019_q",
+    "by_s019_t"
+   ]
+  },
+  {
+   "n": 20,
+   "unit": 2,
+   "unit_title": "طعامي",
+   "lessons": [
+    "by_s020_q",
+    "by_s020_t"
+   ]
+  },
+  {
+   "n": 21,
+   "unit": 3,
+   "unit_title": "يومي ونومي",
+   "lessons": [
+    "by_s021_q",
+    "by_s021_t"
+   ]
+  },
+  {
+   "n": 22,
+   "unit": 3,
+   "unit_title": "يومي ونومي",
+   "lessons": [
+    "by_s022_q",
+    "by_s022_t"
+   ]
+  },
+  {
+   "n": 23,
+   "unit": 3,
+   "unit_title": "يومي ونومي",
+   "lessons": [
+    "by_s023_q",
+    "by_s023_t"
+   ]
+  },
+  {
+   "n": 24,
+   "unit": 3,
+   "unit_title": "يومي ونومي",
+   "lessons": [
+    "by_s024_q",
+    "by_s024_t"
+   ]
+  },
+  {
+   "n": 25,
+   "unit": 3,
+   "unit_title": "يومي ونومي",
+   "lessons": [
+    "by_s025_q",
+    "by_s025_t"
+   ]
+  },
+  {
+   "n": 26,
+   "unit": 3,
+   "unit_title": "يومي ونومي",
+   "lessons": [
+    "by_s026_q",
+    "by_s026_t"
+   ]
+  },
+  {
+   "n": 27,
+   "unit": 3,
+   "unit_title": "يومي ونومي",
+   "lessons": [
+    "by_s027_q",
+    "by_s027_t"
+   ]
+  },
+  {
+   "n": 28,
+   "unit": 3,
+   "unit_title": "يومي ونومي",
+   "lessons": [
+    "by_s028_q",
+    "by_s028_t"
+   ]
+  },
+  {
+   "n": 29,
+   "unit": 3,
+   "unit_title": "يومي ونومي",
+   "lessons": [
+    "by_s029_q",
+    "by_s029_t"
+   ]
+  },
+  {
+   "n": 30,
+   "unit": 3,
+   "unit_title": "يومي ونومي",
+   "lessons": [
+    "by_s030_q",
+    "by_s030_t"
+   ]
+  },
+  {
+   "n": 31,
+   "unit": 4,
+   "unit_title": "صلاتي",
+   "lessons": [
+    "by_s031_q",
+    "by_s031_t"
+   ]
+  },
+  {
+   "n": 32,
+   "unit": 4,
+   "unit_title": "صلاتي",
+   "lessons": [
+    "by_s032_q",
+    "by_s032_t"
+   ]
+  },
+  {
+   "n": 33,
+   "unit": 4,
+   "unit_title": "صلاتي",
+   "lessons": [
+    "by_s033_q",
+    "by_s033_t"
+   ]
+  },
+  {
+   "n": 34,
+   "unit": 4,
+   "unit_title": "صلاتي",
+   "lessons": [
+    "by_s034_q",
+    "by_s034_t"
+   ]
+  },
+  {
+   "n": 35,
+   "unit": 4,
+   "unit_title": "صلاتي",
+   "lessons": [
+    "by_s035_q",
+    "by_s035_t"
+   ]
+  },
+  {
+   "n": 36,
+   "unit": 4,
+   "unit_title": "صلاتي",
+   "lessons": [
+    "by_s036_q",
+    "by_s036_t"
+   ]
+  },
+  {
+   "n": 37,
+   "unit": 4,
+   "unit_title": "صلاتي",
+   "lessons": [
+    "by_s037_q",
+    "by_s037_t"
+   ]
+  },
+  {
+   "n": 38,
+   "unit": 4,
+   "unit_title": "صلاتي",
+   "lessons": [
+    "by_s038_q",
+    "by_s038_t"
+   ]
+  },
+  {
+   "n": 39,
+   "unit": 4,
+   "unit_title": "صلاتي",
+   "lessons": [
+    "by_s039_q",
+    "by_s039_t"
+   ]
+  },
+  {
+   "n": 40,
+   "unit": 4,
+   "unit_title": "صلاتي",
+   "lessons": [
+    "by_s040_q",
+    "by_s040_t"
+   ]
+  },
+  {
+   "n": 41,
+   "unit": 5,
+   "unit_title": "أخلاقي",
+   "lessons": [
+    "by_s041_q",
+    "by_s041_t"
+   ]
+  },
+  {
+   "n": 42,
+   "unit": 5,
+   "unit_title": "أخلاقي",
+   "lessons": [
+    "by_s042_q",
+    "by_s042_t"
+   ]
+  },
+  {
+   "n": 43,
+   "unit": 5,
+   "unit_title": "أخلاقي",
+   "lessons": [
+    "by_s043_q",
+    "by_s043_t"
+   ]
+  },
+  {
+   "n": 44,
+   "unit": 5,
+   "unit_title": "أخلاقي",
+   "lessons": [
+    "by_s044_q",
+    "by_s044_t"
+   ]
+  },
+  {
+   "n": 45,
+   "unit": 5,
+   "unit_title": "أخلاقي",
+   "lessons": [
+    "by_s045_q",
+    "by_s045_t"
+   ]
+  },
+  {
+   "n": 46,
+   "unit": 5,
+   "unit_title": "أخلاقي",
+   "lessons": [
+    "by_s046_q",
+    "by_s046_t"
+   ]
+  },
+  {
+   "n": 47,
+   "unit": 5,
+   "unit_title": "أخلاقي",
+   "lessons": [
+    "by_s047_q",
+    "by_s047_t"
+   ]
+  },
+  {
+   "n": 48,
+   "unit": 5,
+   "unit_title": "أخلاقي",
+   "lessons": [
+    "by_s048_q",
+    "by_s048_t"
+   ]
+  },
+  {
+   "n": 49,
+   "unit": 5,
+   "unit_title": "أخلاقي",
+   "lessons": [
+    "by_s049_q",
+    "by_s049_t"
+   ]
+  },
+  {
+   "n": 50,
+   "unit": 5,
+   "unit_title": "أخلاقي",
+   "lessons": [
+    "by_s050_q",
+    "by_s050_t"
+   ]
+  },
+  {
+   "n": 51,
+   "unit": 6,
+   "unit_title": "نبيي",
+   "lessons": [
+    "by_s051_q",
+    "by_s051_t"
+   ]
+  },
+  {
+   "n": 52,
+   "unit": 6,
+   "unit_title": "نبيي",
+   "lessons": [
+    "by_s052_q",
+    "by_s052_t"
+   ]
+  },
+  {
+   "n": 53,
+   "unit": 6,
+   "unit_title": "نبيي",
+   "lessons": [
+    "by_s053_q",
+    "by_s053_t"
+   ]
+  },
+  {
+   "n": 54,
+   "unit": 6,
+   "unit_title": "نبيي",
+   "lessons": [
+    "by_s054_q",
+    "by_s054_t"
+   ]
+  },
+  {
+   "n": 55,
+   "unit": 6,
+   "unit_title": "نبيي",
+   "lessons": [
+    "by_s055_q",
+    "by_s055_t"
+   ]
+  },
+  {
+   "n": 56,
+   "unit": 6,
+   "unit_title": "نبيي",
+   "lessons": [
+    "by_s056_q",
+    "by_s056_t"
+   ]
+  },
+  {
+   "n": 57,
+   "unit": 6,
+   "unit_title": "نبيي",
+   "lessons": [
+    "by_s057_q",
+    "by_s057_t"
+   ]
+  },
+  {
+   "n": 58,
+   "unit": 6,
+   "unit_title": "نبيي",
+   "lessons": [
+    "by_s058_q",
+    "by_s058_t"
+   ]
+  },
+  {
+   "n": 59,
+   "unit": 6,
+   "unit_title": "نبيي",
+   "lessons": [
+    "by_s059_q",
+    "by_s059_t"
+   ]
+  },
+  {
+   "n": 60,
+   "unit": 6,
+   "unit_title": "نبيي",
+   "lessons": [
+    "by_s060_q",
+    "by_s060_t"
+   ]
+  },
+  {
+   "n": 61,
+   "unit": 7,
+   "unit_title": "مراجعة السنة",
+   "lessons": [
+    "by_s061_q",
+    "by_s061_t"
+   ]
+  },
+  {
+   "n": 62,
+   "unit": 7,
+   "unit_title": "مراجعة السنة",
+   "lessons": [
+    "by_s062_q",
+    "by_s062_t"
+   ]
+  },
+  {
+   "n": 63,
+   "unit": 7,
+   "unit_title": "مراجعة السنة",
+   "lessons": [
+    "by_s063_q",
+    "by_s063_t"
+   ]
+  },
+  {
+   "n": 64,
+   "unit": 7,
+   "unit_title": "مراجعة السنة",
+   "lessons": [
+    "by_s064_q",
+    "by_s064_t"
+   ]
+  },
+  {
+   "n": 65,
+   "unit": 7,
+   "unit_title": "مراجعة السنة",
+   "lessons": [
+    "by_s065_q",
+    "by_s065_t"
+   ]
+  },
+  {
+   "n": 66,
+   "unit": 7,
+   "unit_title": "مراجعة السنة",
+   "lessons": [
+    "by_s066_q",
+    "by_s066_t"
+   ]
+  },
+  {
+   "n": 67,
+   "unit": 7,
+   "unit_title": "مراجعة السنة",
+   "lessons": [
+    "by_s067_q",
+    "by_s067_t"
+   ]
+  },
+  {
+   "n": 68,
+   "unit": 7,
+   "unit_title": "مراجعة السنة",
+   "lessons": [
+    "by_s068_q",
+    "by_s068_t"
+   ]
+  },
+  {
+   "n": 69,
+   "unit": 7,
+   "unit_title": "مراجعة السنة",
+   "lessons": [
+    "by_s069_q",
+    "by_s069_t"
+   ]
+  },
+  {
+   "n": 70,
+   "unit": 7,
+   "unit_title": "مراجعة السنة",
+   "lessons": [
+    "by_s070_q",
+    "by_s070_t"
+   ]
+  }
+ ]
+}

@@ -6,6 +6,7 @@ import '../../features/home/home_screen.dart';
 import '../../features/home/section_screen.dart';
 import '../../features/home/who_learns_screen.dart';
 import '../../features/lesson/lesson_screen.dart';
+import '../../features/session/session_screen.dart';
 import '../../features/onboarding/account_screen.dart';
 import '../../features/onboarding/add_child_screen.dart';
 import '../../features/onboarding/band_confirm_screen.dart';
@@ -68,6 +69,11 @@ final routerProvider = Provider<GoRouter>((ref) {
           lessonId: state.pathParameters['id']!,
           review: state.uri.queryParameters['review'] == '1',
         ),
+      ),
+      GoRoute(
+        path: '/session/:n',
+        builder: (_, state) =>
+            SessionScreen(number: int.parse(state.pathParameters['n']!)),
       ),
       GoRoute(path: '/parent', builder: (_, __) => const ParentGateScreen()),
       GoRoute(
