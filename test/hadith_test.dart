@@ -126,7 +126,7 @@ void main() {
       }
     }
     expect((await repo.bySection('adhkar', AgeBand.atfal)).length, 5);
-    expect((await repo.bySection('aqeedah', AgeBand.atfal)).length, 3);
+    expect((await repo.bySection('aqeedah', AgeBand.atfal)).length, 4);
     expect((await repo.bySection('aqeedah', AgeBand.nashia)).length, 1);
     expect((await repo.bySection('aqeedah', AgeBand.murahiqun)).length, 1);
     expect((await repo.bySection('prayer', AgeBand.nashia)).length, 1);
