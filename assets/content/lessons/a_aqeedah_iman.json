@@ -1,0 +1,64 @@
+{
+  "id": "a_aqeedah_iman",
+  "title": "أركان الإيمان",
+  "icon": "💫",
+  "section": "aqeedah",
+  "band": "atfal",
+  "source_type": "sahih_sunnah",
+  "source_note": "صحيح مسلم ٨؛ النص من مجموعة hadith-api المفتوحة ومطابق لـ sunnah.com، وأسئلة الفهم مأخوذة من نص الحديث نفسه.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "hadith",
+      "hadith": "muslim_8"
+    },
+    {
+      "type": "choose",
+      "question": "من الذي جاء يسأل النبي ﷺ؟",
+      "options": [
+        "جبريل",
+        "تاجر",
+        "طفل"
+      ],
+      "answer": 0,
+      "prompt": "❓"
+    },
+    {
+      "type": "choose",
+      "question": "كم أركان الإيمان في الحديث؟",
+      "options": [
+        "ثلاثة",
+        "خمسة",
+        "ستة"
+      ],
+      "answer": 2,
+      "prompt": "🖐️"
+    },
+    {
+      "type": "choose",
+      "question": "أيّ هذه من أركان الإيمان؟",
+      "options": [
+        "الإيمان بالملائكة",
+        "الإيمان بالحظ",
+        "الإيمان بالنجوم"
+      ],
+      "answer": 0,
+      "prompt": "✨"
+    },
+    {
+      "type": "choose",
+      "question": "أيّ هذه من أركان الإيمان أيضًا؟",
+      "options": [
+        "الإيمان بالألعاب",
+        "الإيمان باليوم الآخر",
+        "الإيمان بالأحلام"
+      ],
+      "answer": 1,
+      "prompt": "🌅"
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

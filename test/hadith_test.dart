@@ -49,6 +49,8 @@ void main() {
     expect(twoWords.matn, contains('سُبْحَانَ اللَّهِ الْعَظِيمِ'));
     final tasbih = await repo.byId('bukhari_6405');
     expect(tasbih.matn, contains('زَبَدِ الْبَحْرِ'));
+    final takbir = await repo.byId('bukhari_789');
+    expect(takbir.matn, contains('رَبَّنَا لَكَ الْحَمْدُ'));
     final istighfar = await repo.byId('bukhari_6307');
     expect(istighfar.matn, contains('أَكْثَرَ مِنْ سَبْعِينَ مَرَّةً'));
     for (final h in [
@@ -124,7 +126,7 @@ void main() {
       }
     }
     expect((await repo.bySection('adhkar', AgeBand.atfal)).length, 5);
-    expect((await repo.bySection('aqeedah', AgeBand.atfal)).length, 1);
+    expect((await repo.bySection('aqeedah', AgeBand.atfal)).length, 3);
     expect((await repo.bySection('aqeedah', AgeBand.nashia)).length, 1);
     expect((await repo.bySection('aqeedah', AgeBand.murahiqun)).length, 1);
     expect((await repo.bySection('prayer', AgeBand.nashia)).length, 1);

@@ -40,14 +40,15 @@ void main() {
 
   test('salah: five prayers and the fard rak`ah counts are correct', () async {
     final lessons = await repo.bySection('prayer', AgeBand.atfal);
-    expect(lessons.map((l) => l.id), ['a_salah_five', 'a_salah_rakat']);
+    expect(lessons.map((l) => l.id),
+        ['a_salah_five', 'a_salah_wudu', 'a_salah_rakat', 'a_salah_takbir']);
     String correct(LessonStep s) => s.options[s.answer];
 
     final five = _chooses(lessons[0]).toList();
     expect(correct(five[0]), '٥');
     expect(five.skip(1).map(correct), ['الفجر', 'العصر', 'المغرب', 'العشاء']);
 
-    final rakat = _chooses(lessons[1]).map(correct).toList();
+    final rakat = _chooses(lessons[2]).map(correct).toList();
     // الفجر، الظهر، العصر، المغرب، العشاء
     expect(rakat, ['٢', '٤', '٤', '٣', '٤']);
   });

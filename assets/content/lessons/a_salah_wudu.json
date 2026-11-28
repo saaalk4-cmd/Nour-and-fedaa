@@ -1,0 +1,64 @@
+{
+  "id": "a_salah_wudu",
+  "title": "وضوئي",
+  "icon": "💧",
+  "section": "prayer",
+  "band": "atfal",
+  "source_type": "sahih_sunnah",
+  "source_note": "صحيح البخاري ١٥٩؛ النص من مجموعة hadith-api المفتوحة ومطابق لـ sunnah.com، وأسئلة الفهم مأخوذة من نص الحديث نفسه.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "hadith",
+      "hadith": "bukhari_159"
+    },
+    {
+      "type": "choose",
+      "question": "بماذا نبدأ الوضوء؟",
+      "options": [
+        "غسل الكفّين",
+        "غسل الرجلين",
+        "مسح الرأس"
+      ],
+      "answer": 0,
+      "prompt": "🤲"
+    },
+    {
+      "type": "choose",
+      "question": "كم مرة غسل عثمان رضي الله عنه وجهه؟",
+      "options": [
+        "مرة",
+        "ثلاث مرات",
+        "عشر مرات"
+      ],
+      "answer": 1,
+      "prompt": "🙂"
+    },
+    {
+      "type": "choose",
+      "question": "ماذا نفعل بالرأس؟",
+      "options": [
+        "نغسله ثلاثًا",
+        "نتركه",
+        "نمسح به"
+      ],
+      "answer": 2,
+      "prompt": "💦"
+    },
+    {
+      "type": "choose",
+      "question": "ما آخر ما نغسله؟",
+      "options": [
+        "الرجلين",
+        "الوجه",
+        "الكفّين"
+      ],
+      "answer": 0,
+      "prompt": "🦶"
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

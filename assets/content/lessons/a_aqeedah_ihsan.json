@@ -1,0 +1,53 @@
+{
+  "id": "a_aqeedah_ihsan",
+  "title": "الله يراني",
+  "icon": "👁️",
+  "section": "aqeedah",
+  "band": "atfal",
+  "source_type": "sahih_sunnah",
+  "source_note": "صحيح مسلم ٨؛ النص من مجموعة hadith-api المفتوحة ومطابق لـ sunnah.com، وأسئلة الفهم مأخوذة من نص الحديث نفسه.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "hadith",
+      "hadith": "muslim_8"
+    },
+    {
+      "type": "choose",
+      "question": "الإحسان أن تعبد الله كأنك...",
+      "options": [
+        "تراه",
+        "تنام",
+        "تلعب"
+      ],
+      "answer": 0,
+      "prompt": "💡"
+    },
+    {
+      "type": "choose",
+      "question": "«فإن لم تكن تراه فإنه...»",
+      "options": [
+        "ينساك",
+        "يراك",
+        "لا يعلم"
+      ],
+      "answer": 1,
+      "prompt": "👁️"
+    },
+    {
+      "type": "choose",
+      "question": "أنت وحدك في الغرفة. هل يراك الله؟",
+      "options": [
+        "لا",
+        "أحيانًا",
+        "نعم، الله يراني دائمًا"
+      ],
+      "answer": 2,
+      "prompt": "🏠"
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ]
+}

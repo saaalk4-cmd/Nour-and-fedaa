@@ -1,0 +1,65 @@
+{
+  "id": "a_salah_takbir",
+  "title": "الله أكبر في صلاتي",
+  "icon": "🕌",
+  "section": "prayer",
+  "band": "atfal",
+  "source_type": "sahih_sunnah",
+  "source_note": "صحيح البخاري ٧٨٩؛ النص من مجموعة hadith-api المفتوحة ومطابق لـ sunnah.com، وأسئلة الفهم مأخوذة من نص الحديث نفسه.",
+  "content_verified": false,
+  "steps": [
+    {
+      "type": "hadith",
+      "hadith": "bukhari_789"
+    },
+    {
+      "type": "choose",
+      "question": "ماذا كان النبي ﷺ يقول حين يقوم إلى الصلاة؟",
+      "options": [
+        "الله أكبر",
+        "السلام عليكم",
+        "بسم الله"
+      ],
+      "answer": 0,
+      "prompt": "🙌"
+    },
+    {
+      "type": "choose",
+      "question": "وماذا يقول حين يركع؟",
+      "options": [
+        "سبحان الله",
+        "الله أكبر",
+        "الحمد لله"
+      ],
+      "answer": 1,
+      "prompt": "🙇"
+    },
+    {
+      "type": "choose",
+      "question": "ماذا يقول حين يرفع من الركوع؟",
+      "options": [
+        "الله أكبر",
+        "آمين",
+        "سمع الله لمن حمده"
+      ],
+      "answer": 2,
+      "prompt": "⬆️"
+    },
+    {
+      "type": "choose",
+      "question": "ثم يقول وهو قائم:",
+      "options": [
+        "ربنا لك الحمد",
+        "السلام عليكم",
+        "بسم الله"
+      ],
+      "answer": 0,
+      "prompt": "🧍"
+    },
+    {
+      "type": "reward",
+      "stars": 3
+    }
+  ],
+  "level": 2
+}
