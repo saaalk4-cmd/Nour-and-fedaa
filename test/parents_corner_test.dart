@@ -49,7 +49,9 @@ void main() {
     expect(list.any((e) => e.title.contains('الفاتحة')), isTrue);
     expect(list.where((e) => e.title.startsWith('اختبار المستوى')).length, 3);
     expect(list.every((e) => e.sourceTypes.isNotEmpty), isTrue);
-    expect(list.every((e) => !e.verified), isTrue);
+    // البراعم وحدها روجعت حتى الآن.
+    expect(list.any((e) => e.verified), isTrue);
+    expect(list.any((e) => !e.verified), isTrue);
     final lessons = list.where((e) => e.title.startsWith('درس'));
     expect(
         lessons.every((e) =>

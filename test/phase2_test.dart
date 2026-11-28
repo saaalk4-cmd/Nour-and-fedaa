@@ -35,7 +35,7 @@ void main() {
     for (final l in list) {
       expect(l.sourceType, 'sahih_sunnah');
       expect(l.sourceNote, contains('صحيح البخاري'));
-      expect(l.contentVerified, isFalse);
+      expect(l.contentVerified, isTrue); // روجعت شرعيًا ٢٨ نوفمبر ٢٠٢٦
     }
     expect(await repo.bySection('t_adab', AgeBand.atfal), isEmpty);
     expect((await repo.bySection('t_listen', AgeBand.buraem)).length, 4);
@@ -53,7 +53,7 @@ void main() {
     for (final l in list) {
       expect(l.sourceType, 'educational');
       expect(l.icon, isNotNull);
-      expect(l.contentVerified, isFalse);
+      expect(l.contentVerified, isTrue); // روجعت شرعيًا ٢٨ نوفمبر ٢٠٢٦
     }
   });
 
